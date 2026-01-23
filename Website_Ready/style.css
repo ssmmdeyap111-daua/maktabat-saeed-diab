@@ -82,3 +82,24 @@ section.welcome p {
     color: #34495e;
     font-size: 1.1em;
 }
+section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+ul li a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+ul li a:hover {
+    background-color: #1c5980;
+}
