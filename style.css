@@ -1,10 +1,130 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>موقعي</title>
-</head>
-<body>
-    <h1>الصفحة الرئيسية تعمل الآن!</h1>
-</body>
-</html>
+/* ===========================
+   إعدادات عامة للجسم والخطوط
+=========================== */
+body {
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    background-color: #fefefe;
+    margin: 0;
+    padding: 20px;
+    color: #2c3e50;
+}
+
+/* ===========================
+   العناوين
+=========================== */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #34495e;
+}
+
+/* ===========================
+   روابط التنقل (Nav)
+=========================== */
+nav {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 8px 12px;
+    background-color: #2980b9;
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: #1c5980;
+}
+
+/* ===========================
+   القوائم
+=========================== */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #2980b9;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+ul li a:hover {
+    color: #1c5980;
+}
+
+/* ===========================
+   الروابط للعودة
+=========================== */
+a.back {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #2980b9;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+a.back:hover {
+    background-color: #1c5980;
+}
+
+/* ===========================
+   النماذج (Forms)
+=========================== */
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1c5980;
+}
+
+/* ===========================
+   مظهر المجلدات/الأقسام
+=========================== */
+section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 6px;
+}
+
+/* ===========================
+   الصور
+=========================== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
