@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- العنوان الرئيسي -->
 <header>
-    <h1>موقع الشيخ سعيد مصطفى دياب الرسمي</h1>
+  <h1>موقع الشيخ سعيد مصطفى دياب الرسمي</h1>
 </header>
 
 <!-- الشريط المتحرك بالآية -->
 <div class="marquee">
-    <p>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف</p>
+  <p>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف</p>
 </div>
 
 <!-- خانة البحث -->
-<div class="search-box">
-    <input type="text" placeholder="ابحث في الموقع..." id="search-input">
-    <button onclick="searchSite()">🔍 بحث</button>
+<div class="search-container">
+  <input type="text" placeholder="ابحث في الموقع..." id="search-input">
+  <button onclick="searchSite()">🔍 بحث</button>
 </div>
 
-<!-- البطاقات الرئيسية -->
+<!-- شبكة الأيقونات -->
 <main class="icon-grid">
-    <a href="books.html" class="card">
-        <img src="images/book.png" alt="الكتب">
-        <p>الكتب والمؤلفات</p>
-    </a>
-    <a href="lessons.html" class="card">
-        <img src="images/audio.png" alt="الدروس">
-        <p>الدروس والصوتيات</p>
-    </a>
-    <a href="khutbah.html" class="card">
-        <img src="images/mosque.png" alt="الخطب">
-        <p>خطب الجمعة</p>
-    </a>
-    <a href="contact.html" class="card">
-        <img src="images/contact.png" alt="التواصل">
-        <p>تواصل معنا</p>
-    </a>
+  <a href="books.html" class="card">
+    <img src="images/book.png" alt="الكتب">
+    <p>الكتب والمؤلفات</p>
+  </a>
+  <a href="lessons.html" class="card">
+    <img src="images/audio.png" alt="الدروس">
+    <p>الدروس والصوتيات</p>
+  </a>
+  <a href="khutbah.html" class="card">
+    <img src="images/mosque.png" alt="الخطب">
+    <p>خطب الجمعة</p>
+  </a>
+  <a href="contact.html" class="card">
+    <img src="images/contact.png" alt="التواصل">
+    <p>تواصل معنا</p>
+  </a>
 </main>
 
 <!-- JavaScript لخانة البحث -->
 <script>
 function searchSite() {
-    var query = document.getElementById('search-input').value;
-    if(query) {
-        var site = "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/";
-        window.open("https://www.google.com/search?q=site:" + site + " " + encodeURIComponent(query));
-    }
+  var query = document.getElementById('search-input').value;
+  if(query) {
+    var site = "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/";
+    window.open("https://www.google.com/search?q=site:" + site + " " + encodeURIComponent(query));
+  }
 }
 </script>
 
