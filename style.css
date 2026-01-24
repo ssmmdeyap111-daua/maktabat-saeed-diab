@@ -1,118 +1,128 @@
 /* ---------- الصفحة الرئيسية ---------- */
 body {
-    font-family: "Tahoma", Arial, sans-serif;
-    margin: 0;
-    background-color: #f5f7fa;
-    color: #222;
-    text-align: center;
+  font-family: "Tahoma", Arial, sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #222;
+  text-align: center;
 }
 
 header {
-    background-color: #1e3a5f;
-    color: #fff;
-    padding: 30px 0;
+  background-color: #1e3a5f;
+  color: #fff;
+  padding: 40px 20px;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 32px;
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 /* ---------- الشريط المتحرك ---------- */
 .marquee {
-    width: 100%;
-    overflow: hidden;
-    background-color: #1e3a5f;
-    color: #fff;
-    padding: 10px 0;
-    box-sizing: border-box;
-    font-size: 18px;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b); /* لون مميز */
+  color: #fff;
+  padding: 12px 0;
+  font-size: 18px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 
 .marquee p {
-    display: inline-block;
-    white-space: nowrap;
-    padding-left: 100%;
-    animation: scroll 15s linear infinite;
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: scroll 20s linear infinite;
+}
+
+/* توقف الحركة عند المرور بالموس */
+.marquee:hover p {
+  animation-play-state: paused;
 }
 
 @keyframes scroll {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
 
 /* ---------- خانة البحث ---------- */
-.search-box {
-    margin: 20px auto;
-    text-align: center;
+.search-container {
+  margin: 25px auto;
 }
 
-.search-box input {
-    padding: 10px;
-    width: 250px;
-    font-size: 16px;
-    border: 2px solid #1e3a5f;
-    border-radius: 6px;
-    outline: none;
+.search-container input {
+  padding: 12px;
+  width: 300px;
+  font-size: 16px;
+  border: 2px solid #1e3a5f;
+  border-radius: 8px;
+  outline: none;
 }
 
-.search-box button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    background-color: #1e3a5f;
-    color: #fff;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-left: 5px;
+.search-container button {
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  background-color: #1e3a5f;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 8px;
 }
 
-.search-box button:hover {
-    background-color: #143055;
+.search-container button:hover {
+  background-color: #143055;
 }
 
 /* ---------- شبكة الأيقونات ---------- */
 .icon-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 40px 20px;
-    gap: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 50px 20px;
+  gap: 30px;
 }
 
-/* ---------- كل بطاقة أيقونة ---------- */
+/* ---------- كل بطاقة أيقونة كزر ثلاثي الأبعاد ---------- */
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    padding: 20px;
-    width: 180px;
-    text-decoration: none;
-    color: #222;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e3a5f; /* اللون الرئيسي للزر */
+  color: #fff;
+  padding: 25px;
+  width: 180px;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 6px #14406a, 0 8px 16px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
 }
 
 .card img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 15px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 12px;
 }
 
 .card p {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* تأثير عند المرور بالفأرة */
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px #14406a, 0 12px 20px rgba(0,0,0,0.3);
+}
+
+/* تأثير عند الضغط على الزر */
+.card:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px #14406a, 0 6px 12px rgba(0,0,0,0.2);
 }
