@@ -120,3 +120,49 @@ body {
   transform: translateY(1px);
   box-shadow: 0 2px #666, 0 3px 6px rgba(0,0,0,0.2);
 }
+.contact-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #d0d0d0; /* خلفية رمادية فاتحة */
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px #888, 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.contact-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #1e3a5f;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.contact-container button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #a0e0ff; /* أزرق فاتح */
+  color: #1e3a5f;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-container button:hover {
+  background-color: #80c8ff;
+  transform: translateY(-2px);
+}
+
+.contact-container button:active {
+  transform: translateY(1px);
+}
