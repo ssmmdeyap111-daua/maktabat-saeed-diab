@@ -1,14 +1,35 @@
+/* ===========================
+   إعدادات عامة للجسم والخطوط
+=========================== */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
     background-color: #fefefe;
     margin: 0;
     padding: 20px;
     color: #2c3e50;
 }
 
-h1 { text-align: center; margin-bottom: 20px; }
+/* ===========================
+   العناوين
+=========================== */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-nav { text-align: center; margin-bottom: 30px; }
+h2 {
+    color: #34495e;
+}
+
+/* ===========================
+   روابط التنقل (Nav)
+=========================== */
+nav {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
 nav a {
     text-decoration: none;
@@ -17,89 +38,93 @@ nav a {
     background-color: #2980b9;
     color: white;
     border-radius: 5px;
-}
-nav a:hover { background-color: #1c5980; }
-
-ul { list-style: none; padding: 0; }
-ul li { margin-bottom: 10px; }
-ul li a { color: #2980b9; font-weight: bold; }
-ul li a:hover { color: #1c5980; }
-
-a.back {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 6px 10px;
-    background-color: #2980b9;
-    color: white;
-    border-radius: 4px;
-    text-decoration: none;
-}
-a.back:hover { background-color: #1c5980; }
-
-form input, form textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
-form button {
-    padding: 10px 15px; background-color: #2980b9; color: white;
-    border: none; border-radius: 5px; cursor: pointer;
-}
-form button:hover { background-color: #1c5980; }
-/* ======= Header ======= */
-header {
-    background-color: #f0f8ff;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.main-nav a {
-    display: inline-block;
-    margin: 0 15px;
-    padding: 10px 15px;
-    background-color: #2980b9;
-    color: white;
-    border-radius: 8px;
     transition: 0.3s;
-    text-decoration: none;
-    font-weight: bold;
 }
 
-.main-nav a:hover {
+nav a:hover {
     background-color: #1c5980;
 }
 
-/* ======= Welcome section ======= */
-section.welcome {
-    text-align: center;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #eaf2f8;
-    border-radius: 10px;
+/* ===========================
+   القوائم
+=========================== */
+ul {
+    list-style: none;
+    padding: 0;
 }
-section.welcome h2 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-section.welcome p {
-    color: #34495e;
-    font-size: 1.1em;
-}
-section {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+ul li {
+    margin-bottom: 10px;
 }
 
 ul li a {
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: #3498db;
-    color: white;
-    border-radius: 5px;
     text-decoration: none;
-    margin-bottom: 5px;
+    color: #2980b9;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 ul li a:hover {
+    color: #1c5980;
+}
+
+/* ===========================
+   الروابط للعودة
+=========================== */
+a.back {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #2980b9;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+a.back:hover {
     background-color: #1c5980;
+}
+
+/* ===========================
+   النماذج (Forms)
+=========================== */
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1c5980;
+}
+
+/* ===========================
+   مظهر المجلدات/الأقسام
+=========================== */
+section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 6px;
+}
+
+/* ===========================
+   الصور
+=========================== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
