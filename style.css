@@ -1,0 +1,51 @@
+body {
+  font-family: "Tahoma", Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+  color: #222;
+  direction: rtl;
+}
+
+/* العنوان */
+header {
+  background: #1e3a5f;
+  color: white;
+  padding: 25px 10px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+/* شريط الأقسام */
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  display: inline-block;
+  margin: 5px;
+  padding: 12px 18px;
+  background: #2d5f9a;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+nav a:hover {
+  background: #163b63;
+}
+
+/* محتوى */
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
