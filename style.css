@@ -1,17 +1,15 @@
-/* ---------- الصفحة الرئيسية ---------- */
 body {
-  font-family: 'Amiri', serif; /* خط عربي قريب من الثلث */
+  font-family: 'Amiri', serif;
   margin: 0;
   background-color: #e0f7ff; /* أزرق فاتح جدًا */
   color: #222;
   text-align: center;
 }
 
-/* ---------- شريط اسم الموقع ---------- */
 .site-header {
   background-color: #a0e0ff; /* أزرق فاتح */
   color: #1e3a5f;
-  padding: 100px 20px; /* ارتفاع أكبر */
+  padding: 100px 20px;
 }
 
 .site-header h1 {
@@ -21,14 +19,13 @@ body {
   letter-spacing: 2px;
 }
 
-/* ---------- الشريط المتحرك ---------- */
 .marquee {
     width: 100%;
     overflow: hidden;
     background-color: #c0f0ff; /* أزرق فاتح للشريط */
     color: #1e3a5f;
     padding: 15px 0;
-    font-size: 24px; /* تكبير الخط */
+    font-size: 24px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     cursor: pointer;
 }
@@ -36,7 +33,7 @@ body {
 .marquee p {
     display: inline-block;
     white-space: nowrap;
-    padding-right: 100%; /* يبدأ من اليمين */
+    padding-right: 100%;
     animation: scroll 20s linear infinite;
 }
 
@@ -49,7 +46,6 @@ body {
     100% { transform: translateX(-100%); }
 }
 
-/* ---------- خانة البحث ---------- */
 .search-container {
   margin: 25px auto;
 }
@@ -78,7 +74,6 @@ body {
   background-color: #143055;
 }
 
-/* ---------- شبكة الأيقونات ---------- */
 .icon-grid {
   display: flex;
   justify-content: center;
@@ -87,7 +82,6 @@ body {
   gap: 20px;
 }
 
-/* ---------- كل بطاقة أيقونة مستطيلة وثلاثية الأبعاد ---------- */
 .card {
   display: flex;
   flex-direction: column;
@@ -96,7 +90,7 @@ body {
   background-color: #b0b0b0; /* خلفية رمادية */
   color: #fff;
   padding: 12px;
-  width: 130px; /* مستطيل */
+  width: 130px;
   height: 80px;
   text-decoration: none;
   border-radius: 12px;
@@ -117,13 +111,11 @@ body {
   text-align: center;
 }
 
-/* تأثير عند المرور بالفأرة */
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px #666, 0 8px 14px rgba(0,0,0,0.3);
 }
 
-/* تأثير عند الضغط على الزر */
 .card:active {
   transform: translateY(1px);
   box-shadow: 0 2px #666, 0 3px 6px rgba(0,0,0,0.2);
