@@ -2,20 +2,21 @@
 body {
   font-family: "Tahoma", Arial, sans-serif;
   margin: 0;
-  background-color: #e0f0ff; /* أزرق فاتح جدا */
+  background-color: #e0f7ff; /* أزرق فاتح جدا */
   color: #222;
   text-align: center;
 }
 
-header {
-  background-color: #1e3a5f; /* العنوان يبقى أزرق غامق */
+/* ---------- شريط اسم الموقع ---------- */
+.site-header {
+  background-color: #1e3a5f;
   color: #fff;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
-header h1 {
+.site-header h1 {
   margin: 0;
-  font-size: 36px;
+  font-size: 42px; /* أكبر حجم للعنوان */
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -24,10 +25,10 @@ header h1 {
 .marquee {
     width: 100%;
     overflow: hidden;
-    background: linear-gradient(90deg, #a0d8ff, #c0e8ff); /* أزرق فاتح تدرج */
-    color: #1e3a5f; /* نص داكن ليتباين */
-    padding: 12px 0;
-    font-size: 18px;
+    background-color: #a0e0ff; /* أزرق فاتح */
+    color: #1e3a5f; /* نص داكن لتباين */
+    padding: 15px 0;
+    font-size: 22px; /* تكبير الخط */
     box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     cursor: pointer;
 }
@@ -35,18 +36,17 @@ header h1 {
 .marquee p {
     display: inline-block;
     white-space: nowrap;
-    padding-left: 100%;
+    padding-right: 100%; /* يبدأ من اليمين */
     animation: scroll 20s linear infinite;
 }
 
-/* توقف الحركة عند المرور بالموس */
 .marquee:hover p {
     animation-play-state: paused;
 }
 
 @keyframes scroll {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
+    0% { transform: translateX(100%); }   /* يبدأ من اليمين */
+    100% { transform: translateX(-100%); } /* يختفي في اليسار */
 }
 
 /* ---------- خانة البحث ---------- */
@@ -96,33 +96,33 @@ header h1 {
   background-color: #1e3a5f; /* اللون الرئيسي للزر */
   color: #fff;
   padding: 20px;
-  width: 150px; /* أصغر قليلا */
+  width: 140px; /* أصغر من قبل */
   text-decoration: none;
   border-radius: 12px;
-  box-shadow: 0 5px #14406a, 0 6px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px #14406a, 0 5px 10px rgba(0,0,0,0.2);
   transition: all 0.2s ease;
 }
 
 .card img {
-  width: 60px; /* أصغر */
-  height: 60px; /* أصغر */
-  margin-bottom: 10px;
+  width: 50px; /* أصغر أيقونات */
+  height: 50px;
+  margin-bottom: 8px;
 }
 
 .card p {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px; /* أصغر خط */
   font-weight: bold;
 }
 
 /* تأثير عند المرور بالفأرة */
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px #14406a, 0 10px 18px rgba(0,0,0,0.3);
+  box-shadow: 0 7px #14406a, 0 10px 18px rgba(0,0,0,0.3);
 }
 
 /* تأثير عند الضغط على الزر */
 .card:active {
   transform: translateY(2px);
-  box-shadow: 0 4px #14406a, 0 6px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 3px #14406a, 0 5px 10px rgba(0,0,0,0.2);
 }
