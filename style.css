@@ -1,8 +1,8 @@
 /* ---------- الصفحة الرئيسية ---------- */
 body {
-  font-family: 'Amiri', serif; /* خط عربي يشبه الثلث */
+  font-family: 'Amiri', serif; /* خط عربي قريب من الثلث */
   margin: 0;
-  background-color: #e0f7ff; /* أزرق فاتح جدا */
+  background-color: #e0f7ff; /* أزرق فاتح جدًا */
   color: #222;
   text-align: center;
 }
@@ -11,12 +11,12 @@ body {
 .site-header {
   background-color: #a0e0ff; /* أزرق فاتح */
   color: #1e3a5f;
-  padding: 80px 20px; /* ضعف الارتفاع السابق */
+  padding: 100px 20px; /* أكبر ارتفاع */
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 50px; /* أكبر حجم للعنوان */
+  font-size: 60px; /* تكبير الاسم */
   font-weight: bold;
   letter-spacing: 2px;
 }
@@ -25,7 +25,7 @@ body {
 .marquee {
     width: 100%;
     overflow: hidden;
-    background-color: #c0f0ff; /* تدرج أزرق فاتح للشريط */
+    background-color: #c0f0ff; /* أزرق فاتح للشريط */
     color: #1e3a5f;
     padding: 15px 0;
     font-size: 24px; /* تكبير الخط */
@@ -93,21 +93,21 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #1e3a5f;
+  background-color: #b0b0b0; /* خلفية رمادية */
   color: #fff;
   padding: 12px;
-  width: 120px; /* مستطيل صغير */
-  height: 90px;
+  width: 130px; /* مستطيل */
+  height: 80px;
   text-decoration: none;
   border-radius: 12px;
-  box-shadow: 0 4px #14406a, 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px #888, 0 5px 10px rgba(0,0,0,0.2);
   transition: all 0.2s ease;
 }
 
 .card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 6px;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 5px;
 }
 
 .card p {
@@ -120,11 +120,11 @@ body {
 /* تأثير عند المرور بالفأرة */
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px #14406a, 0 8px 14px rgba(0,0,0,0.3);
+  box-shadow: 0 6px #666, 0 8px 14px rgba(0,0,0,0.3);
 }
 
 /* تأثير عند الضغط على الزر */
 .card:active {
   transform: translateY(1px);
-  box-shadow: 0 2px #14406a, 0 3px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px #666, 0 3px 6px rgba(0,0,0,0.2);
 }
