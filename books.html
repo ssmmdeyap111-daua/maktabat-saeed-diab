@@ -1,21 +1,31 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>الكتب والمؤلفات</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-<h1 style="text-align:center;">📚 الكتب والمؤلفات</h1>
+<header class="site-header">
+  <h1>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب</h1>
+</header>
 
-<div class="books">
-  <div class="book">
-    <img src="images/book1.jpg" alt="غلاف كتاب">
-    <h3>عنوان الكتاب</h3>
-    <a href="pdfs/book1.pdf" target="_blank">تحميل الكتاب</a>
+<!-- شبكة الكتب -->
+<main class="books-grid">
+  <!-- مثال كتاب -->
+  <div class="book-card">
+    <img src="images/book1.jpg" alt="اسم الكتاب">
+    <p>اسم الكتاب الأول</p>
+    <a href="pdfs/book1.pdf" class="download-btn" target="_blank">تحميل PDF</a>
   </div>
-</div>
+
+  <div class="book-card">
+    <img src="images/book2.jpg" alt="اسم الكتاب">
+    <p>اسم الكتاب الثاني</p>
+    <a href="pdfs/book2.pdf" class="download-btn" target="_blank">تحميل PDF</a>
+  </div>
+
+  <div class="book-card">
+    <img src="images/book3.jpg" alt="اسم الكتاب">
+    <p>اسم الكتاب الثالث</p>
+    <a href="pdfs/book3.pdf" class="download-btn" target="_blank">تحميل PDF</a>
+  </div>
+
+  <!-- أضف باقي الكتب بنفس الطريقة -->
+</main>
 
 </body>
-</html>
