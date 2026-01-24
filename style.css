@@ -2,7 +2,7 @@
 body {
   font-family: "Tahoma", Arial, sans-serif;
   margin: 0;
-  background-color: #e0f7ff; /* أزرق فاتح جدا */
+  background-color: #e0f7ff; /* أزرق فاتح جدًا */
   color: #222;
   text-align: center;
 }
@@ -16,7 +16,7 @@ body {
 
 .site-header h1 {
   margin: 0;
-  font-size: 42px; /* أكبر حجم للعنوان */
+  font-size: 42px; /* حجم كبير للعنوان */
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -84,10 +84,10 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   margin: 50px 20px;
-  gap: 30px;
+  gap: 20px; /* تقليل المسافة لتناسب الأيقونات الصغيرة */
 }
 
-/* ---------- كل بطاقة أيقونة كزر ثلاثي الأبعاد أصغر ---------- */
+/* ---------- كل بطاقة أيقونة كزر ثلاثي الأبعاد أصغر جدًا ---------- */
 .card {
   display: flex;
   flex-direction: column;
@@ -95,34 +95,35 @@ body {
   justify-content: center;
   background-color: #1e3a5f; /* اللون الرئيسي للزر */
   color: #fff;
-  padding: 20px;
-  width: 140px; /* أصغر من قبل */
+  padding: 10px;
+  width: 90px; /* حجم أصغر بكثير */
   text-decoration: none;
   border-radius: 12px;
-  box-shadow: 0 4px #14406a, 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 3px #14406a, 0 4px 8px rgba(0,0,0,0.2);
   transition: all 0.2s ease;
 }
 
 .card img {
-  width: 50px; /* أصغر أيقونات */
-  height: 50px;
-  margin-bottom: 8px;
+  width: 35px; /* أيقونات صغيرة جدًا */
+  height: 35px;
+  margin-bottom: 5px;
 }
 
 .card p {
   margin: 0;
-  font-size: 14px; /* أصغر خط */
+  font-size: 11px; /* خط صغير داخل الأيقونة */
   font-weight: bold;
+  text-align: center;
 }
 
 /* تأثير عند المرور بالفأرة */
 .card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px #14406a, 0 10px 18px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px #14406a, 0 6px 12px rgba(0,0,0,0.3);
 }
 
 /* تأثير عند الضغط على الزر */
 .card:active {
-  transform: translateY(2px);
-  box-shadow: 0 3px #14406a, 0 5px 10px rgba(0,0,0,0.2);
+  transform: translateY(1px);
+  box-shadow: 0 2px #14406a, 0 3px 6px rgba(0,0,0,0.2);
 }
