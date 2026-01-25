@@ -1,51 +1,146 @@
-<header class="bg-dark text-white text-center p-4">
-  <h1>📚 مكتبة الكتب</h1>
-</header>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مكتبة سعيد مصطفى دياب</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff; /* أزرق فاتح جدًا */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <img src="images/book1.jpg" class="card-img-top" alt="كتاب 1">
-        <div class="card-body">
-          <h5 class="card-title">عنوان الكتاب الأول</h5>
-          <a href="media/book1.pdf" class="btn btn-primary">تحميل</a>
-        </div>
-      </div>
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            width: 60%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .books-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .book-card {
+            background-color: #d9d9d9; /* خلفية رمادية */
+            border-radius: 10px;
+            padding: 15px;
+            width: 160px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+        }
+
+        .book-card img {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+            border-radius: 5px;
+        }
+
+        .book-card p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #3399ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 13px;
+            transition: background-color 0.2s;
+        }
+
+        .download-btn:hover {
+            background-color: #007acc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📚 مكتبة الكتب</h1>
+
+    <!-- خانة البحث -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 ابحث عن كتاب..." onkeyup="searchBooks()">
     </div>
-  </div>
-</div>
-<!-- كتاب 1 -->
-<div class="book-card">
-  <img src="images/al-irshad.jpg" alt="الإرشاد إلى أسباب محبة الله للعباد">
-  <p>الإرشاد إلى أسباب محبة الله للعباد</p>
-  <a href="pdfs/al-irshad.pdf" class="download-btn" target="_blank">تحميل PDF</a>
-</div>
 
-<!-- كتاب 2 -->
-<div class="book-card">
-  <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء وآدابه">
-  <p>فضل الدعاء وآدابه</p>
-  <a href="pdfs/fadhl-duaa.pdf" class="download-btn" target="_blank">تحميل PDF</a>
-</div>
+    <!-- الكتب -->
+    <main class="books-grid">
 
-<!-- كتاب 3 -->
-<div class="book-card">
-  <img src="images/itshaf-ahli-al-rusukh.jpg" alt="إتحاف أهل الرسوخ بشرح منظومة المنسوخ">
-  <p>إتحاف أهل الرسوخ بشرح منظومة المنسوخ</p>
-  <a href="pdfs/itshaf-ahli-al-rusukh.pdf" class="download-btn" target="_blank">تحميل PDF</a>
-</div>
+        <!-- كتاب 1 -->
+        <div class="book-card">
+            <img src="images/al-irshad.jpg" alt="الإرشاد إلى أسباب محبة الله للعباد">
+            <p>الإرشاد إلى أسباب محبة الله للعباد</p>
+            <a href="pdfs/al-irshad.pdf" class="download-btn" target="_blank">تحميل PDF</a>
+        </div>
 
-<!-- كتاب 4 -->
-<div class="book-card">
-  <img src="images/al-uqud-al-fadheya.jpg" alt="العقود الفضية بشر منظومة القواعد الفقهية">
-  <p>العقود الفضية بشر منظومة القواعد الفقهية</p>
-  <a href="pdfs/al-uqud-al-fadheya.pdf" class="download-btn" target="_blank">تحميل PDF</a>
-</div>
+        <!-- كتاب 2 -->
+        <div class="book-card">
+            <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء وآدابه">
+            <p>فضل الدعاء وآدابه</p>
+            <a href="pdfs/fadhl-duaa.pdf" class="download-btn" target="_blank">تحميل PDF</a>
+        </div>
 
-<!-- كتاب 5 -->
-<div class="book-card">
-  <img src="images/tamam-al-minah.jpg" alt="تمام المنة بشرح أمثال السنة">
-  <p>تمام المنة بشرح أمثال السنة</p>
-  <a href="pdfs/tamam-al-minah.pdf" class="download-btn" target="_blank">تحميل PDF</a>
-</div>
+        <!-- كتاب 3 -->
+        <div class="book-card">
+            <img src="images/itshaf-ahli-al-rusukh.jpg" alt="إتحاف أهل الرسوخ بشرح منظومة المنسوخ">
+            <p>إتحاف أهل الرسوخ بشرح منظومة المنسوخ</p>
+            <a href="pdfs/itshaf-ahli-al-rusukh.pdf" class="download-btn" target="_blank">تحميل PDF</a>
+        </div>
+
+        <!-- كتاب 4 -->
+        <div class="book-card">
+            <img src="images/al-uqud-al-fadheya.jpg" alt="العقود الفضية بشر منظومة القواعد الفقهية">
+            <p>العقود الفضية بشر منظومة القواعد الفقهية</p>
+            <a href="pdfs/al-uqud-al-fadheya.pdf" class="download-btn" target="_blank">تحميل PDF</a>
+        </div>
+
+        <!-- كتاب 5 -->
+        <div class="book-card">
+            <img src="images/tamam-al-minah.jpg" alt="تمام المنة بشرح أمثال السنة">
+            <p>تمام المنة بشرح أمثال السنة</p>
+            <a href="pdfs/tamam-al-minah.pdf" class="download-btn" target="_blank">تحميل PDF</a>
+        </div>
+
+    </main>
+
+    <!-- كود البحث -->
+    <script>
+        function searchBooks() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let books = document.getElementsByClassName("book-card");
+
+            for (let i = 0; i < books.length; i++) {
+                let title = books[i].getElementsByTagName("p")[0].innerText.toLowerCase();
+                books[i].style.display = title.includes(input) ? "block" : "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
