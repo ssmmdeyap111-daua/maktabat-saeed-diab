@@ -1,58 +1,53 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-<meta charset="UTF-8">
-<title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>مكتبة سعيد دياب</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header class="bg-dark text-white text-center p-4">
+    <img src="images/logo.png" alt="شعار" width="80">
+    <h1>مكتبة الشيخ سعيد دياب</h1>
+    <p>مرحبا بكم في الموقع الرسمي</p>
+  </header>
 
-<!-- شريط اسم الموقع -->
-<header class="site-header">
-  <h1>موقع الشيخ سعيد مصطفى دياب الرسمي</h1>
-</header>
+  <div class="container mt-5">
+    <div class="row text-center">
+      <div class="col-md-3">
+        <div class="card p-3">
+          <div class="icon">📚</div>
+          <h4>الكتب</h4>
+          <a href="books.html" class="btn btn-primary">تصفح</a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3">
+          <div class="icon">🎓</div>
+          <h4>الدروس</h4>
+          <a href="lessons.html" class="btn btn-primary">تصفح</a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3">
+          <div class="icon">🎤</div>
+          <h4>الخطب</h4>
+          <a href="khutbah.html" class="btn btn-primary">تصفح</a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3">
+          <div class="icon">✉️</div>
+          <h4>تواصل</h4>
+          <a href="contact.html" class="btn btn-primary">تصفح</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- الشريط المتحرك بالآية -->
-<div class="marquee">
-  <p>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف</p>
-</div>
-
-<!-- خانة البحث -->
-<div class="search-container">
-  <input type="text" placeholder="ابحث في الموقع..." id="search-input">
-  <button onclick="searchSite()">🔍</button>
-</div>
-
-<!-- شبكة الأيقونات -->
-<main class="icon-grid">
-  <a href="books.html" class="card">
-    <img src="images/book.png" alt="الكتب">
-    <p>الكتب</p>
-  </a>
-  <a href="lessons.html" class="card">
-    <img src="images/audio.png" alt="الدروس">
-    <p>الدروس</p>
-  </a>
-  <a href="khutbah.html" class="card">
-    <img src="images/mosque.png" alt="الخطب">
-    <p>الخطب</p>
-  </a>
-  <a href="contact.html" class="card">
-    <img src="images/contact.png" alt="التواصل">
-    <p>تواصل</p>
-  </a>
-</main>
-
-<script>
-function searchSite() {
-  var query = document.getElementById('search-input').value;
-  if(query) {
-    var site = "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/";
-    window.open("https://www.google.com/search?q=site:" + site + " " + encodeURIComponent(query));
-  }
-}
-</script>
-
+  <footer class="bg-dark text-white text-center p-3 mt-5">
+    جميع الحقوق محفوظة © 2026
+  </footer>
 </body>
 </html>
