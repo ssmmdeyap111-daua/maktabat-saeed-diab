@@ -9,3 +9,38 @@ body {
   font-size: 50px;
   color: #007bff;
 }
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+header {
+  background: #003366;
+  color: white;
+}
+
+h1, h2 {
+  color: #d4af37; /* ذهبي */
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.icon {
+  font-size: 50px;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+footer {
+  background: #003366;
+  color: white;
+}
