@@ -54,12 +54,10 @@
         box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     }
 
-    /* أيقونات العودة للرئيسية */
+    /* أيقونة العودة للرئيسية */
     nav {
         display: flex;
         justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
         margin: 30px 0;
     }
     .icon {
@@ -113,7 +111,7 @@
     <div class="book-item">تمام المنة بشرح أمثال السنة</div>
 </div>
 
-<!-- أيقونات العودة للرئيسية -->
+<!-- أيقونة العودة للرئيسية -->
 <nav>
     <a href="index.html" class="icon">
         <img src="images/home.png" alt="الرئيسية">
@@ -122,7 +120,7 @@
 </nav>
 
 <script>
-    // وظيفة البحث
+    // وظيفة البحث داخل الكتب
     const searchInput = document.getElementById('searchInput');
     const booksList = document.getElementById('booksList');
     const books = booksList.getElementsByClassName('book-item');
