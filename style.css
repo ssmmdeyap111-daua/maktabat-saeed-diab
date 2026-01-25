@@ -62,3 +62,38 @@ header {
 h1, h2 {
   color: #d4af37; /* ذهبي */
 }
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.icon {
+    background-color: #d9d9d9;
+    width: 120px;  /* حجم ثابت للأيقونات */
+    height: 120px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 14px; /* حجم الخط متوسط */
+}
+
+.icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+}
+
+.icon img {
+    width: 50px; /* حجم الصورة داخل الأيقونة */
+    height: auto;
+    margin-bottom: 6px;
+}
