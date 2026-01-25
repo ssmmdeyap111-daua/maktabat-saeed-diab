@@ -97,3 +97,25 @@ nav {
     height: auto;
     margin-bottom: 6px;
 }
+.icon {
+    background-color: #d9d9d9;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 14px; /* حجم الخط مناسب */
+}
+
+.icon img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 6px;
+}
