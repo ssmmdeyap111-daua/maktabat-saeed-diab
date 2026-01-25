@@ -44,3 +44,21 @@ footer {
   background: #003366;
   color: white;
 }
+body {
+  font-family: 'Cairo', sans-serif;
+  background-image: url('../images/pattern.png'); /* صورة زخارف */
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header {
+  background: rgba(0, 51, 102, 0.8); /* أزرق شفاف */
+  color: white;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #d4af37; /* ذهبي */
+}
