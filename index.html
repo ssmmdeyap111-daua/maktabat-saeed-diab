@@ -5,115 +5,80 @@
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 <link rel="stylesheet" href="style.css">
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #e6f2ff; /* أزرق فاتح جدًا */
-    }
-
-    /* شريط اسم الموقع */
-    header {
-        background-color: #99ccff; /* أزرق فاتح */
-        padding: 50px 0; /* تكبير الشريط */
-        text-align: center;
-        font-size: 56px; /* تكبير اسم الموقع */
-        font-family: 'Traditional Arabic', 'Segoe UI', Arial, sans-serif;
-        font-weight: bold;
-        color: #003366;
-    }
-
-    /* شريط متحرك */
-    .marquee-container {
-        background-color: #cce6ff;
-        overflow: hidden;
-        white-space: nowrap;
-        box-sizing: border-box;
-        padding: 25px 0; /* تكبير ارتفاع الشريط */
-    }
-    .marquee-text {
-        display: inline-block;
-        padding-left: 100%;
-        animation: marquee 20s linear infinite;
-        font-size: 24px; /* تكبير الخط */
-    }
-    .marquee-container:hover .marquee-text {
-        animation-play-state: paused;
-    }
-    @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-100%); }
-    }
-
-    /* أيقونات الأقسام */
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-        margin: 40px 0;
-    }
-    .icon {
-        background-color: #d9d9d9;
-        width: 100px;  /* تصغير الأيقونات */
-        height: 100px;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        color: #000;
-        font-weight: bold;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        transition: transform 0.2s, box-shadow 0.2s;
-        font-size: 12px; /* حجم الخط داخل الأيقونات */
-    }
-    .icon:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 12px rgba(0,0,0,0.3);
-    }
-    .icon img {
-        width: 40px; /* تصغير الصورة داخل الأيقونة */
-        height: auto;
-        margin-bottom: 5px;
-    }
-
-    /* تجاوب الجوال */
-    @media (max-width: 500px) {
-        nav { gap: 10px; }
-        .icon { width: 80px; height: 80px; font-size: 11px; }
-        .icon img { width: 30px; }
-    }
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6f2ff;
+}
+header {
+    background-color: #99ccff;
+    padding: 50px 0;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Traditional Arabic', 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    color: #003366;
+}
+.marquee {
+    background-color: #b3d9ff;
+    padding: 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+}
+.marquee:hover span {
+    animation-play-state: paused;
+}
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 20px;
+}
+.icon {
+    background-color: #d9d9d9;
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 12px;
+}
+.icon img { width: 40px; margin-bottom: 5px; }
+.icon:hover { transform: translateY(-5px); box-shadow: 0 8px 12px rgba(0,0,0,0.3); }
 </style>
 </head>
 <body>
 
 <header>موقع الشيخ سعيد مصطفى دياب الرسمي</header>
 
-<div class="marquee-container">
-    <div class="marquee-text">
-        قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلَى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحَانَ اللَّهِ وَمَا أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
-    </div>
+<div class="marquee">
+    <span>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف</span>
 </div>
 
 <nav>
-    <a href="books.html" class="icon">
-        <img src="images/book.png" alt="الكتب">
-        <span>الكتب</span>
-    </a>
-    <a href="lessons.html" class="icon">
-        <img src="images/lesson.png" alt="الدروس والصوتيات">
-        <span>الدروس والصوتيات</span>
-    </a>
-    <a href="khutbah.html" class="icon">
-        <img src="images/khutbah.png" alt="خطب الجمعة">
-        <span>خطب الجمعة</span>
-    </a>
-    <a href="contact.html" class="icon">
-        <img src="images/contact.png" alt="تواصل معنا">
-        <span>تواصل معنا</span>
-    </a>
+    <a href="books.html" class="icon"><img src="images/book.png" alt="الكتب">الكتب</a>
+    <a href="lessons.html" class="icon"><img src="images/lesson.png" alt="الدروس">الدروس والصوتيات</a>
+    <a href="khutbah.html" class="icon"><img src="images/khutbah.png" alt="الخطب">خطب الجمعة</a>
+    <a href="contact.html" class="icon"><img src="images/contact.png" alt="تواصل">تواصل معنا</a>
 </nav>
 
 </body>
