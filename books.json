@@ -1,1 +1,39 @@
+[
+  {
+    "title": "الإرشاد إلى أسباب محبة الله للعباد",
+    "pdf": "pdfs/al-irshad.pdf",
+    "image": "images/al-irshad.jpg",
+    "category": "القرآن"
+  },
+  {
+    "title": "أساليب القرآن",
+    "pdf": "pdfs/asaleeb-alquran.pdf",
+    "image": "images/asaleeb-alquran.jpg",
+    "category": "القرآن"
+  },
+  {
+    "title": "فضل الدعاء",
+    "pdf": "pdfs/fadhl-duaa.pdf",
+    "image": "images/fadhl-duaa.jpg",
+    "category": "الأدعية"
+  },
+  {
+    "title": "إشفاء أهل الرسوخ",
+    "pdf": "pdfs/itshaf-ahli-al-rusukh.pdf",
+    "image": "images/itshaf-ahli-al-rusukh.jpg",
+    "category": "الفقه"
+  },
+  {
+    "title": "تمام المنّة",
+    "pdf": "pdfs/tamam-al-minah.pdf",
+    "image": "images/tamam-al-minah.jpg",
+    "category": "الفقه"
+  },
+  {
+    "title": "الإلمام بما للصيام من حكم وآداب وأحكام",
+    "pdf": "pdfs/al-ilmam-siyam.pdf",
+    "image": "images/al-ilmam-siyam.jpg",
+    "category": "الفقه"
+  }
+]
 
