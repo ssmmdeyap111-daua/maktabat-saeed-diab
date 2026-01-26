@@ -95,7 +95,6 @@ body {
 .read-more:hover {
     background-color: #004d00;
 }
-/* النص الكامل مع الانتقال السلس */
 .full-text {
     max-height: 0;
     overflow: hidden;
@@ -104,7 +103,7 @@ body {
 }
 .full-text.open {
     padding: 15px 0 0 0;
-    max-height: 2000px; /* يكفي لعرض النص بالكامل */
+    max-height: 2000px;
 }
 .back-home {
     display: block;
@@ -134,9 +133,9 @@ body {
 <div class="toc">
     <h3>عناوين المقالات</h3>
     <ul>
-        <li><a href="#article1">مَعْنَى تَدَبُّرِ الْقُرْآنِ</a></li>
-        <li><a href="#article2">معرفة الله تعالى بأسمائه وصفاته</a></li>
-        <li><a href="#article3">أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</a></li>
+        <li><a href="#article1" onclick="scrollToArticle(event, 'article1')">مَعْنَى تَدَبُّرِ الْقُرْآنِ</a></li>
+        <li><a href="#article2" onclick="scrollToArticle(event, 'article2')">معرفة الله تعالى بأسمائه وصفاته</a></li>
+        <li><a href="#article3" onclick="scrollToArticle(event, 'article3')">أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</a></li>
     </ul>
 </div>
 
@@ -197,8 +196,19 @@ function toggleText(id, btn) {
     } else {
         el.classList.add('open');
         btn.textContent = 'إخفاء المقال';
-        // تحريك الصفحة إلى المقال المفتوح
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+function scrollToArticle(event, id) {
+    event.preventDefault();
+    const article = document.getElementById(id);
+    article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const full = article.querySelector('.full-text');
+    if (!full.classList.contains('open')) {
+        full.classList.add('open');
+        const btn = article.querySelector('.read-more');
+        btn.textContent = 'إخفاء المقال';
     }
 }
 </script>
