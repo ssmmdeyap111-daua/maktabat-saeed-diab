@@ -95,9 +95,16 @@ body {
 .read-more:hover {
     background-color: #004d00;
 }
+/* النص الكامل مع الانتقال السلس */
 .full-text {
-    display: none;
-    margin-top: 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    padding: 0 0;
+}
+.full-text.open {
+    padding: 15px 0 0 0;
+    max-height: 2000px; /* يكفي لعرض النص بالكامل */
 }
 .back-home {
     display: block;
@@ -124,7 +131,6 @@ body {
     <input type="text" id="searchInput" placeholder="ابحث في المقالات..." onkeyup="filterArticles()">
 </div>
 
-<!-- قائمة العناوين -->
 <div class="toc">
     <h3>عناوين المقالات</h3>
     <ul>
@@ -136,38 +142,35 @@ body {
 
 <div class="articles-container" id="articlesContainer">
 
-    <!-- المقال الأول -->
     <div class="article-item" id="article1">
         <h3>مَعْنَى تَدَبُّرِ الْقُرْآنِ</h3>
         <p>التَّدَبُّرُ عِبَارَةٌ عَنِ النَّظَرِ فِي عَوَاقِبِ الْأُمُورِ...</p>
-        <a class="read-more" onclick="toggleText('full1')">اقرأ المزيد</a>
+        <a class="read-more" onclick="toggleText('full1', this)">اقرأ المزيد</a>
         <div class="full-text" id="full1">
-            <p>فَمَعْنَى تَدَبُّرِ الْقُرآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى، فتُصْغِي له بأذن قلبك، وتتأمله بعين فؤادك...</p>
+            <p>فَمَعْنَى تَدَبُّرِ الْقُرآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى...</p>
             <p>عَنْ سَعْدِ بْنِ هِشَامِ بْنِ عَامِرٍ...</p>
-            <p>قال ابن القيم رحمه الله: وَأَمَّا التَّأَمُّلُ فِي الْقُرآنِ فَهُوَ تَحْدِيقُ نَاظِرِ الْقَلْبِ ...</p>
+            <p>قال ابن القيم رحمه الله: وَأَمَّا التَّأَمُّلُ فِي الْقُرآنِ ...</p>
         </div>
     </div>
 
-    <!-- المقال الثاني -->
     <div class="article-item" id="article2">
         <h3>معرفة الله تعالى بأسمائه وصفاته</h3>
-        <p>قَالَ ابنُ القيمِ رَحِمَهُ اللَّهُ: وَبِالْجُمْلَةِ تُعَرِّفُهُ الرَّبَّ الْمَدْعُوَّ إِلَيْهِ...</p>
-        <a class="read-more" onclick="toggleText('full2')">اقرأ المزيد</a>
+        <p>قَالَ ابنُ القيمِ رَحِمَهُ اللَّهُ: وَبِالْجُمْلَةِ تُعَرِّفُهُ الرَّبَّ ...</p>
+        <a class="read-more" onclick="toggleText('full2', this)">اقرأ المزيد</a>
         <div class="full-text" id="full2">
             <p>وَتُعَرِّفُهُ فِي مُقَابِلِ ذَلِكَ ثَلَاثَةً أُخْرَى...</p>
             <p>فَهَذِهِ سِتَّةُ أُمُورٍ ضَرُورِيٌّ لِلْعَبْدِ ...</p>
-            <p>قال ابن القيم رَحِمَهُ اللَّهُ: فَلَا تَزَالُ مَعَانِيهِ تُنْهِضُ الْعَبْدَ إِلَى رَبِّهِ ...</p>
+            <p>قال ابن القيم رَحِمَهُ اللَّهُ: فَلَا تَزَالُ مَعَانِيهِ تُنْهِضُ ...</p>
         </div>
     </div>
 
-    <!-- المقال الثالث -->
     <div class="article-item" id="article3">
         <h3>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</h3>
-        <p>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ الكريمِ بوعده ووعيد، بأمره ونهيه...</p>
-        <a class="read-more" onclick="toggleText('full3')">اقرأ المزيد</a>
+        <p>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ الكريمِ بوعده ووعيد...</p>
+        <a class="read-more" onclick="toggleText('full3', this)">اقرأ المزيد</a>
         <div class="full-text" id="full3">
             <p>وترتعد فرائصك لوعيده، ويرتجف فؤادك لترهيبه...</p>
-            <p>وَإِنَّ كِتَابَ اللهِ أَوْثَقُ شَافِعٍ وَأَغْنَى غَنَاءٍ وَاهِباً مُتَفَضِّلَا...</p>
+            <p>وَإِنَّ كِتَابَ اللهِ أَوْثَقُ شَافِعٍ ...</p>
         </div>
     </div>
 
@@ -184,12 +187,18 @@ function filterArticles() {
         article.style.display = text.includes(input) ? 'block' : 'none';
     });
 }
-function toggleText(id) {
+
+function toggleText(id, btn) {
     const el = document.getElementById(id);
-    if (el.style.display === "none" || el.style.display === "") {
-        el.style.display = "block";
+    const isOpen = el.classList.contains('open');
+    if (isOpen) {
+        el.classList.remove('open');
+        btn.textContent = 'اقرأ المزيد';
     } else {
-        el.style.display = "none";
+        el.classList.add('open');
+        btn.textContent = 'إخفاء المقال';
+        // تحريك الصفحة إلى المقال المفتوح
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 </script>
