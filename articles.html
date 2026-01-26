@@ -1,151 +1,169 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مقالات - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
-    <style>
-        body {
-            font-family: "Arial", sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* شريط العنوان الرئيسي */
-        .header-bar {
-            background-color: #DAA520; /* ذهبي */
-            color: white;
-            text-align: center;
-            padding: 30px 10px;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        /* صندوق البحث */
-        .search-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .search-container input {
-            padding: 10px;
-            width: 80%;
-            max-width: 500px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        /* حاوية المقالات */
-        .articles-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 10px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        /* كل مقال */
-        .article-item {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin: 15px 0;
-            width: 100%;
-        }
-
-        .article-item h3 {
-            font-size: 1.8rem;
-            color: #006400; /* أخضر */
-            margin-bottom: 15px;
-        }
-
-        .article-item p {
-            line-height: 1.8;
-            text-align: justify;
-            margin-bottom: 10px;
-        }
-
-        /* أيقونة العودة للصفحة الرئيسية */
-        .back-home {
-            display: block;
-            width: 200px;
-            margin: 40px auto 20px auto;
-            padding: 15px;
-            text-align: center;
-            background-color: #006400;
-            color: white;
-            font-size: 1.2rem;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-
-        .back-home:hover {
-            background-color: #004d00;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المقالات - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<style>
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    line-height: 2;
+    font-size: 1.2rem; /* تكبير الخط */
+}
+.header-bar {
+    background-color: #DAA520; /* ذهبي */
+    color: white;
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+/* البحث */
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+}
+.search-container input {
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+/* قائمة العناوين */
+.toc {
+    background-color: #e0ffe0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+.toc h3 {
+    color: #006400;
+}
+.toc ul {
+    list-style: none;
+    padding: 0;
+}
+.toc li {
+    margin: 10px 0;
+}
+.toc a {
+    text-decoration: none;
+    color: #004d00;
+    font-weight: bold;
+}
+.toc a:hover {
+    text-decoration: underline;
+}
+/* المقالات */
+.articles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px;
+    max-width: 1000px;
+    margin: auto;
+}
+.article-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 25px 0;
+    width: 100%;
+}
+.article-item h3 {
+    font-size: 2rem;
+    color: #006400; /* أخضر */
+    margin-bottom: 15px;
+}
+.article-item p {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+/* العودة للصفحة الرئيسية */
+.back-home {
+    display: block;
+    width: 220px;
+    margin: 40px auto 20px auto;
+    padding: 15px;
+    text-align: center;
+    background-color: #006400;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.back-home:hover {
+    background-color: #004d00;
+}
+</style>
 </head>
 <body>
 
-    <!-- شريط العنوان الرئيسي -->
-    <div class="header-bar">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+<div class="header-bar">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
 
-    <!-- صندوق البحث -->
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="ابحث في المقالات..." onkeyup="filterArticles()">
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="ابحث في المقالات..." onkeyup="filterArticles()">
+</div>
+
+<!-- قائمة العناوين -->
+<div class="toc">
+    <h3>عناوين المقالات</h3>
+    <ul>
+        <li><a href="#article1">مَعْنَى تَدَبُّرِ الْقُرْآنِ</a></li>
+        <li><a href="#article2">معرفة الله تعالى بأسمائه وصفاته</a></li>
+        <li><a href="#article3">أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</a></li>
+    </ul>
+</div>
+
+<div class="articles-container" id="articlesContainer">
+
+    <!-- المقال الأول -->
+    <div class="article-item" id="article1">
+        <h3>مَعْنَى تَدَبُّرِ الْقُرْآنِ</h3>
+        <p>التَّدَبُّرُ عِبَارَةٌ عَنِ النَّظَرِ فِي عَوَاقِبِ الْأُمُورِ وَأَدْبَارِهَا. وَتَدَبُّرُ الْقُرآنِ تَأَمُّلُ دَلَالَةِ تَفَاصِيلِ آيَاتِهِ عَلَى مَقَاصِدِهِ الَّتِي أَرْشَدَ إِلَيْهَا...</p>
+        <p>فَمَعْنَى تَدَبُّرِ الْقُرآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى، فتُصْغِي له بأذن قلبك، وتتأمله بعين فؤادك...</p>
+        <p>عَنْ سَعْدِ بْنِ هِشَامِ بْنِ عَامِرٍ...</p>
+        <p>قال ابن القيم رحمه الله: وَأَمَّا التَّأَمُّلُ فِي الْقُرآنِ فَهُوَ تَحْدِيقُ نَاظِرِ الْقَلْبِ ...</p>
     </div>
 
-    <!-- قسم المقالات -->
-    <div class="articles-container" id="articlesContainer">
-
-        <!-- المقال الأول -->
-        <div class="article-item">
-            <h3>مَعْنَى تَدَبُّرِ الْقُرْآنِ</h3>
-            <p>التَّدَبُّرُ عِبَارَةٌ عَنِ النَّظَرِ فِي عَوَاقِبِ الْأُمُورِ وَأَدْبَارِهَا. 
-وَتَدَبُّرُ الْقُرآنِ تَأَمُّلُ دَلَالَةِ تَفَاصِيلِ آيَاتِهِ عَلَى مَقَاصِدِهِ الَّتِي أَرْشَدَ إِلَيْهَا، وَتَأَمُّلُ فصاحته التي هي أَعْلَى الدَّرَجَاتِ، وبلاغته التي هي أرفع المقامات، ولاستدلال بها على أنه كلام الله تعالى، وتأمل تشريعاته التي هي أسمى مراتب التشريع على أنه تنزيل من حكيم حميد.</p>
-            <p>فمَعْنَى تَدَبُّرِ الْقُرآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى، فتُصْغِي له بأذن قلبك، وتتأمله بعين فؤادك، فإذا وعيت عن الله تعالى قوله، وفهمت من كلامِهِ مرادَهُ، وتَشَرَّبَ قلبُكَ معانيه، فانهض لامتثال أوامره، واجتناب نواهيه، حتى يُرى القرآن في سمتك، وتصطبغ به أخلاقك، ويظهر أَثَرُه على قولِكَ وفعلِكَ.</p>
-            <p>عَنْ سَعْدِ بْنِ هِشَامِ بْنِ عَامِرٍ، قَالَ: أَتَيْتُ عَائِشَةَ، فَقُلْتُ: يَا أُمَّ الْمُؤْمِنِينَ، أَخْبِرِينِي بِخُلُقِ رَسُولِ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، قَالَتْ: "كَانَ خُلُقُهُ الْقُرآنَ..."</p>
-            <p>قال ابن القيم رحمه الله: وَأَمَّا التَّأَمُّلُ فِي الْقُرآنِ فَهُوَ تَحْدِيقُ نَاظِرِ الْقَلْبِ إِلَى مَعَانِيهِ، وَجَمْعُ الْفِكْرِ عَلَى تَدَبُّرِهِ وَتَعَقُّلِهِ، وَهُوَ الْمَقْصُودُ بِإِنْزَالِهِ، لَا مُجَرَّدُ تِلَاوَتِهِ بِلَا فَهْمٍ وَلَا تَدَبُّرٍ...</p>
-        </div>
-
-        <!-- المقال الثاني -->
-        <div class="article-item">
-            <h3>معرفة الله تعالى بأسمائه وصفاته</h3>
-            <p>قَالَ ابنُ القيمِ رَحِمَهُ اللَّهُ: وَبِالْجُمْلَةِ تُعَرِّفُهُ الرَّبَّ الْمَدْعُوَّ إِلَيْهِ، وَطَرِيقَ الْوُصُولِ إِلَيْهِ، وَمَا لَهُ مِنَ الْكَرَامَةِ إِذَا قَدِمَ عَلَيْهِ...</p>
-            <p>فَهَذِهِ سِتَّةُ أُمُورٍ ضَرُورِيٌّ لِلْعَبْدِ مَعْرِفَتُهَا، وَمُشَاهَدَتُهَا وَمُطَالَعَتُهَا، فَتُشْهِدُهُ الْآخِرَةَ حَتَّى كَأَنَّهُ فِيهَا، وَتَغَيِّبُهُ عَنَ الدُّنْيَا حَتَّى كَأَنَّهُ لَيْسَ فِيهَا...</p>
-            <p>قال ابن القيم رَحِمَهُ اللَّهُ: فَلَا تَزَالُ مَعَانِيهِ تُنْهِضُ الْعَبْدَ إِلَى رَبِّهِ بِالْوَعْدِ الْجَمِيلِ، وَتُحَذِّرُهُ وَتُخَوِّفُهُ بِوَعِيدِهِ مِنَ الْعَذَابِ الْوَبِيلِ...</p>
-        </div>
-
-        <!-- المقال الثالث -->
-        <div class="article-item">
-            <h3>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</h3>
-            <p>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ الكريمِ بوعده ووعيد، بأمره ونهيه، بما فيه من حكم وأمثال، بما فيه من ترغيب وترهيب...</p>
-            <p>وترتعد فرائصك لوعيده، ويرتجف فؤادك لترهيبه، وتسيل عبراتك خوفًا من عذاب الله إذا ذكر، ويلهج لسانك بدعاء الله أن ينجيك منه...</p>
-            <p>وَإِنَّ كِتَابَ اللهِ أَوْثَقُ شَافِعٍ وَأَغْنَى غَنَاءٍ وَاهِباً مُتَفَضِّلَا...</p>
-        </div>
-
+    <!-- المقال الثاني -->
+    <div class="article-item" id="article2">
+        <h3>معرفة الله تعالى بأسمائه وصفاته</h3>
+        <p>قَالَ ابنُ القيمِ رَحِمَهُ اللَّهُ: وَبِالْجُمْلَةِ تُعَرِّفُهُ الرَّبَّ الْمَدْعُوَّ إِلَيْهِ...</p>
+        <p>وَتُعَرِّفُهُ فِي مُقَابِلِ ذَلِكَ ثَلَاثَةً أُخْرَى...</p>
+        <p>فَهَذِهِ سِتَّةُ أُمُورٍ ضَرُورِيٌّ لِلْعَبْدِ ...</p>
+        <p>قال ابن القيم رَحِمَهُ اللَّهُ: فَلَا تَزَالُ مَعَانِيهِ تُنْهِضُ الْعَبْدَ إِلَى رَبِّهِ ...</p>
     </div>
 
-    <!-- أيقونة العودة للصفحة الرئيسية -->
-    <a href="index.html" class="back-home">العودة للصفحة الرئيسية</a>
+    <!-- المقال الثالث -->
+    <div class="article-item" id="article3">
+        <h3>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</h3>
+        <p>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ الكريمِ بوعده ووعيد، بأمره ونهيه...</p>
+        <p>وترتعد فرائصك لوعيده، ويرتجف فؤادك لترهيبه...</p>
+        <p>وَإِنَّ كِتَابَ اللهِ أَوْثَقُ شَافِعٍ وَأَغْنَى غَنَاءٍ وَاهِباً مُتَفَضِّلَا...</p>
+    </div>
 
-    <script>
-        function filterArticles() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const articles = document.querySelectorAll('.article-item');
-            articles.forEach(article => {
-                const text = article.textContent.toLowerCase();
-                if (text.includes(input)) {
-                    article.style.display = 'block';
-                } else {
-                    article.style.display = 'none';
-                }
-            });
-        }
-    </script>
+</div>
+
+<a href="index.html" class="back-home">العودة للصفحة الرئيسية</a>
+
+<script>
+function filterArticles() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const articles = document.querySelectorAll('.article-item');
+    articles.forEach(article => {
+        const text = article.textContent.toLowerCase();
+        article.style.display = text.includes(input) ? 'block' : 'none';
+    });
+}
+</script>
 
 </body>
 </html>
