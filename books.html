@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <title>الكتب والمؤلفات | موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 
+<!-- خط جميل -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
-    font-family: Tahoma, Arial, sans-serif;
+    font-family: 'Cairo', sans-serif;
     background: #f7f9f8;
     color: #333;
 }
@@ -47,7 +50,7 @@ body {
     box-shadow: 0 8px 22px rgba(0,0,0,0.14);
 }
 
-/* أيقونة العودة للصفحة الرئيسية (وسط الصفحة) */
+/* أيقونة الصفحة الرئيسية (وسط الصفحة) */
 .home-center {
     width: 260px;
     height: 95px;
@@ -57,12 +60,42 @@ body {
     border: 2px solid #1f7a4d;
 }
 
+/* ===== عرض الكتب ===== */
+.books-list {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.book-item {
+    width: 200px;
+    text-align: center;
+}
+
+.book-item img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.book-item div {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #1f7a4d;
+}
+
 /* ===== للجوال ===== */
 @media (max-width: 600px) {
     .icon-card {
         width: 45%;
         height: 90px;
         font-size: 16px;
+    }
+
+    .book-item {
+        width: 45%;
     }
 }
 </style>
@@ -87,30 +120,49 @@ body {
     <a href="search.html" class="icon-card">بحث</a>
 </div>
 
-<!-- ===== مثال عرض الكتب ===== -->
-<div class="books-list" style="max-width:1200px;margin:40px auto;display:flex;flex-wrap:wrap;gap:25px;justify-content:center;">
-    <div style="width:200px;text-align:center;">
+<!-- ===== عرض الكتب ===== -->
+<div class="books-list">
+    <div class="book-item">
         <a href="pdfs/al-irshad.pdf" target="_blank">
-            <img src="images/book1.jpg" alt="الإرشاد" style="width:100%;border-radius:12px;">
-            <div style="margin-top:8px;font-weight:bold;color:#1f7a4d;">الإرشاد إلى أسباب محبة الله للعباد</div>
+            <img src="images/book1.jpg" alt="الإرشاد">
+            <div>الإرشاد إلى أسباب محبة الله للعباد</div>
         </a>
     </div>
 
-    <div style="width:200px;text-align:center;">
+    <div class="book-item">
         <a href="pdfs/asaleeb-alquran.pdf" target="_blank">
-            <img src="images/book2.jpg" alt="أساليب القرآن" style="width:100%;border-radius:12px;">
-            <div style="margin-top:8px;font-weight:bold;color:#1f7a4d;">أساليب القرآن</div>
+            <img src="images/book2.jpg" alt="أساليب القرآن">
+            <div>أساليب القرآن</div>
         </a>
     </div>
 
-    <div style="width:200px;text-align:center;">
+    <div class="book-item">
         <a href="pdfs/fadhl-duaa.pdf" target="_blank">
-            <img src="images/book3.jpg" alt="فضل الدعاء" style="width:100%;border-radius:12px;">
-            <div style="margin-top:8px;font-weight:bold;color:#1f7a4d;">فضل الدعاء</div>
+            <img src="images/book3.jpg" alt="فضل الدعاء">
+            <div>فضل الدعاء</div>
         </a>
     </div>
 
-    <!-- أضف باقي الكتب بنفس النمط -->
+    <div class="book-item">
+        <a href="pdfs/itshaf-ahli-al-rusukh.pdf" target="_blank">
+            <img src="images/book4.jpg" alt="إتشاف أهل الرسوخ">
+            <div>إتشاف أهل الرسوخ</div>
+        </a>
+    </div>
+
+    <div class="book-item">
+        <a href="pdfs/tamam-al-minah.pdf" target="_blank">
+            <img src="images/book5.jpg" alt="تمام المنهاج">
+            <div>تمام المنهاج</div>
+        </a>
+    </div>
+
+    <div class="book-item">
+        <a href="pdfs/ilmam.pdf" target="_blank">
+            <img src="images/book6.jpg" alt="الإلمام">
+            <div>الإلمام بما للصيام من حكم وآداب وأحكام</div>
+        </a>
+    </div>
 </div>
 
 </body>
