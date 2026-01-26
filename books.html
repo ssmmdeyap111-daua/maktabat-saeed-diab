@@ -2,33 +2,139 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>الكتب والمؤلفات</title>
+<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب</title>
+
 <style>
-body{margin:0;font-family:Arial;background:#e6f2ff}
-header{background:#99ccff;padding:40px;text-align:center;font-size:48px;font-weight:bold}
-.container{max-width:800px;margin:30px auto;padding:0 20px}
-.item{
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#e6f2ff;
+}
+
+/* العنوان */
+header{
+    background:#99ccff;
+    padding:40px 0;
+    text-align:center;
+    font-size:48px;
+    font-family:'Traditional Arabic', serif;
+    font-weight:bold;
+    color:#003366;
+}
+
+/* البحث */
+.search-box{
+    text-align:center;
+    margin:30px 0;
+}
+.search-box input{
+    width:320px;
+    padding:12px;
+    font-size:16px;
+    border-radius:8px;
+    border:1px solid #aaa;
+}
+
+/* قائمة الكتب */
+.books{
+    max-width:800px;
+    margin:0 auto 40px;
+    padding:0 20px;
+}
+.book{
     background:#d9d9d9;
-    margin:10px 0;
+    margin:12px 0;
     padding:15px;
     border-radius:10px;
     font-size:20px;
     font-weight:bold;
+    box-shadow:0 3px 6px rgba(0,0,0,.2);
 }
-.item a{text-decoration:none;color:#000}
+.book a{
+    text-decoration:none;
+    color:#000;
+    display:block;
+}
+
+/* زر الرجوع */
+.back{
+    text-align:center;
+    margin-bottom:40px;
+}
+.back a{
+    display:inline-block;
+    background:#d9d9d9;
+    padding:12px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    color:#000;
+    font-weight:bold;
+    box-shadow:0 3px 6px rgba(0,0,0,.2);
+}
 </style>
+
 </head>
 <body>
 
 <header>الكتب والمؤلفات</header>
 
-<div class="container">
-<div class="item"><a href="pdfs/الإرشاد إلى أسباب محبة الله للعباد.pdf" target="_blank">الإرشاد إلى أسباب محبة الله للعباد</a></div>
-<div class="item"><a href="pdfs/فضل الدعاء وآدابه.pdf" target="_blank">فضل الدعاء وآدابه</a></div>
-<div class="item"><a href="pdfs/إتحاف أهل الرسوخ بشرح منظومة المنسوخ.pdf" target="_blank">إتحاف أهل الرسوخ بشرح منظومة المنسوخ</a></div>
-<div class="item"><a href="pdfs/العقود الفضية بشر منظومة القواعد الفقهية.pdf" target="_blank">العقود الفضية بشر منظومة القواعد الفقهية</a></div>
-<div class="item"><a href="pdfs/تمام المنة بشرح أمثال السنة.pdf" target="_blank">تمام المنة بشرح أمثال السنة</a></div>
+<!-- خانة البحث -->
+<div class="search-box">
+    <input type="text" id="search" placeholder="ابحث عن كتاب...">
 </div>
+
+<!-- الكتب -->
+<div class="books" id="booksList">
+
+    <div class="book">
+        <a href="pdfs/الإرشاد إلى أسباب محبة الله للعباد.pdf" target="_blank">
+            الإرشاد إلى أسباب محبة الله للعباد
+        </a>
+    </div>
+
+    <div class="book">
+        <a href="pdfs/فضل الدعاء وآدابه.pdf" target="_blank">
+            فضل الدعاء وآدابه
+        </a>
+    </div>
+
+    <div class="book">
+        <a href="pdfs/إتحاف أهل الرسوخ بشرح منظومة المنسوخ.pdf" target="_blank">
+            إتحاف أهل الرسوخ بشرح منظومة المنسوخ
+        </a>
+    </div>
+
+    <div class="book">
+        <a href="pdfs/العقود الفضية بشر منظومة القواعد الفقهية.pdf" target="_blank">
+            العقود الفضية بشر منظومة القواعد الفقهية
+        </a>
+    </div>
+
+    <div class="book">
+        <a href="pdfs/تمام المنة بشرح أمثال السنة.pdf" target="_blank">
+            تمام المنة بشرح أمثال السنة
+        </a>
+    </div>
+
+</div>
+
+<!-- الرجوع -->
+<div class="back">
+    <a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
+</div>
+
+<script>
+const search = document.getElementById("search");
+const books = document.getElementById("booksList").getElementsByClassName("book");
+
+search.addEventListener("keyup", function(){
+    const value = search.value.toLowerCase();
+    for(let i=0;i<books.length;i++){
+        const text = books[i].innerText.toLowerCase();
+        books[i].style.display = text.includes(value) ? "block" : "none";
+    }
+});
+</script>
 
 </body>
 </html>
