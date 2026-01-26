@@ -6,41 +6,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body {
-    margin: 0;
-    font-family: 'Cairo', sans-serif;
-    background: #f7f9f8;
-    color: #333;
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:#f7f9f8;
+    color:#333;
 }
 
-/* ===== العنوان الرئيسي ===== */
+/* ===== شريط العنوان الرئيسي ===== */
 header {
-    background: #1f7a4d;
-    color: #fff;
-    text-align: center;
-    padding: 50px 20px; /* تكبير العنوان */
-    font-size: 64px; /* ضعف الحجم السابق */
-    font-weight: bold;
-    box-shadow: 0 0 15px #d4af37 inset; /* إطار ذهبي داخلي */
-    position: relative;
+    background:#1f7a4d;
+    color:#fff;
+    text-align:center;
+    padding:80px 20px; /* تكبير الشريط نفسه */
+    font-size:36px; /* الخط كما كان */
+    font-weight:bold;
+    border-bottom:5px solid #d4af37; /* إطار ذهبي حول الشريط */
+    box-shadow:0 0 15px #d4af37 inset;
 }
 
 /* ===== الشريط المتحرك ===== */
 .marquee-container {
-    background: #fff8dc;
-    border: 5px solid #d4af37; /* إطار ذهبي أعرض */
-    margin: 20px auto;
-    padding: 10px;
-    overflow: hidden;
-    max-width: 1200px;
+    background:#fff8dc;
+    border:7px solid #d4af37; /* إطار ذهبي أكبر وأكثر لمعانًا */
+    margin:0 auto;
+    padding:10px;
+    overflow:hidden;
+    width:100%; /* طول كامل الصفحة */
 }
 
 .marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll 20s linear infinite;
-    font-size: 22px; /* حجم مناسب للقراءة */
-    font-weight: bold;
-    color: #1f7a4d;
+    display:inline-block;
+    white-space:nowrap;
+    animation:scroll 25s linear infinite;
+    font-size:22px;
+    font-weight:bold;
+    color:#1f7a4d;
 }
 
 @keyframes scroll {
@@ -50,51 +50,44 @@ header {
 
 /* ===== أيقونات الصفحات ===== */
 .icons-bar {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 40px auto;
-    flex-wrap: wrap;
-    max-width: 1200px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:40px auto;
+    flex-wrap:wrap;
+    max-width:1200px;
 }
 
 .icon-card {
-    width: 190px;
-    height: 100px;
-    background: #f2faf5;
-    border: 1px solid #cfe8d9;
-    border-radius: 14px;
-    text-align: center;
-    text-decoration: none;
-    color: #1f7a4d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    transition: all 0.3s ease;
+    width:190px;
+    height:100px;
+    background:#f2faf5;
+    border:1px solid #cfe8d9;
+    border-radius:14px;
+    text-align:center;
+    text-decoration:none;
+    color:#1f7a4d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    transition:all 0.3s ease;
 }
 
 .icon-card:hover {
-    background: #1f7a4d;
-    color: #fff;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.14);
-}
-
-/* ===== أيقونة العودة للصفحة الرئيسية أسفل الصفحات الفرعية ===== */
-.footer-home {
-    display: flex;
-    justify-content: center;
-    margin: 50px 0;
+    background:#1f7a4d;
+    color:#fff;
+    transform:translateY(-5px);
+    box-shadow:0 8px 22px rgba(0,0,0,0.14);
 }
 
 /* ===== للجوال ===== */
-@media (max-width: 600px) {
-    .icon-card { width: 45%; height: 90px; font-size: 16px; }
-    header { font-size: 48px; padding: 30px 10px; }
-    .marquee { font-size: 18px; }
+@media (max-width:600px){
+    .icon-card{ width:45%; height:90px; font-size:16px; }
+    header{ padding:50px 10px; font-size:28px; }
+    .marquee{ font-size:18px; }
 }
 </style>
 </head>
@@ -106,7 +99,6 @@ header {
     <div class="marquee">قل هذه سبيلي أدعو إلى الله على بصيرة أنا ومن اتبعني ۖ سبحان الله وما أنا من المشركين - سورة يوسف 108</div>
 </div>
 
-<!-- أيقونات الصفحات -->
 <div class="icons-bar">
     <a href="books.html" class="icon-card">الكتب والمؤلفات</a>
     <a href="lessons.html" class="icon-card">الدروس</a>
