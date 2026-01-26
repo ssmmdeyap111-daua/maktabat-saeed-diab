@@ -1,232 +1,99 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-<meta charset="UTF-8">
-<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب</title>
-
-<style>
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#e6f2ff;
-}
-
-/* العنوان */
-header{
-    background:#99ccff;
-    padding:40px 0;
-    text-align:center;
-    font-size:48px;
-    font-family:'Traditional Arabic', serif;
-    font-weight:bold;
-    color:#003366;
-}
-
-/* البحث */
-.search-box{
-    text-align:center;
-    margin:30px 0;
-}
-.search-box input{
-    width:320px;
-    padding:12px;
-    font-size:16px;
-    border-radius:8px;
-    border:1px solid #aaa;
-}
-
-/* قائمة الكتب */
-.books{
-    max-width:800px;
-    margin:0 auto 40px;
-    padding:0 20px;
-}
-.book{
-    background:#d9d9d9;
-    margin:12px 0;
-    padding:15px;
-    border-radius:10px;
-    font-size:20px;
-    font-weight:bold;
-    box-shadow:0 3px 6px rgba(0,0,0,.2);
-}
-.book a{
-    text-decoration:none;
-    color:#000;
-    display:block;
-}
-
-/* زر الرجوع */
-.back{
-    text-align:center;
-    margin-bottom:40px;
-}
-.back a{
-    display:inline-block;
-    background:#d9d9d9;
-    padding:12px 25px;
-    border-radius:10px;
-    text-decoration:none;
-    color:#000;
-    font-weight:bold;
-    box-shadow:0 3px 6px rgba(0,0,0,.2);
-}
-</style>
-
+    <meta charset="UTF-8">
+    <title>الكتب والمؤلفات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            margin: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .books-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .book-item {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            width: 220px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .book-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .book-item img {
+            width: 120px;
+            height: 160px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .book-item span {
+            display: block;
+            font-weight: bold;
+            color: #0077cc;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            margin-top: 30px;
+            border: 1px solid #ccc;
+            display: none; /* مخفي في البداية */
+        }
+    </style>
 </head>
 <body>
 
-<header>الكتب والمؤلفات</header>
+<h2>الكتب والمؤلفات</h2>
 
-<!-- خانة البحث -->
-<div class="search-box">
-    <input type="text" id="search" placeholder="ابحث عن كتاب...">
-</div>
-
-<!-- الكتب -->
-<div class="books" id="booksList">
-
-<div class="book-item">
-    <a href="pdfs/al-irshad.pdf" target="_blank">
+<div class="books-container">
+    <!-- مثال كتاب 1 -->
+    <div class="book-item" onclick="showPDF('pdfs/al-irshad.pdf')">
+        <img src="images/al-irshad.jpg" alt="غلاف الإرشاد">
         <span>الإرشاد إلى أسباب محبة الله للعباد</span>
-    </a>
-</div>
-
-    <div class="book">
-        <a href="pdfs/فضل الدعاء وآدابه.pdf" target="_blank">
-            فضل الدعاء وآدابه
-        </a>
     </div>
 
-    <div class="book">
-        <a href="pdfs/إتحاف أهل الرسوخ بشرح منظومة المنسوخ.pdf" target="_blank">
-            إتحاف أهل الرسوخ بشرح منظومة المنسوخ
-        </a>
+    <!-- مثال كتاب 2 -->
+    <div class="book-item" onclick="showPDF('pdfs/al-uqud-al-fadheya.pdf')">
+        <img src="images/al-uqud-al-fadheya.jpg" alt="غلاف العقود الفضية">
+        <span>العقود الفضية (Al-Uqud Al-Fadheya)</span>
     </div>
-<div class="book-item" onclick="showPDF('pdfs/al-uqud-al-fadheya.pdf')">
-    <img src="images/al-uqud-al-fadheya.jpg" alt="غلاف العقود الفضية">
-    <span>العقود الفضية (Al-Uqud Al-Fadheya)</span>
+
+    <!-- يمكنك إضافة المزيد بنفس الطريقة -->
+    <!-- 
+    <div class="book-item" onclick="showPDF('pdfs/another-book.pdf')">
+        <img src="images/another-book.jpg" alt="غلاف الكتاب">
+        <span>اسم الكتاب الجديد</span>
+    </div>
+    -->
 </div>
 
+<!-- iframe لعرض PDF -->
 <iframe id="pdfViewer" class="pdf-viewer"></iframe>
 
 <script>
 function showPDF(pdfPath) {
     const viewer = document.getElementById('pdfViewer');
-    viewer.src = pdfPath;      // ضع هنا مسار PDF الصحيح
+    // استخدم Google Docs Viewer لضمان فتح PDF حتى محليًا
+    const fullPath = `${window.location.origin}/${pdfPath}`;
+    viewer.src = `https://docs.google.com/gview?url=${fullPath}&embedded=true`;
     viewer.style.display = 'block';
     viewer.scrollIntoView({ behavior: 'smooth' });
 }
 </script>
-
-    <div class="book">
-        <a href="pdfs/تمام المنة بشرح أمثال السنة.pdf" target="_blank">
-            تمام المنة بشرح أمثال السنة
-        </a>
-    </div>
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<title>الكتب</title>
-</head>
-<body>
-
-<h2>الكتب</h2>
-<div class="book-item">
-    <a href="pdfs/asaleeb-alquran.pdf" target="_blank">
-        <span>أساليب القرآن البلاغية</span>
-    </a>
-</div>
-
-
-</body>
-</html>
-
-</div>
-
-<!-- الرجوع -->
-<div class="back">
-    <a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
-</div>
-
-<script>
-const search = document.getElementById("search");
-const books = document.getElementById("booksList").getElementsByClassName("book");
-
-search.addEventListener("keyup", function(){
-    const value = search.value.toLowerCase();
-    for(let i=0;i<books.length;i++){
-        const text = books[i].innerText.toLowerCase();
-        books[i].style.display = text.includes(value) ? "block" : "none";
-    }
-});
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<title>الكتب</title>
-<style>
-body {
-    font-family: 'Tajawal', sans-serif;
-    background:#f9f9f9;
-    margin:0;
-    padding:20px;
-    direction: rtl;
-}
-h1 {
-    text-align:center;
-    color:#003366;
-}
-.book {
-    border:1px solid #ccc;
-    border-radius:8px;
-    padding:15px;
-    margin:15px 0;
-    background:#fff;
-    box-shadow:0 2px 5px rgba(0,0,0,.1);
-}
-.book h3 {
-    margin:0;
-    color:darkgreen;
-}
-.book p {
-    margin:5px 0 10px;
-}
-.book a {
-    display:inline-block;
-    padding:8px 12px;
-    background:#99ccff;
-    color:#000;
-    text-decoration:none;
-    border-radius:5px;
-    transition:.2s;
-}
-.book a:hover {
-    background:#6699cc;
-    color:#fff;
-}
-</style>
-</head>
-<body>
-
-<h1>📚 مكتبة الشيخ سعيد مصطفى دياب</h1>
-
-<div class="book">
-  <h3>كتاب التوحيد</h3>
-  <p>شرح مبسط لعقيدة التوحيد.</p>
-  <a href="books/tawheed.pdf" target="_blank">تحميل الكتاب</a>
-</div>
-
-<div class="book">
-  <h3>كتاب الفقه</h3>
-  <p>مقدمة في الفقه الإسلامي.</p>
-  <a href="books/fiqh.pdf" target="_blank">تحميل الكتاب</a>
-</div>
 
 </body>
 </html>
