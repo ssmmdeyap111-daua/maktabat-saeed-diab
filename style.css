@@ -294,3 +294,31 @@ body{
     border: 2px solid #1f7a4d;
     background: #e9f6ef;
 }
+.marquee-box {
+    border: 2px solid #c9a23f;   /* ذهبي */
+    background: #fffdf5;
+    padding: 10px 0;
+    margin: 20px auto;
+    overflow: hidden;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1f7a4d;
+    animation: moveLeftToRight 18s linear infinite;
+}
+
+/* الحركة من اليسار إلى اليمين */
+@keyframes moveLeftToRight {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
