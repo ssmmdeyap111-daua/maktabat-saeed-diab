@@ -60,25 +60,43 @@
 <h2>الكتب والمؤلفات</h2>
 
 <div class="books-container">
-    <!-- مثال كتاب 1 -->
+
+    <!-- كتاب 1 -->
     <div class="book-item" onclick="showPDF('pdfs/al-irshad.pdf')">
         <img src="images/al-irshad.jpg" alt="غلاف الإرشاد">
         <span>الإرشاد إلى أسباب محبة الله للعباد</span>
     </div>
 
-    <!-- مثال كتاب 2 -->
-    <div class="book-item" onclick="showPDF('pdfs/al-uqud-al-fadheya.pdf')">
-        <img src="images/al-uqud-al-fadheya.jpg" alt="غلاف العقود الفضية">
-        <span>العقود الفضية (Al-Uqud Al-Fadheya)</span>
+    <!-- كتاب 2 -->
+    <div class="book-item" onclick="showPDF('pdfs/asaleeb-alquran.pdf')">
+        <img src="images/asaleeb-alquran.jpg" alt="غلاف أساليب القرآن">
+        <span>أساليب القرآن</span>
     </div>
 
-    <!-- يمكنك إضافة المزيد بنفس الطريقة -->
-    <!-- 
-    <div class="book-item" onclick="showPDF('pdfs/another-book.pdf')">
-        <img src="images/another-book.jpg" alt="غلاف الكتاب">
-        <span>اسم الكتاب الجديد</span>
+    <!-- كتاب 3 -->
+    <div class="book-item" onclick="showPDF('pdfs/fadhl-duaa.pdf')">
+        <img src="images/fadhl-duaa.jpg" alt="غلاف فضل الدعاء">
+        <span>فضل الدعاء</span>
     </div>
-    -->
+
+    <!-- كتاب 4 -->
+    <div class="book-item" onclick="showPDF('pdfs/itshaf-ahli-al-rusukh.pdf')">
+        <img src="images/itshaf-ahli-al-rusukh.jpg" alt="غلاف إشفاء أهل الرسوخ">
+        <span>إشفاء أهل الرسوخ</span>
+    </div>
+
+    <!-- كتاب 5 -->
+    <div class="book-item" onclick="showPDF('pdfs/tamam-al-minah.pdf')">
+        <img src="images/tamam-al-minah.jpg" alt="غلاف تمام المنّة">
+        <span>تمام المنّة</span>
+    </div>
+
+    <!-- كتاب 6 -->
+    <div class="book-item" onclick="showPDF('pdfs/al-ilmam-siyam.pdf')">
+        <img src="images/al-ilmam-siyam.jpg" alt="غلاف الإلمام بما للصيام من حكم وآداب وأحكام">
+        <span>الإلمام بما للصيام من حكم وآداب وأحكام</span>
+    </div>
+
 </div>
 
 <!-- iframe لعرض PDF -->
@@ -87,9 +105,7 @@
 <script>
 function showPDF(pdfPath) {
     const viewer = document.getElementById('pdfViewer');
-    // استخدم Google Docs Viewer لضمان فتح PDF حتى محليًا
-    const fullPath = `${window.location.origin}/${pdfPath}`;
-    viewer.src = `https://docs.google.com/gview?url=${fullPath}&embedded=true`;
+    viewer.src = pdfPath;  // مسار PDF
     viewer.style.display = 'block';
     viewer.scrollIntoView({ behavior: 'smooth' });
 }
