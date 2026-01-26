@@ -290,3 +290,7 @@ body{
         height: 90px;
     }
 }
+.home-icon {
+    border: 2px solid #1f7a4d;
+    background: #e9f6ef;
+}
