@@ -4,109 +4,104 @@
 <meta charset="UTF-8">
 <title>الكتب والمؤلفات | موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
 body {
-    margin: 0;
-    font-family: 'Cairo', sans-serif;
-    background: #f7f9f8;
-    color: #333;
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:#f7f9f8;
+    color:#333;
 }
 
-/* ===== أيقونات الصفحات الفرعية ===== */
+/* ===== أيقونات الأقسام ===== */
 .icons-bar {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 40px auto;
-    flex-wrap: wrap;
-    max-width: 1200px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:40px auto;
+    flex-wrap:wrap;
+    max-width:1200px;
 }
 
 .icon-card {
-    width: 190px;
-    height: 100px;
-    background: #f2faf5;
-    border: 1px solid #cfe8d9;
-    border-radius: 14px;
-    text-align: center;
-    text-decoration: none;
-    color: #1f7a4d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    transition: all 0.3s ease;
+    width:190px;
+    height:100px;
+    background:#f2faf5;
+    border:1px solid #cfe8d9;
+    border-radius:14px;
+    text-align:center;
+    text-decoration:none;
+    color:#1f7a4d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    transition:all 0.3s ease;
 }
 
 .icon-card:hover {
-    background: #1f7a4d;
-    color: #fff;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+    background:#1f7a4d;
+    color:#fff;
+    transform:translateY(-5px);
+    box-shadow:0 8px 22px rgba(0,0,0,0.14);
 }
 
-/* أيقونة الصفحة الرئيسية في وسط الصفحة */
-.home-center {
-    width: 260px;
-    height: 95px;
-    margin: 30px auto;
-    font-size: 18px;
-    background: #e9f6ef;
-    border: 2px solid #1f7a4d;
-}
-
-/* ===== عرض الكتب ===== */
-.books-list {
-    max-width: 1200px;
-    margin: 40px auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
+/* ===== أيقونات الكتب ===== */
+.books-container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    max-width:1200px;
+    margin:40px auto;
 }
 
 .book-item {
-    width: 200px;
-    text-align: center;
-    border-radius: 12px;
-    background: #fff;
-    padding: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    width:180px;
+    background:#fff;
+    border-radius:12px;
+    text-align:center;
+    margin:10px;
+    padding:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
 .book-item img {
-    width: 100%;
-    border-radius: 12px;
+    width:100%;
+    border-radius:8px;
 }
 
-.book-item div {
-    margin-top: 8px;
-    font-weight: bold;
-    color: #1f7a4d;
+.book-item span {
+    display:block;
+    margin-top:8px;
+    font-weight:bold;
+    font-size:16px;
+    color:#1f7a4d;
 }
 
-/* ===== للجوال ===== */
-@media (max-width: 600px) {
-    .icon-card { width: 45%; height: 90px; font-size: 16px; }
-    .book-item { width: 45%; }
+/* ===== أيقونة العودة للصفحة الرئيسية أسفل الصفحة ===== */
+.footer-home {
+    display:flex;
+    justify-content:center;
+    margin:50px 0;
+}
+
+.footer-home a{
+    width:190px;
+    height:100px;
+}
+
+@media (max-width:600px){
+    .icon-card, .footer-home a{ width:45%; height:90px; font-size:16px; }
+    .book-item{ width:45%; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- أيقونة العودة للصفحة الرئيسية -->
-<div class="icons-bar">
-    <a href="index.html" class="icon-card home-center">الصفحة الرئيسية</a>
-</div>
-
-<!-- باقي الأقسام بدون أيقونة الكتب -->
 <div class="icons-bar">
     <a href="lessons.html" class="icon-card">الدروس</a>
-    <a href="khutbah.html" class="icon-card">الخطب</a>
+    <a href="khutbah.html" class="icon-card">خطب الجمعة</a>
     <a href="articles.html" class="icon-card">المقالات</a>
     <a href="fiqh.html" class="icon-card">الفقه</a>
     <a href="tadabbur.html" class="icon-card">تدبر القرآن</a>
@@ -114,49 +109,30 @@ body {
     <a href="search.html" class="icon-card">بحث</a>
 </div>
 
-<!-- ===== عرض الكتب ===== -->
-<div class="books-list">
+<div class="books-container">
     <div class="book-item">
         <a href="pdfs/al-irshad.pdf" target="_blank">
-            <img src="images/book1.jpg" alt="الإرشاد">
-            <div>الإرشاد إلى أسباب محبة الله للعباد</div>
+            <img src="images/book1.jpg" alt="الإرشاد إلى أسباب محبة الله">
+            <span>الإرشاد إلى أسباب محبة الله للعباد</span>
         </a>
     </div>
-
     <div class="book-item">
         <a href="pdfs/asaleeb-alquran.pdf" target="_blank">
             <img src="images/book2.jpg" alt="أساليب القرآن">
-            <div>أساليب القرآن</div>
+            <span>أساليب القرآن</span>
         </a>
     </div>
-
     <div class="book-item">
         <a href="pdfs/fadhl-duaa.pdf" target="_blank">
             <img src="images/book3.jpg" alt="فضل الدعاء">
-            <div>فضل الدعاء</div>
+            <span>فضل الدعاء</span>
         </a>
     </div>
+    <!-- أضف باقي الكتب بنفس الطريقة -->
+</div>
 
-    <div class="book-item">
-        <a href="pdfs/itshaf-ahli-al-rusukh.pdf" target="_blank">
-            <img src="images/book4.jpg" alt="إتشاف أهل الرسوخ">
-            <div>إتشاف أهل الرسوخ</div>
-        </a>
-    </div>
-
-    <div class="book-item">
-        <a href="pdfs/tamam-al-minah.pdf" target="_blank">
-            <img src="images/book5.jpg" alt="تمام المنهاج">
-            <div>تمام المنهاج</div>
-        </a>
-    </div>
-
-    <div class="book-item">
-        <a href="pdfs/ilmam.pdf" target="_blank">
-            <img src="images/book6.jpg" alt="الإلمام">
-            <div>الإلمام بما للصيام من حكم وآداب وأحكام</div>
-        </a>
-    </div>
+<div class="footer-home">
+    <a href="index.html" class="icon-card">الصفحة الرئيسية</a>
 </div>
 
 </body>
