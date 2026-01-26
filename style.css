@@ -144,3 +144,63 @@ nav {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0,0,0,0.3);
 }
+/* ===== صفحة الكتب ===== */
+
+body{
+    margin:0;
+    font-family: "Amiri", serif;
+    background:#eef5ff; /* أزرق فاتح جدًا */
+}
+
+.site-header{
+    background:#cfe2ff;
+    padding:25px 15px;
+    text-align:center;
+}
+
+.site-header h1{
+    margin:0;
+    font-size:34px;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:10px;
+    text-decoration:none;
+    background:#4a6fa5;
+    color:#fff;
+    padding:6px 16px;
+    border-radius:6px;
+    font-size:16px;
+}
+
+.back-btn:hover{
+    background:#3b5c8a;
+}
+
+.books-container{
+    max-width:700px;
+    margin:30px auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding:0 15px;
+}
+
+.book-item a{
+    display:block;
+    background:#e0e0e0;
+    padding:15px;
+    border-radius:10px;
+    text-decoration:none;
+    color:#000;
+    font-size:20px;
+    text-align:center;
+    box-shadow:0 4px 6px rgba(0,0,0,.2);
+    transition:0.2s;
+}
+
+.book-item a:hover{
+    background:#d3d3d3;
+    transform:translateY(-2px);
+}
