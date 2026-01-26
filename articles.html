@@ -11,17 +11,16 @@ body {
     margin: 0;
     padding: 0;
     line-height: 2;
-    font-size: 1.2rem; /* تكبير الخط */
+    font-size: 1.2rem;
 }
 .header-bar {
-    background-color: #DAA520; /* ذهبي */
+    background-color: #DAA520;
     color: white;
     text-align: center;
     padding: 30px 10px;
     font-size: 2rem;
     font-weight: bold;
 }
-/* البحث */
 .search-container {
     text-align: center;
     margin: 20px 0;
@@ -34,7 +33,6 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-/* قائمة العناوين */
 .toc {
     background-color: #e0ffe0;
     padding: 15px 20px;
@@ -60,7 +58,6 @@ body {
 .toc a:hover {
     text-decoration: underline;
 }
-/* المقالات */
 .articles-container {
     display: flex;
     flex-direction: column;
@@ -79,14 +76,29 @@ body {
 }
 .article-item h3 {
     font-size: 2rem;
-    color: #006400; /* أخضر */
+    color: #006400;
     margin-bottom: 15px;
 }
 .article-item p {
     text-align: justify;
     margin-bottom: 10px;
 }
-/* العودة للصفحة الرئيسية */
+.read-more {
+    display: inline-block;
+    background-color: #006400;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.read-more:hover {
+    background-color: #004d00;
+}
+.full-text {
+    display: none;
+    margin-top: 15px;
+}
 .back-home {
     display: block;
     width: 220px;
@@ -127,27 +139,36 @@ body {
     <!-- المقال الأول -->
     <div class="article-item" id="article1">
         <h3>مَعْنَى تَدَبُّرِ الْقُرْآنِ</h3>
-        <p>التَّدَبُّرُ عِبَارَةٌ عَنِ النَّظَرِ فِي عَوَاقِبِ الْأُمُورِ وَأَدْبَارِهَا. وَتَدَبُّرُ الْقُرآنِ تَأَمُّلُ دَلَالَةِ تَفَاصِيلِ آيَاتِهِ عَلَى مَقَاصِدِهِ الَّتِي أَرْشَدَ إِلَيْهَا...</p>
-        <p>فَمَعْنَى تَدَبُّرِ الْقُرآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى، فتُصْغِي له بأذن قلبك، وتتأمله بعين فؤادك...</p>
-        <p>عَنْ سَعْدِ بْنِ هِشَامِ بْنِ عَامِرٍ...</p>
-        <p>قال ابن القيم رحمه الله: وَأَمَّا التَّأَمُّلُ فِي الْقُرآنِ فَهُوَ تَحْدِيقُ نَاظِرِ الْقَلْبِ ...</p>
+        <p>التَّدَبُّرُ عِبَارَةٌ عَنِ النَّظَرِ فِي عَوَاقِبِ الْأُمُورِ...</p>
+        <a class="read-more" onclick="toggleText('full1')">اقرأ المزيد</a>
+        <div class="full-text" id="full1">
+            <p>فَمَعْنَى تَدَبُّرِ الْقُرآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى، فتُصْغِي له بأذن قلبك، وتتأمله بعين فؤادك...</p>
+            <p>عَنْ سَعْدِ بْنِ هِشَامِ بْنِ عَامِرٍ...</p>
+            <p>قال ابن القيم رحمه الله: وَأَمَّا التَّأَمُّلُ فِي الْقُرآنِ فَهُوَ تَحْدِيقُ نَاظِرِ الْقَلْبِ ...</p>
+        </div>
     </div>
 
     <!-- المقال الثاني -->
     <div class="article-item" id="article2">
         <h3>معرفة الله تعالى بأسمائه وصفاته</h3>
         <p>قَالَ ابنُ القيمِ رَحِمَهُ اللَّهُ: وَبِالْجُمْلَةِ تُعَرِّفُهُ الرَّبَّ الْمَدْعُوَّ إِلَيْهِ...</p>
-        <p>وَتُعَرِّفُهُ فِي مُقَابِلِ ذَلِكَ ثَلَاثَةً أُخْرَى...</p>
-        <p>فَهَذِهِ سِتَّةُ أُمُورٍ ضَرُورِيٌّ لِلْعَبْدِ ...</p>
-        <p>قال ابن القيم رَحِمَهُ اللَّهُ: فَلَا تَزَالُ مَعَانِيهِ تُنْهِضُ الْعَبْدَ إِلَى رَبِّهِ ...</p>
+        <a class="read-more" onclick="toggleText('full2')">اقرأ المزيد</a>
+        <div class="full-text" id="full2">
+            <p>وَتُعَرِّفُهُ فِي مُقَابِلِ ذَلِكَ ثَلَاثَةً أُخْرَى...</p>
+            <p>فَهَذِهِ سِتَّةُ أُمُورٍ ضَرُورِيٌّ لِلْعَبْدِ ...</p>
+            <p>قال ابن القيم رَحِمَهُ اللَّهُ: فَلَا تَزَالُ مَعَانِيهِ تُنْهِضُ الْعَبْدَ إِلَى رَبِّهِ ...</p>
+        </div>
     </div>
 
     <!-- المقال الثالث -->
     <div class="article-item" id="article3">
         <h3>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</h3>
         <p>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ الكريمِ بوعده ووعيد، بأمره ونهيه...</p>
-        <p>وترتعد فرائصك لوعيده، ويرتجف فؤادك لترهيبه...</p>
-        <p>وَإِنَّ كِتَابَ اللهِ أَوْثَقُ شَافِعٍ وَأَغْنَى غَنَاءٍ وَاهِباً مُتَفَضِّلَا...</p>
+        <a class="read-more" onclick="toggleText('full3')">اقرأ المزيد</a>
+        <div class="full-text" id="full3">
+            <p>وترتعد فرائصك لوعيده، ويرتجف فؤادك لترهيبه...</p>
+            <p>وَإِنَّ كِتَابَ اللهِ أَوْثَقُ شَافِعٍ وَأَغْنَى غَنَاءٍ وَاهِباً مُتَفَضِّلَا...</p>
+        </div>
     </div>
 
 </div>
@@ -162,6 +183,14 @@ function filterArticles() {
         const text = article.textContent.toLowerCase();
         article.style.display = text.includes(input) ? 'block' : 'none';
     });
+}
+function toggleText(id) {
+    const el = document.getElementById(id);
+    if (el.style.display === "none" || el.style.display === "") {
+        el.style.display = "block";
+    } else {
+        el.style.display = "none";
+    }
 }
 </script>
 
