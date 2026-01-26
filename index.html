@@ -27,21 +27,24 @@ header{
     background:#b3d9ff;
     overflow:hidden;
     white-space:nowrap;
-    padding:20px 0;
+    padding:22px 0;
     font-size:26px;
     font-weight:bold;
 }
+
 .marquee span{
     display:inline-block;
     padding-right:100%;
-    animation:move 25s linear infinite;
+    animation:move 35s linear infinite;
 }
+
 .marquee:hover span{
     animation-play-state:paused;
 }
+
 @keyframes move{
-    from{transform:translateX(100%);}
-    to{transform:translateX(-100%);}
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-120%); }
 }
 
 /* الأيقونات */
@@ -89,7 +92,7 @@ nav{
 
 <div class="marquee">
 <span>
-قال الله تعالى: ﴿قُلْ هَذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلَى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي﴾ سورة يوسف
+قال الله تعالى: ﴿قُلْ هَذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلَى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحَانَ اللَّهِ وَمَا أَنَا مِنَ الْمُشْرِكِينَ﴾ (يوسف: 108)
 </span>
 </div>
 
