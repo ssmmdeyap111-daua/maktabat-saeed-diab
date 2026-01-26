@@ -3,21 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+
 <style>
 body{
     margin:0;
     font-family: Arial, sans-serif;
     background:#e6f2ff;
 }
+
+/* شريط اسم الموقع */
 header{
     background:#99ccff;
-    padding:50px 0;
+    padding:60px 0;
     text-align:center;
-    font-size:60px;
+    font-size:64px;
     font-family:'Traditional Arabic', serif;
     font-weight:bold;
     color:#003366;
 }
+
+/* الشريط المتحرك */
 .marquee{
     background:#b3d9ff;
     overflow:hidden;
@@ -38,19 +43,13 @@ header{
     from{transform:translateX(100%);}
     to{transform:translateX(-100%);}
 }
-nav{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    margin:40px 0;
-}
-<style>
-/* الأيقونات الرئيسية */
+
+/* الأيقونات */
 nav{
     display:flex;
     justify-content:center;
     gap:15px;
-    margin:40px 0;
+    margin:50px 0;
     flex-wrap:wrap;
 }
 
@@ -81,25 +80,44 @@ nav{
 }
 </style>
 
-}
-</style>
 </head>
 <body>
 
-<header>موقع الشيخ سعيد مصطفى دياب الرسمي</header>
+<header>
+موقع الشيخ سعيد مصطفى دياب الرسمي
+</header>
 
 <div class="marquee">
 <span>
-قال الله تعالى: ﴿قُلْ هَذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلَى بَصِيرَةٍ﴾ سورة يوسف
+قال الله تعالى: ﴿قُلْ هَذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلَى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي﴾ سورة يوسف
 </span>
 </div>
 
 <nav>
-<a href="books.html" class="icon"><img src="images/book.png">الكتب</a>
-<a href="articles.html" class="icon"><img src="images/article.png">المقالات</a>
-<a href="lessons.html" class="icon"><img src="images/lesson.png">الدروس</a>
-<a href="khutbah.html" class="icon"><img src="images/khutbah.png">الخطب</a>
-<a href="contact.html" class="icon"><img src="images/contact.png">تواصل</a>
+    <a href="books.html" class="icon">
+        <img src="images/book.png" alt="">
+        الكتب
+    </a>
+
+    <a href="articles.html" class="icon">
+        <img src="images/article.png" alt="">
+        المقالات
+    </a>
+
+    <a href="lessons.html" class="icon">
+        <img src="images/lesson.png" alt="">
+        الدروس والصوتيات
+    </a>
+
+    <a href="khutbah.html" class="icon">
+        <img src="images/khutbah.png" alt="">
+        خطب الجمعة
+    </a>
+
+    <a href="contact.html" class="icon">
+        <img src="images/contact.png" alt="">
+        تواصل معنا
+    </a>
 </nav>
 
 </body>
