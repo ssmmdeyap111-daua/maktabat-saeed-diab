@@ -103,11 +103,21 @@ header{
             إتحاف أهل الرسوخ بشرح منظومة المنسوخ
         </a>
     </div>
+<div class="book-item" onclick="showPDF('pdfs/al-uqud-al-fadheya.pdf')">
+    <img src="images/al-uqud-al-fadheya.jpg" alt="غلاف العقود الفضية">
+    <span>العقود الفضية (Al-Uqud Al-Fadheya)</span>
+</div>
 
-   <div class="book-item" onclick="showPDF('pdfs/al-uqud-al-fadheya.pdf')">
-        <img src="images/al-uqud-al-fadheya.jpg" alt="غلاف العقود الفضية">
-        <span>العقود الفضية (Al-Uqud Al-Fadheya)</span>
-    </div>
+<iframe id="pdfViewer" class="pdf-viewer"></iframe>
+
+<script>
+function showPDF(pdfPath) {
+    const viewer = document.getElementById('pdfViewer');
+    viewer.src = pdfPath;      // ضع هنا مسار PDF الصحيح
+    viewer.style.display = 'block';
+    viewer.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 
     <div class="book">
         <a href="pdfs/تمام المنة بشرح أمثال السنة.pdf" target="_blank">
