@@ -1,123 +1,4 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<style>
-body {
-    margin:0;
-    font-family:'Cairo',sans-serif;
-    background:#f7f9f8;
-    color:#333;
-}
-
-/* ===== شريط العنوان الرئيسي ===== */
-header {
-    background:#1f7a4d;
-    color:#fff;
-    text-align:center;
-    padding:80px 40px; /* ارتفاع الشريط مضاعف */
-    font-size:36px; /* الخط كما هو */
-    font-weight:bold;
-    border-bottom:5px solid #d4af37; /* إطار ذهبي */
-    box-shadow:0 0 15px #d4af37 inset;
-}
-
-/* ===== الشريط المتحرك ===== */
-.marquee-container {
-    background:#fff8dc;
-    border:7px solid #d4af37; /* إطار ذهبي أكبر وأكثر لمعانًا */
-    margin:0 auto;
-    padding:10px;
-    overflow:hidden;
-    width:100%;
-}
-
-.marquee {
-    display:inline-block;
-    white-space:nowrap;
-    animation:scroll 25s linear infinite;
-    font-size:22px;
-    font-weight:bold;
-    color:#1f7a4d;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/* ===== أيقونات الصفحات ===== */
-.icons-bar {
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    margin:40px auto;
-    flex-wrap:wrap;
-    max-width:1200px;
-}
-
-.icon-card {
-    width:190px;
-    height:100px;
-    background:#f2faf5;
-    border:1px solid #cfe8d9;
-    border-radius:14px;
-    text-align:center;
-    text-decoration:none;
-    color:#1f7a4d;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:18px;
-    font-weight:bold;
-    box-shadow:0 4px 12px rgba(0,0,0,0.06);
-    transition:all 0.3s ease;
-}
-
-.icon-card:hover {
-    background:#1f7a4d;
-    color:#fff;
-    transform:translateY(-5px);
-    box-shadow:0 8px 22px rgba(0,0,0,0.14);
-}
-
-/* ===== للجوال ===== */
-@media (max-width:600px){
-    .icon-card{ width:45%; height:90px; font-size:16px; }
-    header{ padding:50px 10px; font-size:28px; }
-    .marquee{ font-size:18px; }
-}
-</style>
-</head>
-<body>
-
-<header>موقع الشيخ سعيد مصطفى دياب الرسمي</header>
-
-<div class="marquee-container">
-    <div class="marquee">قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف</div>
-</div>
-
-<div class="icons-bar">
-    <a href="books.html" class="icon-card">الكتب والمؤلفات</a>
-    <a href="lessons.html" class="icon-card">الدروس</a>
-    <a href="khutbah.html" class="icon-card">خطب الجمعة</a>
-    <a href="articles.html" class="icon-card">المقالات</a>
-    <a href="fiqh.html" class="icon-card">الفقه</a>
-    <a href="tadabbur.html" class="icon-card">تدبر القرآن</a>
-    <a href="contact.html" class="icon-card">تواصل معنا</a>
-    <a href="search.html" class="icon-card">بحث</a>
-</div>
-
-</body>
-</html>
-<div class="icon-item">
-    <a href="articles.html">
-        <span>المقالات</span>
-    </a>
-</div>
-<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
@@ -125,38 +6,64 @@ header {
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 <style>
 body {
-    font-family: "Arial", sans-serif;
     margin: 0;
-    padding: 0;
+    font-family: "Arial", sans-serif;
     background-color: #f9f9f9;
 }
 .header-bar {
-    background-color: #DAA520; /* ذهبي */
+    background-color: #006400;
     color: white;
     text-align: center;
     padding: 30px 10px;
     font-size: 2rem;
     font-weight: bold;
+    border: 5px solid #DAA520; /* إطار ذهبي */
+    box-sizing: border-box;
 }
-.icons-container {
+.marquee-container {
+    overflow: hidden;
+    border-top: 5px solid #DAA520;
+    border-bottom: 5px solid #DAA520;
+    background-color: #f9f9f9;
+}
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+    font-size: 1.5rem;
+    color: #006400;
+    font-weight: bold;
+}
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+.icon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px 0;
+    margin: 30px 10px;
+    gap: 20px;
 }
 .icon-item {
-    background-color: #006400;
-    color: white;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
+    width: 180px;
+    height: 100px;
+    background-color: #e0ffe0;
+    border: 2px solid #006400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    width: 150px;
-    text-decoration: none;
+    font-weight: bold;
+    color: #006400;
     font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
 }
 .icon-item:hover {
-    background-color: #004d00;
+    background-color: #c8f0c8;
 }
 </style>
 </head>
@@ -164,15 +71,24 @@ body {
 
 <div class="header-bar">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
 
-<div class="icons-container">
+<div class="marquee-container">
+    <div class="marquee">
+        ﴿قُلْ هَذِهِ سَبِيلِي أَدْعُو إِلَى اللَّهِ عَلَى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي﴾ – سورة يوسف، آية 108
+    </div>
+</div>
+
+<div class="icon-grid">
     <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
-    <a href="lessons.html" class="icon-item">الدروس</a>
-    <a href="fiqh.html" class="icon-item">الفقه</a>
-    <a href="tafseer.html" class="icon-item">التفسير</a>
-    <a href="tadabbur.html" class="icon-item">تدبر القرآن</a>
-    <a href="khutbah.html" class="icon-item">خطب الجمعة</a>
-    <a href="contact.html" class="icon-item">تواصل معنا</a>
+    <a href="#" class="icon-item">الفقه</a>
+    <a href="#" class="icon-item">القرآن</a>
+    <a href="#" class="icon-item">الحديث</a>
+    <a href="#" class="icon-item">التفسير</a>
+    <a href="#" class="icon-item">تدبر القرآن</a>
+    <a href="#" class="icon-item">الدروس</a>
+    <a href="#" class="icon-item">خطب الجمعة</a>
     <a href="articles.html" class="icon-item">المقالات</a>
+    <a href="#" class="icon-item">تواصل معنا</a>
+    <a href="#" class="icon-item">البحث</a>
 </div>
 
 </body>
