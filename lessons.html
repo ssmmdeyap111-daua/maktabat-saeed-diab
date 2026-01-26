@@ -2,16 +2,40 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>الدروس والصوتيات</title>
+<title>الدروس | موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Cairo',sans-serif; background:#f7f9f8; color:#333; }
+.icons-bar { display:flex; justify-content:center; gap:25px; margin:40px auto; flex-wrap:wrap; max-width:1200px; }
+.icon-card { width:190px; height:100px; background:#f2faf5; border:1px solid #cfe8d9; border-radius:14px; text-align:center; text-decoration:none; color:#1f7a4d; display:flex; justify-content:center; align-items:center; font-size:18px; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.06); transition:all 0.3s ease; }
+.icon-card:hover { background:#1f7a4d; color:#fff; transform:translateY(-5px); box-shadow:0 8px 22px rgba(0,0,0,0.14); }
+.home-center { width:260px; height:95px; margin:30px auto; font-size:18px; background:#e9f6ef; border:2px solid #1f7a4d; }
+.lesson-item { width:200px; text-align:center; border-radius:12px; background:#fff; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05); margin:10px; }
+@media(max-width:600px){ .icon-card{ width:45%; height:90px; font-size:16px; } .lesson-item{ width:45%; } }
+</style>
 </head>
-<body style="background:#e6f2ff;font-family:Arial">
+<body>
 
-<h1 style="text-align:center">الدروس والصوتيات</h1>
+<div class="icons-bar">
+    <a href="index.html" class="icon-card home-center">الصفحة الرئيسية</a>
+</div>
 
-<ul>
-<li>درس 1</li>
-<li>درس 2</li>
-</ul>
+<div class="icons-bar">
+    <a href="lessons.html" class="icon-card">الدروس</a>
+    <a href="khutbah.html" class="icon-card">الخطب</a>
+    <a href="articles.html" class="icon-card">المقالات</a>
+    <a href="fiqh.html" class="icon-card">الفقه</a>
+    <a href="tadabbur.html" class="icon-card">تدبر القرآن</a>
+    <a href="contact.html" class="icon-card">تواصل معنا</a>
+    <a href="search.html" class="icon-card">بحث</a>
+</div>
+
+<div style="max-width:1200px; margin:40px auto; display:flex; flex-wrap:wrap; justify-content:center;">
+    <div class="lesson-item">درس 1: مقدمة في الفقه</div>
+    <div class="lesson-item">درس 2: أصول الفقه</div>
+    <div class="lesson-item">درس 3: شرح القرآن الكريم</div>
+    <div class="lesson-item">درس 4: الأدعية اليومية</div>
+</div>
 
 </body>
 </html>
