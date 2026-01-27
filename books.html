@@ -22,30 +22,39 @@ body {
 
 .icon-item {
     width: 160px;   /* أقل عرض */
-    height: 180px;  /* أطول مستطيل */
+    height: 200px;  /* أطول مستطيل */
     background-color: #e0ffe0;
     border: 3px solid #006400;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-weight: bold;
     color: #006400;
-    font-size: 1.8rem;
-    border-radius: 20px;
+    font-size: 1.6rem;
+    border-radius: 15px;
     cursor: pointer;
     text-decoration: none;
     box-shadow:
-        0 12px 25px rgba(0,0,0,0.35),
-        inset 0 3px 6px rgba(255,255,255,0.8);
+        0 10px 20px rgba(0,0,0,0.25),
+        inset 0 2px 5px rgba(255,255,255,0.8);
     transition: all 0.3s ease;
 }
 
 .icon-item:hover {
     background-color: #c8f0c8;
     box-shadow:
-        0 15px 30px rgba(0,0,0,0.45),
-        inset 0 4px 8px rgba(255,255,255,0.85);
+        0 15px 25px rgba(0,0,0,0.35),
+        inset 0 3px 6px rgba(255,255,255,0.85);
+}
+
+/* عنوان الكتاب تحت الأيقونة */
+.book-title {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #006400;
+    text-align: center;
 }
 
 /* زر العودة للصفحة الرئيسية */
@@ -82,53 +91,33 @@ body {
         0 15px 30px rgba(0,0,0,0.45),
         inset 0 4px 8px rgba(255,255,255,0.85);
 }
-
-/* عناوين الكتب */
-.book-title {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    color: #006400;
-    text-align: center;
-}
 </style>
 </head>
 <body>
 
 <div class="icon-grid">
     <a href="pdfs/al-irshad.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">الإرشاد إلى أسباب محبة الله للعباد</div>
-        </div>
+        <div class="book-title">الإرشاد إلى أسباب محبة الله للعباد</div>
     </a>
 
     <a href="pdfs/asaleeb-alquran.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">أساليب القرآن</div>
-        </div>
+        <div class="book-title">أساليب القرآن</div>
     </a>
 
     <a href="pdfs/fadhl-duaa.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">فضل الدعاء</div>
-        </div>
+        <div class="book-title">فضل الدعاء</div>
     </a>
 
     <a href="pdfs/itshaf-ahli-al-rusukh.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">إتشاف أهل الرسوخ</div>
-        </div>
+        <div class="book-title">إتشاف أهل الرسوخ</div>
     </a>
 
     <a href="pdfs/tamam-al-minah.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">تمام المنح</div>
-        </div>
+        <div class="book-title">تمام المنح</div>
     </a>
 
     <a href="pdfs/alm-alim-bima-lilsiyam.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">الإلمام بما للصيام من حكم وآداب وأحكام</div>
-        </div>
+        <div class="book-title">الإلمام بما للصيام من حكم وآداب وأحكام</div>
     </a>
 </div>
 
