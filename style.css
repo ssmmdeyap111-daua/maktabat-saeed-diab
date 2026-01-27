@@ -460,3 +460,6 @@ body{
 .header-bar {
     animation: goldShine 6s linear infinite;
 }
+.marquee-container:hover .marquee {
+    animation-play-state: paused;
+}
