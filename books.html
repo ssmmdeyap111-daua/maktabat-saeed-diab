@@ -3,28 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب</title>
 <style>
 body {
     margin: 0;
-    font-family: "Arial", sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-}
-
-/* أيقونات التواصل أعلى اليسار */
-.social-icons {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    text-decoration: none;
-    font-size: 2rem;
-    color: #006400;
-    font-weight: bold;
 }
 
 /* الشريط الأخضر الكبير */
@@ -32,88 +16,14 @@ body {
     background-color: #006400;
     color: white;
     text-align: center;
-    padding: 90px 50px;
-    font-size: 3rem;
+    padding: 60px 20px;
+    font-size: 2.8rem;
     font-weight: bold;
     border: 7px solid #DAA520;
     box-sizing: border-box;
-    position: relative;
 }
 
-/* تكبير متوسط لاسم سعيد مصطفى دياب */
-.header-bar span.name {
-    font-size: 4rem; /* أكبر بدرجة متوسطة */
-}
-
-/* الشريط المتحرك الذهبي وعرض أكبر */
-.marquee-container {
-    overflow: hidden;
-    border-top: 12px solid #DAA520;
-    border-bottom: 12px solid #DAA520;
-    background-color: #f9f9f9;
-    cursor: pointer;
-}
-
-.marquee {
-    display: inline-block;
-    white-space: nowrap;
-    padding-left: 100%;
-    animation: marquee 40s linear infinite;
-    font-size: 1.8rem;
-    color: #006400;
-    font-weight: bold;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-.marquee-container:hover .marquee {
-    animation-play-state: paused;
-}
-
-/* خانة البحث ثلاثية الأبعاد */
-.main-search-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 80px 20px 60px;
-}
-
-.search-title {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #006400;
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
-}
-
-.main-search input {
-    width: 80%;
-    max-width: 1000px;
-    height: 90px;
-    padding: 0 30px;
-    font-size: 2.5rem;
-    border-radius: 25px;
-    border: 4px solid #DAA520;
-    outline: none;
-    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.35),
-        inset 0 5px 10px rgba(255, 255, 255, 0.9),
-        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-}
-
-.main-search input:focus {
-    border-color: #006400;
-    box-shadow:
-        0 22px 44px rgba(0, 100, 0, 0.45),
-        inset 0 5px 10px rgba(255, 255, 255, 0.95);
-}
-
-/* شبكة الأيقونات أكثر استطالة وأقل عرضًا */
+/* شبكة الأيقونات الطويلة ثلاثية الأبعاد */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
@@ -133,7 +43,7 @@ body {
     text-align: center;
     font-weight: bold;
     color: #006400;
-    font-size: 2.5rem;
+    font-size: 2rem;
     border-radius: 20px;
     cursor: pointer;
     text-decoration: none;
@@ -150,56 +60,123 @@ body {
         inset 0 4px 8px rgba(255,255,255,0.85);
 }
 
+/* قائمة الكتب */
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 10px;
+}
+
+.book-item {
+    width: 250px;
+    background-color: #fff;
+    border: 3px solid #006400;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #006400;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.book-item img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.book-item a {
+    display: block;
+    padding: 15px 10px;
+    color: #006400;
+    text-decoration: none;
+}
+
+.book-item a:hover {
+    color: #004d00;
+}
+
+/* زر العودة للصفحة الرئيسية */
+.back-home {
+    display: block;
+    width: 250px;
+    margin: 40px auto;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #e0ffe0;
+    color: #006400;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 3px solid #006400;
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.35),
+        inset 0 3px 6px rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.back-home:hover {
+    background-color: #c8f0c8;
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.45),
+        inset 0 4px 8px rgba(255,255,255,0.85);
+}
 </style>
 </head>
 <body>
 
-<!-- أيقونات التواصل -->
-<div class="social-icons">
-    <a href="#" title="Telegram">📨</a>
-    <a href="#" title="Facebook">📘</a>
-    <a href="#" title="X">❌</a>
-    <a href="#" title="WhatsApp">💬</a>
-</div>
+<div class="header-bar">الكتب والمؤلفات</div>
 
-<!-- الشريط الأخضر الكبير -->
-<div class="header-bar">
-    موقع <span class="name">سعيد مصطفى دياب</span> الرسمي
-</div>
-
-<!-- الشريط المتحرك الذهبي -->
-<div class="marquee-container">
-    <div class="marquee">
-        قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحَانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
+<div class="books-container">
+    <div class="book-item">
+        <a href="pdfs/al-irshad.pdf" target="_blank">
+            <img src="images/book1.jpg" alt="الإرشاد">
+            <span>الإرشاد إلى أسباب محبة الله للعباد</span>
+        </a>
+    </div>
+    <div class="book-item">
+        <a href="pdfs/asaleeb-alquran.pdf" target="_blank">
+            <img src="images/book2.jpg" alt="أساليب القرآن">
+            <span>أساليب القرآن في البيان والتدبر</span>
+        </a>
+    </div>
+    <div class="book-item">
+        <a href="pdfs/fadhl-duaa.pdf" target="_blank">
+            <img src="images/book3.jpg" alt="فضل الدعاء">
+            <span>فضل الدعاء وأهميته</span>
+        </a>
+    </div>
+    <div class="book-item">
+        <a href="pdfs/itshaf-ahli-al-rusukh.pdf" target="_blank">
+            <img src="images/book4.jpg" alt="إتشاف">
+            <span>إتحاف أهل الرسوخ في العلم</span>
+        </a>
+    </div>
+    <div class="book-item">
+        <a href="pdfs/tamam-al-minah.pdf" target="_blank">
+            <img src="images/book5.jpg" alt="تمام المنه">
+            <span>تمام المنه على آداب المتقين</span>
+        </a>
+    </div>
+    <div class="book-item">
+        <a href="pdfs/al-ilmam.pdf" target="_blank">
+            <img src="images/book6.jpg" alt="الإلمام">
+            <span>الإلمام بما للصيام من حكم وآداب وأحكام</span>
+        </a>
     </div>
 </div>
 
-<!-- خانة البحث ثلاثية الأبعاد -->
-<div class="main-search-wrapper">
-    <div class="search-title">ابحث في الموقع</div>
-    <div class="main-search">
-        <input type="text" id="siteSearch" placeholder="">
-    </div>
-</div>
-
-<!-- شبكة الأيقونات -->
-<div class="icon-grid">
-    <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
-    <a href="#" class="icon-item">الدروس</a>
-    <a href="#" class="icon-item">خطب الجمعة</a>
-    <a href="articles.html" class="icon-item">المقالات</a>
-    <a href="#" class="icon-item">تواصل معنا</a>
-</div>
-
-<script>
-document.getElementById("siteSearch").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        const query = this.value.trim();
-        if (!query) return;
-        window.location.href = "search.html?q=" + encodeURIComponent(query);
-    }
-});
-</script>
+<a href="index.html" class="back-home">الصفحة الرئيسية</a>
 
 </body>
 </html>
