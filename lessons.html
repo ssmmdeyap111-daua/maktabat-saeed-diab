@@ -2,86 +2,108 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>الدروس الصوتية</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدروس الصوتية - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 <style>
 body {
-    font-family: "Amiri", serif;
-    background-color: #f9f9f9;
     margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+    direction: rtl;
+    text-align: right;
 }
-
-.header {
-    background: linear-gradient(to bottom, #0b7a2e, #006400);
+.header-bar {
+    background: linear-gradient(to right, #006400, #00a000);
     color: white;
     text-align: center;
-    padding: 50px;
+    padding: 40px 20px;
     font-size: 2.5rem;
-    border-bottom: 6px solid #DAA520;
+    font-weight: bold;
+    border: 5px solid #DAA520; /* إطار ذهبي */
+    box-sizing: border-box;
 }
-
+.lesson-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 20px;
+}
 .lesson {
-    background: white;
     width: 80%;
-    margin: 25px auto;
+    max-width: 700px;
+    background-color: #e0ffe0;
+    border: 2px solid #006400;
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
 }
-
 .lesson h3 {
     margin-top: 0;
-    color: #006400;
     font-size: 1.8rem;
+    color: #006400;
 }
-
 audio {
     width: 100%;
     margin-top: 10px;
 }
 .back-home {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    padding: 15px;
+    background-color: #006400;
+    color: white;
     text-align: center;
-    margin: 40px;
-}
-
-.back-home a {
     text-decoration: none;
-    color: #006400;
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+}
+.back-home:hover {
+    background-color: #008000;
 }
 </style>
 </head>
-
 <body>
 
-<div class="header">الدروس الصوتية</div>
+<div class="header-bar">الدروس الصوتية - موقع الشيخ سعيد مصطفى دياب الرسمي</div>
 
-<div class="lesson">
-    <h3>الدرس الأول: أنوار الأذكار</h3>
-    <audio controls>
-        <source src="audio/anwar-alazkar-1.mp3" type="audio/mpeg">
-        متصفحك لا يدعم تشغيل الصوت
-    </audio>
+<div class="lesson-container">
+    <div class="lesson">
+        <h3>الدرس الأول: أنوار الأذكار 1</h3>
+        <audio controls>
+            <source src="audio/anwar-alazkar-1.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت
+        </audio>
+    </div>
+
+    <div class="lesson">
+        <h3>الدرس الثاني: أنوار الأذكار 2</h3>
+        <audio controls>
+            <source src="audio/anwar-alazkar-2.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت
+        </audio>
+    </div>
+
+    <div class="lesson">
+        <h3>الدرس الثالث: أنوار الأذكار 3</h3>
+        <audio controls>
+            <source src="audio/anwar-alazkar-3.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت
+        </audio>
+    </div>
+
+    <div class="lesson">
+        <h3>الدرس الرابع: أنوار الأذكار 4</h3>
+        <audio controls>
+            <source src="audio/anwar-alazkar-4.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت
+        </audio>
+    </div>
 </div>
 
-
-<div class="lesson">
-    <h3>الدرس الثاني: الإخلاص في العمل</h3>
-    <audio controls>
-        <source src="audio/lesson2.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="lesson">
-    <h3>الدرس الثالث: الثبات على الطاعة</h3>
-    <audio controls>
-        <source src="audio/lesson3.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="back-home">
-    <a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
-</div>
+<a href="index.html" class="back-home">العودة للصفحة الرئيسية</a>
 
 </body>
 </html>
