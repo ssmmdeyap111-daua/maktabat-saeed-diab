@@ -23,11 +23,11 @@ body {
     box-sizing: border-box;
 }
 
-/* الشريط المتحرك */
+/* الشريط المتحرك ذهبي وعرض أكبر */
 .marquee-container {
     overflow: hidden;
-    border-top: 4px solid #DAA520;
-    border-bottom: 4px solid #DAA520;
+    border-top: 8px solid #DAA520; /* ضعف الخط السابق */
+    border-bottom: 8px solid #DAA520;
     background-color: #f9f9f9;
     cursor: pointer;
 }
@@ -36,7 +36,7 @@ body {
     display: inline-block;
     white-space: nowrap;
     padding-left: 100%;
-    animation: marquee 30s linear infinite;
+    animation: marquee 40s linear infinite; /* أطول مدة للشريط الأكبر */
     font-size: 1.8rem;
     color: #006400;
     font-weight: bold;
@@ -52,7 +52,7 @@ body {
     animation-play-state: paused;
 }
 
-/* خانة البحث */
+/* خانة البحث ثلاثية الأبعاد */
 .main-search-wrapper {
     display: flex;
     flex-direction: column;
@@ -92,18 +92,18 @@ body {
         inset 0 5px 10px rgba(255, 255, 255, 0.95);
 }
 
-/* شبكة الأيقونات */
+/* شبكة الأيقونات ثلاثية الأبعاد أكثر مستطيلة وأقل عرض */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 30px 10px;
-    gap: 20px;
+    gap: 25px;
 }
 
 .icon-item {
-    width: 180px;
-    height: 100px;
+    width: 140px;   /* أقل عرضًا */
+    height: 120px;  /* أطول وأكثر مستطيلة */
     background-color: #e0ffe0;
     border: 2px solid #006400;
     display: flex;
@@ -112,14 +112,22 @@ body {
     text-align: center;
     font-weight: bold;
     color: #006400;
-    font-size: 2.3rem;
-    border-radius: 10px;
+    font-size: 2rem;
+    border-radius: 15px;
     cursor: pointer;
     text-decoration: none;
+    /* تأثير ثلاثي الأبعاد */
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.3),
+        inset 0 2px 4px rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
 }
 
 .icon-item:hover {
     background-color: #c8f0c8;
+    box-shadow:
+        0 12px 24px rgba(0,0,0,0.4),
+        inset 0 3px 6px rgba(255,255,255,0.8);
 }
 
 </style>
@@ -140,7 +148,7 @@ body {
 <div class="main-search-wrapper">
     <div class="search-title">ابحث في الموقع</div>
     <div class="main-search">
-        <input type="text" id="siteSearch" placeholder="الكتب – المقالات – الدروس">
+        <input type="text" id="siteSearch" placeholder="">
     </div>
 </div>
 
