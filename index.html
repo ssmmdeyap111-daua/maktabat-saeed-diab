@@ -103,6 +103,15 @@ body {
         <input type="text" id="siteSearch" placeholder="ابحث في الموقع">
     </div>
 </div>
+<script>
+document.getElementById("siteSearch").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        const query = this.value.trim();
+        if (!query) return;
+        window.location.href = "search.html?q=" + encodeURIComponent(query);
+    }
+});
+</script>
 
 <div class="icon-grid">
     <a href="books.html" class="icon-item">الكتب<br>والمؤلفات</a>
