@@ -11,23 +11,6 @@ body {
     background-color: #f9f9f9;
 }
 
-/* شريط العنوان الكبير */
-.header-bar {
-    background-color: #006400;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-    font-size: 2.8rem;
-    font-weight: bold;
-    border: 7px solid #DAA520;
-    box-sizing: border-box;
-}
-
-/* تمييز اسم الشيخ */
-.header-bar span {
-    font-size: 3.5rem;
-}
-
 /* أيقونات وسائل التواصل الاجتماعي أعلى يسار الصفحة */
 .social-icons {
     position: absolute;
@@ -35,6 +18,7 @@ body {
     left: 20px;
     display: flex;
     gap: 15px;
+    z-index: 1000;
 }
 
 .social-icons a {
@@ -56,19 +40,37 @@ body {
 .twitter { background-color: #1DA1F2; }
 .facebook { background-color: #1877F2; }
 
+/* شريط العنوان */
+.header-bar {
+    background-color: #006400;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 2.8rem;
+    font-weight: bold;
+    border: 7px solid #DAA520;
+    box-sizing: border-box;
+}
+
+/* تمييز اسم الشيخ داخل العنوان */
+.header-bar span {
+    font-size: 3.5rem;
+}
+
 /* الشريط المتحرك */
 .marquee-container {
     overflow: hidden;
     border-top: 4px solid #DAA520;
     border-bottom: 4px solid #DAA520;
     background-color: #f9f9f9;
+    padding: 10px 0;
 }
 
 .marquee {
     display: inline-block;
     white-space: nowrap;
     padding-left: 100%;
-    animation: marquee 30s linear infinite;
+    animation: marquee 40s linear infinite;
     font-size: 1.8rem;
     color: #006400;
     font-weight: bold;
@@ -81,6 +83,26 @@ body {
 @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
+}
+
+/* خانة البحث */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.search-box {
+    width: 70%;
+    max-width: 800px;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    border: 3px solid #006400;
+    border-radius: 15px;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.3),
+        inset 0 3px 6px rgba(255,255,255,0.5);
+    outline: none;
 }
 
 /* شبكة الأيقونات المستطيلة */
@@ -139,6 +161,11 @@ body {
     <div class="marquee">
         قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
     </div>
+</div>
+
+<!-- خانة البحث -->
+<div class="search-container">
+    <input type="text" class="search-box" placeholder="ابحث في الموقع">
 </div>
 
 <!-- الأيقونات المستطيلة -->
