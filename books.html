@@ -7,34 +7,57 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Arial", sans-serif;
     background-color: #f9f9f9;
 }
 
-/* الشريط الأخضر الكبير */
-.header-bar {
-    background-color: #006400;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-    font-size: 2.8rem;
-    font-weight: bold;
-    border: 7px solid #DAA520;
-    box-sizing: border-box;
-}
-
-/* شبكة الأيقونات الطويلة ثلاثية الأبعاد */
+/* شبكة الأيقونات المستطيلة للكتب */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 30px 10px;
-    gap: 30px;
+    margin: 40px 10px;
+    gap: 25px;
 }
 
 .icon-item {
-    width: 160px;  /* أقل عرض */
-    height: 180px; /* أكثر استطالة */
+    width: 160px;   /* أقل عرض */
+    height: 180px;  /* أطول مستطيل */
+    background-color: #e0ffe0;
+    border: 3px solid #006400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: #006400;
+    font-size: 1.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.35),
+        inset 0 3px 6px rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.icon-item:hover {
+    background-color: #c8f0c8;
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.45),
+        inset 0 4px 8px rgba(255,255,255,0.85);
+}
+
+/* زر العودة للصفحة الرئيسية */
+.back-home {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.back-home a {
+    width: 180px;
+    height: 100px;
     background-color: #e0ffe0;
     border: 3px solid #006400;
     display: flex;
@@ -53,130 +76,66 @@ body {
     transition: all 0.3s ease;
 }
 
-.icon-item:hover {
+.back-home a:hover {
     background-color: #c8f0c8;
     box-shadow:
         0 15px 30px rgba(0,0,0,0.45),
         inset 0 4px 8px rgba(255,255,255,0.85);
 }
 
-/* قائمة الكتب */
-.books-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin: 40px 10px;
-}
-
-.book-item {
-    width: 250px;
-    background-color: #fff;
-    border: 3px solid #006400;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    overflow: hidden;
+/* عناوين الكتب */
+.book-title {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #006400;
     text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #006400;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.book-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-}
-
-.book-item img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-}
-
-.book-item a {
-    display: block;
-    padding: 15px 10px;
-    color: #006400;
-    text-decoration: none;
-}
-
-.book-item a:hover {
-    color: #004d00;
-}
-
-/* زر العودة للصفحة الرئيسية */
-.back-home {
-    display: block;
-    width: 250px;
-    margin: 40px auto;
-    padding: 20px 0;
-    text-align: center;
-    background-color: #e0ffe0;
-    color: #006400;
-    font-size: 2rem;
-    font-weight: bold;
-    border: 3px solid #006400;
-    border-radius: 20px;
-    text-decoration: none;
-    box-shadow:
-        0 12px 25px rgba(0,0,0,0.35),
-        inset 0 3px 6px rgba(255,255,255,0.8);
-    transition: all 0.3s ease;
-}
-
-.back-home:hover {
-    background-color: #c8f0c8;
-    box-shadow:
-        0 15px 30px rgba(0,0,0,0.45),
-        inset 0 4px 8px rgba(255,255,255,0.85);
 }
 </style>
 </head>
 <body>
 
-<div class="header-bar">الكتب والمؤلفات</div>
+<div class="icon-grid">
+    <a href="pdfs/al-irshad.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">الإرشاد إلى أسباب محبة الله للعباد</div>
+        </div>
+    </a>
 
-<div class="books-container">
-    <div class="book-item">
-        <a href="pdfs/al-irshad.pdf" target="_blank">
-            <img src="images/book1.jpg" alt="الإرشاد">
-            <span>الإرشاد إلى أسباب محبة الله للعباد</span>
-        </a>
-    </div>
-    <div class="book-item">
-        <a href="pdfs/asaleeb-alquran.pdf" target="_blank">
-            <img src="images/book2.jpg" alt="أساليب القرآن">
-            <span>أساليب القرآن في البيان والتدبر</span>
-        </a>
-    </div>
-    <div class="book-item">
-        <a href="pdfs/fadhl-duaa.pdf" target="_blank">
-            <img src="images/book3.jpg" alt="فضل الدعاء">
-            <span>فضل الدعاء وأهميته</span>
-        </a>
-    </div>
-    <div class="book-item">
-        <a href="pdfs/itshaf-ahli-al-rusukh.pdf" target="_blank">
-            <img src="images/book4.jpg" alt="إتشاف">
-            <span>إتحاف أهل الرسوخ في العلم</span>
-        </a>
-    </div>
-    <div class="book-item">
-        <a href="pdfs/tamam-al-minah.pdf" target="_blank">
-            <img src="images/book5.jpg" alt="تمام المنه">
-            <span>تمام المنه على آداب المتقين</span>
-        </a>
-    </div>
-    <div class="book-item">
-        <a href="pdfs/al-ilmam.pdf" target="_blank">
-            <img src="images/book6.jpg" alt="الإلمام">
-            <span>الإلمام بما للصيام من حكم وآداب وأحكام</span>
-        </a>
-    </div>
+    <a href="pdfs/asaleeb-alquran.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">أساليب القرآن</div>
+        </div>
+    </a>
+
+    <a href="pdfs/fadhl-duaa.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">فضل الدعاء</div>
+        </div>
+    </a>
+
+    <a href="pdfs/itshaf-ahli-al-rusukh.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">إتشاف أهل الرسوخ</div>
+        </div>
+    </a>
+
+    <a href="pdfs/tamam-al-minah.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">تمام المنح</div>
+        </div>
+    </a>
+
+    <a href="pdfs/alm-alim-bima-lilsiyam.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">الإلمام بما للصيام من حكم وآداب وأحكام</div>
+        </div>
+    </a>
 </div>
 
-<a href="index.html" class="back-home">الصفحة الرئيسية</a>
+<!-- زر العودة للصفحة الرئيسية -->
+<div class="back-home">
+    <a href="index.html">العودة للصفحة الرئيسية</a>
+</div>
 
 </body>
 </html>
