@@ -4,105 +4,156 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
-
-<!-- خط عربي جميل -->
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
 body {
     margin: 0;
-    font-family: "Amiri", serif;
+    font-family: "Arial", sans-serif;
     background-color: #f9f9f9;
 }
 
-/* ===== الشريط الأخضر ===== */
+/* الشريط الأخضر الكبير */
 .header-bar {
     background-color: #006400;
     color: white;
     text-align: center;
-    padding: 90px 20px;
+    padding: 90px 50px;
     font-size: 3rem;
     font-weight: bold;
     border: 7px solid #DAA520;
     box-sizing: border-box;
 }
 
-/* ===== الشريط المتحرك ===== */
+/* الشريط المتحرك */
 .marquee-container {
     overflow: hidden;
-    border-top: 5px solid #DAA520;
-    border-bottom: 5px solid #DAA520;
-    background-color: #fff;
+    border-top: 4px solid #DAA520;
+    border-bottom: 4px solid #DAA520;
+    background-color: #f9f9f9;
+    cursor: pointer;
 }
 
 .marquee {
     display: inline-block;
     white-space: nowrap;
-    animation: marquee 35s linear infinite;
-    font-size: 1.9rem;
+    padding-left: 100%;
+    animation: marquee 30s linear infinite;
+    font-size: 1.8rem;
     color: #006400;
     font-weight: bold;
-    padding: 20px 0;
 }
 
 @keyframes marquee {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
-/* ===== الأيقونات ===== */
+/* توقف الحركة عند المرور بالماوس */
+.marquee-container:hover .marquee {
+    animation-play-state: paused;
+}
+
+/* خانة البحث */
+.main-search-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px 20px 60px;
+}
+
+.search-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #006400;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+}
+
+.main-search input {
+    width: 80%;
+    max-width: 1000px;
+    height: 80px;
+    padding: 0 30px;
+    font-size: 2.2rem;
+    border-radius: 25px;
+    border: 4px solid #DAA520;
+    outline: none;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.35),
+        inset 0 5px 10px rgba(255, 255, 255, 0.9),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.main-search input:focus {
+    border-color: #006400;
+    box-shadow:
+        0 22px 44px rgba(0, 100, 0, 0.45),
+        inset 0 5px 10px rgba(255, 255, 255, 0.95);
+}
+
+/* شبكة الأيقونات */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 40px 10px;
+    margin: 30px 10px;
     gap: 20px;
 }
 
 .icon-item {
-    width: 200px;
-    height: 110px;
+    width: 180px;
+    height: 100px;
     background-color: #e0ffe0;
-    border: 3px solid #006400;
+    border: 2px solid #006400;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-weight: bold;
     color: #006400;
-    font-size: 1.8rem;
-    border-radius: 12px;
+    font-size: 2.3rem;
+    border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
-    line-height: 1.3;
 }
 
 .icon-item:hover {
     background-color: #c8f0c8;
 }
+
 </style>
 </head>
-
 <body>
 
-<div class="header-bar">
-    موقع الشيخ سعيد مصطفى دياب الرسمي
-</div>
+<!-- الشريط الأخضر الكبير -->
+<div class="header-bar">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
 
+<!-- الشريط المتحرك الذهبي -->
 <div class="marquee-container">
     <div class="marquee">
-        قال الله تعالى: ﴿قُلْ هَذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلَى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحَانَ اللَّهِ وَمَا أَنَا مِنَ الْمُشْرِكِينَ﴾ (يوسف: 108)
+        قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحَانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
     </div>
 </div>
 
+<!-- خانة البحث ثلاثية الأبعاد -->
+<div class="main-search-wrapper">
+    <div class="search-title">ابحث في الموقع</div>
     <div class="main-search">
-        <input type="text" id="siteSearch" placeholder="ابحث في الموقع">
+        <input type="text" id="siteSearch" placeholder="الكتب – المقالات – الدروس">
     </div>
 </div>
+
+<!-- شبكة الأيقونات -->
+<div class="icon-grid">
+    <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
+    <a href="#" class="icon-item">الدروس</a>
+    <a href="#" class="icon-item">خطب الجمعة</a>
+    <a href="articles.html" class="icon-item">المقالات</a>
+    <a href="#" class="icon-item">تواصل معنا</a>
+</div>
+
+<!-- JavaScript للبحث -->
 <script>
 document.getElementById("siteSearch").addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
@@ -112,15 +163,6 @@ document.getElementById("siteSearch").addEventListener("keydown", function(e) {
     }
 });
 </script>
-
-<div class="icon-grid">
-    <a href="books.html" class="icon-item">الكتب<br>والمؤلفات</a>
-    <a href="#" class="icon-item">الدروس</a>
-    <a href="#" class="icon-item">خطب<br>الجمعة</a>
-    <a href="articles.html" class="icon-item">المقالات</a>
-    <a href="#" class="icon-item">تواصل<br>معنا</a>
-   
-</div>
 
 </body>
 </html>
