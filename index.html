@@ -7,114 +7,83 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Arial", sans-serif;
     background-color: #f9f9f9;
 }
 
-/* أيقونات التواصل أعلى اليسار */
-.social-icons {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    display: flex;
-    gap: 15px;
-    z-index: 100;
-}
-
-.social-icons a {
-    text-decoration: none;
-    font-size: 2rem;
-    color: #006400;
-    font-weight: bold;
-}
-
-/* الشريط الأخضر الكبير */
+/* شريط العنوان الكبير */
 .header-bar {
     background-color: #006400;
     color: white;
     text-align: center;
-    padding: 80px 20px; /* عريض */
-    font-size: 2.8rem; /* الخط الرئيسي */
+    padding: 60px 20px;
+    font-size: 2.8rem;
     font-weight: bold;
     border: 7px solid #DAA520;
     box-sizing: border-box;
-    position: relative;
 }
 
-/* تكبير متوسط لاسم سعيد مصطفى دياب */
-.header-bar span.name {
-    font-size: 3.5rem; /* أكبر بدرجة متوسطة */
+/* تمييز اسم الشيخ */
+.header-bar span {
+    font-size: 3.5rem;
 }
 
-/* الشريط المتحرك الذهبي */
+/* أيقونات وسائل التواصل الاجتماعي أعلى يسار الصفحة */
+.social-icons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+/* الألوان حسب المنصة */
+.telegram { background-color: #0088cc; }
+.whatsapp { background-color: #25D366; }
+.twitter { background-color: #1DA1F2; }
+.facebook { background-color: #1877F2; }
+
+/* الشريط المتحرك */
 .marquee-container {
     overflow: hidden;
-    border-top: 12px solid #DAA520;
-    border-bottom: 12px solid #DAA520;
+    border-top: 4px solid #DAA520;
+    border-bottom: 4px solid #DAA520;
     background-color: #f9f9f9;
-    cursor: pointer;
 }
 
 .marquee {
     display: inline-block;
     white-space: nowrap;
     padding-left: 100%;
-    animation: marquee 40s linear infinite;
+    animation: marquee 30s linear infinite;
     font-size: 1.8rem;
     color: #006400;
     font-weight: bold;
 }
 
-@keyframes marquee {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-.marquee-container:hover .marquee {
+.marquee:hover {
     animation-play-state: paused;
 }
 
-/* خانة البحث ثلاثية الأبعاد */
-.main-search-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px 20px 60px;
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
-.search-title {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #006400;
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
-}
-
-.main-search input {
-    width: 80%;
-    max-width: 1000px;
-    height: 90px;
-    padding: 0 30px;
-    font-size: 2.5rem;
-    border-radius: 25px;
-    border: 4px solid #DAA520;
-    outline: none;
-    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.35),
-        inset 0 5px 10px rgba(255, 255, 255, 0.9),
-        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-}
-
-.main-search input:focus {
-    border-color: #006400;
-    box-shadow:
-        0 22px 44px rgba(0, 100, 0, 0.45),
-        inset 0 5px 10px rgba(255, 255, 255, 0.95);
-}
-
-/* شبكة الأيقونات أكثر استطالة وأقل عرضًا */
+/* شبكة الأيقونات المستطيلة */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
@@ -124,8 +93,8 @@ body {
 }
 
 .icon-item {
-    width: 160px;  /* أقل عرض */
-    height: 180px; /* أكثر استطالة */
+    width: 160px;   /* أقل عرض */
+    height: 180px;  /* أطول مستطيل */
     background-color: #e0ffe0;
     border: 3px solid #006400;
     display: flex;
@@ -134,7 +103,7 @@ body {
     text-align: center;
     font-weight: bold;
     color: #006400;
-    font-size: 2.3rem;
+    font-size: 2rem;
     border-radius: 20px;
     cursor: pointer;
     text-decoration: none;
@@ -154,52 +123,33 @@ body {
 </head>
 <body>
 
-<!-- أيقونات التواصل -->
+<!-- أيقونات التواصل الاجتماعي -->
 <div class="social-icons">
-    <a href="#" title="Telegram">📨</a>
-    <a href="#" title="Facebook">📘</a>
-    <a href="#" title="X">❌</a>
-    <a href="#" title="WhatsApp">💬</a>
+    <a href="#" class="telegram">✈</a>
+    <a href="#" class="whatsapp">W</a>
+    <a href="#" class="twitter">T</a>
+    <a href="#" class="facebook">F</a>
 </div>
 
-<!-- الشريط الأخضر الكبير -->
-<div class="header-bar">
-    موقع <span class="name">سعيد مصطفى دياب</span> الرسمي
-</div>
+<!-- شريط العنوان -->
+<div class="header-bar">موقع الشيخ <span>سعيد مصطفى دياب</span> الرسمي</div>
 
-<!-- الشريط المتحرك الذهبي -->
+<!-- الشريط المتحرك -->
 <div class="marquee-container">
     <div class="marquee">
-        قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحَانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
+        قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
     </div>
 </div>
 
-<!-- خانة البحث ثلاثية الأبعاد -->
-<div class="main-search-wrapper">
-    <div class="search-title">ابحث في الموقع</div>
-    <div class="main-search">
-        <input type="text" id="siteSearch" placeholder="">
-    </div>
-</div>
-
-<!-- شبكة الأيقونات -->
+<!-- الأيقونات المستطيلة -->
 <div class="icon-grid">
     <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
     <a href="#" class="icon-item">الدروس</a>
     <a href="#" class="icon-item">خطب الجمعة</a>
     <a href="articles.html" class="icon-item">المقالات</a>
+    <a href="#" class="icon-item">تدبر القرآن</a>
     <a href="#" class="icon-item">تواصل معنا</a>
 </div>
-
-<script>
-document.getElementById("siteSearch").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        const query = this.value.trim();
-        if (!query) return;
-        window.location.href = "search.html?q=" + encodeURIComponent(query);
-    }
-});
-</script>
 
 </body>
 </html>
