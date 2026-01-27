@@ -463,3 +463,20 @@ body{
 .marquee-container:hover .marquee {
     animation-play-state: paused;
 }
+.marquee-container {
+    overflow: hidden;
+    background: linear-gradient(to right, #fffdf5, #fff7d6, #fffdf5);
+    border-top: 8px solid #DAA520;
+    border-bottom: 8px solid #DAA520;
+    padding: 35px 0;   /* هنا التوسيع (ضعف تقريبًا) */
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: marquee 35s linear infinite;
+    font-size: 2.2rem;
+    color: #006400;
+    font-weight: bold;
+}
