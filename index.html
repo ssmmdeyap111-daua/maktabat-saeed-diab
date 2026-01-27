@@ -11,6 +11,22 @@ body {
     background-color: #f9f9f9;
 }
 
+/* أيقونات التواصل أعلى اليسار */
+.social-icons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #006400;
+    font-weight: bold;
+}
+
 /* الشريط الأخضر الكبير */
 .header-bar {
     background-color: #006400;
@@ -21,13 +37,19 @@ body {
     font-weight: bold;
     border: 7px solid #DAA520;
     box-sizing: border-box;
+    position: relative;
 }
 
-/* الشريط المتحرك ذهبي وعرض أكبر */
+/* تكبير اسم سعيد مصطفى */
+.header-bar span.name {
+    font-size: 6rem; /* الضعف */
+}
+
+/* الشريط المتحرك الذهبي وعرض أكبر */
 .marquee-container {
     overflow: hidden;
-    border-top: 8px solid #DAA520;
-    border-bottom: 8px solid #DAA520;
+    border-top: 12px solid #DAA520;
+    border-bottom: 12px solid #DAA520;
     background-color: #f9f9f9;
     cursor: pointer;
 }
@@ -70,9 +92,9 @@ body {
 .main-search input {
     width: 80%;
     max-width: 1000px;
-    height: 80px;
+    height: 90px;
     padding: 0 30px;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     border-radius: 25px;
     border: 4px solid #DAA520;
     outline: none;
@@ -91,49 +113,59 @@ body {
         inset 0 5px 10px rgba(255, 255, 255, 0.95);
 }
 
-/* شبكة الأيقونات ثلاثية الأبعاد أكثر مستطيلة وأقل عرض */
+/* شبكة الأيقونات ثلاثية الأبعاد أكبر وأكثر مستطيلة */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 30px 10px;
-    gap: 25px;
+    gap: 30px;
 }
 
 .icon-item {
-    width: 140px;
-    height: 120px;
+    width: 200px;
+    height: 140px;
     background-color: #e0ffe0;
-    border: 2px solid #006400;
+    border: 3px solid #006400;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-weight: bold;
     color: #006400;
-    font-size: 2rem;
-    border-radius: 15px;
+    font-size: 2.5rem;
+    border-radius: 20px;
     cursor: pointer;
     text-decoration: none;
     box-shadow:
-        0 10px 20px rgba(0,0,0,0.3),
-        inset 0 2px 4px rgba(255,255,255,0.7);
+        0 12px 25px rgba(0,0,0,0.35),
+        inset 0 3px 6px rgba(255,255,255,0.8);
     transition: all 0.3s ease;
 }
 
 .icon-item:hover {
     background-color: #c8f0c8;
     box-shadow:
-        0 12px 24px rgba(0,0,0,0.4),
-        inset 0 3px 6px rgba(255,255,255,0.8);
+        0 15px 30px rgba(0,0,0,0.45),
+        inset 0 4px 8px rgba(255,255,255,0.85);
 }
 
 </style>
 </head>
 <body>
 
+<!-- أيقونات التواصل -->
+<div class="social-icons">
+    <a href="#" title="Telegram">📨</a>
+    <a href="#" title="Facebook">📘</a>
+    <a href="#" title="X">❌</a>
+    <a href="#" title="WhatsApp">💬</a>
+</div>
+
 <!-- الشريط الأخضر الكبير -->
-<div class="header-bar">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+<div class="header-bar">
+    موقع <span class="name">سعيد مصطفى</span> دياب الرسمي
+</div>
 
 <!-- الشريط المتحرك الذهبي -->
 <div class="marquee-container">
@@ -159,7 +191,6 @@ body {
     <a href="#" class="icon-item">تواصل معنا</a>
 </div>
 
-<!-- JavaScript للبحث -->
 <script>
 document.getElementById("siteSearch").addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
