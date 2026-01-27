@@ -40,17 +40,37 @@ body {
 .twitter { background-color: #1DA1F2; }
 .facebook { background-color: #1877F2; }
 
-/* شريط العنوان */
 .header-bar {
-    background-color: #006400;
+    background: linear-gradient(
+        to bottom,
+        #0b7a2e,
+        #006400,
+        #004d26
+    ); /* تدرج أخضر أنيق */
+
     color: white;
     text-align: center;
-    padding: 160px 50px;   /* الشريط أصبح بعرض (ارتفاع) الضعف */
-
-    font-size: 2.8rem;
+    padding: 160px 50px; /* الشريط عريض  */
+    font-size: 3rem;
     font-weight: bold;
-    border: 7px solid #DAA520;
+
+    border: 10px solid transparent;
+    border-image: linear-gradient(
+        45deg,
+        #FFD700,
+        #FFF6B0,
+        #DAA520,
+        #FFF6B0,
+        #FFD700
+    ) 1; /* إطار ذهبي لامع */
+
     box-sizing: border-box;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35),   /* ظل خارجي فخم */
+        inset 0 2px 6px rgba(255, 255, 255, 0.25); /* لمعة داخلية */
+}
+
 }
 
 /* تمييز اسم الشيخ داخل العنوان */
