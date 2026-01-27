@@ -1,1 +1,62 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>نتائج البحث</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 30px;
+}
+
+h2 {
+    color: #006400;
+    margin-bottom: 20px;
+}
+
+.result {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-right: 6px solid #DAA520;
+    background: #fff;
+    font-size: 1.4rem;
+}
+</style>
+</head>
+<body>
+
+<h2>نتائج البحث</h2>
+<div id="results"></div>
+
+<script>
+const data = [
+    { title: "الكتب والمؤلفات", link: "books.html" },
+    { title: "المقالات", link: "articles.html" },
+    { title: "الدروس", link: "#" },
+];
+
+const params = new URLSearchParams(window.location.search);
+const q = params.get("q");
+const resultsDiv = document.getElementById("results");
+
+if (q) {
+    data.filter(item =>
+        item.title.includes(q)
+    ).forEach(item => {
+        resultsDiv.innerHTML += `
+            <div class="result">
+                <a href="${item.link}">${item.title}</a>
+            </div>
+        `;
+    });
+
+    if (!resultsDiv.innerHTML) {
+        resultsDiv.innerHTML = "<p>لا توجد نتائج مطابقة.</p>";
+    }
+}
+</script>
+
+</body>
+</html>
