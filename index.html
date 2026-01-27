@@ -4,53 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+
+<!-- خط عربي جميل -->
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
-    font-family: "Arial", sans-serif;
+    font-family: "Amiri", serif;
     background-color: #f9f9f9;
 }
 
-/* أيقونات وسائل التواصل الاجتماعي أعلى يسار الصفحة */
-.social-icons {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    gap: 15px;
-    z-index: 1000;
+/* ===== الشريط الأخضر الرئيسي ===== */
+@keyframes goldShine {
+    0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+    50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
+    100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
 }
-
-.social-icons a {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.5rem;
-}
-
-/* الألوان حسب المنصة */
-.telegram { background-color: #0088cc; }
-.whatsapp { background-color: #25D366; }
-.twitter { background-color: #1DA1F2; }
-.facebook { background-color: #1877F2; }
 
 .header-bar {
-    background: linear-gradient(
-        to bottom,
-        #0b7a2e,
-        #006400,
-        #004d26
-    ); /* تدرج أخضر أنيق */
-
+    background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
-    padding: 160px 50px; /* الشريط عريض  */
+    padding: 160px 40px; /* شريط عريض جدًا */
     font-size: 3rem;
     font-weight: bold;
 
@@ -62,140 +38,112 @@ body {
         #DAA520,
         #FFF6B0,
         #FFD700
-    ) 1; /* إطار ذهبي لامع */
+    ) 1;
 
-    box-sizing: border-box;
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.35),   /* ظل خارجي فخم */
-        inset 0 2px 6px rgba(255, 255, 255, 0.25); /* لمعة داخلية */
+    animation: goldShine 6s linear infinite;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-}
-
-/* تمييز اسم الشيخ داخل العنوان */
-.header-bar span {
-    font-size: 3.5rem;
-}
-
-/* الشريط المتحرك */
+/* ===== الشريط المتحرك ===== */
 .marquee-container {
     overflow: hidden;
-    border-top: 4px solid #DAA520;
-    border-bottom: 4px solid #DAA520;
-    background-color: #f9f9f9;
-    padding: 10px 0;
+    background: linear-gradient(to right, #fffdf5, #fff4c2, #fffdf5);
+    border-top: 10px solid #DAA520;
+    border-bottom: 10px solid #DAA520;
+    padding: 70px 0; /* عريض جدًا */
 }
 
 .marquee {
     display: inline-block;
     white-space: nowrap;
-    padding-left: 100%;
-    animation: marquee 40s linear infinite;
-    font-size: 1.8rem;
+    animation: marquee-ltr 35s linear infinite;
+    font-size: 2.4rem;
     color: #006400;
     font-weight: bold;
 }
 
-.marquee:hover {
+@keyframes marquee-ltr {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.marquee-container:hover .marquee {
     animation-play-state: paused;
 }
 
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-/* خانة البحث */
-.search-container {
+/* ===== خانة البحث (كما هي) ===== */
+.search-box {
     display: flex;
     justify-content: center;
-    margin: 30px 0;
+    margin: 50px 0;
 }
 
-.search-box {
-    width: 70%;
-    max-width: 800px;
-    padding: 15px 20px;
-    font-size: 1.5rem;
-    border: 3px solid #006400;
-    border-radius: 15px;
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.3),
-        inset 0 3px 6px rgba(255,255,255,0.5);
-    outline: none;
+.search-box input {
+    width: 60%;
+    padding: 18px;
+    font-size: 1.6rem;
+    border-radius: 12px;
+    border: 2px solid #006400;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
-/* شبكة الأيقونات المستطيلة */
+/* ===== الأيقونات ===== */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 30px 10px;
-    gap: 30px;
+    gap: 25px;
+    margin: 40px 20px 80px;
 }
 
 .icon-item {
-    width: 160px;   /* أقل عرض */
-    height: 180px;  /* أطول مستطيل */
-    background-color: #e0ffe0;
-    border: 3px solid #006400;
+    width: 220px;
+    height: 90px; /* مستطيلة وأطول */
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 12px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #006400;
-    font-size: 2rem;
-    border-radius: 20px;
-    cursor: pointer;
     text-decoration: none;
-    box-shadow:
-        0 12px 25px rgba(0,0,0,0.35),
-        inset 0 3px 6px rgba(255,255,255,0.8);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    transition: transform 0.3s;
 }
 
 .icon-item:hover {
-    background-color: #c8f0c8;
-    box-shadow:
-        0 15px 30px rgba(0,0,0,0.45),
-        inset 0 4px 8px rgba(255,255,255,0.85);
+    transform: translateY(-6px);
 }
 </style>
 </head>
+
 <body>
 
-<!-- أيقونات التواصل الاجتماعي -->
-<div class="social-icons">
-    <a href="#" class="telegram">✈</a>
-    <a href="#" class="whatsapp">W</a>
-    <a href="#" class="twitter">T</a>
-    <a href="#" class="facebook">F</a>
+<!-- العنوان -->
+<div class="header-bar">
+    موقع الشيخ سعيد مصطفى دياب الرسمي
 </div>
-
-<!-- شريط العنوان -->
-<div class="header-bar">موقع الشيخ <span>سعيد مصطفى دياب</span> الرسمي</div>
 
 <!-- الشريط المتحرك -->
 <div class="marquee-container">
     <div class="marquee">
-        قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
+        قال الله تعالى: ﴿قُلْ هَٰذِهِ سَبِيلِي أَدْعُو إِلَى اللَّهِ عَلَىٰ بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي﴾ (يوسف: 108)
     </div>
 </div>
 
-<!-- خانة البحث -->
-<div class="search-container">
-    <input type="text" class="search-box" placeholder="ابحث في الموقع">
+<!-- البحث -->
+<div class="search-box">
+    <input type="text" placeholder="ابحث في الموقع">
 </div>
 
-<!-- الأيقونات المستطيلة -->
+<!-- الأيقونات -->
 <div class="icon-grid">
     <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
+    <a href="articles.html" class="icon-item">المقالات</a>
     <a href="#" class="icon-item">الدروس</a>
     <a href="#" class="icon-item">خطب الجمعة</a>
-    <a href="articles.html" class="icon-item">المقالات</a>
-    <a href="#" class="icon-item">تدبر القرآن</a>
     <a href="#" class="icon-item">تواصل معنا</a>
 </div>
 
