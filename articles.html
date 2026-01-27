@@ -1,217 +1,127 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المقالات - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<title>المقالات</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 body {
-    font-family: "Arial", sans-serif;
-    background-color: #f9f9f9;
     margin: 0;
-    padding: 0;
+    font-family: "Amiri", serif;
+    background-color: #f9f9f9;
     line-height: 2;
-    font-size: 1.2rem;
 }
-.header-bar {
-    background-color: #DAA520;
-    color: white;
-    text-align: center;
-    padding: 30px 10px;
-    font-size: 2rem;
-    font-weight: bold;
+
+/* إطار علوي ذهبي بسيط */
+.top-border {
+    border-top: 8px solid #DAA520;
+    margin-bottom: 30px;
 }
-.search-container {
-    text-align: center;
-    margin: 20px 0;
-}
-.search-container input {
-    padding: 10px;
-    width: 80%;
-    max-width: 500px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-.toc {
-    background-color: #e0ffe0;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 1000px;
-}
-.toc h3 {
-    color: #006400;
-}
-.toc ul {
-    list-style: none;
-    padding: 0;
-}
-.toc li {
-    margin: 10px 0;
-}
-.toc a {
-    text-decoration: none;
-    color: #004d00;
-    font-weight: bold;
-}
-.toc a:hover {
-    text-decoration: underline;
-}
-.articles-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 10px;
-    max-width: 1000px;
+
+/* محتوى المقالات */
+.container {
+    max-width: 900px;
     margin: auto;
-}
-.article-item {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding: 20px;
-    margin: 25px 0;
-    width: 100%;
 }
-.article-item h3 {
-    font-size: 2rem;
+
+/* عنوان المقال */
+.article-title {
+    font-size: 2.4rem;
     color: #006400;
     margin-bottom: 15px;
+    border-right: 6px solid #DAA520;
+    padding-right: 12px;
+    font-weight: bold;
 }
-.article-item p {
+
+/* نص المقال */
+.article-content {
+    font-size: 1.6rem;
+    color: #222;
+    margin-bottom: 50px;
     text-align: justify;
-    margin-bottom: 10px;
 }
-.read-more {
-    display: inline-block;
-    background-color: #006400;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-}
-.read-more:hover {
-    background-color: #004d00;
-}
-.full-text {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.5s ease;
-    padding: 0 0;
-}
-.full-text.open {
-    padding: 15px 0 0 0;
-    max-height: 2000px;
-}
+
+/* زر العودة */
 .back-home {
     display: block;
-    width: 220px;
-    margin: 40px auto 20px auto;
-    padding: 15px;
+    width: 300px;
+    margin: 60px auto 30px;
     text-align: center;
     background-color: #006400;
     color: white;
-    font-size: 1.2rem;
-    border-radius: 8px;
+    padding: 18px;
+    font-size: 1.6rem;
+    font-weight: bold;
     text-decoration: none;
+    border-radius: 10px;
+    border: 4px solid #DAA520;
 }
+
 .back-home:hover {
     background-color: #004d00;
 }
 </style>
 </head>
+
 <body>
 
-<div class="header-bar">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+<div class="top-border"></div>
 
-<div class="search-container">
-    <input type="text" id="searchInput" placeholder="ابحث في المقالات..." onkeyup="filterArticles()">
+<div class="container">
+
+<!-- المقال الأول -->
+<div class="article-title">
+مَعْنَى تَدَبُّرِ الْقُرْآنِ
+</div>
+<div class="article-content">
+التَّدَبُّرُ عِبَارَةٌ عَنِ النَّظَرِ فِي عَوَاقِبِ الْأُمُورِ وَأَدْبَارِهَا،  
+وَتَدَبُّرُ الْقُرْآنِ تَأَمُّلُ دَلَالَةِ تَفَاصِيلِ آيَاتِهِ عَلَى مَقَاصِدِهِ الَّتِي أَرْشَدَ إِلَيْهَا،  
+وَتَأَمُّلُ فَصَاحَتِهِ وَبَلَاغَتِهِ، وَالِاسْتِدْلَالُ بِهِ عَلَى أَنَّهُ كَلَامُ اللَّهِ تَعَالَى،  
+وَتَأَمُّلُ تَشْرِيعَاتِهِ الَّتِي هِيَ أَسْمَى مَرَاتِبِ التَّشْرِيعِ.
+
+فَإِذَا اسْتَشْعَرَ الْعَبْدُ أَنَّهُ الْمُخَاطَبُ بِكَلَامِ اللَّهِ تَعَالَى،  
+انْقَادَ لَهُ قَلْبُهُ، وَعَمِلَ بِهِ جَوَارِحُهُ،  
+حَتَّى يَكُونَ الْقُرْآنُ خُلُقَهُ وَسَمْتَهُ وَطَرِيقَ حَيَاتِهِ.
 </div>
 
-<div class="toc">
-    <h3>عناوين المقالات</h3>
-    <ul>
-        <li><a href="#article1" onclick="scrollToArticle(event, 'article1')">مَعْنَى تَدَبُّرِ الْقُرْآنِ</a></li>
-        <li><a href="#article2" onclick="scrollToArticle(event, 'article2')">معرفة الله تعالى بأسمائه وصفاته</a></li>
-        <li><a href="#article3" onclick="scrollToArticle(event, 'article3')">أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</a></li>
-    </ul>
+<!-- المقال الثاني -->
+<div class="article-title">
+معرفة الله تعالى بأسمائه وصفاته
+</div>
+<div class="article-content">
+قَالَ ابْنُ الْقَيِّمِ رَحِمَهُ اللَّهُ:  
+تُعَرِّفُهُ الرَّبَّ الْمَدْعُوَّ إِلَيْهِ، وَطَرِيقَ الْوُصُولِ إِلَيْهِ،  
+وَمَا لَهُ مِنَ الْكَرَامَةِ إِذَا قَدِمَ عَلَيْهِ.
+
+وَتُبَصِّرُهُ بِالْحَقِّ وَالْبَاطِلِ،  
+وَتَمْلَأُ قَلْبَهُ نُورًا وَفِرْقَانًا،  
+فَيَصِيرُ فِي شَأْنٍ وَالنَّاسُ فِي شَأْنٍ آخَرَ.
 </div>
 
-<div class="articles-container" id="articlesContainer">
+<!-- المقال الثالث -->
+<div class="article-title">
+أَنْتَ المُخَاطَبُ بِالْقُرْآنِ
+</div>
+<div class="article-content">
+أَنْتَ المُخَاطَبُ بِالْقُرْآنِ الكَرِيمِ،  
+بِأَمْرِهِ وَنَهْيِهِ، وَوَعْدِهِ وَوَعِيدِهِ،  
+فَإِذَا سَمِعْتَ قَوْلَ اللَّهِ تَعَالَى:  
+﴿يَا أَيُّهَا الَّذِينَ آمَنُوا﴾  
+فَأَرْعِهَا سَمْعَكَ، فَإِنَّهُ خَيْرٌ تُؤْمَرُ بِهِ، أَوْ شَرٌّ تُنْهَى عَنْهُ.
 
-    <div class="article-item" id="article1">
-        <h3>مَعْنَى تَدَبُّرِ الْقُرْآنِ</h3>
-        <p>التَّدَبُّرُ عِبَارَةٌ عَنِ النَّظَرِ فِي عَوَاقِبِ الْأُمُورِ...</p>
-        <a class="read-more" onclick="toggleText('full1', this)">اقرأ المزيد</a>
-        <div class="full-text" id="full1">
-            <p>فَمَعْنَى تَدَبُّرِ الْقُرآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى...</p>
-            <p>عَنْ سَعْدِ بْنِ هِشَامِ بْنِ عَامِرٍ...</p>
-            <p>قال ابن القيم رحمه الله: وَأَمَّا التَّأَمُّلُ فِي الْقُرآنِ ...</p>
-        </div>
-    </div>
-
-    <div class="article-item" id="article2">
-        <h3>معرفة الله تعالى بأسمائه وصفاته</h3>
-        <p>قَالَ ابنُ القيمِ رَحِمَهُ اللَّهُ: وَبِالْجُمْلَةِ تُعَرِّفُهُ الرَّبَّ ...</p>
-        <a class="read-more" onclick="toggleText('full2', this)">اقرأ المزيد</a>
-        <div class="full-text" id="full2">
-            <p>وَتُعَرِّفُهُ فِي مُقَابِلِ ذَلِكَ ثَلَاثَةً أُخْرَى...</p>
-            <p>فَهَذِهِ سِتَّةُ أُمُورٍ ضَرُورِيٌّ لِلْعَبْدِ ...</p>
-            <p>قال ابن القيم رَحِمَهُ اللَّهُ: فَلَا تَزَالُ مَعَانِيهِ تُنْهِضُ ...</p>
-        </div>
-    </div>
-
-    <div class="article-item" id="article3">
-        <h3>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</h3>
-        <p>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ الكريمِ بوعده ووعيد...</p>
-        <a class="read-more" onclick="toggleText('full3', this)">اقرأ المزيد</a>
-        <div class="full-text" id="full3">
-            <p>وترتعد فرائصك لوعيده، ويرتجف فؤادك لترهيبه...</p>
-            <p>وَإِنَّ كِتَابَ اللهِ أَوْثَقُ شَافِعٍ ...</p>
-        </div>
-    </div>
-
+وَبِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ.
 </div>
 
-<a href="index.html" class="back-home">العودة للصفحة الرئيسية</a>
+<a href="index.html" class="back-home">
+العودة إلى الصفحة الرئيسية
+</a>
 
-<script>
-function filterArticles() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const articles = document.querySelectorAll('.article-item');
-    articles.forEach(article => {
-        const text = article.textContent.toLowerCase();
-        article.style.display = text.includes(input) ? 'block' : 'none';
-    });
-}
-
-function toggleText(id, btn) {
-    const el = document.getElementById(id);
-    const isOpen = el.classList.contains('open');
-    if (isOpen) {
-        el.classList.remove('open');
-        btn.textContent = 'اقرأ المزيد';
-    } else {
-        el.classList.add('open');
-        btn.textContent = 'إخفاء المقال';
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-
-function scrollToArticle(event, id) {
-    event.preventDefault();
-    const article = document.getElementById(id);
-    article.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    const full = article.querySelector('.full-text');
-    if (!full.classList.contains('open')) {
-        full.classList.add('open');
-        const btn = article.querySelector('.read-more');
-        btn.textContent = 'إخفاء المقال';
-    }
-}
-</script>
+</div>
 
 </body>
 </html>
