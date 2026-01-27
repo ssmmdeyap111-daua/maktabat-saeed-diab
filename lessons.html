@@ -12,6 +12,8 @@ body {
     direction: rtl;
     text-align: right;
 }
+
+/* الشريط العلوي */
 .header-bar {
     background: linear-gradient(to right, #006400, #00a000);
     color: white;
@@ -19,38 +21,57 @@ body {
     padding: 40px 20px;
     font-size: 2.5rem;
     font-weight: bold;
-    border: 5px solid #DAA520; /* إطار ذهبي */
+    border: 5px solid #DAA520;
     box-sizing: border-box;
 }
-.lesson-container {
+
+/* حاوية الدروس */
+.lesson-grid {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
     margin: 40px 20px;
 }
-.lesson {
-    width: 80%;
-    max-width: 700px;
+
+/* أيقونة الدرس */
+.lesson-item {
+    width: 250px;
+    height: 180px;
     background-color: #e0ffe0;
     border: 2px solid #006400;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
 }
-.lesson h3 {
-    margin-top: 0;
-    font-size: 1.8rem;
+.lesson-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 20px rgba(0,0,0,0.5);
+}
+
+.lesson-item h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
     color: #006400;
 }
-audio {
+
+.lesson-item audio {
     width: 100%;
-    margin-top: 10px;
+    border-radius: 5px;
 }
+
+/* زر العودة للصفحة الرئيسية */
 .back-home {
     display: block;
     width: 200px;
-    margin: 30px auto;
+    margin: 40px auto;
     padding: 15px;
     background-color: #006400;
     color: white;
@@ -69,8 +90,8 @@ audio {
 
 <div class="header-bar">الدروس الصوتية - موقع الشيخ سعيد مصطفى دياب الرسمي</div>
 
-<div class="lesson-container">
-    <div class="lesson">
+<div class="lesson-grid">
+    <div class="lesson-item">
         <h3>الدرس الأول: أنوار الأذكار 1</h3>
         <audio controls>
             <source src="audio/anwar-alazkar-1.mp3" type="audio/mpeg">
@@ -78,7 +99,7 @@ audio {
         </audio>
     </div>
 
-    <div class="lesson">
+    <div class="lesson-item">
         <h3>الدرس الثاني: أنوار الأذكار 2</h3>
         <audio controls>
             <source src="audio/anwar-alazkar-2.mp3" type="audio/mpeg">
@@ -86,7 +107,7 @@ audio {
         </audio>
     </div>
 
-    <div class="lesson">
+    <div class="lesson-item">
         <h3>الدرس الثالث: أنوار الأذكار 3</h3>
         <audio controls>
             <source src="audio/anwar-alazkar-3.mp3" type="audio/mpeg">
@@ -94,7 +115,7 @@ audio {
         </audio>
     </div>
 
-    <div class="lesson">
+    <div class="lesson-item">
         <h3>الدرس الرابع: أنوار الأذكار 4</h3>
         <audio controls>
             <source src="audio/anwar-alazkar-4.mp3" type="audio/mpeg">
