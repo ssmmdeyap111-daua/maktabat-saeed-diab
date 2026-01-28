@@ -4,6 +4,7 @@ body {
     background-color: #f9f9f9;
 }
 
+/* ===== الشريط الأخضر الكبير ===== */
 .header-bar {
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
@@ -12,24 +13,18 @@ body {
     font-size: 3rem;
     font-weight: bold;
     border: 10px solid transparent;
-    border-image: linear-gradient(
-        45deg,
-        #FFD700,
-        #FFF6B0,
-        #DAA520,
-        #FFF6B0,
-        #FFD700
-    ) 1;
+    border-image: linear-gradient(45deg, #FFD700,#FFF6B0,#DAA520,#FFF6B0,#FFD700) 1;
     animation: goldShine 6s linear infinite;
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
 @keyframes goldShine {
-    0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
-    50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
-    100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+    0% { border-image-source: linear-gradient(45deg, #FFD700,#FFF6B0,#DAA520); }
+    50% { border-image-source: linear-gradient(225deg, #FFF6B0,#FFD700,#FFF6B0); }
+    100% { border-image-source: linear-gradient(45deg, #FFD700,#FFF6B0,#DAA520); }
 }
 
+/* ===== الشريط المتحرك ===== */
 .marquee-container {
     overflow: hidden;
     background: linear-gradient(to right, #fffdf5, #fff7d6, #fffdf5);
@@ -57,6 +52,7 @@ body {
     animation-play-state: paused;
 }
 
+/* ===== البحث الثلاثي الأبعاد ===== */
 .main-search-wrapper {
     display: flex;
     flex-direction: column;
@@ -82,20 +78,19 @@ body {
     border: 4px solid #DAA520;
     outline: none;
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-    box-shadow:
-        0 20px 40px rgba(0,0,0,0.35),
-        inset 0 5px 10px rgba(255,255,255,0.9),
-        inset 0 -5px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35),
+                inset 0 5px 10px rgba(255,255,255,0.9),
+                inset 0 -5px 10px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
 }
 
 .main-search input:focus {
     border-color: #006400;
-    box-shadow:
-        0 22px 44px rgba(0, 100, 0, 0.45),
-        inset 0 5px 10px rgba(255,255,255,0.95);
+    box-shadow: 0 22px 44px rgba(0,100,0,0.45),
+                inset 0 5px 10px rgba(255,255,255,0.95);
 }
 
+/* ===== الأيقونات ===== */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
@@ -125,6 +120,7 @@ body {
     transform: translateY(-6px);
 }
 
+/* ===== شريط الكتب ===== */
 .books-section {
     margin: 60px 20px;
     text-align: center;
@@ -179,6 +175,7 @@ body {
     color: #006400;
 }
 
+/* الأسهم */
 .arrow {
     background: linear-gradient(to bottom, #0b7a2e, #004d26);
     color: white;
