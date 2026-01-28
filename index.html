@@ -159,6 +159,13 @@ body {
         <img src="images/book4.jpg" alt="كتاب 4">
         <img src="images/book5.jpg" alt="كتاب 5">
     </div>
+<script>
+function scrollBooks(direction) {
+    const slider = document.getElementById("booksSlider");
+    const scrollAmount = 250; // مقدار الحركة
+    slider.scrollLeft += direction * scrollAmount;
+}
+</script>
 
     <button class="slider-btn right" onclick="scrollBooks(1)">&#10095;</button>
 </div>
