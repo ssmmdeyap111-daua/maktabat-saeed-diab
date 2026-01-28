@@ -146,6 +146,30 @@ body {
     <a href="#" class="icon-item">خطب الجمعة</a>
     <a href="#" class="icon-item">تواصل معنا</a>
 </div>
+<script>
+const slider = document.getElementById("booksSlider");
+
+function scrollBooks(direction) {
+    slider.scrollLeft += direction * 320;
+}
+
+/* تحريك تلقائي */
+let autoScroll = setInterval(() => {
+    slider.scrollLeft += 1;
+}, 25);
+
+/* إيقاف عند الماوس */
+slider.addEventListener("mouseenter", () => {
+    clearInterval(autoScroll);
+});
+
+/* استئناف بعد الخروج */
+slider.addEventListener("mouseleave", () => {
+    autoScroll = setInterval(() => {
+        slider.scrollLeft += 1;
+    }, 25);
+});
+</script>
 
 </body>
 <h2 class="books-title">📚 أحدث الكتب والمؤلفات</h2>
