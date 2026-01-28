@@ -173,14 +173,38 @@ body {
 <script>
 const slider = document.getElementById("booksSlider");
 
+// سرعة التحريك بالبيكسل لكل خطوة
+const scrollSpeed = 1;
+
+// تحريك تلقائي
+let autoScroll = setInterval(() => {
+    slider.scrollLeft += scrollSpeed;
+    // عند الوصول لنهاية الشريط، عد للبداية
+    if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+        slider.scrollLeft = 0;
+    }
+}, 20);
+
+// إيقاف الحركة عند مرور الماوس
+slider.addEventListener("mouseenter", () => {
+    clearInterval(autoScroll);
+});
+
+// استئناف الحركة عند الخروج بالماوس
+slider.addEventListener("mouseleave", () => {
+    autoScroll = setInterval(() => {
+        slider.scrollLeft += scrollSpeed;
+        if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+            slider.scrollLeft = 0;
+        }
+    }, 20);
+});
+
+// الأسهم للتحريك اليدوي
 function scrollBooks(direction) {
-    slider.scrollLeft += direction * 300; // سرعة التحريك
+    slider.scrollLeft += direction * 300;
 }
 </script>
-
-<div class="header-bar">
-    موقع الشيخ سعيد مصطفى دياب الرسمي
-</div>
 
 <div class="marquee-container">
     <div class="marquee">
