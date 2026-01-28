@@ -65,27 +65,20 @@
     </div>
 </div>
 
-<!-- JavaScript لتحريك شريط الكتب -->
 <script>
 const slider = document.getElementById("booksSlider");
 function scrollBooks(direction){
-    slider.scrollLeft += direction * 250; // كل ضغطة تحرك 250px
+    slider.scrollLeft += direction * 250;
 }
-
-// تحريك تلقائي بسيط
 let autoScroll = setInterval(() => {
     slider.scrollLeft += 1;
     if(slider.scrollLeft >= slider.scrollWidth - slider.clientWidth){
         slider.scrollLeft = 0;
     }
 }, 20);
-
-// إيقاف التحريك عند الماوس
 slider.addEventListener("mouseenter", () => {
     clearInterval(autoScroll);
 });
-
-// استئناف بعد الخروج
 slider.addEventListener("mouseleave", () => {
     autoScroll = setInterval(() => {
         slider.scrollLeft += 1;
