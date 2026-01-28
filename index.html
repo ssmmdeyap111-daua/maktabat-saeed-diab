@@ -148,30 +148,20 @@ body {
 </div>
 
 </body>
-</html>
+<h2 class="books-title">📚 أحدث الكتب والمؤلفات</h2>
+
 <div class="books-slider-wrapper">
-    <button class="slider-btn left" onclick="scrollBooks(-1)">&#10094;</button>
+
+    <button class="arrow left" onclick="scrollBooks(-1)">&#10094;</button>
 
     <div class="books-slider" id="booksSlider">
         <img src="images/book1.jpg" alt="كتاب 1">
         <img src="images/book2.jpg" alt="كتاب 2">
         <img src="images/book3.jpg" alt="كتاب 3">
         <img src="images/book4.jpg" alt="كتاب 4">
-        <img src="images/book5.jpg" alt="كتاب 5">
     </div>
-<script>
-function scrollBooks(direction) {
-    const slider = document.getElementById("booksSlider");
-    const scrollAmount = 250; // مقدار الحركة
-    slider.scrollLeft += direction * scrollAmount;
-}
-</script>
 
-    <button class="slider-btn right" onclick="scrollBooks(1)">&#10095;</button>
+    <button class="arrow right" onclick="scrollBooks(1)">&#10095;</button>
+
 </div>
-<script>
-function scrollBooks(direction) {
-    const slider = document.getElementById("booksSlider");
-    slider.scrollLeft += direction * 300;
-}
-</script>
+
