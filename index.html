@@ -202,22 +202,29 @@ body {
     <button class="arrow" onclick="scrollBooks(-1)">❯</button>
 
     <div class="books-slider" id="booksSlider">
-        <img src="images/book1.jpg" alt="كتاب 1">
-        <img src="images/book2.jpg" alt="كتاب 2">
-        <img src="images/book3.jpg" alt="كتاب 3">
-        <img src="images/book4.jpg" alt="كتاب 4">
+
+        <a href="books/book1.pdf" class="book-card">
+            <img src="images/book1.jpg" alt="كتاب 1">
+            <span>أنوار الأذكار</span>
+        </a>
+
+        <a href="books/book2.pdf" class="book-card">
+            <img src="images/book2.jpg" alt="كتاب 2">
+            <span>فقه العبادات</span>
+        </a>
+
+        <a href="books/book3.pdf" class="book-card">
+            <img src="images/book3.jpg" alt="كتاب 3">
+            <span>تفسير السور القصيرة</span>
+        </a>
+
+        <a href="books/book4.pdf" class="book-card">
+            <img src="images/book4.jpg" alt="كتاب 4">
+            <span>المنهج الدعوي</span>
+        </a>
+
     </div>
 
     <button class="arrow" onclick="scrollBooks(1)">❮</button>
 </div>
 
-<script>
-const slider = document.getElementById("booksSlider");
-
-function scrollBooks(dir) {
-    slider.scrollLeft += dir * 300;
-}
-</script>
-
-</body>
-</html>
