@@ -1,15 +1,7 @@
-/* ===== عام ===== */
 body {
     margin: 0;
     font-family: 'Amiri', serif;
     background-color: #f9f9f9;
-}
-
-/* ===== الشريط الأخضر الكبير ===== */
-@keyframes goldShine {
-    0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
-    50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
-    100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
 }
 
 .header-bar {
@@ -32,7 +24,12 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-/* ===== الشريط المتحرك ===== */
+@keyframes goldShine {
+    0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+    50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
+    100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+}
+
 .marquee-container {
     overflow: hidden;
     background: linear-gradient(to right, #fffdf5, #fff7d6, #fffdf5);
@@ -60,7 +57,6 @@ body {
     animation-play-state: paused;
 }
 
-/* ===== خانة البحث الثلاثية الأبعاد ===== */
 .main-search-wrapper {
     display: flex;
     flex-direction: column;
@@ -87,9 +83,9 @@ body {
     outline: none;
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
     box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.35),
-        inset 0 5px 10px rgba(255, 255, 255, 0.9),
-        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
+        0 20px 40px rgba(0,0,0,0.35),
+        inset 0 5px 10px rgba(255,255,255,0.9),
+        inset 0 -5px 10px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
 }
 
@@ -97,10 +93,9 @@ body {
     border-color: #006400;
     box-shadow:
         0 22px 44px rgba(0, 100, 0, 0.45),
-        inset 0 5px 10px rgba(255, 255, 255, 0.95);
+        inset 0 5px 10px rgba(255,255,255,0.95);
 }
 
-/* ===== الأيقونات ===== */
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
@@ -130,7 +125,6 @@ body {
     transform: translateY(-6px);
 }
 
-/* ===== شريط الكتب ===== */
 .books-section {
     margin: 60px 20px;
     text-align: center;
@@ -142,11 +136,11 @@ body {
     margin-bottom: 25px;
 }
 
-.books-wrapper {
-    position: relative;
+.books-slider-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 15px;
 }
 
 .books-slider {
@@ -185,7 +179,6 @@ body {
     color: #006400;
 }
 
-/* الأسهم */
 .arrow {
     background: linear-gradient(to bottom, #0b7a2e, #004d26);
     color: white;
