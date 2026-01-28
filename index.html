@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 
-<!-- خط عربي جميل -->
+<!-- خط عربي -->
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
 
 <style>
@@ -15,7 +15,7 @@ body {
     background-color: #f9f9f9;
 }
 
-/* ===== الشريط الأخضر الرئيسي ===== */
+/* ===== الشريط الأخضر ===== */
 @keyframes goldShine {
     0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
     50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
@@ -26,20 +26,11 @@ body {
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
-    padding: 160px 40px; /* شريط عريض جدًا */
+    padding: 160px 40px;
     font-size: 3rem;
     font-weight: bold;
-
     border: 10px solid transparent;
-    border-image: linear-gradient(
-        45deg,
-        #FFD700,
-        #FFF6B0,
-        #DAA520,
-        #FFF6B0,
-        #FFD700
-    ) 1;
-
+    border-image: linear-gradient(45deg,#FFD700,#FFF6B0,#DAA520,#FFF6B0,#FFD700) 1;
     animation: goldShine 6s linear infinite;
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
@@ -50,11 +41,10 @@ body {
     background: linear-gradient(to right, #fffdf5, #fff4c2, #fffdf5);
     border-top: 10px solid #DAA520;
     border-bottom: 10px solid #DAA520;
-    padding: 7px 0; /* متوسط */
+    padding: 7px 0;
 }
 
 .marquee {
-    display: inline-block;
     white-space: nowrap;
     animation: marquee-ltr 35s linear infinite;
     font-size: 2.4rem;
@@ -63,15 +53,15 @@ body {
 }
 
 @keyframes marquee-ltr {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
 }
 
 .marquee-container:hover .marquee {
     animation-play-state: paused;
 }
 
-/* ===== خانة البحث (كما هي) ===== */
+/* ===== البحث ===== */
 .search-box {
     display: flex;
     justify-content: center;
@@ -87,6 +77,61 @@ body {
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
+/* ===== شريط الكتب ===== */
+.books-section {
+    margin: 60px auto;
+    width: 95%;
+    text-align: center;
+}
+
+.books-title {
+    font-size: 2.4rem;
+    color: #006400;
+    margin-bottom: 25px;
+}
+
+.books-slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.books-slider {
+    display: flex;
+    gap: 25px;
+    width: 80%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.books-slider img {
+    width: 180px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #DAA520;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.35);
+    flex-shrink: 0;
+}
+
+/* الأسهم */
+.book-arrow {
+    background: linear-gradient(145deg, #006400, #228B22);
+    color: white;
+    border: none;
+    font-size: 2.8rem;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.book-arrow:hover {
+    background: linear-gradient(145deg, #228B22, #006400);
+}
+
 /* ===== الأيقونات ===== */
 .icon-grid {
     display: flex;
@@ -98,7 +143,7 @@ body {
 
 .icon-item {
     width: 220px;
-    height: 90px; /* مستطيلة وأطول */
+    height: 90px;
     background: linear-gradient(to bottom, #eaffea, #c8f0c8);
     border: 2px solid #006400;
     border-radius: 12px;
@@ -121,55 +166,51 @@ body {
 
 <body>
 
-<!-- العنوان -->
 <div class="header-bar">
     موقع الشيخ سعيد مصطفى دياب الرسمي
 </div>
 
-<!-- الشريط المتحرك -->
 <div class="marquee-container">
     <div class="marquee">
-        ‌قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
+        قال الله تعالى: ﴿قُلْ هذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ﴾ سورة يوسف
     </div>
 </div>
 
-<!-- البحث -->
 <div class="search-box">
     <input type="text" placeholder="ابحث في الموقع">
 </div>
 
-<!-- الأيقونات -->
+<!-- ===== شريط الكتب ===== -->
+<div class="books-section">
+    <div class="books-title">📚 أحدث الكتب والمؤلفات</div>
+
+    <div class="books-slider-wrapper">
+        <button class="book-arrow" onclick="scrollBooks(-1)">❯</button>
+
+        <div class="books-slider" id="booksSlider">
+            <img src="images/book1.jpg">
+            <img src="images/book2.jpg">
+            <img src="images/book3.jpg">
+            <img src="images/book4.jpg">
+        </div>
+
+        <button class="book-arrow" onclick="scrollBooks(1)">❮</button>
+    </div>
+</div>
+
 <div class="icon-grid">
     <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
     <a href="articles.html" class="icon-item">المقالات</a>
-   <a href="lessons.html" class="icon-item">الدروس</a>
+    <a href="lessons.html" class="icon-item">الدروس</a>
     <a href="#" class="icon-item">خطب الجمعة</a>
     <a href="#" class="icon-item">تواصل معنا</a>
 </div>
+
 <script>
-const slider = document.getElementById("booksSlider");
-
-function scrollBooks(direction) {
-    slider.scrollLeft += direction * 320;
+function scrollBooks(dir) {
+    document.getElementById("booksSlider").scrollLeft += dir * 300;
 }
-
-/* تحريك تلقائي */
-let autoScroll = setInterval(() => {
-    slider.scrollLeft += 1;
-}, 25);
-
-/* إيقاف عند الماوس */
-slider.addEventListener("mouseenter", () => {
-    clearInterval(autoScroll);
-});
-
-/* استئناف بعد الخروج */
-slider.addEventListener("mouseleave", () => {
-    autoScroll = setInterval(() => {
-        slider.scrollLeft += 1;
-    }, 25);
-});
 </script>
 
 </body>
-
+</html>
