@@ -195,3 +195,29 @@ body {
 .arrow:hover {
     background: linear-gradient(145deg, #228B22, #006400);
 }
+.book-card {
+    text-align: center;
+    text-decoration: none;
+    color: #006400;
+    font-weight: bold;
+    font-size: 1.3rem;
+    width: 170px;
+    flex-shrink: 0;
+}
+
+.book-card span {
+    display: block;
+    margin-top: 10px;
+}
+
+.book-card:hover span {
+    color: #228B22;
+}
+
+.book-card img {
+    transition: transform 0.3s;
+}
+
+.book-card:hover img {
+    transform: scale(1.05);
+}
