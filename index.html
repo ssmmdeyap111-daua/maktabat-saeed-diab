@@ -196,41 +196,50 @@ body {
     <a href="#" class="icon-item">تواصل معنا</a>
 </div>
 
-<div class="books-title">📚 إصدارات الشيخ</div>
-<div class="book-item">
-    <a href="books/tazkirat-al-abaha.pdf" target="_blank">
-        <img src="images/tazkirat-al-abaha.jpg" alt="تذكير الأباة بأسباب النجاة">
-        <p>تذكير الأباة بأسباب النجاة</p>
-    </a>
-</div>
+<!-- ===== شريط الكتب ===== -->
+<div class="books-section">
+    <h2 class="books-title">الكتب والمؤلفات</h2>
 
-<div class="books-slider-wrapper">
-    <button class="arrow" onclick="scrollBooks(-1)">❯</button>
+    <div class="books-wrapper">
+        <button class="arrow right" onclick="scrollBooks(1)">›</button>
 
-    <div class="books-slider" id="booksSlider">
+        <div class="books-slider" id="booksSlider">
 
-        <a href="books/book1.pdf" class="book-card">
-            <img src="images/book1.jpg" alt="كتاب 1">
-            <span>أنوار الأذكار</span>
-        </a>
+            <!-- الآلاء والدرر -->
+            <div class="book-item">
+                <a href="books/alaale-wa-aldorr.pdf" target="_blank">
+                    <img src="images/alaale-wa-aldorr.jpg" alt="الآلاء والدرر">
+                    <p>الآلاء والدرر</p>
+                </a>
+            </div>
 
-        <a href="books/book2.pdf" class="book-card">
-            <img src="images/book2.jpg" alt="كتاب 2">
-            <span>فقه العبادات</span>
-        </a>
+            <!-- الاعتبار بطرائف الأخبار -->
+            <div class="book-item">
+                <a href="books/alea-btaraef-alakhbar.pdf" target="_blank">
+                    <img src="images/alea-btaraef-alakhbar.jpg" alt="الاعتبار بطرائف الأخبار">
+                    <p>الاعتبار بطرائف الأخبار</p>
+                </a>
+            </div>
 
-        <a href="books/book3.pdf" class="book-card">
-            <img src="images/book3.jpg" alt="كتاب 3">
-            <span>تفسير السور القصيرة</span>
-        </a>
+            <!-- تذكير الأبهة بأسباب النجاة -->
+            <div class="book-item">
+                <a href="books/tazkirat-al-abaha.pdf" target="_blank">
+                    <img src="images/tazkirat-al-abaha.jpg" alt="تذكير الأبهة بأسباب النجاة">
+                    <p>تذكير الأبهة بأسباب النجاة</p>
+                </a>
+            </div>
 
-        <a href="books/book4.pdf" class="book-card">
-            <img src="images/book4.jpg" alt="كتاب 4">
-            <span>المنهج الدعوي</span>
-        </a>
+            <!-- أضف هنا أي كتب أخرى بنفس الطريقة -->
+            <!--
+            <div class="book-item">
+                <a href="books/اسم_الكتاب.pdf" target="_blank">
+                    <img src="images/اسم_الصورة.jpg" alt="عنوان الكتاب">
+                    <p>عنوان الكتاب</p>
+                </a>
+            </div>
+            -->
+        </div>
 
+        <button class="arrow left" onclick="scrollBooks(-1)">‹</button>
     </div>
-
-    <button class="arrow" onclick="scrollBooks(1)">❮</button>
 </div>
-
