@@ -169,3 +169,9 @@ function scrollBooks(direction) {
 
     <button class="slider-btn right" onclick="scrollBooks(1)">&#10095;</button>
 </div>
+<script>
+function scrollBooks(direction) {
+    const slider = document.getElementById("booksSlider");
+    slider.scrollLeft += direction * 300;
+}
+</script>
