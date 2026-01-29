@@ -203,6 +203,8 @@ body {
     font-size: 15px;
     transition: all 0.3s ease;
     box-sizing: border-box;
+min-height: auto !important;
+display: block !important;
 }
 
 .icon-item:hover {
