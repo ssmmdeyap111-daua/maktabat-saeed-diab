@@ -6,91 +6,139 @@
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- الشريط الأخضر الكبير -->
-<div class="header-bar">
-    موقع الشيخ سعيد مصطفى دياب الرسمي
-</div>
-
-<!-- الشريط المتحرك للآية -->
-<div class="marquee-container">
-    <div class="marquee">
-        قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
-    </div>
-</div>
-
-<!-- خانة البحث الثلاثية الأبعاد -->
-<div class="main-search-wrapper">
-    <div class="search-title">ابحث في الموقع</div>
-    <div class="main-search">
-        <input type="text" placeholder="ابحث في الموقع">
-    </div>
-</div>
-
-<!-- الأيقونات تحت الشريط -->
-<div class="icon-grid">
-    <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
-    <a href="articles.html" class="icon-item">المقالات</a>
-    <a href="lessons.html" class="icon-item">الدروس</a>
-    <a href="#" class="icon-item">خطب الجمعة</a>
-    <a href="#" class="icon-item">تواصل معنا</a>
-</div>
-
-<!-- ===== شريط الكتب المتحرك ===== -->
-<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
-
-<div class="books-slider-wrapper">
-
-  <button class="arrow left">❮</button>
-  <div class="books-slider" id="booksContainer">
-    <div class="book">
-      <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر">
-      <h3>الآلئ والدرر</h3>
-    </div>
-    <div class="book">
-      <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار بطرائف الأخبار">
-      <h3>الاعتبار بطرائف الأخبار</h3>
-    </div>
-    <div class="book">
-      <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="إتحاف أهل الرسوخ">
-      <h3>إتحاف أهل الرسوخ</h3>
-    </div>
-    <div class="book">
-      <img src="images/tazkirat-al-abaha.jpg.jpg" alt="تذكير الأباة بأسباب النجاة">
-      <h3>تذكير الأباة بأسباب النجاة</h3>
-    </div>
-    <div class="book">
-      <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء وآدابه">
-      <h3>فضل الدعاء وآدابه</h3>
-    </div>
-    <div class="book">
-      <img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بأحكام الصيام">
-      <h3>الإلمام بأحكام الصيام</h3>
-   </div>
-  <div class="book">
-      <img src="images/al-uqud-al-fadheya.jpg" alt="االقواعد الفقهية">
-      <h3>االقواعد الفقهية</h3>
-    </div>
-<div class="book">
-      <img src="images/asaleeb-alquran.jpg" alt="اأساليب القرآن البلاغية">
-      <h3>اأساليب القرآن البلاغية</h3>
-    </div>
-  </div>
-<button class="arrow right">❯</button>
-
-</div>
-
-<script>
-function moveBooks(dir) {
-  const c = document.getElementById("booksContainer");
-  c.scrollLeft += dir * 220; // تحريك بمقدار كل صورة
-}
-</script>
-
 <style>
+body {
+  margin: 0;
+  font-family: "Amiri", serif;
+  background-color: #f9f9f9;
+}
+
+/* ===== الشريط الأخضر الكبير ===== */
+.header-bar {
+  background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
+  color: white;
+  text-align: center;
+  padding: 160px 40px;
+  font-size: 3rem;
+  font-weight: bold;
+  border: 10px solid transparent;
+  border-image: linear-gradient(
+      45deg,
+      #FFD700,
+      #FFF6B0,
+      #DAA520,
+      #FFF6B0,
+      #FFD700
+  ) 1;
+  animation: goldShine 6s linear infinite;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+@keyframes goldShine {
+  0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+  50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
+  100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+}
+
+/* ===== الشريط المتحرك للآية ===== */
+.marquee-container {
+  overflow: hidden;
+  background: linear-gradient(to right, #fffdf5, #fff7d6, #fffdf5);
+  border-top: 8px solid #DAA520;
+  border-bottom: 8px solid #DAA520;
+  padding: 35px 0;
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: marquee 35s linear infinite;
+  font-size: 2.2rem;
+  color: #006400;
+  font-weight: bold;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.marquee-container:hover .marquee {
+  animation-play-state: paused;
+}
+
+/* ===== البحث ===== */
+.main-search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px 20px 60px;
+}
+
+.search-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #006400;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+}
+
+.main-search input {
+  width: 80%;
+  max-width: 1000px;
+  height: 80px;
+  padding: 0 30px;
+  font-size: 2.2rem;
+  border-radius: 25px;
+  border: 4px solid #DAA520;
+  outline: none;
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.35),
+      inset 0 5px 10px rgba(255, 255, 255, 0.9),
+      inset 0 -5px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.main-search input:focus {
+  border-color: #006400;
+  box-shadow:
+      0 22px 44px rgba(0, 100, 0, 0.45),
+      inset 0 5px 10px rgba(255, 255, 255, 0.95);
+}
+
+/* ===== الأيقونات ===== */
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 40px 20px 80px;
+}
+
+.icon-item {
+  width: 220px;
+  height: 90px;
+  background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+  border: 2px solid #006400;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #006400;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  transition: transform 0.3s;
+}
+
+.icon-item:hover {
+  transform: translateY(-6px);
+}
+
+/* ===== شريط الكتب المتحرك ===== */
 .books-slider-wrapper {
   display: flex;
   align-items: center;
@@ -100,7 +148,7 @@ function moveBooks(dir) {
   margin: 40px auto;
 }
 
-.books-container {
+#booksContainer {
   display: flex;
   gap: 25px;
   overflow-x: auto;
@@ -152,7 +200,96 @@ function moveBooks(dir) {
   background: linear-gradient(145deg, #228B22, #006400);
 }
 </style>
+</head>
+<body>
 
-<script src="script.js"></script>
+<!-- الشريط الأخضر الكبير -->
+<div class="header-bar">
+    موقع الشيخ سعيد مصطفى دياب الرسمي
+</div>
+
+<!-- الشريط المتحرك للآية -->
+<div class="marquee-container">
+    <div class="marquee">
+        قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
+    </div>
+</div>
+
+<!-- خانة البحث -->
+<div class="main-search-wrapper">
+    <div class="search-title">ابحث في الموقع</div>
+    <div class="main-search">
+        <input type="text" placeholder="ابحث في الموقع">
+    </div>
+</div>
+
+<!-- الأيقونات -->
+<div class="icon-grid">
+    <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
+    <a href="articles.html" class="icon-item">المقالات</a>
+    <a href="lessons.html" class="icon-item">الدروس</a>
+    <a href="#" class="icon-item">خطب الجمعة</a>
+    <a href="#" class="icon-item">تواصل معنا</a>
+</div>
+
+<!-- ===== شريط الكتب ===== -->
+<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
+
+<div class="books-slider-wrapper">
+
+  <button class="arrow left">❮</button>
+  <div class="books-slider" id="booksContainer">
+    <div class="book">
+      <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر">
+      <h3>الآلئ والدرر</h3>
+    </div>
+    <div class="book">
+      <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار بطرائف الأخبار">
+      <h3>الاعتبار بطرائف الأخبار</h3>
+    </div>
+    <div class="book">
+      <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="إتحاف أهل الرسوخ">
+      <h3>إتحاف أهل الرسوخ</h3>
+    </div>
+    <div class="book">
+      <img src="images/tazkirat-al-abaha.jpg.jpg" alt="تذكير الأباة بأسباب النجاة">
+      <h3>تذكير الأباة بأسباب النجاة</h3>
+    </div>
+    <div class="book">
+      <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء وآدابه">
+      <h3>فضل الدعاء وآدابه</h3>
+    </div>
+    <div class="book">
+      <img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بأحكام الصيام">
+      <h3>الإلمام بأحكام الصيام</h3>
+    </div>
+    <div class="book">
+      <img src="images/al-uqud-al-fadheya.jpg" alt="االقواعد الفقهية">
+      <h3>االقواعد الفقهية</h3>
+    </div>
+    <div class="book">
+      <img src="images/asaleeb-alquran.jpg" alt="اأساليب القرآن البلاغية">
+      <h3>اأساليب القرآن البلاغية</h3>
+    </div>
+  </div>
+  <button class="arrow right">❯</button>
+
+</div>
+
+<!-- ===== JavaScript ===== -->
+<script>
+const container = document.getElementById("booksContainer");
+const btnRight = document.querySelector(".arrow.right");
+const btnLeft  = document.querySelector(".arrow.left");
+
+btnRight.addEventListener("click", () => {
+  container.scrollBy({ left: 200, behavior: "smooth" });
+});
+
+btnLeft.addEventListener("click", () => {
+  container.scrollBy({ left: -200, behavior: "smooth" });
+});
+</script>
+
 </body>
 </html>
