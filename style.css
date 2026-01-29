@@ -104,21 +104,6 @@ body {
     margin: 30px 0;
 }
 
-.icon-item {
-    width: 150px;
-    height: 55px;
-    background: #e9f6ef;
-    border: 2px solid #1f7a4d;
-    border-radius: 12px;
-    text-align: center;
-    line-height: 55px;   /* توسيط النص عموديًا */
-    text-decoration: none;
-    color: #1f7a4d;
-    font-weight: bold;
-    font-size: 15px;
-    transition: 0.3s;
-}
-
 .icon-item:hover {
     background: #1f7a4d;
     color: #fff;
