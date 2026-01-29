@@ -200,7 +200,7 @@ body {
     margin: 50px auto;
 }
 
-.books-container {
+#booksContainer {
   display: flex;
   gap: 25px;
   overflow-x: auto;
