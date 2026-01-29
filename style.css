@@ -227,7 +227,7 @@ display: block !important;
 
 .icon-item {
     width: 260px;          /* كانت أصغر */
-    height: 120px;         /* تكبير الارتفاع */
+    height: 80px;         /* تكبير الارتفاع */
     font-size: 2.0rem;     /* تكبير الخط */
     font-weight: bold;
     background: linear-gradient(to bottom, #eaffea, #c8f0c8);
