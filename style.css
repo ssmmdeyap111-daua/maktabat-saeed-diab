@@ -201,45 +201,29 @@ body {
 }
 
 .books-container {
-    display: flex !important;
-    gap: 25px;
-    width: 85%;
-    overflow-x: auto;        /* مهم */
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    padding: 20px 10px;
-    direction: ltr;          /* حل مشكلة RTL */
-}
-
-.book {
-    min-width: 180px;
-    flex-shrink: 0;
-    text-align: center;
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px;
 }
 
 .book img {
-    width: 180px;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid gold;
-    display: block;
-    margin: auto;
-}
-
-.book h3 {
-    margin-top: 10px;
-    font-size: 15px;
-    color: #0b5f2a;
+  width: 180px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid gold;
+  display: block;
 }
 
 .arrow {
-    background: #006400;
-    color: #fff;
-    border: none;
-    font-size: 28px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    cursor: pointer;
+  background: #006400;
+  color: white;
+  border: none;
+  font-size: 28px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
 }
