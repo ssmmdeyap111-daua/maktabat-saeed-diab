@@ -216,3 +216,33 @@ min-height: auto !important;
 display: block !important;
 min-height: auto !important;
 display: block !important;
+/* أيقونات موحدة مستطيلة */
+.icon-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.icon-item {
+    width: 160px;       /* العرض أكبر من الارتفاع */
+    height: 50px;       /* الارتفاع أقل لتكون مستطيلة */
+    background: #e9f6ef;
+    border: 2px solid #1f7a4d;
+    border-radius: 14px;
+    text-align: center;
+    line-height: 50px;  /* لتوسيط النص عموديًا */
+    text-decoration: none;
+    color: #1f7a4d;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.icon-item:hover {
+    background: #1f7a4d;
+    color: #fff;
+    transform: translateY(-3px);
+}
