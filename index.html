@@ -100,6 +100,12 @@ slider.addEventListener("mouseleave", () => {
     }, 20);
 });
 </script>
+<script>
+function moveBooks(dir) {
+  const c = document.getElementById("booksContainer");
+  c.scrollLeft += dir * 220;
+}
+</script>
 
 </body>
 </html>
