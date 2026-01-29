@@ -226,19 +226,20 @@ display: block !important;
 }
 
 .icon-item {
-    width: 160px;       /* العرض أكبر من الارتفاع */
-    height: 50px;       /* الارتفاع أقل لتكون مستطيلة */
-    background: #e9f6ef;
-    border: 2px solid #1f7a4d;
-    border-radius: 14px;
-    text-align: center;
-    line-height: 50px;  /* لتوسيط النص عموديًا */
-    text-decoration: none;
-    color: #1f7a4d;
+    width: 260px;          /* كانت أصغر */
+    height: 120px;         /* تكبير الارتفاع */
+    font-size: 2.0rem;     /* تكبير الخط */
     font-weight: bold;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #006400;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
 }
 
 .icon-item:hover {
