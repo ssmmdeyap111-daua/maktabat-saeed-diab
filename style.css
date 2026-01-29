@@ -203,9 +203,14 @@ body {
 #booksContainer {
   display: flex;
   gap: 25px;
-  overflow-x: auto;
+  overflow-x: hidden; /* أو auto */
   scroll-behavior: smooth;
   padding: 20px;
+}
+
+.book {
+  min-width: 180px;
+  flex-shrink: 0;
 }
 
 .book img {
