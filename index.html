@@ -276,18 +276,23 @@ body {
 </div>
 <!-- ===== JavaScript ===== -->
 <script>
+<script>
 const container = document.getElementById("booksContainer");
 const btnRight = document.querySelector(".arrow.right");
 const btnLeft  = document.querySelector(".arrow.left");
 
+// عند الضغط على زر اليمين
 btnRight.addEventListener("click", () => {
-  container.scrollBy({ left: 200, behavior: "smooth" });
+  container.scrollBy({ left: 220, behavior: "smooth" });
 });
 
+// عند الضغط على زر اليسار
 btnLeft.addEventListener("click", () => {
-  container.scrollBy({ left: -200, behavior: "smooth" });
+  container.scrollBy({ left: -220, behavior: "smooth" });
 });
 </script>
+</body>
+
 
 </body>
 </html>
