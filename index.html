@@ -284,17 +284,12 @@ body {
 <!-- JavaScript لتحريك شريط الكتب -->
 <script>
 const container = document.getElementById("booksContainer");
-const btnRight = document.querySelector(".arrow.right");
-const btnLeft  = document.querySelector(".arrow.left");
 
-// تحريك عند الضغط على الأسهم
-btnRight.addEventListener("click", () => {
-  container.scrollBy({ left: 220, behavior: "smooth" });
-});
-btnLeft.addEventListener("click", () => {
-  container.scrollBy({ left: -220, behavior: "smooth" });
-});
+document.querySelector(".arrow.right").onclick = () => {
+  container.scrollLeft += 220;
+};
+
+document.querySelector(".arrow.left").onclick = () => {
+  container.scrollLeft -= 220;
+};
 </script>
-
-</body>
-</html>
