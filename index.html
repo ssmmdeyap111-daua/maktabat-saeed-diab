@@ -39,73 +39,108 @@
     <a href="#" class="icon-item">تواصل معنا</a>
 </div>
 
-<!-- شريط الكتب المتحرك -->
-<div class="books-section">
-    <div class="books-title">الكتب</div>
-    <div class="books-slider-wrapper">
-        <button class="arrow" onclick="scrollBooks(-1)">&#8592;</button>
-        <div class="books-slider" id="booksSlider">
-            <div class="book-item">
-                <img src="images/alaala-wa-aldorr.jpg" alt="الآلئ والدرر">
-                <p>الآلئ والدرر</p>
-            </div>
-            <div class="book-item">
-                <img src="images/alea-btaraef-alakhbar.jpg" alt="الاعتبار بطرائف الأخبار">
-                <p>الاعتبار بطرائف الأخبار</p>
-            </div>
+<!-- ===== شريط الكتب المتحرك ===== -->
+<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
+
+<div class="books-slider-wrapper">
+  <button class="arrow" onclick="moveBooks(-1)">❮</button>
+
+  <div class="books-container" id="booksContainer">
     <div class="book">
-      <img src="images/ithaf-ahl-alrusoukh.jpg.jpg">
+      <img src="images/alaala-wa-aldorr.jpg" alt="الآلئ والدرر">
+      <h3>الآلئ والدرر</h3>
+    </div>
+    <div class="book">
+      <img src="images/alea-btaraef-alakhbar.jpg" alt="الاعتبار بطرائف الأخبار">
+      <h3>الاعتبار بطرائف الأخبار</h3>
+    </div>
+    <div class="book">
+      <img src="images/ithaf-ahl-alrusoukh.jpg" alt="إتحاف أهل الرسوخ">
       <h3>إتحاف أهل الرسوخ</h3>
     </div>
-  </div>
-  <button class="arrow" onclick="moveBooks(1)">❯</button>
-</section>
-            <div class="book-item">
-                <img src="images/tazkirat-alaba.jpg" alt="تذكير الأباة بأسباب النجاة">
-                <p>تذكير الأباة بأسباب النجاة</p>
-            </div>
-            <div class="book-item">
-                <img src="images/fadhl-adda3wa.jpg" alt="فضل الدعاء وآدابه">
-                <p>فضل الدعاء وآدابه</p>
-            </div>
-            <div class="book-item">
-                <img src="images/ilmam-ahkam-alsiyam.jpg" alt="الإلمام بأحكام الصيام">
-                <p>الإلمام بأحكام الصيام</p>
-            </div>
-        </div>
-        <button class="arrow" onclick="scrollBooks(1)">&#8594;</button>
+    <div class="book">
+      <img src="images/tadkir-alaba.jpg" alt="تذكير الأباة بأسباب النجاة">
+      <h3>تذكير الأباة بأسباب النجاة</h3>
     </div>
+    <div class="book">
+      <img src="images/fadl-addua.jpg" alt="فضل الدعاء وآدابه">
+      <h3>فضل الدعاء وآدابه</h3>
+    </div>
+    <div class="book">
+      <img src="images/elmam-alssiyam.jpg" alt="الإلمام بأحكام الصيام">
+      <h3>الإلمام بأحكام الصيام</h3>
+    </div>
+  </div>
+
+  <button class="arrow" onclick="moveBooks(1)">❯</button>
 </div>
 
 <script>
-const slider = document.getElementById("booksSlider");
-function scrollBooks(direction){
-    slider.scrollLeft += direction * 250;
-}
-let autoScroll = setInterval(() => {
-    slider.scrollLeft += 1;
-    if(slider.scrollLeft >= slider.scrollWidth - slider.clientWidth){
-        slider.scrollLeft = 0;
-    }
-}, 20);
-slider.addEventListener("mouseenter", () => {
-    clearInterval(autoScroll);
-});
-slider.addEventListener("mouseleave", () => {
-    autoScroll = setInterval(() => {
-        slider.scrollLeft += 1;
-        if(slider.scrollLeft >= slider.scrollWidth - slider.clientWidth){
-            slider.scrollLeft = 0;
-        }
-    }, 20);
-});
-</script>
-<script>
 function moveBooks(dir) {
   const c = document.getElementById("booksContainer");
-  c.scrollLeft += dir * 220;
+  c.scrollLeft += dir * 220; // تحريك بمقدار كل صورة
 }
 </script>
 
-</body>
-</html>
+<style>
+.books-slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 95%;
+  margin: 40px auto;
+}
+
+.books-container {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px;
+}
+
+.book {
+  min-width: 180px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.book img {
+  width: 180px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid gold;
+  display: block;
+  margin: auto;
+  transition: transform 0.3s;
+}
+
+.book img:hover {
+  transform: scale(1.05);
+}
+
+.book h3 {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #0b5f2a;
+}
+
+.arrow {
+  background: linear-gradient(145deg, #006400, #228B22);
+  color: white;
+  border: none;
+  font-size: 28px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.arrow:hover {
+  background: linear-gradient(145deg, #228B22, #006400);
+}
+</style>
