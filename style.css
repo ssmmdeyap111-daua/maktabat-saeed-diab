@@ -226,18 +226,25 @@ display: block !important;
 }
 
 .icon-item {
-    width: 260px;          /* كانت أصغر */
-    height: 80px;         /* تكبير الارتفاع */
-    font-size: 2.0rem;     /* تكبير الخط */
+    width: 260px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;        /* توسيط عمودي */
+    justify-content: center;    /* توسيط أفقي */
+
+    font-size: 2.8rem;
     font-weight: bold;
+    line-height: 1.2;           /* مهم جدًا */
+    padding: 0;                 /* إزالة أي ارتفاع وهمي */
+
     background: linear-gradient(to bottom, #eaffea, #c8f0c8);
     border: 2px solid #006400;
     border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #006400;
     text-decoration: none;
+    text-align: center;
+
     box-shadow: 0 10px 22px rgba(0,0,0,0.3);
     transition: transform 0.3s;
 }
