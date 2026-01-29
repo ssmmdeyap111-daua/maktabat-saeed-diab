@@ -138,11 +138,12 @@ body {
 .books-slider {
     display: flex;
     gap: 25px;
-    overflow: hidden;
+    overflow-x: auto;   /* ← هذا هو الحل */
     scroll-behavior: smooth;
     width: 80%;
     padding: 20px 10px;
 }
+
 
 .book {
     min-width: 180px;
