@@ -35,40 +35,46 @@ body {
 
 /* ===== شريط الآية (أضيق + بيضاوي) ===== */
 .marquee-container {
+  position: relative;
   overflow: hidden;
   background: linear-gradient(to right, #fffdf5, #fff4c2, #fffdf5);
   border: 3px solid #DAA520;
   border-radius: 50px;
   width: 90%;
   margin: 30px auto;
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-rtl 22s linear infinite;
-}
-
-.marquee-track span {
+.marquee-single {
+  position: absolute;
   white-space: nowrap;
   font-size: 1.8rem;
   font-weight: bold;
   color: #006400;
+
+  /* البداية من خارج اليسار */
+  right: -100%;
+  animation: single-marquee 18s linear infinite;
 }
 
-/* الحركة من اليسار إلى اليمين */
-@keyframes marquee-rtl {
-  from {
-    transform: translateX(-50%);
+/* الحركة المطلوبة */
+@keyframes single-marquee {
+  0% {
+    right: -100%;
+    opacity: 1;
   }
-  to {
-    transform: translateX(0);
+  90% {
+    right: 100%;
+    opacity: 1;
+  }
+  100% {
+    right: 100%;
+    opacity: 0;
   }
 }
 
 /* إيقاف عند المرور */
-.marquee-container:hover .marquee-track {
+.marquee-container:hover .marquee-single {
   animation-play-state: paused;
 }
 
