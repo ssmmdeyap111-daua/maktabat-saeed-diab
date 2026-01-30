@@ -35,28 +35,41 @@ body {
 
 /* ===== شريط الآية (أضيق + بيضاوي) ===== */
 .marquee-container {
-    overflow: hidden;
-    background: linear-gradient(to right, #fffdf5, #fff7d6, #fffdf5);
-    border: 3px solid #DAA520;
-    padding: 15px 25px;
-    margin: 35px auto;
-    max-width: 80%;
-    border-radius: 40px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  background: linear-gradient(to right, #fffdf5, #fff4c2, #fffdf5);
+  border: 3px solid #DAA520;
+  border-radius: 50px; /* بيضاوي */
+  margin: 30px auto;
+  width: 90%;
+  padding: 12px 0;
 }
 
-.marquee {
-    display: inline-block;
-    white-space: nowrap;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #006400;
-    animation: marquee 25s linear infinite;
-    padding-left: 100%;
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-move 25s linear infinite;
 }
 
-.marquee-container:hover .marquee {
-    animation-play-state: paused;
+.marquee-track span {
+  white-space: nowrap;
+  padding-left: 60px;
+  font-size: 1.8rem;
+  color: #006400;
+  font-weight: bold;
+}
+
+@keyframes marquee-move {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* إيقاف عند المرور */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
 }
 
 @keyframes marquee {
