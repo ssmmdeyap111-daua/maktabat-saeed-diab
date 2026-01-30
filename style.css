@@ -58,7 +58,7 @@ body {
   color: #006400;
 
   padding-left: 100%;
-  animation: marquee-ltr 18s linear infinite;
+  animation: marquee-ltr 30s linear infinite;
 }
 
 /* من اليسار لليمين */
