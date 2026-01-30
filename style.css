@@ -39,7 +39,7 @@ body {
   max-width: 1600px;
   margin: 30px auto;
 
-  height: 90px;                 /* ← هذا هو الأهم */
+  height: 60px;                 /* ← هذا هو الأهم */
   overflow: hidden;
 
   background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
