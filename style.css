@@ -38,32 +38,32 @@ body {
   overflow: hidden;
   background: linear-gradient(to right, #fffdf5, #fff4c2, #fffdf5);
   border: 3px solid #DAA520;
-  border-radius: 50px; /* بيضاوي */
-  margin: 30px auto;
+  border-radius: 50px;
   width: 90%;
-  padding: 12px 0;
+  margin: 30px auto;
+  padding: 10px 0;
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-move 25s linear infinite;
+  animation: marquee-rtl 22s linear infinite;
 }
 
 .marquee-track span {
   white-space: nowrap;
-  padding-left: 60px;
   font-size: 1.8rem;
-  color: #006400;
   font-weight: bold;
+  color: #006400;
 }
 
-@keyframes marquee-move {
+/* الحركة من اليسار إلى اليمين */
+@keyframes marquee-rtl {
   from {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 }
 
