@@ -38,45 +38,42 @@ body {
   position: relative;
   overflow: hidden;
 
-  width: 95%;              /* أعرض */
-  max-width: 1400px;
-  margin: 30px auto;
+  width: 96%;              /* توسعة إضافية */
+  max-width: 1500px;
+  margin: 35px auto;
 
-  padding: 18px 30px;      /* ارتفاع مريح */
-  border-radius: 60px;
+  padding: 22px 40px;      /* ارتفاع أكبر */
+  border-radius: 70px;
 
-  background: linear-gradient(to right, #fffdf5, #fff3c4, #fffdf5);
+  background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
   border: 3px solid #DAA520;
 }
 
-  width: 90%;
-  margin: 30px auto;
-  padding: 12px 0;
-}
-
+/* الآية */
 .marquee-single {
   position: absolute;
   white-space: nowrap;
-  font-size: 1.9rem;
+
+  font-size: 2.2rem;       /* تكبير الخط */
   font-weight: bold;
   color: #006400;
 
-  left: -100%;     /* البداية خارج اليسار */
-  animation: marquee-ltr 20s linear infinite;
+  left: -110%;             /* خارج الشاشة */
+  animation: marquee-ltr 22s linear infinite;
 }
 
-/* الحركة المطلوبة */
+/* الحركة من اليسار إلى اليمين */
 @keyframes marquee-ltr {
   0% {
-    left: -100%;
+    left: -110%;
     opacity: 1;
   }
-  90% {
+  85% {
     left: 100%;
     opacity: 1;
   }
   100% {
-    left: 100%;
+    left: 110%;
     opacity: 0;
   }
 }
