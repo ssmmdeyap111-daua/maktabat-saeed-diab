@@ -37,9 +37,18 @@ body {
 .marquee-container {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(to right, #fffdf5, #fff4c2, #fffdf5);
+
+  width: 95%;              /* أعرض */
+  max-width: 1400px;
+  margin: 30px auto;
+
+  padding: 18px 30px;      /* ارتفاع مريح */
+  border-radius: 60px;
+
+  background: linear-gradient(to right, #fffdf5, #fff3c4, #fffdf5);
   border: 3px solid #DAA520;
-  border-radius: 50px;
+}
+
   width: 90%;
   margin: 30px auto;
   padding: 12px 0;
@@ -48,27 +57,26 @@ body {
 .marquee-single {
   position: absolute;
   white-space: nowrap;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: bold;
   color: #006400;
 
-  /* البداية من خارج اليسار */
-  right: -100%;
-  animation: single-marquee 18s linear infinite;
+  left: -100%;     /* البداية خارج اليسار */
+  animation: marquee-ltr 20s linear infinite;
 }
 
 /* الحركة المطلوبة */
-@keyframes single-marquee {
+@keyframes marquee-ltr {
   0% {
-    right: -100%;
+    left: -100%;
     opacity: 1;
   }
   90% {
-    right: 100%;
+    left: 100%;
     opacity: 1;
   }
   100% {
-    right: 100%;
+    left: 100%;
     opacity: 0;
   }
 }
