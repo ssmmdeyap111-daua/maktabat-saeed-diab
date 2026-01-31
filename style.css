@@ -19,7 +19,7 @@ body {
     font-size: 3rem;
     font-weight: bold;
     position: relative;
-    padding-bottom: 220px; /* مساحة للأيقونات */
+    padding-bottom: 180px; /* مساحة للأيقونات */
 }
 
     border: 10px solid transparent;
@@ -307,12 +307,17 @@ display: block !important;
     padding-top: 4px;
 }
 .header-icons {
-    .header-icons .icon-item {
-    background: linear-gradient(to bottom, #f6fff6, #dff5df);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
+    position: absolute;
+    bottom: 0;                 /* ← التصاق مباشر */
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    padding-bottom: 25px;      /* مسافة داخلية ناعمة */
+
     display: flex;
+    justify-content: center;
     gap: 18px;
     flex-wrap: wrap;
-    justify-content: center;
 }
+
