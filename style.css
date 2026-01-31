@@ -5,16 +5,16 @@ body {
     background-color: #f9f9f9;
 }
 
-/* ================== الشريط الأخضر العلوي ================== */
+/* ================== الشريط الأخضر ================== */
 @keyframes goldShine {
     0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
     50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
     100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
 }
 
-.header-bar + * {
-    margin-top: 40px;
-}
+.header-bar {
+    position: relative;
+    height: 420px;
 
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
@@ -45,7 +45,7 @@ body {
     text-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* ================== أيقونات الشريط العلوي ================== */
+/* ================== أيقونات الشريط ================== */
 .icon-grid {
     position: absolute;
     bottom: 20px;
@@ -90,7 +90,7 @@ body {
 .marquee-container {
     width: 90%;
     max-width: 1400px;
-    margin: 30px auto;
+    margin: 40px auto 0;
 
     height: 60px;
     overflow: hidden;
@@ -125,9 +125,8 @@ body {
 /* ================== خانة البحث ================== */
 .main-search-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 30px 20px 60px;
+    justify-content: center;
+    margin: 40px 0 60px;
 }
 
 .main-search input {
@@ -144,9 +143,9 @@ body {
 
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
     box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.35),
-        inset 0 5px 10px rgba(255, 255, 255, 0.9),
-        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
+        0 20px 40px rgba(0,0,0,0.35),
+        inset 0 5px 10px rgba(255,255,255,0.9),
+        inset 0 -5px 10px rgba(0,0,0,0.08);
 }
 
 /* ================== شريط الكتب ================== */
@@ -202,7 +201,7 @@ body {
     color: #0b5f2a;
 }
 
-/* أزرار الأسهم */
+/* الأسهم */
 .arrow {
     background: linear-gradient(145deg, #006400, #228B22);
     color: white;
@@ -221,7 +220,4 @@ body {
 
 .arrow:hover {
     background: linear-gradient(145deg, #228B22, #006400);
-}
-.marquee-container {
-    margin-top: 40px;
 }
