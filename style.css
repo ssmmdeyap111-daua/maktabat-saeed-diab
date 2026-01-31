@@ -1,198 +1,145 @@
-/* ===== عام ===== */
+/* =================================
+   الأساسيات
+================================= */
 body {
     margin: 0;
     font-family: "Amiri", serif;
     background-color: #f9f9f9;
+    direction: rtl;
 }
 
-/* ===== الشريط الأخضر الكبير ===== */
-@keyframes goldShine {
-    0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
-    50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
-    100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
-}
-
+/* =================================
+   الشريط الأخضر العلوي
+================================= */
 .header-bar {
-  .header-bar {
-    position: relative; /* مهم جدًا */
+    position: relative;
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
-    padding: 150px 30px 90px; /* مساحة كافية فوق + مساحة صغيرة تحت */
+
+    padding: 140px 20px 90px; /* أسفل مخصص للأيقونات */
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-/* ===== اسم الموقع باليد ===== */
+/* اسم الموقع */
 .site-name-hand {
-    font-family: 'Katibeh', cursive;
-    font-size: 4.2rem;
-    font-weight: normal;
-    color: #fffbe6;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 0 8px rgba(255,215,0,0.4);
-    letter-spacing: 2px;
-    line-height: 1.2;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* ===== الأيقونات أسفل الشريط الأخضر ===== */
-.header-icons .icon-item span {
+/* =================================
+   الأيقونات (أسفل الشريط الأخضر)
+================================= */
+.icon-grid {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* الأيقونة */
+.icon-item {
+    width: 200px;
+    height: 60px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 1;
-    padding-top: 0px;
-    font-size: 2rem;
+
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 14px;
+
+    color: #006400;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
 }
 
-.header-icons .icon-item:hover {
+.icon-item:hover {
     background: #1f7a4d;
-    color: #fff;
+    color: #ffffff;
     transform: translateY(-3px);
 }
 
-/* ===== استجابة الموبايل ===== */
-@media (max-width: 768px) {
-    .header-icons {
-        gap: 12px;
-        padding-bottom: 18px;
-    }
-    .header-icons .icon-item {
-        width: 200px;
-        height: 65px;
-        font-size: 2rem;
-    }
-}
-
-/* ===== شريط الآية المتحرك ===== */
+/* =================================
+   شريط الآية المتحرك
+================================= */
 .marquee-container {
-    width: 96%;
-    max-width: 1600px;
-    margin: 30px auto;
+    width: 90%;
+    max-width: 1400px;
+    margin: 35px auto;
+
     height: 60px;
     overflow: hidden;
+
     background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
     border: 3px solid #DAA520;
     border-radius: 60px;
+
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 .marquee-text {
     white-space: nowrap;
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #006400;
-    padding-left: 100%;
-    animation: marquee-ltr 30s linear infinite;
-}
 
-@keyframes marquee-ltr {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
+    padding-left: 100%;
+    animation: marquee 30s linear infinite;
 }
 
 .marquee-container:hover .marquee-text {
     animation-play-state: paused;
 }
 
-/* ===== خانة البحث ===== */
+@keyframes marquee {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
+}
+
+/* =================================
+   خانة البحث
+================================= */
 .main-search-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px 20px 60px;
-}
-
-.search-title {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #006400;
-    margin-bottom: 25px;
+    margin: 40px 20px 70px;
 }
 
 .main-search input {
     width: 80%;
     max-width: 1000px;
-    height: 80px;
+    height: 75px;
     padding: 0 30px;
-    font-size: 2.2rem;
+
+    font-size: 2rem;
     border-radius: 25px;
     border: 4px solid #DAA520;
     outline: none;
+
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
     box-shadow:
-        0 20px 40px rgba(0,0,0,0.35),
-        inset 0 5px 10px rgba(255,255,255,0.9),
-        inset 0 -5px 10px rgba(0,0,0,0.08);
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        inset 0 5px 10px rgba(255, 255, 255, 0.9);
 }
 
-/* ===== أيقونات موحدة ===== */
-.icon-grid {
-    position: absolute;
-    bottom: 0px;              /* التصاق فعلي بأسفل الشريط */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.icon-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
-    border: 2px solid #006400;
-    border-radius: 16px;
-    color: #006400;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    font-size: 2rem;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    width: 260px;
-    height: 80px;
-    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
-    padding: 0;
-}
-
-   .icon-item {
-    padding: 14px 22px;
-    font-size: 1.6rem;
-    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
-    border: 2px solid #006400;
-    border-radius: 14px;
-    color: #006400;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-    transition: all 0.3s ease;
-}
-
-.icon-item:hover {
-    background: #1f7a4d;
-    color: #fff;
-    transform: translateY(-3px);
-}
-
-
-/* ===== أيقونات فرعية أصغر ===== */
-.sub-icons .icon-item {
-    width: 140px;
-    height: 80px;
-    border-radius: 12px;
-}
-
-.sub-icons .icon-item span {
-    font-size: 1.6rem;
-    padding-top: 4px;
-}
-
-/* ===== شريط الكتب المتحرك ===== */
+/* =================================
+   شريط الكتب
+================================= */
 .books-slider-wrapper {
     display: flex;
     align-items: center;
@@ -214,10 +161,6 @@ body {
 .books-slider::-webkit-scrollbar {
     display: none;
 }
-.books-slider {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
 
 .book {
     min-width: 180px;
@@ -231,8 +174,6 @@ body {
     object-fit: cover;
     border-radius: 12px;
     border: 2px solid gold;
-    display: block;
-    margin: auto;
     transition: transform 0.3s;
 }
 
@@ -246,6 +187,7 @@ body {
     color: #0b5f2a;
 }
 
+/* الأسهم */
 .arrow {
     background: linear-gradient(145deg, #006400, #228B22);
     color: white;
@@ -263,29 +205,16 @@ body {
     background: linear-gradient(145deg, #228B22, #006400);
 }
 
-/* ===== استجابة الموبايل ===== */
-@media (max-width: 768px) {
-    .site-name-hand {
-        font-size: 3rem;
-        letter-spacing: 1px;
-    }
-    .header-icons {
-        gap: 12px;
-        padding-bottom: 18px;
-    }
-    .header-icons .icon-item {
-        width: 200px;
-        height: 65px;
-        font-size: 2rem;
-    }
-    .main-search input {
-        height: 65px;
-        font-size: 1.8rem;
-    }
-}
+/* =================================
+   الجوال
+================================= */
 @media (max-width: 768px) {
     .icon-item {
+        width: 160px;
         font-size: 1.4rem;
-        padding: 12px 18px;
+    }
+
+    .site-name-hand {
+        font-size: 2.3rem;
     }
 }
