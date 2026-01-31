@@ -127,13 +127,16 @@ body {
 }
 
 /* ===== أيقونات موحدة ===== */
-.icon-grid,
-.sub-icons {
+.icon-grid {
+    position: absolute;
+    bottom: 10px;              /* التصاق فعلي بأسفل الشريط */
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    gap: 12px;
     flex-wrap: wrap;
-    gap: 15px;
-    margin: 25px 0;
+    width: 100%;
 }
 
 .icon-item {
