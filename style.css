@@ -12,9 +12,9 @@ body {
     100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
 }
 
-.header-bar {
-    position: relative;
-    height: 420px;
+.header-bar + * {
+    margin-top: 40px;
+}
 
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
