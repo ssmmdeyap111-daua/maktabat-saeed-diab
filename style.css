@@ -13,17 +13,12 @@ body {
 }
 
 .header-bar {
-    position: relative;
+  .header-bar {
+    position: relative; /* مهم جدًا */
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
-    padding: 160px 40px;
-    padding-bottom: 0px; /* مساحة للأيقونات */
-    font-size: 3rem;
-    font-weight: bold;
-    border: 10px solid transparent;
-    border-image: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520, #FFF6B0, #FFD700) 1;
-    animation: goldShine 6s linear infinite;
+    padding: 150px 30px 90px; /* مساحة كافية فوق + مساحة صغيرة تحت */
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
