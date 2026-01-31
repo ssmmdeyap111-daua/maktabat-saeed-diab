@@ -1,3 +1,4 @@
+/* ===== عام ===== */
 body {
     margin: 0;
     font-family: "Amiri", serif;
@@ -12,76 +13,76 @@ body {
 }
 
 .header-bar {
+    position: relative;
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
     padding: 160px 40px;
+    padding-bottom: 180px; /* مساحة للأيقونات */
     font-size: 3rem;
     font-weight: bold;
-    position: relative;
-    padding-bottom: 180px; /* مساحة للأيقونات */
-}
-
     border: 10px solid transparent;
-    border-image: linear-gradient(
-        45deg,
-        #FFD700,
-        #FFF6B0,
-        #DAA520,
-        #FFF6B0,
-        #FFD700
-    ) 1;
-
+    border-image: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520, #FFF6B0, #FFD700) 1;
     animation: goldShine 6s linear infinite;
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-/* ===== شريط الآية (أضيق + بيضاوي) ===== */
+/* ===== اسم الموقع باليد ===== */
+.site-name-hand {
+    font-family: 'Katibeh', cursive;
+    font-size: 4.2rem;
+    font-weight: normal;
+    color: #fffbe6;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 0 8px rgba(255,215,0,0.4);
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+/* ===== الأيقونات أسفل الشريط الأخضر ===== */
+.header-icons {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+/* ===== شريط الآية المتحرك ===== */
 .marquee-container {
-  width: 96%;
-  max-width: 1600px;
-  margin: 30px auto;
-
-  height: 60px;                 /* ← هذا هو الأهم */
-  overflow: hidden;
-
-  background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
-  border: 3px solid #DAA520;
-  border-radius: 60px;
-
-  display: flex;
-  align-items: center;          /* توسيط عمودي مضمون */
-  position: relative;
+    width: 96%;
+    max-width: 1600px;
+    margin: 30px auto;
+    height: 60px;
+    overflow: hidden;
+    background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
+    border: 3px solid #DAA520;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .marquee-text {
-  white-space: nowrap;
-  font-size: 2.4rem;            /* تكبير الخط */
-  font-weight: bold;
-  color: #006400;
-
-  padding-left: 100%;
-  animation: marquee-ltr 30s linear infinite;
+    white-space: nowrap;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #006400;
+    padding-left: 100%;
+    animation: marquee-ltr 30s linear infinite;
 }
 
-/* من اليسار لليمين */
 @keyframes marquee-ltr {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-/* إيقاف عند المرور */
-.marquee-container:hover .marquee-text {
-  animation-play-state: paused;
-}
-
-@keyframes marquee {
     from { transform: translateX(-100%); }
-    to   { transform: translateX(100%); }
+    to { transform: translateX(100%); }
+}
+
+.marquee-container:hover .marquee-text {
+    animation-play-state: paused;
 }
 
 /* ===== خانة البحث ===== */
@@ -110,24 +111,67 @@ body {
     outline: none;
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
     box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.35),
-        inset 0 5px 10px rgba(255, 255, 255, 0.9),
-        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
+        0 20px 40px rgba(0,0,0,0.35),
+        inset 0 5px 10px rgba(255,255,255,0.9),
+        inset 0 -5px 10px rgba(0,0,0,0.08);
 }
 
-/* ===== أيقونات الصفحة الرئيسية والفرعية ===== */
-.icon-grid {
+/* ===== أيقونات موحدة ===== */
+.icon-grid,
+.sub-icons {
     display: flex;
     justify-content: center;
-    gap: 8px;
     flex-wrap: wrap;
-    margin: 18px 0;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.icon-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 16px;
+    color: #006400;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    width: 260px;
+    height: 80px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+    padding: 0;
+}
+
+.icon-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    line-height: 1;
+    padding-top: 8px;
 }
 
 .icon-item:hover {
     background: #1f7a4d;
     color: #fff;
     transform: translateY(-3px);
+}
+
+/* ===== أيقونات فرعية أصغر ===== */
+.sub-icons .icon-item {
+    width: 140px;
+    height: 80px;
+    border-radius: 12px;
+}
+
+.sub-icons .icon-item span {
+    font-size: 1.6rem;
+    padding-top: 4px;
 }
 
 /* ===== شريط الكتب المتحرك ===== */
@@ -143,12 +187,19 @@ body {
 .books-slider {
     display: flex;
     gap: 25px;
-    overflow-x: auto;   /* ← هذا هو الحل */
+    overflow-x: auto;
     scroll-behavior: smooth;
     width: 80%;
     padding: 20px 10px;
 }
 
+.books-slider::-webkit-scrollbar {
+    display: none;
+}
+.books-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
 .book {
     min-width: 180px;
@@ -193,131 +244,24 @@ body {
 .arrow:hover {
     background: linear-gradient(145deg, #228B22, #006400);
 }
-.books-slider::-webkit-scrollbar {
-    display: none;
+
+/* ===== استجابة الموبايل ===== */
+@media (max-width: 768px) {
+    .site-name-hand {
+        font-size: 3rem;
+        letter-spacing: 1px;
+    }
+    .header-icons {
+        gap: 12px;
+        padding-bottom: 18px;
+    }
+    .header-icons .icon-item {
+        width: 200px;
+        height: 65px;
+        font-size: 2rem;
+    }
+    .main-search input {
+        height: 65px;
+        font-size: 1.8rem;
+    }
 }
-.books-slider {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-/* ===== أيقونات موحدة مستطيلة لكل الموقع ===== */
-.icon-grid {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin: 25px 0;
-}
-
-.icon-item {
-    width: 50px;
-    height: 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
-    border: 2px solid #006400;
-    border-radius: 18px;
-
-    text-decoration: none;
-    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
-}
-
-/* التحكم الحقيقي في النص */
-.icon-item span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 2.0rem;
-    font-weight: bold;
-    color: #006400;
-
-    line-height: 1;          /* المفتاح */
-    padding-top: 8px;        /* تعويض ارتفاع الحروف العربية */
-}
-
-
-.icon-item:hover {
-    background: #1f7a4d;
-    color: #ffffff;
-    transform: translateY(-3px);
-}
-min-height: auto !important;
-display: block !important;
-min-height: auto !important;
-display: block !important;
-/* أيقونات موحدة مستطيلة */
-.icon-grid {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin: 25px 0;
-}
-
-.icon-item {
-    width: 260px;
-    height: 80px;
-
-    display: flex;
-    align-items: center;        /* توسيط عمودي */
-    justify-content: center;    /* توسيط أفقي */
-
-    font-size: 2.8rem;
-    font-weight: bold;
-    line-height: 1.2;           /* مهم جدًا */
-    padding: 0;                 /* إزالة أي ارتفاع وهمي */
-
-    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
-    border: 2px solid #006400;
-    border-radius: 16px;
-    color: #006400;
-    text-decoration: none;
-    text-align: center;
-
-    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
-}
-
-.icon-item:hover {
-    background: #1f7a4d;
-    color: #fff;
-    transform: translateY(-3px);
-}
-.icon-item {
-    font-size: 2.0rem;
-    font-weight: bold;
-}
-.icon-item {
-    font-size: 2.0rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-.sub-icons .icon-item {
-    width: 140px;
-    height: 80px;
-    border-radius: 12px;
-}
-
-.sub-icons .icon-item span {
-    font-size: 1.6rem;
-    padding-top: 4px;
-}
-.header-icons {
-    position: absolute;
-    bottom: 0;                 /* ← التصاق مباشر */
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 100%;
-    padding-bottom: 25px;      /* مسافة داخلية ناعمة */
-
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
