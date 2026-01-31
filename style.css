@@ -1,23 +1,39 @@
-/* =================================
-   الأساسيات
-================================= */
+/* ================== الإعدادات العامة ================== */
 body {
     margin: 0;
     font-family: "Amiri", serif;
     background-color: #f9f9f9;
-    direction: rtl;
 }
 
-/* =================================
-   الشريط الأخضر العلوي
-================================= */
+/* ================== الشريط الأخضر العلوي ================== */
+@keyframes goldShine {
+    0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+    50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
+    100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+}
+
 .header-bar {
     position: relative;
+    height: 420px;
+
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
 
-    padding: 140px 20px 90px; /* أسفل مخصص للأيقونات */
+    padding-top: 130px;
+    overflow: hidden;
+
+    border: 10px solid transparent;
+    border-image: linear-gradient(
+        45deg,
+        #FFD700,
+        #FFF6B0,
+        #DAA520,
+        #FFF6B0,
+        #FFD700
+    ) 1;
+
+    animation: goldShine 6s linear infinite;
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
@@ -25,60 +41,56 @@ body {
 .site-name-hand {
     font-size: 3rem;
     font-weight: bold;
-    letter-spacing: 1px;
+    margin-bottom: 40px;
     text-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* =================================
-   الأيقونات (أسفل الشريط الأخضر)
-================================= */
+/* ================== أيقونات الشريط العلوي ================== */
 .icon-grid {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
 
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: nowrap;
 }
 
-/* الأيقونة */
 .icon-item {
-    width: 200px;
-    height: 60px;
+    width: 170px;
+    height: 55px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    font-size: 1.4rem;
+    font-weight: bold;
+
     background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    color: #006400;
+
     border: 2px solid #006400;
     border-radius: 14px;
 
-    color: #006400;
     text-decoration: none;
-    font-size: 1.6rem;
-    font-weight: bold;
-
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
 }
 
 .icon-item:hover {
     background: #1f7a4d;
-    color: #ffffff;
+    color: #fff;
     transform: translateY(-3px);
 }
 
-/* =================================
-   شريط الآية المتحرك
-================================= */
+/* ================== شريط الآية ================== */
 .marquee-container {
     width: 90%;
     max-width: 1400px;
-    margin: 35px auto;
+    margin: 30px auto;
 
     height: 60px;
     overflow: hidden;
@@ -93,58 +105,57 @@ body {
 
 .marquee-text {
     white-space: nowrap;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: #006400;
 
     padding-left: 100%;
-    animation: marquee 30s linear infinite;
+    animation: marquee-ltr 30s linear infinite;
+}
+
+@keyframes marquee-ltr {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
 }
 
 .marquee-container:hover .marquee-text {
     animation-play-state: paused;
 }
 
-@keyframes marquee {
-    from { transform: translateX(-100%); }
-    to   { transform: translateX(100%); }
-}
-
-/* =================================
-   خانة البحث
-================================= */
+/* ================== خانة البحث ================== */
 .main-search-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 20px 70px;
+    margin: 30px 20px 60px;
 }
 
 .main-search input {
     width: 80%;
     max-width: 1000px;
-    height: 75px;
-    padding: 0 30px;
+    height: 80px;
 
+    padding: 0 30px;
     font-size: 2rem;
+
     border-radius: 25px;
     border: 4px solid #DAA520;
     outline: none;
 
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
     box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.35),
-        inset 0 5px 10px rgba(255, 255, 255, 0.9);
+        0 20px 40px rgba(0, 0, 0, 0.35),
+        inset 0 5px 10px rgba(255, 255, 255, 0.9),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* =================================
-   شريط الكتب
-================================= */
+/* ================== شريط الكتب ================== */
 .books-slider-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
+
     width: 95%;
     margin: 40px auto 80px;
 }
@@ -152,10 +163,13 @@ body {
 .books-slider {
     display: flex;
     gap: 25px;
+
     overflow-x: auto;
     scroll-behavior: smooth;
     width: 80%;
     padding: 20px 10px;
+
+    scrollbar-width: none;
 }
 
 .books-slider::-webkit-scrollbar {
@@ -172,6 +186,7 @@ body {
     width: 180px;
     height: 260px;
     object-fit: cover;
+
     border-radius: 12px;
     border: 2px solid gold;
     transition: transform 0.3s;
@@ -187,34 +202,23 @@ body {
     color: #0b5f2a;
 }
 
-/* الأسهم */
+/* أزرار الأسهم */
 .arrow {
     background: linear-gradient(145deg, #006400, #228B22);
     color: white;
     border: none;
+
     font-size: 28px;
     width: 55px;
     height: 55px;
+
     border-radius: 50%;
     cursor: pointer;
+
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: 0.3s;
 }
 
 .arrow:hover {
     background: linear-gradient(145deg, #228B22, #006400);
-}
-
-/* =================================
-   الجوال
-================================= */
-@media (max-width: 768px) {
-    .icon-item {
-        width: 160px;
-        font-size: 1.4rem;
-    }
-
-    .site-name-hand {
-        font-size: 2.3rem;
-    }
 }
