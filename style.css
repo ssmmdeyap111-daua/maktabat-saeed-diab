@@ -39,17 +39,32 @@ body {
 }
 
 /* ===== الأيقونات أسفل الشريط الأخضر ===== */
-.header-icons {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    padding-bottom: 25px;
+.header-icons .icon-item span {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 18px;
-    flex-wrap: wrap;
+    line-height: 1;
+    padding-top: 8px;
+    font-size: 2rem;
+}
+
+.header-icons .icon-item:hover {
+    background: #1f7a4d;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* ===== استجابة الموبايل ===== */
+@media (max-width: 768px) {
+    .header-icons {
+        gap: 12px;
+        padding-bottom: 18px;
+    }
+    .header-icons .icon-item {
+        width: 200px;
+        height: 65px;
+        font-size: 2rem;
+    }
 }
 
 /* ===== شريط الآية المتحرك ===== */
