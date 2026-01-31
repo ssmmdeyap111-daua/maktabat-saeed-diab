@@ -14,14 +14,13 @@ body {
 
 .header-bar {
     position: relative;
-    height: 420px;
-
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
 
-    padding-top: 130px;
-    overflow: hidden;
+    padding-top: 60px;       /* مساحة أعلى اسم الموقع */
+    padding-bottom: 100px;   /* مساحة كافية للأيقونات */
+    height: auto;
 
     border: 10px solid transparent;
     border-image: linear-gradient(
@@ -37,25 +36,25 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-/* اسم الموقع */
+/* ================== اسم الموقع ================== */
 .site-name-hand {
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* مسافة بين الاسم والأيقونات */
     text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    z-index: 2;
 }
 
 /* ================== أيقونات الشريط ================== */
 .icon-grid {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;        /* التصاق مباشر بأسفل الشريط */
     left: 50%;
     transform: translateX(-50%);
-
     display: flex;
     gap: 12px;
-    justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap;   /* صف واحد فقط */
+    z-index: 2;          /* فوق الخلفية ولكن أسفل الاسم */
 }
 
 .icon-item {
@@ -101,6 +100,7 @@ body {
 
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 .marquee-text {
@@ -127,6 +127,7 @@ body {
     display: flex;
     justify-content: center;
     margin: 40px 0 60px;
+    z-index: 1;
 }
 
 .main-search input {
@@ -157,6 +158,7 @@ body {
 
     width: 95%;
     margin: 40px auto 80px;
+    z-index: 1;
 }
 
 .books-slider {
@@ -201,7 +203,7 @@ body {
     color: #0b5f2a;
 }
 
-/* الأسهم */
+/* ================== الأسهم ================== */
 .arrow {
     background: linear-gradient(145deg, #006400, #228B22);
     color: white;
