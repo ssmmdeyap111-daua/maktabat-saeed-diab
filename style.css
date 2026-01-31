@@ -222,3 +222,6 @@ body {
 .arrow:hover {
     background: linear-gradient(145deg, #228B22, #006400);
 }
+.marquee-container {
+    margin-top: 40px;
+}
