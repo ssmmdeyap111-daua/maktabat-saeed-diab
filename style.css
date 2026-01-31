@@ -129,7 +129,7 @@ body {
 /* ===== أيقونات موحدة ===== */
 .icon-grid {
     position: absolute;
-    bottom: 10px;              /* التصاق فعلي بأسفل الشريط */
+    bottom: 0px;              /* التصاق فعلي بأسفل الشريط */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
