@@ -307,11 +307,10 @@ display: block !important;
     padding-top: 4px;
 }
 .header-icons {
-    position: absolute;
-    bottom: 35px;             /* قربها أو بعدها من أسفل */
-    left: 50%;
-    transform: translateX(-50%);
-
+    .header-icons .icon-item {
+    background: linear-gradient(to bottom, #f6fff6, #dff5df);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
