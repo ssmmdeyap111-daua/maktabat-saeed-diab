@@ -283,3 +283,9 @@ body {
         font-size: 1.8rem;
     }
 }
+@media (max-width: 768px) {
+    .icon-item {
+        font-size: 1.4rem;
+        padding: 12px 18px;
+    }
+}
