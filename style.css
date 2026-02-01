@@ -1,8 +1,14 @@
 /* ===== جسم الصفحة ===== */
 body {
-    margin: 0;
-    font-family: "Amiri", serif;
-    background-color: #f9f9f9;
+  /* عنوان الموقع – في جميع الصفحات */
+.site-name-hand,
+.site-title {
+    font-family: 'Reem Kufi Ink', 'Amiri Quran', serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.4;
 }
 
 /* ===== الشريط الأخضر الكبير ===== */
