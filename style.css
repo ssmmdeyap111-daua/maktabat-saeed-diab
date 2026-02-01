@@ -13,11 +13,11 @@ body {
 }
 
 .header-bar {
-    position: relative;
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
-    padding: 60px 20px 60px 20px;
+    padding: 140px 40px 180px; /* تكبير واضح */
+    position: relative;
     height: auto;
     border: 10px solid transparent;
     border-image: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520, #FFF6B0, #FFD700) 1;
@@ -27,10 +27,10 @@ body {
 
 /* اسم الموقع */
 .site-name-hand {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    font-family: 'Reem Kufi Ink', cursive;
+    font-size: 3.5rem;       /* ← تكبير العنوان */
+    margin-bottom: 50px;
+    display: block;
 }
 
 /* أيقونات الشريط */
