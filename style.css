@@ -199,3 +199,15 @@ body {
 .arrow:hover {
     background: linear-gradient(145deg, #228B22, #006400);
 }
+/* ===============================
+   توحيد الشريط الأخضر لكل الصفحات
+================================ */
+
+.header-bar {
+    position: relative; /* ← هذا هو المفتاح */
+    background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
+    color: white;
+    text-align: center;
+
+    padding: 140px 40px 200px; /* مساحة كافية للأيقونات */
+}
