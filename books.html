@@ -1,1 +1,190 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الكتب والمؤلفات PDF - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== تعديل خاص للصفحة الفرعية PDF ===== */
+.header-bar {
+    padding: 100px 40px 180px; /* تكبير الشريط الأخضر */
+    font-size: 3rem;           /* تكبير عنوان الموقع */
+    text-align: center;
+    background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+.site-name-hand {
+    font-size: 3rem; /* حجم كبير وواضح */
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* أيقونات الصفحات داخل الشريط الأخضر */
+.header-icons {
+    position: absolute;
+    bottom: 20px;  /* التصاق بالأرضية الداخلية للشريط */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+/* مربعات الكتب PDF */
+.pdf-books {
+    display: flex;
+    flex-wrap: wrap; /* يمكن تعديل flex-wrap: nowrap إذا تريد صف واحد دائم */
+    justify-content: center;
+    gap: 25px;
+    margin: 40px 20px;
+}
+
+.pdf-book {
+    width: 220px;
+    height: 320px;
+    border: 2px solid gold;
+    border-radius: 12px;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.pdf-book:hover {
+    transform: scale(1.05);
+}
+
+.pdf-book img {
+    width: 180px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+}
+
+.pdf-book h3 {
+    margin-top: 10px;
+    font-size: 1.6rem;
+    color: #006400;
+}
+
+/* شريط البحث */
+.main-search-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 20px;
+}
+
+.main-search input {
+    width: 80%;
+    max-width: 1000px;
+    height: 80px;
+    font-size: 2.2rem;
+    padding: 0 20px;
+    border-radius: 25px;
+    border: 4px solid #DAA520;
+    outline: none;
+}
+
+/* شريط الآية */
+.marquee-container {
+    width: 96%;
+    max-width: 1600px;
+    height: 60px;
+    margin: 30px auto;
+    overflow: hidden;
+    background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
+    border: 3px solid #DAA520;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.marquee-text {
+    white-space: nowrap;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #006400;
+    padding-left: 100%;
+    animation: marquee-ltr 30s linear infinite;
+}
+
+.marquee-container:hover .marquee-text {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-ltr {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+</style>
+</head>
+<body>
+
+<!-- الشريط الأخضر الكبير -->
+<div class="header-bar">
+    <div class="site-name-hand">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+
+    <!-- أيقونات الصفحات داخل الشريط الأخضر -->
+    <div class="icon-grid header-icons">
+        <a href="index.html" class="icon-item">الرئيسية</a>
+        <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
+        <a href="articles.html" class="icon-item">المقالات</a>
+        <a href="lessons.html" class="icon-item">الدروس</a>
+        <a href="#" class="icon-item">خطب الجمعة</a>
+        <a href="#" class="icon-item">تواصل معنا</a>
+    </div>
+</div>
+
+<!-- شريط الآية المتحرك -->
+<div class="marquee-container">
+  <div class="marquee-text">
+قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
+  </div>
+</div>
+
+<!-- خانة البحث -->
+<div class="main-search-wrapper">
+    <div class="search-title">ابحث في الكتب</div>
+    <div class="main-search">
+        <input type="text" placeholder="اكتب كلمة البحث هنا">
+    </div>
+</div>
+
+<!-- الكتب PDF -->
+<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب PDF</h2>
+<div class="pdf-books">
+    <div class="pdf-book">
+        <img src="images/al-irshad.jpg" alt="الإرشاد إلى أسباب محبة الله للعباد">
+        <h3>الإرشاد إلى أسباب محبة الله للعباد</h3>
+    </div>
+    <div class="pdf-book">
+        <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء وآدابه">
+        <h3>فضل الدعاء وآدابه</h3>
+    </div>
+    <div class="pdf-book">
+        <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن البلاغية">
+        <h3>أساليب القرآن البلاغية</h3>
+    </div>
+    <div class="pdf-book">
+        <img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بأحكام الصيام">
+        <h3>الإلمام بأحكام الصيام</h3>
+    </div>
+    <div class="pdf-book">
+        <img src="images/al-uqud-al-fadheya.jpg.jpg" alt="القواعد الفقهية">
+        <h3>القواعد الفقهية</h3>
+    </div>
+</div>
+
+</body>
+</html>
