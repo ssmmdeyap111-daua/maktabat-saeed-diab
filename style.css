@@ -181,3 +181,10 @@ body {
     font-size: 1.4rem;        /* كان صغير */
     padding: 14px 22px;       /* زيادة المساحة */
 }
+.book img {
+    width: 180px;   /* تكبير الغلاف */
+}
+
+.book h3 {
+    font-size: 1.1rem;
+}
