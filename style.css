@@ -167,3 +167,12 @@ body {
     color: #0a7a3c;
     text-decoration: none;
 }
+/* ===== تكبير الشريط الأخضر ===== */
+.header-bar {
+    padding: 60px 20px 35px;   /* كان صغير – كبرناه */
+}
+
+.site-name-hand {
+    font-size: 3.2rem;        /* تكبير اسم الموقع */
+    margin-bottom: 25px;
+}
