@@ -176,3 +176,8 @@ body {
     font-size: 3.2rem;        /* تكبير اسم الموقع */
     margin-bottom: 25px;
 }
+/* ===== تكبير الأيقونات ===== */
+.icon-item {
+    font-size: 1.4rem;        /* كان صغير */
+    padding: 14px 22px;       /* زيادة المساحة */
+}
