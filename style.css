@@ -289,3 +289,13 @@ body {
     color: #ffffff;
     transform: translateY(-3px);
 }
+.icon-item {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* يمنع التفاف النص */
+}
