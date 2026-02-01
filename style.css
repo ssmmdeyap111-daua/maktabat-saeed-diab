@@ -253,3 +253,33 @@ body {
     font-size: 1.6rem;
     color: #006400;
 }
+.back-home {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* يمين */
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+.back-home a {
+    width: 180px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #006400;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+.back-home a:hover {
+    background: #1f7a4d;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
