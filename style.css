@@ -210,3 +210,20 @@ body {
 
 .arrow.left { left: -10px; }
 .arrow.right { right: -10px; }
+/* 🔥 إصلاح نهائي لظهور كل الكتب */
+
+.books-page-container {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.book {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
