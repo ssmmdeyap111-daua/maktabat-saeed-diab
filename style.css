@@ -36,13 +36,13 @@ body {
 /* أيقونات الشريط */
 .icon-grid {
     position: absolute;
-    bottom: 25px;
+    bottom: 30px;          /* ← أسفل الشريط الأخضر */
     left: 50%;
     transform: translateX(-50%);
 
     display: flex;
-    flex-wrap: nowrap;        /* ← صف واحد فقط */
-    gap: 15px;
+    flex-wrap: nowrap;     /* صف واحد فقط */
+    gap: 14px;
 
     width: max-content;
 }
