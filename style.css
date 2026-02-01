@@ -1,115 +1,148 @@
-/* ===== إعدادات عامة ===== */
+/* ===== الخط العام ===== */
 body {
     margin: 0;
     font-family: "Amiri", serif;
     background-color: #f9f9f9;
-    direction: rtl;
-    color: #222;
 }
 
-/* ===== الشريط الأخضر العلوي ===== */
+/* ===== الشريط الأخضر الكبير ===== */
+@keyframes goldShine {
+    0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+    50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
+    100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
+}
+
+.header-bar {
+    background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
+    color: white;
+    text-align: center;
+    padding: 100px 40px 120px;  /* مساحة كافية للعنوان والأيقونات */
+    position: relative;
+    border: 10px solid transparent;
+    border-image: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520, #FFF6B0, #FFD700) 1;
+    animation: goldShine 6s linear infinite;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* ===== عنوان الموقع ===== */
 .header-bar .site-name-hand {
     font-family: 'Reem Kufi Ink', sans-serif;
-    font-size: 3rem !important;   /* نضمن نفس حجم الصفحة الرئيسية */
+    font-size: 3rem !important;  /* نفس حجم الصفحة الرئيسية */
     font-weight: bold;
     color: white;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* ===== عنوان الموقع داخل الشريط الأخضر ===== */
-.header-bar .site-name-hand {
-    font-family: 'Reem Kufi Ink', sans-serif; /* نفس الخط */
-    font-size: 3rem;       /* نفس حجم الصفحة الرئيسية */
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;   /* مسافة أسفل العنوان قبل الأيقونات */
-}
-
-
-/* ===== شبكة الأيقونات داخل الشريط الأخضر ===== */
-.icon-grid {
+/* ===== أيقونات الصفحات في الشريط الأخضر ===== */
+.header-bar .icon-grid {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    gap: 18px;
+    flex-wrap: nowrap;
+}
+
+.header-bar .icon-item {
+    width: 140px;
+    height: 60px;
+    display: flex;
     align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap;  /* صف واحد فقط */
-    margin-top: 20px;
-}
-
-.icon-item {
-    background: rgba(255,255,255,0.15);
-    color: #fff;
-    text-decoration: none;
-    padding: 20px 28px;   /* تكبير مساحة الأيقونة */
-    border-radius: 12px;
-    font-size: 1.6rem;    /* تكبير النص */
+    justify-content: center;
+    font-size: 1.8rem;
     font-weight: bold;
-    white-space: nowrap;
-    transition: 0.3s ease;
-}
-
-.icon-item:hover {
-    background: #fff;
-    color: #0b7a2e;
-    transform: translateY(-2px);
-}
-
-/* ===== شريط الآية المتحرك ===== */
-.marquee-container {
-    background: linear-gradient(to right, #fffdf5, #fff7d6, #fffdf5);
-    overflow: hidden;
-    padding: 15px 0;  /* تكبير ارتفاع الشريط */
-    margin: 40px auto;
-    border: 3px solid #DAA520;
-    border-radius: 45px;
-    max-width: 95%;
+    color: #006400;
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 12px;
+    text-decoration: none;
     text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.header-bar .icon-item:hover {
+    background: #1f7a4d;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ===== شريط الآية ===== */
+.marquee-container {
+    width: 96%;
+    max-width: 1600px;
+    margin: 30px auto;
+    height: 60px;
+    overflow: hidden;
+    background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
+    border: 3px solid #DAA520;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .marquee-text {
-    display: inline-block;
     white-space: nowrap;
-    font-size: 1.6rem;   /* تكبير الخط */
+    font-size: 2.4rem;
     font-weight: bold;
     color: #006400;
-    animation: marquee 30s linear infinite;
     padding-left: 100%;
+    animation: marquee-ltr 30s linear infinite;
 }
 
-@keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
+@keyframes marquee-ltr {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+.marquee-container:hover .marquee-text {
+    animation-play-state: paused;
 }
 
 /* ===== خانة البحث ===== */
 .main-search-wrapper {
-    margin: 50px auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 20px 60px;
+}
+
+.search-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #006400;
+    margin-bottom: 25px;
 }
 
 .main-search input {
     width: 80%;
-    max-width: 500px;
-    padding: 18px 24px;   /* تكبير الحقل */
-    font-size: 1.4rem;    /* تكبير الخط */
-    border-radius: 35px;
-    border: 2px solid #DAA520;
+    max-width: 1000px;
+    height: 80px;
+    padding: 0 30px;
+    font-size: 2.2rem;
+    border-radius: 25px;
+    border: 4px solid #DAA520;
     outline: none;
-}
-
-.main-search input:focus {
-    border-color: #0b7a2e;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.35),
+        inset 0 5px 10px rgba(255, 255, 255, 0.9),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* ===== شريط الكتب المتحرك ===== */
 .books-slider-wrapper {
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     width: 95%;
-    margin: 50px auto 100px;
-    overflow: hidden;
+    margin: 40px auto 80px;
 }
 
 .books-slider {
@@ -117,59 +150,54 @@ body {
     gap: 25px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 20px;
+    width: 80%;
+    padding: 20px 10px;
 }
 
-.books-slider::-webkit-scrollbar { display: none; }
-
 .book {
-    min-width: 200px;  /* تكبير الكتاب */
-    background: #fff;
-    border-radius: 12px;
-    padding: 12px;
+    min-width: 180px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    flex-shrink: 0;
 }
 
 .book img {
-    width: 100%;
-    height: 280px;   /* تكبير الصورة */
+    width: 180px;
+    height: 260px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 12px;
+    border: 2px solid gold;
+    display: block;
+    margin: auto;
+    transition: transform 0.3s;
+}
+
+.book img:hover {
+    transform: scale(1.05);
 }
 
 .book h3 {
-    font-size: 1.05rem;  /* تكبير العنوان */
-    margin-top: 12px;
-    color: #333;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #0b5f2a;
 }
 
-/* أزرار شريط الكتب */
+/* أسهم التحريك */
 .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #0b7a2e;
-    color: #fff;
+    background: linear-gradient(145deg, #006400, #228B22);
+    color: white;
     border: none;
-    padding: 12px 16px;
-    font-size: 24px;
-    cursor: pointer;
+    font-size: 28px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: 0.3s;
 }
 
-.arrow.left { left: 5px; }
-.arrow.right { right: 5px; }
-
-/* ===== استجابة الجوال ===== */
-@media (max-width: 768px) {
-    .site-name-hand { font-size: 2.8rem; }
-    .icon-grid { flex-wrap: wrap; gap: 15px; }
-    .books-slider { padding: 15px; gap: 20px; }
-    .book { min-width: 180px; }
-    .book img { height: 220px; }
-    .book h3 { font-size: 0.95rem; }
-    .main-search input { max-width: 400px; font-size: 1.2rem; padding: 14px 18px; }
-    .marquee-text { font-size: 1.4rem; }
+.arrow:hover {
+    background: linear-gradient(145deg, #228B22, #006400);
 }
+
+.books-slider::-webkit-scrollbar { display: none; }
+.books-slider { -ms-overflow-style: none; scrollbar-width: none; }
