@@ -1,11 +1,9 @@
-/* ===== الخطوط ===== */
-@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap');
-
+/* ===== الخطوط الأساسية ===== */
 body {
     margin: 0;
-    font-family: 'Amiri', serif;
+    font-family: 'Reem Kufi Ink', sans-serif;
     background-color: #f9f9f9;
+    color: #006400;
 }
 
 /* ===== الشريط الأخضر الكبير ===== */
@@ -19,62 +17,45 @@ body {
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-size: 3.5rem;
+    font-size: 3.2rem; /* حجم اسم الموقع */
     font-weight: bold;
-    padding: 80px 40px 150px; /* مساحة للأيقونات أسفل الشريط */
+    padding: 60px 40px 100px; /* مساحة للأيقونات */
     position: relative;
     border: 10px solid transparent;
-    border-image: linear-gradient(
-        45deg,
-        #FFD700,
-        #FFF6B0,
-        #DAA520,
-        #FFF6B0,
-        #FFD700
-    ) 1;
+    border-image: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520, #FFF6B0, #FFD700) 1;
     animation: goldShine 6s linear infinite;
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-/* اسم الموقع داخل الشريط */
-.site-name-hand {
-    font-size: 3.5rem;
-    margin-bottom: 40px;
-}
-
 /* ===== أيقونات أسفل الشريط الأخضر ===== */
-.header-bar .icon-grid {
+.icon-grid {
     position: absolute;
-    bottom: 25px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 20px;
-    flex-wrap: nowrap; /* صف واحد فقط */
     justify-content: center;
+    gap: 20px;
+    flex-wrap: nowrap;
 }
 
 .icon-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: linear-gradient(to bottom, #eaffea, #c8f0c8);
     border: 2px solid #006400;
-    border-radius: 18px;
-    text-decoration: none;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-size: 2.2rem;
+    border-radius: 16px;
+    padding: 12px 20px;
+    font-size: 2.4rem;
     font-weight: bold;
+    text-decoration: none;
     color: #006400;
-    padding: 10px 25px;
+    text-align: center;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
 }
 
 .icon-item:hover {
     background: #1f7a4d;
-    color: #fff;
+    color: #ffffff;
     transform: translateY(-3px);
 }
 
@@ -82,29 +63,28 @@ body {
 .marquee-container {
     width: 96%;
     max-width: 1600px;
-    margin: 30px auto;
-    height: 70px;
+    margin: 40px auto;
+    height: 60px;
     overflow: hidden;
     background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
     border: 3px solid #DAA520;
     border-radius: 60px;
     display: flex;
     align-items: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    position: relative;
+    font-size: 2.4rem;
+    font-weight: bold;
 }
 
 .marquee-text {
     white-space: nowrap;
-    font-size: 2.6rem;
-    font-weight: bold;
-    color: #006400;
     padding-left: 100%;
     animation: marquee-ltr 30s linear infinite;
 }
 
 @keyframes marquee-ltr {
     from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
+    to   { transform: translateX(100%); }
 }
 
 .marquee-container:hover .marquee-text {
@@ -116,7 +96,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 20px 60px;
+    margin: 50px 20px 80px;
+}
+
+.search-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
 .main-search input {
@@ -142,7 +128,7 @@ body {
     justify-content: center;
     gap: 20px;
     width: 95%;
-    margin: 50px auto 80px;
+    margin: 40px auto 80px;
 }
 
 .books-slider {
@@ -189,18 +175,68 @@ body {
     color: #0b5f2a;
 }
 
-.book a.download {
+.download {
     display: inline-block;
     margin-top: 8px;
-    padding: 6px 12px;
-    font-size: 1.6rem;
+    padding: 8px 15px;
     background: #006400;
     color: #fff;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 1.6rem;
     text-decoration: none;
     transition: 0.3s;
 }
 
-.book a.download:hover {
+.download:hover {
+    background: #228B22;
+}
+
+/* ===== الأسهم ===== */
+.arrow {
+    background: linear-gradient(145deg, #006400, #228B22);
+    color: white;
+    border: none;
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.arrow:hover {
+    background: linear-gradient(145deg, #228B22, #006400);
+}
+
+/* ===== الصفحة الفرعية ===== */
+.books-page .header-bar {
+    font-size: 3rem; /* حجم اسم الموقع */
+    padding: 60px 40px;
+}
+
+.books-page .books-slider {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.books-page .book {
+    min-width: 220px;
+    margin: 15px;
+}
+
+.books-page .back-home {
+    text-align: right;
+    margin: 40px 50px;
+    font-size: 2.4rem;
+    padding: 10px 20px;
+    background: #006400;
+    color: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.books-page .back-home:hover {
     background: #228B22;
 }
