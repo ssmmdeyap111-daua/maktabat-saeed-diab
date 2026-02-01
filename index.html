@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -39,71 +39,93 @@
     </div>
 </div>
 
-<!-- كتب PDF -->
-<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات PDF</h2>
+<!-- ===== شريط الكتب المتحرك ===== -->
+<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
 
-<div class="pdf-books">
-    <div class="pdf-book">
-        <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر بشرح وصية أبي بكر لعمر">
-        <h3>لآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
+<div class="books-slider-wrapper">
+  <button class="arrow left" type="button">❮</button>
+  <div class="books-slider" id="booksContainer">
+
+    <!-- الكتب -->
+    <div class="book">
+      <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر بشرح وصية أبي بكر لعمر">
+      <h3>لآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار بطرائف الأخبار">
-        <h3>الاعتبار بطرائف الأخبار</h3>
+    <div class="book">
+      <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار بطرائف الأخبار">
+      <h3>الاعتبار بطرائف الأخبار</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/katar-al-reba.jpg.jpg" alt="خطر الربا على الأمة">
-        <h3>خطر الربا على الأمة</h3>
+    <div class="book">
+      <img src="images/katar-al-reba.jpg.jpg" alt="خطر الربا على الأمة">
+      <h3>خطر الربا على الأمة</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/kashf-alnqab.jpg.jpg" alt="كشف النقاب عن المسائل ذوات الألقاب في الفرائض">
-        <h3>كشف النقاب عن المسائل ذوات الألقاب</h3>
+    <div class="book">
+      <img src="images/kashf-alnqab.jpg.jpg" alt="كشف النقاب عن المسائل ذوات الألقاب في الفرائض">
+      <h3>كشف النقاب عن المسائل ذوات الألقاب</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/shmael-al-rasool.jpg.jpg" alt="شمائل الرسول صلى الله عليه وسلم وأثرها في حياة المسلم">
-        <h3>شمائل الرسول صلى الله عليه وسلم</h3>
+    <div class="book">
+      <img src="images/shmael-al-rasool.jpg.jpg" alt="شمائل الرسول صلى الله عليه وسلم وأثرها في حياة المسلم">
+      <h3>شمائل الرسول صلى الله عليه وسلم</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="إتحاف أهل الرسوخ بشرح منظومة المنسوخ للسيوطي">
-        <h3>إتحاف أهل الرسوخ بشرح منظومة المنسوخ</h3>
+    <div class="book">
+      <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="إتحاف أهل الرسوخ بشرح منظومة المنسوخ للسيوطي">
+      <h3>إتحاف أهل الرسوخ بشرح منظومة المنسوخ</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/tazkirat-al-abaha.jpg.jpg" alt="تذكير الأباة بأسباب النجاة">
-        <h3>تذكير الأباة بأسباب النجاة</h3>
+    <div class="book">
+      <img src="images/tazkirat-al-abaha.jpg.jpg" alt="تذكير الأباة بأسباب النجاة">
+      <h3>تذكير الأباة بأسباب النجاة</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/tamam-al-minah.jpg" alt="تمام المنة بشرح أمثال السنة">
-        <h3>تمام المنة بشرح أمثال السنة</h3>
+    <div class="book">
+      <img src="images/tamam-al-minah.jpg" alt="تمام المنة بشرح أمثال السنة">
+      <h3>تمام المنة بشرح أمثال السنة</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/al-irshad.jpg" alt="الإرشاد إلى أسباب محبة الله للعباد">
-        <h3>الإرشاد إلى أسباب محبة الله للعباد</h3>
+    <div class="book">
+      <img src="images/al-irshad.jpg" alt="الإرشاد إلى أسباب محبة الله للعباد">
+      <h3>الإرشاد إلى أسباب محبة الله للعباد</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء وآدابه">
-        <h3>فضل الدعاء وآدابه</h3>
+    <div class="book">
+      <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء وآدابه">
+      <h3>فضل الدعاء وآدابه</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بأحكام الصيام">
-        <h3>الإلمام بأحكام الصيام</h3>
+    <div class="book">
+      <img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بأحكام الصيام">
+      <h3>الإلمام بأحكام الصيام</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/al-uqud-al-fadheya.jpg" alt="القواعد الفقهية">
-        <h3>القواعد الفقهية</h3>
+    <div class="book">
+      <img src="images/al-uqud-al-fadheya.jpg.jpg" alt="القواعد الفقهية">
+      <h3>القواعد الفقهية</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن البلاغية">
-        <h3>أساليب القرآن البلاغية</h3>
+    <div class="book">
+      <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن البلاغية">
+      <h3>أساليب القرآن البلاغية</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/kabar-al-ahad.jpg.jpg" alt="خبر الآحاد في العقائد والأحكام">
-        <h3>خبر الآحاد في العقائد والأحكام</h3>
+    <div class="book">
+      <img src="images/kabar-al-ahad.jpg.jpg" alt="أخبار الآحاد في العقائد والأحكام">
+      <h3>أخبار الآحاد في العقائد والأحكام</h3>
     </div>
-    <div class="pdf-book">
-        <img src="images/al-arbon-veal-amthal.jpg.jpg" alt="الأربعون في الأمثال">
-        <h3>الأربعون في الأمثال</h3>
+    <div class="book">
+      <img src="images/al-arbon-veal-amthal.jpg.jpg" alt="الأربعون في الأمثال">
+      <h3>الأربعون في الأمثال</h3>
     </div>
+
+  </div>
+  <button class="arrow right" type="button">❯</button>
 </div>
+
+<!-- JavaScript لتحريك شريط الكتب -->
+<script>
+const container = document.getElementById("booksContainer");
+const btnRight = document.querySelector(".arrow.right");
+const btnLeft  = document.querySelector(".arrow.left");
+
+btnRight.addEventListener("click", () => {
+  container.scrollBy({ left: 220, behavior: "smooth" });
+});
+
+btnLeft.addEventListener("click", () => {
+  container.scrollBy({ left: -220, behavior: "smooth" });
+});
+</script>
 
 </body>
 </html>
