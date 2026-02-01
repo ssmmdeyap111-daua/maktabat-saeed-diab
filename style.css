@@ -16,55 +16,51 @@ body {
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
-    padding: 100px 40px 120px;  /* مساحة كافية للعنوان والأيقونات */
+    padding: 120px 40px 60px; /* أعلى + مساحة للأيقونات */
+    font-weight: bold;
     position: relative;
     border: 10px solid transparent;
-    border-image: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520, #FFF6B0, #FFD700) 1;
+    border-image: linear-gradient(45deg,#FFD700,#FFF6B0,#DAA520,#FFF6B0,#FFD700) 1;
     animation: goldShine 6s linear infinite;
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-/* ===== عنوان الموقع ===== */
+/* اسم الموقع داخل الشريط الأخضر */
 .header-bar .site-name-hand {
     font-family: 'Reem Kufi Ink', sans-serif;
-    font-size: 3rem !important;  /* نفس حجم الصفحة الرئيسية */
+    font-size: 3rem;
     font-weight: bold;
     color: white;
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-/* ===== أيقونات الصفحات في الشريط الأخضر ===== */
+/* أيقونات الصفحات داخل الشريط */
 .header-bar .icon-grid {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    gap: 18px;
-    flex-wrap: nowrap;
+    gap: 15px;
+    flex-wrap: nowrap; /* صف واحد */
 }
 
-.header-bar .icon-item {
-    width: 140px;
-    height: 60px;
+/* أيقونات فردية */
+.icon-item {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 180px;
+    height: 60px;
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 16px;
     font-size: 1.8rem;
     font-weight: bold;
     color: #006400;
-    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
-    border: 2px solid #006400;
-    border-radius: 12px;
     text-decoration: none;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 0.3s;
 }
 
-.header-bar .icon-item:hover {
+.icon-item:hover {
     background: #1f7a4d;
     color: white;
     transform: translateY(-3px);
@@ -72,36 +68,34 @@ body {
 
 /* ===== شريط الآية ===== */
 .marquee-container {
-    width: 96%;
-    max-width: 1600px;
-    margin: 30px auto;
-    height: 60px;
-    overflow: hidden;
-    background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
-    border: 3px solid #DAA520;
-    border-radius: 60px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  width: 96%;
+  max-width: 1600px;
+  margin: 30px auto;
+  height: 60px;
+  overflow: hidden;
+  background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
+  border: 3px solid #DAA520;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
 }
 
 .marquee-text {
-    white-space: nowrap;
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: #006400;
-    padding-left: 100%;
-    animation: marquee-ltr 30s linear infinite;
+  white-space: nowrap;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #006400;
+  padding-left: 100%;
+  animation: marquee-ltr 30s linear infinite;
 }
 
 @keyframes marquee-ltr {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
 }
 
 .marquee-container:hover .marquee-text {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 /* ===== خانة البحث ===== */
@@ -113,7 +107,7 @@ body {
 }
 
 .search-title {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #006400;
     margin-bottom: 25px;
@@ -129,10 +123,9 @@ body {
     border: 4px solid #DAA520;
     outline: none;
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.35),
-        inset 0 5px 10px rgba(255, 255, 255, 0.9),
-        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35),
+                inset 0 5px 10px rgba(255,255,255,0.9),
+                inset 0 -5px 10px rgba(0,0,0,0.08);
 }
 
 /* ===== شريط الكتب المتحرك ===== */
@@ -152,6 +145,15 @@ body {
     scroll-behavior: smooth;
     width: 80%;
     padding: 20px 10px;
+}
+
+.books-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.books-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .book {
@@ -181,7 +183,7 @@ body {
     color: #0b5f2a;
 }
 
-/* أسهم التحريك */
+/* الأسهم */
 .arrow {
     background: linear-gradient(145deg, #006400, #228B22);
     color: white;
@@ -198,6 +200,3 @@ body {
 .arrow:hover {
     background: linear-gradient(145deg, #228B22, #006400);
 }
-
-.books-slider::-webkit-scrollbar { display: none; }
-.books-slider { -ms-overflow-style: none; scrollbar-width: none; }
