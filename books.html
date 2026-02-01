@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ===== الشريط الأخضر الكبير مثل الصفحة الرئيسية ===== */
+/* ===== الشريط الأخضر الكبير ===== */
 .header-bar {
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
@@ -23,7 +23,37 @@
     margin-bottom: 20px;
 }
 
-/* ===== أيقونات الكتب PDF ===== */
+/* ===== أيقونات الشريط الأخضر ===== */
+.header-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.header-icons .icon-item {
+    width: 140px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #006400;
+    text-align: center;
+}
+.header-icons .icon-item:hover {
+    background: #1f7a4d;
+    color: white;
+}
+
+/* ===== شبكة الكتب PDF ===== */
 .pdf-grid {
     display: flex;
     flex-wrap: wrap;
@@ -57,18 +87,14 @@
     font-weight: bold;
 }
 
-/* إعادة استخدام الأيقونات الصفحة الرئيسية أسفل الشريط الأخضر */
-.header-icons {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+/* ===== أيقونة العودة للصفحة الرئيسية أسفل الصفحة ===== */
+.back-home {
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 50px 0 20px 20px;
 }
-.header-icons .icon-item {
-    width: 140px;
+.back-home a {
+    width: 160px;
     height: 50px;
     display: flex;
     align-items: center;
@@ -80,9 +106,10 @@
     border-radius: 12px;
     text-decoration: none;
     color: #006400;
-    text-align: center;
+    transition: transform 0.3s, background 0.3s;
 }
-.header-icons .icon-item:hover {
+.back-home a:hover {
+    transform: translateY(-3px);
     background: #1f7a4d;
     color: white;
 }
@@ -99,82 +126,71 @@
 
 <!-- شبكة الكتب PDF -->
 <div class="pdf-grid">
-
   <a href="pdfs/allaalea-wa-aldorr.pdf" class="pdf-item" target="_blank">
     <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر" width="140">
     <span>الآلئ والدرر بشرح وصية أبي بكر لعمر</span>
   </a>
-
   <a href="pdfs/al-eatbaar-ptraef-alakbaar.pdf" class="pdf-item" target="_blank">
     <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار" width="140">
     <span>الاعتبار بطرائف الأخبار</span>
   </a>
-
   <a href="pdfs/katar-al-reba.pdf" class="pdf-item" target="_blank">
     <img src="images/katar-al-reba.jpg.jpg" alt="خطر الربا" width="140">
     <span>خطر الربا على الأمة</span>
   </a>
-
   <a href="pdfs/kashf-alnqab.pdf" class="pdf-item" target="_blank">
     <img src="images/kashf-alnqab.jpg.jpg" alt="كشف النقاب" width="140">
     <span>كشف النقاب عن المسائل ذوات الألقاب</span>
   </a>
-
   <a href="pdfs/shmael-al-rasool.pdf" class="pdf-item" target="_blank">
     <img src="images/shmael-al-rasool.jpg.jpg" alt="شمائل الرسول" width="140">
     <span>شمائل الرسول صلى الله عليه وسلم</span>
   </a>
-
   <a href="pdfs/ithaf-ahl-alrusoukh.pdf" class="pdf-item" target="_blank">
     <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="إتحاف أهل الرسوخ" width="140">
-    <span>إتحاف أهل الرسوخ بشرح المنسوخ</span>
+    <span>إتحاف أهل الرسوخ بشرح منظومة المنسوخ</span>
   </a>
-
   <a href="pdfs/tazkirat-al-abaha.pdf" class="pdf-item" target="_blank">
     <img src="images/tazkirat-al-abaha.jpg.jpg" alt="تذكير الأباة" width="140">
     <span>تذكير الأباة بأسباب النجاة</span>
   </a>
-
   <a href="pdfs/tamam-al-minah.pdf" class="pdf-item" target="_blank">
     <img src="images/tamam-al-minah.jpg.jpg" alt="تمام المنة" width="140">
     <span>تمام المنة بشرح أمثال السنة</span>
   </a>
-
   <a href="pdfs/al-irshad.pdf" class="pdf-item" target="_blank">
     <img src="images/al-irshad.jpg" alt="الإرشاد" width="140">
     <span>الإرشاد إلى أسباب محبة الله للعباد</span>
   </a>
-
   <a href="pdfs/fadhl-duaa.pdf" class="pdf-item" target="_blank">
     <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء" width="140">
     <span>فضل الدعاء وآدابه</span>
   </a>
-
   <a href="pdfs/al-ilmam-siyam.pdf" class="pdf-item" target="_blank">
     <img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بالصيام" width="140">
     <span>الإلمام بأحكام الصيام</span>
   </a>
-
   <a href="pdfs/al-uqud-al-fadheya.pdf" class="pdf-item" target="_blank">
     <img src="images/al-uqud-al-fadheya.jpg.jpg" alt="القواعد الفقهية" width="140">
     <span>القواعد الفقهية</span>
   </a>
-
   <a href="pdfs/asaleeb-alquran.pdf" class="pdf-item" target="_blank">
     <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن" width="140">
     <span>أساليب القرآن البلاغية</span>
   </a>
-
   <a href="pdfs/kabar-al-ahad.pdf" class="pdf-item" target="_blank">
     <img src="images/kabar-al-ahad.jpg.jpg" alt="خبر الآحاد" width="140">
-    <span>أخبار الآحاد في العقائد والأحكام</span>
+    <span>خبر الآحاد في العقائد والأحكام</span>
   </a>
-
   <a href="pdfs/al-arbon-veal-amthal.pdf" class="pdf-item" target="_blank">
     <img src="images/al-arbon-veal-amthal.jpg.jpg" alt="الأربعون في الأمثال" width="140">
     <span>الأربعون في الأمثال</span>
   </a>
+</div>
 
+<!-- أيقونة العودة للصفحة الرئيسية أسفل الصفحة -->
+<div class="back-home">
+    <a href="index.html">عودة للصفحة الرئيسية</a>
 </div>
 
 </body>
