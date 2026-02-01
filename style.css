@@ -152,14 +152,15 @@ body {
     scrollbar-width: none;
 }
 
-.books-slider::-webkit-scrollbar {
-    display: none;
+/* ===== صفحة الكتب: صف واحد ===== */
+.books-slider {
+    display: flex;
+    flex-wrap: nowrap;      /* ← يمنع الصف الثاني */
+    overflow-x: auto;
 }
 
 .book {
-    min-width: 180px;
-    text-align: center;
-    flex-shrink: 0;
+    flex: 0 0 auto;         /* ← يمنع الانكماش */
 }
 
 .book img {
