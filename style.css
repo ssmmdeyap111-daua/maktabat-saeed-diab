@@ -12,17 +12,17 @@ body {
     100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
 }
 
-.header-bar {
-    background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
-    color: white;
-    text-align: center;
-    padding: 140px 40px 180px; /* تكبير واضح */
-    position: relative;
-    height: auto;
-    border: 10px solid transparent;
-    border-image: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520, #FFF6B0, #FFD700) 1;
-    animation: goldShine 6s linear infinite;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+/* ===============================
+   فرض حجم عنوان الموقع (كسر أي تنسيق سابق)
+================================ */
+
+.header-bar .site-name-hand {
+    font-family: 'Reem Kufi Ink', cursive !important;
+    font-size: 3.8rem !important;   /* ← نفس الرئيسية */
+    font-weight: normal !important;
+    margin-bottom: 60px !important;
+    display: block !important;
+    line-height: 1.4 !important;
 }
 
 /* اسم الموقع */
