@@ -11,9 +11,8 @@
 
 <!-- الشريط الأخضر الكبير -->
 <div class="header-bar">
-    موقع الشيخ سعيد مصطفى دياب الرسمي
-
-    <!-- أيقونات أسفل الشريط الأخضر -->
+    <div class="site-name-hand">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+    
     <div class="icon-grid">
         <a href="index.html" class="icon-item">الرئيسية</a>
         <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
@@ -24,7 +23,7 @@
     </div>
 </div>
 
-<!-- شريط الآية -->
+<!-- الشريط المتحرك للآية -->
 <div class="marquee-container">
   <div class="marquee-text">
 قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
@@ -35,52 +34,61 @@
 <div class="main-search-wrapper">
     <div class="search-title">ابحث في الموقع</div>
     <div class="main-search">
-        <input type="text" placeholder="اكتب كلمة البحث هنا">
+        <input type="text" placeholder="اكتب هنا">
     </div>
 </div>
 
 <!-- شريط الكتب المتحرك -->
 <h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
 <div class="books-slider-wrapper">
-    <button class="arrow left" type="button">❮</button>
-    <div class="books-slider" id="booksContainer">
-
-      <!-- مثال للكتاب -->
-      <div class="book">
-          <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر بشرح وصية أبي بكر لعمر">
-          <h3>لآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
-          <a href="books-pdf/allaalea-wa-aldorr.pdf" class="download" download>تحميل الكتاب</a>
-      </div>
-
-      <div class="book">
-          <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار بطرائف الأخبار">
-          <h3>الاعتبار بطرائف الأخبار</h3>
-          <a href="books-pdf/al-eatbaar-ptraef-alakbaar.pdf" class="download" download>تحميل الكتاب</a>
-      </div>
-
-      <div class="book">
-          <img src="images/katar-al-reba.jpg.jpg" alt="خطر الربا على الأمة">
-          <h3>خطر الربا على الأمة</h3>
-          <a href="books-pdf/katar-al-reba.pdf" class="download" download>تحميل الكتاب</a>
-      </div>
-
-      <!-- أضف باقي الكتب بنفس الطريقة -->
+  <button class="arrow left" type="button">❮</button>
+  <div class="books-slider" id="booksContainer">
+    <!-- كل الكتب -->
+    <div class="book">
+      <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر بشرح وصية أبي بكر لعمر">
+      <h3>لآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
+      <a href="pdf/allaalea-wa-aldorr.pdf" class="download" download>تحميل</a>
     </div>
-    <button class="arrow right" type="button">❯</button>
+    <div class="book">
+      <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار بطرائف الأخبار">
+      <h3>الاعتبار بطرائف الأخبار</h3>
+      <a href="pdf/al-eatbaar-ptraef-alakbaar.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/katar-al-reba.jpg.jpg" alt="خطر الربا على الأمة">
+      <h3>خطر الربا على الأمة</h3>
+      <a href="pdf/katar-al-reba.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/kashf-alnqab.jpg.jpg" alt="كشف النقاب عن المسائل ذوات الألقاب">
+      <h3>كشف النقاب عن المسائل ذوات الألقاب</h3>
+      <a href="pdf/kashf-alnqab.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/shmael-al-rasool.jpg.jpg" alt="شمائل الرسول صلى الله عليه وسلم">
+      <h3>شمائل الرسول صلى الله عليه وسلم</h3>
+      <a href="pdf/shmael-al-rasool.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="إتحاف أهل الرسوخ">
+      <h3>إتحاف أهل الرسوخ</h3>
+      <a href="pdf/ithaf-ahl-alrusoukh.pdf" class="download" download>تحميل</a>
+    </div>
+    <!-- أضف بقية الكتب بنفس الطريقة -->
+  </div>
+  <button class="arrow right" type="button">❯</button>
 </div>
 
-<!-- JavaScript لتحريك شريط الكتب -->
 <script>
 const container = document.getElementById("booksContainer");
 const btnRight = document.querySelector(".arrow.right");
 const btnLeft  = document.querySelector(".arrow.left");
 
 btnRight.addEventListener("click", () => {
-  container.scrollBy({ left: 240, behavior: "smooth" });
+  container.scrollBy({ left: 220, behavior: "smooth" });
 });
-
 btnLeft.addEventListener("click", () => {
-  container.scrollBy({ left: -240, behavior: "smooth" });
+  container.scrollBy({ left: -220, behavior: "smooth" });
 });
 </script>
 
