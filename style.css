@@ -28,8 +28,8 @@ body {
 /* اسم الموقع */
 .site-name-hand {
     font-family: 'Reem Kufi Ink', cursive;
-    font-size: 3.5rem;       /* ← تكبير العنوان */
-    margin-bottom: 50px;
+    font-size: 3.8rem;     /* ← نفس حجم الرئيسية */
+    margin-bottom: 60px;
     display: block;
 }
 
