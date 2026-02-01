@@ -23,10 +23,12 @@
     </div>
 </div>
 
-<!-- ===== كتب الصفحة الفرعية ===== -->
+<!-- ===== شريط الكتب في الصفحة الفرعية ===== -->
 <h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
 
-<div class="books-page">
+<div class="books-slider-wrapper">
+  <button class="arrow left" type="button">❮</button>
+  <div class="books-slider" id="booksContainer">
     <div class="book">
       <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر بشرح وصية أبي بكر لعمر">
       <h3>لآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
@@ -87,7 +89,24 @@
       <img src="images/al-arbon-veal-amthal.jpg.jpg" alt="الأربعون في الأمثال">
       <h3>الأربعون في الأمثال</h3>
     </div>
+  </div>
+  <button class="arrow right" type="button">❯</button>
 </div>
+
+<!-- JavaScript لتحريك شريط الكتب -->
+<script>
+const container = document.getElementById("booksContainer");
+const btnRight = document.querySelector(".arrow.right");
+const btnLeft  = document.querySelector(".arrow.left");
+
+btnRight.addEventListener("click", () => {
+  container.scrollBy({ left: 220, behavior: "smooth" });
+});
+
+btnLeft.addEventListener("click", () => {
+  container.scrollBy({ left: -220, behavior: "smooth" });
+});
+</script>
 
 </body>
 </html>
