@@ -3,170 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب</title>
+<title>الكتب والمؤلفات | موقع الشيخ سعيد مصطفى دياب</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
-<style>
-/* ===== الشريط الأخضر الكبير ===== */
-.header-bar {
-    background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
-    color: white;
-    text-align: center;
-    padding: 50px 20px 80px; /* مساحة للشريط + أيقونات */
-    font-size: 3rem;
-    font-weight: bold;
-    position: relative;
-    border-radius: 8px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-}
-
-/* اسم الموقع */
-.site-name-hand {
-    font-family: 'Reem Kufi Ink', cursive;
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-/* أيقونات الصفحة الفرعية */
-.header-icons {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* ===== أيقونات الكتب ===== */
-.books-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    margin: 50px 20px;
-}
-
-.book-item {
-    width: 200px;
-    height: auto;
-    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
-    border: 2px solid #006400;
-    border-radius: 12px;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-
-.book-item:hover {
-    transform: translateY(-5px);
-}
-
-.book-item a {
-    text-decoration: none;
-    color: #006400;
-    font-weight: bold;
-    display: block;
-    margin-top: 8px;
-}
-
-/* ===== أيقونة العودة للصفحة الرئيسية ===== */
-.back-home {
-    display: flex;
-    justify-content: flex-end; /* على اليمين */
-    margin: 40px 20px 60px;
-}
-
-.back-home a {
-    width: 160px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    font-weight: bold;
-    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
-    border: 2px solid #006400;
-    border-radius: 12px;
-    text-decoration: none;
-    color: #006400;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.back-home a:hover {
-    transform: translateY(-3px);
-    background: #1f7a4d;
-    color: white;
-}
-</style>
-
 </head>
 <body>
 
-<!-- الشريط الأخضر الكبير -->
+<!-- ===== الشريط الأخضر ===== -->
 <div class="header-bar">
-    <div class="site-name-hand">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+
+    <div class="site-name-hand">
+        موقع الشيخ سعيد مصطفى دياب الرسمي
+    </div>
+
+    <div class="icon-grid">
+        <a href="index.html" class="icon-item">الرئيسية</a>
+        <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
+        <a href="articles.html" class="icon-item">المقالات</a>
+        <a href="lessons.html" class="icon-item">الدروس</a>
+        <a href="#" class="icon-item">خطب الجمعة</a>
+        <a href="#" class="icon-item">تواصل معنا</a>
+    </div>
+
 </div>
 
-<!-- ===== شبكة الكتب PDF ===== -->
-<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
-
-<div class="books-grid">
-    <div class="book-item">
-        <a href="pdf/allaalea-wa-aldorr.pdf" target="_blank">لآلئ والدرر بشرح وصية أبي بكر لعمر</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/al-eatbaar-ptraef-alakbaar.pdf" target="_blank">الاعتبار بطرائف الأخبار</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/katar-al-reba.pdf" target="_blank">خطر الربا على الأمة</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/kashf-alnqab.pdf" target="_blank">كشف النقاب عن المسائل ذوات الألقاب</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/shmael-al-rasool.pdf" target="_blank">شمائل الرسول صلى الله عليه وسلم</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/ithaf-ahl-alrusoukh.pdf" target="_blank">إتحاف أهل الرسوخ بشرح المنسوخ</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/tazkirat-al-abaha.pdf" target="_blank">تذكير الأباة بأسباب النجاة</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/tamam-al-minah.pdf" target="_blank">تمام المنة بشرح أمثال السنة</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/al-irshad.pdf" target="_blank">الإرشاد إلى أسباب محبة الله للعباد</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/fadhl-duaa.pdf" target="_blank">فضل الدعاء وآدابه</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/al-ilmam-siyam.pdf" target="_blank">الإلمام بأحكام الصيام</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/al-uqud-al-fadheya.pdf" target="_blank">القواعد الفقهية</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/asaleeb-alquran.pdf" target="_blank">أساليب القرآن البلاغية</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/kabar-al-ahad.pdf" target="_blank">خبر الآحاد في العقائد والأحكام</a>
-    </div>
-    <div class="book-item">
-        <a href="pdf/al-arbon-veal-amthal.pdf" target="_blank">الأربعون في الأمثال</a>
+<!-- ===== الشريط المتحرك ===== -->
+<div class="marquee-container">
+    <div class="marquee-text">
+        ﴿قُلْ هَٰذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلَىٰ بَصِيرَةٍ﴾
     </div>
 </div>
 
+<!-- ===== عنوان الصفحة ===== -->
+<h2 class="section-title">الكتب والمؤلفات</h2>
+
+<!-- ===== شبكة الكتب ===== -->
+<div class="books-page-grid">
+
+    <a href="pdf/allaalea-wa-aldorr.pdf" class="book-card" target="_blank">
+        <img src="images/allaalea-wa-aldorr.jpg" alt="">
+        <h3>اللآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
+    </a>
+
+    <a href="pdf/al-eatbaar-ptraef-alakbaar.pdf" class="book-card" target="_blank">
+        <img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="">
+        <h3>الاعتبار بطرائف الأخبار</h3>
+    </a>
+
+    <a href="pdf/katar-al-reba.pdf" class="book-card" target="_blank">
+        <img src="images/katar-al-reba.jpg" alt="">
+        <h3>خطر الربا على الأمة</h3>
+    </a>
+
+    <a href="pdf/kashf-alnqab.pdf" class="book-card" target="_blank">
+        <img src="images/kashf-alnqab.jpg" alt="">
+        <h3>كشف النقاب عن المسائل ذوات الألقاب</h3>
+    </a>
+
+    <a href="pdf/shmael-al-rasool.pdf" class="book-card" target="_blank">
+        <img src="images/shmael-al-rasool.jpg" alt="">
+        <h3>شمائل الرسول ﷺ</h3>
+    </a>
+
+    <a href="pdf/ithaf-ahl-alrusoukh.pdf" class="book-card" target="_blank">
+        <img src="images/ithaf-ahl-alrusoukh.jpg" alt="">
+        <h3>إتحاف أهل الرسوخ</h3>
+    </a>
+
+    <a href="pdf/tazkirat-al-abaha.pdf" class="book-card" target="_blank">
+        <img src="images/tazkirat-al-abaha.jpg" alt="">
+        <h3>تذكير الأباة بأسباب النجاة</h3>
+    </a>
+
+    <a href="pdf/tamam-al-minah.pdf" class="book-card" target="_blank">
+        <img src="images/tamam-al-minah.jpg" alt="">
+        <h3>تمام المنة بشرح أمثال السنة</h3>
+    </a>
+
+    <a href="pdf/al-irshad.pdf" class="book-card" target="_blank">
+        <img src="images/al-irshad.jpg" alt="">
+        <h3>الإرشاد إلى أسباب محبة الله</h3>
+    </a>
+
+    <a href="pdf/fadhl-duaa.pdf" class="book-card" target="_blank">
+        <img src="images/fadhl-duaa.jpg" alt="">
+        <h3>فضل الدعاء وآدابه</h3>
+    </a>
+
+    <a href="pdf/al-ilmam-siyam.pdf" class="book-card" target="_blank">
+        <img src="images/al-ilmam-siyam.jpg" alt="">
+        <h3>الإلمام بأحكام الصيام</h3>
+    </a>
+
+    <a href="pdf/al-uqud-al-fadheya.pdf" class="book-card" target="_blank">
+        <img src="images/al-uqud-al-fadheya.jpg" alt="">
+        <h3>القواعد الفقهية</h3>
+    </a>
+
+    <a href="pdf/asaleeb-alquran.pdf" class="book-card" target="_blank">
+        <img src="images/asaleeb-alquran.jpg" alt="">
+        <h3>أساليب القرآن البلاغية</h3>
+    </a>
+
+    <a href="pdf/kabar-al-ahad.pdf" class="book-card" target="_blank">
+        <img src="images/kabar-al-ahad.jpg" alt="">
+        <h3>خبر الآحاد في العقائد والأحكام</h3>
+    </a>
+
+    <a href="pdf/al-arbon-veal-amthal.pdf" class="book-card" target="_blank">
+        <img src="images/al-arbon-veal-amthal.jpg" alt="">
+        <h3>الأربعون في الأمثال</h3>
+    </a>
+
+</div>
+
+<!-- ===== أيقونة العودة ===== -->
+<div class="back-home-wrapper">
+    <a href="index.html" class="back-home">العودة إلى الصفحة الرئيسية</a>
+</div>
 
 </body>
-<div class="back-home">
-    <a href="index.html">الرئيسية</a>
-</div>
-
 </html>
