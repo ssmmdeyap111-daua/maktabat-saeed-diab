@@ -1,127 +1,107 @@
-/* ===============================
-   إعدادات عامة
-================================ */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* ===== إعدادات عامة ===== */
 body {
-    font-family: "Tahoma", Arial, sans-serif;
+    margin: 0;
+    font-family: "Amiri", serif;
+    background-color: #f9f9f9;
     direction: rtl;
-    background: #f8f8f8;
     color: #222;
 }
 
-/* ===============================
-   الشريط الأخضر العلوي
-================================ */
+/* ===== الشريط الأخضر العلوي ===== */
 .header-bar {
-    background: linear-gradient(135deg, #0f6b3e, #1f8f55);
-    padding: 35px 20px 20px;
+    background: linear-gradient(135deg, #0b7a2e, #006400, #004d26);
+    padding: 60px 20px 40px; /* مساحة كافية للعنوان والأيقونات */
     text-align: center;
+    position: relative;
 }
 
-/* اسم الموقع بخط اليد */
+/* اسم الموقع */
 .site-name-hand {
     font-family: 'Reem Kufi Ink', cursive;
-    font-size: 3rem;
+    font-size: 3rem;      /* حجم كبير وواضح */
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-/* ===============================
-   أيقونات التنقل
-================================ */
+/* ===== شبكة الأيقونات داخل الشريط الأخضر ===== */
 .icon-grid {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
-    flex-wrap: nowrap;
+    gap: 15px;
+    flex-wrap: nowrap;  /* صف واحد فقط */
+    margin-top: 20px;
 }
 
 .icon-item {
     background: rgba(255,255,255,0.15);
     color: #fff;
     text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: 0.3s ease;
+    padding: 16px 24px;   /* تكبير مساحة الأيقونة */
+    border-radius: 10px;
+    font-size: 1.3rem;    /* تكبير النص */
+    font-weight: bold;
     white-space: nowrap;
+    transition: 0.3s ease;
 }
 
 .icon-item:hover {
-    background: #ffffff;
-    color: #0f6b3e;
+    background: #fff;
+    color: #0b7a2e;
     transform: translateY(-2px);
 }
 
-/* ===============================
-   شريط الآية المتحرك
-================================ */
+/* ===== شريط الآية المتحرك ===== */
 .marquee-container {
-    background: #e9f5ee;
+    background: linear-gradient(to right, #fffdf5, #fff7d6, #fffdf5);
     overflow: hidden;
     padding: 10px 0;
-    border-bottom: 1px solid #cde5d7;
+    margin: 30px auto;
+    border: 3px solid #DAA520;
+    border-radius: 40px;
+    max-width: 95%;
+    text-align: center;
 }
 
 .marquee-text {
-    white-space: nowrap;
     display: inline-block;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    color: #006400;
     animation: marquee 30s linear infinite;
-    font-size: 1.1rem;
-    color: #0f6b3e;
-    padding-right: 100%;
+    padding-left: 100%;
 }
 
 @keyframes marquee {
     from { transform: translateX(0); }
-    to   { transform: translateX(-100%); }
+    to { transform: translateX(-100%); }
 }
 
-/* ===============================
-   خانة البحث
-================================ */
+/* ===== خانة البحث ===== */
 .main-search-wrapper {
     margin: 40px auto;
     text-align: center;
 }
 
 .main-search input {
-    width: 320px;
-    max-width: 90%;
+    width: 80%;
+    max-width: 400px;
     padding: 14px 18px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     border-radius: 30px;
     border: 1px solid #ccc;
     outline: none;
 }
 
 .main-search input:focus {
-    border-color: #0f6b3e;
+    border-color: #0b7a2e;
 }
 
-/* ===============================
-   عنوان الأقسام
-================================ */
-h2 {
-    text-align: center;
-    color: #0f6b3e;
-    margin: 50px 0 25px;
-    font-size: 2.4rem;
-}
-
-/* ===============================
-   شريط الكتب المتحرك
-================================ */
+/* ===== شريط الكتب المتحرك ===== */
 .books-slider-wrapper {
     position: relative;
     width: 95%;
-    margin: auto;
+    margin: 40px auto 80px;
     overflow: hidden;
 }
 
@@ -133,9 +113,7 @@ h2 {
     padding: 15px;
 }
 
-.books-slider::-webkit-scrollbar {
-    display: none;
-}
+.books-slider::-webkit-scrollbar { display: none; }
 
 .book {
     min-width: 180px;
@@ -159,12 +137,12 @@ h2 {
     color: #333;
 }
 
-/* أزرار التحريك */
+/* أزرار شريط الكتب */
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #0f6b3e;
+    background: #0b7a2e;
     color: #fff;
     border: none;
     padding: 10px 14px;
@@ -174,38 +152,22 @@ h2 {
     z-index: 10;
 }
 
-.arrow.left {
-    left: 5px;
-}
+.arrow.left { left: 5px; }
+.arrow.right { right: 5px; }
 
-.arrow.right {
-    right: 5px;
-}
-
-/* ===============================
-   صفحة الكتب الفرعية (Grid)
-================================ */
+/* ===== صفحة الكتب الفرعية ===== */
 .books-page {
     display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
+    justify-content: flex-start;
+    flex-wrap: nowrap;  /* صف واحد فقط */
     gap: 25px;
     padding: 40px;
+    overflow-x: auto;
 }
 
-/* ===============================
-   استجابة الجوال
-================================ */
+/* ===== استجابة الجوال ===== */
 @media (max-width: 768px) {
-    .site-name-hand {
-        font-size: 2.2rem;
-    }
-
-    .icon-grid {
-        flex-wrap: wrap;
-    }
-
-    .books-page {
-        flex-wrap: wrap;
-    }
+    .site-name-hand { font-size: 2.2rem; }
+    .icon-grid { flex-wrap: wrap; }
+    .books-page { flex-wrap: wrap; }
 }
