@@ -178,13 +178,13 @@ body {
 }
 /* ===== تكبير الأيقونات ===== */
 .icon-item {
-    font-size: 1.4rem;        /* كان صغير */
-    padding: 14px 22px;       /* زيادة المساحة */
+    font-size: 1.8rem;        /* كان صغير */
+    padding: 18px 28px;       /* زيادة المساحة */
 }
 .book img {
-    width: 180px;   /* تكبير الغلاف */
+    width: 240px;   /* تكبير الغلاف */
 }
 
 .book h3 {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
 }
