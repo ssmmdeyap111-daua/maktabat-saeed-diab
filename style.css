@@ -1,211 +1,162 @@
-/* ===== الخطوط ===== */
+/* ===== إعدادات عامة ===== */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: "Reem Kufi Ink", serif;
-    background-color: #f9f9f9;
+    background: #f7f7f7;
 }
 
-/* ===== الشريط الأخضر الكبير ===== */
+/* ===== الشريط الأخضر ===== */
 .header-bar {
-    background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
-    color: white;
+    background: linear-gradient(to bottom, #0b7a2e, #005a2a);
+    color: #fff;
     text-align: center;
-    padding: 60px 40px 160px; /* مساحة للأيقونات في الأسفل */
+    padding: 50px 20px 130px;
+    position: relative;
+}
+
+.site-name-hand {
     font-size: 3rem;
     font-weight: bold;
-    position: relative;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-    border: 10px solid transparent;
-    border-image: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520, #FFF6B0, #FFD700) 1;
-    animation: goldShine 6s linear infinite;
 }
 
-@keyframes goldShine {
-    0% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
-    50% { border-image-source: linear-gradient(225deg, #FFF6B0, #FFD700, #FFF6B0); }
-    100% { border-image-source: linear-gradient(45deg, #FFD700, #FFF6B0, #DAA520); }
-}
-
-/* ===== أيقونات الشريط ===== */
-.header-bar .icon-grid {
+/* ===== الأيقونات ===== */
+.icon-grid {
     position: absolute;
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 18px;
-    flex-wrap: nowrap; /* صف واحد فقط */
+    gap: 15px;
 }
 
 .icon-item {
-    width: 180px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
-    border: 2px solid #006400;
-    border-radius: 16px;
-    color: #006400;
+    background: #eaffea;
+    color: #005a2a;
+    padding: 14px 22px;
+    border-radius: 12px;
     text-decoration: none;
-    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: 2px solid #005a2a;
 }
 
 .icon-item:hover {
-    background: #1f7a4d;
+    background: #005a2a;
     color: #fff;
-    transform: translateY(-3px);
 }
 
 /* ===== شريط الآية ===== */
 .marquee-container {
-    width: 96%;
-    max-width: 1600px;
-    height: 60px;
+    margin: 30px auto;
+    width: 95%;
     overflow: hidden;
-    background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
-    border: 3px solid #DAA520;
-    border-radius: 60px;
+    background: #fff6d6;
+    border: 3px solid #d4af37;
+    border-radius: 50px;
+    height: 60px;
     display: flex;
     align-items: center;
-    margin: 30px auto;
-    position: relative;
 }
 
 .marquee-text {
     white-space: nowrap;
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: #006400;
+    font-size: 2rem;
     padding-left: 100%;
-    animation: marquee-ltr 30s linear infinite;
+    animation: marquee 30s linear infinite;
 }
 
-.marquee-container:hover .marquee-text {
-    animation-play-state: paused;
-}
-
-@keyframes marquee-ltr {
+@keyframes marquee {
     from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
+    to   { transform: translateX(100%); }
 }
 
-/* ===== خانة البحث ===== */
-.main-search-wrapper {
+/* ===== البحث ===== */
+.main-search {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 30px 20px 60px;
+    justify-content: center;
+    margin: 40px 0;
 }
 
 .main-search input {
-    width: 80%;
-    max-width: 1000px;
-    height: 80px;
-    padding: 0 30px;
-    font-size: 2.2rem;
-    border-radius: 25px;
-    border: 4px solid #DAA520;
-    outline: none;
-    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35), inset 0 5px 10px rgba(255,255,255,0.9), inset 0 -5px 10px rgba(0,0,0,0.08);
+    width: 70%;
+    height: 70px;
+    font-size: 2rem;
+    border-radius: 20px;
+    border: 3px solid #d4af37;
+    padding: 0 20px;
 }
 
-/* ===== شريط الكتب - الصفحة الرئيسية ===== */
-.home-books-slider {
+/* ===============================
+   الصفحة الرئيسية – الكتب
+================================ */
+.home-books {
     display: flex;
-    flex-wrap: wrap; /* السماح لأكثر من صف */
-    gap: 25px;
+    flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
     margin: 40px auto;
+    max-width: 1400px;
 }
 
-.home-books-slider .book {
-    width: 220px;
+.home-books .book {
+    width: 230px;
     text-align: center;
 }
 
-.home-books-slider .book img {
+.home-books img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
     border-radius: 12px;
-    border: 2px solid gold;
-    transition: transform 0.3s;
+    border: 2px solid #d4af37;
 }
 
-.home-books-slider .book img:hover {
-    transform: scale(1.05);
-}
-
-.home-books-slider .book h3 {
+.home-books h3 {
+    font-size: 1.3rem;
     margin-top: 10px;
-    font-size: 1.4rem;
-    color: #0b5f2a;
 }
 
-/* ===== صفحة الكتب الفرعية ===== */
+/* ===============================
+   صفحة الكتب الفرعية
+================================ */
 .books-page .books-container {
     display: flex;
-    flex-wrap: nowrap; /* صف واحد فقط */
+    gap: 30px;
     overflow-x: auto;
-    gap: 25px;
-    padding: 20px;
+    padding: 30px;
 }
 
-.books-page .books-container::-webkit-scrollbar { display: none; }
-.books-page .books-container { -ms-overflow-style: none; scrollbar-width: none; }
-
-.books-page .books-container .book {
-    flex: 0 0 auto;
-    width: 220px;
+.books-page .book {
+    min-width: 220px;
     text-align: center;
 }
 
-.books-page .books-container .book img {
+.books-page img {
     width: 100%;
-    height: auto;
     border-radius: 12px;
-    border: 2px solid gold;
-    margin-bottom: 10px;
-}
-
-.books-page .books-container .book h3 {
-    font-size: 1.3rem;
-    color: #0b5f2a;
+    border: 2px solid #d4af37;
 }
 
 .download-btn {
     display: inline-block;
-    margin-top: 5px;
-    padding: 5px 12px;
-    background: #0b7a2e;
+    margin-top: 8px;
+    background: #005a2a;
     color: #fff;
+    padding: 6px 14px;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 1rem;
 }
 
-.download-btn:hover {
-    background: #1f7a4d;
-}
-
-/* زر العودة للصفحة الرئيسية */
+/* زر العودة */
 .back-home {
+    margin: 40px;
     text-align: right;
-    margin: 30px 40px;
-    font-size: 1.6rem;
 }
 
 .back-home a {
+    font-size: 1.6rem;
+    color: #005a2a;
     text-decoration: none;
-    color: #0b7a2e;
-    font-weight: bold;
-}
-
-.back-home a:hover {
-    color: #1f7a4d;
 }
