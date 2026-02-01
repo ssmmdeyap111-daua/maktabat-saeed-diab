@@ -135,3 +135,11 @@ btnLeft.addEventListener("click", () => {
 
 </body>
 </html>
+<script>
+const slider = document.getElementById("homeBooks");
+document.querySelector(".arrow.right").onclick = () =>
+  slider.scrollBy({ left: 250, behavior: "smooth" });
+
+document.querySelector(".arrow.left").onclick = () =>
+  slider.scrollBy({ left: -250, behavior: "smooth" });
+</script>
