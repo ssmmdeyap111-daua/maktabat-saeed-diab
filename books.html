@@ -1,183 +1,129 @@
-<!-- الشريط الأخضر الكبير -->
-<div class="header-bar">
-    موقع الشيخ سعيد مصطفى دياب الرسمي
-</div>
-
-<link rel="stylesheet" href="style.css">
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب</title>
-<style>
-body {
-    margin: 0;
-    font-family: "Arial", sans-serif;
-    background-color: #f9f9f9;
-}
-
-/* شبكة الأيقونات المستطيلة للكتب */
-.icon-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 40px 10px;
-    gap: 25px;
-}
-
-.icon-item {
-    width: 180px;   /* أقل عرض */
-    height: 60px;  /* أطول مستطيل */
-    background-color: #e0ffe0;
-    border: 3px solid #006400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    color: #006400;
-    font-size: 2.0rem;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow:
-        0 12px 25px rgba(0,0,0,0.35),
-        inset 0 3px 6px rgba(255,255,255,0.8);
-    transition: all 0.3s ease;
-}
-
-.icon-item:hover {
-    background-color: #c8f0c8;
-    box-shadow:
-        0 15px 30px rgba(0,0,0,0.45),
-        inset 0 4px 8px rgba(255,255,255,0.85);
-}
-
-/* زر العودة للصفحة الرئيسية */
-.back-home {
-    display: flex;
-    justify-content: center;
-    margin: 50px 0;
-}
-
-.back-home a {
-    width: 100px;
-    height: 60px;
-    background-color: #e0ffe0;
-    border: 3px solid #006400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    color: #006400;
-    font-size: 1.5rem;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow:
-        0 12px 25px rgba(0,0,0,0.35),
-        inset 0 3px 6px rgba(255,255,255,0.8);
-    transition: all 0.3s ease;
-}
-
-.back-home a:hover {
-    background-color: #c8f0c8;
-    box-shadow:
-        0 15px 30px rgba(0,0,0,0.45),
-        inset 0 4px 8px rgba(255,255,255,0.85);
-}
-
-/* عناوين الكتب */
-.book-title {
-    margin-top: 10px;
-    font-size: 1.5rem;
-    color: #006400;
-    text-align: center;
-}
-</style>
+<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="icon-grid">
-    <a href="pdfs/al-irshad.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">الإرشاد إلى أسباب محبة الله للعباد</div>
-        </div>
-    </a>
-
-    <a href="pdfs/shmael-al-rasool.pdf.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">شمائل الرسول</div>
-        </div>
-    </a>
+<!-- الشريط الأخضر الكبير -->
+<div class="header-bar">
+    <div class="site-name-hand">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
     
-    <a href="pdfs/tazkirat-al-abaha.pdf.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">تذكير الأباة</div>
-        </div>
-     </a>
-
-    <a href="pdfs/allaalea-wa-aldorr.pdf.pdf"target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">اللآلئ والدرر</div>
-        </div>
-       </a>
-  
-    <a href="pdfs/al-eatbaar-ptraef-alakbaar.pdf="_blank" class="icon-item">
-        <div>
-            <div class="book-title">الاعتبار بطرائف الأخبار</div>
-        </div>
-    </a>
-    
-    <a href="pdfs/asaleeb-alquran.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">أساليب القرآن</div>
-        </div>
-    </a>
-<a href="pdfs/al-uqud-al-fadheya.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">أالعقود الفضية</div>
-        </div>
-    </a>
-    
- <a href="pdfs/kabar-al-ahad.pdf.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">خبر الآحاد في العقائد والأحكام</div>
-        </div>
-    </a>
-   
-    <a href="pdfs/fadhl-duaa.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">فضل الدعاء</div>
-        </div>
-    </a>
-
-    <a href="pdfs/itshaf-ahli-al-rusukh.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">إتحاف أهل الرسوخ</div>
-        </div>
-    </a>
-
-    <a href="pdfs/tamam-al-minah.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">تمام المنة</div>
-        </div>
-    </a>
-
-    <a href="pdfs/alm-alim-bima-lilsiyam.pdf" target="_blank" class="icon-item">
-        <div>
-            <div class="book-title">الإلمام بما للصيام من حكم وآداب وأحكام</div>
-        </div>
-    </a>
+    <div class="icon-grid">
+        <a href="index.html" class="icon-item">الرئيسية</a>
+        <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
+        <a href="articles.html" class="icon-item">المقالات</a>
+        <a href="lessons.html" class="icon-item">الدروس</a>
+        <a href="#" class="icon-item">خطب الجمعة</a>
+        <a href="#" class="icon-item">تواصل معنا</a>
+    </div>
 </div>
 
-<!-- زر العودة للصفحة الرئيسية -->
-<div class="back-home">
-    <a href="index.html">الرئيسية</a>
+<!-- شريط الآية -->
+<div class="marquee-container">
+  <div class="marquee-text">
+قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
+  </div>
 </div>
+
+<!-- خانة البحث -->
+<div class="main-search-wrapper">
+    <div class="search-title">ابحث في الكتب والمؤلفات</div>
+    <div class="main-search">
+        <input type="text" placeholder="اكتب اسم الكتاب أو المؤلف">
+    </div>
+</div>
+
+<!-- ===== قسم الكتب ===== -->
+<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
+
+<div class="books-slider-wrapper">
+  <button class="arrow left" type="button">❮</button>
+  <div class="books-slider" id="booksContainer">
+    
+    <div class="book">
+      <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر بشرح وصية أبي بكر لعمر">
+      <h3>لآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
+    </div>
+    <div class="book">
+      <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار بطرائف الأخبار">
+      <h3>الاعتبار بطرائف الأخبار</h3>
+    </div>
+    <div class="book">
+      <img src="images/katar-al-reba.jpg.jpg" alt="خطر الربا على الأمة">
+      <h3>خطر الربا على الأمة</h3>
+    </div>
+    <div class="book">
+      <img src="images/kashf-alnqab.jpg.jpg" alt="كشف النقاب عن المسائل ذوات الألقاب">
+      <h3>كشف النقاب عن المسائل ذوات الألقاب</h3>
+    </div>
+    <div class="book">
+      <img src="images/shmael-al-rasool.jpg.jpg" alt="شمائل الرسول صلى الله عليه وسلم">
+      <h3>شمائل الرسول صلى الله عليه وسلم</h3>
+    </div>
+    <div class="book">
+      <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="إتحاف أهل الرسوخ">
+      <h3>إتحاف أهل الرسوخ بشرح المنسوخ</h3>
+    </div>
+    <div class="book">
+      <img src="images/tazkirat-al-abaha.jpg.jpg" alt="تذكير الأباة">
+      <h3>تذكير الأباة بأسباب النجاة</h3>
+    </div>
+    <div class="book">
+      <img src="images/tamam-al-minah.jpg" alt="تمام المنة">
+      <h3>تمام المنة بشرح أمثال السنة</h3>
+    </div>
+    <div class="book">
+      <img src="images/al-irshad.jpg" alt="الإرشاد إلى أسباب محبة الله للعباد">
+      <h3>الإرشاد إلى أسباب محبة الله للعباد</h3>
+    </div>
+    <div class="book">
+      <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء">
+      <h3>فضل الدعاء وآدابه</h3>
+    </div>
+    <div class="book">
+      <img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بأحكام الصيام">
+      <h3>الإلمام بأحكام الصيام</h3>
+    </div>
+    <div class="book">
+      <img src="images/al-uqud-al-fadheya.jpg.jpg" alt="القواعد الفقهية">
+      <h3>القواعد الفقهية</h3>
+    </div>
+    <div class="book">
+      <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن البلاغية">
+      <h3>أساليب القرآن البلاغية</h3>
+    </div>
+    <div class="book">
+      <img src="images/kabar-al-ahad.jpg.jpg" alt="خبر الآحاد">
+      <h3>خبر الآحاد في العقائد والأحكام</h3>
+    </div>
+    <div class="book">
+      <img src="images/al-arbon-veal-amthal.jpg.jpg" alt="الأربعون في الأمثال">
+      <h3>الأربعون في الأمثال</h3>
+    </div>
+    
+  </div>
+  <button class="arrow right" type="button">❯</button>
+</div>
+
+<!-- JavaScript لتحريك شريط الكتب -->
+<script>
+const container = document.getElementById("booksContainer");
+const btnRight = document.querySelector(".arrow.right");
+const btnLeft  = document.querySelector(".arrow.left");
+
+btnRight.addEventListener("click", () => {
+  container.scrollBy({ left: 220, behavior: "smooth" });
+});
+
+btnLeft.addEventListener("click", () => {
+  container.scrollBy({ left: -220, behavior: "smooth" });
+});
+</script>
 
 </body>
 </html>
