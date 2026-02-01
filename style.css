@@ -160,3 +160,53 @@ body {
     color: #005a2a;
     text-decoration: none;
 }
+/* ===== شريط الكتب – الصفحة الرئيسية ===== */
+.home-slider-wrapper {
+    position: relative;
+    max-width: 95%;
+    margin: 40px auto;
+}
+
+.home-slider {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px;
+}
+
+.home-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.home-slider .book {
+    min-width: 230px;
+    text-align: center;
+}
+
+.home-slider img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #d4af37;
+}
+
+.home-slider h3 {
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+.arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: #005a2a;
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.arrow.left { left: -10px; }
+.arrow.right { right: -10px; }
