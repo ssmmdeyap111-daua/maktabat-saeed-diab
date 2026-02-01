@@ -195,3 +195,75 @@ body {
 .book img:hover {
     transform: scale(1.07);
 }
+/* ===== شريط الكتب المتحرك ===== */
+.books-slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin: 40px auto 80px;
+}
+
+.books-slider {
+    display: flex;              /* ← مهم جدًا ليكون أفقي */
+    gap: 25px;                  /* مسافة بين الكتب */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 80%;
+    padding: 20px 10px;
+}
+
+/* إخفاء شريط التمرير */
+.books-slider::-webkit-scrollbar {
+    display: none;
+}
+.books-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* كل كتاب */
+.book {
+    min-width: 240px;       /* تكبير الكتب */
+    text-align: center;
+    flex-shrink: 0;         /* منع تصغير الكتاب */
+}
+
+.book img {
+    width: 220px;           /* تكبير الغلاف */
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid gold;
+    display: block;
+    margin: auto;
+    transition: transform 0.3s;
+}
+
+.book img:hover {
+    transform: scale(1.07);
+}
+
+.book h3 {
+    margin-top: 14px;
+    font-size: 1.3rem;      /* تكبير العنوان */
+    color: #0b5f2a;
+}
+
+/* زر التحريك */
+.arrow {
+    background: linear-gradient(145deg, #006400, #228B22);
+    color: white;
+    border: none;
+    font-size: 28px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.arrow:hover {
+    background: linear-gradient(145deg, #228B22, #006400);
+}
