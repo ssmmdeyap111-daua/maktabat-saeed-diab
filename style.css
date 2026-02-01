@@ -1,4 +1,4 @@
-/* ===== الخط العام ===== */
+/* ===== جسم الصفحة ===== */
 body {
     margin: 0;
     font-family: "Amiri", serif;
@@ -16,86 +16,98 @@ body {
     background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
     color: white;
     text-align: center;
-    padding: 120px 40px 60px; /* أعلى + مساحة للأيقونات */
+    padding: 120px 40px 180px; /* تكبير الشريط الأخضر والمساحة للأيقونات */
+    font-size: 3rem;
     font-weight: bold;
     position: relative;
+
     border: 10px solid transparent;
-    border-image: linear-gradient(45deg,#FFD700,#FFF6B0,#DAA520,#FFF6B0,#FFD700) 1;
+    border-image: linear-gradient(
+        45deg,
+        #FFD700,
+        #FFF6B0,
+        #DAA520,
+        #FFF6B0,
+        #FFD700
+    ) 1;
+
     animation: goldShine 6s linear infinite;
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-/* اسم الموقع داخل الشريط الأخضر */
-.header-bar .site-name-hand {
-    font-family: 'Reem Kufi Ink', sans-serif;
+.site-name-hand {
     font-size: 3rem;
     font-weight: bold;
-    color: white;
     margin-bottom: 30px;
 }
 
-/* أيقونات الصفحات داخل الشريط */
-.header-bar .icon-grid {
+/* ===== أيقونات الصفحات داخل الشريط الأخضر ===== */
+.header-icons {
+    position: absolute;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: nowrap; /* صف واحد */
+    gap: 20px;
+    flex-wrap: nowrap;
 }
 
-/* أيقونات فردية */
 .icon-item {
+    width: 180px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 180px;
-    height: 60px;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-decoration: none;
+    text-align: center;
+    color: #006400;
     background: linear-gradient(to bottom, #eaffea, #c8f0c8);
     border: 2px solid #006400;
     border-radius: 16px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #006400;
-    text-decoration: none;
-    text-align: center;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
     transition: transform 0.3s;
 }
 
 .icon-item:hover {
     background: #1f7a4d;
-    color: white;
+    color: #fff;
     transform: translateY(-3px);
 }
 
-/* ===== شريط الآية ===== */
+/* ===== شريط الآية المتحرك ===== */
 .marquee-container {
-  width: 96%;
-  max-width: 1600px;
-  margin: 30px auto;
-  height: 60px;
-  overflow: hidden;
-  background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
-  border: 3px solid #DAA520;
-  border-radius: 60px;
-  display: flex;
-  align-items: center;
+    width: 96%;
+    max-width: 1600px;
+    height: 60px;
+    margin: 30px auto;
+    overflow: hidden;
+    background: linear-gradient(to right, #fffdf5, #fff1b8, #fffdf5);
+    border: 3px solid #DAA520;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .marquee-text {
-  white-space: nowrap;
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #006400;
-  padding-left: 100%;
-  animation: marquee-ltr 30s linear infinite;
-}
-
-@keyframes marquee-ltr {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
+    white-space: nowrap;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #006400;
+    padding-left: 100%;
+    animation: marquee-ltr 30s linear infinite;
 }
 
 .marquee-container:hover .marquee-text {
-  animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+@keyframes marquee-ltr {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
 }
 
 /* ===== خانة البحث ===== */
@@ -107,7 +119,7 @@ body {
 }
 
 .search-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: bold;
     color: #006400;
     margin-bottom: 25px;
@@ -117,18 +129,19 @@ body {
     width: 80%;
     max-width: 1000px;
     height: 80px;
-    padding: 0 30px;
     font-size: 2.2rem;
+    padding: 0 30px;
     border-radius: 25px;
     border: 4px solid #DAA520;
     outline: none;
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35),
-                inset 0 5px 10px rgba(255,255,255,0.9),
-                inset 0 -5px 10px rgba(0,0,0,0.08);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.35),
+        inset 0 5px 10px rgba(255, 255, 255, 0.9),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* ===== شريط الكتب المتحرك ===== */
+/* ===== شريط الكتب في الصفحة الرئيسية ===== */
 .books-slider-wrapper {
     display: flex;
     align-items: center;
@@ -145,15 +158,6 @@ body {
     scroll-behavior: smooth;
     width: 80%;
     padding: 20px 10px;
-}
-
-.books-slider::-webkit-scrollbar {
-    display: none;
-}
-
-.books-slider {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
 .book {
@@ -179,7 +183,7 @@ body {
 
 .book h3 {
     margin-top: 10px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #0b5f2a;
 }
 
@@ -199,4 +203,53 @@ body {
 
 .arrow:hover {
     background: linear-gradient(145deg, #228B22, #006400);
+}
+
+/* إخفاء Scrollbar */
+.books-slider::-webkit-scrollbar {
+    display: none;
+}
+.books-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ===== صفحة الكتب PDF ===== */
+.pdf-books {
+    display: flex;
+    flex-wrap: wrap; /* صفوف متعددة عند الحاجة */
+    justify-content: center;
+    gap: 25px;
+    margin: 40px 20px;
+}
+
+.pdf-book {
+    width: 220px;
+    height: 320px;
+    border: 2px solid gold;
+    border-radius: 12px;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.pdf-book:hover {
+    transform: scale(1.05);
+}
+
+.pdf-book img {
+    width: 180px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+}
+
+.pdf-book h3 {
+    margin-top: 10px;
+    font-size: 1.6rem;
+    color: #006400;
 }
