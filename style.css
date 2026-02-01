@@ -299,3 +299,12 @@ body {
     transition: all 0.3s ease;
     white-space: nowrap; /* يمنع التفاف النص */
 }
+.icon-grid {
+    display: flex;
+    flex-direction: row;      /* صف واحد */
+    justify-content: center;  /* توسيط */
+    align-items: center;
+    gap: 14px;
+    flex-wrap: nowrap;        /* يمنع النزول لسطر ثانٍ */
+    margin-top: 20px;
+}
