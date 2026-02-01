@@ -43,7 +43,7 @@
 <div class="books-slider-wrapper">
   <button class="arrow left" type="button">❮</button>
   <div class="books-slider" id="booksContainer">
-    <!-- كل الكتب -->
+    <!-- جميع الكتب -->
     <div class="book">
       <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر بشرح وصية أبي بكر لعمر">
       <h3>لآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
@@ -74,7 +74,51 @@
       <h3>إتحاف أهل الرسوخ</h3>
       <a href="pdf/ithaf-ahl-alrusoukh.pdf" class="download" download>تحميل</a>
     </div>
-    <!-- أضف بقية الكتب بنفس الطريقة -->
+    <div class="book">
+      <img src="images/tazkirat-al-abaha.jpg.jpg" alt="تذكير الأباة بأسباب النجاة">
+      <h3>تذكير الأباة بأسباب النجاة</h3>
+      <a href="pdf/tazkirat-al-abaha.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/tamam-al-minah.jpg" alt="تمام المنة بشرح أمثال السنة">
+      <h3>تمام المنة بشرح أمثال السنة</h3>
+      <a href="pdf/tamam-al-minah.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/al-irshad.jpg" alt="الإرشاد إلى أسباب محبة الله للعباد">
+      <h3>الإرشاد إلى أسباب محبة الله للعباد</h3>
+      <a href="pdf/al-irshad.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء وآدابه">
+      <h3>فضل الدعاء وآدابه</h3>
+      <a href="pdf/fadhl-duaa.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بأحكام الصيام">
+      <h3>الإلمام بأحكام الصيام</h3>
+      <a href="pdf/al-ilmam-siyam.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/al-uqud-al-fadheya.jpg" alt="القواعد الفقهية">
+      <h3>القواعد الفقهية</h3>
+      <a href="pdf/al-uqud-al-fadheya.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن البلاغية">
+      <h3>أساليب القرآن البلاغية</h3>
+      <a href="pdf/asaleeb-alquran.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/kabar-al-ahad.jpg.jpg" alt="خبر الآحاد في العقائد والأحكام">
+      <h3>خبر الآحاد في العقائد والأحكام</h3>
+      <a href="pdf/kabar-al-ahad.pdf" class="download" download>تحميل</a>
+    </div>
+    <div class="book">
+      <img src="images/al-arbon-veal-amthal.jpg.jpg" alt="الأربعون في الأمثال">
+      <h3>الأربعون في الأمثال</h3>
+      <a href="pdf/al-arbon-veal-amthal.pdf" class="download" download>تحميل</a>
+    </div>
   </div>
   <button class="arrow right" type="button">❯</button>
 </div>
@@ -83,13 +127,8 @@
 const container = document.getElementById("booksContainer");
 const btnRight = document.querySelector(".arrow.right");
 const btnLeft  = document.querySelector(".arrow.left");
-
-btnRight.addEventListener("click", () => {
-  container.scrollBy({ left: 220, behavior: "smooth" });
-});
-btnLeft.addEventListener("click", () => {
-  container.scrollBy({ left: -220, behavior: "smooth" });
-});
+btnRight.addEventListener("click", () => { container.scrollBy({ left: 220, behavior: "smooth" }); });
+btnLeft.addEventListener("click", () => { container.scrollBy({ left: -220, behavior: "smooth" }); });
 </script>
 
 </body>
