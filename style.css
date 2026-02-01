@@ -36,12 +36,15 @@ body {
 /* أيقونات الشريط */
 .icon-grid {
     position: absolute;
-    bottom: 15px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
+
     display: flex;
-    gap: 12px;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap;        /* ← صف واحد فقط */
+    gap: 15px;
+
+    width: max-content;
 }
 
 .icon-item {
