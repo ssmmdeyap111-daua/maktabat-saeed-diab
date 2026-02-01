@@ -24,6 +24,10 @@ body {
     display: block !important;
     line-height: 1.4 !important;
 }
+.header-bar {
+    padding-top: 140px !important;
+    padding-bottom: 200px !important;
+}
 
 /* اسم الموقع */
 .site-name-hand {
