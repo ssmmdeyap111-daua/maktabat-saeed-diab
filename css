@@ -1,8 +1,9 @@
 /* ===== الخط العام ===== */
 body {
-    margin: 0;
-    font-family: "Amiri", serif;
-    background-color: #f9f9f9;
+  /* الخط الكوفي — الصفحة الرئيسية فقط */
+body.home .site-title {
+    font-family: 'Amiri Quran', serif;
+    font-size: 3.6rem;
 }
 
 /* ===== الشريط الأخضر الكبير ===== */
