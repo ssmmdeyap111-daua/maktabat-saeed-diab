@@ -1,10 +1,10 @@
-/* ===== إعدادات عامة ===== */
+/* إعدادات عامة */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     direction: rtl;
-    font-family: "Cairo", "Amiri", serif; /* خط عربي كويس */
+    font-family: "Cairo", "Amiri", serif;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
     line-height: 1.6;
 }
 
-/* ===== الشريط العلوي الأخضر ===== */
+/* الشريط العلوي الأخضر */
 .header-bar {
     background: #2e7d32;
     padding: 15px 30px;
@@ -22,7 +22,6 @@ body {
     align-items: center;
 }
 
-/* اسم الموقع */
 .site-title {
     color: #fff;
     font-size: 32px;
@@ -30,7 +29,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* أيقونات التنقل */
 .nav-icons {
     display: flex;
     gap: 25px;
@@ -47,7 +45,7 @@ body {
     text-decoration: underline;
 }
 
-/* ===== شريط الكتب المتحرك ===== */
+/* ===== شريط الكتب المتحرك في الرئيسية ===== */
 .books-slider {
     overflow: hidden;
     margin: 20px 0;
@@ -59,7 +57,6 @@ body {
 
 .slider-track {
     display: flex;
-    width: calc(200px * 20); /* تقريبًا حسب عدد الكتب */
     animation: scroll 20s linear infinite;
 }
 
@@ -75,13 +72,12 @@ body {
     border-radius: 8px;
 }
 
-/* حركة الشريط */
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-/* ===== قسم الكتب في الصفحة الفرعية ===== */
+/* ===== صفحة الكتب ===== */
 .books-section {
     padding: 40px;
 }
@@ -130,7 +126,7 @@ body {
     background: #1b5e20;
 }
 
-/* ===== زر العودة للصفحة الرئيسية ===== */
+/* زر العودة */
 .back-home {
     margin: 50px 30px;
     text-align: right;
@@ -147,7 +143,7 @@ body {
     text-decoration: underline;
 }
 
-/* ===== قسم ترحيبي أو محتوى الصفحة الرئيسية ===== */
+/* محتوى الصفحة الرئيسية */
 .home-content {
     text-align: center;
     padding: 40px;
@@ -164,7 +160,7 @@ body {
     margin: 0 auto;
 }
 
-/* ===== متجاوب للجوال ===== */
+/* متجاوب للجوال */
 @media (max-width: 768px) {
     .site-title {
         font-size: 24px;
