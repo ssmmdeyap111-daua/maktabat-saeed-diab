@@ -14,17 +14,11 @@ body.home .site-title {
 }
 
 .header-bar {
-    background: linear-gradient(to bottom, #0b7a2e, #006400, #004d26);
-    color: white;
-    text-align: center;
-    padding: 120px 40px 60px; /* أعلى + مساحة للأيقونات */
-    font-weight: bold;
+    background: linear-gradient(to bottom, #0a7a3c, #0e8f4a);
+    padding: 30px 20px 15px;
     position: relative;
-    border: 10px solid transparent;
-    border-image: linear-gradient(45deg,#FFD700,#FFF6B0,#DAA520,#FFF6B0,#FFD700) 1;
-    animation: goldShine 6s linear infinite;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
+
 
 /* اسم الموقع داخل الشريط الأخضر */
 .header-bar .site-name-hand {
