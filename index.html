@@ -1,88 +1,74 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>اسم الموقع</title>
-   <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/style.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ===== الشريط العلوي ===== -->
+<!-- الشريط الأخضر الكبير -->
 <div class="header-bar">
-    <div class="site-title">اسم الموقع</div>
+    <div class="site-name-hand">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
 
-    <div class="nav-icons">
-        <a href="index.html">الرئيسية</a>
-        <a href="books.html">الكتب والمؤلفات</a>
-        <a href="#">الدروس</a>
-        <a href="#">خطب الجمعة</a>
-        <a href="#">تواصل معنا</a>
+    <!-- أيقونات الصفحات -->
+    <div class="header-icons">
+        <a href="index.html" class="icon-item">الرئيسية</a>
+        <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
+        <a href="articles.html" class="icon-item">المقالات</a>
+        <a href="lessons.html" class="icon-item">الدروس</a>
+        <a href="#" class="icon-item">خطب الجمعة</a>
+        <a href="#" class="icon-item">تواصل معنا</a>
+    </div>
+</div>
+
+<!-- شريط الآية المتحرك -->
+<div class="marquee-container">
+  <div class="marquee-text">
+قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
+  </div>
+</div>
+
+<!-- خانة البحث -->
+<div class="main-search-wrapper">
+    <div class="search-title">ابحث في الموقع</div>
+    <div class="main-search">
+        <input type="text" placeholder="ابحث عن كتاب أو موضوع">
     </div>
 </div>
 
 <!-- ===== شريط الكتب المتحرك ===== -->
-<div class="books-slider">
-    <div class="slider-track">
+<h2 style="text-align:center; color:#006400; margin-top:50px; font-size:2.5rem;">الكتب والمؤلفات</h2>
 
-        <div class="slide-book">
-            <img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="الاعتبار بطرائف الأكبار">
-        </div>
-        <div class="slide-book">
-            <img src="images/al-ilmam-siyam.jpg" alt="الإلمام بالصيام">
-        </div>
-        <div class="slide-book">
-            <img src="images/al-irshad.jpg" alt="الإرشاد">
-        </div>
-        <div class="slide-book">
-            <img src="images/al-uqud-al-fadheya.jpg" alt="العقود الفاضلة">
-        </div>
-        <div class="slide-book">
-            <img src="images/allaalea-wa-aldorr.jpg" alt="اللآلئ والدرر">
-        </div>
-        <div class="slide-book">
-            <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن البلاغية">
-        </div>
-        <div class="slide-book">
-            <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء">
-        </div>
-        <div class="slide-book">
-            <img src="images/ithaf-ahl-alrusoukh.jpg" alt="إيثاف أهل الرسوخ">
-        </div>
-        <div class="slide-book">
-            <img src="images/kabar-al-ahad.jpg" alt="خبر الآحاد">
-        </div>
-        <div class="slide-book">
-            <img src="images/kashf-alnqab.jpg" alt="كشف النقاب">
-        </div>
-        <div class="slide-book">
-            <img src="images/katar-al-reba.jpg" alt="قطر الربا">
-        </div>
-        <div class="slide-book">
-            <img src="images/shmael-al-rasool.jpg" alt="شمائل الرسول ﷺ">
-        </div>
-        <div class="slide-book">
-            <img src="images/tamam-al-minah.jpg" alt="تمام المنة">
-        </div>
-        <div class="slide-book">
-            <img src="images/tazkirat-al-abaha.jpg" alt="تذكرة الآباء">
-        </div>
-        <div class="slide-book">
-            <img src="images/wageb-al-muslmeen.jpg" alt="واجب المسلمين">
-        </div>
-
+<div class="books-slider-wrapper">
+  <button class="arrow left" type="button">❮</button>
+  <div class="books-slider" id="booksContainer">
+    <!-- ضع هنا كل كتبك كما في النسخة السابقة -->
+    <div class="book">
+      <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="الآلئ والدرر بشرح وصية أبي بكر لعمر">
+      <h3>لآلئ والدرر بشرح وصية أبي بكر لعمر</h3>
     </div>
+    <!-- المزيد من الكتب ... -->
+  </div>
+  <button class="arrow right" type="button">❯</button>
 </div>
 
-<!-- ===== قسم ترحيبي ===== -->
-<div class="home-content">
-    <h2>مرحبًا بكم في الموقع</h2>
-    <p>
-        موقع علمي دعوي يضم الكتب والمؤلفات والدروس والخطب،
-        نسأل الله أن ينفع به.
-    </p>
-</div>
+<!-- JavaScript لتحريك شريط الكتب -->
+<script>
+const container = document.getElementById("booksContainer");
+const btnRight = document.querySelector(".arrow.right");
+const btnLeft  = document.querySelector(".arrow.left");
+
+btnRight.addEventListener("click", () => {
+  container.scrollBy({ left: 220, behavior: "smooth" });
+});
+
+btnLeft.addEventListener("click", () => {
+  container.scrollBy({ left: -220, behavior: "smooth" });
+});
+</script>
 
 </body>
 </html>
