@@ -23,7 +23,7 @@
     margin-bottom: 20px;
 }
 
-/* ===== أيقونات الصفحة ===== */
+/* ===== أيقونات الشريط الأخضر ===== */
 .header-icons {
     position: absolute;
     bottom: 10px;
@@ -86,6 +86,33 @@
     color: #006400;
     font-weight: bold;
 }
+
+/* ===== أيقونة العودة للصفحة الرئيسية أسفل الصفحة ===== */
+.back-home {
+    display: flex;
+    justify-content: flex-start;
+    margin: 50px 0 20px 20px;
+}
+.back-home a {
+    width: 160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #eaffea, #c8f0c8);
+    border: 2px solid #006400;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #006400;
+    transition: transform 0.3s, background 0.3s;
+}
+.back-home a:hover {
+    transform: translateY(-3px);
+    background: #1f7a4d;
+    color: white;
+}
 </style>
 </head>
 <body>
@@ -94,8 +121,6 @@
 <div class="header-bar">
     <div class="site-name-hand">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
     <div class="header-icons">
-        <!-- أيقونة العودة للصفحة الرئيسية -->
-        <a href="index.html" class="icon-item">الرئيسية</a>
         <a href="books.html" class="icon-item">الكتب والمؤلفات</a>
         <a href="articles.html" class="icon-item">المقالات</a>
         <a href="lessons.html" class="icon-item">الدروس</a>
@@ -125,6 +150,11 @@
   </a>
 
   <!-- أضف باقي الكتب بنفس الطريقة -->
+</div>
+
+<!-- أيقونة العودة للصفحة الرئيسية أسفل الصفحة -->
+<div class="back-home">
+    <a href="index.html">عودة للصفحة الرئيسية</a>
 </div>
 
 </body>
