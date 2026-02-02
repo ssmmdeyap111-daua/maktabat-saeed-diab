@@ -2,16 +2,17 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>الموقع الرسمي</title>
+    <title>اسم الموقع</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- ===== الشريط العلوي ===== -->
 <div class="header-bar">
     <div class="site-title">اسم الموقع</div>
 
     <div class="nav-icons">
-        <a href="#">من نحن</a>
+        <a href="index.html">الرئيسية</a>
         <a href="books.html">الكتب والمؤلفات</a>
         <a href="#">الدروس</a>
         <a href="#">خطب الجمعة</a>
@@ -19,31 +20,61 @@
     </div>
 </div>
 
-<div class="search-box">
-    <input type="text" placeholder="ابحث في الموقع">
-</div>
+<!-- ===== شريط الكتب المتحرك ===== -->
+<div class="books-slider">
+    <div class="slider-track">
 
-<div class="books-section">
-    <div class="books-grid">
-
-        <div class="book">
-            <img src="images/book1.jpg">
-            <h3>عنوان الكتاب الأول</h3>
+        <div class="slide-book">
+            <img src="images/al-irshad.jpg" alt="الإرشاد">
         </div>
 
-        <div class="book">
-            <img src="images/book2.jpg">
-            <h3>عنوان الكتاب الثاني</h3>
+        <div class="slide-book">
+            <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن">
         </div>
 
-        <div class="book">
-            <img src="images/book3.jpg">
-            <h3>عنوان الكتاب الثالث</h3>
+        <div class="slide-book">
+            <img src="images/allaalea-wa-aldorr.jpg" alt="اللآلئ والدرر">
         </div>
 
-        <!-- أضف بقية الكتب بنفس الشكل -->
+        <div class="slide-book">
+            <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء">
+        </div>
+
+        <div class="slide-book">
+            <img src="images/kabar-al-ahad.jpg" alt="خبر الآحاد">
+        </div>
+
+        <div class="slide-book">
+            <img src="images/shmael-al-rasool.jpg" alt="شمائل الرسول">
+        </div>
+
+        <div class="slide-book">
+            <img src="images/tamam-al-minah.jpg" alt="تمام المنة">
+        </div>
+
+        <div class="slide-book">
+            <img src="images/tazkirat-al-abaha.jpg" alt="تذكرة الآباء">
+        </div>
+
+        <!-- تكرار بسيط لضمان الحركة المستمرة -->
+        <div class="slide-book">
+            <img src="images/al-irshad.jpg">
+        </div>
+
+        <div class="slide-book">
+            <img src="images/asaleeb-alquran.jpg">
+        </div>
 
     </div>
+</div>
+
+<!-- ===== قسم تعريفي بسيط ===== -->
+<div class="home-content">
+    <h2>مرحبًا بكم في الموقع</h2>
+    <p>
+        موقع علمي دعوي يضم الكتب والمؤلفات والدروس والخطب،
+        نسأل الله أن ينفع به.
+    </p>
 </div>
 
 </body>
