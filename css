@@ -167,3 +167,87 @@ body {
     color: #0a7a3c;
     text-decoration: none;
 }
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* شبكة الأيقونات المستطيلة للكتب */
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 10px;
+    gap: 25px;
+}
+
+.icon-item {
+    width: 160px;
+    height: 180px;
+    background-color: #e0ffe0;
+    border: 3px solid #006400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: #006400;
+    font-size: 1.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.35),
+        inset 0 3px 6px rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.icon-item:hover {
+    background-color: #c8f0c8;
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.45),
+        inset 0 4px 8px rgba(255,255,255,0.85);
+}
+
+/* زر العودة */
+.back-home {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.back-home a {
+    width: 180px;
+    height: 100px;
+    background-color: #e0ffe0;
+    border: 3px solid #006400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: #006400;
+    font-size: 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.35),
+        inset 0 3px 6px rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.back-home a:hover {
+    background-color: #c8f0c8;
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.45),
+        inset 0 4px 8px rgba(255,255,255,0.85);
+}
+
+.book-title {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #006400;
+    text-align: center;
+}
