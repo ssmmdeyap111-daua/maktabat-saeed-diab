@@ -1,14 +1,14 @@
-/* إعدادات عامة */
+/* ===== إعدادات عامة ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     direction: rtl;
-    font-family: "Cairo", "Amiri", serif;
+    font-family: "Cairo", "Amiri", serif; /* خط عربي كويس */
 }
 
 body {
-    background: #ffffff;
+    background: #fff;
     color: #222;
     line-height: 1.6;
 }
@@ -30,7 +30,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* الأيقونات */
+/* أيقونات التنقل */
 .nav-icons {
     display: flex;
     gap: 25px;
@@ -47,19 +47,51 @@ body {
     text-decoration: underline;
 }
 
-/* ===== قسم الكتب ===== */
+/* ===== شريط الكتب المتحرك ===== */
+.books-slider {
+    overflow: hidden;
+    margin: 20px 0;
+    border-top: 3px solid #2e7d32;
+    border-bottom: 3px solid #2e7d32;
+    padding: 10px 0;
+    background: #e8f5e9;
+}
+
+.slider-track {
+    display: flex;
+    width: calc(200px * 20); /* تقريبًا حسب عدد الكتب */
+    animation: scroll 20s linear infinite;
+}
+
+.slide-book {
+    flex: 0 0 200px;
+    margin-right: 15px;
+}
+
+.slide-book img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* حركة الشريط */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===== قسم الكتب في الصفحة الفرعية ===== */
 .books-section {
     padding: 40px;
 }
 
-/* شبكة الكتب */
 .books-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 30px;
 }
 
-/* كرت الكتاب */
 .book {
     background: #f7f7f7;
     border-radius: 12px;
@@ -72,7 +104,6 @@ body {
     transform: translateY(-5px);
 }
 
-/* صورة الغلاف */
 .book img {
     width: 100%;
     height: 280px;
@@ -80,13 +111,11 @@ body {
     border-radius: 8px;
 }
 
-/* عنوان الكتاب */
 .book h3 {
     font-size: 17px;
     margin: 12px 0;
 }
 
-/* زر التحميل */
 .book a {
     display: inline-block;
     padding: 8px 14px;
@@ -101,7 +130,7 @@ body {
     background: #1b5e20;
 }
 
-/* ===== زر العودة ===== */
+/* ===== زر العودة للصفحة الرئيسية ===== */
 .back-home {
     margin: 50px 30px;
     text-align: right;
@@ -118,6 +147,23 @@ body {
     text-decoration: underline;
 }
 
+/* ===== قسم ترحيبي أو محتوى الصفحة الرئيسية ===== */
+.home-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.home-content h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.home-content p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 /* ===== متجاوب للجوال ===== */
 @media (max-width: 768px) {
     .site-title {
@@ -130,7 +176,11 @@ body {
         gap: 15px;
     }
 
-    .book img {
+    .book img, .slide-book img {
         height: 220px;
+    }
+
+    .books-grid {
+        gap: 20px;
     }
 }
