@@ -257,3 +257,22 @@ body {
     color: #ffffff;
     transform: translateY(-3px);
 }
+/* اسم الموقع – الصفحة الرئيسية فقط */
+.home-title {
+    font-family: 'Amiri Quran', serif;
+    font-size: 3.6rem;   /* حجم كبير وواضح */
+    font-weight: normal;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 20px 10px 35px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+/* منع تداخله مع الأيقونات */
+.header-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
