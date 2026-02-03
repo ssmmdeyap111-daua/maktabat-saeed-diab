@@ -95,3 +95,41 @@ body {
 body {
     background: red !important;
 }
+.books-slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    background: #f5f5f5;
+    padding: 20px 0;
+}
+
+.books-slider {
+    display: flex;
+    animation: slideBooks 30s linear infinite;
+}
+
+.book-slide {
+    flex: 0 0 auto;
+    width: 150px; /* عرض كل كتاب */
+    margin: 0 10px;
+}
+
+.book-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.book-slide img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes slideBooks {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
