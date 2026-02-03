@@ -1,41 +1,106 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الكتب والمؤلفات</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الكتب والمؤلفات | الشيخ سعيد مصطفى دياب</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* عنوان القسم */
+.section-title {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* شبكة الكتب */
+.books-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px 40px 20px;
+}
+
+/* كل كتاب */
+.book-card {
+    background: #fff;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.book-card h3 {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.book-card a.download-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #007bff;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    transition: background 0.3s;
+}
+
+.book-card a.download-btn:hover {
+    background: #0056b3;
+}
+</style>
 </head>
 <body>
 
-<h2 style="text-align:center; margin:50px 0 30px;">الكتب والمؤلفات</h2>
+<h2 class="section-title">الكتب والمؤلفات</h2>
 
-<div class="books-slider-wrapper">
-    <div class="books-slider" id="booksContainer">
+<div class="books-grid">
 
-        <div class="book">
-            <img src="images/allaalea-wa-aldorr.jpg" alt="">
-            <h3>اللآلئ والدرر</h3>
-            <a href="pdf/allaalea-wa-aldorr.pdf" download>تحميل الكتاب</a>
-        </div>
-
-        <div class="book">
-            <img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="">
-            <h3>الاعتبار بطرائف الأخبار</h3>
-            <a href="pdf/al-eatbaar-ptraef-alakbaar.pdf" download>تحميل الكتاب</a>
-        </div>
-
-        <div class="book">
-            <img src="images/katar-al-reba.jpg" alt="">
-            <h3>خطر الربا</h3>
-            <a href="pdf/katar-al-reba.pdf" download>تحميل الكتاب</a>
-        </div>
-
+    <div class="book-card">
+        <img src="images/allaalea-wa-aldorr.jpg" alt="اللآلئ والدرر">
+        <h3>اللآلئ والدرر</h3>
+        <a href="pdf/allaalea-wa-aldorr.pdf" class="download-btn" download>تحميل الكتاب</a>
     </div>
-</div>
 
-<div class="back-home">
-    <a href="index.html">⬅ العودة للصفحة الرئيسية</a>
+    <div class="book-card">
+        <img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="الاعتبار بطرائف الأخبار">
+        <h3>الاعتبار بطرائف الأخبار</h3>
+        <a href="pdf/al-eatbaar-ptraef-alakbaar.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+
+    <div class="book-card">
+        <img src="images/katar-al-reba.jpg" alt="خطر الربا">
+        <h3>خطر الربا</h3>
+        <a href="pdf/katar-al-reba.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+
+    <!-- أضف باقي الكتب بنفس الطريقة -->
+
 </div>
 
 </body>
