@@ -3,109 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الكتب والمؤلفات | الشيخ سعيد مصطفى دياب</title>
-<link rel="stylesheet" href="css/style.css">
+<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب</title>
 <style>
-/* تحسين عرض الكتب بشكل شبكة */
-.books-slider-wrapper {
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* شبكة الأيقونات المستطيلة للكتب */
+.icon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    margin: 40px 10px;
+    gap: 25px;
 }
 
-.book {
-    width: 200px;
+.icon-item {
+    width: 160px;   /* أقل عرض */
+    height: 180px;  /* أطول مستطيل */
+    background-color: #e0ffe0;
+    border: 3px solid #006400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.book img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.book:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-.book h3 {
-    margin-top: 10px;
-    font-size: 1rem;
-}
-
-.section-title {
-    text-align: center;
-    margin: 30px 0;
-    font-size: 1.8rem;
-}
-
-.header-bar, .icon-grid, .site-footer {
-    text-align: center;
-    margin: 10px 0;
-}
-
-.icon-grid a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
-}
-
-.icon-grid a.active {
     font-weight: bold;
+    color: #006400;
+    font-size: 1.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.35),
+        inset 0 3px 6px rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.icon-item:hover {
+    background-color: #c8f0c8;
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.45),
+        inset 0 4px 8px rgba(255,255,255,0.85);
+}
+
+/* زر العودة للصفحة الرئيسية */
+.back-home {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.back-home a {
+    width: 180px;
+    height: 100px;
+    background-color: #e0ffe0;
+    border: 3px solid #006400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: #006400;
+    font-size: 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.35),
+        inset 0 3px 6px rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.back-home a:hover {
+    background-color: #c8f0c8;
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.45),
+        inset 0 4px 8px rgba(255,255,255,0.85);
+}
+
+/* عناوين الكتب */
+.book-title {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #006400;
+    text-align: center;
 }
 </style>
 </head>
 <body>
 
-<header class="header-bar">
-    <div class="site-name-hand">
-        موقع الشيخ سعيد مصطفى دياب الرسمي
-    </div>
+<div class="icon-grid">
+    <a href="pdfs/al-irshad.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">الإرشاد إلى أسباب محبة الله للعباد</div>
+        </div>
+    </a>
 
-    <nav class="icon-grid">
-        <a href="index.html" class="icon-item">الرئيسية</a>
-        <a href="books.html" class="icon-item active">الكتب والمؤلفات</a>
-        <a href="#" class="icon-item">الدروس</a>
-        <a href="#" class="icon-item">خطب الجمعة</a>
-        <a href="#" class="icon-item">تواصل معنا</a>
-    </nav>
-</header>
+    <a href="pdfs/asaleeb-alquran.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">أساليب القرآن</div>
+        </div>
+    </a>
 
-<h2 class="section-title">الكتب والمؤلفات</h2>
+    <a href="pdfs/fadhl-duaa.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">فضل الدعاء</div>
+        </div>
+    </a>
 
-<div class="books-slider-wrapper">
+    <a href="pdfs/itshaf-ahli-al-rusukh.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">إتحاف أهل الرسوخ</div>
+        </div>
+    </a>
 
-    <div class="book">
-        <a href="pdf/allaalea-wa-aldorr.pdf" download>
-            <img src="images/allaalea-wa-aldorr.jpg" alt="غلاف كتاب اللآلئ والدرر">
-            <h3>اللآلئ والدرر</h3>
-        </a>
-    </div>
+    <a href="pdfs/tamam-al-minah.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">تمام المنح</div>
+        </div>
+    </a>
 
-    <div class="book">
-        <a href="pdf/al-eatbaar-ptraef-alakbaar.pdf" download>
-            <img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="غلاف كتاب الاعتبار بطرائف الأخبار">
-            <h3>الاعتبار بطرائف الأخبار</h3>
-        </a>
-    </div>
-
-    <div class="book">
-        <a href="pdf/katar-al-reba.pdf" download>
-            <img src="images/katar-al-reba.jpg" alt="غلاف كتاب خطر الربا">
-            <h3>خطر الربا</h3>
-        </a>
-    </div>
-
-    <!-- أضف باقي الكتب بنفس الطريقة -->
+    <a href="pdfs/alm-alim-bima-lilsiyam.pdf" target="_blank" class="icon-item">
+        <div>
+            <div class="book-title">الإلمام بما للصيام من حكم وآداب وأحكام</div>
+        </div>
+    </a>
 </div>
 
-<footer class="site-footer">
-    جميع الحقوق محفوظة © الشيخ سعيد مصطفى دياب
-</footer>
+<!-- زر العودة للصفحة الرئيسية -->
+<div class="back-home">
+    <a href="index.html">العودة للصفحة الرئيسية</a>
+</div>
 
 </body>
 </html>
