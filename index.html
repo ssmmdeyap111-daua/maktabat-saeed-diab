@@ -33,6 +33,7 @@
 
 <div class="books-slider-wrapper">
     <div class="books-slider">
+        <!-- جميع الكتب -->
         <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg" alt="الاربون و الأمثال"></div>
         <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="الاعتبار بطرائف الأخبار"></div>
         <div class="book-slide"><img src="images/al-ilmam-siyam.jpg" alt="الإلمام بالصيام"></div>
@@ -48,13 +49,56 @@
         <div class="book-slide"><img src="images/tamam-al-minah.jpg" alt="تمام المنح"></div>
         <div class="book-slide"><img src="images/tazkirat-al-abaha.jpg" alt="تذكرة الأبها"></div>
         <div class="book-slide"><img src="images/wageb-al-muslmeen.jpg" alt="واجب المسلمين"></div>
-        <!-- لتكرار الحركة بشكل سلس، نكرر نفس الصور مرة ثانية -->
+        <!-- لتكرار الحركة بشكل سلس -->
         <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg" alt="الاربون و الأمثال"></div>
         <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="الاعتبار بطرائف الأخبار"></div>
         <div class="book-slide"><img src="images/al-ilmam-siyam.jpg" alt="الإلمام بالصيام"></div>
-        <!-- يمكنك تكرار الباقي حسب الحاجة -->
+        <div class="book-slide"><img src="images/al-irshad.jpg" alt="الإرشاد"></div>
+        <div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg" alt="اللآلئ والدرر"></div>
+        <!-- كرر الباقي حسب الحاجة لضمان حركة سلسة -->
     </div>
 </div>
+
+<style>
+.books-slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    background: #f5f5f5;
+    padding: 20px 0;
+}
+
+.books-slider {
+    display: flex;
+    animation: slideBooks 30s linear infinite;
+}
+
+.book-slide {
+    flex: 0 0 auto;
+    width: 150px; /* عرض كل كتاب */
+    margin: 0 10px;
+}
+
+.book-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.book-slide img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes slideBooks {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+</style>
 
 <footer class="site-footer">
     جميع الحقوق محفوظة © الشيخ سعيد مصطفى دياب
