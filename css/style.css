@@ -164,3 +164,34 @@ body {
         transform: translateX(-50%);
     }
 }
+.ayah-bar {
+    width: 100%;
+    overflow: hidden;
+    background: #f8fafc; /* لون مستقل وهادئ */
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 0;
+}
+
+.ayah-slider {
+    display: flex;
+    width: max-content;
+    animation: ayahMove 22s linear infinite;
+}
+
+.ayah-slider span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #065f46;
+    white-space: nowrap;
+    margin-left: 60px;
+    font-family: "Amiri", serif;
+}
+
+@keyframes ayahMove {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
