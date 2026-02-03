@@ -133,3 +133,34 @@ body {
         transform: translateX(-50%);
     }
 }
+.ayah-bar {
+    width: 100%;
+    overflow: hidden;
+    background: #f1f5f9;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0;
+}
+
+.ayah-slider {
+    display: flex;
+    width: max-content;
+    animation: ayahMove 20s linear infinite;
+}
+
+.ayah-slider span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #065f46;
+    white-space: nowrap;
+    margin-left: 50px;
+    font-family: "Amiri", serif;
+}
+
+@keyframes ayahMove {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
