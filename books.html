@@ -5,6 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الكتب والمؤلفات | الشيخ سعيد مصطفى دياب</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+/* تحسين عرض الكتب */
+.books-slider-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.book {
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.book:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.book h3 {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.section-title {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 1.8rem;
+}
+
+.header-bar, .icon-grid, .site-footer {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.icon-grid a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.icon-grid a.active {
+    font-weight: bold;
+}
+</style>
 </head>
 <body>
 
@@ -25,29 +78,26 @@
 <h2 class="section-title">الكتب والمؤلفات</h2>
 
 <div class="books-slider-wrapper">
-    <div class="books-slider">
-    
-<div class="book">
-    <a href="pdf/allaalea-wa-aldorr.pdf" download>
-        <img src="images/allaalea-wa-aldorr.jpg" alt="غلاف كتاب اللآلئ والدرر">
-        <h3>اللآلئ والدرر</h3>
-    </a>
-</div>
-  
-        <div class="book">
-           <a href="pdf/allaalea-wa-aldorr.pdf" download>
-            <img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="غلاف كتاب الاعتبار بطرائف الأخبار">
-               <h3>الاعتبار بطرائف الأخبار</h3>
+    <div class="book">
+        <a href="pdf/allaalea-wa-aldorr.pdf" download>
+            <img src="images/allaalea-wa-aldorr.jpg" alt="غلاف كتاب اللآلئ والدرر">
+            <h3>اللآلئ والدرر</h3>
         </a>
-        </div>
+    </div>
 
-      <div class="book">
-    <a href="pdf/katar-al-reba.pdf" download>
-        <img src="images/katar-al-reba.jpg" alt="غلاف كتاب خطر الربا">
-        <h3>خطر الربا</h3>
-    </a>
-</div>
+    <div class="book">
+        <a href="pdf/al-eatbaar-ptraef-alakbaar.pdf" download>
+            <img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="غلاف كتاب الاعتبار بطرائف الأخبار">
+            <h3>الاعتبار بطرائف الأخبار</h3>
+        </a>
+    </div>
 
+    <div class="book">
+        <a href="pdf/katar-al-reba.pdf" download>
+            <img src="images/katar-al-reba.jpg" alt="غلاف كتاب خطر الربا">
+            <h3>خطر الربا</h3>
+        </a>
+    </div>
 </div>
 
 <footer class="site-footer">
