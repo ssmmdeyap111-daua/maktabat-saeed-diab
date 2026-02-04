@@ -3,9 +3,10 @@ body {
     margin: 0;
     font-family: Tahoma, Arial, 'Noto Kufi Arabic', serif;
     background: linear-gradient(to bottom, #cce7ff, #80d0ff); /* الأزرق الفاتح متدرج */
-    color: #000; /* أسود للنصوص لتكون واضحة على الخلفية الفاتحة */
+    color: #000; /* نص أسود واضح على الخلفية الفاتحة */
 }
 
+/* ====== الشريط العلوي ====== */
 .header-bar {
     background: linear-gradient(to bottom, #80d0ff, #4da6ff); /* أزرق فاتح متدرج */
     padding: 50px 20px 40px 20px;
@@ -16,10 +17,10 @@ body {
     font-family: 'Noto Kufi Arabic', sans-serif;
     font-size: 38px;
     margin-bottom: 20px;
-    color: white;
+    color: white; /* نص أبيض على الهيدر */
 }
 
-/* ====== أزرار ثلاثية الأبعاد أسفل الشريط الأخضر ====== */
+/* ====== أزرار ثلاثية الأبعاد أسفل الشريط ====== */
 .button-grid {
     display: flex;
     justify-content: center;
@@ -28,27 +29,28 @@ body {
 }
 
 .btn {
-    background: linear-gradient(145deg, #0e8f4a, #0a7a3c);
+    background: linear-gradient(145deg, #4da6ff, #3399ff);
     color: white;
     padding: 12px 25px;
     text-decoration: none;
     font-family: 'Noto Kufi Arabic', sans-serif;
     font-size: 16px;
     border-radius: 10px;
-    box-shadow: 0 6px #065f46, 0 6px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 6px #2680cc, 0 6px 15px rgba(0,0,0,0.2);
     transition: all 0.2s ease;
     text-align: center;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 9px #065f46, 0 9px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 9px #2680cc, 0 9px 20px rgba(0,0,0,0.3);
 }
 
+/* ====== شريط الآية ====== */
 .ayah-bar {
     width: 100%;
     overflow: hidden;
-    background: #3399ff; /* أزرق متوسط لتمييز الآية */
+    background: #3399ff; /* أزرق متوسط للتمييز عن الخلفية */
     border-bottom: 1px solid #2a82e6;
     padding: 16px 0;
 }
@@ -73,11 +75,11 @@ body {
     to { transform: translateX(-100%); }
 }
 
-/* ====== شريط الكتب (مثال للتحريك مستقبليًا) ====== */
+/* ====== شريط الكتب ====== */
 .books-slider-wrapper {
     overflow: hidden;
     width: 100%;
-    background: #020617;
+    background: #cce7ff; /* نفس لون خلفية الصفحة */
     padding: 25px 0;
 }
 
