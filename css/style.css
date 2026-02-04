@@ -1,19 +1,18 @@
 /* ====== إعدادات عامة ====== */
-body {
+  body {
     margin: 0;
     font-family: 'Noto Kufi Arabic', Tahoma, Arial;
-    background: #eef5ff; /* أزرق فاتح موحد مثل الصفحة الفرعية */
+    background: #eef5ff; /* أزرق فاتح */
     color: #0f172a;
 }
 
-/* ====== شريط عنوان الموقع ====== */
 .header-bar {
     background: #eef5ff; /* نفس اللون الأزرق الفاتح */
     color: #0f172a;
     padding: 50px 20px 30px;
     text-align: center;
 }
-
+ 
 .site-title {
     margin: 0 0 10px;
     font-size: 28px;
