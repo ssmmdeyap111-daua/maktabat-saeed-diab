@@ -8,11 +8,9 @@ body {
 /* ===== الشريط العلوي ===== */
 .header-bar {
     background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
-
-body {
-    margin: 0;
-    font-family: Tahoma, Arial;
-    background: linear-gradient(to bottom, #e8f1ff, #f7fbff);
+    color: white;
+    padding: 50px 20px 30px;
+    text-align: center;
 }
 
 /* ===== القائمة ===== */
