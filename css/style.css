@@ -265,3 +265,55 @@ body {
     display: flex;
     transition: transform 0.5s ease;
 }
+.books-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.books-slider-wrapper {
+    overflow: hidden;
+    width: 80%;
+}
+
+.books-slider {
+    display: flex;
+}
+
+.book-slide {
+    min-width: 150px;
+    margin: 0 10px;
+}
+
+.book-slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* الأسهم */
+.book-prev,
+.book-next {
+    position: absolute;
+    background: #1e3a8a;
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.book-prev {
+    right: 5px;
+}
+
+.book-next {
+    left: 5px;
+}
+
+.book-prev:hover,
+.book-next:hover {
+    background: #2563eb;
+}
