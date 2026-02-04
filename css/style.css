@@ -244,3 +244,114 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 6px #2680cc;
 }
+.books-slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 60px;
+    background: #cce7ff;
+    display: flex;
+    align-items: center;
+}
+
+.books-slider {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.books-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.book-slide {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    background: #e6f0ff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.book-slide img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.book-slide img:hover {
+    transform: scale(1.08);
+}
+
+.book-slide h3 {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 5px;
+    background: #4da6ff;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0 3px #2680cc;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px #2680cc;
+}
+
+/* أزرار الأسهم */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4da6ff;
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 8px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px #2680cc;
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.scroll-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px #2680cc;
+}
+
+.left-btn { left: 10px; }
+.right-btn { right: 10px; }
+
+/* زر العودة */
+.back-home {
+    text-align: right;
+    margin: 30px 20px;
+}
+
+.back-home a {
+    text-decoration: none;
+    background: #4da6ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px #2680cc;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.back-home a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px #2680cc;
+}
