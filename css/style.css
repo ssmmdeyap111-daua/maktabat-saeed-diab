@@ -294,3 +294,29 @@ body {
 .main-nav a:hover {
     text-decoration: underline;
 }
+/* ====== أزرار ثلاثية الأبعاد أسفل الشريط الأخضر ====== */
+.button-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.btn {
+    background: linear-gradient(145deg, #0e8f4a, #0a7a3c);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 6px #065f46, 0 6px 15px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px #065f46, 0 9px 20px rgba(0,0,0,0.3);
+}
