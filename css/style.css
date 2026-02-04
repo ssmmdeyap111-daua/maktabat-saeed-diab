@@ -92,9 +92,12 @@ body {
 .back-home a:hover {
     background-color: #0e8f4a;
 }
+
 body {
-    background: red !important;
+    background-color: #0b1f3a;
+    color: white;
 }
+
 .books-slider-wrapper {
     overflow: hidden;
     width: 100%;
