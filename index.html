@@ -34,34 +34,45 @@
 </body>
 </html>
 
-
-<!-- ====== شريط الكتب ====== -->
-<h2 style="text-align:center; margin:30px 0;">أحدث الكتب</h2>
-
+<!-- ====== شريط الكتب مع الأسهم ====== -->
 <div class="books-slider-wrapper">
-    <div class="books-slider">
-        <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg"></div>
-        <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg"></div>
-        <div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
-        <div class="book-slide"><img src="images/al-irshad.jpg"></div>
-        <div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg.jpg"></div>
-        <div class="book-slide"><img src="images/asaleeb-alquran.jpg"></div>
-        <div class="book-slide"><img src="images/fadhl-duaa.jpg"></div>
-        <div class="book-slide"><img src="images/ithaf-ahl-alrusoukh.jpg.jpg"></div>
-        <div class="book-slide"><img src="images/kabar-al-ahad.jpg.jpg"></div>
-        <div class="book-slide"><img src="images/kashf-alnqab.jpg"></div>
-        <div class="book-slide"><img src="images/katar-al-reba.jpg.jpg"></div>
-        <div class="book-slide"><img src="images/shmael-al-rasool.jpg.jpg"></div>
-        <div class="book-slide"><img src="images/tamam-al-minah.jpg"></div>
-        <div class="book-slide"><img src="images/tazkirat-al-abaha.jpg.jpg"></div>
-        <div class="book-slide"><img src="images/wageb-al-muslmeen.jpg.jpg"></div>
-
-        <!-- تكرار للحركة السلسة -->
-        <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg"></div>
-        <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></div>
-        <div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
+    <button class="scroll-btn left-btn">&#8592;</button>
+    
+    <div class="books-slider" id="booksSlider">
+        <div class="book-slide">
+            <img src="images/allaalea-wa-aldorr.jpg" alt="اللآلئ والدرر">
+        </div>
+        <div class="book-slide">
+            <img src="images/al-eatbaar-ptraef-alakbaar.jpg" alt="الاعتبار بطرائف الأخبار">
+        </div>
+        <div class="book-slide">
+            <img src="images/katar-al-reba.jpg" alt="خطر الربا">
+        </div>
+        <div class="book-slide">
+            <img src="images/al-irshad.jpg" alt="الإرشاد">
+        </div>
+        <div class="book-slide">
+            <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن البلاغية">
+        </div>
+        <!-- أضف باقي الكتب بنفس الطريقة -->
     </div>
+    
+    <button class="scroll-btn right-btn">&#8594;</button>
 </div>
 
 </body>
-</html>
+<script>
+const slider = document.getElementById('booksSlider');
+const leftBtn = document.querySelector('.left-btn');
+const rightBtn = document.querySelector('.right-btn');
+
+const scrollAmount = 300; // عدد البيكسل للتحريك
+
+leftBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+rightBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
+</script>
