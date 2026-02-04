@@ -13,10 +13,10 @@ body {
     text-align: center;
 }
 
-.site-title {
-    margin: 0 0 15px;
-    font-size: 34px;
-    font-family: 'Noto Kufi Arabic', sans-serif;
+body {
+    margin: 0;
+    font-family: Tahoma, Arial;
+    background: linear-gradient(to bottom, #e8f1ff, #f7fbff);
 }
 
 /* ===== القائمة ===== */
