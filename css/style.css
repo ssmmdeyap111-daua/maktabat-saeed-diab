@@ -103,6 +103,7 @@ body {
 body {
     background: linear-gradient(to bottom, #0b1f3a, #123a6b);
     color: white;
+    margin: 0;
 }
 
 .books-slider-wrapper {
