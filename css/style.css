@@ -190,3 +190,30 @@ body {
 .article-summary p {
     color: #1f2937;
 }
+.ayah-bar {
+    width: 100%;
+    overflow: hidden;
+    background: #cce7f0; /* أزرق فاتح متدرج */
+    border-bottom: 1px solid #9ed0e0;
+    padding: 12px 0;
+}
+
+.ayah-slider {
+    display: flex;
+    width: max-content;
+    animation: ayahMove 25s linear infinite reverse; /* الحركة عكس الاتجاه */
+}
+
+.ayah-slider span {
+    font-size: 28px;
+    font-weight: bold;
+    color: #065f46;
+    white-space: nowrap;
+    margin-right: 60px;
+    font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+@keyframes ayahMove {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
