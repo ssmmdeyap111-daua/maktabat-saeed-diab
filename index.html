@@ -48,18 +48,30 @@ body {
 </div>
 
 /* شريط الكتب */
-<div class="books-slider-container">
+<!-- ====== شريط الكتب ====== -->
+<h2 style="text-align:center; margin:30px 0;">أحدث الكتب</h2>
+
+<div class="books-container">
+
+    <!-- سهم يمين -->
     <button class="book-prev">&#10094;</button>
+
     <div class="books-slider-wrapper">
         <div class="books-slider">
-            <!-- صور الكتب كما أرسلت مسبقًا -->
-            <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg"></div>
-            <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></div>
+
+            <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg"></div>
+            <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg"></div>
             <div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
-            <!-- باقي الكتب -->
+            <div class="book-slide"><img src="images/al-irshad.jpg"></div>
+            <div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg.jpg"></div>
+            <div class="book-slide"><img src="images/asaleeb-alquran.jpg"></div>
+
         </div>
     </div>
+
+    <!-- سهم يسار -->
     <button class="book-next">&#10095;</button>
+
 </div>
 
 @keyframes slideBooks {
