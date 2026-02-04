@@ -3,124 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الكتب والمؤلفات - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
-
+<title>موقع الشيخ سعيد مصطفى دياب الرسمي - الكتب</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+<style>
+body {
+    margin:0;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    background: linear-gradient(to bottom, #c0e0f0, #e6f2fa);
+}
 
+/* الشريط العلوي */
+.header-bar {
+    background: linear-gradient(to right, #0a7aaf, #3fa1d6);
+    color:white;
+    padding: 50px 20px 20px;
+    text-align: center;
+}
+.site-title {
+    margin:0 0 10px;
+    font-size: 28px;
+}
+.main-nav a {
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    padding:8px 16px;
+    font-size:16px;
+    border-radius:8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    background:#0e7490;
+    transition: all 0.3s;
+}
+.main-nav a:hover {
+    background:#0c5f74;
+}
+
+/* شبكة الكتب */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    padding:30px;
+}
+.book-card {
+    background:white;
+    border-radius:12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    overflow:hidden;
+    text-align:center;
+    transition: transform 0.3s;
+}
+.book-card:hover {
+    transform: translateY(-5px);
+}
+.book-card img {
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+.book-card h3 {
+    margin:10px 0;
+    font-size:18px;
+    color:#0a7aaf;
+}
+.download-btn {
+    display:inline-block;
+    margin-bottom:15px;
+    padding:10px 20px;
+    background:#0a7aaf;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+.download-btn:hover {
+    background:#065f91;
+}
+
+/* العودة للصفحة الرئيسية */
+.back-home {
+    display:block;
+    text-align:right;
+    margin:20px;
+    font-size:18px;
+    color:#0a7aaf;
+}
+
+/* أسفل الصفحة */
+footer {
+    text-align:center;
+    padding:20px;
+    background:#0a7aaf;
+    color:white;
+    margin-top:40px;
+}
+</style>
 </head>
 <body>
 
-<!-- ====== شريط العنوان + الأزرار بدون الرئيسية ====== -->
 <div class="header-bar">
-    <h1 class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</h1>
-    
-    <div class="button-grid">
-        <a href="books.html" class="btn">الكتب والمؤلفات</a>
-        <a href="#" class="btn">الدروس</a>
-        <a href="#" class="btn">خطب الجمعة</a>
-        <a href="#" class="btn">المقالات</a>
-        <a href="#" class="btn">تواصل معنا</a>
+    <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+    <div class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="books.html">الكتب</a>
+        <a href="articles.html">المقالات</a>
+        <a href="contact.html">تواصل معنا</a>
     </div>
 </div>
 
-<!-- ====== شريط الكتب المتحرك مع الأسهم ====== -->
-<h2 style="text-align:center; margin:30px 0;">أحدث الكتب</h2>
+<h2 style="text-align:center; margin:30px 0;">الكتب والمؤلفات</h2>
 
-<div class="books-slider-wrapper">
-    <button class="scroll-btn left-btn">&#8592;</button>
-
-    <div class="books-slider" id="booksSlider">
-        <!-- كتب -->
-        <div class="book-slide">
-            <img src="images/al-irshad.jpg" alt="الإرشاد">
-            <h3>الإرشاد</h3>
-            <a href="pdf/al-irshad.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="اللآلئ والدرر">
-            <h3>اللآلئ والدرر</h3>
-            <a href="pdf/allaalea-wa-aldorr.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/asaleeb-alquran.jpg" alt="أساليب القرآن البلاغية">
-            <h3>أساليب القرآن البلاغية</h3>
-            <a href="pdf/asaleeb-alquran.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/fadhl-duaa.jpg" alt="فضل الدعاء">
-            <h3>فضل الدعاء</h3>
-            <a href="pdf/fadhl-duaa.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="إتحاف أهل الرسوخ">
-            <h3>إتحاف أهل الرسوخ</h3>
-            <a href="pdf/ithaf-ahl-alrusoukh.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/kabar-al-ahad.jpg.jpg" alt="خبر الأحآد">
-            <h3>خبر الأحآد</h3>
-            <a href="pdf/kabar-al-ahad.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/kashf-alnqab.jpg.jpg" alt="كشف النقاب">
-            <h3>كشف النقاب</h3>
-            <a href="pdf/kashf-alnqab.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/katar-al-reba.jpg.jpg" alt="خطر الربا">
-            <h3>خطر الربا</h3>
-            <a href="pdf/katar-al-reba.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/shmael-al-rasool.jpg.jpg" alt="شمائل الرسول">
-            <h3>شمائل الرسول</h3>
-            <a href="pdf/shmael-al-rasool.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/tamam-al-minah.jpg" alt="تمام المنة">
-            <h3>تمام المنة</h3>
-            <a href="pdf/tamam-al-minah.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/tazkirat-al-abaha.jpg.jpg" alt="تذكير الأباة">
-            <h3>تذكير الأباة</h3>
-            <a href="pdf/tazkirat-al-abaha.pdf" class="download-btn" download>تحميل</a>
-        </div>
-        <div class="book-slide">
-            <img src="images/wageb-al-muslmeen.jpg.jpg" alt="واجب المسلمين">
-            <h3>واجب المسلمين</h3>
-            <a href="pdf/wageb-al-muslmeen.pdf" class="download-btn" download>تحميل</a>
-        </div>
+<div class="books-container">
+    <div class="book-card">
+        <img src="images/al-irshad.jpg" alt="al-irshad">
+        <h3>الإرشاد</h3>
+        <a href="pdf/al-irshad.pdf" class="download-btn" download>تحميل الكتاب</a>
     </div>
-
-    <button class="scroll-btn right-btn">&#8594;</button>
+    <div class="book-card">
+        <img src="images/allaalea-wa-aldorr.jpg.jpg" alt="allaalea-wa-aldorr">
+        <h3>اللآلئ والدرر</h3>
+        <a href="pdf/allaalea-wa-aldorr.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/asaleeb-alquran.jpg" alt="asaleeb-alquran">
+        <h3>أساليب القرآن البلاغية</h3>
+        <a href="pdf/asaleeb-alquran.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/fadhl-duaa.jpg" alt="fadhl-duaa">
+        <h3>فضل الدعاء</h3>
+        <a href="pdf/fadhl-duaa.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt="ithaf-ahl-alrusoukh">
+        <h3>إتحاف أهل الرسوخ</h3>
+        <a href="pdf/ithaf-ahl-alrusoukh.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/kabar-al-ahad.jpg.jpg" alt="kabar-al-ahad">
+        <h3>خبر الأحآد</h3>
+        <a href="pdf/kabar-al-ahad.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/kashf-alnqab.jpg.jpg" alt="kashf-alnqab">
+        <h3>كشف النقاب</h3>
+        <a href="pdf/kashf-alnqab.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/katar-al-reba.jpg.jpg" alt="katar-al-reba">
+        <h3>خطر الربا</h3>
+        <a href="pdf/katar-al-reba.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/shmael-al-rasool.jpg.jpg" alt="shmael-al-rasool">
+        <h3>شمائل الرسول</h3>
+        <a href="pdf/shmael-al-rasool.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/tamam-al-minah.jpg" alt="tamam-al-minah">
+        <h3>تمام المنة</h3>
+        <a href="pdf/tamam-al-minah.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/tazkirat-al-abaha.jpg.jpg" alt="tazkirat-al-abaha">
+        <h3>تذكير الأباة</h3>
+        <a href="pdf/tazkirat-al-abaha.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+    <div class="book-card">
+        <img src="images/wageb-al-muslmeen.jpg.jpg" alt="wageb-al-muslmeen">
+        <h3>واجب المسلمين</h3>
+        <a href="pdf/wageb-al-muslmeen.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
 </div>
 
-<!-- ====== زر العودة للصفحة الرئيسية ====== -->
-<div class="back-home">
-    <a href="index.html">⬅ العودة للصفحة الرئيسية</a>
-</div>
+<a href="index.html" class="back-home">&#x21A9; العودة إلى الصفحة الرئيسية</a>
 
-<!-- ====== حقوق النشر أسفل الصفحة ====== -->
-<footer class="footer">
-    © جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب
+<footer>
+&copy; الحقوق محفوظة للشيخ سعيد مصطفى دياب
 </footer>
-
-<!-- ====== JS للتمرير بالسهمين ====== -->
-<script>
-const slider = document.getElementById('booksSlider');
-const leftBtn = document.querySelector('.left-btn');
-const rightBtn = document.querySelector('.right-btn');
-
-leftBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: -300, behavior: 'smooth' });
-});
-
-rightBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: 300, behavior: 'smooth' });
-});
-</script>
 
 </body>
 </html>
