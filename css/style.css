@@ -7,11 +7,7 @@ body {
 
 /* ===== الشريط العلوي ===== */
 .header-bar {
-    background: linear-gradient(to bottom, #2563eb, #1e40af);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-}
+    background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
 
 body {
     margin: 0;
