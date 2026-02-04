@@ -85,10 +85,29 @@ body {
     overflow: hidden;
     width: 100%;
     background: #cce7ff;
-    padding: 25px 60px;
+    padding: 25px 80px; /* زيادة الحواف الجانبية لضمان ظهور الزر */
     display: flex;
     align-items: center;
 }
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4da6ff;
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px #2680cc;
+    transition: all 0.2s ease;
+    z-index: 50; /* زيادة الـ z-index لتكون فوق كل الصور */
+}
+
+.left-btn { left: 10px; }
+.right-btn { right: 10px; }
 
 .books-slider {
     display: flex;
