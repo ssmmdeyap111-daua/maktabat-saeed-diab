@@ -14,11 +14,11 @@ body {
     background: linear-gradient(to bottom, #c0e0f0, #e6f2fa); /* أزرق فاتح متدرج */
 }
 
-/* ====== الشريط العلوي ====== */
+/* ====== شريط العنوان ====== */
 .header-bar {
     background: #4aa3d6; /* نفس لون الأيقونات الثلاثية */
     color:white;
-    padding:50px 20px 20px;
+    padding:100px 20px 20px; /* ارتفاع الضعف */
     text-align:center;
     position: relative;
 }
@@ -27,22 +27,24 @@ body {
     font-size:28px;
 }
 
-/* ====== الأيقونات الثلاثية ====== */
-.main-nav {
-    margin-top: 10px;
+/* ====== الأيقونات الثلاثية تحت العنوان ====== */
+.icon-nav {
+    display:flex;
+    justify-content:center;
+    margin:20px 0 40px;
 }
-.main-nav a {
+.icon-nav a {
     color:white;
     text-decoration:none;
-    margin:0 12px;
-    padding:8px 16px;
+    margin:0 15px;
+    padding:12px 20px;
     font-size:16px;
     border-radius:8px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     background:#4aa3d6;
     transition: all 0.3s;
 }
-.main-nav a:hover {
+.icon-nav a:hover {
     background:#3a8ec2;
 }
 
@@ -129,13 +131,13 @@ footer {
 
 <div class="header-bar">
     <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
-    <div class="main-nav">
-        <a href="index.html">الرئيسية</a>
-        <a href="books.html">الكتب</a>
-        <a href="articles.html">المقالات</a>
-        <a href="lessons.html">الدروس</a>
-        <a href="contact.html">تواصل معنا</a>
-    </div>
+</div>
+
+<!-- الأيقونات الثلاثية تحت شريط العنوان -->
+<div class="icon-nav">
+    <a href="books.html">الكتب</a>
+    <a href="articles.html">المقالات</a>
+    <a href="lessons.html">الدروس</a>
 </div>
 
 <!-- ====== شريط الآية ====== -->
