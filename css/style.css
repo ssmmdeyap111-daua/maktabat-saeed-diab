@@ -134,11 +134,8 @@ body {
     }
 }
 .ayah-bar {
-    width: 100%;
-    overflow: hidden;
-    background: #f1f5f9;
-    border-bottom: 1px solid #ddd;
-    padding: 12px 0;
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
 }
 
 .ayah-slider {
