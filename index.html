@@ -48,30 +48,20 @@ body {
 </div>
 
 /* شريط الكتب */
-.books-slider-wrapper {
-    overflow:hidden;
-    width:100%;
-    background:#f1f5f9;
-    padding:25px 0;
-}
-.books-slider {
-    display:flex;
-    animation: slideBooks 30s linear infinite;
-}
-.book-slide {
-    flex:0 0 auto;
-    width:150px;
-    margin:0 12px;
-}
-.book-slide img {
-    width:100%;
-    border-radius:8px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-.book-slide img:hover {
-    transform: scale(1.08);
-}
+<div class="books-slider-container">
+    <button class="book-prev">&#10094;</button>
+    <div class="books-slider-wrapper">
+        <div class="books-slider">
+            <!-- صور الكتب كما أرسلت مسبقًا -->
+            <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg"></div>
+            <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></div>
+            <div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
+            <!-- باقي الكتب -->
+        </div>
+    </div>
+    <button class="book-next">&#10095;</button>
+</div>
+
 @keyframes slideBooks {
     0% {transform: translateX(0%);}
     100% {transform: translateX(-50%);}
