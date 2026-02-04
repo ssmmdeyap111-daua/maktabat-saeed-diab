@@ -1,18 +1,20 @@
 /* ====== إعدادات عامة ====== */
-  body {
-    background: #d0e4ff; /* اللون الأزرق الفاتح */
-    font-family: "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
+ body {
     margin: 0;
     padding: 0;
+    font-family: "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
+
+    /* تدرج أزرق فاتح يشبه الصفحة الفرعية */
+    background: linear-gradient(to bottom, #eef5ff 0%, #d0e4ff 100%);
 }
 
 .header-bar {
-    background: #eef5ff; /* نفس اللون الأزرق الفاتح */
+    background: #eef5ff; /* شريط العنوان يبقى كما في الصفحة الفرعية */
     color: #0f172a;
     padding: 50px 20px 30px;
     text-align: center;
 }
- 
+
 .site-title {
     margin: 0 0 10px;
     font-size: 28px;
