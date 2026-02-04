@@ -69,13 +69,18 @@
     overflow: hidden;
     width: 90%;
     margin: auto;
-    background: #eef5ff; /* اللون الأزرق الفاتح */
+    background: #eef5ff;
     padding: 20px 0;
 }
 
 .books-slider {
     display: flex;
-    transition: transform 0.5s ease;
+    animation: slideBooks 30s linear infinite; /* الحركة التلقائية */
+}
+
+@keyframes slideBooks {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
 }
 
 .book-slide {
