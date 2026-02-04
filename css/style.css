@@ -45,12 +45,11 @@ body {
     box-shadow: 0 9px #065f46, 0 9px 20px rgba(0,0,0,0.3);
 }
 
-/* ====== شريط الآية ====== */
 .ayah-bar {
     width: 100%;
     overflow: hidden;
-    background: #1e293b;
-    border-bottom: 1px solid #334155;
+    background: #3399ff; /* أزرق متوسط لتمييز الآية */
+    border-bottom: 1px solid #2a82e6;
     padding: 16px 0;
 }
 
