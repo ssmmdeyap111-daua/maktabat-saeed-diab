@@ -1,10 +1,9 @@
-
 const slider = document.querySelector('.books-slider');
 const prev = document.querySelector('.book-prev');
 const next = document.querySelector('.book-next');
 
 let scrollAmount = 0;
-const slideWidth = 160; // عرض الكتاب + المارجن
+const slideWidth = 174; // عرض الكتاب + المارجن
 
 prev.addEventListener('click', () => {
     scrollAmount = Math.max(scrollAmount - slideWidth, 0);
@@ -12,22 +11,7 @@ prev.addEventListener('click', () => {
 });
 
 next.addEventListener('click', () => {
-    scrollAmount += slideWidth;
+    const maxScroll = slider.scrollWidth - slider.parentElement.offsetWidth;
+    scrollAmount = Math.min(scrollAmount + slideWidth, maxScroll);
     slider.style.transform = `translateX(-${scrollAmount}px)`;
-});
-const slider = document.querySelector('.books-slider');
-const prev = document.querySelector('.book-prev');
-const next = document.querySelector('.book-next');
-
-let scrollAmount = 0;
-const slideWidth = 170;
-
-next.addEventListener('click', () => {
-    scrollAmount += slideWidth;
-    slider.style.transform = `translateX(${scrollAmount}px)`;
-});
-
-prev.addEventListener('click', () => {
-    scrollAmount -= slideWidth;
-    slider.style.transform = `translateX(${scrollAmount}px)`;
 });
