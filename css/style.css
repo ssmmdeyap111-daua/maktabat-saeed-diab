@@ -110,24 +110,22 @@
 /* ====== الحقوق ====== */
 footer p {
     font-size: 14px;
-}
-.icon-button {
+/* أيقونات ثلاثية الأبعاد */
+.icon-btn {
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    padding: 12px 25px;
     margin: 10px;
-    background: #d0e4ff; /* لون أيقونة */
+    background: #70c0e8; /* نفس لون أيقونات الصفحات الفرعية */
+    color: white;
+    font-size: 16px;
+    font-family: "Noto Kufi Arabic", sans-serif;
     border-radius: 12px;
-    box-shadow: 0 6px 0 #a0c4ff, 0 6px 12px rgba(0,0,0,0.2); /* تأثير 3D */
-    text-align: center;
-    line-height: 60px;
-    font-size: 28px;
-    color: #0f172a;
-    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
     transition: all 0.2s ease;
 }
 
-.icon-button:active {
-    transform: translateY(6px); /* تحريك للأسفل عند الضغط */
-    box-shadow: 0 0 0 #a0c4ff, 0 0 6px rgba(0,0,0,0.2);
+.icon-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
 }
