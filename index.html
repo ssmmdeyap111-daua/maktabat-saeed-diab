@@ -6,37 +6,106 @@
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+<style>
+body {
+    margin:0;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    background: linear-gradient(to bottom, #c0e0f0, #e6f2fa);
+}
+
+/* الشريط العلوي */
+.header-bar {
+    background: linear-gradient(to right, #3fa1d6, #70c0e8);
+    color:white;
+    padding:50px 20px 20px;
+    text-align:center;
+}
+.site-title {
+    margin:0 0 10px;
+    font-size:28px;
+}
+.main-nav a {
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    padding:8px 16px;
+    font-size:16px;
+    border-radius:8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    background:#4aa3d6;
+    transition: all 0.3s;
+}
+.main-nav a:hover {
+    background:#3a8ec2;
+}
+
+/* شريط الكتب */
+.books-slider-wrapper {
+    overflow:hidden;
+    width:100%;
+    background:#f1f5f9;
+    padding:25px 0;
+}
+.books-slider {
+    display:flex;
+    animation: slideBooks 30s linear infinite;
+}
+.book-slide {
+    flex:0 0 auto;
+    width:150px;
+    margin:0 12px;
+}
+.book-slide img {
+    width:100%;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+.book-slide img:hover {
+    transform: scale(1.08);
+}
+@keyframes slideBooks {
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(-50%);}
+}
+
+/* زر العودة للصفحة الرئيسية */
+.back-home {
+    display:block;
+    text-align:right;
+    margin:20px;
+    font-size:18px;
+    color:#0a7aaf;
+}
+
+/* أسفل الصفحة */
+footer {
+    text-align:center;
+    padding:20px;
+    background:#3fa1d6;
+    color:white;
+    margin-top:40px;
+}
+</style>
 </head>
 <body>
 
-<!-- ====== الشريط العلوي ====== -->
 <div class="header-bar">
     <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
     <div class="main-nav">
         <a href="index.html">الرئيسية</a>
         <a href="books.html">الكتب</a>
         <a href="articles.html">المقالات</a>
+        <a href="lessons.html">الدروس</a>
         <a href="contact.html">تواصل معنا</a>
     </div>
 </div>
 
-<!-- ====== شريط الآية ====== -->
-<div class="ayah-slider-wrapper">
-    <div class="ayah-slider">
-        <span>وَإِنَّكَ لَعَلَى خُلُقٍ عَظِيمٍ</span>
-        <span>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ (108)﴾. سورة يوسف
-</span>
-        <span>تِلْكَ آيَاتُ الْكِتَابِ الْحَكِيمِ</span>
-    </div>
-</div>
-
-<!-- ====== شريط الكتب ====== -->
 <h2 style="text-align:center; margin:30px 0;">أحدث الكتب</h2>
 
 <div class="books-slider-wrapper">
-    <button class="book-arrow left" onclick="slideBooks(-1)">&#10094;</button>
-    <div class="books-slider" id="booksSlider">
-        <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg"></div>
+    <div class="books-slider">
+        <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg"></div>
         <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></div>
         <div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
         <div class="book-slide"><img src="images/al-irshad.jpg"></div>
@@ -51,49 +120,16 @@
         <div class="book-slide"><img src="images/tamam-al-minah.jpg"></div>
         <div class="book-slide"><img src="images/tazkirat-al-abaha.jpg.jpg"></div>
         <div class="book-slide"><img src="images/wageb-al-muslmeen.jpg.jpg"></div>
-    </div>
-    <button class="book-arrow right" onclick="slideBooks(1)">&#10095;</button>
-</div>
-
-<!-- ====== أحدث المقالات ====== -->
-<h2 style="text-align:center; margin:50px 0 20px;">أحدث المقالات</h2>
-
-<div class="articles-list">
-    <div class="article-summary">
-        <h3>مَعْنَى تَدَبُّرِ الْقُرْآنِ</h3>
-        <p>مَعْنَى تَدَبُّرِ الْقُرْآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى، فتُصْغِي له بأذن قلبك...</p>
-        <a href="article1.html" class="back-home">اقرأ المقال كاملاً</a>
-    </div>
-    <div class="article-summary">
-        <h3>من فوائد التدبر: معرفة الله بأسمائه وصفاته</h3>
-        <p>قَالَ ابنُ القيمِ رَحِمَهُ اللَّهُ: وَبِالْجُمْلَةِ تُعَرِّفُهُ الرَّبَّ الْمَدْعُوَّ إِلَيْهِ...</p>
-        <a href="article2.html" class="back-home">اقرأ المقال كاملاً</a>
-    </div>
-    <div class="article-summary">
-        <h3>أَنْتَ المُخَاطَبُ بِالْقُرْآنِ</h3>
-        <p>أَنْتَ الْمُخَاطَبُ بِالْقُرْآنِ الكريمِ بوعده ووعيد، بأمره ونهيه...</p>
-        <a href="article3.html" class="back-home">اقرأ المقال كاملاً</a>
+        <!-- تكرار للحركة السلسة -->
+        <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
     </div>
 </div>
 
-<!-- ====== أسفل الصفحة ====== -->
-<footer style="text-align:center; padding:20px; background:#0e7490; color:white;">
-&copy; الحقوق محفوظة موقع الشيخ سعيد مصطفى دياب
+<footer>
+&copy; الحقوق محفوظة للشيخ سعيد مصطفى دياب
 </footer>
-
-<!-- ====== جافاسكريبت لشريط الكتب ====== -->
-<script>
-const slider = document.getElementById('booksSlider');
-let scrollAmount = 0;
-
-function slideBooks(direction) {
-    const slideWidth = slider.querySelector('.book-slide').offsetWidth + 24; // عرض الكتاب + المسافة
-    scrollAmount += direction * slideWidth * 3; // ثلاث كتب في كل نقلة
-    if(scrollAmount < 0) scrollAmount = 0;
-    if(scrollAmount > slider.scrollWidth - slider.offsetWidth) scrollAmount = slider.scrollWidth - slider.offsetWidth;
-    slider.scrollLeft = scrollAmount;
-}
-</script>
 
 </body>
 </html>
