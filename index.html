@@ -7,99 +7,119 @@
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 <style>
-/* ====== إعدادات عامة ====== */
 body {
     margin:0;
     font-family: 'Noto Kufi Arabic', sans-serif;
-    background: linear-gradient(to bottom, #c0e0f0, #e6f2fa); /* أزرق فاتح متدرج */
+    background: linear-gradient(to bottom, #c0e0f0, #e6f2fa);
 }
 
-/* ====== شريط العنوان ====== */
+/* الشريط الأعلى */
 .header-bar {
-    background: #4aa3d6; /* نفس لون الأيقونات الثلاثية */
+    background: linear-gradient(to right, #3fa1d6, #70c0e8);
     color:white;
-    padding:100px 20px 20px; /* ارتفاع الضعف */
+    padding:80px 20px 40px; /* اتساع أكبر */
     text-align:center;
     position: relative;
 }
+
 .site-title {
-    margin:0 0 10px;
-    font-size:28px;
+    margin:0 0 20px;
+    font-size:32px;
 }
 
-/* ====== الأيقونات الثلاثية تحت العنوان ====== */
-.icon-nav {
-    display:flex;
-    justify-content:center;
-    margin:20px 0 40px;
+/* الأيقونات الثلاثية */
+.top-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
 }
-.icon-nav a {
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-    padding:12px 20px;
-    font-size:16px;
-    border-radius:8px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    background:#4aa3d6;
+
+.top-icons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: #4aa3d6;
+    color: white;
+    text-decoration: none;
+    border-radius: 16px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    font-size:14px;
     transition: all 0.3s;
 }
-.icon-nav a:hover {
+
+.top-icons a:hover {
+    transform: translateY(-5px);
     background:#3a8ec2;
 }
 
-/* ====== شريط الآية ====== */
+/* شريط الآية */
 .ayah-bar {
     width: 100%;
     overflow: hidden;
-    background: #eef5ff;
-    border-bottom: 1px solid #d0e4ff;
+    background: #d0e4ff;
+    border-bottom: 1px solid #b0d4f0;
     padding: 16px 0;
+    margin-bottom: 30px;
 }
+
 .ayah-slider {
     display: flex;
     width: max-content;
     animation: ayahMove 25s linear infinite reverse; /* عكس الاتجاه */
 }
+
 .ayah-slider span {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
     color: #065f46;
     white-space: nowrap;
     margin-right: 60px;
     font-family: "Amiri", serif;
 }
+
 @keyframes ayahMove {
     from { transform: translateX(100%); }
     to { transform: translateX(-100%); }
 }
 
-/* ====== شريط الكتب ====== */
-.books-slider-wrapper {
+/* شريط الكتب */
+.books-wrapper {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    background: #f1f5f9;
-    padding: 25px 0;
+    width: 90%;
+    margin: auto;
+    background: #e6f2fa;
+    padding: 20px 0;
+    border-radius: 12px;
 }
+
 .books-slider {
     display: flex;
-    transition: all 0.3s;
+    transition: transform 0.3s ease-in-out;
 }
+
 .book-slide {
     flex: 0 0 auto;
     width: 150px;
     margin: 0 12px;
+    text-align: center;
 }
+
 .book-slide img {
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 0.3s;
 }
+
 .book-slide img:hover {
     transform: scale(1.08);
 }
+
 /* الأسهم */
 .book-prev, .book-next {
     position: absolute;
@@ -107,52 +127,60 @@ body {
     transform: translateY(-50%);
     background:#4aa3d6;
     color:white;
-    border:none;
     font-size:24px;
-    padding:10px;
+    width:50px;
+    height:50px;
     border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     cursor:pointer;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    z-index:10;
 }
+
+.book-prev:hover, .book-next:hover {
+    background:#3a8ec2;
+}
+
 .book-prev { left:10px; }
 .book-next { right:10px; }
 
-/* ====== أسفل الصفحة ====== */
+/* أسفل الصفحة */
 footer {
     text-align:center;
     padding:20px;
-    background:#4aa3d6;
+    background:#3fa1d6;
     color:white;
     margin-top:40px;
 }
+
 </style>
 </head>
 <body>
 
 <div class="header-bar">
     <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
-</div>
-
-<!-- الأيقونات الثلاثية تحت شريط العنوان -->
-<div class="icon-nav">
-    <a href="books.html">الكتب</a>
-    <a href="articles.html">المقالات</a>
-    <a href="lessons.html">الدروس</a>
-</div>
-
-<!-- ====== شريط الآية ====== -->
-<div class="ayah-bar">
-    <div class="ayah-slider">
-        <span>وَإِنَّكَ لَعَلَى خُلُقٍ عَظِيمٍ</span>
-        <span>اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ</span>
-        <span>كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ</span>
+    <div class="top-icons">
+        <a href="books.html">الكتب</a>
+        <a href="articles.html">المقالات</a>
+        <a href="lessons.html">الدروس</a>
     </div>
 </div>
 
-<!-- ====== شريط الكتب ====== -->
+<div class="ayah-bar">
+    <div class="ayah-slider">
+        <span>وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ</span>
+        <span>وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ</span>
+        <span>إِنَّ اللَّهَ لا يُغَيِّرُ مَا بِقَوْمٍ حَتَّى يُغَيِّرُوا مَا بِأَنْفُسِهِمْ</span>
+    </div>
+</div>
+
 <h2 style="text-align:center; margin:30px 0;">أحدث الكتب</h2>
-<div class="books-slider-wrapper">
-    <button class="book-prev">&#10094;</button>
+
+<div class="books-wrapper">
+    <div class="book-prev">&#10094;</div>
+    <div class="book-next">&#10095;</div>
     <div class="books-slider">
         <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg"></div>
         <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></div>
@@ -160,8 +188,16 @@ footer {
         <div class="book-slide"><img src="images/al-irshad.jpg"></div>
         <div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg.jpg"></div>
         <div class="book-slide"><img src="images/asaleeb-alquran.jpg"></div>
+        <div class="book-slide"><img src="images/fadhl-duaa.jpg"></div>
+        <div class="book-slide"><img src="images/ithaf-ahl-alrusoukh.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/kabar-al-ahad.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/kashf-alnqab.jpg"></div>
+        <div class="book-slide"><img src="images/katar-al-reba.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/shmael-al-rasool.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/tamam-al-minah.jpg"></div>
+        <div class="book-slide"><img src="images/tazkirat-al-abaha.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/wageb-al-muslmeen.jpg.jpg"></div>
     </div>
-    <button class="book-next">&#10095;</button>
 </div>
 
 <footer>
@@ -169,18 +205,20 @@ footer {
 </footer>
 
 <script>
-// ====== JS شريط الكتب ======
 const slider = document.querySelector('.books-slider');
 const prev = document.querySelector('.book-prev');
 const next = document.querySelector('.book-next');
 let scrollAmount = 0;
 const slideWidth = 174; // عرض الكتاب + المارجن
+
 prev.addEventListener('click', () => {
     scrollAmount = Math.max(scrollAmount - slideWidth, 0);
     slider.style.transform = `translateX(-${scrollAmount}px)`;
 });
+
 next.addEventListener('click', () => {
-    scrollAmount = Math.min(scrollAmount + slideWidth, slider.scrollWidth - slider.clientWidth);
+    const maxScroll = slider.scrollWidth - slider.parentElement.offsetWidth;
+    scrollAmount = Math.min(scrollAmount + slideWidth, maxScroll);
     slider.style.transform = `translateX(-${scrollAmount}px)`;
 });
 </script>
