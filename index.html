@@ -6,11 +6,166 @@
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+<style>
+/* ====== إعدادات عامة ====== */
+body {
+    margin: 0;
+    font-family: 'Noto Kufi Arabic', Tahoma, Arial, sans-serif;
+    background: linear-gradient(to bottom, #eef5ff, #d0e4ff);
+}
+
+/* ====== شريط العنوان ====== */
+.header-bar {
+    background: #eef5ff;
+    color: #0f172a;
+    padding: 50px 20px 20px;
+    text-align: center;
+}
+
+.site-title {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+.main-nav a {
+    color: #0f172a;
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 16px;
+}
+
+.main-nav a:hover {
+    text-decoration: underline;
+}
+
+/* ====== أيقونات الصفحة الرئيسية ثلاثية الأبعاد ====== */
+.main-icons {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.icon-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    background: #70c0e8; /* لون أيقونات الفرعية */
+    color: white;
+    font-size: 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
+}
+
+/* ====== شريط الآية ====== */
+.ayah-bar {
+    width: 100%;
+    overflow: hidden;
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 0;
+}
+
+.ayah-slider {
+    display: flex;
+    width: max-content;
+    animation: ayahMove 25s linear infinite reverse; /* الحركة عكس الاتجاه */
+}
+
+.ayah-slider span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #065f46;
+    white-space: nowrap;
+    margin-right: 60px;
+    font-family: "Amiri", serif;
+}
+
+@keyframes ayahMove {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* ====== شريط الكتب ====== */
+.books-slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background: #eef5ff;
+    padding: 25px 0;
+}
+
+.books-slider {
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.book-slide {
+    flex: 0 0 auto;
+    width: 150px;
+    margin: 0 12px;
+}
+
+.book-slide img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.book-slide img:hover {
+    transform: scale(1.08);
+}
+
+/* الأسهم */
+.book-prev, .book-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #70c0e8;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.book-prev { left: 10px; }
+.book-next { right: 10px; }
+
+/* ====== الحقوق أسفل الصفحة ====== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #0f172a;
+}
+</style>
 </head>
 <body>
 
 <!-- ====== شريط العنوان ====== -->
-<!-- أيقونات الصفحة الرئيسية -->
+<div class="header-bar">
+    <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+    <div class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="books.html">الكتب</a>
+        <a href="articles.html">المقالات</a>
+        <a href="lessons.html">الدروس</a>
+        <a href="contact.html">تواصل معنا</a>
+    </div>
+</div>
+
+<!-- ====== أيقونات الصفحة الرئيسية ====== -->
 <div class="main-icons">
     <a href="index.html" class="icon-btn">الرئيسية</a>
     <a href="books.html" class="icon-btn">الكتب</a>
@@ -20,43 +175,54 @@
 </div>
 
 <!-- ====== شريط الآية ====== -->
-<div class="ayah-slider-wrapper">
+<div class="ayah-bar">
     <div class="ayah-slider">
-        <span>﴿وَاتَّقُواْ اللّهَ وَيُعَلِّمُكُمُ اللّهُ﴾</span>
-        <span>﴿وَاعْبُدُواْ رَبَّكُمْ حَتّى يَأْتِيَكُمُ الْيَقِينُ﴾</span>
+        <span>وَقُل رَّبِّ زِدْنِي عِلْمًا ﴿طه:114﴾</span>
+        <span>وَاعْبُدُوا اللَّهَ وَلا تُشْرِكُوا بِهِ شَيْئًا ﴿النساء:36﴾</span>
+        <span>إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ ﴿الحجرات:10﴾</span>
     </div>
 </div>
 
 <!-- ====== شريط الكتب ====== -->
 <h2 style="text-align:center; margin:30px 0;">أحدث الكتب</h2>
-
 <div class="books-slider-wrapper">
     <button class="book-prev">&#10094;</button>
     <div class="books-slider">
-        <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/al-ilmam-siyam.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/al-irshad.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/asaleeb-alquran.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/fadhl-duaa.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/ithaf-ahl-alrusoukh.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/kabar-al-ahad.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/kashf-alnqab.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/katar-al-reba.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/shmael-al-rasool.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/tamam-al-minah.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/tazkirat-al-abaha.jpg.jpg" alt=""></div>
-        <div class="book-slide"><img src="images/wageb-al-muslmeen.jpg.jpg" alt=""></div>
+        <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
+        <div class="book-slide"><img src="images/al-irshad.jpg"></div>
+        <div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg.jpg"></div>
+        <div class="book-slide"><img src="images/asaleeb-alquran.jpg"></div>
+        <div class="book-slide"><img src="images/fadhl-duaa.jpg"></div>
+        <div class="book-slide"><img src="images/ithaf-ahl-alrusoukh.jpg.jpg"></div>
     </div>
     <button class="book-next">&#10095;</button>
 </div>
 
-<!-- ====== الحقوق في أسفل الصفحة ====== -->
-<footer>
-    <p style="text-align:center; padding:15px 0; color:#0f172a;">الحقوق محفوظة للشيخ سعيد مصطفى دياب</p>
-</footer>
+<!-- ====== الحقوق ====== -->
+<div class="footer">
+    جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب
+</div>
 
-<script src="js/main.js"></script>
+<!-- ====== JS شريط الكتب ====== -->
+<script>
+const slider = document.querySelector('.books-slider');
+const prev = document.querySelector('.book-prev');
+const next = document.querySelector('.book-next');
+let scrollAmount = 0;
+const slideWidth = 162; // عرض الكتاب + المارجن
+
+prev.addEventListener('click', () => {
+    scrollAmount = Math.max(scrollAmount - slideWidth, 0);
+    slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+});
+
+next.addEventListener('click', () => {
+    scrollAmount = Math.min(scrollAmount + slideWidth, slider.scrollWidth - slider.clientWidth);
+    slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+});
+</script>
+
 </body>
 </html>
