@@ -171,3 +171,76 @@ body {
     font-family: 'Noto Kufi Arabic', sans-serif;
     font-size: 16px;
 }
+.books-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-card {
+    width: 180px;
+    text-align: center;
+    background: #e6f0ff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.book-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.book-card h3 {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 8px;
+    background: #4da6ff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px #2680cc;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px #2680cc;
+}
+
+/* زر العودة للصفحة الرئيسية */
+.back-home {
+    text-align: right;
+    margin: 30px 20px;
+}
+
+.back-home a {
+    text-decoration: none;
+    background: #4da6ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px #2680cc;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.back-home a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px #2680cc;
+}
