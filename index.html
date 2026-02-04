@@ -134,7 +134,9 @@
 </footer>
 
 <!-- ===== جافاسكربت الأسهم ===== -->
-<script>
+
+    
+    <script>
 
 const slider = document.getElementById("booksSlider");
 
@@ -145,7 +147,15 @@ slider.scrollBy({ left: -300, behavior: "smooth" });
 document.querySelector(".right-btn").onclick = () => {
 slider.scrollBy({ left: 300, behavior: "smooth" });
 };
-
+</script>
+<script>
+function scrollBooks(direction) {
+    const container = document.getElementById("booksContainer");
+    container.scrollBy({
+        left: direction * 300,
+        behavior: "smooth"
+    });
+}
 </script>
 
 </body>
