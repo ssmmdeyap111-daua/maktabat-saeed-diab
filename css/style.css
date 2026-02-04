@@ -557,3 +557,40 @@ body {
 .read-more:hover {
     background: #062c6b;
 }
+.books-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.books-container {
+    overflow-x: auto;
+    display: flex;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+/* الأسهم */
+.book-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0b3d91;
+    color: white;
+    border: none;
+    font-size: 22px;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+/* سهم اليمين (بداية الشريط) */
+.book-arrow.right {
+    right: 5px;
+}
+
+/* سهم اليسار */
+.book-arrow.left {
+    left: 5px;
+}
