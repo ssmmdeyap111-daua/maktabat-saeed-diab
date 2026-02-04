@@ -6,11 +6,11 @@ body {
     color: white;
 }
 
-/* الشريط الأخضر */
-.header-bar {
-    background: linear-gradient(to bottom, #0a7a3c, #0e8f4a);
-    padding: 30px 20px 20px;
-    text-align: center;
+body {
+    margin: 0;
+    font-family: Tahoma, Arial;
+    background: #0f172a;
+    color: white;
 }
 
 .site-name-hand {
