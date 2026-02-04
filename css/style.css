@@ -141,3 +141,8 @@ body {
     padding: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+.download-btn,
+.back-home {
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+    color: white;
+}
