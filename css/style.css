@@ -1,9 +1,9 @@
 /* ====== إعدادات عامة ====== */
   body {
+    background: #d0e4ff; /* اللون الأزرق الفاتح */
+    font-family: "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
     margin: 0;
-    font-family: 'Noto Kufi Arabic', Tahoma, Arial;
-    background: #eef5ff; /* أزرق فاتح */
-    color: #0f172a;
+    padding: 0;
 }
 
 .header-bar {
