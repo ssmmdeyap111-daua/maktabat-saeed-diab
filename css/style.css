@@ -355,3 +355,30 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 6px #2680cc;
 }
+.books-slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 60px; /* مساحة للزرين */
+    display: flex;
+    align-items: center;
+    background: #cce7ff;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4da6ff;
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 8px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px #2680cc;
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.left-btn { left: 10px; }
+.right-btn { right: 10px; }
