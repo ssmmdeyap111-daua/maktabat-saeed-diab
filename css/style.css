@@ -6,9 +6,8 @@ body {
     color: white;
 }
 
-/* ====== الشريط الأخضر ====== */
 .header-bar {
-    background: linear-gradient(to bottom, #0a7a3c, #0e8f4a);
+    background: linear-gradient(to bottom, #80d0ff, #4da6ff); /* أزرق فاتح متدرج */
     padding: 50px 20px 40px 20px;
     text-align: center;
 }
