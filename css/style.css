@@ -203,3 +203,10 @@ body {
         transform: translateX(-100%);
     }
 }
+/* ====== إعدادات عامة ====== */
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, 'Noto Kufi Arabic', sans-serif;
+    background: #0b1f3a;  /* أزرق غامق */
+    color: white;
+}
