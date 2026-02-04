@@ -1,9 +1,9 @@
 /* إعدادات عامة */
 body {
     margin: 0;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    background: #f9f9f9;
-    color: #222;
+    font-family: Tahoma, Arial;
+    background: #0f172a; /* أزرق غامق أنيق */
+    color: white;
 }
 
 /* الشريط الأخضر */
