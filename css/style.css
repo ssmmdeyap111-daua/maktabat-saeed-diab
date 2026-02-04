@@ -2,13 +2,13 @@
 body {
     margin: 0;
     font-family: 'Noto Kufi Arabic', Tahoma, Arial;
-    background: #eef5ff; /* أزرق فاتح موحد */
+    background: #eef5ff; /* أزرق فاتح موحد مثل الصفحة الفرعية */
     color: #0f172a;
 }
 
 /* ====== شريط عنوان الموقع ====== */
 .header-bar {
-    background: #eef5ff; /* نفس لون الصفحة */
+    background: #eef5ff; /* نفس اللون الأزرق الفاتح */
     color: #0f172a;
     padding: 50px 20px 30px;
     text-align: center;
@@ -39,7 +39,7 @@ body {
 .ayah-slider-wrapper {
     width: 100%;
     overflow: hidden;
-    background: #eef5ff;
+    background: #eef5ff; /* اللون الأزرق الفاتح */
     border-bottom: 1px solid #cbd5e1;
     padding: 10px 0;
 }
@@ -70,7 +70,7 @@ body {
     overflow: hidden;
     width: 90%;
     margin: auto;
-    background: #eef5ff;
+    background: #eef5ff; /* اللون الأزرق الفاتح */
     padding: 20px 0;
 }
 
@@ -107,6 +107,7 @@ body {
     cursor: pointer;
     padding: 8px 12px;
     border-radius: 50%;
+    z-index: 10;
 }
 
 .book-prev { left: 0; }
