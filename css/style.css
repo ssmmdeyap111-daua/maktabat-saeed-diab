@@ -80,8 +80,8 @@ body {
     position: relative;
     overflow: hidden;
     width: 100%;
-    background: #cce7ff; /* نفس لون الخلفية */
-    padding: 25px 50px; /* مساحة للأزرار */
+    background: #cce7ff;
+    padding: 25px 60px; /* مساحة أكبر للزرين لتجنب تغطيتهما */
     display: flex;
     align-items: center;
 }
@@ -91,11 +91,11 @@ body {
     gap: 15px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    scrollbar-width: none; /* لإخفاء scrollbar في Firefox */
+    scrollbar-width: none;
 }
 
 .books-slider::-webkit-scrollbar {
-    display: none; /* لإخفاء scrollbar في Chrome و Edge */
+    display: none;
 }
 
 .book-slide {
@@ -128,7 +128,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px #2680cc;
     transition: all 0.2s ease;
-    z-index: 10;
+    z-index: 20; /* زيادة z-index لتكون فوق كل شيء */
 }
 
 .scroll-btn:hover {
