@@ -1,23 +1,28 @@
-/* ===== إعدادات عامة ===== */
 /* ====== إعدادات عامة ====== */
 body {
     margin: 0;
-    font-family: Tahoma, Arial;
-    background: #eef5ff; /* الأزرق الفاتح الموحد */
+    font-family: 'Noto Kufi Arabic', Tahoma, Arial;
+    background: #eef5ff; /* أزرق فاتح موحد */
+    color: #0f172a;
 }
 
 /* ====== شريط عنوان الموقع ====== */
 .header-bar {
-    background: #eef5ff; /* نفس لون الخلفية */
-    color: #0f172a; /* نص داكن للعنوان */
+    background: #eef5ff; /* نفس لون الصفحة */
+    color: #0f172a;
     padding: 50px 20px 30px;
     text-align: center;
 }
 
+.site-title {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
 /* ====== الأيقونات الرئيسية ====== */
 .main-nav a {
-    background: #eef5ff; /* نفس لون الصفحة */
-    color: #0f172a; /* نص الأيقونات داكن */
+    background: #eef5ff; /* نفس اللون */
+    color: #0f172a;
     padding: 12px 25px;
     border-radius: 10px;
     text-decoration: none;
@@ -27,108 +32,87 @@ body {
 }
 
 .main-nav a:hover {
-    background: #d0e4ff; /* تغيير بسيط عند المرور */
+    background: #d0e4ff;
 }
 
-/* ====== أقسام الكتب والمقالات ====== */
-.books-slider-wrapper,
-section,
-.book-card,
-.article-card {
-    background: #eef5ff; /* الأزرق الفاتح نفسه */
-    box-shadow: none; /* إزالة الظلال لتوحيد اللون */
+/* ====== شريط الآية ====== */
+.ayah-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: #eef5ff;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 10px 0;
+}
+
+.ayah-slider {
+    display: flex;
+    width: max-content;
+    animation: ayahMove 25s linear infinite reverse;
+}
+
+.ayah-slider span {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0f172a;
+    white-space: nowrap;
+    margin-right: 60px;
+    font-family: "Amiri", serif;
 }
 
 @keyframes ayahMove {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(100%);
-    }
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
 }
 
-/* ===== عنوان الأقسام ===== */
-.section-title {
-    text-align: center;
-    margin: 40px 0 20px;
-    color: #1e3a8a;
-}
-
-/* ===== شريط الكتب ===== */
-.books-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
+/* ====== شريط الكتب ====== */
 .books-slider-wrapper {
+    position: relative;
     overflow: hidden;
-    width: 80%;
-    background: #f1f5f9;
-    padding: 25px 10px;
-    border-radius: 12px;
+    width: 90%;
+    margin: auto;
+    background: #eef5ff;
+    padding: 20px 0;
 }
 
 .books-slider {
     display: flex;
-    transition: 0.5s;
+    transition: transform 0.5s ease;
 }
 
-/* ===== الكتاب ===== */
 .book-slide {
     flex: 0 0 auto;
     width: 150px;
-    margin: 0 10px;
+    margin: 0 12px;
 }
 
 .book-slide img {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: 0.3s;
+    border-radius: 8px;
+    transition: transform 0.3s;
 }
 
 .book-slide img:hover {
     transform: scale(1.08);
 }
 
-/* ===== الأسهم ===== */
-.book-arrow {
-    background: #2563eb;
+/* الأسهم */
+.book-prev,
+.book-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #d0e4ff;
     border: none;
-    color: white;
     font-size: 28px;
-    padding: 12px 18px;
     cursor: pointer;
-    border-radius: 10px;
-    transition: 0.3s;
-    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 50%;
 }
 
-.book-arrow:hover {
-    background: #1e40af;
-}
+.book-prev { left: 0; }
+.book-next { right: 0; }
 
-/* ===== الفوتر ===== */
-.footer {
-    margin-top: 50px;
-    background: #1e40af;
-    color: white;
-    text-align: center;
-    padding: 18px;
-    font-size: 15px;
-}
-.book-card,
-.article-card {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-.download-btn,
-.back-home {
-    background: linear-gradient(135deg, #2563eb, #1e3a8a);
-    color: white;
+/* ====== الحقوق ====== */
+footer p {
+    font-size: 14px;
 }
