@@ -2,8 +2,8 @@
 body {
     margin: 0;
     font-family: Tahoma, Arial, 'Noto Kufi Arabic', serif;
-    background-color: #0b1f3a;  /* أزرق غامق */
-    color: white;
+    background: linear-gradient(to bottom, #cce7ff, #80d0ff); /* الأزرق الفاتح متدرج */
+    color: #000; /* أسود للنصوص لتكون واضحة على الخلفية الفاتحة */
 }
 
 .header-bar {
