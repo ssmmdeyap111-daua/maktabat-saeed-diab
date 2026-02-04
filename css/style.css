@@ -2,13 +2,13 @@
 body {
     margin: 0;
     font-family: Tahoma, Arial, 'Noto Kufi Arabic', serif;
-    background: linear-gradient(to bottom, #cce7ff, #80d0ff); /* الأزرق الفاتح متدرج */
-    color: #000; /* نص أسود واضح على الخلفية الفاتحة */
+    background: linear-gradient(to bottom, #cce7ff, #80d0ff);
+    color: #000;
 }
 
 /* ====== الشريط العلوي ====== */
 .header-bar {
-    background: linear-gradient(to bottom, #80d0ff, #4da6ff); /* أزرق فاتح متدرج */
+    background: linear-gradient(to bottom, #80d0ff, #4da6ff);
     padding: 50px 20px 40px 20px;
     text-align: center;
 }
@@ -17,7 +17,7 @@ body {
     font-family: 'Noto Kufi Arabic', sans-serif;
     font-size: 38px;
     margin-bottom: 20px;
-    color: white; /* نص أبيض على الهيدر */
+    color: white;
 }
 
 /* ====== أزرار ثلاثية الأبعاد أسفل الشريط ====== */
@@ -50,7 +50,7 @@ body {
 .ayah-bar {
     width: 100%;
     overflow: hidden;
-    background: #3399ff; /* أزرق متوسط للتمييز عن الخلفية */
+    background: #3399ff;
     border-bottom: 1px solid #2a82e6;
     padding: 16px 0;
 }
@@ -59,6 +59,10 @@ body {
     display: flex;
     width: max-content;
     animation: ayahMove 25s linear infinite;
+}
+
+.ayah-slider.reverse {
+    animation-direction: reverse; /* تحريك عكس الاتجاه */
 }
 
 .ayah-slider span {
@@ -81,7 +85,7 @@ body {
     overflow: hidden;
     width: 100%;
     background: #cce7ff;
-    padding: 25px 60px; /* مساحة أكبر للزرين لتجنب تغطيتهما */
+    padding: 25px 60px;
     display: flex;
     align-items: center;
 }
@@ -128,7 +132,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px #2680cc;
     transition: all 0.2s ease;
-    z-index: 20; /* زيادة z-index لتكون فوق كل شيء */
+    z-index: 20;
 }
 
 .scroll-btn:hover {
@@ -138,3 +142,13 @@ body {
 
 .left-btn { left: 10px; }
 .right-btn { right: 10px; }
+
+/* ====== حقوق النشر ====== */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #4da6ff;
+    color: white;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 16px;
+}
