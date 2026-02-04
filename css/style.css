@@ -1,74 +1,67 @@
 /* ====== إعدادات عامة ====== */
 body {
     margin: 0;
-    font-family: Tahoma, Arial, 'Noto Kufi Arabic', serif;
-    background: linear-gradient(to bottom, #cce7ff, #80d0ff);
-    color: #000;
+    font-family: 'Noto Kufi Arabic', Tahoma, Arial, sans-serif;
+    background: #e0f2fe; /* اللون الأزرق الفاتح الأساسي */
 }
 
 /* ====== الشريط العلوي ====== */
 .header-bar {
-    background: linear-gradient(to bottom, #80d0ff, #4da6ff);
-    padding: 50px 20px 40px 20px;
+    background: linear-gradient(to right, #0e7490, #3b82f6); /* تدرج أزرق */
+    color: white;
+    padding: 40px 20px;
     text-align: center;
 }
 
-.header-bar h1 {
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    font-size: 38px;
-    margin-bottom: 20px;
-    color: white;
+.site-title {
+    margin: 0;
+    font-size: 28px;
 }
 
-/* ====== أزرار ثلاثية الأبعاد أسفل الشريط ====== */
-.button-grid {
+/* ====== التنقل الرئيسي ====== */
+.main-nav {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    margin-top: 15px;
 }
 
-.btn {
-    background: linear-gradient(145deg, #4da6ff, #3399ff);
+.main-nav a {
     color: white;
-    padding: 12px 25px;
     text-decoration: none;
-    font-family: 'Noto Kufi Arabic', sans-serif;
+    margin: 0 12px;
     font-size: 16px;
-    border-radius: 10px;
-    box-shadow: 0 6px #2680cc, 0 6px 15px rgba(0,0,0,0.2);
-    transition: all 0.2s ease;
-    text-align: center;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: #1e40af;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px #2680cc, 0 9px 20px rgba(0,0,0,0.3);
+.main-nav a:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.25);
 }
 
 /* ====== شريط الآية ====== */
-.ayah-bar {
+.ayah-slider-wrapper {
     width: 100%;
     overflow: hidden;
-    background: #3399ff;
-    border-bottom: 1px solid #2a82e6;
+    background: #f0f9ff;
+    border-bottom: 1px solid #e5e7eb;
     padding: 16px 0;
 }
 
 .ayah-slider {
     display: flex;
     width: max-content;
-    animation: ayahMove 25s linear infinite;
-}
-
-.ayah-slider.reverse {
-    animation-direction: reverse; /* تحريك عكس الاتجاه */
+    animation: ayahMove 25s linear infinite reverse;
 }
 
 .ayah-slider span {
     font-size: 30px;
     font-weight: bold;
-    color: #ffffff;
+    color: #065f46;
     white-space: nowrap;
     margin-right: 60px;
     font-family: "Amiri", serif;
@@ -84,46 +77,19 @@ body {
     position: relative;
     overflow: hidden;
     width: 100%;
-    background: #cce7ff;
-    padding: 25px 80px; /* زيادة الحواف الجانبية لضمان ظهور الزر */
-    display: flex;
-    align-items: center;
+    background: #f1f5f9;
+    padding: 25px 0;
 }
-
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #4da6ff;
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px #2680cc;
-    transition: all 0.2s ease;
-    z-index: 50; /* زيادة الـ z-index لتكون فوق كل الصور */
-}
-
-.left-btn { left: 10px; }
-.right-btn { right: 10px; }
 
 .books-slider {
     display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-
-.books-slider::-webkit-scrollbar {
-    display: none;
+    transition: transform 0.5s ease;
 }
 
 .book-slide {
     flex: 0 0 auto;
     width: 150px;
+    margin: 0 12px;
 }
 
 .book-slide img {
@@ -137,460 +103,90 @@ body {
     transform: scale(1.08);
 }
 
-/* ====== أزرار السهم ====== */
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #4da6ff;
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px #2680cc;
-    transition: all 0.2s ease;
-    z-index: 20;
-}
-
-.scroll-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px #2680cc;
-}
-
-.left-btn { left: 10px; }
-.right-btn { right: 10px; }
-
-/* ====== حقوق النشر ====== */
-.footer {
-    text-align: center;
-    padding: 20px 0;
-    background: #4da6ff;
-    color: white;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    font-size: 16px;
-}
-.books-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.book-card {
-    width: 180px;
-    text-align: center;
-    background: #e6f0ff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.book-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-}
-
-.book-card img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.book-card h3 {
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-.download-btn {
-    display: inline-block;
-    margin-top: 8px;
-    background: #4da6ff;
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px #2680cc;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    transition: all 0.2s ease;
-}
-
-.download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px #2680cc;
-}
-
-/* زر العودة للصفحة الرئيسية */
-.back-home {
-    text-align: right;
-    margin: 30px 20px;
-}
-
-.back-home a {
-    text-decoration: none;
-    background: #4da6ff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px #2680cc;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    transition: all 0.2s ease;
-}
-
-.back-home a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px #2680cc;
-}
-.books-slider-wrapper {
-    position: relative;
-    overflow: hidden;
-    padding: 20px 60px;
-    background: #cce7ff;
-    display: flex;
-    align-items: center;
-}
-
-.books-slider {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-
-.books-slider::-webkit-scrollbar {
-    display: none;
-}
-
-.book-slide {
-    flex: 0 0 auto;
-    width: 150px;
-    text-align: center;
-    background: #e6f0ff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.book-slide img {
-    width: 100%;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.book-slide img:hover {
-    transform: scale(1.08);
-}
-
-.book-slide h3 {
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    font-size: 14px;
-    margin: 8px 0;
-}
-
-.download-btn {
-    display: inline-block;
-    margin-top: 5px;
-    background: #4da6ff;
-    color: white;
-    text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    box-shadow: 0 3px #2680cc;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    transition: all 0.2s ease;
-}
-
-.download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px #2680cc;
-}
-
-/* أزرار الأسهم */
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #4da6ff;
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 8px 14px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px #2680cc;
-    transition: all 0.2s ease;
-    z-index: 100;
-}
-
-.scroll-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px #2680cc;
-}
-
-.left-btn { left: 10px; }
-.right-btn { right: 10px; }
-
-/* زر العودة */
-.back-home {
-    text-align: right;
-    margin: 30px 20px;
-}
-
-.back-home a {
-    text-decoration: none;
-    background: #4da6ff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px #2680cc;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    transition: all 0.2s ease;
-}
-
-.back-home a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px #2680cc;
-}
-.books-slider-wrapper {
-    position: relative;
-    overflow: hidden;
-    padding: 20px 60px; /* مساحة للزرين */
-    display: flex;
-    align-items: center;
-    background: #cce7ff;
-}
-
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #4da6ff;
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 8px 14px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px #2680cc;
-    transition: all 0.2s ease;
-    z-index: 100;
-}
-
-.left-btn { left: 10px; }
-.right-btn { right: 10px; }
-/* شريط الكتب المتحرك */
-.books-slider-wrapper {
-    position: relative;
-    overflow: hidden;
-    padding: 20px 60px;
-    display: flex;
-    align-items: center;
-    background: #cce7ff;
-}
-
-.books-slider {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    padding: 0 30px;
-}
-
-.books-slider::-webkit-scrollbar {
-    display: none;
-}
-
-.book-slide {
-    flex: 0 0 auto;
-    width: 150px;
-    text-align: center;
-    background: #e6f0ff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.book-slide img {
-    width: 100%;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.book-slide img:hover {
-    transform: scale(1.08);
-}
-
-.book-slide h3 {
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    font-size: 14px;
-    margin: 8px 0;
-}
-
-.download-btn {
-    display: inline-block;
-    margin-top: 5px;
-    background: #4da6ff;
-    color: white;
-    text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    box-shadow: 0 3px #2680cc;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    transition: all 0.2s ease;
-}
-
-.download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px #2680cc;
-}
-
-/* أزرار الأسهم */
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #4da6ff;
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 8px 14px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px #2680cc;
-    transition: all 0.2s ease;
-    z-index: 100;
-}
-
-.scroll-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px #2680cc;
-}
-
-.left-btn { left: 10px; }
-.right-btn { right: 10px; }
-
-/* زر العودة */
-.back-home {
-    text-align: right;
-    margin: 30px 20px;
-}
-
-.back-home a {
-    text-decoration: none;
-    background: #4da6ff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px #2680cc;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    transition: all 0.2s ease;
-}
-
-.back-home a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px #2680cc;
-}
-.articles-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.articles-section h2 {
-    margin-bottom: 25px;
-    font-size: 28px;
-    color: #0b3d91;
-}
-
-.articles-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.article-card {
-    width: 280px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.article-card:hover {
-    transform: translateY(-8px);
-}
-
-.article-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.article-card h3 {
-    padding: 10px;
-    font-size: 18px;
-}
-
-.article-card p {
-    padding: 0 10px 10px;
-    font-size: 14px;
-    color: #555;
-}
-
-.read-more {
-    display: inline-block;
-    margin: 10px;
-    padding: 8px 15px;
-    background: #0b3d91;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.read-more:hover {
-    background: #062c6b;
-}
-.books-slider {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.books-container {
-    overflow-x: auto;
-    display: flex;
-    scroll-behavior: smooth;
-    width: 100%;
-}
-
-/* الأسهم */
+/* أسهم التمرير */
 .book-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #0b3d91;
+    background: #1e40af;
     color: white;
     border: none;
-    font-size: 22px;
-    padding: 10px 14px;
-    cursor: pointer;
+    font-size: 24px;
+    padding: 10px 15px;
     border-radius: 50%;
-    z-index: 5;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 10;
 }
 
-/* سهم اليمين (بداية الشريط) */
-.book-arrow.right {
-    right: 5px;
+.book-arrow:hover {
+    background: #1d4ed8;
+    transform: translateY(-50%) scale(1.1);
 }
 
-/* سهم اليسار */
-.book-arrow.left {
-    left: 5px;
+.book-arrow.left { left: 10px; }
+.book-arrow.right { right: 10px; }
+
+/* ====== المقالات ====== */
+.article-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    margin: 50px auto;
+    max-width: 900px;
+}
+
+.article-card h3 {
+    color: #0c4a6e;
+    margin-bottom: 15px;
+}
+
+.back-home {
+    display: block;
+    width: 220px;
+    margin: 40px auto;
+    text-align: center;
+    background: #1e3a8a;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-home:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+/* ====== المقالات الرئيسية ====== */
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.article-summary {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.article-summary:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.article-summary h3 {
+    margin: 0 0 10px;
+    color: #1e3a8a;
+}
+
+.article-summary p {
+    color: #1f2937;
 }
