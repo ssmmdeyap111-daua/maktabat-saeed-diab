@@ -1,36 +1,27 @@
 /* ====== إعدادات عامة ====== */
-body {
-    margin:0;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    background: linear-gradient(to bottom, #c0e0f0, #e6f2fa); /* نفس الخلفية في books.html */
-}
-
+/* الشريط العلوي */
 .header-bar {
-    background: linear-gradient(to right, #3fa1d6, #70c0e8); /* نفس شريط العنوان في books.html */
-    color:white;
-    padding:50px 20px 20px;
-    text-align:center;
+    background: linear-gradient(to right, #3fa1d6, #70c0e8); /* تدرج أزرق أفقي */
+    color: white;
+    padding: 50px 20px 20px;
+    text-align: center;
 }
 
 .site-title {
-    margin:0 0 10px;
-    font-size:28px;
+    margin: 0 0 10px;
+    font-size: 28px;
+    font-family: "Noto Kufi Arabic", sans-serif; /* الخط الكوفي */
 }
 
-/* ====== الأيقونات الرئيسية ====== */
 .main-nav a {
-    background: #eef5ff; /* نفس اللون */
-    color: #0f172a;
-    padding: 12px 25px;
-    border-radius: 10px;
+    color: white;
     text-decoration: none;
-    margin: 5px;
-    display: inline-block;
-    transition: 0.3s;
+    margin: 0 12px;
+    font-size: 16px;
 }
 
 .main-nav a:hover {
-    background: #d0e4ff;
+    text-decoration: underline;
 }
 
 /* ====== شريط الآية ====== */
