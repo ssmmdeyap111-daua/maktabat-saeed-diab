@@ -3,11 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المقالات</title>
+<title>المقالات - موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 
 <style>
+
+/* تنسيق المقال */
+.article-container{
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    line-height: 2;
+}
+
+.article-container h1{
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+.article-container p{
+    font-size: 18px;
+    color: #333;
+}
+
+/* زر الرجوع للرئيسية */
+.back-home{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1e40af;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.back-home:hover{
+    background: #1d4ed8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ===== الشريط العلوي ===== -->
+<header class="header-bar">
+    <h1 class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</h1>
+
+    <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="books.html">الكتب والمؤلفات</a>
+        <a href="#">الدروس والصوتيات</a>
+        <a href="#">خطب الجمعة</a>
+        <a href="articles.html">المقالات</a>
+        <a href="#">تواصل معنا</a>
+    </nav>
+</header>
+
+
+<!-- ===== محتوى المقال ===== -->
+<div class="article-container">
+
+<h1>عنوان المقال الأول</h1>
+
+<p>
+هنا تكتب نص المقال الخاص بك…
+</p>
+
+<p>
+يمكنك كتابة المقال بالكامل هنا مع إضافة فقرات متعددة.
+</p>
+
+<p>
+ويمكنك أيضاً إدراج آيات أو أحاديث أو تنسيقات إضافية.
+</p>
+
+</div>
+
+
+<!-- زر الرجوع للرئيسية -->
+<a href="index.html" class="back-home">العودة للرئيسية</a>
+
+
+<!-- ===== الحقوق ===== -->
+<footer style="text-align:center; padding:20px; margin-top:40px;">
+جميع الحقوق محفوظة © الشيخ سعيد مصطفى دياب
+</footer>
+
+
+</body>
+</html>
+
 body {
     margin: 0;
     font-family: "Amiri", serif;
