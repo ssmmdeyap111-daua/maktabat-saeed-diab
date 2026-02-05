@@ -65,7 +65,6 @@
 
 .books-slider {
     display: flex;
-    animation: slideBooks 30s linear infinite; /* الحركة التلقائية */
 }
 
 @keyframes slideBooks {
