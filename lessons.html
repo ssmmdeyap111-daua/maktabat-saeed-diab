@@ -3,148 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موقع الشيخ سعيد مصطفى دياب الرسمي - الدروس الصوتية</title>
-<link rel="stylesheet" href="css/style.css">
+<title>الدروس الصوتية</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin:0;
-    font-family: 'Noto Kufi Arabic', Tahoma, Arial, sans-serif;
-    background: linear-gradient(to bottom, #eef5ff, #d0e4ff);
+
+body{
+margin:0;
+font-family:'Noto Kufi Arabic',sans-serif;
+background:linear-gradient(to bottom,#eef5ff,#d0e4ff);
 }
 
-/* شريط العنوان */
-.header-bar {
-    background: linear-gradient(to right, #3fa1d6, #70c0e8);
-    color:white;
-    padding:50px 20px 20px;
-    text-align:center;
-}
-.site-title {
-    font-size:28px;
+/* الهيدر */
+.header-bar{
+background:linear-gradient(to right,#3fa1d6,#70c0e8);
+color:white;
+padding:60px 20px;
+text-align:center;
+font-size:26px;
 }
 
 /* الأيقونات */
-.main-icons {
-    text-align:center;
-    margin:20px 0;
-}
-.icon-btn {
-    display:inline-block;
-    padding:10px 20px;
-    margin:8px;
-    background:#70c0e8;
-    color:white;
-    font-size:14px;
-    border-radius:12px;
-    text-decoration:none;
-    box-shadow: 0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-}
-.icon-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
+.main-icons{
+text-align:center;
+margin:25px 0;
 }
 
-/* بطاقات الدروس */
-.lesson-container {
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+.icon-btn{
+display:inline-block;
+padding:9px 18px;
+margin:6px;
+background:#70c0e8;
+color:white;
+border-radius:12px;
+text-decoration:none;
+font-size:14px;
+box-shadow:0 6px 0 #3fa1d6;
+transition:0.2s;
 }
-.lesson-card {
-    background:#eef5ff;
-    border-radius:12px;
-    padding:15px;
-    margin:15px 0;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+
+.icon-btn:hover{
+transform:translateY(-3px);
 }
-.lesson-card h3 {
-    color:#0a7aaf;
-    margin-bottom:10px;
+
+/* عنوان السلسلة */
+.series-title{
+text-align:center;
+font-size:22px;
+margin-top:40px;
+color:#0a7aaf;
 }
-.lesson-card audio {
-    width:100%;
+
+/* بطاقة الدرس */
+.lesson-card{
+background:#eef5ff;
+width:85%;
+margin:15px auto;
+padding:15px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.lesson-card h3{
+margin-bottom:10px;
+color:#065f46;
+}
+
+audio{
+width:100%;
+margin-top:8px;
+}
+
+/* زر التحميل */
+.download-btn{
+display:inline-block;
+margin-top:10px;
+background:#3fa1d6;
+color:white;
+padding:6px 14px;
+border-radius:10px;
+text-decoration:none;
+font-size:13px;
 }
 
 /* زر العودة */
-.back-home {
-    display:inline-block;
-    margin:20px;
-    padding:10px 20px;
-    background:#70c0e8;
-    color:white;
-    border-radius:12px;
-    text-decoration:none;
-    box-shadow: 0 6px 0 #3fa1d6;
-    float:left;
-}
-.back-home:hover {
-    transform: translateY(-3px);
+.back-home{
+display:inline-block;
+margin:30px;
+padding:10px 20px;
+background:#70c0e8;
+color:white;
+border-radius:12px;
+text-decoration:none;
+box-shadow:0 6px 0 #3fa1d6;
+float:left;
 }
 
-/* الحقوق */
-.footer {
-    text-align:center;
-    padding:20px;
-    clear:both;
+/* الفوتر */
+.footer{
+text-align:center;
+padding:20px;
+clear:both;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- شريط العنوان -->
 <div class="header-bar">
-    <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+الدروس الصوتية
 </div>
 
 <!-- الأيقونات -->
 <div class="main-icons">
-    <a href="index.html" class="icon-btn">الرئيسية</a>
-    <a href="books.html" class="icon-btn">الكتب</a>
-    <a href="articles.html" class="icon-btn">المقالات</a>
-    <a href="lessons.html" class="icon-btn">الدروس</a>
-    <a href="khutbah.html" class="icon-btn">الخطب</a>
-    <a href="contact.html" class="icon-btn">تواصل معنا</a>
-    <a href="about.html" class="icon-btn">من نحن</a>
-    <a href="faq.html" class="icon-btn">الأسئلة</a>
+<a href="index.html" class="icon-btn">الرئيسية</a>
+<a href="books.html" class="icon-btn">الكتب</a>
+<a href="articles.html" class="icon-btn">المقالات</a>
+<a href="lessons.html" class="icon-btn">الدروس</a>
+<a href="khutbah.html" class="icon-btn">الخطب</a>
+<a href="about.html" class="icon-btn">من نحن</a>
+<a href="contact.html" class="icon-btn">تواصل</a>
 </div>
 
-<h2 style="text-align:center; margin:30px 0;">الدروس الصوتية</h2>
-
-<!-- الدروس -->
-<div class="lesson-container">
+<!-- ===== سلسلة التفسير ===== -->
+<div class="series-title">📖 التفسير</div>
 
 <div class="lesson-card">
-<h3>درس صوتي 1</h3>
+<h3>تفسير سورة الفاتحة - الدرس الأول</h3>
 <audio controls>
-<source src="audio/lesson1.mp3" type="audio/mpeg">
-متصفحك لا يدعم تشغيل الصوت
+<source src="audio/tafseer1.mp3" type="audio/mpeg">
 </audio>
+<a href="audio/tafseer1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
+
+
+<!-- ===== شروح الحديث ===== -->
+<div class="series-title">📚 شروح الحديث</div>
 
 <div class="lesson-card">
-<h3>درس صوتي 2</h3>
+<h3>شرح حديث إنما الأعمال بالنيات</h3>
 <audio controls>
-<source src="audio/lesson2.mp3" type="audio/mpeg">
-متصفحك لا يدعم تشغيل الصوت
+<source src="audio/hadith1.mp3" type="audio/mpeg">
 </audio>
+<a href="audio/hadith1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
+
+
+<!-- ===== التوحيد ===== -->
+<div class="series-title">☝️ التوحيد</div>
 
 <div class="lesson-card">
-<h3>درس صوتي 3</h3>
+<h3>أنواع التوحيد</h3>
 <audio controls>
-<source src="audio/lesson3.mp3" type="audio/mpeg">
-متصفحك لا يدعم تشغيل الصوت
+<source src="audio/tawheed1.mp3" type="audio/mpeg">
 </audio>
+<a href="audio/tawheed1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
 
+
+<!-- ===== الفقه ===== -->
+<div class="series-title">⚖️ الفقه</div>
+
+<div class="lesson-card">
+<h3>أحكام الطهارة</h3>
+<audio controls>
+<source src="audio/fiqh1.mp3" type="audio/mpeg">
+</audio>
+<a href="audio/fiqh1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
 
-<!-- زر العودة -->
-<a href="index.html" class="back-home">العودة للصفحة الرئيسية</a>
+
+<!-- ===== السيرة ===== -->
+<div class="series-title">🕌 السيرة النبوية</div>
+
+<div class="lesson-card">
+<h3>مولد النبي ﷺ</h3>
+<audio controls>
+<source src="audio/seerah1.mp3" type="audio/mpeg">
+</audio>
+<a href="audio/seerah1.mp3" download class="download-btn">تحميل الدرس</a>
+</div>
+
+
+<!-- ===== الرقائق ===== -->
+<div class="series-title">💙 الرقائق</div>
+
+<div class="lesson-card">
+<h3>تزكية النفس</h3>
+<audio controls>
+<source src="audio/raqaiq1.mp3" type="audio/mpeg">
+</audio>
+<a href="audio/raqaiq1.mp3" download class="download-btn">تحميل الدرس</a>
+</div>
+
+
+<a href="index.html" class="back-home">العودة للرئيسية</a>
 
 <div class="footer">
 جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب
