@@ -262,3 +262,29 @@ footer p {
     background: #3a8ec2;
     transform: translateY(-5px);
 }
+/* أيقونات الصفحة الرئيسية */
+.main-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.icon-btn {
+    display: inline-block;
+    padding: 20px 25px;
+    background: #4aa3d6;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 0 #3a8ec2, 0 8px 12px rgba(0,0,0,0.2); /* طبقات لإحساس 3D */
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    transform: translateY(-6px); /* يرفع الزر عند hover */
+    box-shadow: 0 12px 0 #3a8ec2, 0 14px 20px rgba(0,0,0,0.25); /* الظل يصبح أقوى */
+    background: #3a8ec2;
+}
