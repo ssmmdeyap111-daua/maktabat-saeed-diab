@@ -47,26 +47,26 @@ body {
     box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
 }
 
-/* ====== الخطب ====== */
-.khutbah-container {
+/* ====== بطاقات الخطب ====== */
+.speech-container {
     max-width:900px;
     margin:auto;
     padding:20px;
 }
-.khutbah {
+.speech-card {
     background: #eef5ff;
     border-radius:12px;
     padding:15px;
     margin:15px 0;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.khutbah h3 {
+.speech-card h3 {
     margin-bottom:10px;
     color:#0a7aaf;
 }
-.khutbah p {
-    color:#0f172a;
-    line-height:1.6;
+.speech-card audio {
+    width:100%;
+    outline:none;
 }
 
 /* ====== العودة للصفحة الرئيسية ====== */
@@ -110,28 +110,35 @@ body {
     <a href="books.html" class="icon-btn">الكتب</a>
     <a href="articles.html" class="icon-btn">المقالات</a>
     <a href="lessons.html" class="icon-btn">الدروس</a>
-    <a href="contact.html" class="icon-btn">تواصل معنا</a>
     <a href="khutbah.html" class="icon-btn">الخطب</a>
+    <a href="contact.html" class="icon-btn">تواصل معنا</a>
     <a href="about.html" class="icon-btn">من نحن</a>
     <a href="faq.html" class="icon-btn">الأسئلة</a>
 </div>
 
-<!-- ====== الخطب ====== -->
+<!-- ====== قائمة الخطب ====== -->
 <h2 style="text-align:center; margin:30px 0;">الخطب</h2>
-<div class="khutbah-container">
-    <div class="khutbah">
-        <h3>الخطبة الأولى: فضل الصلاة</h3>
-        <p>الصلاة عمود الدين، وهي ركن أساسي في حياة المسلم، تُقربه من الله وتزيده خشوعاً وخشية.</p>
+<div class="speech-container">
+    <div class="speech-card">
+        <h3>خطبة الجمعة الأولى</h3>
+        <audio controls>
+            <source src="audio/khotbah1.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
     </div>
-
-    <div class="khutbah">
-        <h3>الخطبة الثانية: الصدق وأثره في المجتمع</h3>
-        <p>الصدق من أعظم القيم الإسلامية التي تعزز الثقة بين الناس وتبني مجتمعاً مستقراً ومتماسكاً.</p>
+    <div class="speech-card">
+        <h3>خطبة الجمعة الثانية</h3>
+        <audio controls>
+            <source src="audio/khotbah2.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
     </div>
-
-    <div class="khutbah">
-        <h3>الخطبة الثالثة: الصبر في مواجهة الصعاب</h3>
-        <p>الصبر مفتاح الفرج، ويعلم المسلم أن يتحمل الابتلاءات بصبر وثقة بالله تعالى.</p>
+    <div class="speech-card">
+        <h3>خطبة الجمعة الثالثة</h3>
+        <audio controls>
+            <source src="audio/khotbah3.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
     </div>
 </div>
 
