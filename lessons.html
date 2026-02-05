@@ -40,49 +40,57 @@ border-radius:12px;
 text-decoration:none;
 font-size:14px;
 box-shadow:0 6px 0 #3fa1d6;
-transition:0.2s;
+cursor:pointer;
 }
 
-.icon-btn:hover{
-transform:translateY(-3px);
+/* ===== الأكورديون ===== */
+
+.accordion{
+width:90%;
+margin:15px auto;
 }
 
-/* عنوان السلسلة */
-.series-title{
-text-align:center;
-font-size:22px;
-margin-top:40px;
-color:#0a7aaf;
+.accordion-header{
+background:#3fa1d6;
+color:white;
+padding:15px;
+border-radius:10px;
+cursor:pointer;
+font-size:18px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.accordion-content{
+display:none;
+background:white;
+padding:15px;
+border-radius:0 0 10px 10px;
 }
 
 /* بطاقة الدرس */
 .lesson-card{
 background:#eef5ff;
-width:85%;
-margin:15px auto;
-padding:15px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
+padding:12px;
+border-radius:10px;
+margin-bottom:12px;
 }
 
 .lesson-card h3{
-margin-bottom:10px;
+margin-bottom:8px;
 color:#065f46;
 }
 
 audio{
 width:100%;
-margin-top:8px;
 }
 
-/* زر التحميل */
 .download-btn{
 display:inline-block;
-margin-top:10px;
-background:#3fa1d6;
+margin-top:8px;
+background:#70c0e8;
 color:white;
 padding:6px 14px;
-border-radius:10px;
+border-radius:8px;
 text-decoration:none;
 font-size:13px;
 }
@@ -100,7 +108,6 @@ box-shadow:0 6px 0 #3fa1d6;
 float:left;
 }
 
-/* الفوتر */
 .footer{
 text-align:center;
 padding:20px;
@@ -123,87 +130,144 @@ clear:both;
 <a href="articles.html" class="icon-btn">المقالات</a>
 <a href="lessons.html" class="icon-btn">الدروس</a>
 <a href="khutbah.html" class="icon-btn">الخطب</a>
-<a href="about.html" class="icon-btn">من نحن</a>
 <a href="contact.html" class="icon-btn">تواصل</a>
 </div>
 
-<!-- ===== سلسلة التفسير ===== -->
-<div class="series-title">📖 التفسير</div>
+<!-- ===== التفسير ===== -->
+<div class="accordion">
+
+<div class="accordion-header">📖 التفسير</div>
+
+<div class="accordion-content">
 
 <div class="lesson-card">
-<h3>تفسير سورة الفاتحة - الدرس الأول</h3>
+<h3>تفسير سورة الفاتحة</h3>
 <audio controls>
-<source src="audio/tafseer1.mp3" type="audio/mpeg">
+<source src="audio/tafseer1.mp3">
 </audio>
 <a href="audio/tafseer1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
 
+</div>
+</div>
 
-<!-- ===== شروح الحديث ===== -->
-<div class="series-title">📚 شروح الحديث</div>
+
+<!-- ===== الحديث ===== -->
+<div class="accordion">
+
+<div class="accordion-header">📚 شروح الحديث</div>
+
+<div class="accordion-content">
 
 <div class="lesson-card">
-<h3>شرح حديث إنما الأعمال بالنيات</h3>
+<h3>حديث إنما الأعمال بالنيات</h3>
 <audio controls>
-<source src="audio/hadith1.mp3" type="audio/mpeg">
+<source src="audio/hadith1.mp3">
 </audio>
 <a href="audio/hadith1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
 
+</div>
+</div>
+
 
 <!-- ===== التوحيد ===== -->
-<div class="series-title">☝️ التوحيد</div>
+<div class="accordion">
+
+<div class="accordion-header">☝️ التوحيد</div>
+
+<div class="accordion-content">
 
 <div class="lesson-card">
 <h3>أنواع التوحيد</h3>
 <audio controls>
-<source src="audio/tawheed1.mp3" type="audio/mpeg">
+<source src="audio/tawheed1.mp3">
 </audio>
 <a href="audio/tawheed1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
 
+</div>
+</div>
+
 
 <!-- ===== الفقه ===== -->
-<div class="series-title">⚖️ الفقه</div>
+<div class="accordion">
+
+<div class="accordion-header">⚖️ الفقه</div>
+
+<div class="accordion-content">
 
 <div class="lesson-card">
 <h3>أحكام الطهارة</h3>
 <audio controls>
-<source src="audio/fiqh1.mp3" type="audio/mpeg">
+<source src="audio/fiqh1.mp3">
 </audio>
 <a href="audio/fiqh1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
 
+</div>
+</div>
+
 
 <!-- ===== السيرة ===== -->
-<div class="series-title">🕌 السيرة النبوية</div>
+<div class="accordion">
+
+<div class="accordion-header">🕌 السيرة</div>
+
+<div class="accordion-content">
 
 <div class="lesson-card">
 <h3>مولد النبي ﷺ</h3>
 <audio controls>
-<source src="audio/seerah1.mp3" type="audio/mpeg">
+<source src="audio/seerah1.mp3">
 </audio>
 <a href="audio/seerah1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
 
+</div>
+</div>
+
 
 <!-- ===== الرقائق ===== -->
-<div class="series-title">💙 الرقائق</div>
+<div class="accordion">
+
+<div class="accordion-header">💙 الرقائق</div>
+
+<div class="accordion-content">
 
 <div class="lesson-card">
 <h3>تزكية النفس</h3>
 <audio controls>
-<source src="audio/raqaiq1.mp3" type="audio/mpeg">
+<source src="audio/raqaiq1.mp3">
 </audio>
 <a href="audio/raqaiq1.mp3" download class="download-btn">تحميل الدرس</a>
+</div>
+
+</div>
 </div>
 
 
 <a href="index.html" class="back-home">العودة للرئيسية</a>
 
 <div class="footer">
-جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب
+جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
 </div>
+
+<!-- سكربت الأكورديون -->
+<script>
+
+document.querySelectorAll(".accordion-header").forEach(header => {
+header.addEventListener("click", () => {
+
+const content = header.nextElementSibling;
+
+content.style.display =
+content.style.display === "block" ? "none" : "block";
+
+});
+});
+
+</script>
 
 </body>
 </html>
