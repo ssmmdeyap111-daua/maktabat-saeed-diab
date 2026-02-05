@@ -238,3 +238,27 @@ footer p {
 .icon-btn:hover {
     background: linear-gradient(to bottom, #5bb4e8, #2c82b5);
 }
+.main-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.icon-btn {
+    display: inline-block;
+    padding: 15px 25px;
+    background: #4aa3d6;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+
+.icon-btn:hover {
+    background: #3a8ec2;
+    transform: translateY(-5px);
+}
