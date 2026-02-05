@@ -110,24 +110,35 @@
 footer p {
     font-size: 14px;
 /* أيقونات ثلاثية الأبعاد */
-.icon-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin: 10px;
-    background: #70c0e8; /* نفس لون أيقونات الصفحات الفرعية */
-    color: white;
-    font-size: 16px;
-    font-family: "Noto Kufi Arabic", sans-serif;
-    border-radius: 12px;
-    text-decoration: none;
-    box-shadow: 0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
+.main-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; /* المسافة بين الأيقونات */
+    margin: 20px 0;
 }
 
-.icon-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
+.icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;  /* أصغر من السابق */
+    height: 60px;  /* أصغر */
+    background: #70c0e8;
+    color: white;
+    text-decoration: none;
+    font-size: 14px; /* أصغر */
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3); /* يعطي تأثير ثلاثي الأبعاد */
+    transition: all 0.3s;
 }
+.icon-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 15px rgba(0,0,0,0.35); /* يرفع الأيقونة عند المرور */
+    background: #3a8ec2;
+}
+
 .main-sections {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
