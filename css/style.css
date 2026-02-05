@@ -129,3 +129,39 @@ footer p {
     transform: translateY(-3px);
     box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
 }
+.main-sections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* شكل البطاقة */
+.section-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #003366;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+/* التأثير الثلاثي */
+.section-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* صورة الأيقونة */
+.section-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.section-card h3 {
+    font-size: 20px;
+}
