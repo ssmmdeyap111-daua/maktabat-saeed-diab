@@ -17,7 +17,7 @@ body {
 .header-bar {
     background: linear-gradient(to right, #3fa1d6, #70c0e8);
     color:white;
-    padding:100px 20px 40px; /* زيادة ارتفاع الشريط */
+    padding:100px 20px 40px; /* اتساع أكبر */
     text-align:center;
     position: relative;
 }
@@ -27,38 +27,39 @@ body {
     font-size:32px;
 }
 
-/* أيقونات الصفحة الرئيسية */
+/* ====== أيقونات الصفحة الرئيسية 6 أيقونات ====== */
 .main-icons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 16px;
     margin: 20px 0;
 }
 
 .icon-btn {
     display: inline-block;
-    padding: 20px 25px;
+    padding: 20px 28px;
     background: #4aa3d6;
     color: white;
     font-weight: bold;
     text-decoration: none;
     border-radius: 12px;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
-    transition: all 0.3s;
+    box-shadow: 0 6px 0 #3a8ec2, 0 4px 6px rgba(0,0,0,0.2); /* تأثير 3D */
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .icon-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 0 #3a8ec2, 0 8px 12px rgba(0,0,0,0.25);
     background: #3a8ec2;
-    transform: translateY(-5px);
 }
 
 /* شريط الآية */
 .ayah-bar {
     width: 100%;
     overflow: hidden;
-    background: #4aa3d6; /* نفس لون الأيقونات */
-    border-bottom: 1px solid #3a8ec2;
+    background: #d0e4ff;
+    border-bottom: 1px solid #b0d4f0;
     padding: 16px 0;
     margin-bottom: 30px;
 }
@@ -66,13 +67,13 @@ body {
 .ayah-slider {
     display: flex;
     width: max-content;
-    animation: ayahMove 25s linear infinite reverse; /* عكس الاتجاه */
+    animation: ayahMove 25s linear infinite reverse;
 }
 
 .ayah-slider span {
     font-size: 26px;
     font-weight: bold;
-    color: #fff;
+    color: #065f46;
     white-space: nowrap;
     margin-right: 60px;
     font-family: "Amiri", serif;
@@ -159,7 +160,7 @@ footer {
     <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
 </div>
 
-<!-- ====== أيقونات الصفحة الرئيسية 6 أيقونات ====== -->
+<!-- أيقونات الصفحة الرئيسية -->
 <div class="main-icons">
     <a href="index.html" class="icon-btn">الرئيسية</a>
     <a href="books.html" class="icon-btn">الكتب والمؤلفات</a>
