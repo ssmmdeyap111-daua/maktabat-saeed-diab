@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الدروس الصوتية الديناميكية</title>
+<title>الدروس الصوتية المتقدمة</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 <style>
 body{margin:0;font-family:'Noto Kufi Arabic',sans-serif;background:linear-gradient(to bottom,#eef5ff,#d0e4ff);}
@@ -43,79 +43,77 @@ audio{width:100%;}
 <div class="footer">جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب</div>
 
 <script>
-// ====== إعداد السلاسل ======
-const series = {
-    'tafseer': '📖 التفسير',
-    'hadith': '📚 شروح الحديث',
-    'tawheed': '☝️ التوحيد',
-    'fiqh': '⚖️ الفقه',
-    'seerah': '🕌 السيرة',
-    'raqaiq': '💙 الرقائق'
+// ====== السلاسل والدروس ======
+const lessonsData = {
+  '📖 التفسير': [
+    {title:'تفسير سورة الفاتحة', file:'tafseer-fatiha-1.mp3'},
+    {title:'تفسير سورة البقرة', file:'tafseer-baqara-1.mp3'},
+    {title:'تفسير سورة آل عمران', file:'tafseer-imran-1.mp3'}
+  ],
+  '📚 شروح الحديث': [
+    {title:'حديث إنما الأعمال بالنيات', file:'hadith1.mp3'}
+  ],
+  '☝️ التوحيد': [
+    {title:'أنواع التوحيد', file:'tawheed1.mp3'}
+  ],
+  '⚖️ الفقه': [
+    {title:'أحكام الطهارة', file:'fiqh1.mp3'}
+  ],
+  '🕌 السيرة': [
+    {title:'مولد النبي ﷺ', file:'seerah1.mp3'}
+  ],
+  '💙 الرقائق': [
+    {title:'تزكية النفس', file:'raqaiq1.mp3'}
+  ]
 };
 
-// ====== جميع الملفات الصوتية ======
-const audioFiles = [
-    "tafseer-fatiha-1.mp3",
-    "tafseer-baqara-1.mp3",
-    "tafseer-imran-1.mp3",
-    "hadith1.mp3",
-    "tawheed1.mp3",
-    "fiqh1.mp3",
-    "seerah1.mp3",
-    "raqaiq1.mp3"
-    // أضف هنا أي ملف صوتي جديد
-];
-
-// ====== إنشاء الدروس ديناميكيًا ======
+// ====== إنشاء الصفحة ديناميكيًا ======
 const container = document.getElementById('lessons-container');
 
-for (let key in series){
-    const header = document.createElement('div');
-    header.className = 'accordion-header';
-    header.textContent = series[key];
-    container.appendChild(header);
+for (let series in lessonsData){
+  const header = document.createElement('div');
+  header.className = 'accordion-header';
+  header.textContent = series;
+  container.appendChild(header);
 
-    const content = document.createElement('div');
-    content.className = 'accordion-content';
+  const content = document.createElement('div');
+  content.className = 'accordion-content';
 
-    audioFiles.forEach(file => {
-        if(file.toLowerCase().startsWith(key)){
-            const card = document.createElement('div');
-            card.className = 'lesson-card';
+  lessonsData[series].forEach(lesson => {
+    const card = document.createElement('div');
+    card.className = 'lesson-card';
 
-            const title = document.createElement('h3');
-            // اسم الدرس من الملف بدون الامتداد
-            title.textContent = file.replace(/[-0-9]+|\.mp3/gi, '').replace(/_/g,' ');
-            card.appendChild(title);
+    const title = document.createElement('h3');
+    title.textContent = lesson.title;
+    card.appendChild(title);
 
-            const audio = document.createElement('audio');
-            audio.controls = true;
-            const src = document.createElement('source');
-            src.src = 'audio/' + file;
-            src.type = 'audio/mpeg';
-            audio.appendChild(src);
-            card.appendChild(audio);
+    const audio = document.createElement('audio');
+    audio.controls = true;
+    const src = document.createElement('source');
+    src.src = 'audio/' + lesson.file;
+    src.type = 'audio/mpeg';
+    audio.appendChild(src);
+    card.appendChild(audio);
 
-            const download = document.createElement('a');
-            download.href = 'audio/' + file;
-            download.download = '';
-            download.className = 'download-btn';
-            download.textContent = 'تحميل الدرس';
-            card.appendChild(download);
+    const download = document.createElement('a');
+    download.href = 'audio/' + lesson.file;
+    download.download = '';
+    download.className = 'download-btn';
+    download.textContent = 'تحميل الدرس';
+    card.appendChild(download);
 
-            content.appendChild(card);
-        }
-    });
+    content.appendChild(card);
+  });
 
-    container.appendChild(content);
+  container.appendChild(content);
 }
 
-// ====== أكوردين التوسيع ======
+// ====== أكوردين ======
 document.querySelectorAll(".accordion-header").forEach(header => {
-    header.addEventListener("click", () => {
-        const content = header.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
-    });
+  header.addEventListener("click", () => {
+    const content = header.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  });
 });
 </script>
 
