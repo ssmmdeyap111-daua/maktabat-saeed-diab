@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الدروس الصوتية</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
-
 <style>
 body{
     margin:0;
@@ -39,15 +38,15 @@ body{
     font-size:14px;
     box-shadow:0 6px 0 #3fa1d6;
     cursor:pointer;
-    transition: all 0.2s ease;
+    transition:all 0.2s;
 }
 
 .icon-btn:hover{
-    transform: translateY(-3px);
+    transform:translateY(-3px);
     box-shadow:0 9px 0 #3fa1d6;
 }
 
-/* الأكورديون */
+/* سلاسل الدروس */
 .accordion{
     width:90%;
     margin:15px auto;
@@ -61,7 +60,6 @@ body{
     cursor:pointer;
     font-size:18px;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom:5px;
 }
 
 .accordion-content{
@@ -109,9 +107,9 @@ audio{
     border-radius:12px;
     text-decoration:none;
     box-shadow:0 6px 0 #3fa1d6;
-    float:left;
 }
 
+/* حقوق الموقع */
 .footer{
     text-align:center;
     padding:20px;
@@ -119,14 +117,13 @@ audio{
 }
 </style>
 </head>
-
 <body>
 
 <div class="header-bar">
 الدروس الصوتية
 </div>
 
-<!-- الأيقونات -->
+<!-- أيقونات التنقل -->
 <div class="main-icons">
 <a href="index.html" class="icon-btn">الرئيسية</a>
 <a href="books.html" class="icon-btn">الكتب</a>
@@ -144,70 +141,59 @@ audio{
 جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
 </div>
 
+<!-- جلب بيانات الدروس -->
+<script src="lessonsData.js"></script>
 <script>
-// بيانات الدروس (يمكن وضعها في ملف JSON منفصل لو أحببت)
-const lessonsData = {
-    "tafseer": [
-        {"title":"تفسير سورة الفاتحة","file":"tafseer-fatiha-1.mp3"},
-        {"title":"تفسير سورة البقرة","file":"tafseer-baqara-1.mp3"},
-        {"title":"تفسير سورة آل عمران","file":"tafseer-al-imran-1.mp3"}
-    ],
-    "hadith": [
-        {"title":"حديث إنما الأعمال بالنيات","file":"hadith1.mp3"}
-    ],
-    "tawheed": [
-        {"title":"أنواع التوحيد","file":"tawheed1.mp3"}
-    ],
-    "fiqh": [
-        {"title":"أحكام الطهارة","file":"fiqh1.mp3"}
-    ],
-    "seerah": [
-        {"title":"مولد النبي ﷺ","file":"seerah1.mp3"}
-    ],
-    "raqaiq": [
-        {"title":"تزكية النفس","file":"raqaiq1.mp3"}
-    ]
-};
-
 const container = document.getElementById('lessons-container');
 
-// إنشاء كل سلسلة دروس
-for(const series in lessonsData){
-    // هيدر الأكورديون
+lessonsData.forEach(series => {
+    // إنشاء سلاسل
+    const accordion = document.createElement('div');
+    accordion.className = 'accordion';
+
     const header = document.createElement('div');
     header.className = 'accordion-header';
-    header.textContent = series === 'tafseer' ? '📖 التفسير' :
-                         series === 'hadith' ? '📚 شروح الحديث' :
-                         series === 'tawheed' ? '☝️ التوحيد' :
-                         series === 'fiqh' ? '⚖️ الفقه' :
-                         series === 'seerah' ? '🕌 السيرة' :
-                         '💙 الرقائق';
-    container.appendChild(header);
+    header.textContent = series.name;
+    accordion.appendChild(header);
 
-    // محتوى الأكورديون
     const content = document.createElement('div');
     content.className = 'accordion-content';
 
-    lessonsData[series].forEach(lesson=>{
-        const card = document.createElement('div');
-        card.className = 'lesson-card';
-        card.innerHTML = `<h3>${lesson.title}</h3>
-        <audio controls>
-            <source src="audio/${lesson.file}" type="audio/mpeg">
-        </audio>
-        <a href="audio/${lesson.file}" download class="download-btn">تحميل الدرس</a>`;
-        content.appendChild(card);
+    series.lessons.forEach(lesson => {
+        const lessonCard = document.createElement('div');
+        lessonCard.className = 'lesson-card';
+
+        const title = document.createElement('h3');
+        title.textContent = lesson.title;
+        lessonCard.appendChild(title);
+
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        const source = document.createElement('source');
+        source.src = lesson.src;
+        source.type = 'audio/mpeg';
+        audio.appendChild(source);
+        lessonCard.appendChild(audio);
+
+        const download = document.createElement('a');
+        download.href = lesson.src;
+        download.className = 'download-btn';
+        download.download = '';
+        download.textContent = 'تحميل الدرس';
+        lessonCard.appendChild(download);
+
+        content.appendChild(lessonCard);
     });
 
-    container.appendChild(content);
-}
+    accordion.appendChild(content);
+    container.appendChild(accordion);
+});
 
 // تفعيل الأكورديون
 document.querySelectorAll(".accordion-header").forEach(header => {
     header.addEventListener("click", () => {
         const content = header.nextElementSibling;
-        content.style.display =
-        content.style.display === "block" ? "none" : "block";
+        content.style.display = content.style.display === "block" ? "none" : "block";
     });
 });
 </script>
