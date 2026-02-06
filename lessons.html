@@ -3,126 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الدروس الصوتية</title>
+<title>الدروس الصوتية الديناميكية</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 <style>
-body{
-    margin:0;
-    font-family:'Noto Kufi Arabic',sans-serif;
-    background:linear-gradient(to bottom,#eef5ff,#d0e4ff);
-}
-
-/* الهيدر */
-.header-bar{
-    background:linear-gradient(to right,#3fa1d6,#70c0e8);
-    color:white;
-    padding:60px 20px;
-    text-align:center;
-    font-size:26px;
-}
-
-/* أيقونات ثلاثية الأبعاد */
-.main-icons{
-text-align:center;
-margin:25px 0;
-}
-.icon-btn{
-display:inline-block;
-padding:8px 16px;
-margin:6px;
-background:#70c0e8;
-color:white;
-border-radius:12px;
-text-decoration:none;
-font-size:14px;
-box-shadow:0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
-transition:all 0.2s;
-cursor:pointer;
-}
-.icon-btn:hover{
-transform:translateY(-3px);
-box-shadow:0 9px 0 #3fa1d6, 0 9px 12px rgba(0,0,0,0.15);
-background:#3a8ec2;
-}
-
-/* الأكورديون */
-.accordion{
-width:90%;
-margin:15px auto;
-}
-.accordion-header{
-background:#3fa1d6;
-color:white;
-padding:15px;
-border-radius:10px;
-cursor:pointer;
-font-size:18px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-.accordion-content{
-display:none;
-background:white;
-padding:15px;
-border-radius:0 0 10px 10px;
-}
-
-/* بطاقة الدرس */
-.lesson-card{
-background:#eef5ff;
-padding:12px;
-border-radius:10px;
-margin-bottom:12px;
-}
-.lesson-card h3{
-margin-bottom:8px;
-color:#065f46;
-}
-audio{
-width:100%;
-}
-.download-btn{
-display:inline-block;
-margin-top:8px;
-background:#70c0e8;
-color:white;
-padding:6px 14px;
-border-radius:8px;
-text-decoration:none;
-font-size:13px;
-box-shadow:0 4px 0 #3fa1d6;
-transition:0.2s;
-}
-.download-btn:hover{
-transform:translateY(-2px);
-}
-
-/* زر العودة */
-.back-home{
-display:inline-block;
-margin:30px;
-padding:10px 20px;
-background:#70c0e8;
-color:white;
-border-radius:12px;
-text-decoration:none;
-box-shadow:0 6px 0 #3fa1d6;
-float:left;
-}
-
-.footer{
-text-align:center;
-padding:20px;
-clear:both;
-}
+body{margin:0;font-family:'Noto Kufi Arabic',sans-serif;background:linear-gradient(to bottom,#eef5ff,#d0e4ff);}
+.header-bar{background:linear-gradient(to right,#3fa1d6,#70c0e8);color:white;padding:60px 20px;text-align:center;font-size:26px;}
+.main-icons{text-align:center;margin:25px 0;}
+.icon-btn{display:inline-block;padding:8px 16px;margin:6px;background:#70c0e8;color:white;border-radius:12px;text-decoration:none;font-size:14px;box-shadow:0 6px 0 #3fa1d6,0 6px 12px rgba(0,0,0,0.1);transition:all 0.2s;cursor:pointer;}
+.icon-btn:hover{transform:translateY(-3px);box-shadow:0 9px 0 #3fa1d6,0 9px 12px rgba(0,0,0,0.15);background:#3a8ec2;}
+.accordion{width:90%;margin:15px auto;}
+.accordion-header{background:#3fa1d6;color:white;padding:15px;border-radius:10px;cursor:pointer;font-size:18px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+.accordion-content{display:none;background:white;padding:15px;border-radius:0 0 10px 10px;}
+.lesson-card{background:#eef5ff;padding:12px;border-radius:10px;margin-bottom:12px;}
+.lesson-card h3{margin-bottom:8px;color:#065f46;}
+audio{width:100%;}
+.download-btn{display:inline-block;margin-top:8px;background:#70c0e8;color:white;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:13px;box-shadow:0 4px 0 #3fa1d6;transition:0.2s;}
+.download-btn:hover{transform:translateY(-2px);}
+.back-home{display:inline-block;margin:30px;padding:10px 20px;background:#70c0e8;color:white;border-radius:12px;text-decoration:none;box-shadow:0 6px 0 #3fa1d6;float:left;}
+.footer{text-align:center;padding:20px;clear:both;}
 </style>
 </head>
 <body>
 
-<div class="header-bar">
-الدروس الصوتية
-</div>
+<div class="header-bar">الدروس الصوتية</div>
 
-<!-- أيقونات ثلاثية الأبعاد -->
 <div class="main-icons">
 <a href="index.html" class="icon-btn">الرئيسية</a>
 <a href="books.html" class="icon-btn">الكتب</a>
@@ -132,116 +36,85 @@ clear:both;
 <a href="contact.html" class="icon-btn">تواصل</a>
 </div>
 
-<!-- ===== التفسير ===== -->
-<div class="accordion">
-<div class="accordion-header">📖 التفسير</div>
-<div class="accordion-content">
-<div class="lesson-card">
-<h3>تفسير سورة الفاتحة</h3>
-<audio controls>
-<source src="audio/tafseer-fatiha-1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/tafseer-fatiha-1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-<div class="lesson-card">
-<h3>تفسير سورة البقرة</h3>
-<audio controls>
-<source src="audio/tafseer-baqara-1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/tafseer-baqara-1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-<div class="lesson-card">
-<h3>تفسير سورة آل عمران</h3>
-<audio controls>
-<source src="audio/tafseer-imran-1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/tafseer-imran-1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-</div>
-</div>
-
-<!-- ===== شروح الحديث ===== -->
-<div class="accordion">
-<div class="accordion-header">📚 شروح الحديث</div>
-<div class="accordion-content">
-<div class="lesson-card">
-<h3>حديث إنما الأعمال بالنيات</h3>
-<audio controls>
-<source src="audio/hadith1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/hadith1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-</div>
-</div>
-
-<!-- ===== التوحيد ===== -->
-<div class="accordion">
-<div class="accordion-header">☝️ التوحيد</div>
-<div class="accordion-content">
-<div class="lesson-card">
-<h3>أنواع التوحيد</h3>
-<audio controls>
-<source src="audio/tawheed1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/tawheed1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-</div>
-</div>
-
-<!-- ===== الفقه ===== -->
-<div class="accordion">
-<div class="accordion-header">⚖️ الفقه</div>
-<div class="accordion-content">
-<div class="lesson-card">
-<h3>أحكام الطهارة</h3>
-<audio controls>
-<source src="audio/fiqh1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/fiqh1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-</div>
-</div>
-
-<!-- ===== السيرة ===== -->
-<div class="accordion">
-<div class="accordion-header">🕌 السيرة</div>
-<div class="accordion-content">
-<div class="lesson-card">
-<h3>مولد النبي ﷺ</h3>
-<audio controls>
-<source src="audio/seerah1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/seerah1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-</div>
-</div>
-
-<!-- ===== الرقائق ===== -->
-<div class="accordion">
-<div class="accordion-header">💙 الرقائق</div>
-<div class="accordion-content">
-<div class="lesson-card">
-<h3>تزكية النفس</h3>
-<audio controls>
-<source src="audio/raqaiq1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/raqaiq1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-</div>
-</div>
+<div id="lessons-container"></div>
 
 <a href="index.html" class="back-home">العودة للرئيسية</a>
 
-<div class="footer">
-جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
-</div>
+<div class="footer">جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب</div>
 
 <script>
+// ====== إعداد السلاسل ======
+const series = {
+    'tafseer': '📖 التفسير',
+    'hadith': '📚 شروح الحديث',
+    'tawheed': '☝️ التوحيد',
+    'fiqh': '⚖️ الفقه',
+    'seerah': '🕌 السيرة',
+    'raqaiq': '💙 الرقائق'
+};
+
+// ====== جميع الملفات الصوتية ======
+const audioFiles = [
+    "tafseer-fatiha-1.mp3",
+    "tafseer-baqara-1.mp3",
+    "tafseer-imran-1.mp3",
+    "hadith1.mp3",
+    "tawheed1.mp3",
+    "fiqh1.mp3",
+    "seerah1.mp3",
+    "raqaiq1.mp3"
+    // أضف هنا أي ملف صوتي جديد
+];
+
+// ====== إنشاء الدروس ديناميكيًا ======
+const container = document.getElementById('lessons-container');
+
+for (let key in series){
+    const header = document.createElement('div');
+    header.className = 'accordion-header';
+    header.textContent = series[key];
+    container.appendChild(header);
+
+    const content = document.createElement('div');
+    content.className = 'accordion-content';
+
+    audioFiles.forEach(file => {
+        if(file.toLowerCase().startsWith(key)){
+            const card = document.createElement('div');
+            card.className = 'lesson-card';
+
+            const title = document.createElement('h3');
+            // اسم الدرس من الملف بدون الامتداد
+            title.textContent = file.replace(/[-0-9]+|\.mp3/gi, '').replace(/_/g,' ');
+            card.appendChild(title);
+
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            const src = document.createElement('source');
+            src.src = 'audio/' + file;
+            src.type = 'audio/mpeg';
+            audio.appendChild(src);
+            card.appendChild(audio);
+
+            const download = document.createElement('a');
+            download.href = 'audio/' + file;
+            download.download = '';
+            download.className = 'download-btn';
+            download.textContent = 'تحميل الدرس';
+            card.appendChild(download);
+
+            content.appendChild(card);
+        }
+    });
+
+    container.appendChild(content);
+}
+
+// ====== أكوردين التوسيع ======
 document.querySelectorAll(".accordion-header").forEach(header => {
     header.addEventListener("click", () => {
         const content = header.nextElementSibling;
-        content.style.display =
-            content.style.display === "block" ? "none" : "block";
+        content.style.display = content.style.display === "block" ? "none" : "block";
     });
 });
 </script>
