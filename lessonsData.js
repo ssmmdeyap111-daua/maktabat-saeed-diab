@@ -3,7 +3,10 @@ const lessonsData = [
         name: "التفسير",
         lessons: [
             { title: "تفسير سورة الفاتحة", src: "audio/tafseer-fatiha-1.mp3" },
+           { title: "تفسير سورة الفاتحة", src: "audio/tafseer-fatiha-2.mp3" }
             { title: "تفسير سورة البقرة", src: "audio/tafseer-baqara-1.mp3" },
+           { title: "تفسير سورة البقرة", src: "audio/tafseer-baqara-2.mp3" } 
+          { title: "تفسير سورة البقرة", src: "audio/tafseer-baqara-3.mp3" }
             { title: "تفسير سورة آل عمران", src: "audio/tafseer-al-imran-1.mp3" }
         ]
     },
