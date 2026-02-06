@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>التفسير</title>
+<title>سلسلة التفسير</title>
 
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
@@ -26,38 +25,58 @@ body{
 }
 
 /* عنوان الصفحة */
-.page-title{
+.series-title{
     text-align:center;
     margin-top:30px;
-    font-size:28px;
+    font-size:26px;
 }
 
-/* شبكة الأقسام */
-.tafseer-grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    width:85%;
-    margin:40px auto;
+/* شبكة السور */
+.surah-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:30px;
 }
 
 /* بطاقة السورة */
-.tafseer-card{
+.surah-card{
     background:white;
-    padding:30px;
+    width:220px;
+    margin:15px;
+    padding:20px;
+    border-radius:14px;
     text-align:center;
-    border-radius:15px;
-    text-decoration:none;
-    color:#333;
     box-shadow:0 4px 12px rgba(0,0,0,0.15);
     transition:0.3s;
 }
 
-.tafseer-card:hover{
+.surah-card:hover{
     transform:translateY(-6px);
 }
 
-/* زر العودة */
+/* اسم السورة */
+.surah-card h3{
+    margin-bottom:15px;
+}
+
+/* زر الدخول */
+.enter-btn{
+    display:inline-block;
+    padding:10px 18px;
+    background:#70c0e8;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    box-shadow:0 4px 0 #3fa1d6;
+    transition:0.2s;
+}
+
+.enter-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* زر الرجوع */
 .back-home{
     display:block;
     width:200px;
@@ -79,28 +98,43 @@ body{
     <h1>سلسلة التفسير</h1>
 </div>
 
-<h2 class="page-title">اختر السورة</h2>
+<h2 class="series-title">اختر السورة</h2>
 
+<div class="surah-grid">
 
-<div class="tafseer-grid">
-
-    <!-- الفاتحة -->
-    <a href="tafseer-fatiha.html" class="tafseer-card">
-        تفسير سورة الفاتحة
+<!-- الفاتحة -->
+<div class="surah-card">
+    <h3>تفسير سورة الفاتحة</h3>
+    <a href="tafseer-fatiha.html" class="enter-btn">
+        دخول السلسلة
     </a>
-
-    <!-- البقرة -->
-    <a href="tafseer-baqara.html" class="tafseer-card">
-        تفسير سورة البقرة
-    </a>
-
-    <!-- آل عمران -->
-    <a href="tafseer-imran.html" class="tafseer-card">
-        تفسير سورة آل عمران
-    </a>
-
 </div>
 
+<!-- البقرة -->
+<div class="surah-card">
+    <h3>تفسير سورة البقرة</h3>
+    <a href="tafseer-baqara.html" class="enter-btn">
+        دخول السلسلة
+    </a>
+</div>
+
+<!-- آل عمران -->
+<div class="surah-card">
+    <h3>تفسير سورة آل عمران</h3>
+    <a href="tafseer-imran.html" class="enter-btn">
+        دخول السلسلة
+    </a>
+</div>
+
+<!-- النساء -->
+<div class="surah-card">
+    <h3>تفسير سورة النساء</h3>
+    <a href="tafseer-nisaa.html" class="enter-btn">
+        دخول السلسلة
+    </a>
+</div>
+
+</div>
 
 <a href="lessons.html" class="back-home">
 العودة إلى الدروس
