@@ -257,21 +257,32 @@ clear:both;
 جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
 </div>
 
-<!-- سكربت الأكورديون -->
 <script>
 
-document.querySelectorAll(".accordion-header").forEach(header => {
+const headers = document.querySelectorAll(".accordion-header");
+
+headers.forEach(header => {
+
 header.addEventListener("click", () => {
 
-const content = header.nextElementSibling;
+const currentContent = header.nextElementSibling;
 
-content.style.display =
-content.style.display === "block" ? "none" : "block";
+/* إغلاق كل الأقسام */
+document.querySelectorAll(".accordion-content").forEach(content => {
+
+if(content !== currentContent){
+content.style.display = "none";
+}
 
 });
+
+/* فتح أو إغلاق القسم الحالي */
+currentContent.style.display =
+currentContent.style.display === "block" ? "none" : "block";
+
+});
+
 });
 
 </script>
 
-</body>
-</html>
