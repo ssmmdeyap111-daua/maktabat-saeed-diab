@@ -4,111 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الدروس الصوتية</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 
 <style>
 body{
-    margin:0;
-    font-family:'Noto Kufi Arabic',sans-serif;
-    background:linear-gradient(to bottom,#eef5ff,#d0e4ff);
+margin:0;
+font-family:'Noto Kufi Arabic',sans-serif;
+background:linear-gradient(to bottom,#eef5ff,#d0e4ff);
 }
 
-/* الهيدر */
 .header-bar{
-    background:linear-gradient(to right,#3fa1d6,#70c0e8);
-    color:white;
-    padding:60px 20px;
-    text-align:center;
-    font-size:26px;
+background:linear-gradient(to right,#3fa1d6,#70c0e8);
+color:white;
+padding:60px;
+text-align:center;
+font-size:26px;
 }
 
-/* أيقونات العلوم */
 .main-icons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin:25px 0;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin:40px 0;
 }
 
 .icon-btn{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:140px;
-    height:60px;
-    background:#70c0e8;
-    color:white;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:bold;
-    border-radius:12px;
-    box-shadow:0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.15);
-    transition:all 0.2s;
+display:flex;
+justify-content:center;
+align-items:center;
+width:180px;
+height:80px;
+background:#70c0e8;
+color:white;
+text-decoration:none;
+font-size:18px;
+border-radius:14px;
+box-shadow:0 8px 0 #3fa1d6,0 8px 18px rgba(0,0,0,0.2);
+transition:.2s;
 }
 
 .icon-btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 0 #3fa1d6, 0 10px 15px rgba(0,0,0,0.2);
-    background:#3a8ec2;
-}
-
-/* بطاقة الدرس */
-.lesson-card{
-    background:white;
-    margin:15px auto;
-    width:90%;
-    max-width:600px;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.15);
-}
-
-.lesson-card h3{
-    margin-bottom:10px;
-    color:#065f46;
-}
-
-/* مشغل الصوت */
-audio{
-    width:100%;
-    margin-top:10px;
-}
-
-/* زر التحميل */
-.download-btn{
-    display:inline-block;
-    margin-top:10px;
-    background:#70c0e8;
-    color:white;
-    padding:6px 14px;
-    border-radius:8px;
-    text-decoration:none;
-    font-size:13px;
-    box-shadow:0 4px 0 #3fa1d6;
-}
-.download-btn:hover{
-    transform:translateY(-2px);
-}
-
-/* زر العودة */
-.back-home{
-    display:inline-block;
-    margin:30px;
-    padding:10px 20px;
-    background:#70c0e8;
-    color:white;
-    border-radius:12px;
-    text-decoration:none;
-    box-shadow:0 6px 0 #3fa1d6;
-    float:left;
-}
-
-/* الحقوق */
-.footer{
-    text-align:center;
-    padding:20px;
-    clear:both;
+transform:translateY(-4px);
+background:#3a8ec2;
 }
 </style>
 </head>
@@ -117,108 +56,15 @@ audio{
 
 <div class="header-bar">الدروس الصوتية</div>
 
-<!-- أيقونات العلوم -->
 <div class="main-icons">
-    <a href="#tafsir" class="icon-btn">📖 التفسير</a>
-    <a href="#hadith" class="icon-btn">📚 شروح الحديث</a>
-    <a href="#tawheed" class="icon-btn">☝️ التوحيد</a>
-    <a href="#fiqh" class="icon-btn">⚖️ الفقه</a>
-    <a href="#seerah" class="icon-btn">🕌 السيرة</a>
-    <a href="#raqaiq" class="icon-btn">💙 الرقائق</a>
-</div>
 
-<!-- ===== الدروس ===== -->
+<a href="tafsir.html" class="icon-btn"> التفسير</a>
+<a href="hadith.html" class="icon-btn"> شروح الحديث</a>
+<a href="tawheed.html" class="icon-btn"> التوحيد</a>
+<a href="fiqh.html" class="icon-btn"> الفقه</a>
+<a href="seerah.html" class="icon-btn"> السيرة</a>
+<a href="raqaiq.html" class="icon-btn"> الرقائق</a>
 
-<!-- ===== التفسير ===== -->
-<div id="tafsir" class="lesson-card">
-<h3>تفسير سورة الفاتحة الدرس الأول</h3>
-<audio controls>
-<source src="audio/tafseer-fatiha-1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/tafseer-fatiha-1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-
-<div id="tafsir" class="lesson-card">
-<h3>تفسير سورة الفاتحة الدرس الثاني</h3>
-<audio controls>
-<source src="audio/tafseer-fatiha-2.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/tafseer-fatiha-2.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-    
-<div class="lesson-card">
-<h3>تفسير سورة البقرة - الدرس الأول</h3>
-<audio controls>
-<source src="audio/bakara-1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/bakara-1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-
-<div class="lesson-card">
-<h3>تفسير سورة البقرة - الدرس الثاني</h3>
-<audio controls>
-<source src="audio/bakara-2.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/bakara-2.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-
- <div class="lesson-card">
-<h3>تفسير سورة البقرة - الدرس الثالث</h3>
-<audio controls>
-<source src="audio/bakara-3.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/bakara-3.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-    
-<!-- ===== شروح الحديث ===== -->
-<div id="hadith" class="lesson-card">
-<h3>حديث: إنما الأعمال بالنيات</h3>
-<audio controls>
-<source src="audio/hadith1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/hadith1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-
-<!-- ===== التوحيد ===== -->
-<div id="tawheed" class="lesson-card">
-<h3>أنواع التوحيد</h3>
-<audio controls>
-<source src="audio/tawheed1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/tawheed1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-
-<!-- ===== الفقه ===== -->
-<div id="fiqh" class="lesson-card">
-<h3>أحكام الطهارة</h3>
-<audio controls>
-<source src="audio/fiqh1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/fiqh1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-
-<!-- ===== السيرة ===== -->
-<div id="seerah" class="lesson-card">
-<h3>مولد النبي ﷺ</h3>
-<audio controls>
-<source src="audio/seerah1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/seerah1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-
-<!-- ===== الرقائق ===== -->
-<div id="raqaiq" class="lesson-card">
-<h3>تزكية النفس</h3>
-<audio controls>
-<source src="audio/raqaiq1.mp3" type="audio/mpeg">
-</audio>
-<a href="audio/raqaiq1.mp3" download class="download-btn">تحميل الدرس</a>
-</div>
-
-<a href="index.html" class="back-home">العودة للرئيسية</a>
-
-<div class="footer">
-جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
 </div>
 
 </body>
