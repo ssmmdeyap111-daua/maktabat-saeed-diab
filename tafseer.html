@@ -3,142 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سلسلة التفسير</title>
-
+<title>صفحة التفسير الرئيسية</title>
 <link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
-
 <style>
-
 body{
     font-family:'Noto Kufi Arabic', sans-serif;
     margin:0;
     background: linear-gradient(to bottom,#eef5ff,#d0e4ff);
 }
-
-/* شريط العنوان */
 .header-bar{
     background: linear-gradient(to right,#3fa1d6,#70c0e8);
     color:white;
     padding:50px;
     text-align:center;
 }
-
-/* عنوان الصفحة */
 .series-title{
     text-align:center;
     margin-top:30px;
     font-size:26px;
 }
-
-/* شبكة السور */
-.surah-grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top:30px;
-}
-
-/* بطاقة السورة */
-.surah-card{
+.sura-card{
     background:white;
-    width:220px;
-    margin:15px;
+    width:85%;
+    margin:20px auto;
     padding:20px;
-    border-radius:14px;
-    text-align:center;
+    border-radius:12px;
     box-shadow:0 4px 12px rgba(0,0,0,0.15);
-    transition:0.3s;
+    text-align:center;
 }
-
-.surah-card:hover{
-    transform:translateY(-6px);
-}
-
-/* اسم السورة */
-.surah-card h3{
-    margin-bottom:15px;
-}
-
-/* زر الدخول */
-.enter-btn{
+.sura-card a{
     display:inline-block;
+    margin-top:10px;
     padding:10px 18px;
     background:#70c0e8;
     color:white;
+    border-radius:8px;
     text-decoration:none;
-    border-radius:10px;
     box-shadow:0 4px 0 #3fa1d6;
     transition:0.2s;
 }
-
-.enter-btn:hover{
+.sura-card a:hover{
     transform:translateY(-2px);
 }
-
-/* زر الرجوع */
-.back-home{
-    display:block;
-    width:200px;
-    margin:40px 20px 20px auto;
-    text-align:center;
-    padding:10px;
-    background:#70c0e8;
-    color:white;
-    border-radius:10px;
-    text-decoration:none;
-}
-
 </style>
 </head>
-
 <body>
 
 <div class="header-bar">
     <h1>سلسلة التفسير</h1>
 </div>
 
-<h2 class="series-title">اختر السورة</h2>
+<h2 class="series-title">اختر السورة لعرض الدروس الصوتية</h2>
 
-<div class="surah-grid">
-
-<!-- الفاتحة -->
-<div class="surah-card">
-    <h3>تفسير سورة الفاتحة</h3>
-    <a href="tafseer-fatiha.html" class="enter-btn">
-        دخول السلسلة
-    </a>
+<!-- ===== مثال على بطاقة سورة ===== -->
+<div class="sura-card">
+    <h3>سورة الفاتحة</h3>
+    <a href="tafseer-fatiha.html">عرض الدروس</a>
 </div>
 
-<!-- البقرة -->
-<div class="surah-card">
-    <h3>تفسير سورة البقرة</h3>
-    <a href="tafseer-baqara.html" class="enter-btn">
-        دخول السلسلة
-    </a>
+<div class="sura-card">
+    <h3>سورة البقرة</h3>
+    <a href="tafseer-albaqarah.html">عرض الدروس</a>
 </div>
 
-<!-- آل عمران -->
-<div class="surah-card">
-    <h3>تفسير سورة آل عمران</h3>
-    <a href="tafseer-imran.html" class="enter-btn">
-        دخول السلسلة
-    </a>
+<div class="sura-card">
+    <h3>سورة آل عمران</h3>
+    <a href="tafseer-alimran.html">عرض الدروس</a>
 </div>
 
-<!-- النساء -->
-<div class="surah-card">
-    <h3>تفسير سورة النساء</h3>
-    <a href="tafseer-nisaa.html" class="enter-btn">
-        دخول السلسلة
-    </a>
-</div>
-
-</div>
-
-<a href="lessons.html" class="back-home">
-العودة إلى الدروس
-</a>
+<!-- يمكن إضافة بقية السور بنفس الطريقة -->
 
 </body>
 </html>
