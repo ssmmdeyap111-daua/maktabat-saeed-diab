@@ -3,153 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موقع الشيخ سعيد مصطفى دياب الرسمي - الخطب</title>
+<title>دروس وخطب الجمعة</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+
 <style>
-body {
+body{
+    font-family:'Noto Kufi Arabic', sans-serif;
     margin:0;
-    font-family: 'Noto Kufi Arabic', Tahoma, Arial, sans-serif;
-    background: linear-gradient(to bottom, #eef5ff, #d0e4ff);
+    background: linear-gradient(to bottom,#eef5ff,#d0e4ff);
 }
 
-/* ====== شريط العنوان ====== */
-.header-bar {
-    background: linear-gradient(to right, #3fa1d6, #70c0e8);
+/* شريط العنوان */
+.header-bar{
+    background: linear-gradient(to right,#3fa1d6,#70c0e8);
     color:white;
-    padding:50px 20px 20px;
+    padding:50px;
     text-align:center;
 }
-.site-title {
-    margin:0 0 10px;
-    font-size:28px;
-}
 
-/* ====== أيقونات الصفحة ====== */
-.main-icons {
+.series-title{
     text-align:center;
-    margin: 20px 0;
-}
-.icon-btn {
-    display:inline-block;
-    padding:10px 20px;
-    margin:8px;
-    background:#70c0e8;
-    color:white;
-    font-size:14px;
-    border-radius:12px;
-    text-decoration:none;
-    box-shadow: 0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-}
-.icon-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
+    margin-top:30px;
+    font-size:26px;
 }
 
-/* ====== بطاقات الخطب ====== */
-.speech-container {
-    max-width:900px;
-    margin:auto;
+/* بطاقة الدرس/الخطبة */
+.lesson-card{
+    background:white;
+    margin:20px auto;
+    width:85%;
     padding:20px;
-}
-.speech-card {
-    background: #eef5ff;
     border-radius:12px;
-    padding:15px;
-    margin:15px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
-.speech-card h3 {
+
+.lesson-title{
+    font-size:18px;
     margin-bottom:10px;
-    color:#0a7aaf;
-}
-.speech-card audio {
-    width:100%;
-    outline:none;
 }
 
-/* ====== العودة للصفحة الرئيسية ====== */
-.back-home {
+audio{
+    width:100%;
+    margin-top:10px;
+}
+
+/* زر التحميل */
+.download-btn{
     display:inline-block;
-    margin:20px;
-    padding:10px 20px;
+    margin-top:10px;
+    padding:8px 14px;
     background:#70c0e8;
     color:white;
-    border-radius:12px;
     text-decoration:none;
-    box-shadow: 0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-    float:left;
-}
-.back-home:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
+    border-radius:8px;
+    box-shadow:0 4px 0 #3fa1d6;
+    transition:0.2s;
 }
 
-/* ====== الحقوق ====== */
-.footer {
+.download-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* زر العودة */
+.back-home{
+    display:block;
+    width:220px;
+    margin:40px 0 40px 20px;
     text-align:center;
-    padding:20px;
-    font-size:14px;
-    color:#0f172a;
-    clear:both;
+    padding:10px;
+    background:#70c0e8;
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
 }
 </style>
 </head>
+
 <body>
 
-<!-- ====== شريط العنوان ====== -->
 <div class="header-bar">
-    <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+    <h1>سلسلة الدروس والخطب</h1>
 </div>
 
-<!-- ====== أيقونات الصفحة ====== -->
-<div class="main-icons">
-    <a href="index.html" class="icon-btn">الرئيسية</a>
-    <a href="books.html" class="icon-btn">الكتب</a>
-    <a href="articles.html" class="icon-btn">المقالات</a>
-    <a href="lessons.html" class="icon-btn">الدروس</a>
-    <a href="khutbah.html" class="icon-btn">الخطب</a>
-    <a href="contact.html" class="icon-btn">تواصل معنا</a>
-    <a href="about.html" class="icon-btn">من نحن</a>
-    <a href="faq.html" class="icon-btn">الأسئلة</a>
+<h2 class="series-title">خطب الجمعة والدروس</h2>
+
+<!-- ====== الخطبة 1 ====== -->
+<div class="lesson-card">
+    <div class="lesson-title">خطبة الجمعة الأولى</div>
+    <audio controls>
+        <source src="audio/khutbah1.mp3" type="audio/mpeg">
+    </audio>
+    <a href="audio/khutbah1.mp3" class="download-btn" download>تحميل الخطبة</a>
 </div>
 
-<!-- ====== قائمة الخطب ====== -->
-<h2 style="text-align:center; margin:30px 0;">الخطب</h2>
-<div class="speech-container">
-    <div class="speech-card">
-        <h3>خطبة الجمعة الأولى</h3>
-        <audio controls>
-            <source src="audio/khotbah1.mp3" type="audio/mpeg">
-            متصفحك لا يدعم تشغيل الصوت.
-        </audio>
-    </div>
-    <div class="speech-card">
-        <h3>خطبة الجمعة الثانية</h3>
-        <audio controls>
-            <source src="audio/khotbah2.mp3" type="audio/mpeg">
-            متصفحك لا يدعم تشغيل الصوت.
-        </audio>
-    </div>
-    <div class="speech-card">
-        <h3>خطبة الجمعة الثالثة</h3>
-        <audio controls>
-            <source src="audio/khotbah3.mp3" type="audio/mpeg">
-            متصفحك لا يدعم تشغيل الصوت.
-        </audio>
-    </div>
+<!-- ====== الخطبة 2 ====== -->
+<div class="lesson-card">
+    <div class="lesson-title">خطبة الجمعة الثانية</div>
+    <audio controls>
+        <source src="audio/khutbah2.mp3" type="audio/mpeg">
+    </audio>
+    <a href="audio/khutbah2.mp3" class="download-btn" download>تحميل الخطبة</a>
 </div>
 
-<!-- ====== العودة للصفحة الرئيسية ====== -->
-<a href="index.html" class="back-home">العودة للصفحة الرئيسية</a>
-
-<!-- ====== الحقوق ====== -->
-<div class="footer">
-    جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب
+<!-- ====== الخطبة 3 ====== -->
+<div class="lesson-card">
+    <div class="lesson-title">خطبة الجمعة الثالثة</div>
+    <audio controls>
+        <source src="audio/khutbah3.mp3" type="audio/mpeg">
+    </audio>
+    <a href="audio/khutbah3.mp3" class="download-btn" download>تحميل الخطبة</a>
 </div>
+
+<!-- ====== الخطبة 4 ====== -->
+<div class="lesson-card">
+    <div class="lesson-title">خطبة الجمعة الرابعة</div>
+    <audio controls>
+        <source src="audio/khutbah4.mp3" type="audio/mpeg">
+    </audio>
+    <a href="audio/khutbah4.mp3" class="download-btn" download>تحميل الخطبة</a>
+</div>
+
+<!-- ====== زر العودة ====== -->
+<a href="lessons.html" class="back-home">العودة إلى الدروس والخطب</a>
 
 </body>
 </html>
-
