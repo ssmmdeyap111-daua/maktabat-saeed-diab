@@ -4,52 +4,52 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الدروس الصوتية</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
-
 <style>
-
 body{
-margin:0;
-font-family:'Noto Kufi Arabic',sans-serif;
-background:linear-gradient(to bottom,#eef5ff,#d0e4ff);
+    margin:0;
+    font-family:'Noto Kufi Arabic',sans-serif;
+    background:linear-gradient(to bottom,#eef5ff,#d0e4ff);
 }
 
 /* الهيدر */
 .header-bar{
-background:linear-gradient(to right,#3fa1d6,#70c0e8);
-color:white;
-padding:60px 20px;
-text-align:center;
-font-size:26px;
+    background:linear-gradient(to right,#3fa1d6,#70c0e8);
+    color:white;
+    padding:60px 20px;
+    text-align:center;
+    font-size:26px;
 }
 
-/* الأيقونات */
+/* أيقونات ثلاثية الأبعاد */
 .main-icons{
 text-align:center;
 margin:25px 0;
 }
-
 .icon-btn{
 display:inline-block;
-padding:9px 18px;
+padding:8px 16px;
 margin:6px;
 background:#70c0e8;
 color:white;
 border-radius:12px;
 text-decoration:none;
 font-size:14px;
-box-shadow:0 6px 0 #3fa1d6;
+box-shadow:0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
+transition:all 0.2s;
 cursor:pointer;
 }
+.icon-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 9px 0 #3fa1d6, 0 9px 12px rgba(0,0,0,0.15);
+background:#3a8ec2;
+}
 
-/* ===== الأكورديون ===== */
-
+/* الأكورديون */
 .accordion{
 width:90%;
 margin:15px auto;
 }
-
 .accordion-header{
 background:#3fa1d6;
 color:white;
@@ -59,14 +59,11 @@ cursor:pointer;
 font-size:18px;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
-
 .accordion-content{
-max-height:0;
-overflow:hidden;
+display:none;
 background:white;
-padding:0 15px;
+padding:15px;
 border-radius:0 0 10px 10px;
-transition:max-height 0.5s ease, padding 0.3s ease;
 }
 
 /* بطاقة الدرس */
@@ -76,16 +73,13 @@ padding:12px;
 border-radius:10px;
 margin-bottom:12px;
 }
-
 .lesson-card h3{
 margin-bottom:8px;
 color:#065f46;
 }
-
 audio{
 width:100%;
 }
-
 .download-btn{
 display:inline-block;
 margin-top:8px;
@@ -95,6 +89,11 @@ padding:6px 14px;
 border-radius:8px;
 text-decoration:none;
 font-size:13px;
+box-shadow:0 4px 0 #3fa1d6;
+transition:0.2s;
+}
+.download-btn:hover{
+transform:translateY(-2px);
 }
 
 /* زر العودة */
@@ -115,17 +114,15 @@ text-align:center;
 padding:20px;
 clear:both;
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="header-bar">
 الدروس الصوتية
 </div>
 
-<!-- الأيقونات -->
+<!-- أيقونات ثلاثية الأبعاد -->
 <div class="main-icons">
 <a href="index.html" class="icon-btn">الرئيسية</a>
 <a href="books.html" class="icon-btn">الكتب</a>
@@ -137,121 +134,101 @@ clear:both;
 
 <!-- ===== التفسير ===== -->
 <div class="accordion">
-
 <div class="accordion-header">📖 التفسير</div>
-
 <div class="accordion-content">
-
 <div class="lesson-card">
-<h3>تفسير سورة الفاتحة - الدرس الأول</h3>
+<h3>تفسير سورة الفاتحة</h3>
 <audio controls>
 <source src="audio/tafseer-fatiha-1.mp3" type="audio/mpeg">
 </audio>
 <a href="audio/tafseer-fatiha-1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
-
 <div class="lesson-card">
-<h3>تفسير سورة الفاتحة - الدرس الثاني</h3>
+<h3>تفسير سورة البقرة</h3>
 <audio controls>
-<source src="audio/tafseer-fatiha-2.mp3" type="audio/mpeg">
+<source src="audio/tafseer-baqara-1.mp3" type="audio/mpeg">
 </audio>
-<a href="audio/tafseer-fatiha-2.mp3" download class="download-btn">تحميل الدرس</a>
+<a href="audio/tafseer-baqara-1.mp3" download class="download-btn">تحميل الدرس</a>
+</div>
+<div class="lesson-card">
+<h3>تفسير سورة آل عمران</h3>
+<audio controls>
+<source src="audio/tafseer-imran-1.mp3" type="audio/mpeg">
+</audio>
+<a href="audio/tafseer-imran-1.mp3" download class="download-btn">تحميل الدرس</a>
+</div>
+</div>
 </div>
 
-<!-- ===== الحديث ===== -->
+<!-- ===== شروح الحديث ===== -->
 <div class="accordion">
-
 <div class="accordion-header">📚 شروح الحديث</div>
-
 <div class="accordion-content">
-
 <div class="lesson-card">
 <h3>حديث إنما الأعمال بالنيات</h3>
 <audio controls>
-<source src="audio/hadith1.mp3">
+<source src="audio/hadith1.mp3" type="audio/mpeg">
 </audio>
 <a href="audio/hadith1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
-
 </div>
 </div>
-
 
 <!-- ===== التوحيد ===== -->
 <div class="accordion">
-
 <div class="accordion-header">☝️ التوحيد</div>
-
 <div class="accordion-content">
-
 <div class="lesson-card">
 <h3>أنواع التوحيد</h3>
 <audio controls>
-<source src="audio/tawheed1.mp3">
+<source src="audio/tawheed1.mp3" type="audio/mpeg">
 </audio>
 <a href="audio/tawheed1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
-
 </div>
 </div>
-
 
 <!-- ===== الفقه ===== -->
 <div class="accordion">
-
 <div class="accordion-header">⚖️ الفقه</div>
-
 <div class="accordion-content">
-
 <div class="lesson-card">
 <h3>أحكام الطهارة</h3>
 <audio controls>
-<source src="audio/fiqh1.mp3">
+<source src="audio/fiqh1.mp3" type="audio/mpeg">
 </audio>
 <a href="audio/fiqh1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
-
 </div>
 </div>
-
 
 <!-- ===== السيرة ===== -->
 <div class="accordion">
-
 <div class="accordion-header">🕌 السيرة</div>
-
 <div class="accordion-content">
-
 <div class="lesson-card">
 <h3>مولد النبي ﷺ</h3>
 <audio controls>
-<source src="audio/seerah1.mp3">
+<source src="audio/seerah1.mp3" type="audio/mpeg">
 </audio>
 <a href="audio/seerah1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
-
 </div>
 </div>
-
 
 <!-- ===== الرقائق ===== -->
 <div class="accordion">
-
 <div class="accordion-header">💙 الرقائق</div>
-
 <div class="accordion-content">
-
 <div class="lesson-card">
 <h3>تزكية النفس</h3>
 <audio controls>
-<source src="audio/raqaiq1.mp3">
+<source src="audio/raqaiq1.mp3" type="audio/mpeg">
 </audio>
 <a href="audio/raqaiq1.mp3" download class="download-btn">تحميل الدرس</a>
 </div>
-
 </div>
 </div>
-
 
 <a href="index.html" class="back-home">العودة للرئيسية</a>
 
@@ -260,110 +237,14 @@ clear:both;
 </div>
 
 <script>
-
-const headers = document.querySelectorAll(".accordion-header");
-
-headers.forEach(header => {
-
-header.addEventListener("click", () => {
-
-const currentContent = header.nextElementSibling;
-
-/* إغلاق كل الأقسام */
-document.querySelectorAll(".accordion-content").forEach(content => {
-
-if(content !== currentContent){
-content.style.display = "none";
-}
-
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        content.style.display =
+            content.style.display === "block" ? "none" : "block";
+    });
 });
-
-/* فتح أو إغلاق القسم الحالي */
-currentContent.style.display =
-currentContent.style.display === "block" ? "none" : "block";
-
-});
-
-});
-
-</script>
-<script>
-
-const headers = document.querySelectorAll(".accordion-header");
-
-headers.forEach(header => {
-
-header.addEventListener("click", () => {
-
-const content = header.nextElementSibling;
-
-/* إغلاق جميع الأقسام */
-<script>
-
-const headers = document.querySelectorAll(".accordion-header");
-
-headers.forEach(header => {
-
-header.addEventListener("click", () => {
-
-const content = header.nextElementSibling;
-
-/* إغلاق جميع الأقسام */
-document.querySelectorAll(".accordion-content").forEach(section => {
-
-if(section !== content){
-section.style.maxHeight = null;
-section.style.padding = "0 15px";
-}
-
-});
-
-/* فتح أو إغلاق القسم الحالي */
-if(content.style.maxHeight){
-content.style.maxHeight = null;
-content.style.padding = "0 15px";
-}else{
-content.style.maxHeight = content.scrollHeight + "px";
-content.style.padding = "15px";
-}
-
-});
-
-});
-
-</script>
-<script>
-
-const headers = document.querySelectorAll(".accordion-header");
-
-headers.forEach(header => {
-
-header.addEventListener("click", () => {
-
-const content = header.nextElementSibling;
-
-/* إغلاق جميع الأقسام */
-document.querySelectorAll(".accordion-content").forEach(section => {
-
-if(section !== content){
-section.style.maxHeight = null;
-section.style.padding = "0 15px";
-}
-
-});
-
-/* فتح أو إغلاق القسم الحالي */
-if(content.style.maxHeight){
-content.style.maxHeight = null;
-content.style.padding = "0 15px";
-}else{
-content.style.maxHeight = content.scrollHeight + "px";
-content.style.padding = "15px";
-}
-
-});
-
-});
-
 </script>
 
+</body>
+</html>
