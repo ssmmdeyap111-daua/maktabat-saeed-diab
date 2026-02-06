@@ -21,12 +21,11 @@ body{
     font-size:26px;
 }
 
-/* الأيقونات */
+/* أيقونات التنقل */
 .main-icons{
     text-align:center;
     margin:25px 0;
 }
-
 .icon-btn{
     display:inline-block;
     padding:9px 18px;
@@ -40,7 +39,6 @@ body{
     cursor:pointer;
     transition:all 0.2s;
 }
-
 .icon-btn:hover{
     transform:translateY(-3px);
     box-shadow:0 9px 0 #3fa1d6;
@@ -51,7 +49,6 @@ body{
     width:90%;
     margin:15px auto;
 }
-
 .accordion-header{
     background:#3fa1d6;
     color:white;
@@ -61,7 +58,6 @@ body{
     font-size:18px;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
-
 .accordion-content{
     display:none;
     background:white;
@@ -76,16 +72,13 @@ body{
     border-radius:10px;
     margin-bottom:12px;
 }
-
 .lesson-card h3{
     margin-bottom:8px;
     color:#065f46;
 }
-
 audio{
     width:100%;
 }
-
 .download-btn{
     display:inline-block;
     margin-top:8px;
@@ -141,13 +134,11 @@ audio{
 جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
 </div>
 
-<!-- جلب بيانات الدروس -->
 <script src="lessonsData.js"></script>
 <script>
 const container = document.getElementById('lessons-container');
 
 lessonsData.forEach(series => {
-    // إنشاء سلاسل
     const accordion = document.createElement('div');
     accordion.className = 'accordion';
 
@@ -189,7 +180,7 @@ lessonsData.forEach(series => {
     container.appendChild(accordion);
 });
 
-// تفعيل الأكورديون
+// تشغيل/إغلاق الأكورديون
 document.querySelectorAll(".accordion-header").forEach(header => {
     header.addEventListener("click", () => {
         const content = header.nextElementSibling;
