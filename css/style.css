@@ -319,3 +319,49 @@ footer p {
     box-shadow: 0 12px 15px rgba(0,0,0,0.35);
     background: #3a8ec2;
 }
+/* ==== الأيقونات الرئيسية ==== */
+.main-icons{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.icon-box{
+    width:160px;
+    text-align:center;
+    text-decoration:none;
+    color:#333;
+    transition:0.3s;
+}
+
+/* شكل الأيقونة */
+.icon-box img{
+    width:120px;
+    height:120px;
+    border-radius:20px;
+
+    /* تأثير ثلاثي الأبعاد */
+    box-shadow:
+        0 8px 0 #cfcfcf,
+        0 15px 25px rgba(0,0,0,0.25);
+
+    transition:0.3s;
+}
+
+/* عند المرور بالماوس */
+.icon-box:hover img{
+    transform:translateY(-8px);
+    box-shadow:
+        0 15px 0 #cfcfcf,
+        0 25px 35px rgba(0,0,0,0.3);
+}
+
+/* عنوان الأيقونة */
+.icon-box span{
+    display:block;
+    margin-top:12px;
+    font-size:16px;
+    font-weight:bold;
+}
