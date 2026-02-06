@@ -3,22 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الدروس الصوتية المتقدمة</title>
+<title>الدروس الصوتية</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 <style>
 body{margin:0;font-family:'Noto Kufi Arabic',sans-serif;background:linear-gradient(to bottom,#eef5ff,#d0e4ff);}
 .header-bar{background:linear-gradient(to right,#3fa1d6,#70c0e8);color:white;padding:60px 20px;text-align:center;font-size:26px;}
 .main-icons{text-align:center;margin:25px 0;}
-.icon-btn{display:inline-block;padding:8px 16px;margin:6px;background:#70c0e8;color:white;border-radius:12px;text-decoration:none;font-size:14px;box-shadow:0 6px 0 #3fa1d6,0 6px 12px rgba(0,0,0,0.1);transition:all 0.2s;cursor:pointer;}
-.icon-btn:hover{transform:translateY(-3px);box-shadow:0 9px 0 #3fa1d6,0 9px 12px rgba(0,0,0,0.15);background:#3a8ec2;}
+.icon-btn{display:inline-block;padding:9px 18px;margin:6px;background:#70c0e8;color:white;border-radius:12px;text-decoration:none;font-size:14px;box-shadow:0 6px 0 #3fa1d6;cursor:pointer;transition: all 0.2s ease;}
+.icon-btn:hover{transform: translateY(-3px);box-shadow:0 9px 0 #3fa1d6;}
 .accordion{width:90%;margin:15px auto;}
-.accordion-header{background:#3fa1d6;color:white;padding:15px;border-radius:10px;cursor:pointer;font-size:18px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+.accordion-header{background:#3fa1d6;color:white;padding:15px;border-radius:10px;cursor:pointer;font-size:18px;box-shadow:0 4px 10px rgba(0,0,0,0.1);margin-bottom:5px;}
 .accordion-content{display:none;background:white;padding:15px;border-radius:0 0 10px 10px;}
 .lesson-card{background:#eef5ff;padding:12px;border-radius:10px;margin-bottom:12px;}
 .lesson-card h3{margin-bottom:8px;color:#065f46;}
 audio{width:100%;}
-.download-btn{display:inline-block;margin-top:8px;background:#70c0e8;color:white;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:13px;box-shadow:0 4px 0 #3fa1d6;transition:0.2s;}
-.download-btn:hover{transform:translateY(-2px);}
+.download-btn{display:inline-block;margin-top:8px;background:#70c0e8;color:white;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:13px;}
 .back-home{display:inline-block;margin:30px;padding:10px 20px;background:#70c0e8;color:white;border-radius:12px;text-decoration:none;box-shadow:0 6px 0 #3fa1d6;float:left;}
 .footer{text-align:center;padding:20px;clear:both;}
 </style>
@@ -42,78 +41,39 @@ audio{width:100%;}
 
 <div class="footer">جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب</div>
 
+<!-- تحميل بيانات الدروس -->
+<script src="lessonsData.js"></script>
 <script>
-// ====== السلاسل والدروس ======
-const lessonsData = {
-  '📖 التفسير': [
-    {title:'تفسير سورة الفاتحة', file:'tafseer-fatiha-1.mp3'},
-    {title:'تفسير سورة البقرة', file:'tafseer-baqara-1.mp3'},
-    {title:'تفسير سورة آل عمران', file:'tafseer-imran-1.mp3'}
-  ],
-  '📚 شروح الحديث': [
-    {title:'حديث إنما الأعمال بالنيات', file:'hadith1.mp3'}
-  ],
-  '☝️ التوحيد': [
-    {title:'أنواع التوحيد', file:'tawheed1.mp3'}
-  ],
-  '⚖️ الفقه': [
-    {title:'أحكام الطهارة', file:'fiqh1.mp3'}
-  ],
-  '🕌 السيرة': [
-    {title:'مولد النبي ﷺ', file:'seerah1.mp3'}
-  ],
-  '💙 الرقائق': [
-    {title:'تزكية النفس', file:'raqaiq1.mp3'}
-  ]
-};
-
-// ====== إنشاء الصفحة ديناميكيًا ======
 const container = document.getElementById('lessons-container');
 
-for (let series in lessonsData){
-  const header = document.createElement('div');
-  header.className = 'accordion-header';
-  header.textContent = series;
-  container.appendChild(header);
+for(const series in lessonsData){
+    const header = document.createElement('div');
+    header.className = 'accordion-header';
+    header.textContent = series;
+    container.appendChild(header);
 
-  const content = document.createElement('div');
-  content.className = 'accordion-content';
+    const content = document.createElement('div');
+    content.className = 'accordion-content';
 
-  lessonsData[series].forEach(lesson => {
-    const card = document.createElement('div');
-    card.className = 'lesson-card';
+    lessonsData[series].forEach(file=>{
+        const card = document.createElement('div');
+        card.className = 'lesson-card';
+        card.innerHTML = `<h3>${file.replace('.mp3','')}</h3>
+        <audio controls>
+            <source src="audio/${file}" type="audio/mpeg">
+        </audio>
+        <a href="audio/${file}" download class="download-btn">تحميل الدرس</a>`;
+        content.appendChild(card);
+    });
 
-    const title = document.createElement('h3');
-    title.textContent = lesson.title;
-    card.appendChild(title);
-
-    const audio = document.createElement('audio');
-    audio.controls = true;
-    const src = document.createElement('source');
-    src.src = 'audio/' + lesson.file;
-    src.type = 'audio/mpeg';
-    audio.appendChild(src);
-    card.appendChild(audio);
-
-    const download = document.createElement('a');
-    download.href = 'audio/' + lesson.file;
-    download.download = '';
-    download.className = 'download-btn';
-    download.textContent = 'تحميل الدرس';
-    card.appendChild(download);
-
-    content.appendChild(card);
-  });
-
-  container.appendChild(content);
+    container.appendChild(content);
 }
 
-// ====== أكوردين ======
 document.querySelectorAll(".accordion-header").forEach(header => {
-  header.addEventListener("click", () => {
-    const content = header.nextElementSibling;
-    content.style.display = content.style.display === "block" ? "none" : "block";
-  });
+    header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+    });
 });
 </script>
 
