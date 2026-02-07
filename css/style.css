@@ -473,33 +473,35 @@ margin-bottom:8px;
     width:65%;
     box-shadow:0 8px 30px rgba(63,161,214,0.4);
 }
-/* ===== مربع البحث الزجاجي ===== */
-.main-search-container {
+/* ===== حاوية البحث ===== */
+.search-wrapper {
     display: flex;
     justify-content: center;
     margin: 40px 0;
 }
 
-.glass-search-input {
+/* مربع البحث البيضاوي والزجاجي */
+#searchInput {
     width: 60%;
-    max-width: 550px;
+    max-width: 500px;
     padding: 16px 25px;
     font-size: 18px;
     border: none;
-    border-radius: 50px;
+    border-radius: 50px;          /* بيضاوي */
     outline: none;
-    background: rgba(255, 255, 255, 0.2); /* شفافية خفيفة */
-    backdrop-filter: blur(10px); /* تأثير الزجاج */
+    background: rgba(255, 255, 255, 0.2); /* شفافية */
+    backdrop-filter: blur(10px);          /* تأثير الزجاج */
     -webkit-backdrop-filter: blur(10px);
-    color: #0f172a; /* لون النص */
+    color: #0f172a;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
-/* عند التركيز على البحث */
-.glass-search-input:focus {
+/* عند التركيز */
+#searchInput:focus {
     width: 65%;
     box-shadow: 0 10px 25px rgba(63, 161, 214, 0.4);
     background: rgba(255, 255, 255, 0.3);
 }
+
