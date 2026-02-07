@@ -1,109 +1,12 @@
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دروس الفقه</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
-
-<style>
-
-body{
-margin:0;
-font-family:'Noto Kufi Arabic',sans-serif;
-background:linear-gradient(to bottom,#eef5ff,#d0e4ff);
-}
-
-.header-bar{
-background:linear-gradient(to right,#3fa1d6,#70c0e8);
-color:white;
-padding:60px 20px;
-text-align:center;
-font-size:26px;
-}
-
-.lesson-card{
-background:white;
-margin:20px auto;
-width:85%;
-padding:20px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.15);
-}
-
-.lesson-card h3{
-color:#065f46;
-}
-
-audio{
-width:100%;
-}
-
-.download-btn{
-display:inline-block;
-margin-top:10px;
-background:#70c0e8;
-color:white;
-padding:8px 16px;
-border-radius:8px;
-text-decoration:none;
-}
-
-.back-home{
-display:inline-block;
-margin:30px;
-padding:10px 20px;
-background:#70c0e8;
-color:white;
-border-radius:12px;
-text-decoration:none;
-box-shadow:0 6px 0 #3fa1d6;
-float:left;
-}
-
-.footer{
-text-align:center;
-padding:20px;
-clear:both;
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="header-bar">
-دروس الفقه
-</div>
-
-<div id="fiqhContainer"></div>
-
-<a href="lessons.html" class="back-home">العودة للدروس</a>
-
-<div class="footer">
-جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
-</div>
-
 <script src="fiqhData.js"></script>
 
 <script>
 
 const container = document.getElementById("fiqhContainer");
 
-/* ترتيب الدروس */
-fiqhLessons.sort((a,b)=>{
+/* ترتيب الدروس حسب رقم الدرس */
+fiqhLessons.sort((a,b) => a.lessonNumber - b.lessonNumber);
 
-if(a.book === b.book){
-return a.lessonNumber - b.lessonNumber;
-}
-
-return a.book.localeCompare(b.book);
-
-});
-
-/* عرض الدروس */
 fiqhLessons.forEach(lesson => {
 
 container.innerHTML += `
@@ -111,7 +14,8 @@ container.innerHTML += `
 
 <h3>${lesson.title}</h3>
 
-<p>مدة الدرس: ${lesson.duration}</p>
+<p>📖 الباب: ${lesson.book}</p>
+<p>🎧 مدة الدرس: ${lesson.duration}</p>
 
 <audio controls>
 <source src="audio/${lesson.file}" type="audio/mpeg">
@@ -127,6 +31,3 @@ container.innerHTML += `
 });
 
 </script>
-
-</body>
-</html>
