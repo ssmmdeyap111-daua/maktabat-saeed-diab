@@ -434,3 +434,15 @@ color:#64748b;
 font-size:14px;
 margin-bottom:8px;
 }
+.search-box {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-box input {
+    width: 60%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
