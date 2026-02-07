@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دروس الفرائض</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Noto Kufi Arabic', sans-serif;
+background:linear-gradient(to bottom,#eef5ff,#d0e4ff);
+}
+
+.header-bar{
+background:linear-gradient(to right,#3fa1d6,#70c0e8);
+color:white;
+padding:60px 20px;
+text-align:center;
+font-size:26px;
+}
+
+.lesson-card{
+background:white;
+margin:20px auto;
+width:85%;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+audio{
+width:100%;
+}
+
+.download-btn{
+display:inline-block;
+margin-top:10px;
+background:#70c0e8;
+color:white;
+padding:8px 16px;
+border-radius:8px;
+text-decoration:none;
+}
+
+.back-home{
+display:inline-block;
+margin:30px;
+padding:10px 20px;
+background:#70c0e8;
+color:white;
+border-radius:12px;
+text-decoration:none;
+box-shadow:0 6px 0 #3fa1d6;
+float:left;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+clear:both;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header-bar">
+شرح المنظومة الرحبية (الفرائض)
+</div>
+
+<div id="faraidContainer"></div>
+
+<a href="lessons.html" class="back-home">العودة للدروس</a>
+
+<div class="footer">
+جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
+</div>
+
+<script src="faraidData.js"></script>
+
+<script>
+
+const container = document.getElementById("faraidContainer");
+
+faraidLessons.sort((a,b)=> a.lessonNumber - b.lessonNumber);
+
+faraidLessons.forEach(lesson => {
+
+container.innerHTML += `
+<div class="lesson-card">
+
+<h3>${lesson.title}</h3>
+
+<p>🎧 مدة الدرس: ${lesson.duration}</p>
+
+<audio controls>
+<source src="${lesson.file}" type="audio/mpeg">
+</audio>
+
+<a href="${lesson.file}" download class="download-btn">
+تحميل الدرس
+</a>
+
+</div>
+`;
+
+});
+
+</script>
+
+</body>
+</html>
 
