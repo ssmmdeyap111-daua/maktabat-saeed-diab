@@ -22,7 +22,7 @@ file: "audio/al-rhapih3.mp3",
 book: "الوارثون من الرجال",
 lessonNumber: 2,
 duration: "18 دقيقة"
-},
+}
 
 ];
 
