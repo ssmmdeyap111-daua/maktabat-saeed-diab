@@ -1,4 +1,3 @@
-
 const tafseerLessons = [
 
 {
@@ -24,11 +23,11 @@ file: "bakara-2.mp3"
 {
 title: "تفسير سورة البقرة - الدرس الثالث",
 file: "bakara-3.mp3"
-}
+},
 
- {
+{
 title: "تفسير سورة البقرة - الدرس الرابع",
 file: "bakara-4.mp3"
-} 
+}
 
 ];
