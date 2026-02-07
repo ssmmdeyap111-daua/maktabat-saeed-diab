@@ -11,7 +11,7 @@ duration: "20 دقيقة"
 {
 title: "شرح المنظومة الرحبية - الدرس الثاني",
 file: "audio/al-rhapih2.mp3",
-book: "الوارثون من الرجال",
+book: "موانع الإرث",
 lessonNumber: 2,
 duration: "18 دقيقة"
 },
