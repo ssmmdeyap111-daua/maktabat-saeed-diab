@@ -429,3 +429,8 @@ transition:0.2s;
 .back-home:hover{
 transform:translateY(-3px);
 }
+.lesson-duration{
+color:#64748b;
+font-size:14px;
+margin-bottom:8px;
+}
