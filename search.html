@@ -1,49 +1,127 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>البحث في الموقع</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+body{
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  margin:0;
+  background: linear-gradient(to bottom,#eef5ff,#d0e4ff);
+  padding:20px;
+}
+
+/* مربع البحث */
+.search-container{
+  display:flex;
+  justify-content:center;
+  margin:30px 0;
+}
+.search-input{
+  width:60%;
+  max-width:550px;
+  padding:16px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:50px;
+  outline:none;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color:#0f172a;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  text-align:center;
+  transition: all 0.3s ease;
+}
+.search-input:focus{
+  width:65%;
+  box-shadow:0 10px 25px rgba(63,161,214,0.4);
+  background: rgba(255,255,255,0.3);
+}
+
+/* نتائج البحث */
+#results{
+  width:90%;
+  max-width:800px;
+  margin:20px auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.result-card{
+  background:white;
+  padding:15px 20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  transition:0.2s;
+}
+.result-card a{
+  text-decoration:none;
+  color:#0f172a;
+  font-size:18px;
+  font-weight:bold;
+}
+.result-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* زر العودة */
+.back-home{
+  display:inline-block;
+  margin:30px 0;
+  padding:10px 20px;
+  background:#70c0e8;
+  color:white;
+  border-radius:12px;
+  text-decoration:none;
+  box-shadow:0 6px 0 #3fa1d6;
+}
+</style>
 </head>
 
 <body>
 
-<h2 style="text-align:center;">نتائج البحث</h2>
+<h2 style="text-align:center;">البحث في الموقع</h2>
 
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="اكتب كلمة البحث..." onkeyup="searchSite()">
+<div class="search-container">
+  <input type="text" id="searchInput" class="search-input" placeholder="اكتب كلمة البحث...">
 </div>
 
 <div id="results"></div>
 
+<a href="index.html" class="back-home">العودة للرئيسية</a>
+
 <script src="search-data.js"></script>
 
 <script>
-function searchSite() {
+const input = document.getElementById("searchInput");
+const results = document.getElementById("results");
 
-let input = document.getElementById("searchInput").value.toLowerCase();
-let results = document.getElementById("results");
+input.addEventListener("keyup", function(){
+  const query = input.value.toLowerCase();
+  results.innerHTML = ""; // مسح النتائج القديمة
 
-results.innerHTML = "";
+  if(query.length === 0) return;
 
-siteData.forEach(item => {
+  siteData.forEach(item => {
+    if(item.title.toLowerCase().includes(query) || item.category.toLowerCase().includes(query)){
+      results.innerHTML += `
+        <div class="result-card">
+          <a href="${item.link}">
+            ${item.title} - <small>${item.category}</small>
+          </a>
+        </div>
+      `;
+    }
+  });
 
-if(item.title.toLowerCase().includes(input)){
-
-results.innerHTML += `
-<div class="card">
-<a href="${item.link}">
-<h3>${item.title}</h3>
-<p>${item.category}</p>
-</a>
-</div>
-`;
-
-}
-
+  if(results.innerHTML === ""){
+    results.innerHTML = "<p style='text-align:center; color:#555;'>لا توجد نتائج</p>";
+  }
 });
-
-}
 </script>
 
 </body>
