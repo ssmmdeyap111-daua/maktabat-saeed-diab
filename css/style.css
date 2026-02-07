@@ -446,3 +446,30 @@ margin-bottom:8px;
     border: 1px solid #ccc;
     border-radius: 8px;
 }
+/* ===== خانة البحث الرئيسية ===== */
+
+.main-search-container{
+    display:flex;
+    justify-content:center;
+    margin:40px 0;
+}
+
+.main-search-input{
+    width:60%;
+    max-width:550px;
+    padding:16px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:50px;
+    outline:none;
+    background:white;
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+    transition:0.3s;
+    text-align:center;
+}
+
+/* عند الضغط على البحث */
+.main-search-input:focus{
+    width:65%;
+    box-shadow:0 8px 30px rgba(63,161,214,0.4);
+}
