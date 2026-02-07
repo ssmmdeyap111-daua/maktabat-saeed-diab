@@ -95,16 +95,30 @@ clear:both;
 <!-- ملف البيانات -->
 <script src="tafseerData.js"></script>
 
-<!-- سكربت عرض الدروس -->
 <script>
 
 const container = document.getElementById("tafseerContainer");
 
+/* ترتيب الدروس تلقائياً */
+tafseerLessons.sort((a,b)=>{
+
+if(a.surah === b.surah){
+return a.lessonNumber - b.lessonNumber;
+}
+
+return a.surah.localeCompare(b.surah);
+
+});
+
+/* عرض الدروس */
 tafseerLessons.forEach(lesson => {
 
 container.innerHTML += `
 <div class="lesson-card">
+
 <h3>${lesson.title}</h3>
+
+<p>مدة الدرس: ${lesson.duration}</p>
 
 <audio controls>
 <source src="audio/${lesson.file}" type="audio/mpeg">
@@ -113,6 +127,7 @@ container.innerHTML += `
 <a href="audio/${lesson.file}" download class="download-btn">
 تحميل الدرس
 </a>
+
 </div>
 `;
 
