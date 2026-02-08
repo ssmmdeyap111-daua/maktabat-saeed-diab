@@ -270,3 +270,35 @@ footer{
     box-shadow:
         0 2px 0 #cfcfcf;
 }
+.tafseer-icons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.tafseer-btn{
+    padding:12px 26px;
+    font-size:15px;
+    font-weight:bold;
+    text-decoration:none;
+    color:white;
+
+    background: linear-gradient(145deg, #4aa3d6, #3a8ec2);
+    border-radius:12px;
+
+    box-shadow:0 6px 0 #2a5298, 0 6px 12px rgba(0,0,0,0.2);
+
+    transition:0.2s;
+}
+
+.tafseer-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 11px 0 #2a5298, 0 12px 20px rgba(0,0,0,0.25);
+}
+
+.tafseer-btn:active{
+    transform:translateY(3px);
+    box-shadow:0 2px 0 #2a5298;
+}
