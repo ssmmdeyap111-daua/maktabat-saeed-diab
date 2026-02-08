@@ -4,19 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
-<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
-font-family:'Noto Kufi Arabic',sans-serif;
-background: linear-gradient(to bottom,#c0e0f0,#e6f2fa);
+font-family:'Noto Kufi Arabic', sans-serif;
+background: linear-gradient(to bottom, #c0e0f0, #e6f2fa);
 }
 
-/* الهيدر */
+/* ===== الهيدر ===== */
 .header-bar{
-background: linear-gradient(to right,#3fa1d6,#70c0e8);
+background: linear-gradient(to right, #3fa1d6, #70c0e8);
 color:white;
 padding:80px 20px 40px;
 text-align:center;
@@ -24,15 +25,16 @@ text-align:center;
 
 .site-title{
 font-size:32px;
+margin:0;
 }
 
-/* الأيقونات */
+/* ===== الأيقونات ثلاثية الأبعاد ===== */
 .main-icons{
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
 gap:15px;
-margin:20px 0;
+margin:25px 0;
 }
 
 .icon-btn{
@@ -47,22 +49,28 @@ text-decoration:none;
 font-size:18px;
 font-weight:bold;
 border-radius:12px;
-box-shadow:4px 4px 10px rgba(0,0,0,0.3),
-           inset -2px -2px 5px rgba(255,255,255,0.2);
+
+box-shadow:
+4px 4px 12px rgba(0,0,0,0.3),
+inset -2px -2px 5px rgba(255,255,255,0.2);
+
 transition:0.3s;
 }
 
 .icon-btn:hover{
-transform:translateY(-6px);
+transform: translateY(-6px);
+box-shadow:
+0 12px 20px rgba(0,0,0,0.35),
+inset -1px -1px 5px rgba(255,255,255,0.15);
 }
 
-/* شريط الآية */
+/* ===== شريط الآية ===== */
 .ayah-bar{
 width:100%;
 overflow:hidden;
 background:#d0e4ff;
 padding:16px 0;
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 .ayah-slider{
@@ -77,41 +85,41 @@ font-weight:bold;
 color:#065f46;
 white-space:nowrap;
 margin-right:60px;
+font-family:"Amiri", serif;
 }
 
 @keyframes ayahMove{
-from{ transform:translateX(100%);}
-to{ transform:translateX(-100%);}
+from{transform:translateX(100%);}
+to{transform:translateX(-100%);}
 }
 
-/* مربع البحث */
+/* ===== مربع البحث الزجاجي ===== */
+
 .search-wrapper{
 display:flex;
 justify-content:center;
-margin:30px 0;
+margin-bottom:40px;
 }
 
-#searchInput{
-width:60%;
+.search-wrapper input{
+width:55%;
 max-width:500px;
-padding:16px 25px;
-font-size:18px;
-border:none;
+padding:15px 25px;
+
 border-radius:50px;
+border:none;
 outline:none;
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(10px);
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
+
+font-size:18px;
 text-align:center;
-transition:0.3s;
-}
 
-#searchInput:focus{
-width:65%;
 background:rgba(255,255,255,0.3);
+backdrop-filter:blur(10px);
+
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
 }
 
-/* الكتب */
+/* ===== الكتب ===== */
 .books-wrapper{
 position:relative;
 overflow:hidden;
@@ -124,7 +132,7 @@ border-radius:12px;
 
 .books-slider{
 display:flex;
-transition:0.3s;
+transition: transform 0.3s ease;
 }
 
 .book-slide{
@@ -145,7 +153,9 @@ transition:0.3s;
 transform:scale(1.08);
 }
 
-.book-prev,.book-next{
+/* الأسهم */
+.book-prev,
+.book-next{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
@@ -159,11 +169,13 @@ display:flex;
 justify-content:center;
 align-items:center;
 cursor:pointer;
+z-index:10;
 }
 
-.book-prev{ left:10px;}
-.book-next{ right:10px;}
+.book-prev{left:10px;}
+.book-next{right:10px;}
 
+/* الفوتر */
 footer{
 text-align:center;
 padding:20px;
@@ -177,12 +189,14 @@ margin-top:40px;
 
 <body>
 
+<!-- ===== الهيدر ===== -->
 <div class="header-bar">
 <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
 </div>
 
-<!-- الأيقونات -->
+<!-- ===== الأيقونات ===== -->
 <div class="main-icons">
+
 <a href="index.html" class="icon-btn">الرئيسية</a>
 <a href="books.html" class="icon-btn">الكتب</a>
 <a href="articles.html" class="icon-btn">المقالات</a>
@@ -191,24 +205,24 @@ margin-top:40px;
 <a href="khutbah.html" class="icon-btn">الخطب</a>
 <a href="about.html" class="icon-btn">من نحن</a>
 <a href="contact.html" class="icon-btn">تواصل</a>
+
 </div>
 
-<!-- شريط الآية القرآنية -->
+<!-- ===== شريط الآية ===== -->
 <div class="ayah-bar">
-    <div class="ayah-slider">
-        <span>
-قال الله تعالى: ﴿قُلْ هذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ...﴾
-        </span>
-    </div>
+<div class="ayah-slider">
+<span>
+قال الله تعالى: ﴿قُلْ هذِهِ سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ﴾ سورة يوسف
+</span>
+</div>
 </div>
 
-<!-- خانة البحث -->
+<!-- ===== البحث ===== -->
 <div class="search-wrapper">
 <input type="text" placeholder="🔍 ابحث في الموقع">
 </div>
 
-
-<!-- الكتب -->
+<!-- ===== الكتب ===== -->
 <h2 style="text-align:center;">أحدث الكتب</h2>
 
 <div class="books-wrapper">
@@ -217,9 +231,21 @@ margin-top:40px;
 
 <div class="books-slider">
 
+<div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg"></div>
+<div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg"></div>
+<div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
 <div class="book-slide"><img src="images/al-irshad.jpg"></div>
+<div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg"></div>
 <div class="book-slide"><img src="images/asaleeb-alquran.jpg"></div>
 <div class="book-slide"><img src="images/fadhl-duaa.jpg"></div>
+<div class="book-slide"><img src="images/ithaf-ahl-alrusoukh.jpg"></div>
+<div class="book-slide"><img src="images/kabar-al-ahad.jpg"></div>
+<div class="book-slide"><img src="images/kashf-alnqab.jpg"></div>
+<div class="book-slide"><img src="images/katar-al-reba.jpg"></div>
+<div class="book-slide"><img src="images/shmael-al-rasool.jpg"></div>
+<div class="book-slide"><img src="images/tamam-al-minah.jpg"></div>
+<div class="book-slide"><img src="images/tazkirat-al-abaha.jpg"></div>
+<div class="book-slide"><img src="images/wageb-al-muslmeen.jpg"></div>
 
 </div>
 
@@ -228,28 +254,28 @@ margin-top:40px;
 </div>
 
 <footer>
-© جميع الحقوق محفوظة
+جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب
 </footer>
 
 <script>
 
-const slider=document.querySelector('.books-slider');
-const prev=document.querySelector('.book-prev');
-const next=document.querySelector('.book-next');
+const slider = document.querySelector('.books-slider');
+const prev = document.querySelector('.book-prev');
+const next = document.querySelector('.book-next');
 
-let scrollAmount=0;
-const slideWidth=174;
+let scrollAmount = 0;
+const slideWidth = 174;
 
-prev.onclick=()=>{
-scrollAmount=Math.max(scrollAmount-slideWidth,0);
-slider.style.transform=`translateX(-${scrollAmount}px)`;
-}
+prev.onclick = () => {
+scrollAmount = Math.max(scrollAmount - slideWidth, 0);
+slider.style.transform = `translateX(-${scrollAmount}px)`;
+};
 
-next.onclick=()=>{
-const maxScroll=slider.scrollWidth-slider.parentElement.offsetWidth;
-scrollAmount=Math.min(scrollAmount+slideWidth,maxScroll);
-slider.style.transform=`translateX(-${scrollAmount}px)`;
-}
+next.onclick = () => {
+const maxScroll = slider.scrollWidth - slider.parentElement.offsetWidth;
+scrollAmount = Math.min(scrollAmount + slideWidth, maxScroll);
+slider.style.transform = `translateX(-${scrollAmount}px)`;
+};
 
 </script>
 
