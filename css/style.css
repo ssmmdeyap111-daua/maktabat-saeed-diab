@@ -558,3 +558,31 @@ margin-bottom:8px;
 
     box-shadow:0 6px 18px rgba(0,0,0,0.15);
 }
+/* زر العودة للرئيسية */
+.back-home-container {
+    text-align: center;
+    margin: 60px 0 30px 0;
+}
+
+.back-home-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    background: linear-gradient(145deg, #1e90ff, #0a58ca);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+/* تأثير ثلاثي الأبعاد */
+.back-home-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+.back-home-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
