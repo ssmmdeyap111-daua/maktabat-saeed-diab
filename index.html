@@ -183,55 +183,46 @@ footer {
 
 <!-- مربع البحث -->
 <div class="search-wrapper">
-<input type="text" id="searchInput" placeholder="🔍 ابحث في الموقع ...">
+  <input type="text" id="searchInput" placeholder="🔍 ابحث في الموقع ...">
 </div>
 
-<!-- أيقونات الصفحات -->
-<div class="main-icons">
-<a href="lessons.html" class="icon-btn">الدروس</a>
-<a href="books.html" class="icon-btn">الكتب</a>
-<a href="articles.html" class="icon-btn">المقالات</a>
-<a href="khutbahs.html" class="icon-btn">الخطب</a>
-<a href="about.html" class="icon-btn">من نحن</a>
-<a href="contact.html" class="icon-btn">تواصل معنا</a>
-<a href="resources.html" class="icon-btn">المصادر</a>
-</div>
-
-<h2 style="text-align:center; margin:30px 0;">أحدث الكتب</h2>
-<div class="books-wrapper">
-<div class="book-prev">&#10094;</div>
-<div class="book-next">&#10095;</div>
-<div class="books-slider">
-<div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg"></div>
-<div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg"></div>
-<div class="book-slide"><img src="images/al-ilmam-siyam.jpg"></div>
-<div class="book-slide"><img src="images/al-irshad.jpg"></div>
-<div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg"></div>
-<div class="book-slide"><img src="images/asaleeb-alquran.jpg"></div>
-</div>
-</div>
-
-<footer>
-&copy; الحقوق محفوظة للشيخ سعيد مصطفى دياب
-</footer>
+<style>
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+#searchInput {
+    width: 60%;
+    max-width: 500px;
+    padding: 16px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #0f172a;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+#searchInput:focus {
+    width: 65%;
+    box-shadow: 0 10px 25px rgba(63, 161, 214, 0.4);
+    background: rgba(255, 255, 255, 0.3);
+}
+</style>
 
 <script>
-const slider = document.querySelector('.books-slider');
-const prev = document.querySelector('.book-prev');
-const next = document.querySelector('.book-next');
-let scrollAmount = 0;
-const slideWidth = 174;
-
-prev.addEventListener('click', () => {
-scrollAmount = Math.max(scrollAmount - slideWidth, 0);
-slider.style.transform = `translateX(-${scrollAmount}px)`;
-});
-next.addEventListener('click', () => {
-const maxScroll = slider.scrollWidth - slider.parentElement.offsetWidth;
-scrollAmount = Math.min(scrollAmount + slideWidth, maxScroll);
-slider.style.transform = `translateX(-${scrollAmount}px)`;
+document.getElementById("searchInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        let query = e.target.value.trim();
+        if(query !== "") {
+            // توجه إلى صفحة البحث مع تمرير الكلمة
+            window.location.href = "search.html?q=" + encodeURIComponent(query);
+        }
+    }
 });
 </script>
-
-</body>
-</html>
