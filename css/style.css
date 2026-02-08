@@ -628,3 +628,12 @@ margin-bottom:8px;
     color: #333;
     font-weight: bold;
 }
+@keyframes floatIcon {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+.icon-box {
+    animation: floatIcon 3s ease-in-out infinite;
+}
