@@ -637,3 +637,10 @@ margin-bottom:8px;
 .icon-box {
     animation: floatIcon 3s ease-in-out infinite;
 }
+.icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
