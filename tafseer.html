@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>التفسير</title>
 
 <link rel="stylesheet" href="css/style.css">
@@ -30,7 +29,7 @@ max-width:900px;
 margin:auto;
 }
 
-/* تصميم الأيقونات */
+/* تصميم أيقونات السور */
 .surah-card{
 text-decoration:none;
 background:linear-gradient(145deg,#ffffff,#e6e6e6);
@@ -60,32 +59,32 @@ margin-bottom:5px;
 
 <body>
 
-<!-- ===== العنوان ===== -->
-<header>
-<h1>الموقع الرسمي للشيخ</h1>
-</header>
+<!-- ===== الشريط العلوي ===== -->
+<div class="header-bar">
+<div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
+</div>
 
+<!-- ===== أيقونات التنقل ===== -->
+<div class="main-icons">
 
-<!-- ===== شريط التنقل ===== -->
-<nav>
-<a href="index.html">الرئيسية</a>
-<a href="books.html">الكتب</a>
-<a href="lessons.html">الدروس</a>
-<a href="khutab.html">الخطب</a>
-<a href="tafseer.html">التفسير</a>
-<a href="contact.html">تواصل معنا</a>
-</nav>
+<a href="index.html" class="icon-btn">الرئيسية</a>
+<a href="books.html" class="icon-btn">الكتب</a>
+<a href="articles.html" class="icon-btn">المقالات</a>
+<a href="lessons.html" class="icon-btn">الدروس</a>
+<a href="tafseer.html" class="icon-btn">التفسير</a>
+<a href="khutbah.html" class="icon-btn">الخطب</a>
+<a href="about.html" class="icon-btn">من نحن</a>
+<a href="contact.html" class="icon-btn">تواصل</a>
 
+</div>
 
 <!-- ===== صورة القرآن ===== -->
 <div class="quran-header">
 <img src="images/quran.png">
 </div>
 
-
 <!-- ===== شبكة السور ===== -->
 <div class="tafseer-grid" id="tafseerList"></div>
-
 
 <script>
 
