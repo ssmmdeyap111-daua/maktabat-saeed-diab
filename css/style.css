@@ -586,3 +586,45 @@ margin-bottom:8px;
     transform: translateY(2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+/* تصميم الأيقونات ثلاثية الأبعاد */
+.icon-box {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 20px;
+    box-shadow: 8px 8px 20px rgba(0,0,0,0.2),
+                -8px -8px 20px rgba(255,255,255,0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* حركة الصعود */
+.icon-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* صورة الأيقونة */
+.icon-box img {
+    width: 70px;
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+
+/* تكبير الصورة عند المرور */
+.icon-box:hover img {
+    transform: scale(1.1);
+}
+
+/* عنوان الأيقونة */
+.icon-box span {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
