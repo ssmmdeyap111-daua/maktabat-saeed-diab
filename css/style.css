@@ -644,3 +644,43 @@ margin-bottom:8px;
     flex-wrap: wrap;
     margin-top: 40px;
 }
+/* الحاوية الرئيسية للأيقونات */
+.main-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+
+/* تصميم الأيقونات ثلاثية الأبعاد */
+.icon-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(145deg, #1e3c72, #2a5298);
+    border-radius: 12px;
+
+    /* تأثير ثلاثي الأبعاد */
+    box-shadow: 0 6px 0 #162b55;
+    transition: all 0.2s ease;
+
+    font-weight: bold;
+}
+
+
+/* عند المرور بالماوس - تصعد للأعلى */
+.icon-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 11px 0 #162b55;
+}
+
+
+/* عند الضغط - تنزل للأسفل */
+.icon-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #162b55;
+}
