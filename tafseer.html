@@ -3,71 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>التفسير</title>
 
 <link rel="stylesheet" href="css/style.css">
 
 <style>
 
-/* ===== صورة القرآن ===== */
-.quran-header {
-    text-align: center;
-    margin: 40px 0;
+/* صورة القرآن */
+.quran-header{
+text-align:center;
+margin:40px 0;
 }
 
-.quran-header img {
-    width: 120px;
+.quran-header img{
+width:120px;
 }
 
-/* ===== شبكة السور ===== */
-.tafseer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
+/* شبكة السور */
+.tafseer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+gap:20px;
+padding:20px;
+max-width:900px;
+margin:auto;
 }
 
-/* ===== تصميم الأيقونة ===== */
-.surah-card {
-    text-decoration: none;
-    background: linear-gradient(145deg,#ffffff,#e6e6e6);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-    color: #333;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.2),
-                -5px -5px 15px rgba(255,255,255,0.7);
-    transition: 0.3s;
+/* تصميم الأيقونات */
+.surah-card{
+text-decoration:none;
+background:linear-gradient(145deg,#ffffff,#e6e6e6);
+padding:20px;
+border-radius:15px;
+text-align:center;
+font-weight:bold;
+color:#333;
+box-shadow:5px 5px 15px rgba(0,0,0,0.2),
+-5px -5px 15px rgba(255,255,255,0.7);
+transition:.3s;
 }
 
-/* تأثير ثلاثي */
-.surah-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+.surah-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 25px rgba(0,0,0,0.3);
 }
 
-/* رقم السورة */
-.surah-number {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 5px;
+.surah-number{
+font-size:13px;
+color:#777;
+margin-bottom:5px;
 }
 
 </style>
-
 </head>
+
 <body>
+
+<!-- ===== العنوان ===== -->
+<header>
+<h1>الموقع الرسمي للشيخ</h1>
+</header>
+
+
+<!-- ===== شريط التنقل ===== -->
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="books.html">الكتب</a>
+<a href="lessons.html">الدروس</a>
+<a href="khutab.html">الخطب</a>
+<a href="tafseer.html">التفسير</a>
+<a href="contact.html">تواصل معنا</a>
+</nav>
+
 
 <!-- ===== صورة القرآن ===== -->
 <div class="quran-header">
-    <img src="images/quran.png">
+<img src="images/quran.png">
 </div>
 
-<!-- ===== قائمة السور ===== -->
+
+<!-- ===== شبكة السور ===== -->
 <div class="tafseer-grid" id="tafseerList"></div>
+
 
 <script>
 
@@ -81,20 +99,17 @@ const surahs = [
 { name:"الأنعام", link:"tafseer-anaam.html" },
 { name:"الأعراف", link:"tafseer-aaraf.html" },
 { name:"الأنفال", link:"tafseer-anfal.html" },
-{ name:"التوبة", link:"tafseer-tawbah.html" },
-{ name:"يونس", link:"tafseer-yunus.html" },
-{ name:"هود", link:"tafseer-hud.html" },
-{ name:"يوسف", link:"tafseer-yusuf.html" }
+{ name:"التوبة", link:"tafseer-tawbah.html" }
 
 ];
 
 const container = document.getElementById("tafseerList");
 
-surahs.forEach((surah,index) => {
+surahs.forEach((surah,index)=>{
 
 container.innerHTML += `
 <a href="${surah.link}" class="surah-card">
-<div class="surah-number">سورة ${index + 1}</div>
+<div class="surah-number">سورة ${index+1}</div>
 ${surah.name}
 </a>
 `;
