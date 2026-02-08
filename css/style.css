@@ -505,3 +505,30 @@ margin-bottom:8px;
     background: rgba(255, 255, 255, 0.3);
 }
 
+/* خانة البحث الزجاجية */
+.search-wrapper{
+    display:flex;
+    justify-content:center;
+    margin:35px 0;
+}
+
+.search-wrapper input{
+    width:55%;
+    max-width:500px;
+    padding:18px 25px;
+    border-radius:50px;
+    border:none;
+    outline:none;
+    font-size:18px;
+
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(10px);
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+
+    transition:0.3s;
+}
+
+.search-wrapper input:focus{
+    background:rgba(255,255,255,0.4);
+    transform:scale(1.03);
+}
