@@ -1,128 +1,168 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>البحث في الموقع</title>
-<link rel="stylesheet" href="css/style.css">
-<style>
-body{
-  font-family: 'Noto Kufi Arabic', sans-serif;
-  margin:0;
-  background: linear-gradient(to bottom,#eef5ff,#d0e4ff);
-  padding:20px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البحث في الموقع - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-blue: #eef5ff;
+            --main-blue: #add8e6;
+            --dark-blue: #2c5d87;
+            --accent-blue: #87ceeb;
+        }
 
-/* مربع البحث */
-.search-container{
-  display:flex;
-  justify-content:center;
-  margin:30px 0;
-}
-.search-input{
-  width:60%;
-  max-width:550px;
-  padding:16px 25px;
-  font-size:18px;
-  border:none;
-  border-radius:50px;
-  outline:none;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color:#0f172a;
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
-  text-align:center;
-  transition: all 0.3s ease;
-}
-.search-input:focus{
-  width:65%;
-  box-shadow:0 10px 25px rgba(63,161,214,0.4);
-  background: rgba(255,255,255,0.3);
-}
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
+            min-height: 100vh;
+            padding-bottom: 120px;
+        }
 
-/* نتائج البحث */
-#results{
-  width:90%;
-  max-width:800px;
-  margin:20px auto;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.result-card{
-  background:white;
-  padding:15px 20px;
-  border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
-  transition:0.2s;
-}
-.result-card a{
-  text-decoration:none;
-  color:#0f172a;
-  font-size:18px;
-  font-weight:bold;
-}
-.result-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 15px rgba(0,0,0,0.2);
-}
+        /* الهيدر الموحد */
+        .site-header { 
+            text-align: center; padding: 60px 20px; 
+            background: linear-gradient(to right, #add8e6, #e0f2f7); 
+            border-bottom: 4px solid #ffffff;
+        }
+        .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 700; }
 
-/* زر العودة */
-.back-home{
-  display:inline-block;
-  margin:30px 0;
-  padding:10px 20px;
-  background:#70c0e8;
-  color:white;
-  border-radius:12px;
-  text-decoration:none;
-  box-shadow:0 6px 0 #3fa1d6;
-}
-</style>
+        /* صندوق البحث 3D */
+        .search-container {
+            max-width: 800px;
+            margin: -30px auto 40px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 20px;
+            font-size: 18px;
+            font-family: 'Cairo';
+            border: 2px solid white;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            outline: none;
+            color: var(--dark-blue);
+            transition: 0.3s;
+        }
+
+        .search-box:focus {
+            box-shadow: 0 15px 35px rgba(135, 206, 235, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* نتائج البحث */
+        .results-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .result-item {
+            background: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-right: 5px solid var(--accent-blue);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.1rem; }
+        .result-info span { font-size: 12px; color: #888; background: #f0f0f0; padding: 2px 8px; border-radius: 5px; }
+
+        .go-btn {
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 4px 0 #5f9ea0;
+        }
+
+        /* أيقونة العودة الدائرية */
+        .back-fixed {
+            position: fixed; bottom: 30px; left: 30px;
+            width: 65px; height: 65px;
+            background: linear-gradient(145deg, #add8e6, #87ceeb);
+            color: var(--dark-blue); text-decoration: none;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
+        }
+
+        .no-results { text-align: center; color: #888; margin-top: 50px; font-style: italic; }
+    </style>
 </head>
-
 <body>
 
-<h2 style="text-align:center;">البحث في الموقع</h2>
+    <header class="site-header">
+        <h1 class="sheikh-title">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
+    </header>
 
-<div class="search-container">
-  <input type="text" id="searchInput" class="search-input" placeholder="اكتب كلمة البحث...">
-</div>
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن عنوان درس، خطبة، أو مقال..." onkeyup="performSearch()">
+    </div>
 
-<div id="results"></div>
+    <div class="results-container" id="resultsList">
+        <p class="no-results">ابدأ الكتابة للبحث في محتوى الموقع...</p>
+    </div>
 
-<a href="index.html" class="back-home">العودة للرئيسية</a>
+    <a href="index.html" class="back-fixed" title="الرئيسية">🏠</a>
 
-<script src="search-data.js"></script>
+    <script>
+        // مصفوفة بيانات تجريبية (يجب أن تملأها ببيانات موقعك أو تربطها بملفات الـ JS الأخرى)
+        const allData = [
+            { title: "فضل الدعاء", type: "مقالات", link: "articles.html" },
+            { title: "شرح الأصول الثلاثة", type: "توحيد", link: "tawheed.html" },
+            { title: "كتاب الطهارة - الدرس 1", type: "فقه", link: "fiqh.html" },
+            { title: "خطبة الجمعة: الصبر", type: "خطب", link: "khutbah.html" },
+            { title: "تفسير سورة الفاتحة", type: "تفسير", link: "tafseer.html" },
+            { title: "الصدق والإخلاص", type: "رقائق", link: "raqaiq.html" }
+        ];
 
-<script>
-const input = document.getElementById("searchInput");
-const results = document.getElementById("results");
+        function performSearch() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const container = document.getElementById("resultsList");
+            container.innerHTML = "";
 
-input.addEventListener("keyup", function(){
-  const query = input.value.toLowerCase();
-  results.innerHTML = ""; // مسح النتائج القديمة
+            if (query === "") {
+                container.innerHTML = '<p class="no-results">ابدأ الكتابة للبحث في محتوى الموقع...</p>';
+                return;
+            }
 
-  if(query.length === 0) return;
+            const filtered = allData.filter(item => item.title.toLowerCase().includes(query));
 
-  siteData.forEach(item => {
-    if(item.title.toLowerCase().includes(query) || item.category.toLowerCase().includes(query)){
-      results.innerHTML += `
-        <div class="result-card">
-          <a href="${item.link}">
-            ${item.title} - <small>${item.category}</small>
-          </a>
-        </div>
-      `;
-    }
-  });
-
-  if(results.innerHTML === ""){
-    results.innerHTML = "<p style='text-align:center; color:#555;'>لا توجد نتائج</p>";
-  }
-});
-</script>
+            if (filtered.length === 0) {
+                container.innerHTML = '<p class="no-results">عذراً، لم يتم العثور على نتائج تطابق بحثك.</p>';
+            } else {
+                filtered.forEach(item => {
+                    container.innerHTML += `
+                        <div class="result-item">
+                            <div class="result-info">
+                                <span>${item.type}</span>
+                                <h3>${item.title}</h3>
+                            </div>
+                            <a href="${item.link}" class="go-btn">انتقال ⬅️</a>
+                        </div>
+                    `;
+                });
+            }
+        }
+    </script>
 
 </body>
 </html>
