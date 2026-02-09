@@ -5,86 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&family=Amiri:ital@1&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&family=Noto+Kufi+Arabic:wght@400;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
 
     <style>
         /* ===== إعدادات عامة ===== */
         body {
             margin: 0;
+            padding: 0;
             font-family: 'Noto Kufi Arabic', sans-serif;
             background: linear-gradient(to bottom, #eef5ff, #d0e4ff);
-            color: #333;
+            overflow-x: hidden;
         }
 
-        /* ===== الشريط العلوي (العنوان بالخط اليدوي) ===== */
-        .header-bar {
-            background: linear-gradient(to right, #3fa1d6, #70c0e8);
-            color: white;
-            padding: 50px 20px;
+        /* ===== العنوان الكوفي ===== */
+        .site-header {
             text-align: center;
-            border-bottom: 4px solid #b8860b; /* خط ذهبي غامق للفخامة */
+            padding: 60px 20px;
+            background: #ffffff;
+            border-bottom: 4px solid #1a508b;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .sheikh-title {
-            font-family: 'Aref Ruqaa', serif; /* هذا هو الخط الذي يشبه خط اليد */
-            font-size: 4.5rem; /* حجم كبير للعنوان */
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 4rem;
+            color: #1a508b;
             margin: 0;
-            color: #ffffff;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            line-height: 1.2;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
         }
 
         .site-subtitle {
             display: block;
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 1.8rem;
-            color: #ffeb3b; /* لون أصفر ذهبي */
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 1.5rem;
+            color: #c0a060;
             margin-top: 10px;
         }
 
-        /* ===== شريط الآية المتحرك ===== */
+        /* ===== شريط الآية (من اليسار إلى اليمين) ===== */
         .ayah-bar {
             width: 100%;
             overflow: hidden;
-            background: #ffffff;
-            border-bottom: 1px solid #b0d4f0;
+            background: #1a508b;
             padding: 15px 0;
+            white-space: nowrap;
         }
+
         .ayah-slider {
-            display: flex;
-            width: max-content;
-            animation: ayahMove 35s linear infinite;
+            display: inline-block;
+            padding-right: 100%;
+            animation: moveLTR 25s linear infinite; /* حركة من اليسار لليمين */
         }
+
         .ayah-slider span {
             font-size: 24px;
-            color: #065f46;
-            white-space: nowrap;
-            margin-right: 150px;
+            color: #ffffff;
             font-family: "Amiri", serif;
             font-weight: bold;
         }
-        @keyframes ayahMove {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
+
+        @keyframes moveLTR {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
-        /* ===== خانة البحث ===== */
+        /* ===== البحث الزجاجي ===== */
         .search-wrapper {
             display: flex;
             justify-content: center;
-            margin: 35px 0;
+            margin: 40px 0;
         }
+
         .search-wrapper input {
             width: 60%;
-            max-width: 500px;
-            padding: 15px 25px;
+            max-width: 600px;
+            padding: 18px 30px;
             border-radius: 50px;
-            border: 2px solid #3fa1d6;
+            border: none;
             outline: none;
             font-size: 18px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
         /* ===== الأيقونات الرئيسية ===== */
@@ -93,74 +97,96 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            margin: 30px auto;
-            max-width: 1000px;
+            margin: 20px auto;
+            max-width: 1100px;
         }
+
         .icon-btn {
-            padding: 12px 25px;
-            font-size: 17px;
+            padding: 15px 25px;
+            font-size: 16px;
             font-weight: bold;
             text-decoration: none;
             color: white;
             background: linear-gradient(145deg, #4aa3d6, #3a8ec2);
             border-radius: 12px;
-            box-shadow: 0 4px 0 #2a5298;
+            box-shadow: 0 5px 0 #2a5298;
             transition: 0.2s;
         }
-        .icon-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 0 #2a5298;
-        }
-        .icon-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 1px 0 #2a5298;
+
+        .icon-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 0 #2a5298; }
+
+        /* ===== شبكة الكتب ===== */
+        .section-title {
+            text-align: center;
+            font-family: 'Reem Kufi', sans-serif;
+            color: #1a508b;
+            margin: 50px 0 30px;
+            font-size: 2.5rem;
         }
 
-        /* ===== قسم الكتب ===== */
-        .books-wrapper {
-            position: relative;
-            overflow: hidden;
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
             width: 90%;
-            margin: 20px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 0 auto 60px;
         }
-        .books-slider {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.5s ease;
-        }
-        .book-slide {
-            flex: 0 0 auto;
-            width: 160px;
+
+        .book-card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
             text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .book-slide img {
+
+        .book-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+        .book-card img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+
+        .book-card span {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .download-btn {
+            background: #c0a060;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
             transition: 0.3s;
         }
-        .book-slide img:hover {
-            transform: scale(1.05);
-        }
 
-        /* ===== أسفل الصفحة ===== */
+        .download-btn:hover { background: #1a508b; }
+
         footer {
             text-align: center;
-            padding: 30px;
-            background: #3fa1d6;
+            padding: 40px;
+            background: #1a508b;
             color: white;
-            margin-top: 50px;
             font-size: 18px;
         }
     </style>
 </head>
 <body>
 
-    <header class="header-bar">
+    <header class="site-header">
         <h1 class="sheikh-title">سعيد مصطفى دياب</h1>
         <span class="site-subtitle">الموقع الرسمي لفضيلة الشيخ</span>
     </header>
@@ -168,12 +194,11 @@
     <div class="ayah-bar">
         <div class="ayah-slider">
             <span>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ﴾ [يوسف: 108]</span>
-            <span>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ﴾ [يوسف: 108]</span>
         </div>
     </div>
 
     <div class="search-wrapper">
-        <input type="text" placeholder="🔍 ابحث في دروس ومقالات الشيخ ...">
+        <input type="text" placeholder="🔍 ابحث في الموقع ...">
     </div>
 
     <nav class="main-icons">
@@ -187,16 +212,39 @@
         <a href="contact.html" class="icon-btn">تواصل معنا</a>
     </nav>
 
-    <h2 style="text-align:center; color:#2c3e50; margin-top:40px;">أحدث مؤلفات الشيخ</h2>
-    <div class="books-wrapper">
-        <div class="books-slider">
-            <div class="book-slide"><img src="images/al-arbon.jpg" alt="كتاب"></div>
-            <div class="book-slide"><img src="images/al-eatbaar.jpg" alt="كتاب"></div>
-            <div class="book-slide"><img src="images/al-ilmam.jpg" alt="كتاب"></div>
-            <div class="book-slide"><img src="images/al-irshad.jpg" alt="كتاب"></div>
-            <div class="book-slide"><img src="images/asaleeb.jpg" alt="كتاب"></div>
+    <h2 class="section-title">أحدث الكتب والمؤلفات</h2>
+    <div class="books-grid">
+        <div class="book-card">
+            <img src="images/al-arbon-veal-amthal.jpg.jpg" alt="كتاب">
+            <span>الأربعون في الأمثال</span>
+            <a href="#" class="download-btn">📥 تحميل الكتاب</a>
         </div>
-    </div>
+        <div class="book-card">
+            <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="كتاب">
+            <span>الاعتبار بطرائف الأخبار</span>
+            <a href="#" class="download-btn">📥 تحميل الكتاب</a>
+        </div>
+        <div class="book-card">
+            <img src="images/al-ilmam-siyam.jpg.jpg" alt="كتاب">
+            <span>الإلمام بالصيام</span>
+            <a href="#" class="download-btn">📥 تحميل الكتاب</a>
+        </div>
+        <div class="book-card">
+            <img src="images/al-irshad.jpg" alt="كتاب">
+            <span>الإرشاد</span>
+            <a href="#" class="download-btn">📥 تحميل الكتاب</a>
+        </div>
+        <div class="book-card">
+            <img src="images/asaleeb-alquran.jpg" alt="كتاب">
+            <span>أساليب القرآن</span>
+            <a href="#" class="download-btn">📥 تحميل الكتاب</a>
+        </div>
+        <div class="book-card">
+            <img src="images/shmael-al-rasool.jpg.jpg" alt="كتاب">
+            <span>شمائل الرسول</span>
+            <a href="#" class="download-btn">📥 تحميل الكتاب</a>
+        </div>
+        </div>
 
     <footer>
         &copy; 2026 جميع الحقوق محفوظة لـ موقع الشيخ سعيد مصطفى دياب
