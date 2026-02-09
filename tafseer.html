@@ -1,121 +1,147 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>التفسير</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفسير القرآن الكريم - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-blue: #eef5ff;
+            --main-blue: #add8e6;
+            --dark-blue: #2c5d87;
+            --accent-blue: #87ceeb;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
+            min-height: 100vh;
+            padding-bottom: 120px;
+        }
 
-<style>
+        /* الهيدر وشريط التنقل الموحد */
+        .site-header { 
+            text-align: center; padding: 60px 20px; 
+            background: linear-gradient(to right, #add8e6, #e0f2f7); 
+            border-bottom: 4px solid #ffffff;
+        }
+        .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 700; }
 
-/* صورة القرآن */
-.quran-header{
-text-align:center;
-margin:40px 0;
-}
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.2); }
+        .nav-link { 
+            padding: 10px 18px; background: var(--accent-blue); color: white; 
+            text-decoration: none; border-radius: 10px; font-weight: bold;
+            box-shadow: 0 4px 0 #5f9ea0; transition: 0.2s;
+        }
+        .nav-link:hover { transform: translateY(-2px); }
 
-.quran-header img{
-width:120px;
-}
+        /* صورة القرآن */
+        .quran-header { text-align: center; margin: 40px 0; }
+        .quran-header img { width: 100px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
 
-/* شبكة السور */
-.tafseer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
-gap:20px;
-padding:20px;
-max-width:900px;
-margin:auto;
-}
+        /* شبكة السور بتصميم 3D ناعم */
+        .tafseer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
 
-/* تصميم أيقونات السور */
-.surah-card{
-text-decoration:none;
-background:linear-gradient(145deg,#ffffff,#e6e6e6);
-padding:20px;
-border-radius:15px;
-text-align:center;
-font-weight:bold;
-color:#333;
-box-shadow:5px 5px 15px rgba(0,0,0,0.2),
--5px -5px 15px rgba(255,255,255,0.7);
-transition:.3s;
-}
+        .surah-card {
+            text-decoration: none;
+            background: #ffffff;
+            padding: 25px 15px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--dark-blue);
+            box-shadow: 8px 8px 16px #c9d6e6, -8px -8px 16px #ffffff;
+            transition: .3s ease;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
 
-.surah-card:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 25px rgba(0,0,0,0.3);
-}
+        .surah-card:hover {
+            transform: translateY(-8px);
+            background: var(--light-blue);
+            box-shadow: 12px 12px 20px #b8c7d9, -8px -8px 20px #ffffff;
+        }
 
-.surah-number{
-font-size:13px;
-color:#777;
-margin-bottom:5px;
-}
+        .surah-number {
+            font-size: 12px;
+            background: var(--main-blue);
+            color: var(--dark-blue);
+            padding: 2px 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
 
-</style>
+        /* أيقونة العودة الدائرية */
+        .back-fixed {
+            position: fixed; bottom: 30px; left: 30px;
+            width: 65px; height: 65px;
+            background: linear-gradient(145deg, #add8e6, #87ceeb);
+            color: var(--dark-blue); text-decoration: none;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
+        }
+        .back-fixed:hover { transform: scale(1.1); }
+
+    </style>
 </head>
 
 <body>
 
-<!-- ===== الشريط العلوي ===== -->
-<div class="header-bar">
-<div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
-</div>
+    <header class="site-header">
+        <h1 class="sheikh-title">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
+    </header>
 
-<!-- ===== أيقونات التنقل ===== -->
-<div class="main-icons">
+    <div class="nav-bar">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="books.html" class="nav-link">الكتب</a>
+        <a href="lessons.html" class="nav-link">الدروس</a>
+        <a href="khutbah.html" class="nav-link">الخطب</a>
+        <a href="articles.html" class="nav-link">المقالات</a>
+    </div>
 
-<a href="index.html" class="icon-btn">الرئيسية</a>
-<a href="books.html" class="icon-btn">الكتب</a>
-<a href="articles.html" class="icon-btn">المقالات</a>
-<a href="lessons.html" class="icon-btn">الدروس</a>
-<a href="tafseer.html" class="icon-btn">التفسير</a>
-<a href="khutbah.html" class="icon-btn">الخطب</a>
-<a href="about.html" class="icon-btn">من نحن</a>
-<a href="contact.html" class="icon-btn">تواصل</a>
+    <div class="quran-header">
+        <img src="images/quran.png" alt="القرآن الكريم">
+        <h2 style="color: var(--dark-blue);">تفسير القرآن الكريم</h2>
+    </div>
 
-</div>
+    <div class="tafseer-grid" id="tafseerList"></div>
 
-<!-- ===== صورة القرآن ===== -->
-<div class="quran-header">
-<img src="images/quran.png">
-</div>
+    <a href="lessons.html" class="back-fixed" title="العودة للدروس">⬅️</a>
 
-<!-- ===== شبكة السور ===== -->
-<div class="tafseer-grid" id="tafseerList"></div>
+    <script>
+        const surahs = [
+            { name:"الفاتحة", link:"tafseer-fatiha.html" },
+            { name:"البقرة", link:"tafseer-baqara.html" },
+            { name:"آل عمران", link:"tafseer-aal-imran.html" },
+            { name:"النساء", link:"tafseer-nisa.html" },
+            { name:"المائدة", link:"tafseer-maidah.html" },
+            { name:"الأنعام", link:"tafseer-anaam.html" },
+            { name:"الأعراف", link:"tafseer-aaraf.html" },
+            { name:"الأنفال", link:"tafseer-anfal.html" },
+            { name:"التوبة", link:"tafseer-tawbah.html" }
+        ];
 
-<script>
+        const container = document.getElementById("tafseerList");
 
-const surahs = [
-
-{ name:"الفاتحة", link:"tafseer-fatiha.html" },
-{ name:"البقرة", link:"tafseer-baqara.html" },
-{ name:"آل عمران", link:"tafseer-aal-imran.html" },
-{ name:"النساء", link:"tafseer-nisa.html" },
-{ name:"المائدة", link:"tafseer-maidah.html" },
-{ name:"الأنعام", link:"tafseer-anaam.html" },
-{ name:"الأعراف", link:"tafseer-aaraf.html" },
-{ name:"الأنفال", link:"tafseer-anfal.html" },
-{ name:"التوبة", link:"tafseer-tawbah.html" }
-
-];
-
-const container = document.getElementById("tafseerList");
-
-surahs.forEach((surah,index)=>{
-
-container.innerHTML += `
-<a href="${surah.link}" class="surah-card">
-<div class="surah-number">سورة ${index+1}</div>
-${surah.name}
-</a>
-`;
-
-});
-
-</script>
+        surahs.forEach((surah, index) => {
+            container.innerHTML += `
+            <a href="${surah.link}" class="surah-card">
+                <div class="surah-number">سورة ${index + 1}</div>
+                <div>${surah.name}</div>
+            </a>
+            `;
+        });
+    </script>
 
 </body>
 </html>
