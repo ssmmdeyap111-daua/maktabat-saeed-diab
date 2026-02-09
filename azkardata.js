@@ -1,11 +1,9 @@
-
-// azkardata.js - ملف دروس سلسلة الأذكار
+// azkardata.js
 const azkarLessons = [
     {
         title: "أنوار الأذكار - الدرس الأول",
-        file: "anwar-alazkar-1.mp3",
+        file: "anwar-alazkar-1.mp3.wav", // تم التعديل ليطابق الملف المرفوع
         category: "الأذكار",
-        duration: "25 دقيقة"
+        duration: "03:40" 
     }
-    // يمكنك إضافة المزيد من دروس الأذكار هنا في المستقبل
 ];
