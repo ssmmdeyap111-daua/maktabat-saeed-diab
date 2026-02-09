@@ -46,3 +46,12 @@ const lessonsData = [
         ]
     }
 ];
+const allLessons = [
+    {
+        title: "أنوار الأذكار - الدرس الأول",
+        file: "anwar-alazkar-1.mp3",
+        category: "الأذكار",
+        duration: "25 دقيقة"
+    },
+    // ... باقي الدروس
+];
