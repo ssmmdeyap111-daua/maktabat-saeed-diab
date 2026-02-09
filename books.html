@@ -4,53 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مؤلفات الشيخ - التحميل</title>
-    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@600&family=Noto+Kufi+Arabic:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; font-family: 'Noto Kufi Arabic', sans-serif; background: linear-gradient(to bottom, #eef5ff, #d0e4ff); min-height: 100vh; position: relative; padding-bottom: 100px; }
-        .header-books { text-align: center; padding: 60px; background: linear-gradient(to right, #70c0e8, #a2d9ff); border-bottom: 4px solid #ffffff; }
+        /* استخدام نفس التنسيقات لتوحيد الشكل */
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(to bottom, #eef5ff, #d0e4ff); min-height: 100vh; position: relative; padding-bottom: 120px; }
+        .site-header { text-align: center; padding: 60px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid #ffffff; }
         
-        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px; width: 90%; margin: 40px auto; }
+        /* نفس الأيقونات ثلاثية الأبعاد */
+        .nav-bar { display: flex; justify-content: center; gap: 20px; padding: 25px; flex-wrap: wrap; }
+        .nav-item { padding: 12px 25px; background: #87ceeb; color: white; text-decoration: none; border-radius: 12px; font-weight: bold; box-shadow: 0 6px 0 #5f9ea0; transition: 0.2s; }
+        .nav-item:hover { transform: translateY(-2px); box-shadow: 0 4px 0 #5f9ea0; }
+
+        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 30px; width: 90%; margin: 40px auto; }
         .book-card { background: white; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .book-card img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-        .download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 0 #1e8449; }
+        .book-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+        
+        /* أزرار التحميل ثلاثية الأبعاد */
+        .download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 0 #1e8449; }
+        .download-btn:hover { transform: translateY(-2px); box-shadow: 0 2px 0 #1e8449; }
 
         /* الأيقونة ثلاثية الأبعاد أسفل اليسار */
-        .back-fixed {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(145deg, #70c0e8, #4aa3d6);
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: 8px 8px 16px #b1c9d4, -4px -4px 10px #ffffff;
-            border: 2px solid #ffffff;
-            transition: 0.3s;
-            z-index: 1000;
+        .back-3d-fixed {
+            position: fixed; bottom: 30px; left: 30px;
+            width: 70px; height: 70px;
+            background: linear-gradient(145deg, #add8e6, #87ceeb);
+            color: #2c5d87; text-decoration: none;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 30px; box-shadow: 8px 8px 16px #b1c9d4, -4px -4px 10px #ffffff;
+            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
         }
-        .back-fixed:hover { transform: translateY(-5px) rotate(360deg); box-shadow: 2px 2px 5px #b1c9d4; }
+        .back-3d-fixed:hover { transform: scale(1.1) rotate(10deg); }
 
-        footer { text-align: center; padding: 30px; background: #3fa1d6; color: white; position: absolute; bottom: 0; width: 100%; }
+        footer { text-align: center; padding: 35px; background: #add8e6; color: #2c5d87; position: absolute; bottom: 0; width: 100%; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="header-books"><h1 style="font-family:'Reem Kufi'; color:#1a508b; font-size: 3.5rem;">المكتبة الرسمية</h1></div>
-    
-    <div class="books-grid">
-        <div class="book-card"><img src="images/al-arbon-veal-amthal.jpg.jpg"><span>الأربعون في الأمثال</span><br><br><a href="#" class="download-btn">📥 تحميل الكتاب</a></div>
-        <div class="book-card"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"><span>الاعتبار بطرائف الأخبار</span><br><br><a href="#" class="download-btn">📥 تحميل الكتاب</a></div>
-        <div class="book-card"><img src="images/al-ilmam-siyam.jpg.jpg"><span>الإلمام بالصيام</span><br><br><a href="#" class="download-btn">📥 تحميل الكتاب</a></div>
-        <div class="book-card"><img src="images/al-irshad.jpg"><span>الإرشاد</span><br><br><a href="#" class="download-btn">📥 تحميل الكتاب</a></div>
+
+    <header class="site-header">
+        <h1 style="font-size: 2.8rem; color: #2c5d87; margin: 0;">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
+    </header>
+
+    <div class="nav-bar">
+        <a href="index.html" class="nav-item">الرئيسية</a>
+        <a href="books.html" class="nav-item">الكتب</a>
+        <a href="lessons.html" class="nav-item">الدروس</a>
+        <a href="khutbah.html" class="nav-item">الخطب</a>
+        <a href="articles.html" class="nav-item">المقالات</a>
     </div>
 
-    <a href="index.html" class="back-fixed" title="الرئيسية">🏠</a>
+    <div class="books-grid">
+        <div class="book-card">
+            <img src="images/al-arbon-veal-amthal.jpg.jpg">
+            <p style="font-weight: bold;">الأربعون في الأمثال</p>
+            <a href="#" class="download-btn">📥 تحميل PDF</a>
+        </div>
+        </div>
+
+    <a href="index.html" class="back-3d-fixed" title="الرئيسية">🏠</a>
 
     <footer>&copy; 2026 جميع الحقوق محفوظة لـ موقع الشيخ سعيد مصطفى دياب</footer>
+
 </body>
 </html>
