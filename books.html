@@ -1,276 +1,122 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الكتب والمؤلفات</title>
-<link rel="stylesheet" href="css/style.css">
-<style>
-body {
-    margin:0;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    background: linear-gradient(to bottom, #eef5ff, #d0e4ff);
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 
-/* شريط العنوان */
-.header-bar{
-    background: linear-gradient(to right,#3fa1d6,#70c0e8);
-    color:white;
-    padding:50px 20px;
-    text-align:center;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&family=Amiri:wght@700&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 
-.site-title {
-    font-size:28px;
-    margin-bottom:10px;
-}
+    <style>
+        /* ... (نفس التنسيقات السابقة للعنوان والبحث) ... */
+        body { margin: 0; font-family: 'Noto Kufi Arabic', sans-serif; background: #eef5ff; }
+        
+        .site-header { text-align: center; padding: 50px 20px; background-color: #fdfcf9; border-bottom: 2px solid #8e6d13; }
+        .sheikh-title { font-family: 'Aref Ruqaa', serif; font-size: 4rem; color: #2c3e50; margin: 0; }
+        .site-subtitle { display: block; font-family: 'Aref Ruqaa', serif; font-size: 1.8rem; color: #8e6d13; }
 
-/* أيقونات الصفحات الفرعية */
-.main-icons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 20px 0;
-}
+        /* ===== تنسيق قسم الكتب المطور ===== */
+        .books-wrapper {
+            width: 90%;
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
 
-.icon-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 140px;
-    height: 60px;
-    background: #4aa3d6;
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:12px;
-    box-shadow:0 6px 12px rgba(0,0,0,0.3);
-    transition: all 0.3s;
-}
+        .book-card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 180px;
+            transition: 0.3s;
+        }
 
-.icon-btn:hover {
-    transform: translateY(-5px);
-    box-shadow:0 12px 20px rgba(0,0,0,0.35);
-    background:#3a8ec2;
-}
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
 
-/* شريط الكتب الأفقي */
-.books-wrapper {
-    position: relative;
-    overflow: hidden;
-    width: 90%;
-    margin: auto;
-    padding: 20px 0;
-    border-radius:12px;
-    background:#eef5ff;
-}
+        .book-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
 
-.books-slider {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-}
+        .book-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            height: 45px; /* لتوحيد الارتفاع */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.book-slide {
-    flex: 0 0 auto;
-    width: 150px;
-    margin: 0 10px;
-    text-align:center;
-}
+        /* زر التحميل الجديد */
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(145deg, #27ae60, #2ecc71);
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 0 #1e8449;
+            transition: 0.2s;
+        }
 
-.book-slide img {
-    width:100%;
-    border-radius:8px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
+        .download-btn:hover {
+            background: #2ecc71;
+            transform: scale(1.05);
+        }
 
-.book-slide img:hover {
-    transform: scale(1.08);
-}
+        .download-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #1e8449;
+        }
 
-/* الأسهم */
-.book-prev, .book-next {
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-    background:#4aa3d6;
-    color:white;
-    font-size:24px;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-    z-index:10;
-}
-
-.book-prev:hover, .book-next:hover {
-    background:#3a8ec2;
-}
-
-.book-prev { left:10px; }
-.book-next { right:10px; }
-
-/* زر العودة للصفحة الرئيسية */
-.back-home {
-    display:inline-block;
-    margin:20px;
-    padding:10px 20px;
-    background:#70c0e8;
-    color:white;
-    border-radius:12px;
-    text-decoration:none;
-    box-shadow:0 6px 12px rgba(0,0,0,0.3);
-    transition: all 0.2s;
-}
-
-.back-home:hover {
-    transform: translateY(-3px);
-    box-shadow:0 12px 20px rgba(0,0,0,0.35);
-}
-
-</style>
+        footer { text-align: center; padding: 30px; background: #3fa1d6; color: white; margin-top: 50px; }
+    </style>
 </head>
 <body>
 
-<div class="header-bar">
-    <div class="site-title">الكتب والمؤلفات</div>
-</div>
+    <header class="site-header">
+        <h1 class="sheikh-title">سعيد مصطفى دياب</h1>
+        <span class="site-subtitle">الموقع الرسمي للشيخ</span>
+    </header>
 
-<div class="main-icons">
-    <a href="index.html" class="icon-btn">الرئيسية</a>
-    <a href="books.html" class="icon-btn">الكتب</a>
-    <a href="articles.html" class="icon-btn">المقالات</a>
-    <a href="lessons.html" class="icon-btn">الدروس</a>
-    <a href="khutbahs.html" class="icon-btn">الخطب</a>
-    <a href="about.html" class="icon-btn">من نحن</a>
-    <a href="contact.html" class="icon-btn">تواصل معنا</a>
-    <a href="resources.html" class="icon-btn">المصادر</a>
-</div>
+    <h2 style="text-align:center; margin-top:50px; color:#2c3e50;">مؤلفات وإصدارات الشيخ</h2>
 
-<h2 style="text-align:center; margin:30px 0;">جميع الكتب</h2>
+    <div class="books-wrapper">
+        <div class="book-card">
+            <img src="images/al-arbon.jpg" alt="اسم الكتاب">
+            <div class="book-title">الأربعون في الأمثال</div>
+            <a href="pdf/book1.pdf" class="download-btn">📥 تحميل الكتاب</a>
+        </div>
 
-<div class="books-slider">
+        <div class="book-card">
+            <img src="images/al-eatbaar.jpg" alt="اسم الكتاب">
+            <div class="book-title">كتاب الاعتبار</div>
+            <a href="pdf/book2.pdf" class="download-btn">📥 تحميل الكتاب</a>
+        </div>
 
-<div class="book-slide">
-<a href="books/al-arbon-veal-amthal.pdf" target="_blank">
-<img src="images/al-arbon-veal-amthal.jpg.jpg">
-</a>
-</div>
+        <div class="book-card">
+            <img src="images/al-ilmam.jpg" alt="اسم الكتاب">
+            <div class="book-title">الإلمام بالصيام</div>
+            <a href="pdf/book3.pdf" class="download-btn">📥 تحميل الكتاب</a>
+        </div>
+        
+        </div>
 
-<div class="book-slide">
-<a href="books/al-eatbaar-ptraef-alakbaar.pdf" target="_blank">
-<img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/al-ilmam-siyam.pdf" target="_blank">
-<img src="images/al-ilmam-siyam.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/al-irshad.pdf" target="_blank">
-<img src="images/al-irshad.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/allaalea-wa-aldorr.pdf" target="_blank">
-<img src="images/allaalea-wa-aldorr.jpg.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/asaleeb-alquran.pdf" target="_blank">
-<img src="images/asaleeb-alquran.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/fadhl-duaa.pdf" target="_blank">
-<img src="images/fadhl-duaa.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/ithaf-ahl-alrusoukh.pdf" target="_blank">
-<img src="images/ithaf-ahl-alrusoukh.jpg.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/kabar-al-ahad.pdf" target="_blank">
-<img src="images/kabar-al-ahad.jpg.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/kashf-alnqab.pdf" target="_blank">
-<img src="images/kashf-alnqab.jpg.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/katar-al-reba.pdf" target="_blank">
-<img src="images/katar-al-reba.jpg.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/shmael-al-rasool.pdf" target="_blank">
-<img src="images/shmael-al-rasool.jpg.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/tamam-al-minah.pdf" target="_blank">
-<img src="images/tamam-al-minah.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/tazkirat-al-abaha.pdf" target="_blank">
-<img src="images/tazkirat-al-abaha.jpg.jpg">
-</a>
-</div>
-
-<div class="book-slide">
-<a href="books/wageb-al-muslmeen.pdf" target="_blank">
-<img src="images/wageb-al-muslmeen.jpg.jpg">
-</a>
-</div>
-
-</div>
-
-
-<a href="index.html" class="back-home">العودة للصفحة الرئيسية</a>
-
-<script>
-const slider = document.querySelector('.books-slider');
-const prev = document.querySelector('.book-prev');
-const next = document.querySelector('.book-next');
-let scrollAmount = 0;
-const slideWidth = 174;
-
-prev.addEventListener('click', () => {
-    scrollAmount = Math.max(scrollAmount - slideWidth, 0);
-    slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-});
-
-next.addEventListener('click', () => {
-    scrollAmount = Math.min(scrollAmount + slideWidth, slider.scrollWidth - slider.clientWidth);
-    slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-});
-</script>
+    <footer>
+        &copy; 2026 جميع الحقوق محفوظة لـ موقع الشيخ سعيد مصطفى دياب
+    </footer>
 
 </body>
 </html>
-
-
-
