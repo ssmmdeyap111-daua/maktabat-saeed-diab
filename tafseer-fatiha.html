@@ -21,126 +21,103 @@
             padding-bottom: 120px;
         }
 
-        /* الهيدر الموحد */
         .site-header { 
-            text-align: center; padding: 60px 20px; 
+            text-align: center; padding: 40px 20px; 
             background: linear-gradient(to right, #add8e6, #e0f2f7); 
             border-bottom: 4px solid #ffffff;
         }
-        .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 700; }
 
-        /* شريط التنقل العلوي */
-        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.2); }
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; }
         .nav-link { 
-            padding: 10px 18px; background: var(--accent-blue); color: white; 
-            text-decoration: none; border-radius: 10px; font-weight: bold;
-            box-shadow: 0 4px 0 #5f9ea0; transition: 0.2s;
+            padding: 8px 15px; background: var(--accent-blue); color: white; 
+            text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 14px;
         }
-        .nav-link:hover { transform: translateY(-2px); }
 
-        /* بطاقة الدرس المحدثة */
+        .page-title { text-align: center; color: var(--dark-blue); margin: 30px 0; }
+
+        /* حاوية الدروس */
+        .lessons-container { max-width: 800px; margin: auto; padding: 0 20px; }
+
         .lesson-card {
             background: white;
-            margin: 25px auto;
-            width: 85%;
-            max-width: 800px;
-            padding: 25px;
+            margin-bottom: 20px;
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-right: 6px solid var(--accent-blue);
-            transition: 0.3s;
         }
-        .lesson-card:hover { transform: scale(1.01); }
-        .lesson-card h3 { margin: 0 0 10px 0; color: var(--dark-blue); font-size: 1.3rem; }
-        .lesson-duration { color: #64748b; font-size: 14px; margin-bottom: 15px; display: block; }
 
-        audio { width: 100%; height: 40px; margin-bottom: 15px; }
+        .lesson-card h3 { margin: 0 0 10px 0; color: var(--dark-blue); font-size: 1.2rem; }
+        .duration-tag { color: #888; font-size: 13px; display: block; margin-bottom: 15px; }
 
-        /* زر التحميل 3D */
+        audio { width: 100%; height: 35px; margin-bottom: 15px; }
+
         .download-btn {
             display: inline-block;
             background: #27ae60;
             color: white;
-            padding: 8px 20px;
-            border-radius: 8px;
+            padding: 8px 18px;
+            border-radius: 7px;
             text-decoration: none;
-            font-weight: bold;
             font-size: 14px;
-            box-shadow: 0 4px 0 #1e8449;
-            transition: 0.1s;
+            font-weight: bold;
         }
-        .download-btn:active { transform: translateY(3px); box-shadow: 0 0 0; }
 
-        /* أيقونة العودة الدائرية لصفحة التفسير */
+        /* زر العودة الثابت */
         .back-fixed {
-            position: fixed; bottom: 30px; left: 30px;
-            width: 65px; height: 65px;
-            background: linear-gradient(145deg, #add8e6, #87ceeb);
-            color: var(--dark-blue); text-decoration: none;
+            position: fixed; bottom: 20px; left: 20px;
+            width: 55px; height: 55px;
+            background: var(--dark-blue); color: white;
             border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
+            text-decoration: none; font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        .back-fixed:hover { transform: scale(1.1); }
-
-        footer { text-align: center; padding: 40px; color: var(--dark-blue); font-weight: bold; }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <h1 class="sheikh-title">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
+        <h1 style="margin:0; color: var(--dark-blue);">الشيخ سعيد مصطفى دياب</h1>
     </header>
 
     <div class="nav-bar">
         <a href="index.html" class="nav-link">الرئيسية</a>
-        <a href="books.html" class="nav-link">الكتب</a>
         <a href="lessons.html" class="nav-link">الدروس</a>
         <a href="tafseer.html" class="nav-link">التفسير</a>
-        <a href="articles.html" class="nav-link">المقالات</a>
     </div>
 
-    <h2 style="text-align: center; color: var(--dark-blue); margin-top: 40px;">تفسير سورة الفاتحة</h2>
+    <h2 class="page-title">📖 تفسير سورة الفاتحة</h2>
 
-    <div id="tafseerContainer"></div>
+    <div class="lessons-container" id="fatihaContainer">
+        </div>
 
-    <a href="tafseer.html" class="back-fixed" title="العودة للتفسير">⬅️</a>
+    <a href="tafseer.html" class="back-fixed">⬅️</a>
 
-    <footer>
-        جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026
-    </footer>
+    <script src="tafseerData.js"></script>
 
     <script>
-        const tafseerFatihaLessons = [
-            {
-                title: "تفسير سورة الفاتحة - الدرس الأول",
-                file: "audio/fatiha-1.mp3",
-                duration: "15 دقيقة"
-            },
-            {
-                title: "تفسير سورة الفاتحة - الدرس الثاني",
-                file: "audio/fatiha-2.mp3",
-                duration: "18 دقيقة"
-            }
-        ];
+        const container = document.getElementById("fatihaContainer");
 
-        const container = document.getElementById("tafseerContainer");
+        // التأكد من أن ملف البيانات محمل
+        if (typeof tafseerLessons !== 'undefined') {
+            // فلترة دروس الفاتحة فقط
+            const lessons = tafseerLessons.filter(l => l.surah === "الفاتحة");
 
-        tafseerFatihaLessons.forEach(lesson => {
-            container.innerHTML += `
-                <div class="lesson-card">
-                    <h3>${lesson.title}</h3>
-                    <span class="lesson-duration">🎧 مدة الدرس: ${lesson.duration}</span>
-                    <audio controls>
-                        <source src="${lesson.file}" type="audio/mpeg">
-                        متصفحك لا يدعم مشغل الصوت.
-                    </audio>
-                    <a href="${lesson.file}" download class="download-btn">
-                        📥 تحميل الدرس (MP3)
-                    </a>
-                </div>
-            `;
-        });
+            lessons.forEach(lesson => {
+                container.innerHTML += `
+                    <div class="lesson-card">
+                        <h3>${lesson.title}</h3>
+                        <span class="duration-tag">⏱ المدة: ${lesson.duration}</span>
+                        <audio controls>
+                            <source src="audio/${lesson.file}" type="audio/mpeg">
+                        </audio>
+                        <br>
+                        <a href="audio/${lesson.file}" download class="download-btn">📥 تحميل الدرس</a>
+                    </div>
+                `;
+            });
+        } else {
+            container.innerHTML = "<p style='text-align:center;'>عذراً، تعذر تحميل بيانات الدروس.</p>";
+        }
     </script>
 
 </body>
