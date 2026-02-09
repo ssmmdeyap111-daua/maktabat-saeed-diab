@@ -339,3 +339,28 @@ footer{
     font-size: 14px;
     opacity: 0.8;
 }
+.site-header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fdfcf9; /* خلفية ورقية فاتحة */
+}
+
+.sheikh-title {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 3.5rem;      /* حجم كبير وواضح */
+    color: #2c3e50;         /* لون كحلي وقور أو استخدم #8e6d13 للذهبي */
+    margin: 0;
+    letter-spacing: -1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* ظل خفيف جداً للعمق */
+    display: inline-block;
+    border-bottom: 2px solid #8e6d13; /* خط ذهبي نحيف تحت الاسم للزينة */
+    padding-bottom: 10px;
+}
+
+.site-subtitle {
+    display: block;
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 1.5rem;
+    color: #8e6d13; /* لون ذهبي باهت للمسمى الوظيفي */
+    margin-top: 10px;
+}
