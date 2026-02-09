@@ -150,26 +150,25 @@
                 return;
             }
 
-            allContent.forEach(lesson => {
-                const isAzkar = (lesson.type === 'azkar');
-                const cardClass = isAzkar ? 'lesson-card azkar-type' : 'lesson-card';
-                const tagLabel = isAzkar ? '✨ قسم الأذكار' : (lesson.category || 'درس علمي');
+          allContent.forEach(lesson => {
+    const isAzkar = (lesson.type === 'azkar');
+    const cardClass = isAzkar ? 'lesson-card azkar-type' : 'lesson-card';
+    const tagLabel = isAzkar ? '✨ قسم الأذكار' : (lesson.category || 'درس علمي');
 
-                mainContainer.innerHTML += `
-                    <div class="${cardClass}">
-                        <div>
-                            <span class="category-tag">${tagLabel}</span>
-                            <h3>${lesson.title}</h3>
-                            <p style="font-size: 12px; color: #888; margin: 0;">⏱ المدة: ${lesson.duration || 'غير محددة'}</p>
-                        </div>
-                        <audio controls>
-                           <source src="./audio/${lesson.file}" type="audio/wav">
-                        </audio>
-                        <a href="audio/${lesson.file}" download class="download-btn">📥 تحميل الملف</a>
-                    </div>
-                `;
-            });
-        }
+    mainContainer.innerHTML += `
+        <div class="${cardClass}">
+            <div>
+                <span class="category-tag">${tagLabel}</span>
+                <h3>${lesson.title}</h3>
+            </div>
+            <audio controls preload="metadata">
+                <source src="audio/${lesson.file}">
+                متصفحك لا يدعم مشغل الصوت.
+            </audio>
+            <a href="audio/${lesson.file}" download class="download-btn">📥 تحميل الملف</a>
+        </div>
+    `;
+});
 
         // بدء التنفيذ
         window.onload = loadAllContent;
