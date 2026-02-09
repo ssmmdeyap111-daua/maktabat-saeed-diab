@@ -11,7 +11,7 @@
             --main-blue: #add8e6;
             --dark-blue: #2c5d87;
             --accent-blue: #87ceeb;
-            --azkar-purple: #a29bfe; /* لون مميز لقسم الأذكار */
+            --azkar-color: #a29bfe; /* لون مميز للأذكار */
         }
 
         body {
@@ -19,72 +19,89 @@
             font-family: 'Cairo', sans-serif;
             background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
             min-height: 100vh;
-            padding-bottom: 100px;
         }
 
         .site-header { 
-            text-align: center; padding: 50px 20px; 
+            text-align: center; padding: 40px 20px; 
             background: linear-gradient(to right, #add8e6, #e0f2f7); 
             border-bottom: 4px solid #ffffff;
         }
 
-        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; }
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; }
         .nav-link { 
-            padding: 10px 18px; background: var(--accent-blue); color: white; 
-            text-decoration: none; border-radius: 10px; font-weight: bold;
-            box-shadow: 0 4px 0 #5f9ea0; transition: 0.2s;
+            padding: 8px 15px; background: var(--accent-blue); color: white; 
+            text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 14px;
         }
 
-        .section-title {
-            text-align: center; margin: 50px 0 30px; color: var(--dark-blue);
-            font-size: 1.8rem; position: relative;
-        }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        
+        .page-title { text-align: center; color: var(--dark-blue); margin-bottom: 30px; }
 
-        .section-title::after {
-            content: ''; display: block; width: 60px; height: 4px; 
-            background: var(--accent-blue); margin: 10px auto; border-radius: 2px;
-        }
-
+        /* شبكة الدروس */
         .lessons-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px; padding: 0 20px; max-width: 1200px; margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .lesson-card {
-            background: white; padding: 20px; border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: 0.3s; border-right: 5px solid var(--accent-blue);
-        }
-        
-        .lesson-card.azkar-type { border-right-color: var(--azkar-purple); }
-
-        .lesson-card h3 { margin: 10px 0; color: var(--dark-blue); font-size: 1.1rem; }
-        
-        .category-badge {
-            font-size: 11px; padding: 3px 10px; border-radius: 20px;
-            background: #f0f0f0; color: #666; font-weight: bold;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-right: 6px solid var(--accent-blue); /* افتراضي للدروس العلمية */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
+        /* تنسيق خاص لبطاقة الأذكار */
+        .lesson-card.azkar-type {
+            border-right-color: var(--azkar-color);
+        }
+
+        .category-tag {
+            display: inline-block;
+            font-size: 11px;
+            background: #f0f0f0;
+            padding: 2px 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .lesson-card h3 { margin: 0 0 10px 0; color: var(--dark-blue); font-size: 1.1rem; }
+        
         audio { width: 100%; height: 35px; margin: 15px 0; }
 
-        .btn-download {
-            display: block; text-align: center; background: #f8f9fa;
-            color: var(--dark-blue); text-decoration: none; padding: 8px;
-            border-radius: 8px; font-size: 13px; font-weight: bold; border: 1px solid #ddd;
+        .download-btn {
+            background: #f8f9fa;
+            color: var(--dark-blue);
+            text-align: center;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: bold;
+            border: 1px solid #ddd;
         }
 
-        .back-home {
-            position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px;
-            background: var(--dark-blue); color: white; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            text-decoration: none; font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .download-btn:hover { background: #eee; }
+
+        .back-fixed {
+            position: fixed; bottom: 20px; left: 20px;
+            width: 50px; height: 50px;
+            background: var(--dark-blue); color: white;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <h1 style="margin:0;">دروس الشيخ سعيد مصطفى دياب</h1>
+        <h1 style="margin:0; color: var(--dark-blue);">الشيخ سعيد مصطفى دياب</h1>
     </header>
 
     <div class="nav-bar">
@@ -92,61 +109,71 @@
         <a href="tafseer.html" class="nav-link">التفسير</a>
         <a href="khutbah.html" class="nav-link">الخطب</a>
     </div>
-<div class="container">
-    <h2 style="text-align: center; color: var(--dark-blue); margin-top: 40px;">📿 سلسلة أنوار الأذكار</h2>
-    <div id="azkarContainer" class="lessons-grid">
-        </div>
-</div>
-    <h2 class="section-title">✨ سلسلة أنوار الأذكار</h2>
-    <div id="azkarContainer" class="lessons-grid">
-        </div>
 
-    <h2 class="section-title">📚 الدروس العلمية العامة</h2>
-    <div id="generalLessonsContainer" class="lessons-grid">
-        </div>
+    <div class="container">
+        <h2 class="page-title">📚 الدروس العلمية والسلاسل</h2>
+        
+        <div class="lessons-grid" id="mainContainer">
+            </div>
+    </div>
 
-    <a href="index.html" class="back-home">🏠</a>
+    <a href="index.html" class="back-fixed">🏠</a>
 
     <script src="lessonsData.js"></script>
+    <script src="azkardata.js"></script>
 
     <script>
-        // دالة عرض الدروس
-        function displayLessons() {
-            const azkarContainer = document.getElementById("azkarContainer");
-            const generalContainer = document.getElementById("generalLessonsContainer");
+        const mainContainer = document.getElementById("mainContainer");
 
-            // تأكد أن مصفوفة الدروس موجودة في ملف lessonsData.js
+        function loadAllContent() {
+            let allContent = [];
+
+            // 1. جلب الدروس العلمية العامة
             if (typeof allLessons !== 'undefined') {
-                
-                allLessons.forEach(lesson => {
-                    const cardHTML = `
-                        <div class="lesson-card ${lesson.category === 'الأذكار' ? 'azkar-type' : ''}">
-                            <span class="category-badge">${lesson.category}</span>
-                            <h3>${lesson.title}</h3>
-                            <audio controls>
-                                <source src="audio/${lesson.file}" type="audio/mpeg">
-                            </audio>
-                            <a href="audio/${lesson.file}" download class="btn-download">📥 تحميل MP3</a>
-                        </div>
-                    `;
-
-                    // إذا كان التصنيف "الأذكار" يذهب للحاوية العلوية، وغير ذلك للعامة
-                    if (lesson.category === "الأذكار") {
-                        azkarContainer.innerHTML += cardHTML;
-                    } else {
-                        generalContainer.innerHTML += cardHTML;
-                    }
+                allLessons.forEach(item => {
+                    item.type = 'general'; // لتمييز النوع
+                    allContent.push(item);
                 });
-
-                // رسالة في حال كان قسم الأذكار فارغاً
-                if (azkarContainer.innerHTML === "") {
-                    azkarContainer.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>قريباً إن شاء الله...</p>";
-                }
             }
+
+            // 2. جلب دروس الأذكار
+            if (typeof azkarLessons !== 'undefined') {
+                azkarLessons.forEach(item => {
+                    item.type = 'azkar'; // لتمييز النوع
+                    allContent.push(item);
+                });
+            }
+
+            // 3. عرض المحتوى المدمج
+            if (allContent.length === 0) {
+                mainContainer.innerHTML = "<p style='text-align:center;'>لا توجد دروس محملة حالياً.</p>";
+                return;
+            }
+
+            allContent.forEach(lesson => {
+                const isAzkar = (lesson.type === 'azkar');
+                const cardClass = isAzkar ? 'lesson-card azkar-type' : 'lesson-card';
+                const tagLabel = isAzkar ? '✨ قسم الأذكار' : (lesson.category || 'درس علمي');
+
+                mainContainer.innerHTML += `
+                    <div class="${cardClass}">
+                        <div>
+                            <span class="category-tag">${tagLabel}</span>
+                            <h3>${lesson.title}</h3>
+                            <p style="font-size: 12px; color: #888; margin: 0;">⏱ المدة: ${lesson.duration || 'غير محددة'}</p>
+                        </div>
+                        <audio controls>
+                            <source src="audio/${lesson.file}" type="audio/mpeg">
+                        </audio>
+                        <a href="audio/${lesson.file}" download class="download-btn">📥 تحميل الملف</a>
+                    </div>
+                `;
+            });
         }
 
-        // تشغيل الدالة عند تحميل الصفحة
-        window.onload = displayLessons;
+        // بدء التنفيذ
+        window.onload = loadAllContent;
     </script>
+
 </body>
 </html>
