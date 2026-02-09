@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البحث في الموقع - الشيخ سعيد مصطفى دياب</title>
+    <title>البحث الشامل - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,7 +18,6 @@
             font-family: 'Cairo', sans-serif;
             background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
             min-height: 100vh;
-            padding-bottom: 120px;
         }
 
         /* الهيدر الموحد */
@@ -29,17 +28,16 @@
         }
         .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 700; }
 
-        /* صندوق البحث 3D */
+        /* صندوق البحث */
         .search-container {
             max-width: 800px;
             margin: -30px auto 40px;
             padding: 0 20px;
-            text-align: center;
         }
 
         .search-box {
             width: 100%;
-            padding: 20px;
+            padding: 18px 25px;
             font-size: 18px;
             font-family: 'Cairo';
             border: 2px solid white;
@@ -47,17 +45,12 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             outline: none;
             color: var(--dark-blue);
-            transition: 0.3s;
+            box-sizing: border-box;
         }
 
-        .search-box:focus {
-            box-shadow: 0 15px 35px rgba(135, 206, 235, 0.4);
-            transform: translateY(-3px);
-        }
-
-        /* نتائج البحث */
+        /* النتائج */
         .results-container {
-            max-width: 900px;
+            max-width: 850px;
             margin: auto;
             padding: 20px;
         }
@@ -65,23 +58,17 @@
         .result-item {
             background: white;
             margin-bottom: 15px;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 15px 20px;
+            border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             border-right: 5px solid var(--accent-blue);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .result-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.1rem; }
-        .result-info span { font-size: 12px; color: #888; background: #f0f0f0; padding: 2px 8px; border-radius: 5px; }
+        .result-tag { font-size: 11px; background: var(--light-blue); color: var(--dark-blue); padding: 2px 10px; border-radius: 20px; font-weight: bold; }
 
         .go-btn {
             background: var(--accent-blue);
@@ -90,21 +77,19 @@
             padding: 8px 15px;
             border-radius: 8px;
             font-weight: bold;
-            box-shadow: 0 4px 0 #5f9ea0;
+            font-size: 14px;
+            box-shadow: 0 3px 0 #5f9ea0;
         }
 
-        /* أيقونة العودة الدائرية */
         .back-fixed {
             position: fixed; bottom: 30px; left: 30px;
-            width: 65px; height: 65px;
+            width: 60px; height: 60px;
             background: linear-gradient(145deg, #add8e6, #87ceeb);
             color: var(--dark-blue); text-decoration: none;
             border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
+            font-size: 24px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border: 2px solid #ffffff; z-index: 1000;
         }
-
-        .no-results { text-align: center; color: #888; margin-top: 50px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -114,55 +99,63 @@
     </header>
 
     <div class="search-container">
-        <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن عنوان درس، خطبة، أو مقال..." onkeyup="performSearch()">
+        <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن درس، خطبة، أو باب فقهي..." onkeyup="startSearch()">
     </div>
 
     <div class="results-container" id="resultsList">
-        <p class="no-results">ابدأ الكتابة للبحث في محتوى الموقع...</p>
+        <p style="text-align: center; color: #888;">اكتب كلمة للبحث (مثلاً: الصلاة، الزكاة، الموت...)</p>
     </div>
 
-    <a href="index.html" class="back-fixed" title="الرئيسية">🏠</a>
+    <a href="index.html" class="back-fixed">🏠</a>
 
+    <script src="fiqhData.js"></script>
+    <script src="khutbahData.js"></script>
+    <script src="faraidData.js"></script>
     <script>
-        // مصفوفة بيانات تجريبية (يجب أن تملأها ببيانات موقعك أو تربطها بملفات الـ JS الأخرى)
-        const allData = [
-            { title: "فضل الدعاء", type: "مقالات", link: "articles.html" },
-            { title: "شرح الأصول الثلاثة", type: "توحيد", link: "tawheed.html" },
-            { title: "كتاب الطهارة - الدرس 1", type: "فقه", link: "fiqh.html" },
-            { title: "خطبة الجمعة: الصبر", type: "خطب", link: "khutbah.html" },
-            { title: "تفسير سورة الفاتحة", type: "تفسير", link: "tafseer.html" },
-            { title: "الصدق والإخلاص", type: "رقائق", link: "raqaiq.html" }
-        ];
+        // 1. تجميع كل البيانات في مصفوفة واحدة ضخمة عند تحميل الصفحة
+        let masterData = [];
 
-        function performSearch() {
+        window.onload = () => {
+            // دمج دروس الفقه
+            if (typeof fiqhLessons !== 'undefined') {
+                fiqhLessons.forEach(l => masterData.push({ title: l.title, link: 'fiqh.html', tag: 'فقه' }));
+            }
+            // دمج الخطب
+            if (typeof khutbahLessons !== 'undefined') {
+                khutbahLessons.forEach(l => masterData.push({ title: l.title, link: 'khutbah.html', tag: 'خطب' }));
+            }
+            // دمج الفرائض
+            if (typeof faraidLessons !== 'undefined') {
+                faraidLessons.forEach(l => masterData.push({ title: l.title, link: 'faraid.html', tag: 'فرائض' }));
+            }
+            // أضف أي أقسام أخرى بنفس الطريقة
+        };
+
+        function startSearch() {
             const query = document.getElementById("searchInput").value.toLowerCase();
             const container = document.getElementById("resultsList");
             container.innerHTML = "";
 
-            if (query === "") {
-                container.innerHTML = '<p class="no-results">ابدأ الكتابة للبحث في محتوى الموقع...</p>';
-                return;
-            }
+            if (query.length < 2) return; // يبدأ البحث بعد كتابة حرفين
 
-            const filtered = allData.filter(item => item.title.toLowerCase().includes(query));
+            const filtered = masterData.filter(item => item.title.toLowerCase().includes(query));
 
             if (filtered.length === 0) {
-                container.innerHTML = '<p class="no-results">عذراً، لم يتم العثور على نتائج تطابق بحثك.</p>';
+                container.innerHTML = '<p style="text-align:center; color:#888;">لم يتم العثور على نتائج.</p>';
             } else {
                 filtered.forEach(item => {
                     container.innerHTML += `
                         <div class="result-item">
                             <div class="result-info">
-                                <span>${item.type}</span>
-                                <h3>${item.title}</h3>
+                                <span class="result-tag">${item.tag}</span>
+                                <h3 style="margin-top:5px;">${item.title}</h3>
                             </div>
-                            <a href="${item.link}" class="go-btn">انتقال ⬅️</a>
+                            <a href="${item.link}" class="go-btn">عرض ⬅️</a>
                         </div>
                     `;
                 });
             }
         }
     </script>
-
 </body>
 </html>
