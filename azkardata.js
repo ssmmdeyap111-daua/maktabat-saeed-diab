@@ -7,6 +7,7 @@ const azkarLessons = [
         duration: "03:40" 
     }
 ];
+,
 // أضف هذا الدرس الثاني إلى مصفوفة azkarLessons في ملف azkardata.js
 {
     title: "أنوار الأذكار - الدرس الثاني",
