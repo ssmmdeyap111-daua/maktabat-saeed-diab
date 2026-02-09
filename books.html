@@ -3,39 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤلفات الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <title>مؤلفات الشيخ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500&family=Noto+Kufi+Arabic:wght@700&display=swap" rel="stylesheet">
     <style>
         body { margin: 0; padding: 0; font-family: 'Noto Kufi Arabic', sans-serif; background: linear-gradient(to bottom, #eef5ff, #d0e4ff); }
-        .header-books { text-align: center; padding: 40px; background: #ffffff; border-bottom: 4px solid #3fa1d6; }
-        .title-kufi { font-family: 'Reem Kufi', sans-serif; color: #1a508b; font-size: 3rem; margin: 0; }
+        .header-books { text-align: center; padding: 30px; background: linear-gradient(to right, #70c0e8, #a2d9ff); }
         
-        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; width: 90%; margin: 50px auto; }
-        .book-card { background: white; padding: 15px; border-radius: 15px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; }
-        .book-card:hover { transform: translateY(-10px); }
-        .book-card img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-        .book-card span { display: block; font-weight: bold; font-size: 15px; margin-bottom: 15px; color: #333; height: 40px; }
+        /* زر العودة ثلاثي الأبعاد */
+        .back-3d {
+            display: inline-block;
+            margin: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            color: #1a508b;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: 6px 6px 12px #c5ced1, -6px -6px 12px #ffffff;
+            transition: 0.3s;
+        }
+        .back-3d:hover { transform: scale(1.05); box-shadow: 3px 3px 6px #c5ced1; }
+
+        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; width: 90%; margin: 30px auto; }
+        .book-card { background: white; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .book-card img { width: 100%; border-radius: 5px; }
+        .download-btn { display: inline-block; margin-top: 10px; background: #27ae60; color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; }
         
-        .download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 10px 20px; border-radius: 50px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 0 #1e8449; }
-        .download-btn:hover { background: #2ecc71; }
-        
-        .back-home { display: block; text-align: center; margin: 30px; text-decoration: none; color: #1a508b; font-weight: bold; }
-        footer { text-align: center; padding: 30px; background: #3fa1d6; color: white; }
+        footer { text-align: center; padding: 30px; background: #3fa1d6; color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
-    <div class="header-books"><h1 class="title-kufi">المكتبة الرسمية</h1></div>
-    <a href="index.html" class="back-home">⬅ العودة للرئيسية</a>
-    <div class="books-grid">
-        <div class="book-card"><img src="images/al-arbon-veal-amthal.jpg.jpg"><span>الأربعون في الأمثال</span><a href="pdf/book1.pdf" class="download-btn">📥 تحميل PDF</a></div>
-        <div class="book-card"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"><span>الاعتبار بطرائف الأخبار</span><a href="pdf/book2.pdf" class="download-btn">📥 تحميل PDF</a></div>
-        <div class="book-card"><img src="images/al-ilmam-siyam.jpg.jpg"><span>الإلمام بالصيام</span><a href="pdf/book3.pdf" class="download-btn">📥 تحميل PDF</a></div>
-        <div class="book-card"><img src="images/al-irshad.jpg"><span>الإرشاد</span><a href="pdf/book4.pdf" class="download-btn">📥 تحميل PDF</a></div>
-        <div class="book-card"><img src="images/allaalea-wa-aldorr.jpg.jpg"><span>اللآلئ والدرر</span><a href="pdf/book5.pdf" class="download-btn">📥 تحميل PDF</a></div>
-        <div class="book-card"><img src="images/asaleeb-alquran.jpg"><span>أساليب القرآن</span><a href="pdf/book6.pdf" class="download-btn">📥 تحميل PDF</a></div>
-        <div class="book-card"><img src="images/fadhl-duaa.jpg"><span>فضل الدعاء</span><a href="pdf/book7.pdf" class="download-btn">📥 تحميل PDF</a></div>
-        <div class="book-card"><img src="images/shmael-al-rasool.jpg.jpg"><span>شمائل الرسول</span><a href="pdf/book8.pdf" class="download-btn">📥 تحميل PDF</a></div>
+    <div class="header-books"><h1 style="font-family:'Reem Kufi'; color:#1a508b;">المكتبة الرسمية</h1></div>
+    
+    <div style="text-align: center;">
+        <a href="index.html" class="back-3d">🏠 العودة للرئيسية</a>
     </div>
+
+    <div class="books-grid">
+        <div class="book-card"><img src="images/al-arbon-veal-amthal.jpg.jpg"><p>الأربعون في الأمثال</p><a href="#" class="download-btn">تحميل PDF</a></div>
+        <div class="book-card"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"><p>الاعتبار بطرائف الأخبار</p><a href="#" class="download-btn">تحميل PDF</a></div>
+        <div class="book-card"><img src="images/al-ilmam-siyam.jpg.jpg"><p>الإلمام بالصيام</p><a href="#" class="download-btn">تحميل PDF</a></div>
+    </div>
+
     <footer>&copy; جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب</footer>
 </body>
 </html>
