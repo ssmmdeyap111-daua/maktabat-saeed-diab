@@ -3,79 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&family=Noto+Kufi+Arabic:wght@400;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <title>موقع الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500&family=Noto+Kufi+Arabic:wght@400;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; font-family: 'Noto Kufi Arabic', sans-serif; background: linear-gradient(to bottom, #eef5ff, #d0e4ff); overflow-x: hidden; }
-        .site-header { text-align: center; padding: 50px 20px; background: #ffffff; border-bottom: 4px solid #3fa1d6; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .sheikh-title { font-family: 'Reem Kufi', sans-serif; font-size: 3.5rem; color: #1a508b; margin: 0; }
-        .site-subtitle { display: block; font-family: 'Reem Kufi', sans-serif; font-size: 1.4rem; color: #3fa1d6; margin-top: 10px; }
+        body { margin: 0; padding: 0; font-family: 'Noto Kufi Arabic', sans-serif; background: linear-gradient(to bottom, #eef5ff, #d0e4ff); min-height: 100vh; }
         
-        /* شريط الآية من اليسار إلى اليمين */
-        .ayah-bar { width: 100%; overflow: hidden; background: #3fa1d6; padding: 15px 0; white-space: nowrap; }
-        .ayah-slider { display: inline-block; animation: moveLTR 25s linear infinite; }
-        .ayah-slider span { font-size: 24px; color: #ffffff; font-family: "Amiri", serif; font-weight: bold; padding: 0 50px; }
+        /* الشريط العلوي أزرق فاتح */
+        .site-header { 
+            text-align: center; 
+            padding: 40px 20px; 
+            background: linear-gradient(to right, #70c0e8, #a2d9ff); 
+            border-bottom: 3px solid #ffffff; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        /* العنوان في سطر واحد وبخط جميل */
+        .sheikh-title { 
+            font-family: 'Reem Kufi', sans-serif; 
+            font-size: 3rem; 
+            color: #1a508b; 
+            margin: 0; 
+            white-space: nowrap; 
+        }
+
+        .ayah-bar { width: 100%; overflow: hidden; background: #3fa1d6; padding: 12px 0; white-space: nowrap; }
+        .ayah-slider { display: inline-block; animation: moveLTR 20s linear infinite; }
+        .ayah-slider span { font-size: 22px; color: #ffffff; font-family: "Amiri", serif; padding: 0 50px; }
         @keyframes moveLTR { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
 
-        .search-wrapper { display: flex; justify-content: center; margin: 35px 0; }
-        .search-wrapper input { width: 55%; max-width: 500px; padding: 18px 25px; border-radius: 50px; border: none; background: rgba(255,255,255,0.4); backdrop-filter: blur(10px); box-shadow: 0 6px 18px rgba(0,0,0,0.15); text-align: center; font-size: 18px; outline: none; }
+        .search-wrapper { display: flex; justify-content: center; margin: 30px 0; }
+        .search-wrapper input { width: 60%; max-width: 500px; padding: 15px; border-radius: 50px; border: none; background: rgba(255,255,255,0.6); box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; font-size: 16px; outline: none; }
 
-        .main-icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 30px 0; }
-        .icon-btn { padding: 15px 30px; font-size: 17px; font-weight: bold; text-decoration: none; color: white; background: linear-gradient(145deg, #4aa3d6, #3a8ec2); border-radius: 12px; box-shadow: 0 6px 0 #2a5298; transition: 0.2s; }
-        .icon-btn:hover { transform: translateY(-5px); }
+        .main-icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 20px; }
+        .icon-btn { padding: 12px 25px; font-size: 16px; font-weight: bold; text-decoration: none; color: white; background: linear-gradient(145deg, #4aa3d6, #3a8ec2); border-radius: 10px; box-shadow: 0 5px 0 #2a5298; transition: 0.2s; }
+        .icon-btn:hover { transform: translateY(-3px); }
 
-        /* سلايدر الكتب المصلح */
-        .books-section { text-align: center; margin: 50px 0; position: relative; }
-        .books-container { position: relative; width: 85%; margin: auto; display: flex; align-items: center; background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 20px; }
-        .books-wrapper { overflow: hidden; width: 100%; }
-        .books-slider { display: flex; transition: transform 0.5s ease; gap: 20px; }
-        .book-slide { flex: 0 0 auto; width: 150px; }
-        .book-slide img { width: 100%; border-radius: 10px; box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-        .arrow { background: #1a508b; color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 20px; position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; }
-        .prev { left: -25px; } .next { right: -25px; }
+        /* سلايدر الكتب والأسهم */
+        .books-section { text-align: center; margin: 40px auto; width: 90%; }
+        .slider-container { position: relative; display: flex; align-items: center; background: rgba(255,255,255,0.3); padding: 20px; border-radius: 20px; }
+        .books-wrapper { overflow-x: auto; scroll-behavior: smooth; display: flex; gap: 20px; padding: 10px; scrollbar-width: none; /* إخفاء شريط التمرير */ }
+        .books-wrapper::-webkit-scrollbar { display: none; }
+        
+        .book-slide { flex: 0 0 auto; width: 140px; }
+        .book-slide img { width: 100%; border-radius: 8px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+
+        .arrow { background: #1a508b; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 24px; position: absolute; z-index: 10; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .prev { right: -25px; } .next { left: -25px; }
+
         footer { text-align: center; padding: 30px; background: #3fa1d6; color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
-    <header class="site-header"><h1 class="sheikh-title">سعيد مصطفى دياب</h1><span class="site-subtitle">الموقع الرسمي لفضيلة الشيخ</span></header>
-    <div class="ayah-bar"><div class="ayah-slider"><span>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ﴾ [يوسف: 108]</span></div></div>
+    <header class="site-header">
+        <h1 class="sheikh-title">فضيلة الشيخ سعيد مصطفى دياب</h1>
+    </header>
+
+    <div class="ayah-bar"><div class="ayah-slider"><span>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي﴾</span></div></div>
+
     <div class="search-wrapper"><input type="text" placeholder="🔍 ابحث في الموقع ..."></div>
+
     <nav class="main-icons">
         <a href="index.html" class="icon-btn">الرئيسية</a>
         <a href="books.html" class="icon-btn">الكتب</a>
         <a href="articles.html" class="icon-btn">المقالات</a>
         <a href="lessons.html" class="icon-btn">الدروس</a>
-        <a href="contact.html" class="icon-btn">تواصل معنا</a>
     </nav>
+
     <div class="books-section">
-        <div class="books-container">
-            <button class="arrow prev" onclick="scrollSlider('left')">&#10094;</button>
-            <div class="books-wrapper"><div class="books-slider" id="slider">
+        <div class="slider-container">
+            <button class="arrow prev" onclick="sideScroll(this,'right',25,200)">&#10094;</button>
+            <div class="books-wrapper" id="scroll-content">
                 <div class="book-slide"><img src="images/al-arbon-veal-amthal.jpg.jpg"></div>
                 <div class="book-slide"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></div>
                 <div class="book-slide"><img src="images/al-ilmam-siyam.jpg.jpg"></div>
                 <div class="book-slide"><img src="images/al-irshad.jpg"></div>
                 <div class="book-slide"><img src="images/allaalea-wa-aldorr.jpg.jpg"></div>
                 <div class="book-slide"><img src="images/asaleeb-alquran.jpg"></div>
-                <div class="book-slide"><img src="images/fadhl-duaa.jpg"></div>
-                <div class="book-slide"><img src="images/ithaf-ahl-alrusoukh.jpg.jpg"></div>
-                <div class="book-slide"><img src="images/kabar-al-ahad.jpg.jpg"></div>
-                <div class="book-slide"><img src="images/kashf-alnqab.jpg.jpg"></div>
-                <div class="book-slide"><img src="images/katar-al-reba.jpg.jpg"></div>
                 <div class="book-slide"><img src="images/shmael-al-rasool.jpg.jpg"></div>
-            </div></div>
-            <button class="arrow next" onclick="scrollSlider('right')">&#10095;</button>
+            </div>
+            <button class="arrow next" onclick="sideScroll(this,'left',25,200)">&#10095;</button>
         </div>
     </div>
+
     <footer>&copy; 2026 جميع الحقوق محفوظة لـ موقع الشيخ سعيد مصطفى دياب</footer>
+
     <script>
-        const slider = document.getElementById('slider');
-        let moveVal = 0;
-        function scrollSlider(dir) {
-            const step = 170; const max = slider.scrollWidth - slider.parentElement.offsetWidth;
-            if(dir === 'right') moveVal -= step; else moveVal += step;
-            if(moveVal < -max) moveVal = -max; if(moveVal > 0) moveVal = 0;
-            slider.style.transform = `translateX(${moveVal}px)`;
+        function sideScroll(element, direction, speed, distance) {
+            let container = document.getElementById('scroll-content');
+            let scrollAmount = 0;
+            let slideTimer = setInterval(function() {
+                if (direction == 'left') {
+                    container.scrollLeft -= speed;
+                } else {
+                    container.scrollLeft += speed;
+                }
+                scrollAmount += speed;
+                if (scrollAmount >= distance) {
+                    window.clearInterval(slideTimer);
+                }
+            }, 10);
         }
     </script>
 </body>
