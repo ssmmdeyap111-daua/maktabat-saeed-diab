@@ -1,366 +1,177 @@
-/* ===== إعدادات عامة ===== */
-body {
-    margin: 0;
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    background: linear-gradient(to bottom, #eef5ff, #d0e4ff);
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
 
-/* ===== الشريط العلوي ===== */
-.header-bar {
-    background: linear-gradient(to right, #3fa1d6, #70c0e8);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-    font-size: 28px;
-}
-.site-title {
-    margin: 0;
-    font-size: 32px;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&family=Amiri:wght@700&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 
-/* ===== شريط الآية ===== */
-.ayah-bar {
-    width: 100%;
-    overflow: hidden;
-    background: #d0e4ff;
-    border-bottom: 1px solid #b0d4f0;
-    padding: 16px 0;
-}
-.ayah-slider {
-    display: flex;
-    width: max-content;
-    animation: ayahMove 25s linear infinite reverse;
-}
-.ayah-slider span {
-    font-size: 26px;
-    font-weight: bold;
-    color: #065f46;
-    white-space: nowrap;
-    margin-right: 60px;
-    font-family: "Amiri", serif;
-}
-@keyframes ayahMove {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-}
+    <style>
+        /* ===== 1. إعدادات العنوان الرئيسي (خط اليد) - وضعتها لك في البداية ===== */
+        .site-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: #ffffff; /* خلفية بيضاء لتبدو كصفحة كتاب */
+            border-bottom: 3px solid #8e6d13; /* خط ذهبي وقور */
+            margin-bottom: 0;
+        }
 
-/* ===== الكتب ===== */
-.books-wrapper {
-    position: relative;
-    overflow: hidden;
-    width: 90%;
-    margin: auto;
-    background: #e6f2fa;
-    padding: 20px 0;
-    border-radius: 12px;
-}
-.books-slider {
-    display: flex;
-}
-.book-slide {
-    flex: 0 0 auto;
-    width: 150px;
-    margin: 0 12px;
-    text-align: center;
-}
-.book-slide img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-.book-slide img:hover {
-    transform: scale(1.08);
-}
-.book-prev, .book-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background:#4aa3d6;
-    color:white;
-    font-size:24px;
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-    z-index:10;
-}
-.book-prev:hover, .book-next:hover { background:#3a8ec2; }
-.book-prev { left:10px; }
-.book-next { right:10px; }
+        .sheikh-title {
+            font-family: 'Aref Ruqaa', serif; /* الخط الذي يشبه خط اليد */
+            font-size: 4.5rem; /* حجم كبير وفخم */
+            color: #2c3e50; /* لون كحلي غامق */
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
 
-/* ===== أيقونات ثلاثية الأبعاد ===== */
-.main-icons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 30px 0;
-}
-.icon-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    background: linear-gradient(145deg, #4aa3d6, #3a8ec2);
-    border-radius: 12px;
-    box-shadow: 0 6px 0 #2a5298, 0 6px 12px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.icon-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 11px 12px #2a5298, 0 12px 20px rgba(0,0,0,0.25);
-    background: #3a8ec2;
-}
-.icon-btn:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 5px #2a5298, 0 4px 8px rgba(0,0,0,0.2);
-}
+        .site-subtitle {
+            display: block;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.8rem;
+            color: #8e6d13; /* لون ذهبي */
+            margin-top: 10px;
+        }
 
-/* ===== خانة البحث الزجاجية ===== */
-.search-wrapper{
-    display:flex;
-    justify-content:center;
-    margin:35px 0;
-}
-.search-wrapper input{
-    width:55%;
-    max-width:500px;
-    padding:18px 25px;
-    border-radius:50px;
-    border:none;
-    outline:none;
-    font-size:18px;
-    text-align:center;
-    background:rgba(255,255,255,0.25);
-    backdrop-filter:blur(10px);
-    box-shadow:0 6px 18px rgba(0,0,0,0.15);
-    transition:0.3s;
-}
-.search-wrapper input:focus{
-    background:rgba(255,255,255,0.4);
-    transform:scale(1.03);
-}
+        /* ===== 2. إعدادات عامة للجسم ===== */
+        body {
+            margin: 0;
+            font-family: 'Noto Kufi Arabic', sans-serif;
+            background: linear-gradient(to bottom, #eef5ff, #d0e4ff);
+        }
 
-/* ===== زر العودة للصفحة الرئيسية ===== */
-.back-home-container{
-    text-align:center;
-    margin: 60px 0 30px;
-}
-.back-home-btn{
-    display:inline-block;
-    padding:15px 35px;
-    font-size:18px;
-    color:white;
-    text-decoration:none;
-    border-radius:40px;
-    background: linear-gradient(145deg, #1e90ff, #0a58ca);
-    box-shadow:0 6px 15px rgba(0,0,0,0.3);
-    transition:0.3s;
-}
-.back-home-btn:hover{
-    transform: translateY(-5px);
-    box-shadow:0 12px 25px rgba(0,0,0,0.4);
-}
-.back-home-btn:active{
-    transform: translateY(2px);
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-}
+        /* ===== 3. شريط الآية المتحرك ===== */
+        .ayah-bar {
+            width: 100%;
+            overflow: hidden;
+            background: #d0e4ff;
+            border-bottom: 1px solid #b0d4f0;
+            padding: 16px 0;
+        }
+        .ayah-slider {
+            display: flex;
+            width: max-content;
+            animation: ayahMove 25s linear infinite reverse;
+        }
+        .ayah-slider span {
+            font-size: 26px;
+            font-weight: bold;
+            color: #065f46;
+            white-space: nowrap;
+            margin-right: 60px;
+            font-family: "Amiri", serif;
+        }
+        @keyframes ayahMove {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
 
-/* ===== أيقونات الفروع والدروس ===== */
-.icon-box{
-    width: 180px;
-    height: 180px;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    border-radius: 20px;
-    box-shadow:8px 8px 20px rgba(0,0,0,0.2), -8px -8px 20px rgba(255,255,255,0.7);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    transition:0.4s;
-    position:relative;
-    overflow:hidden;
-    animation: floatIcon 3s ease-in-out infinite;
-}
-.icon-box:hover{
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-}
-.icon-box img{
-    width:70px;
-    margin-bottom:10px;
-    transition:0.4s;
-}
-.icon-box:hover img{
-    transform: scale(1.1);
-}
-.icon-box span{
-    font-size:18px;
-    color:#333;
-    font-weight:bold;
-}
-@keyframes floatIcon{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-6px);}
-    100%{transform:translateY(0);}
-}
+        /* ===== 4. خانة البحث الزجاجية ===== */
+        .search-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 35px 0;
+        }
+        .search-wrapper input {
+            width: 55%;
+            max-width: 500px;
+            padding: 18px 25px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
 
-/* ===== أسفل الصفحة ===== */
-footer{
-    text-align:center;
-    padding:20px;
-    background:#3fa1d6;
-    color:white;
-    margin-top:40px;
-}
-/* حاوية أيقونات السور */
-.tafseer-icons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
-    margin:40px 0;
-}
+        /* ===== 5. الأيقونات والأزرار ===== */
+        .main-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .icon-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(145deg, #4aa3d6, #3a8ec2);
+            border-radius: 12px;
+            box-shadow: 0 6px 0 #2a5298;
+            transition: 0.2s;
+        }
+        .icon-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 11px 12px #2a5298;
+        }
 
-/* تصميم الأيقونة */
-.tafseer-icon{
-    width:150px;
-    height:70px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+        /* ===== 6. قسم الكتب ===== */
+        .books-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 90%;
+            margin: auto;
+            background: #e6f2fa;
+            padding: 20px 0;
+            border-radius: 12px;
+        }
+        .books-slider { display: flex; }
+        .book-slide { flex: 0 0 auto; width: 150px; margin: 0 12px; }
+        .book-slide img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    color:#333;
+        /* ===== 7. أسفل الصفحة ===== */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #3fa1d6;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
 
-    background: linear-gradient(145deg,#ffffff,#e6e6e6);
-    border-radius:14px;
+    <header class="site-header">
+        <h1 class="sheikh-title">سعيد مصطفى دياب</h1>
+        <span class="site-subtitle">الموقع الرسمي لفضيلة الشيخ</span>
+    </header>
 
-    /* تأثير ثلاثي الأبعاد */
-    box-shadow:
-        0 6px 0 #cfcfcf,
-        0 10px 18px rgba(0,0,0,0.25);
+    <div class="ayah-bar">
+        <div class="ayah-slider">
+            <span>قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي﴾</span>
+        </div>
+    </div>
 
-    transition:0.3s;
-}
+    <div class="search-wrapper">
+        <input type="text" placeholder="🔍 ابحث في الموقع ...">
+    </div>
 
-/* عند المرور */
-.tafseer-icon:hover{
-    transform:translateY(-6px);
-    box-shadow:
-        0 12px 0 #cfcfcf,
-        0 18px 25px rgba(0,0,0,0.3);
-}
+    <div class="main-icons">
+        <a href="#" class="icon-btn">الرئيسية</a>
+        <a href="#" class="icon-btn">الكتب</a>
+        <a href="#" class="icon-btn">المقالات</a>
+        <a href="#" class="icon-btn">الدروس</a>
+        <a href="#" class="icon-btn">تواصل معنا</a>
+    </div>
 
-/* عند الضغط */
-.tafseer-icon:active{
-    transform:translateY(4px);
-    box-shadow:
-        0 2px 0 #cfcfcf;
-}
-.tafseer-icons{
-    display:flex;
-    justify-content:center;
-    gap:18px;
-    margin-top:30px;
-    flex-wrap:wrap;
-}
+    <div class="books-wrapper">
+        <div class="books-slider">
+            <div class="book-slide"><img src="images/book1.jpg" alt="كتاب"></div>
+            <div class="book-slide"><img src="images/book2.jpg" alt="كتاب"></div>
+            <div class="book-slide"><img src="images/book3.jpg" alt="كتاب"></div>
+        </div>
+    </div>
 
-.tafseer-btn{
-    padding:12px 26px;
-    font-size:15px;
-    font-weight:bold;
-    text-decoration:none;
-    color:white;
+    <footer>
+        &copy; 2026 جميع الحقوق محفوظة لـ موقع الشيخ سعيد مصطفى دياب
+    </footer>
 
-    background: linear-gradient(145deg, #4aa3d6, #3a8ec2);
-    border-radius:12px;
-
-    box-shadow:0 6px 0 #2a5298, 0 6px 12px rgba(0,0,0,0.2);
-
-    transition:0.2s;
-}
-
-.tafseer-btn:hover{
-    transform:translateY(-5px);
-    box-shadow:0 11px 0 #2a5298, 0 12px 20px rgba(0,0,0,0.25);
-}
-
-.tafseer-btn:active{
-    transform:translateY(3px);
-    box-shadow:0 2px 0 #2a5298;
-}
-.surah-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 18px;
-    width: 90%;
-    margin: 40px auto;
-}
-
-.surah-card {
-    background: linear-gradient(145deg, #4aa3d6, #3a8ec2);
-    color: white;
-    padding: 20px 10px;
-    border-radius: 18px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-
-    /* ثلاثي الأبعاد */
-    box-shadow:
-        6px 6px 14px rgba(0,0,0,0.3),
-        inset -3px -3px 6px rgba(255,255,255,0.2);
-
-    transition: 0.3s;
-}
-
-.surah-card:hover {
-    transform: translateY(-6px);
-    box-shadow:
-        0 14px 25px rgba(0,0,0,0.35),
-        inset -2px -2px 5px rgba(255,255,255,0.15);
-}
-
-.surah-number {
-    font-size: 14px;
-    opacity: 0.8;
-}
-.site-header {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #fdfcf9; /* خلفية ورقية فاتحة */
-}
-
-.sheikh-title {
-    font-family: 'Aref Ruqaa', serif;
-    font-size: 3.5rem;      /* حجم كبير وواضح */
-    color: #2c3e50;         /* لون كحلي وقور أو استخدم #8e6d13 للذهبي */
-    margin: 0;
-    letter-spacing: -1px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* ظل خفيف جداً للعمق */
-    display: inline-block;
-    border-bottom: 2px solid #8e6d13; /* خط ذهبي نحيف تحت الاسم للزينة */
-    padding-bottom: 10px;
-}
-
-.site-subtitle {
-    display: block;
-    font-family: 'Aref Ruqaa', serif;
-    font-size: 1.5rem;
-    color: #8e6d13; /* لون ذهبي باهت للمسمى الوظيفي */
-    margin-top: 10px;
-}
+</body>
+</html>
