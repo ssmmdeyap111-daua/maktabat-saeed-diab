@@ -5,9 +5,8 @@ const azkarLessons = [
         file: "anwar-alazkar-1.mp3.wav", // تم التعديل ليطابق الملف المرفوع
         category: "الأذكار",
         duration: "03:40" 
-    }
-];
-,
+    },
+]; 
 // أضف هذا الدرس الثاني إلى مصفوفة azkarLessons في ملف azkardata.js
 {
     title: "أنوار الأذكار - الدرس الثاني",
