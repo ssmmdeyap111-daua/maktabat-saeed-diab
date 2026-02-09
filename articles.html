@@ -1,146 +1,131 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موقع الشيخ سعيد مصطفى دياب الرسمي - المقالات</title>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
-<style>
-body {
-    margin:0;
-    font-family: 'Noto Kufi Arabic', Tahoma, Arial, sans-serif;
-    background: linear-gradient(to bottom, #eef5ff, #d0e4ff);
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات العلمية - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-blue: #eef5ff;
+            --main-blue: #add8e6;
+            --dark-blue: #2c5d87;
+            --accent-blue: #87ceeb;
+        }
 
-/* ====== شريط العنوان ====== */
-.header-bar {
-    background: linear-gradient(to right, #3fa1d6, #70c0e8);
-    color:white;
-    padding:50px 20px 20px;
-    text-align:center;
-}
-.site-title {
-    margin:0 0 10px;
-    font-size:28px;
-}
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
+            min-height: 100vh;
+            padding-bottom: 120px;
+        }
 
-/* ====== أيقونات الصفحة ====== */
-.main-icons {
-    text-align:center;
-    margin: 20px 0;
-}
-.icon-btn {
-    display:inline-block;
-    padding:10px 20px;
-    margin:8px;
-    background:#70c0e8;
-    color:white;
-    font-size:14px;
-    border-radius:12px;
-    text-decoration:none;
-    box-shadow: 0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-}
-.icon-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
-}
+        /* الهيدر الموحد */
+        .site-header { 
+            text-align: center; padding: 60px 20px; 
+            background: linear-gradient(to right, #add8e6, #e0f2f7); 
+            border-bottom: 4px solid #ffffff;
+        }
+        .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 700; }
 
-/* ====== قائمة المقالات ====== */
-.article-container {
-    max-width:900px;
-    margin:auto;
-    padding:20px;
-}
-.article {
-    background: #eef5ff;
-    border-radius:12px;
-    padding:15px;
-    margin:15px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.article h3 {
-    margin-bottom:10px;
-    color:#0a7aaf;
-}
-.article p {
-    font-size:14px;
-    color:#0f172a;
-    line-height:1.6;
-}
+        /* شريط التنقل العلوي 3D */
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.2); }
+        .nav-link { 
+            padding: 10px 18px; background: var(--accent-blue); color: white; 
+            text-decoration: none; border-radius: 10px; font-weight: bold;
+            box-shadow: 0 4px 0 #5f9ea0; transition: 0.2s;
+        }
+        .nav-link:hover { transform: translateY(-2px); }
 
-/* ====== العودة للصفحة الرئيسية ====== */
-.back-home {
-    display:inline-block;
-    margin:20px;
-    padding:10px 20px;
-    background:#70c0e8;
-    color:white;
-    border-radius:12px;
-    text-decoration:none;
-    box-shadow: 0 6px 0 #3fa1d6, 0 6px 12px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-    float:left;
-}
-.back-home:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 0 #3fa1d6, 0 12px 15px rgba(0,0,0,0.15);
-}
+        /* حاوية وقوائم المقالات */
+        .article-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .article-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-right: 6px solid var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+        .article-card h3 {
+            margin: 0 0 15px 0;
+            color: var(--dark-blue);
+            font-size: 1.4rem;
+        }
+        .article-card p {
+            font-size: 16px;
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
 
-/* ====== الحقوق ====== */
-.footer {
-    text-align:center;
-    padding:20px;
-    font-size:14px;
-    color:#0f172a;
-    clear:both;
-}
-</style>
+        /* أيقونة العودة الدائرية 3D */
+        .back-fixed {
+            position: fixed; bottom: 30px; left: 30px;
+            width: 65px; height: 65px;
+            background: linear-gradient(145deg, #add8e6, #87ceeb);
+            color: var(--dark-blue); text-decoration: none;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
+        }
+        .back-fixed:hover { transform: scale(1.1); }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+    </style>
 </head>
 <body>
 
-<!-- ====== شريط العنوان ====== -->
-<div class="header-bar">
-    <div class="site-title">موقع الشيخ سعيد مصطفى دياب الرسمي</div>
-</div>
+    <header class="site-header">
+        <h1 class="sheikh-title">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
+    </header>
 
-<!-- ====== أيقونات الصفحة ====== -->
-<div class="main-icons">
-    <a href="index.html" class="icon-btn">الرئيسية</a>
-    <a href="books.html" class="icon-btn">الكتب</a>
-    <a href="articles.html" class="icon-btn">المقالات</a>
-    <a href="lessons.html" class="icon-btn">الدروس</a>
-    <a href="khutbah.html" class="icon-btn">الخطب</a>
-    <a href="contact.html" class="icon-btn">تواصل معنا</a>
-    <a href="about.html" class="icon-btn">من نحن</a>
-    <a href="faq.html" class="icon-btn">الأسئلة</a>
-</div>
-
-<!-- ====== قائمة المقالات ====== -->
-<h2 style="text-align:center; margin:30px 0;">المقالات</h2>
-<div class="article-container">
-    <div class="article">
-        <h3>المقال الأول: فضل الدعاء</h3>
-        <p>الدعاء هو عبادة عظيمة يتقرب بها العبد إلى الله تعالى...</p>
+    <div class="nav-bar">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="books.html" class="nav-link">الكتب</a>
+        <a href="lessons.html" class="nav-link">الدروس</a>
+        <a href="khutbah.html" class="nav-link">الخطب</a>
+        <a href="articles.html" class="nav-link">المقالات</a>
     </div>
-    <div class="article">
-        <h3>المقال الثاني: أهمية العلم في حياة المسلم</h3>
-        <p>العلم نور يهدي الإنسان إلى الطريق الصحيح ويساعده على فهم دينه...</p>
-    </div>
-    <div class="article">
-        <h3>المقال الثالث: الأخلاق الإسلامية</h3>
-        <p>الأخلاق هي أساس بناء الشخصية المسلمة وهي معيار قبول العمل...</p>
-    </div>
-</div>
 
-<!-- ====== العودة للصفحة الرئيسية ====== -->
-<a href="index.html" class="back-home">العودة للصفحة الرئيسية</a>
+    <h2 style="text-align:center; color: var(--dark-blue); margin: 40px 0;">المقالات النافعة</h2>
 
-<!-- ====== الحقوق ====== -->
-<div class="footer">
-    جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب
-</div>
+    <div class="article-container">
+        <div class="article-card">
+            <h3>المقال الأول: فضل الدعاء</h3>
+            <p>الدعاء هو عبادة عظيمة يتقرب بها العبد إلى الله تعالى، وهو سلاح المؤمن في الرخاء والشدة...</p>
+        </div>
+
+        <div class="article-card">
+            <h3>المقال الثاني: أهمية العلم في حياة المسلم</h3>
+            <p>العلم نور يهدي الإنسان إلى الطريق الصحيح ويساعده على فهم دينه وتطبيق أحكام الله ببصيرة...</p>
+        </div>
+
+        <div class="article-card">
+            <h3>المقال الثالث: الأخلاق الإسلامية</h3>
+            <p>الأخلاق هي أساس بناء الشخصية المسلمة وهي معيار قبول العمل، وبها يرتقي المجتمع المسلم...</p>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-fixed" title="الرئيسية">🏠</a>
+
+    <div class="footer">
+        جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب &copy; 2026
+    </div>
 
 </body>
 </html>
