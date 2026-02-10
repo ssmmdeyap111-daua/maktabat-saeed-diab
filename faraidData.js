@@ -1,43 +1,11 @@
-
 const faraidLessons = [
-
-{
-title: "شرح المنظومة الرحبية - الدرس الأول",
-file: "audio/al-rhapih1.mp3",
-lessonNumber: 1,
-duration: "20 دقيقة"
-},
-
-{
-title: "شرح المنظومة الرحبية - الدرس الثاني",
-file: "audio/al-rhapih2.mp3",
-lessonNumber: 2,
-duration: "18 دقيقة"
-},
-
-{
-title: "شرح المنظومة الرحبية - الدرس الثالث",
-file: "audio/al-rhapih3.mp3",
-lessonNumber: 3,
-duration: "18 دقيقة"
-},
-
-{
-title: "شرح المنظومة الرحبية - الدرس الرابع",
-file: "audio/al-rhapih4.mp3",
-lessonNumber: 4,
-duration: "18 دقيقة"
-},
-
-{
-title: "شرح المنظومة الرحبية - الدرس الخامس",
-file: "audio/al-rhapih5.mp3",
-lessonNumber: 5,
-duration: "18 دقيقة"
-}
+    { title: "شرح المنظومة الرحبية - الدرس 1", file: "al-rhapih1.mp3", cat: "فرائض" },
+    { title: "شرح المنظومة الرحبية - الدرس 2", file: "al-rhapih2.mp3", cat: "فرائض" },
+    { title: "شرح المنظومة الرحبية - الدرس 3", file: "al-rhapih3.mp3", cat: "فرائض" },
+    { title: "شرح المنظومة الرحبية - الدرس 4", file: "al-rhapih4.mp3", cat: "فرائض" },
+    { title: "شرح المنظومة الرحبية - الدرس 5", file: "al-rhapih5.mp3", cat: "فرائض" },
+    { title: "شرح المنظومة الرحبية - الدرس 6", file: "al-rhapih6.mp3", cat: "فرائض" },
+    { title: "شرح المنظومة الرحبية - الدرس 7", file: "al-rhapih7.mp3", cat: "فرائض" },
+    { title: "شرح المنظومة الرحبية - الدرس 8", file: "al-rhapih8.mp3", cat: "فرائض" },
+    { title: "شرح المنظومة الرحبية - الدرس 9", file: "al-rhapih9.mp3", cat: "فرائض" }
 ];
-    const faraidLessons = [
-    // ... الدروس السابقة (1 إلى 5)
-    { title: "شرح المنظومة الرحبية - الدرس 6", file: "al-rhapih6.mp3", cat: "فرائض" }
-];
-
