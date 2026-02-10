@@ -9,7 +9,6 @@
         :root { --main-blue: #add8e6; --dark-blue: #2c5d87; }
         body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: #f8fbff; color: #333; }
         
-        /* الهيدر */
         .site-header { 
             text-align: center; padding: 25px; 
             background-color: var(--main-blue); 
@@ -19,7 +18,6 @@
 
         .container { max-width: 1200px; margin: auto; padding: 20px; }
 
-        /* الأقسام الرئيسية */
         .category-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
         .cat-card {
             background: white; padding: 12px 22px; border-radius: 10px; cursor: pointer;
@@ -29,7 +27,6 @@
         .cat-card:active { transform: translateY(3px); box-shadow: none; }
         .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue); }
 
-        /* منطقة فلتر السور */
         #surahFilterContainer {
             display: none;
             background: #fff;
@@ -48,11 +45,8 @@
             border: 1px solid #ddd;
             width: 100%;
             max-width: 300px;
-            outline: none;
-            cursor: pointer;
         }
 
-        /* شبكة الدروس */
         .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .lesson-card { 
             background: white; padding: 18px; border-radius: 15px; 
@@ -63,11 +57,15 @@
         .lesson-card h3 { margin: 10px 0; font-size: 1rem; color: var(--dark-blue); min-height: 2.5em; }
         
         audio { width: 100%; height: 35px; margin-top: 10px; }
-        .download-btn { 
-            display: block; text-align: center; margin-top: 15px; padding: 8px;
-            background: #f9f9f9; color: var(--dark-blue); text-decoration: none; 
-            border-radius: 5px; font-size: 12px; font-weight: bold; border: 1px solid #eee;
+        
+        .btn-group { display: flex; gap: 8px; margin-top: 15px; }
+        .btn {
+            flex: 1; text-align: center; padding: 8px;
+            text-decoration: none; border-radius: 5px; 
+            font-size: 12px; font-weight: bold;
         }
+        .download-btn { background: #f1f3f4; color: #333; border: 1px solid #ddd; }
+        .play-btn { background: var(--dark-blue); color: white; }
     </style>
 </head>
 <body>
@@ -109,7 +107,6 @@
     function init() {
         allData = [];
         
-        // جلب البيانات مع إضافة تصنيفات تلقائية
         if (typeof tafseerData !== 'undefined') {
             tafseerData.forEach(i => allData.push({...i, cat: i.cat || 'تفسير'}));
             updateSurahDropdown();
@@ -132,9 +129,7 @@
 
     function updateSurahDropdown() {
         const select = document.getElementById("surahSelect");
-        // استخراج السور الفريدة من ملف التفسير فقط
         const surahs = [...new Set(tafseerData.map(item => item.surah))].filter(s => s).sort();
-        
         surahs.forEach(surahName => {
             let opt = document.createElement("option");
             opt.value = surahName;
@@ -153,18 +148,24 @@
         }
 
         items.forEach(item => {
-            // تنظيف اسم الملف وإضافة متغير لمنع الكاش (Cache) المسبب لتعطل التشغيل
             let cleanFile = item.file.trim();
+            // إضافة رقم نسخة عشوائي لمنع مشاكل الكاش وتحسين التحميل
             let path = "audio/" + cleanFile + "?v=" + Math.random().toString(36).substring(7);
 
             list.innerHTML += `
                 <div class="lesson-card">
                     <small># ${item.cat} ${item.surah ? ' - ' + item.surah : ''}</small>
                     <h3>${item.title}</h3>
-                    <audio controls preload="none">
+                    
+                    <audio controls preload="metadata">
                         <source src="${path}" type="audio/mpeg">
+                        متصفحك لا يدعم التشغيل.
                     </audio>
-                    <a href="${path}" download class="download-btn">📥 تحميل الملف</a>
+
+                    <div class="btn-group">
+                        <a href="${path}" download class="btn download-btn">📥 تحميل</a>
+                        <a href="${path}" target="_blank" class="btn play-btn">▶️ نافذة مستقلة</a>
+                    </div>
                 </div>`;
         });
     }
@@ -182,11 +183,8 @@
     }
 
     function filterBySurah(surahName) {
-        if (surahName === 'all') {
-            render(allData.filter(i => i.cat === 'تفسير'));
-        } else {
-            render(allData.filter(i => i.cat === 'تفسير' && i.surah === surahName));
-        }
+        if (surahName === 'all') render(allData.filter(i => i.cat === 'تفسير'));
+        else render(allData.filter(i => i.cat === 'تفسير' && i.surah === surahName));
     }
 
     window.onload = init;
