@@ -6,72 +6,67 @@
     <title>المكتبة العلمية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* الألوان المتوافقة مع الصفحة الرئيسية */
         :root { 
-            --main-color: #2c5d87; /* الأزرق الغامق */
-            --light-bg: #f4f7f9;
-            --accent-color: #add8e6; /* الأزرق السماوي */
+            --light-blue: #add8e6; /* الأزرق الفاتح المطلوب */
+            --dark-blue: #2c5d87; 
+            --bg-color: #fcfdfe;
         }
 
         body { 
             margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
-            background-color: var(--light-bg); color: #333; 
+            background-color: var(--bg-color); color: #333; 
         }
 
-        /* الهيدر بنفس نمط الصفحة الرئيسية */
+        /* شريط العنوان بلون أزرق فاتح */
         .site-header { 
             text-align: center; padding: 30px 20px; 
-            background-color: var(--main-color); 
-            color: white; border-bottom: 5px solid var(--accent-color);
+            background-color: var(--light-blue); 
+            color: var(--dark-blue);
+            border-bottom: 4px solid #fff;
         }
-        .site-header h1 { margin: 0; font-size: 1.8rem; }
-        .site-header p { margin: 10px 0 0; opacity: 0.9; font-size: 1rem; }
+        .site-header h1 { margin: 0; font-size: 1.8rem; font-weight: 700; }
 
         .container { max-width: 1200px; margin: auto; padding: 20px; }
 
-        /* شريط الأقسام (الأيقونات) */
+        /* أيقونات الأقسام بلون أزرق فاتح */
         .category-grid { 
-            display: flex; justify-content: center; gap: 8px; 
+            display: flex; justify-content: center; gap: 10px; 
             flex-wrap: wrap; margin-bottom: 30px; 
         }
         .cat-card {
-            background: white; padding: 10px 15px; border-radius: 8px; cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #ddd; 
-            font-weight: bold; color: var(--main-color); transition: 0.3s;
-            min-width: 80px; text-align: center; font-size: 14px;
+            background: #fff; padding: 12px 20px; border-radius: 10px; cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 2px solid var(--light-blue); 
+            font-weight: bold; color: var(--dark-blue); transition: 0.3s;
+            min-width: 85px; text-align: center;
         }
-        .cat-card:hover { background: #eef6fc; }
         .cat-card.active { 
-            background: var(--main-color); color: white; 
-            border-color: var(--main-color); box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background: var(--light-blue); 
+            color: var(--dark-blue);
+            box-shadow: 0 4px 12px rgba(173, 216, 230, 0.4);
         }
 
-        /* شبكة الدروس */
         .lessons-grid { 
             display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
             gap: 20px; 
         }
         .lesson-card { 
-            background: white; padding: 20px; border-radius: 12px; 
+            background: white; padding: 20px; border-radius: 15px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            border-top: 5px solid var(--main-color);
-            display: flex; flex-direction: column; transition: transform 0.2s;
+            border-top: 5px solid var(--light-blue);
+            display: flex; flex-direction: column;
         }
-        .lesson-card:hover { transform: translateY(-5px); }
-        .lesson-card small { color: #7f8c8d; font-weight: bold; display: block; margin-bottom: 5px; }
-        .lesson-card h3 { margin: 0 0 15px 0; font-size: 1.1rem; color: #2c3e50; min-height: 3em; line-height: 1.4; }
+        .lesson-card h3 { margin: 0 0 15px 0; font-size: 1.1rem; color: var(--dark-blue); min-height: 2.5em; }
         
         audio { width: 100%; height: 35px; margin-top: auto; }
         
         .btn-group { display: flex; gap: 8px; margin-top: 15px; }
         .btn {
-            flex: 1; text-align: center; padding: 10px;
-            text-decoration: none; border-radius: 6px; 
-            font-size: 13px; font-weight: bold; transition: 0.3s;
+            flex: 1; text-align: center; padding: 9px;
+            text-decoration: none; border-radius: 7px; 
+            font-size: 13px; font-weight: bold;
         }
-        .download-btn { background: #f8f9fa; color: #333; border: 1px solid #ccc; }
-        .play-btn { background: var(--main-color); color: white; }
-        .btn:hover { opacity: 0.8; }
+        .download-btn { background: #f0f2f5; color: #555; }
+        .play-btn { background: var(--light-blue); color: var(--dark-blue); }
     </style>
 </head>
 <body>
@@ -96,26 +91,19 @@
 </div>
 
 <script>
-    // مصفوفة البيانات (أضف دروسك هنا تحت كل قسم)
+    // --- ضع دروسك هنا لكي لا تختفي ---
     const allData = [
-        // قسم الأحاديث
+        // دروس الأحاديث
         { title: "شرح رياض الصالحين - الدرس 1", file: "reyad-1.mp3", cat: "حديث" },
         { title: "شرح رياض الصالحين - الدرس 2", file: "reyad-2.mp3", cat: "حديث" },
         
-        // قسم التفسير
+        // دروس التفسير
         { title: "تفسير سورة الفاتحة", file: "fateha.mp3", cat: "تفسير" },
-        
-        // قسم الفقه (مثال)
-        { title: "كتاب الطهارة - الدرس 1", file: "fiqh-1.mp3", cat: "فقه" },
 
-        // قسم السيرة (مثال)
-        { title: "السيرة النبوية - مقدمة", file: "seerah-1.mp3", cat: "سيرة" },
+        // دروس الفرائض (أضف دروس الفرائض القديمة هنا)
+        { title: "درس الفرائض 1", file: "faraid-1.mp3", cat: "فرائض" },
 
-        // قسم الرقائق (مثال)
-        { title: "أعمال القلوب", file: "rakaek-1.mp3", cat: "رقائق" },
-
-        // قسم الفرائض (مثال)
-        { title: "علم المواريث - مقدمة", file: "faraid-1.mp3", cat: "فرائض" }
+        // يمكنك إضافة الفقه والسيرة والرقائق بنفس الطريقة
     ];
 
     function render(items) {
@@ -123,7 +111,7 @@
         list.innerHTML = "";
         
         if (items.length === 0) {
-            list.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:50px;'>قريباً إن شاء الله..</p>";
+            list.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:50px; color:#999;'>قريباً إن شاء الله..</p>";
             return;
         }
 
@@ -131,14 +119,14 @@
             let path = "audio/" + item.file.trim();
             list.innerHTML += `
                 <div class="lesson-card">
-                    <small>📂 قسم ${item.cat}</small>
+                    <small style="color:var(--dark-blue); font-weight:bold; margin-bottom:5px; display:block;">📂 ${item.cat}</small>
                     <h3>${item.title}</h3>
-                    <audio controls preload="none">
+                    <audio controls preload="metadata">
                         <source src="${path}" type="audio/mpeg">
                     </audio>
                     <div class="btn-group">
-                        <a href="${path}" download class="btn download-btn">📥 تحميل</a>
-                        <a href="${path}" target="_blank" class="btn play-btn">▶️ تشغيل مستقل</a>
+                        <a href="${path}" download class="btn download-btn">تحميل</a>
+                        <a href="${path}" target="_blank" class="btn play-btn">تشغيل مباشر</a>
                     </div>
                 </div>`;
         });
@@ -147,19 +135,11 @@
     function filterMain(cat, btn) {
         document.querySelectorAll('.cat-card').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        
-        if (cat === 'all') {
-            render(allData);
-        } else {
-            const filtered = allData.filter(i => i.cat === cat);
-            render(filtered);
-        }
+        if (cat === 'all') render(allData);
+        else render(allData.filter(i => i.cat === cat));
     }
 
-    window.onload = function() {
-        render(allData);
-    };
+    window.onload = function() { render(allData); };
 </script>
-
 </body>
 </html>
