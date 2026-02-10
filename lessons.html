@@ -6,13 +6,14 @@
     <title>المكتبة الصوتية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --main-blue: #add8e6; --dark-blue: #2c5d87; }
-        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: #f8fbff; }
+        :root { --main-blue: #add8e6; --dark-blue: #2c5d87; --bg-body: #f8fbff; }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: var(--bg-body); }
         
         .site-header { 
-            text-align: center; padding: 20px; 
+            text-align: center; padding: 25px; 
             background-color: var(--main-blue); 
             border-bottom: 3px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .container { max-width: 1100px; margin: auto; padding: 20px; }
@@ -20,16 +21,16 @@
         /* الأيقونات ثلاثية الأبعاد بدون صور */
         .category-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .cat-card {
-            background: white; padding: 10px 20px; border-radius: 8px; cursor: pointer;
-            box-shadow: 0 4px 0 #ccd1d9; border: 1px solid #ddd; font-weight: bold; color: var(--dark-blue);
-            min-width: 90px; text-align: center; transition: 0.2s;
+            background: white; padding: 12px 22px; border-radius: 10px; cursor: pointer;
+            box-shadow: 0 4px 0 #ccd1d9; border: 1px solid #ddd; font-weight: bold; 
+            color: var(--dark-blue); min-width: 90px; text-align: center; transition: 0.2s;
         }
         .cat-card:active { transform: translateY(3px); box-shadow: none; }
         .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue); }
 
         .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .lesson-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-right: 5px solid var(--main-blue); }
-        .lesson-card h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--dark-blue); min-height: 2.5em; }
+        .lesson-card h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--dark-blue); min-height: 2.5em; line-height: 1.5; }
         
         audio { width: 100%; height: 35px; }
         .download-btn { 
@@ -42,7 +43,8 @@
 <body>
 
 <header class="site-header">
-    <h2 style="margin:0; color: var(--dark-blue);">الشيخ سعيد مصطفى دياب</h2>
+    <h1 style="margin:0; font-size: 1.6rem; color: var(--dark-blue);">الشيخ سعيد مصطفى دياب</h1>
+    <p style="margin: 5px 0 0 0; color: #555; font-size: 0.9rem;">المكتبة الصوتية الشاملة</p>
 </header>
 
 <div class="container">
@@ -60,11 +62,12 @@
 </div>
 
 <script>
+    // قائمة الدروس المدمجة
     const data = [
-        // --- قسم الرقائق ---
+        // --- الرقائق ---
         { title: "كيف نستقبل رمضان؟", file: "kaif-nstqbl-ramadan.mp3", cat: "رقائق" },
 
-        // --- قسم التفسير ---
+        // --- التفسير ---
         { title: "تفسير سورة الفاتحة - الدرس 1", file: "fatiha-1.mp3", cat: "تفسير" },
         { title: "تفسير سورة الفاتحة - الدرس 2", file: "fatiha-2.mp3", cat: "تفسير" },
         { title: "تفسير سورة البقرة - الدرس 1", file: "bakara-1.mp3", cat: "تفسير" },
@@ -73,14 +76,14 @@
         { title: "تفسير سورة البقرة - الدرس 4", file: "bakara-4.mp3", cat: "تفسير" },
         { title: "تفسير سورة البقرة - الدرس 5", file: "bakara-5.mp3", cat: "تفسير" },
 
-        // --- قسم الفرائض ---
+        // --- الفرائض ---
         { title: "شرح المنظومة الرحبية - الدرس 1", file: "al-rhapih1.mp3", cat: "فرائض" },
         { title: "شرح المنظومة الرحبية - الدرس 2", file: "al-rhapih2.mp3", cat: "فرائض" },
         { title: "شرح المنظومة الرحبية - الدرس 3", file: "al-rhapih3.mp3", cat: "فرائض" },
         { title: "شرح المنظومة الرحبية - الدرس 4", file: "al-rhapih4.mp3", cat: "فرائض" },
         { title: "شرح المنظومة الرحبية - الدرس 5", file: "al-rhapih5.mp3", cat: "فرائض" },
 
-        // --- قسم الأحاديث ---
+        // --- الأحاديث ---
         { title: "شرح رياض الصالحين - الدرس 1", file: "reyad-alsalehen1.mp3", cat: "حديث" }
     ];
 
@@ -89,23 +92,22 @@
         list.innerHTML = "";
         
         if(items.length === 0) {
-            list.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>قريباً إن شاء الله في هذا القسم.</p>";
+            list.innerHTML = "<p style='text-align:center; grid-column:1/-1; padding: 50px;'>قريباً إن شاء الله في هذا القسم.</p>";
             return;
         }
 
         items.forEach(item => {
-            // توحيد المسار ليكون داخل مجلد audio
-            let filePath = item.file;
-            if (!filePath.startsWith('audio/')) {
-                filePath = 'audio/' + filePath;
-            }
+            // تنظيف المسار لضمان عمل الروابط بشكل سليم
+            let cleanFileName = item.file.replace('audio/', '');
+            let filePath = "audio/" + cleanFileName;
 
             list.innerHTML += `
                 <div class="lesson-card">
-                    <small style="color:#777"># ${item.cat}</small>
+                    <small style="color:#777; font-weight:bold;"># ${item.cat}</small>
                     <h3>${item.title}</h3>
                     <audio controls preload="none">
                         <source src="${filePath}" type="audio/mpeg">
+                        متصفحك لا يدعم تشغيل الصوت.
                     </audio>
                     <a href="${filePath}" download class="download-btn">📥 تحميل المادة</a>
                 </div>
@@ -114,12 +116,20 @@
     }
 
     function filterItems(c, btn) {
+        // تحديث شكل الأزرار
         document.querySelectorAll('.cat-card').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        if (c === 'all') show(data);
-        else show(data.filter(i => i.cat === c));
+
+        // تصفية الدروس
+        if (c === 'all') {
+            show(data);
+        } else {
+            const filtered = data.filter(i => i.cat === c);
+            show(filtered);
+        }
     }
 
+    // تشغيل الدالة عند تحميل الصفحة لأول مرة
     window.onload = () => show(data);
 </script>
 
