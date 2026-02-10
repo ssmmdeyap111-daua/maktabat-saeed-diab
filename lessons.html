@@ -6,44 +6,60 @@
     <title>المكتبة الصوتية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --main-blue: #add8e6; --dark-blue: #2c5d87; --bg-body: #f8fbff; }
-        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: var(--bg-body); }
+        :root { --main-blue: #add8e6; --dark-blue: #2c5d87; }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: #f8fbff; color: #333; }
         
+        /* الهيدر */
         .site-header { 
             text-align: center; padding: 25px; 
             background-color: var(--main-blue); 
-            border-bottom: 3px solid #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-bottom: 4px solid #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
 
-        .category-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        /* الأيقونات 3D */
+        .category-grid { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 35px; }
         .cat-card {
-            background: white; padding: 12px 22px; border-radius: 10px; cursor: pointer;
+            background: white; padding: 12px 25px; border-radius: 12px; cursor: pointer;
             box-shadow: 0 4px 0 #ccd1d9; border: 1px solid #ddd; font-weight: bold; 
-            color: var(--dark-blue); min-width: 90px; text-align: center; transition: 0.2s;
+            color: var(--dark-blue); min-width: 100px; text-align: center; transition: 0.2s;
         }
         .cat-card:active { transform: translateY(3px); box-shadow: none; }
         .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue); }
 
-        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .lesson-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-right: 5px solid var(--main-blue); }
-        .lesson-card h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--dark-blue); min-height: 2.5em; line-height: 1.5; }
-        
-        audio { width: 100%; height: 35px; }
-        .download-btn { 
-            display: block; text-align: center; margin-top: 10px; padding: 8px;
-            background: #f9f9f9; color: #2c5d87; text-decoration: none; 
-            border-radius: 5px; font-size: 12px; font-weight: bold; border: 1px solid #eee;
+        /* شبكة الدروس */
+        .lessons-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
         }
+        .lesson-card { 
+            background: white; padding: 18px; border-radius: 15px; 
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06); 
+            border-right: 6px solid var(--main-blue);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .lesson-card small { color: #888; font-weight: bold; display: block; margin-bottom: 5px; }
+        .lesson-card h3 { margin: 0 0 15px 0; font-size: 1.05rem; color: var(--dark-blue); line-height: 1.5; min-height: 3em; }
+        
+        audio { width: 100%; height: 35px; border-radius: 5px; }
+        
+        .download-btn { 
+            display: block; text-align: center; margin-top: 15px; padding: 10px;
+            background: #fdfdfd; color: var(--dark-blue); text-decoration: none; 
+            border-radius: 8px; font-size: 13px; font-weight: bold; border: 1px solid #eee;
+            transition: 0.3s;
+        }
+        .download-btn:hover { background: #eee; }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1 style="margin:0; font-size: 1.6rem; color: var(--dark-blue);">الشيخ سعيد مصطفى دياب</h1>
-    <p style="margin: 5px 0 0 0; color: #555; font-size: 0.9rem;">المكتبة الصوتية الشاملة</p>
+    <h1 style="margin:0; font-size: 1.8rem; color: var(--dark-blue);">الشيخ سعيد مصطفى دياب</h1>
+    <p style="margin: 5px 0 0 0; opacity: 0.8;">المكتبة العلمية الصوتية</p>
 </header>
 
 <div class="container">
@@ -57,68 +73,91 @@
         <div class="cat-card" onclick="filterItems('سيرة', this)">السيرة</div>
     </div>
 
-    <div class="lessons-grid" id="list"></div>
+    <div class="lessons-grid" id="list">
+        <p style="text-align:center; grid-column:1/-1;">جاري تحميل المكتبة...</p>
+    </div>
 </div>
 
+<script src="tafseerData.js"></script>
+<script src="faraidData.js"></script>
+<script src="hadithData.js"></script>
+<script src="rakaekData.js"></script>
+<script src="fiqhData.js"></script>
+
 <script>
-    const data = [
-        // --- الرقائق ---
-        { title: "كيف نستقبل رمضان؟", file: "ramadan.mp3", cat: "رقائق" },
+    let allData = [];
 
-        // --- التفسير ---
-        { title: "تفسير سورة الفاتحة - الدرس 1", file: "fatiha-1.mp3", cat: "تفسير" },
-        { title: "تفسير سورة الفاتحة - الدرس 2", file: "fatiha-2.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس 1", file: "bakara-1.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس 2", file: "bakara-2.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس 3", file: "bakara-3.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس 4", file: "bakara-4.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس 5", file: "bakara-5.mp3", cat: "تفسير" },
+    function initialize() {
+        allData = [];
 
-        // --- الفرائض ---
-        { title: "شرح المنظومة الرحبية - الدرس 1", file: "al-rhapih1.mp3", cat: "فرائض" },
-        { title: "شرح المنظومة الرحبية - الدرس 2", file: "al-rhapih2.mp3", cat: "فرائض" },
-        { title: "شرح المنظومة الرحبية - الدرس 3", file: "al-rhapih3.mp3", cat: "فرائض" },
-        { title: "شرح المنظومة الرحبية - الدرس 4", file: "al-rhapih4.mp3", cat: "فرائض" },
-        { title: "شرح المنظومة الرحبية - الدرس 5", file: "al-rhapih5.mp3", cat: "فرائض" },
+        // 1. جلب دروس التفسير
+        if (typeof tafseerData !== 'undefined') {
+            tafseerData.forEach(item => allData.push({...item, cat: 'تفسير'}));
+        }
 
-        // --- الأحاديث ---
-        { title: "شرح رياض الصالحين - الدرس 1", file: "reyad-alsalehen1.mp3", cat: "حديث" }
-    ];
+        // 2. جلب دروس الفرائض
+        if (typeof faraidLessons !== 'undefined') {
+            faraidLessons.forEach(item => allData.push({...item, cat: 'فرائض'}));
+        }
 
-    function show(items) {
+        // 3. جلب دروس الحديث
+        if (typeof hadithData !== 'undefined') {
+            hadithData.forEach(item => allData.push({...item, cat: 'حديث'}));
+        }
+
+        // 4. جلب دروس الرقائق
+        if (typeof rakaekData !== 'undefined') {
+            rakaekData.forEach(item => allData.push({...item, cat: 'رقائق'}));
+        }
+
+        // 5. جلب دروس الفقه
+        if (typeof fiqhData !== 'undefined') {
+            fiqhData.forEach(item => allData.push({...item, cat: 'فقه'}));
+        }
+
+        // عرض الكل عند البداية
+        render(allData);
+    }
+
+    function render(items) {
         const list = document.getElementById("list");
         list.innerHTML = "";
         
-        if(items.length === 0) {
-            list.innerHTML = "<p style='text-align:center; grid-column:1/-1; padding: 50px;'>قريباً إن شاء الله.</p>";
+        if (items.length === 0) {
+            list.innerHTML = "<p style='text-align:center; grid-column:1/-1; padding:40px;'>لم يتم العثور على دروس في هذا القسم حالياً.</p>";
             return;
         }
 
         items.forEach(item => {
-            // إضافة مسار المجلد audio تلقائياً
-            let filePath = "audio/" + item.file;
+            // معالجة المسار
+            let file = item.file;
+            let path = file.startsWith('audio/') ? file : 'audio/' + file;
 
             list.innerHTML += `
                 <div class="lesson-card">
-                    <small style="color:#777; font-weight:bold;"># ${item.cat}</small>
-                    <h3>${item.title}</h3>
-                    <audio controls preload="none">
-                        <source src="${filePath}" type="audio/mpeg">
-                    </audio>
-                    <a href="${filePath}" download class="download-btn">📥 تحميل المادة</a>
-                </div>
-            `;
+                    <div>
+                        <small># ${item.cat}</small>
+                        <h3>${item.title}</h3>
+                    </div>
+                    <div>
+                        <audio controls preload="none">
+                            <source src="${path}" type="audio/mpeg">
+                        </audio>
+                        <a href="${path}" download class="download-btn">📥 تحميل الملف</a>
+                    </div>
+                </div>`;
         });
     }
 
     function filterItems(c, btn) {
         document.querySelectorAll('.cat-card').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        if (c === 'all') show(data);
-        else show(data.filter(i => i.cat === c));
+        if (c === 'all') render(allData);
+        else render(allData.filter(i => i.cat === c));
     }
 
-    window.onload = () => show(data);
+    // تشغيل النظام
+    window.onload = initialize;
 </script>
 
 </body>
