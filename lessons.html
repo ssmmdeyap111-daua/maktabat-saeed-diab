@@ -7,14 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --light-blue: #add8e6; /* لون الشريط العلوي */
+            --light-blue: #add8e6;
             --dark-blue: #2c5d87;
             --bg-body: #f4f7f9;
         }
 
         body {
             margin: 0; padding: 0; font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-body); color: #333;
+            background-color: var(--bg-body);
         }
 
         .site-header { 
@@ -32,15 +32,13 @@
         }
 
         .cat-card {
-            background: white; padding: 12px 25px; border-radius: 10px;
+            background: white; padding: 12px 20px; border-radius: 10px;
             cursor: pointer; transition: all 0.2s;
             box-shadow: 0 4px 0 #ccd1d9;
             border: 1px solid #ddd; font-weight: bold; color: var(--dark-blue);
             min-width: 100px; text-align: center;
         }
 
-        .cat-card:active { transform: translateY(3px); box-shadow: none; }
-        
         .cat-card.active { 
             background: var(--dark-blue); color: white; 
             box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue);
@@ -57,7 +55,7 @@
         }
 
         .tag { font-size: 11px; color: #777; background: #eee; padding: 2px 8px; border-radius: 5px; }
-        .lesson-card h3 { margin: 10px 0; font-size: 1rem; color: var(--dark-blue); line-height: 1.5; }
+        .lesson-card h3 { margin: 10px 0; font-size: 1rem; color: var(--dark-blue); }
 
         audio { width: 100%; height: 35px; margin-top: 10px; }
         .download-link { 
@@ -88,44 +86,37 @@
 </div>
 
 <script>
-    /* نضع البيانات هنا مباشرة لضمان ظهورها مهما حدث */
+    /* البيانات (تأكد من مطابقة اسم الملف بالضبط لما هو موجود في مجلد audio) */
     const myLessons = [
         {
             title: "شرح رياض الصالحين - الدرس 1",
-            file: "reyad-alsalehen1.mp3",
+            file: "reyad-alsalehen1.mp3", 
             category: "حديث"
         },
-        /* أضف دروسك القديمة هنا بنفس الطريقة */
         {
-            title: "تفسير سورة الفاتحة",
-            file: "tafseer1.mp3",
-            category: "تفسير"
-        },
-        {
-            title: "الدروس الفقهية - كتاب الصلاة",
-            file: "figh1.mp3",
-            category: "فقه"
+            title: "أنوار الأذكار - الدرس الأول",
+            file: "anwar-alazkar-1.mp3.wav", // هذا مثال للاسم القديم الذي كان يعمل
+            category: "رقائق"
         }
+        /* أضف باقي دروسك هنا */
     ];
 
     function render(data) {
         const container = document.getElementById("mainContainer");
         container.innerHTML = "";
 
-        if (data.length === 0) {
-            container.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>قريباً إن شاء الله في هذا القسم.</p>";
-            return;
-        }
-
         data.forEach(lesson => {
+            // المسار الذي كان يعمل غالباً هو audio/ بدون ./ أو بزيادة نوع الملف
+            const filePath = `audio/${lesson.file}`; 
+            
             container.innerHTML += `
                 <div class="lesson-card">
                     <span class="tag">${lesson.category}</span>
                     <h3>${lesson.title}</h3>
                     <audio controls preload="none">
-                        <source src="audio/${lesson.file}" type="audio/mpeg">
+                        <source src="${filePath}">
                     </audio>
-                    <a href="audio/${lesson.file}" download class="download-link">📥 تحميل الملف الصوتي</a>
+                    <a href="${filePath}" download class="download-link">📥 تحميل الملف</a>
                 </div>
             `;
         });
@@ -134,18 +125,11 @@
     function filterData(cat, el) {
         document.querySelectorAll('.cat-card').forEach(btn => btn.classList.remove('active'));
         el.classList.add('active');
-
-        if (cat === 'all') {
-            render(myLessons);
-        } else {
-            const filtered = myLessons.filter(item => item.category === cat);
-            render(filtered);
-        }
+        if (cat === 'all') render(myLessons);
+        else render(myLessons.filter(item => item.category === cat));
     }
 
-    // تشغيل الصفحة
     window.onload = () => render(myLessons);
 </script>
-
 </body>
 </html>
