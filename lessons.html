@@ -18,7 +18,6 @@
 
         .container { max-width: 1100px; margin: auto; padding: 20px; }
 
-        /* الأيقونات ثلاثية الأبعاد بدون صور */
         .category-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .cat-card {
             background: white; padding: 12px 22px; border-radius: 10px; cursor: pointer;
@@ -62,10 +61,9 @@
 </div>
 
 <script>
-    // قائمة الدروس المدمجة
     const data = [
         // --- الرقائق ---
-        { title: "كيف نستقبل رمضان؟", file: "kaif-nstqbl-ramadan.mp3", cat: "رقائق" },
+        { title: "كيف نستقبل رمضان؟", file: "ramadan.mp3", cat: "رقائق" },
 
         // --- التفسير ---
         { title: "تفسير سورة الفاتحة - الدرس 1", file: "fatiha-1.mp3", cat: "تفسير" },
@@ -92,14 +90,13 @@
         list.innerHTML = "";
         
         if(items.length === 0) {
-            list.innerHTML = "<p style='text-align:center; grid-column:1/-1; padding: 50px;'>قريباً إن شاء الله في هذا القسم.</p>";
+            list.innerHTML = "<p style='text-align:center; grid-column:1/-1; padding: 50px;'>قريباً إن شاء الله.</p>";
             return;
         }
 
         items.forEach(item => {
-            // تنظيف المسار لضمان عمل الروابط بشكل سليم
-            let cleanFileName = item.file.replace('audio/', '');
-            let filePath = "audio/" + cleanFileName;
+            // إضافة مسار المجلد audio تلقائياً
+            let filePath = "audio/" + item.file;
 
             list.innerHTML += `
                 <div class="lesson-card">
@@ -107,7 +104,6 @@
                     <h3>${item.title}</h3>
                     <audio controls preload="none">
                         <source src="${filePath}" type="audio/mpeg">
-                        متصفحك لا يدعم تشغيل الصوت.
                     </audio>
                     <a href="${filePath}" download class="download-btn">📥 تحميل المادة</a>
                 </div>
@@ -116,20 +112,12 @@
     }
 
     function filterItems(c, btn) {
-        // تحديث شكل الأزرار
         document.querySelectorAll('.cat-card').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        // تصفية الدروس
-        if (c === 'all') {
-            show(data);
-        } else {
-            const filtered = data.filter(i => i.cat === c);
-            show(filtered);
-        }
+        if (c === 'all') show(data);
+        else show(data.filter(i => i.cat === c));
     }
 
-    // تشغيل الدالة عند تحميل الصفحة لأول مرة
     window.onload = () => show(data);
 </script>
 
