@@ -17,17 +17,19 @@
 
         .container { max-width: 1100px; margin: auto; padding: 20px; }
 
-        /* الأيقونات 3D بدون صور */
+        /* الأيقونات ثلاثية الأبعاد بدون صور */
         .category-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .cat-card {
             background: white; padding: 10px 20px; border-radius: 8px; cursor: pointer;
             box-shadow: 0 4px 0 #ccd1d9; border: 1px solid #ddd; font-weight: bold; color: var(--dark-blue);
+            min-width: 90px; text-align: center; transition: 0.2s;
         }
+        .cat-card:active { transform: translateY(3px); box-shadow: none; }
         .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue); }
 
         .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .lesson-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-right: 5px solid var(--main-blue); }
-        .lesson-card h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--dark-blue); min-height: 3em; }
+        .lesson-card h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--dark-blue); min-height: 2.5em; }
         
         audio { width: 100%; height: 35px; }
         .download-btn { 
@@ -49,9 +51,9 @@
         <div class="cat-card" onclick="filterItems('تفسير', this)">التفسير</div>
         <div class="cat-card" onclick="filterItems('حديث', this)">الأحاديث</div>
         <div class="cat-card" onclick="filterItems('فرائض', this)">الفرائض</div>
+        <div class="cat-card" onclick="filterItems('رقائق', this)">الرقائق</div>
         <div class="cat-card" onclick="filterItems('فقه', this)">الفقه</div>
         <div class="cat-card" onclick="filterItems('سيرة', this)">السيرة</div>
-        <div class="cat-card" onclick="filterItems('رقائق', this)">الرقائق</div>
     </div>
 
     <div class="lessons-grid" id="list"></div>
@@ -59,31 +61,40 @@
 
 <script>
     const data = [
-        // دروس التفسير الجديدة
-        { title: "تفسير سورة الفاتحة - الدرس الأول", file: "fatiha-1.mp3", cat: "تفسير" },
-        { title: "تفسير سورة الفاتحة - الدرس الثاني", file: "fatiha-2.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس الأول", file: "bakara-1.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس الثاني", file: "bakara-2.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس الثالث", file: "bakara-3.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس الرابع", file: "bakara-4.mp3", cat: "تفسير" },
-        { title: "تفسير سورة البقرة - الدرس الخامس", file: "bakara-5.mp3", cat: "تفسير" },
+        // --- قسم الرقائق ---
+        { title: "كيف نستقبل رمضان؟", file: "kaif-nstqbl-ramadan.mp3", cat: "رقائق" },
 
-        // دروس الفرائض
-        { title: "شرح المنظومة الرحبية - الدرس 1", file: "audio/al-rhapih1.mp3", cat: "فرائض" },
-        { title: "شرح المنظومة الرحبية - الدرس 2", file: "audio/al-rhapih2.mp3", cat: "فرائض" },
-        { title: "شرح المنظومة الرحبية - الدرس 3", file: "audio/al-rhapih3.mp3", cat: "فرائض" },
-        { title: "شرح المنظومة الرحبية - الدرس 4", file: "audio/al-rhapih4.mp3", cat: "فرائض" },
-        { title: "شرح المنظومة الرحبية - الدرس 5", file: "audio/al-rhapih5.mp3", cat: "فرائض" },
+        // --- قسم التفسير ---
+        { title: "تفسير سورة الفاتحة - الدرس 1", file: "fatiha-1.mp3", cat: "تفسير" },
+        { title: "تفسير سورة الفاتحة - الدرس 2", file: "fatiha-2.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس 1", file: "bakara-1.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس 2", file: "bakara-2.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس 3", file: "bakara-3.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس 4", file: "bakara-4.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس 5", file: "bakara-5.mp3", cat: "تفسير" },
 
-        // دروس الأحاديث
-        { title: "شرح رياض الصالحين - الدرس 1", file: "audio/reyad-alsalehen1.mp3", cat: "حديث" }
+        // --- قسم الفرائض ---
+        { title: "شرح المنظومة الرحبية - الدرس 1", file: "al-rhapih1.mp3", cat: "فرائض" },
+        { title: "شرح المنظومة الرحبية - الدرس 2", file: "al-rhapih2.mp3", cat: "فرائض" },
+        { title: "شرح المنظومة الرحبية - الدرس 3", file: "al-rhapih3.mp3", cat: "فرائض" },
+        { title: "شرح المنظومة الرحبية - الدرس 4", file: "al-rhapih4.mp3", cat: "فرائض" },
+        { title: "شرح المنظومة الرحبية - الدرس 5", file: "al-rhapih5.mp3", cat: "فرائض" },
+
+        // --- قسم الأحاديث ---
+        { title: "شرح رياض الصالحين - الدرس 1", file: "reyad-alsalehen1.mp3", cat: "حديث" }
     ];
 
     function show(items) {
         const list = document.getElementById("list");
         list.innerHTML = "";
+        
+        if(items.length === 0) {
+            list.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>قريباً إن شاء الله في هذا القسم.</p>";
+            return;
+        }
+
         items.forEach(item => {
-            // معالجة المسار: إذا كان الاسم لا يبدأ بـ audio/ نقوم بإضافتها
+            // توحيد المسار ليكون داخل مجلد audio
             let filePath = item.file;
             if (!filePath.startsWith('audio/')) {
                 filePath = 'audio/' + filePath;
