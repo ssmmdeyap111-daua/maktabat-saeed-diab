@@ -21,7 +21,7 @@ let allData = [];
                 hadithData.forEach(i => allData.push({...i, cat: i.cat || 'حديث'}));
             }
         } catch(e) { console.log("ملف الحديث غير موجود"); }
-<script src="hadithData.js"></script>
+
         // تحديث القائمة المنسدلة للسور إذا وجد تفسير
         const tafseerItems = allData.filter(i => i.cat === 'تفسير');
         if(tafseerItems.length > 0) updateSurahDropdown(tafseerItems);
