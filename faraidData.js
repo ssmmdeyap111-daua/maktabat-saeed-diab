@@ -35,8 +35,9 @@ file: "audio/al-rhapih5.mp3",
 lessonNumber: 5,
 duration: "18 دقيقة"
 }
-const faraidLessons = [
+];
+    const faraidLessons = [
     // ... الدروس السابقة (1 إلى 5)
     { title: "شرح المنظومة الرحبية - الدرس 6", file: "al-rhapih6.mp3", cat: "فرائض" }
 ];
-];
+
