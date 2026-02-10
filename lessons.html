@@ -7,91 +7,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --light-blue: #add8e6; /* لون الشريط الأعلى الموحد */
-            --bg-color: #f8fbff;
+            --light-blue: #add8e6; /* اللون الأزرق الفاتح المطلوب */
             --dark-blue: #2c5d87;
+            --bg-body: #f4f7f9;
         }
 
         body {
             margin: 0; padding: 0; font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg-body); color: #333;
         }
 
-        /* شريط العنوان الأزرق الفاتح كباقي الموقع */
+        /* الشريط العلوي */
         .site-header { 
-            text-align: center; padding: 30px 20px; 
+            text-align: center; padding: 25px; 
             background-color: var(--light-blue); 
-            border-bottom: 3px solid #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .container { max-width: 1200px; margin: auto; padding: 20px; }
 
-        /* الأيقونات ثلاثية الأبعاد */
+        /* الأيقونات بدون صور (تصميم 3D بسيط) */
         .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px; margin-bottom: 30px;
+            display: flex; justify-content: center; gap: 10px; 
+            flex-wrap: wrap; margin-bottom: 30px;
         }
 
         .cat-card {
-            background: white; padding: 15px; border-radius: 12px;
-            text-align: center; cursor: pointer; transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid #e0e0e0;
-            border-bottom: 4px solid #ccd1d9;
+            background: white; padding: 12px 20px; border-radius: 8px;
+            cursor: pointer; transition: all 0.2s;
+            box-shadow: 0 4px 0 #ccd1d9; /* تأثير 3D */
+            border: 1px solid #ddd; font-weight: bold; color: var(--dark-blue);
         }
 
-        .cat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .cat-card:active { transform: translateY(3px); box-shadow: none; }
         
         .cat-card.active { 
-            background: var(--dark-blue); color: white; border-bottom-color: #1a3a5a; 
+            background: var(--dark-blue); color: white; 
+            box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue);
         }
-
-        .cat-card span { font-size: 24px; display: block; margin-bottom: 5px; }
-        .cat-card p { margin: 0; font-size: 14px; font-weight: bold; }
 
         /* شبكة الدروس */
         .lessons-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
         }
 
         .lesson-card {
-            background: white; padding: 20px; border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: white; padding: 15px; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             border-right: 5px solid var(--light-blue);
-            display: flex; flex-direction: column;
         }
 
-        .tag { font-size: 11px; background: #f0f4f8; padding: 3px 10px; border-radius: 10px; width: fit-content; margin-bottom: 10px; }
-        .lesson-card h3 { margin: 0; font-size: 1.05rem; color: var(--dark-blue); }
+        .tag { font-size: 11px; color: #777; background: #eee; padding: 2px 8px; border-radius: 5px; }
+        .lesson-card h3 { margin: 10px 0; font-size: 1rem; color: var(--dark-blue); }
 
-        audio { width: 100%; height: 35px; margin: 15px 0; }
-        .download-btn {
-            background: #fdfdfd; text-align: center; padding: 8px;
-            text-decoration: none; color: #333; border-radius: 7px;
-            font-size: 13px; border: 1px solid #eee; font-weight: bold;
+        audio { width: 100%; height: 35px; margin-top: 10px; }
+        .download-link { 
+            display: block; text-align: center; margin-top: 10px;
+            font-size: 12px; text-decoration: none; color: #555;
+            font-weight: bold; border-top: 1px solid #eee; padding-top: 10px;
         }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1 style="margin:0; color: var(--dark-blue);">الشيخ سعيد مصطفى دياب</h1>
+    <h1 style="margin:0; font-size: 1.5rem; color: var(--dark-blue);">الشيخ سعيد مصطفى دياب</h1>
 </header>
 
 <div class="container">
     <div class="category-grid">
-        <div class="cat-card active" onclick="filterData('all', this)"><span>📂</span><p>الكل</p></div>
-        <div class="cat-card" onclick="filterData('تفسير', this)"><span>📖</span><p>التفسير</p></div>
-        <div class="cat-card" onclick="filterData('حديث', this)"><span>📚</span><p>شروح الأحاديث</p></div>
-        <div class="cat-card" onclick="filterData('فقه', this)"><span>⚖️</span><p>الفقه</p></div>
-        <div class="cat-card" onclick="filterData('فرائض', this)"><span>📐</span><p>الفرائض</p></div>
-        <div class="cat-card" onclick="filterData('سيرة', this)"><span>🐎</span><p>السيرة</p></div>
-        <div class="cat-card" onclick="filterData('رقائق', this)"><span>💎</span><p>الرقائق</p></div>
+        <div class="cat-card active" onclick="filterData('all', this)">الكل</div>
+        <div class="cat-card" onclick="filterData('تفسير', this)">التفسير</div>
+        <div class="cat-card" onclick="filterData('حديث', this)">شروح الأحاديث</div>
+        <div class="cat-card" onclick="filterData('فقه', this)">الفقه</div>
+        <div class="cat-card" onclick="filterData('فرائض', this)">الفرائض</div>
+        <div class="cat-card" onclick="filterData('سيرة', this)">السيرة</div>
+        <div class="cat-card" onclick="filterData('رقائق', this)">الرقائق</div>
     </div>
 
-    <div class="lessons-grid" id="mainContainer"></div>
+    <div class="lessons-grid" id="mainContainer">
+        </div>
 </div>
 
 <script src="lessonsData.js"></script>
@@ -99,33 +94,23 @@
 <script src="hadithData.js"></script>
 
 <script>
-    let combinedData = [];
+    let allData = [];
 
-    function loadData() {
-        combinedData = [];
-
-        // 1. جلب الدروس العامة (فقه، فرائض، إلخ)
+    function init() {
+        allData = [];
+        
+        // تجميع كل المصفوفات من الملفات الخارجية
         if (typeof allLessons !== 'undefined') {
-            allLessons.forEach(l => combinedData.push(l));
+            allLessons.forEach(item => { if(!item.category) item.category="عام"; allData.push(item); });
         }
-
-        // 2. جلب الأحاديث
         if (typeof hadithLessons !== 'undefined') {
-            hadithLessons.forEach(l => {
-                l.category = "حديث"; // لضمان تصنيفه تحت أيقونة الأحاديث
-                combinedData.push(l);
-            });
+            hadithLessons.forEach(item => { item.category = "حديث"; allData.push(item); });
         }
-
-        // 3. جلب الأذكار (اختياري، يمكنك حذفها لو لا تريدها)
         if (typeof azkarLessons !== 'undefined') {
-            azkarLessons.forEach(l => {
-                l.category = "أذكار";
-                combinedData.push(l);
-            });
+            azkarLessons.forEach(item => { item.category = "أذكار"; allData.push(item); });
         }
 
-        render(combinedData);
+        render(allData);
     }
 
     function render(data) {
@@ -133,37 +118,37 @@
         container.innerHTML = "";
 
         if (data.length === 0) {
-            container.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>لا توجد دروس حالياً في هذا القسم.</p>";
+            container.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>لا توجد دروس حالياً.</p>";
             return;
         }
 
-        data.forEach(item => {
+        data.forEach(lesson => {
             container.innerHTML += `
                 <div class="lesson-card">
-                    <span class="tag">${item.category || 'درس'}</span>
-                    <h3>${item.title}</h3>
+                    <span class="tag">${lesson.category}</span>
+                    <h3>${lesson.title}</h3>
                     <audio controls preload="none">
-                        <source src="audio/${item.file}" type="audio/mpeg">
+                        <source src="audio/${lesson.file}" type="audio/mpeg">
                     </audio>
-                    <a href="audio/${item.file}" download class="download-btn">📥 تحميل الملف</a>
+                    <a href="audio/${lesson.file}" download class="download-link">📥 تحميل الملف</a>
                 </div>
             `;
         });
     }
 
     function filterData(cat, el) {
-        document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.cat-card').forEach(btn => btn.classList.remove('active'));
         el.classList.add('active');
 
         if (cat === 'all') {
-            render(combinedData);
+            render(allData);
         } else {
-            const filtered = combinedData.filter(item => item.category === cat);
+            const filtered = allData.filter(item => item.category === cat);
             render(filtered);
         }
     }
 
-    window.onload = loadData;
+    window.onload = init;
 </script>
 
 </body>
