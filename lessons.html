@@ -9,7 +9,6 @@
         :root { --main-blue: #add8e6; --dark-blue: #2c5d87; }
         body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: #f8fbff; }
         
-        /* الشريط العلوي بنفس اللون المعتاد */
         .site-header { 
             text-align: center; padding: 20px; 
             background-color: var(--main-blue); 
@@ -18,7 +17,7 @@
 
         .container { max-width: 1100px; margin: auto; padding: 20px; }
 
-        /* الأيقونات ثلاثية الأبعاد بدون صور */
+        /* الأيقونات 3D بدون صور */
         .category-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .cat-card {
             background: white; padding: 10px 20px; border-radius: 8px; cursor: pointer;
@@ -26,10 +25,9 @@
         }
         .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue); }
 
-        /* تصميم الكروت */
         .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .lesson-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-right: 5px solid var(--main-blue); }
-        .lesson-card h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--dark-blue); }
+        .lesson-card h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--dark-blue); min-height: 3em; }
         
         audio { width: 100%; height: 35px; }
         .download-btn { 
@@ -48,26 +46,36 @@
 <div class="container">
     <div class="category-grid">
         <div class="cat-card active" onclick="filterItems('all', this)">الكل</div>
-        <div class="cat-card" onclick="filterItems('فرائض', this)">الفرائض</div>
-        <div class="cat-card" onclick="filterItems('حديث', this)">شروح الأحاديث</div>
         <div class="cat-card" onclick="filterItems('تفسير', this)">التفسير</div>
+        <div class="cat-card" onclick="filterItems('حديث', this)">الأحاديث</div>
+        <div class="cat-card" onclick="filterItems('فرائض', this)">الفرائض</div>
         <div class="cat-card" onclick="filterItems('فقه', this)">الفقه</div>
         <div class="cat-card" onclick="filterItems('سيرة', this)">السيرة</div>
         <div class="cat-card" onclick="filterItems('رقائق', this)">الرقائق</div>
     </div>
 
-    <div class="lessons-grid" id="list">
-        </div>
+    <div class="lessons-grid" id="list"></div>
 </div>
 
 <script>
-    // الدروس مدمجة هنا مباشرة لضمان عملها
     const data = [
+        // دروس التفسير الجديدة
+        { title: "تفسير سورة الفاتحة - الدرس الأول", file: "fatiha-1.mp3", cat: "تفسير" },
+        { title: "تفسير سورة الفاتحة - الدرس الثاني", file: "fatiha-2.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس الأول", file: "bakara-1.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس الثاني", file: "bakara-2.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس الثالث", file: "bakara-3.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس الرابع", file: "bakara-4.mp3", cat: "تفسير" },
+        { title: "تفسير سورة البقرة - الدرس الخامس", file: "bakara-5.mp3", cat: "تفسير" },
+
+        // دروس الفرائض
         { title: "شرح المنظومة الرحبية - الدرس 1", file: "audio/al-rhapih1.mp3", cat: "فرائض" },
         { title: "شرح المنظومة الرحبية - الدرس 2", file: "audio/al-rhapih2.mp3", cat: "فرائض" },
         { title: "شرح المنظومة الرحبية - الدرس 3", file: "audio/al-rhapih3.mp3", cat: "فرائض" },
         { title: "شرح المنظومة الرحبية - الدرس 4", file: "audio/al-rhapih4.mp3", cat: "فرائض" },
         { title: "شرح المنظومة الرحبية - الدرس 5", file: "audio/al-rhapih5.mp3", cat: "فرائض" },
+
+        // دروس الأحاديث
         { title: "شرح رياض الصالحين - الدرس 1", file: "audio/reyad-alsalehen1.mp3", cat: "حديث" }
     ];
 
@@ -75,13 +83,20 @@
         const list = document.getElementById("list");
         list.innerHTML = "";
         items.forEach(item => {
+            // معالجة المسار: إذا كان الاسم لا يبدأ بـ audio/ نقوم بإضافتها
+            let filePath = item.file;
+            if (!filePath.startsWith('audio/')) {
+                filePath = 'audio/' + filePath;
+            }
+
             list.innerHTML += `
                 <div class="lesson-card">
+                    <small style="color:#777"># ${item.cat}</small>
                     <h3>${item.title}</h3>
                     <audio controls preload="none">
-                        <source src="${item.file}" type="audio/mpeg">
+                        <source src="${filePath}" type="audio/mpeg">
                     </audio>
-                    <a href="${item.file}" download class="download-btn">📥 تحميل المادة</a>
+                    <a href="${filePath}" download class="download-btn">📥 تحميل المادة</a>
                 </div>
             `;
         });
@@ -94,7 +109,6 @@
         else show(data.filter(i => i.cat === c));
     }
 
-    // تشغيل عند التحميل
     window.onload = () => show(data);
 </script>
 
