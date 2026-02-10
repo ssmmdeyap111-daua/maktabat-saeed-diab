@@ -29,7 +29,7 @@
         .cat-card:active { transform: translateY(3px); box-shadow: none; }
         .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue); }
 
-        /* منطقة فلتر السور - تظهر فقط عند اختيار التفسير */
+        /* منطقة فلتر السور */
         #surahFilterContainer {
             display: none;
             background: #fff;
@@ -109,26 +109,31 @@
     function init() {
         allData = [];
         
-        // جلب البيانات من الملفات الخارجية (إذا وجدت)
+        // جلب البيانات مع إضافة تصنيفات تلقائية
         if (typeof tafseerData !== 'undefined') {
-            tafseerData.forEach(i => allData.push({...i, cat: 'تفسير'}));
-            updateSurahDropdown(); // تحديث قائمة السور
+            tafseerData.forEach(i => allData.push({...i, cat: i.cat || 'تفسير'}));
+            updateSurahDropdown();
         }
         if (typeof faraidLessons !== 'undefined') {
-            faraidLessons.forEach(i => allData.push({...i, cat: 'فرائض'}));
+            faraidLessons.forEach(i => allData.push({...i, cat: i.cat || 'فرائض'}));
         }
         if (typeof hadithData !== 'undefined') {
-            hadithData.forEach(i => allData.push({...i, cat: 'حديث'}));
+            hadithData.forEach(i => allData.push({...i, cat: i.cat || 'حديث'}));
+        }
+        if (typeof rakaekData !== 'undefined') {
+            rakaekData.forEach(i => allData.push({...i, cat: i.cat || 'رقائق'}));
+        }
+        if (typeof fiqhData !== 'undefined') {
+            fiqhData.forEach(i => allData.push({...i, cat: i.cat || 'فقه'}));
         }
 
         render(allData);
     }
 
-    // بناء القائمة المنسدلة للسور بناءً على المكتوب في حقل surah بملف tafseerData
     function updateSurahDropdown() {
         const select = document.getElementById("surahSelect");
-        // استخراج السور الفريدة (بدون تكرار)
-        const surahs = [...new Set(tafseerData.map(item => item.surah))].filter(s => s);
+        // استخراج السور الفريدة من ملف التفسير فقط
+        const surahs = [...new Set(tafseerData.map(item => item.surah))].filter(s => s).sort();
         
         surahs.forEach(surahName => {
             let opt = document.createElement("option");
@@ -148,7 +153,10 @@
         }
 
         items.forEach(item => {
-            let path = item.file.startsWith('audio/') ? item.file : 'audio/' + item.file;
+            // تنظيف اسم الملف وإضافة متغير لمنع الكاش (Cache) المسبب لتعطل التشغيل
+            let cleanFile = item.file.trim();
+            let path = "audio/" + cleanFile + "?v=" + Math.random().toString(36).substring(7);
+
             list.innerHTML += `
                 <div class="lesson-card">
                     <small># ${item.cat} ${item.surah ? ' - ' + item.surah : ''}</small>
@@ -165,11 +173,8 @@
         document.querySelectorAll('.cat-card').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // إظهار فلتر السور فقط عند اختيار "تفسير"
         const surahBox = document.getElementById("surahFilterContainer");
         surahBox.style.display = (cat === 'تفسير') ? 'block' : 'none';
-        
-        // إعادة تصفير القائمة المنسدلة عند تبديل الأقسام
         document.getElementById("surahSelect").value = "all";
 
         if (cat === 'all') render(allData);
@@ -186,6 +191,5 @@
 
     window.onload = init;
 </script>
-
 </body>
 </html>
