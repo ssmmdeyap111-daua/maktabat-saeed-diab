@@ -139,11 +139,11 @@
                             <span class="category-tag">${tagLabel}</span>
                             <h3>${lesson.title}</h3>
                         </div>
-                        <audio controls preload="metadata">
-                            <source src="audio/${lesson.file}" type="audio/wav">
-                            <source src="audio/${lesson.file}" type="audio/mpeg">
-                            متصفحك لا يدعم تشغيل الصوت.
-                        </audio>
+                       <audio controls preload="none">
+    <source src="audio/reyad-alsalehen1.mp3" type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الصوت.
+</audio>
+                
                         <a href="audio/${lesson.file}" download class="download-btn">📥 تحميل الملف</a>
                     </div>
                 `;
