@@ -1,27 +1,12 @@
-const allLessons = [
-    {
-        title: "اسم درس التفسير هنا",
-        file: "tafseer_file.mp3",
-        category: "تفسير"
-    },
-    {
-        title: "اسم درس الفقه هنا",
-        file: "figh_file.mp3",
-        category: "فقه"
-    },
-    {
-        title: "اسم درس الفرائض هنا",
-        file: "farayed_file.mp3",
-        category: "فرائض"
-    },
-    {
-        title: "اسم درس السيرة هنا",
-        file: "seerah_file.mp3",
-        category: "سيرة"
-    },
-    {
-        title: "اسم درس الرقائق هنا",
-        file: "rakaek_file.mp3",
-        category: "رقائق"
-    }
+const hadithData = [
+    { title: "شرح رياض الصالحين - الدرس 1", file: "reyad-1.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 2", file: "reyad-2.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 3", file: "reyad-3.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 4", file: "reyad-4.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 5", file: "reyad-5.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 6", file: "reyad-6.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 7", file: "reyad-7.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 8", file: "reyad-8.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 9", file: "reyad-9.mp3", cat: "حديث" },
+    { title: "شرح رياض الصالحين - الدرس 10", file: "reyad-10.mp3", cat: "حديث" }
 ];
