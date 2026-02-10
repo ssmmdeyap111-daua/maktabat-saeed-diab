@@ -46,19 +46,4 @@ const lessonsData = [
         ]
     }
 ];
-const allLessons = [
-    {
-        title: "أنوار الأذكار - الدرس الأول",
-        file: "anwar-alazkar-1.mp3",
-        category: "الأذكار",
-        duration: "25 دقيقة"
-    },
-    // ... باقي الدروس
-];
-// أضف هذا الجزء داخل مصفوفة allLessons
-{
-    title: "شرح رياض الصالحين - الدرس 1",
-    file: "reyad-alsalehen1.mp3",
-    category: "رياض الصالحين",
-    duration: "جاري التحميل"
-},
+
