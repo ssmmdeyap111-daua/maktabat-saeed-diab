@@ -8,20 +8,20 @@
     <style>
         :root {
             --light-blue: #eef5ff; --main-blue: #add8e6; --dark-blue: #2c5d87;
-            --accent-blue: #87ceeb; --azkar-color: #a29bfe; --hadith-color: #ffadad;
+            --accent-blue: #87ceeb; --azkar-color: #a29bfe; --hadith-color: #4cd137;
         }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(to bottom, var(--light-blue), #d0e4ff); min-height: 100vh; }
         .site-header { text-align: center; padding: 30px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid #fff; }
         
-        /* أزرار الأقسام الجديدة */
+        /* أزرار الأقسام */
         .filter-nav { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
         .filter-btn { 
-            padding: 10px 20px; cursor: pointer; border: none; border-radius: 25px; 
+            padding: 12px 25px; cursor: pointer; border: none; border-radius: 25px; 
             background: white; color: var(--dark-blue); font-weight: bold; transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 15px;
         }
         .filter-btn.active { background: var(--dark-blue); color: white; }
-        .filter-btn:hover { transform: translateY(-3px); }
+        .filter-btn:hover { background: #f0f0f0; }
 
         .container { max-width: 1200px; margin: auto; padding: 20px; }
         .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
@@ -29,22 +29,19 @@
         .lesson-card { 
             background: white; padding: 20px; border-radius: 15px; border-right: 6px solid var(--accent-blue);
             display: flex; flex-direction: column; justify-content: space-between;
-            animation: fadeIn 0.5s ease;
         }
         .card-hadith { border-right-color: var(--hadith-color); }
         .card-azkar { border-right-color: var(--azkar-color); }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
         audio { width: 100%; height: 35px; margin: 15px 0; }
-        .download-btn { background: #f8f9fa; color: var(--dark-blue); text-align: center; padding: 8px; text-decoration: none; border-radius: 7px; font-size: 13px; border: 1px solid #ddd; }
+        .download-btn { background: #f8f9fa; color: var(--dark-blue); text-align: center; padding: 8px; text-decoration: none; border-radius: 7px; font-size: 13px; border: 1px solid #ddd; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <h1>الشيخ سعيد مصطفى دياب</h1>
-        <p>مكتبة الدروس والشروحات</p>
+        <h1 style="color: var(--dark-blue); margin:0;">الشيخ سعيد مصطفى دياب</h1>
+        <p style="color: #555;">المكتبة الصوتية الشاملة</p>
     </header>
 
     <div class="filter-nav">
@@ -60,14 +57,36 @@
 
     <script src="lessonsData.js"></script>
     <script src="azkardata.js"></script>
-    <script src="hadithData.js"></script> <script>
+
+    <script>
+        // سنضع بيانات الحديث هنا مباشرة لضمان ظهورها
+        const hadithLessons = [
+            {
+                title: "شرح رياض الصالحين - الدرس 1",
+                file: "reyad-alsalehen1.mp3",
+                category: "رياض الصالحين",
+                type: "hadith"
+            }
+        ];
+
         let allContent = [];
 
         function initData() {
             allContent = [];
-            if (typeof allLessons !== 'undefined') allLessons.forEach(l => allContent.push({...l, type: 'general'}));
-            if (typeof azkarLessons !== 'undefined') azkarLessons.forEach(l => allContent.push({...l, type: 'azkar'}));
-            if (typeof hadithLessons !== 'undefined') hadithLessons.forEach(l => allContent.push({...l, type: 'hadith'}));
+
+            // جلب الأحاديث (من المصفوفة المكتوبة بالأعلى)
+            hadithLessons.forEach(l => allContent.push({...l, type: 'hadith'}));
+
+            // جلب الدروس العلمية (من ملف خارجي)
+            if (typeof allLessons !== 'undefined') {
+                allLessons.forEach(l => allContent.push({...l, type: 'general'}));
+            }
+
+            // جلب الأذكار (من ملف خارجي)
+            if (typeof azkarLessons !== 'undefined') {
+                azkarLessons.forEach(l => allContent.push({...l, type: 'azkar'}));
+            }
+
             displayLessons(allContent);
         }
 
@@ -75,6 +94,11 @@
             const container = document.getElementById("mainContainer");
             container.innerHTML = "";
             
+            if (data.length === 0) {
+                container.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>لا توجد دروس في هذا القسم حالياً.</p>";
+                return;
+            }
+
             data.forEach(lesson => {
                 let typeClass = "";
                 let tag = lesson.category || "درس";
@@ -84,13 +108,13 @@
                 container.innerHTML += `
                     <div class="lesson-card ${typeClass}">
                         <div>
-                            <span style="font-size:11px; background:#eee; padding:3px 8px; border-radius:10px;">${tag}</span>
+                            <span style="font-size:11px; background:#f0f0f0; padding:3px 8px; border-radius:10px; font-weight:bold;">${tag}</span>
                             <h3 style="color:#2c5d87; font-size:1.1rem; margin:10px 0;">${lesson.title}</h3>
                         </div>
                         <audio controls preload="none">
                             <source src="audio/${lesson.file}" type="audio/mpeg">
                         </audio>
-                        <a href="audio/${lesson.file}" download class="download-btn">📥 تحميل</a>
+                        <a href="audio/${lesson.file}" download class="download-btn">📥 تحميل الدرس</a>
                     </div>
                 `;
             });
@@ -98,8 +122,9 @@
 
         function filterLessons(type) {
             // تحديث شكل الأزرار
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
 
             if (type === 'all') {
                 displayLessons(allContent);
