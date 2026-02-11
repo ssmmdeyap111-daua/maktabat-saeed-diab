@@ -26,12 +26,12 @@
         }
         .site-header h1 { 
             margin: 0; 
-            font-size: 2.0rem; /* الحجم المطلوب للعنوان الرئيسي */
+            font-size: 2.0rem; 
             font-weight: 900; 
         }
         .site-header p { 
             margin: 8px 0 0; 
-            font-size: 1.6rem; /* أكبر من السابق وأصغر من 2.0rem */
+            font-size: 1.6rem; 
             font-weight: bold; 
         }
 
@@ -40,10 +40,10 @@
         /* شريط الأقسام */
         .category-grid { 
             display: flex; justify-content: center; gap: 12px; 
-            flex-wrap: wrap; margin-bottom: 40px; 
+            flex-wrap: wrap; margin-bottom: 20px; 
         }
 
-        /* تصميم ثلاثي الأبعاد للأزرار بنفس لون الشريط */
+        /* تصميم ثلاثي الأبعاد للأزرار */
         .cat-card {
             background: var(--light-blue);
             padding: 15px 25px; border-radius: 12px; cursor: pointer;
@@ -54,10 +54,19 @@
             position: relative;
         }
         .cat-card:active { transform: translateY(4px); box-shadow: 0 2px 0 #87b8c9; }
-        .cat-card.active { 
-            background: var(--dark-blue); 
-            color: white; 
-            box-shadow: 0 4px 0 #1a3a5a;
+        .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; }
+
+        /* تنسيق القائمة المنسدلة (السور) */
+        #surahFilterContainer {
+            display: none; /* مخفي افتراضياً ويظهر عند اختيار التفسير */
+            background: #fff; padding: 15px; border-radius: 12px;
+            margin-bottom: 30px; border: 2px solid var(--light-blue);
+            text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        #surahSelect {
+            padding: 10px 20px; font-family: 'Cairo'; font-size: 1rem;
+            border-radius: 8px; border: 1px solid var(--light-blue);
+            width: 100%; max-width: 300px; color: var(--dark-blue); font-weight: bold;
         }
 
         /* زر الرئيسية العائم ثلاثي الأبعاد */
@@ -72,7 +81,6 @@
         }
         .fixed-home-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #87b8c9; }
 
-        /* شبكة الدروس */
         .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
         .lesson-card { 
             background: white; padding: 20px; border-radius: 15px; 
@@ -108,6 +116,13 @@
         <div class="cat-card" onclick="filterMain('فرائض', this)">الفرائض</div>
     </div>
 
+    <div id="surahFilterContainer">
+        <p style="margin-bottom: 10px; font-weight: bold; color: var(--dark-blue);">اختر السورة:</p>
+        <select id="surahSelect" onchange="filterBySurah(this.value)">
+            <option value="all">عرض كل سور التفسير</option>
+        </select>
+    </div>
+
     <div class="lessons-grid" id="list"></div>
 </div>
 
@@ -120,62 +135,64 @@
 
     function init() {
         allData = [];
+        try { if (typeof hadithData !== 'undefined') hadithData.forEach(i => allData.push({...i, cat: 'حديث'})); } catch(e) {}
+        try { if (typeof tafseerData !== 'undefined') tafseerData.forEach(i => allData.push({...i, cat: 'تفسير'})); } catch(e) {}
+        try { if (typeof faraidLessons !== 'undefined') faraidLessons.forEach(i => allData.push({...i, cat: 'فرائض'})); } catch(e) {}
 
-        // 1. جلب الدروس من ملف hadithData.js (تأكد من وجود المتغير hadithData داخله)
-        try {
-            if (typeof hadithData !== 'undefined') {
-                hadithData.forEach(i => allData.push({...i, cat: 'حديث'}));
-            }
-        } catch(e) { console.error("خطأ في ملف الحديث"); }
+        // تحديث القائمة المنسدلة بناءً على السور الموجودة في ملف التفسير
+        const tafseerItems = allData.filter(i => i.cat === 'تفسير');
+        if(tafseerItems.length > 0) updateSurahDropdown(tafseerItems);
 
-        // 2. جلب الدروس من ملف tafseerData.js
-        try {
-            if (typeof tafseerData !== 'undefined') {
-                tafseerData.forEach(i => allData.push({...i, cat: 'تفسير'}));
-            }
-        } catch(e) {}
-
-        // 3. جلب الدروس من ملف faraidData.js
-        try {
-            if (typeof faraidLessons !== 'undefined') {
-                faraidLessons.forEach(i => allData.push({...i, cat: 'فرائض'}));
-            }
-        } catch(e) {}
-
-        // عرض شروح الحديث تلقائياً عند الفتح
         render(allData.filter(i => i.cat === 'حديث'));
     }
 
-    function render(items) {
-        const list = document.getElementById("list");
-        list.innerHTML = "";
-        
-        if (items.length === 0) {
-            list.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:50px; color:#999;'>قريباً إن شاء الله في هذا القسم..</p>";
-            return;
-        }
-
-        items.forEach(item => {
-            let path = "audio/" + item.file.trim();
-            list.innerHTML += `
-                <div class="lesson-card">
-                    <small style="color:var(--dark-blue); font-weight:bold;">📂 قسم ${item.cat === 'حديث' ? 'شروح الحديث' : item.cat}</small>
-                    <h3>${item.title}</h3>
-                    <audio controls preload="none">
-                        <source src="${path}" type="audio/mpeg">
-                    </audio>
-                    <div class="btn-group">
-                        <a href="${path}" download class="btn download-btn">تحميل</a>
-                        <a href="${path}" target="_blank" class="btn play-btn">تشغيل مباشر</a>
-                    </div>
-                </div>`;
+    function updateSurahDropdown(data) {
+        const select = document.getElementById("surahSelect");
+        const surahs = [...new Set(data.map(item => item.surah))].filter(s => s).sort();
+        surahs.forEach(name => {
+            let opt = document.createElement("option");
+            opt.value = name;
+            opt.textContent = "سورة " + name;
+            select.appendChild(opt);
         });
     }
 
     function filterMain(cat, btn) {
         document.querySelectorAll('.cat-card').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        
+        // إظهار القائمة المنسدلة فقط إذا اخترنا "تفسير"
+        const surahBox = document.getElementById("surahFilterContainer");
+        surahBox.style.display = (cat === 'تفسير') ? 'block' : 'none';
+
         render(allData.filter(i => i.cat === cat));
+    }
+
+    function filterBySurah(surahName) {
+        if (surahName === 'all') render(allData.filter(i => i.cat === 'تفسير'));
+        else render(allData.filter(i => i.cat === 'تفسير' && i.surah === surahName));
+    }
+
+    function render(items) {
+        const list = document.getElementById("list");
+        list.innerHTML = "";
+        if (items.length === 0) {
+            list.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:50px; color:#999;'>قريباً إن شاء الله..</p>";
+            return;
+        }
+        items.forEach(item => {
+            let path = "audio/" + item.file.trim();
+            list.innerHTML += `
+                <div class="lesson-card">
+                    <small style="color:var(--dark-blue); font-weight:bold;">📂 ${item.cat === 'حديث' ? 'شروح الحديث' : item.cat}</small>
+                    <h3>${item.title}</h3>
+                    <audio controls preload="none"><source src="${path}" type="audio/mpeg"></audio>
+                    <div class="btn-group">
+                        <a href="${path}" download class="btn download-btn">تحميل</a>
+                        <a href="${path}" target="_blank" class="btn play-btn">تشغيل مباشر</a>
+                    </div>
+                </div>`;
+        });
     }
 
     window.onload = init;
