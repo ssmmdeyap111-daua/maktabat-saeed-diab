@@ -8,86 +8,107 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root { --primary-blue: #2c5d87; --light-blue: #add8e6; --bg-color: #f0f7fa; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: var(--bg-color); color: #333; }
+        :root { 
+            --primary-blue: #2c5d87; 
+            --light-blue: #add8e6; 
+            --gradient-bg: linear-gradient(135deg, #eef5ff 0%, #add8e6 100%); 
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Cairo', sans-serif; 
+            background: var(--gradient-bg); /* الخلفية المتدرجة */
+            color: #333; 
+            min-height: 100vh;
+        }
         
-        /* 1. شريط اسم الموقع (عريض أزرق فاتح) */
+        /* 1. شريط اسم الموقع (عريض) */
         .site-banner {
             background-color: var(--light-blue);
-            padding: 40px 20px;
+            padding: 45px 20px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-bottom: 5px solid #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .site-banner h1 {
             margin: 0; font-size: 2.8rem; font-weight: 900;
-            color: var(--primary-blue); text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+            color: var(--primary-blue);
         }
 
-        /* 2. الأيقونات الثلاثية الأبعاد (3D) */
-        .nav-section {
-            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
-            padding: 30px 10px; background: white;
+        /* 2. الأيقونات المستطيلة (نفس نمط صفحة الدروس) */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 30px 20px;
         }
-        .nav-item-3d {
-            width: 110px; padding: 20px 10px; text-decoration: none;
-            background: #fff; border-radius: 15px; text-align: center;
-            box-shadow: 0 8px 0 #d1d1d1, 0 15px 20px rgba(0,0,0,0.1); /* تأثير 3D */
-            transition: all 0.2s ease; border: 1px solid #eee;
+        .cat-card-3d { 
+            background: var(--light-blue); 
+            padding: 15px 25px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            border: 1px solid rgba(0,0,0,0.1); 
+            font-weight: bold; 
+            color: var(--primary-blue); 
+            text-decoration: none;
+            transition: 0.2s; 
+            min-width: 110px; 
+            text-align: center; 
+            box-shadow: 0 5px 0 #87b8c9, 0 8px 15px rgba(0,0,0,0.1); /* تأثير 3D */
+            font-size: 1rem;
         }
-        .nav-item-3d:active {
-            transform: translateY(4px); box-shadow: 0 4px 0 #d1d1d1, 0 8px 10px rgba(0,0,0,0.1);
-        }
-        .nav-item-3d i { font-size: 32px; color: var(--primary-blue); margin-bottom: 10px; display: block; }
-        .nav-item-3d span { font-weight: 700; font-size: 0.9rem; color: #444; }
+        .cat-card-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 #87b8c9; }
+        .cat-card-3d i { display: block; margin-bottom: 8px; font-size: 1.5rem; }
 
         /* 3. شريط الآية (عريض وشفاف) */
         .quran-strip-transparent {
-            background: rgba(44, 93, 135, 0.85); /* شفافية */
-            color: white; padding: 25px 10px; text-align: center;
-            font-size: 1.4rem; font-weight: bold; margin: 20px 0;
-            backdrop-filter: blur(5px);
+            background: rgba(44, 93, 135, 0.75); /* شفافية */
+            color: white; 
+            padding: 25px 10px; 
+            text-align: center;
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            margin: 20px 0;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
         /* 4. شريط الكتب بالأغلفة والسهمين */
-        .books-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 20px; position: relative; }
-        .books-wrapper h3 { color: var(--primary-blue); margin-right: 20px; }
+        .books-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .books-wrapper h3 { color: var(--primary-blue); margin-bottom: 15px; }
         .slider-box {
-            display: flex; align-items: center; gap: 10px; background: #fff;
+            display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.5);
             padding: 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .arrow { font-size: 30px; color: var(--primary-blue); cursor: pointer; transition: 0.3s; }
-        .arrow:hover { transform: scale(1.2); }
+        .arrow { font-size: 30px; color: var(--primary-blue); cursor: pointer; }
         .books-scroll {
             display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth;
             scrollbar-width: none; flex: 1;
         }
         .books-scroll::-webkit-scrollbar { display: none; }
-        .book-cover {
-            min-width: 130px; height: 180px; background: #ddd; border-radius: 8px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.2); position: relative;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center; padding: 10px; color: white; font-weight: bold;
-            text-decoration: none; background: linear-gradient(135deg, #2c5d87, #add8e6);
-            border-left: 10px solid rgba(0,0,0,0.1); /* شكل الكتاب */
+        .book-img {
+            width: 130px; height: 190px; object-fit: cover;
+            border-radius: 8px; box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            border: 2px solid #fff; transition: 0.3s;
         }
 
         /* 5. وسائل التواصل */
-        .social-area {
-            text-align: center; padding: 40px; background: white; margin-top: 50px;
-        }
-        .social-flex { display: flex; justify-content: center; gap: 25px; }
+        .social-area { text-align: center; padding: 40px; margin-top: 20px; }
+        .social-flex { display: flex; justify-content: center; gap: 20px; }
         .s-icon { 
-            font-size: 30px; color: white; width: 60px; height: 60px; 
+            font-size: 28px; color: white; width: 55px; height: 55px; 
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; transition: 0.3s;
+            text-decoration: none; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         .fb { background: #1877F2; } .wa { background: #25D366; } .tg { background: #229ED9; }
-        .s-icon:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .s-icon:hover { transform: translateY(-5px); }
 
         /* 6. الحقوق */
         .footer-rights {
             background: var(--primary-blue); color: white; text-align: center;
-            padding: 20px; font-size: 0.9rem;
+            padding: 20px; font-size: 0.9rem; font-weight: bold;
         }
     </style>
 </head>
@@ -97,39 +118,37 @@
         <h1>موقع الشيخ سعيد مصطفى دياب</h1>
     </div>
 
-    <nav class="nav-section">
-        <a href="index.html" class="nav-item-3d"><i class="fas fa-home"></i><span>الرئيسية</span></a>
-        <a href="#" class="nav-item-3d"><i class="fas fa-book"></i><span>الكتب</span></a>
-        <a href="lessons.html" class="nav-item-3d"><i class="fas fa-microphone"></i><span>الدروس</span></a>
-        <a href="#" class="nav-item-3d"><i class="fas fa-bullhorn"></i><span>الخطب</span></a>
-        <a href="#" class="nav-item-3d"><i class="fas fa-pen-nib"></i><span>المقالات</span></a>
-        <a href="#" class="nav-item-3d"><i class="fas fa-info-circle"></i><span>عن الشيخ</span></a>
+    <nav class="nav-container">
+        <a href="index.html" class="cat-card-3d"><i class="fas fa-home"></i>الرئيسية</a>
+        <a href="books.html" class="cat-card-3d"><i class="fas fa-book"></i>الكتب</a>
+        <a href="lessons.html" class="cat-card-3d"><i class="fas fa-microphone"></i>الدروس</a>
+        <a href="#" class="cat-card-3d"><i class="fas fa-bullhorn"></i>الخطب</a>
+        <a href="#" class="cat-card-3d"><i class="fas fa-pen-nib"></i>المقالات</a>
+        <a href="#" class="cat-card-3d"><i class="fas fa-user-tie"></i>عن الشيخ</a>
     </nav>
 
     <div class="quran-strip-transparent">
-        <marquee scrollamount="5" direction="right">
+        <marquee scrollamount="6" direction="right">
             ﴿ يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ ﴾
         </marquee>
     </div>
 
     <div class="books-wrapper">
-        <h3>📚 مكتبة المؤلفات والسلاسل:</h3>
+        <h3 style="text-align: right;"><i class="fas fa-layer-group"></i> مؤلفات وسلاسل الشيخ:</h3>
         <div class="slider-box">
-            <i class="fas fa-caret-right arrow" onclick="document.getElementById('b-slider').scrollBy(200,0)"></i>
+            <i class="fas fa-chevron-right arrow" onclick="document.getElementById('b-slider').scrollBy(200,0)"></i>
             <div class="books-scroll" id="b-slider">
-                <a href="lessons.html" class="book-cover">تفسير سورة البقرة</a>
-                <a href="lessons.html" class="book-cover">شرح كتاب التوحيد</a>
-                <a href="#" class="book-cover">سلسلة حياة القلوب</a>
-                <a href="lessons.html" class="book-cover">رياض الصالحين</a>
-                <a href="#" class="book-cover">علم الفرائض</a>
-                <a href="#" class="book-cover">أصول العقيدة</a>
+                <a href="books.html"><img src="images/hayat-cover.jpg" class="book-img" title="حياة القلوب"></a>
+                <a href="lessons.html"><img src="images/tawheed-cover.jpg" class="book-img" title="كتاب التوحيد"></a>
+                <a href="lessons.html"><img src="images/baqara-cover.jpg" class="book-img" title="تفسير البقرة"></a>
+                <a href="books.html"><img src="images/al-irshad.jpg" class="book-img" title="الإرشاد"></a>
+                <a href="books.html"><img src="images/fadhl-duaa.jpg" class="book-img" title="فضل الدعاء"></a>
             </div>
-            <i class="fas fa-caret-left arrow" onclick="document.getElementById('b-slider').scrollBy(-200,0)"></i>
+            <i class="fas fa-chevron-left arrow" onclick="document.getElementById('b-slider').scrollBy(-200,0)"></i>
         </div>
     </div>
 
     <div class="social-area">
-        <h3 style="margin-bottom: 25px; color: var(--primary-blue);">تابعونا عبر منصاتنا</h3>
         <div class="social-flex">
             <a href="https://wa.me/97455703316" target="_blank" class="s-icon wa"><i class="fab fa-whatsapp"></i></a>
             <a href="https://t.me/haiatelqloop3" target="_blank" class="s-icon tg"><i class="fab fa-telegram-plane"></i></a>
