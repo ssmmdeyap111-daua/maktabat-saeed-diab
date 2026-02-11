@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --light-blue: #add8e6; /* الأزرق الفاتح المطلوب */
+            --light-blue: #add8e6; 
             --dark-blue: #2c5d87; 
             --bg-color: #f8fbff;
         }
@@ -17,7 +17,6 @@
             background-color: var(--bg-color); color: #333; 
         }
 
-        /* هيدر عريض باسم كبير */
         .site-header { 
             text-align: center; padding: 40px 20px; 
             background-color: var(--light-blue); 
@@ -27,7 +26,7 @@
         }
         .site-header h1 { 
             margin: 0; 
-            font-size: 2.0rem; /* تكبير اسم الشيخ */
+            font-size: 2.8rem; 
             font-weight: 900; 
             text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
         }
@@ -35,26 +34,29 @@
 
         .container { max-width: 1200px; margin: auto; padding: 20px; }
 
-        /* أيقونات ثلاثية الأبعاد بلون الشريط */
         .category-grid { 
             display: flex; justify-content: center; gap: 12px; 
             flex-wrap: wrap; margin-bottom: 40px; 
         }
-        .cat-card {
-            background: var(--light-blue); /* لون الشريط */
+
+        /* تصميم الأيقونات ثلاثي الأبعاد */
+        .cat-card, .home-card {
+            background: var(--light-blue);
             padding: 15px 25px; border-radius: 12px; cursor: pointer;
             border: 1px solid rgba(0,0,0,0.1);
             font-weight: bold; color: var(--dark-blue); transition: 0.2s;
             min-width: 100px; text-align: center;
-            /* تأثير ثلاثي الأبعاد */
             box-shadow: 0 6px 0 #87b8c9, 0 8px 15px rgba(0,0,0,0.1);
             position: relative;
+            text-decoration: none;
         }
-        .cat-card:hover { transform: translateY(2px); box-shadow: 0 4px 0 #87b8c9, 0 6px 10px rgba(0,0,0,0.1); }
-        .cat-card:active {
-            transform: translateY(6px);
-            box-shadow: none;
-        }
+        
+        /* زر الرئيسية بلون مختلف قليلاً ليميزه */
+        .home-card { background: #fff; border: 2px solid var(--light-blue); }
+
+        .cat-card:hover, .home-card:hover { transform: translateY(2px); box-shadow: 0 4px 0 #87b8c9; }
+        .cat-card:active, .home-card:active { transform: translateY(6px); box-shadow: none; }
+
         .cat-card.active { 
             background: var(--dark-blue); 
             color: white;
@@ -62,7 +64,6 @@
             border-color: var(--dark-blue);
         }
 
-        /* شبكة الدروس */
         .lessons-grid { 
             display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
             gap: 25px; 
@@ -96,8 +97,9 @@
 
 <div class="container">
     <div class="category-grid">
-        <div class="cat-card active" onclick="filterMain('all', this)">الكل</div>
-        <div class="cat-card" onclick="filterMain('حديث', this)">الأحاديث</div>
+        <a href="index.html" class="home-card">🏠 الرئيسية</a>
+        
+        <div class="cat-card active" onclick="filterMain('حديث', this)">الأحاديث</div>
         <div class="cat-card" onclick="filterMain('تفسير', this)">التفسير</div>
         <div class="cat-card" onclick="filterMain('فقه', this)">الفقه</div>
         <div class="cat-card" onclick="filterMain('سيرة', this)">السيرة</div>
@@ -118,14 +120,13 @@
     function init() {
         allData = [];
 
-        // 1. إضافة الأحاديث (من الكود الداخلي والملف الخارجي)
+        // إضافة بيانات الأحاديث
         const internalHadith = [
             { title: "شرح رياض الصالحين - الدرس 1", file: "reyad-1.mp3", cat: "حديث" },
             { title: "شرح رياض الصالحين - الدرس 2", file: "reyad-2.mp3", cat: "حديث" }
         ];
         internalHadith.forEach(i => allData.push(i));
 
-        // محاولة دمج البيانات من الملفات الخارجية لتعود كل الدروس
         try {
             if (typeof hadithData !== 'undefined') {
                 hadithData.forEach(i => {
@@ -146,7 +147,8 @@
             }
         } catch(e) {}
 
-        render(allData);
+        // عرض قسم "حديث" كبداية تلقائية
+        render(allData.filter(i => i.cat === 'حديث'));
     }
 
     function render(items) {
@@ -178,8 +180,7 @@
     function filterMain(cat, btn) {
         document.querySelectorAll('.cat-card').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        if (cat === 'all') render(allData);
-        else render(allData.filter(i => i.cat === cat));
+        render(allData.filter(i => i.cat === cat));
     }
 
     window.onload = init;
