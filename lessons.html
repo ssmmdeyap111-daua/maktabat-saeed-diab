@@ -25,22 +25,19 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .site-header h1 { 
-            margin: 0; 
-            font-size: 2.8rem; 
-            font-weight: 900; 
+            margin: 0; font-size: 2.8rem; font-weight: 900; 
             text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
         }
-        .site-header p { margin: 10px 0 0; font-size: 1.2rem; font-weight: bold; }
 
-        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; padding-bottom: 100px; }
 
         .category-grid { 
             display: flex; justify-content: center; gap: 12px; 
             flex-wrap: wrap; margin-bottom: 40px; 
         }
 
-        /* تصميم الأيقونات ثلاثي الأبعاد */
-        .cat-card, .home-card {
+        /* الأيقونات ثلاثية الأبعاد */
+        .cat-card {
             background: var(--light-blue);
             padding: 15px 25px; border-radius: 12px; cursor: pointer;
             border: 1px solid rgba(0,0,0,0.1);
@@ -48,21 +45,34 @@
             min-width: 100px; text-align: center;
             box-shadow: 0 6px 0 #87b8c9, 0 8px 15px rgba(0,0,0,0.1);
             position: relative;
-            text-decoration: none;
         }
-        
-        /* زر الرئيسية بلون مختلف قليلاً ليميزه */
-        .home-card { background: #fff; border: 2px solid var(--light-blue); }
-
-        .cat-card:hover, .home-card:hover { transform: translateY(2px); box-shadow: 0 4px 0 #87b8c9; }
-        .cat-card:active, .home-card:active { transform: translateY(6px); box-shadow: none; }
-
+        .cat-card:hover { transform: translateY(2px); box-shadow: 0 4px 0 #87b8c9; }
+        .cat-card:active { transform: translateY(6px); box-shadow: none; }
         .cat-card.active { 
-            background: var(--dark-blue); 
-            color: white;
-            box-shadow: 0 4px 0 #1a3a5a;
-            border-color: var(--dark-blue);
+            background: var(--dark-blue); color: white;
+            box-shadow: 0 4px 0 #1a3a5a; border-color: var(--dark-blue);
         }
+
+        /* زر العودة للرئيسية العائم في الأسفل يميناً */
+        .fixed-home-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            color: var(--dark-blue);
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 2px solid var(--light-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .fixed-home-btn:hover { transform: scale(1.1); background: var(--light-blue); }
 
         .lessons-grid { 
             display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
@@ -74,21 +84,20 @@
             border-top: 6px solid var(--light-blue);
             display: flex; flex-direction: column;
         }
-        .lesson-card h3 { margin: 10px 0 20px 0; font-size: 1.15rem; color: var(--dark-blue); min-height: 2.5em; line-height: 1.5; }
+        .lesson-card h3 { margin: 10px 0 20px 0; font-size: 1.15rem; color: var(--dark-blue); min-height: 2.5em; }
         
         audio { width: 100%; height: 38px; }
-        
         .btn-group { display: flex; gap: 10px; margin-top: 20px; }
-        .btn {
-            flex: 1; text-align: center; padding: 10px;
-            text-decoration: none; border-radius: 8px; 
-            font-size: 14px; font-weight: bold;
-        }
-        .download-btn { background: #f0f4f8; color: #555; border: 1px solid #d1d9e0; }
+        .btn { flex: 1; text-align: center; padding: 10px; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: bold; }
+        .download-btn { background: #f0f4f8; color: #555; }
         .play-btn { background: var(--light-blue); color: var(--dark-blue); }
     </style>
 </head>
 <body>
+
+<a href="index.html" class="fixed-home-btn">
+    <span>🏠 العودة للرئيسية</span>
+</a>
 
 <header class="site-header">
     <h1>فضيلة الشيخ سعيد مصطفى دياب</h1>
@@ -97,8 +106,6 @@
 
 <div class="container">
     <div class="category-grid">
-        <a href="index.html" class="home-card">🏠 الرئيسية</a>
-        
         <div class="cat-card active" onclick="filterMain('حديث', this)">الأحاديث</div>
         <div class="cat-card" onclick="filterMain('تفسير', this)">التفسير</div>
         <div class="cat-card" onclick="filterMain('فقه', this)">الفقه</div>
@@ -119,8 +126,6 @@
 
     function init() {
         allData = [];
-
-        // إضافة بيانات الأحاديث
         const internalHadith = [
             { title: "شرح رياض الصالحين - الدرس 1", file: "reyad-1.mp3", cat: "حديث" },
             { title: "شرح رياض الصالحين - الدرس 2", file: "reyad-2.mp3", cat: "حديث" }
@@ -134,41 +139,26 @@
                 });
             }
         } catch(e) {}
+        try { if (typeof tafseerData !== 'undefined') tafseerData.forEach(i => allData.push({...i, cat: 'تفسير'})); } catch(e) {}
+        try { if (typeof faraidLessons !== 'undefined') faraidLessons.forEach(i => allData.push({...i, cat: 'فرائض'})); } catch(e) {}
 
-        try {
-            if (typeof tafseerData !== 'undefined') {
-                tafseerData.forEach(i => allData.push({...i, cat: 'تفسير'}));
-            }
-        } catch(e) {}
-
-        try {
-            if (typeof faraidLessons !== 'undefined') {
-                faraidLessons.forEach(i => allData.push({...i, cat: 'فرائض'}));
-            }
-        } catch(e) {}
-
-        // عرض قسم "حديث" كبداية تلقائية
         render(allData.filter(i => i.cat === 'حديث'));
     }
 
     function render(items) {
         const list = document.getElementById("list");
         list.innerHTML = "";
-        
         if (items.length === 0) {
-            list.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:50px; color:#999;'>قريباً إن شاء الله في هذا القسم..</p>";
+            list.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:50px; color:#999;'>قريباً إن شاء الله..</p>";
             return;
         }
-
         items.forEach(item => {
             let path = "audio/" + item.file.trim();
             list.innerHTML += `
                 <div class="lesson-card">
                     <small style="color:var(--dark-blue); font-weight:bold;">📂 قسم ${item.cat}</small>
                     <h3>${item.title}</h3>
-                    <audio controls preload="none">
-                        <source src="${path}" type="audio/mpeg">
-                    </audio>
+                    <audio controls preload="none"><source src="${path}" type="audio/mpeg"></audio>
                     <div class="btn-group">
                         <a href="${path}" download class="btn download-btn">📥 تحميل</a>
                         <a href="${path}" target="_blank" class="btn play-btn">▶️ تشغيل مباشر</a>
