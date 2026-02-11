@@ -12,19 +12,27 @@
         .site-header h1 { margin: 0; font-size: 2.0rem; font-weight: 900; }
         .site-header p { margin: 8px 0 0; font-size: 1.6rem; font-weight: bold; }
         .container { max-width: 1200px; margin: auto; padding: 20px; padding-bottom: 120px; }
-        .category-grid { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-        .cat-card { background: var(--light-blue); padding: 15px 25px; border-radius: 12px; cursor: pointer; border: 1px solid rgba(0,0,0,0.1); font-weight: bold; color: var(--dark-blue); transition: 0.2s; min-width: 110px; text-align: center; box-shadow: 0 6px 0 #87b8c9, 0 8px 15px rgba(0,0,0,0.1); }
-        .cat-card:active { transform: translateY(4px); box-shadow: 0 2px 0 #87b8c9; }
+        
+        /* شريط الأقسام المحدث */
+        .category-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
+        .cat-card { 
+            background: var(--light-blue); padding: 12px 20px; border-radius: 12px; 
+            cursor: pointer; border: 1px solid rgba(0,0,0,0.1); font-weight: bold; 
+            color: var(--dark-blue); transition: 0.2s; min-width: 100px; text-align: center; 
+            box-shadow: 0 5px 0 #87b8c9, 0 8px 15px rgba(0,0,0,0.1); 
+        }
+        .cat-card:active { transform: translateY(3px); box-shadow: 0 2px 0 #87b8c9; }
         .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; }
+
         #surahFilterContainer { display: none; background: #fff; padding: 15px; border-radius: 12px; margin-bottom: 30px; border: 2px solid var(--light-blue); text-align: center; }
-        #surahSelect { padding: 10px 20px; font-family: 'Cairo'; border-radius: 8px; border: 1px solid var(--light-blue); width: 100%; max-width: 300px; }
+        #surahSelect { padding: 10px; font-family: 'Cairo'; border-radius: 8px; width: 100%; max-width: 300px; }
         .fixed-home-btn { position: fixed; bottom: 30px; right: 30px; background: var(--light-blue); color: var(--dark-blue); padding: 15px 25px; border-radius: 12px; text-decoration: none; font-weight: bold; box-shadow: 0 6px 0 #87b8c9; z-index: 1000; }
         .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
         .lesson-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--light-blue); }
-        .lesson-card h3 { margin: 10px 0 20px 0; font-size: 1.15rem; color: var(--dark-blue); min-height: 2.5em; }
-        audio { width: 100%; height: 38px; }
+        .lesson-card h3 { margin: 10px 0 20px 0; font-size: 1.1rem; color: var(--dark-blue); min-height: 2.5em; }
+        audio { width: 100%; height: 35px; }
         .btn-group { display: flex; gap: 10px; margin-top: 20px; }
-        .btn { flex: 1; text-align: center; padding: 10px; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: bold; }
+        .btn { flex: 1; text-align: center; padding: 8px; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: bold; }
         .play-btn { background: var(--light-blue); color: var(--dark-blue); }
     </style>
 </head>
@@ -41,8 +49,10 @@
     <div class="category-grid">
         <div class="cat-card active" onclick="filterMain('حديث', this)">شروح الحديث</div>
         <div class="cat-card" onclick="filterMain('تفسير', this)">التفسير</div>
-        <div class="cat-card" onclick="filterMain('توحيد', this)">التوحيد</div> <div class="cat-card" onclick="filterMain('فرائض', this)">الفرائض</div>
+        <div class="cat-card" onclick="filterMain('عقيدة', this)">العقيدة</div> <div class="cat-card" onclick="filterMain('فقه', this)">الفقه</div>
+        <div class="cat-card" onclick="filterMain('سيرة', this)">السيرة</div>
         <div class="cat-card" onclick="filterMain('رقائق', this)">الرقائق</div>
+        <div class="cat-card" onclick="filterMain('فرائض', this)">الفرائض</div>
     </div>
 
     <div id="surahFilterContainer">
@@ -62,21 +72,28 @@
     function init() {
         allData = [];
         
-        // جلب البيانات بأمان: إذا فشل ملف لا يتوقف البقية
-        const load = (dataVar, category) => {
+        // جلب البيانات مع تأمين الأخطاء
+        const loadData = (dataVar, catName) => {
             try {
                 if (typeof window[dataVar] !== 'undefined') {
-                    window[dataVar].forEach(i => allData.push({...i, cat: category}));
+                    window[dataVar].forEach(i => allData.push({...i, cat: catName}));
                 }
-            } catch(e) { console.error("خطأ في تحميل " + category); }
+            } catch(e) {}
         };
 
-        load('hadithData', 'حديث');
-        load('tafseerData', 'تفسير');
-        load('faraidLessons', 'فرائض');
-        load('tawheedData', 'توحيد');
+        loadData('hadithData', 'حديث');
+        loadData('tafseerData', 'تفسير');
+        loadData('faraidLessons', 'فرائض');
+        loadData('tawheedData', 'عقيدة'); // ربط ملف التوحيد بقسم العقيدة
         
-        // إضافة درس رمضان يدوياً في الرقائق
+        // دروس الحديث الـ 22 (احتياطي في حال لم يعمل الملف الخارجي)
+        if (allData.filter(i => i.cat === 'حديث').length === 0) {
+            for (let i = 1; i <= 22; i++) {
+                allData.push({ title: "شرح رياض الصالحين - الدرس " + i, file: "reyad-" + i + ".mp3", cat: 'حديث' });
+            }
+        }
+
+        // إضافة درس رمضان في الرقائق
         allData.push({ title: "كيف نستقبل رمضان", file: "ramadan.mp3", cat: 'رقائق' });
 
         updateSurahDropdown();
@@ -85,12 +102,12 @@
 
     function updateSurahDropdown() {
         const select = document.getElementById("surahSelect");
-        const tafseerItems = allData.filter(i => i.cat === 'تفسير');
+        const tafItems = allData.filter(i => i.cat === 'تفسير');
         select.innerHTML = '<option value="all">عرض كل سور التفسير</option>';
-        const surahs = [...new Set(tafseerItems.map(item => item.surah))].filter(s => s).sort();
-        surahs.forEach(name => {
+        const surahs = [...new Set(tafItems.map(item => item.surah))].filter(s => s).sort();
+        surahs.forEach(s => {
             let opt = document.createElement("option");
-            opt.value = name; opt.textContent = "سورة " + name;
+            opt.value = s; opt.textContent = "سورة " + s;
             select.appendChild(opt);
         });
     }
@@ -104,17 +121,19 @@
 
     function render(items) {
         const list = document.getElementById("list");
-        list.innerHTML = items.length ? "" : "<p style='text-align:center; width:100%; padding:50px;'>قريباً إن شاء الله..</p>";
+        list.innerHTML = items.length ? "" : "<p style='text-align:center; width:100%; padding:50px; color:#999;'>قريباً إن شاء الله..</p>";
+        
         items.forEach(item => {
             let path = "audio/" + item.file.trim();
+            let label = item.cat === 'حديث' ? 'شروح الحديث' : (item.cat === 'عقيدة' ? 'العقيدة' : item.cat);
             list.innerHTML += `
                 <div class="lesson-card">
-                    <small>📂 قسم ${item.cat}</small>
+                    <small style="color:var(--dark-blue); font-weight:bold;">📂 قسم ${label}</small>
                     <h3>${item.title}</h3>
                     <audio controls preload="none"><source src="${path}" type="audio/mpeg"></audio>
                     <div class="btn-group">
                         <a href="${path}" download class="btn" style="background:#f0f4f8; color:#555;">تحميل</a>
-                        <a href="${path}" target="_blank" class="btn play-btn">تشغيل</a>
+                        <a href="${path}" target="_blank" class="btn play-btn">تشغيل مباشر</a>
                     </div>
                 </div>`;
         });
