@@ -115,33 +115,21 @@
     function init() {
         allData = [];
         
-        // --- دروس الحديث (أضفت العناوين كما طلبت) ---
-        const autoHadith = [
-            { title: "شرح رياض الصالحين - الدرس 1", file: "reyad-1.mp3", cat: 'حديث' },
-            { title: "شرح رياض الصالحين - الدرس 2", file: "reyad-2.mp3", cat: 'حديث' },
-            { title: "شرح رياض الصالحين - الدرس 3", file: "reyad-3.mp3", cat: 'حديث' },
-            { title: "شرح رياض الصالحين - الدرس 4", file: "reyad-4.mp3", cat: 'حديث' },
-            { title: "شرح رياض الصالحين - الدرس 5", file: "reyad-5.mp3", cat: 'حديث' }
-        ];
-        autoHadith.forEach(i => allData.push(i));
+        // إضافة الـ 22 درساً المرفوعة
+        const totalHadith = 22;
+        for (let i = 1; i <= totalHadith; i++) {
+            allData.push({
+                title: "شرح رياض الصالحين - الدرس " + i,
+                file: "reyad-" + i + ".mp3",
+                cat: 'حديث'
+            });
+        }
 
-        // محاولة جلب المزيد من ملف hadithData.js إذا وجد
-        try {
-            if (typeof hadithData !== 'undefined') {
-                hadithData.forEach(i => {
-                    if (!allData.find(x => x.file === i.file)) allData.push({...i, cat: 'حديث'});
-                });
-            }
-        } catch(e) {}
-
-        // جلب بيانات التفسير والفرائض
+        // جلب بيانات التفسير والفرائض من الملفات الخارجية
         try { if (typeof tafseerData !== 'undefined') tafseerData.forEach(i => allData.push({...i, cat: 'تفسير'})); } catch(e) {}
         try { if (typeof faraidLessons !== 'undefined') faraidLessons.forEach(i => allData.push({...i, cat: 'فرائض'})); } catch(e) {}
 
-        // تحديث القائمة المنسدلة للتفسير
         updateSurahDropdown(allData.filter(i => i.cat === 'تفسير'));
-
-        // عرض قسم الحديث تلقائياً
         render(allData.filter(i => i.cat === 'حديث'));
     }
 
