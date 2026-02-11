@@ -6,79 +6,31 @@
     <title>المكتبة العلمية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --light-blue: #add8e6; 
-            --dark-blue: #2c5d87; 
-            --bg-color: #f8fbff;
-        }
-
-        body { 
-            margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
-            background-color: var(--bg-color); color: #333; 
-        }
-
-        .site-header { 
-            text-align: center; padding: 30px 20px; 
-            background-color: var(--light-blue); 
-            color: var(--dark-blue);
-            border-bottom: 5px solid #fff;
-        }
+        :root { --light-blue: #add8e6; --dark-blue: #2c5d87; --bg-color: #f8fbff; }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: var(--bg-color); color: #333; }
+        .site-header { text-align: center; padding: 30px 20px; background-color: var(--light-blue); color: var(--dark-blue); border-bottom: 5px solid #fff; }
         .site-header h1 { margin: 0; font-size: 2.0rem; font-weight: 900; }
         .site-header p { margin: 8px 0 0; font-size: 1.6rem; font-weight: bold; }
-
         .container { max-width: 1200px; margin: auto; padding: 20px; padding-bottom: 120px; }
-
         .category-grid { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-
-        .cat-card {
-            background: var(--light-blue);
-            padding: 15px 25px; border-radius: 12px; cursor: pointer;
-            border: 1px solid rgba(0,0,0,0.1);
-            font-weight: bold; color: var(--dark-blue); transition: 0.2s;
-            min-width: 110px; text-align: center;
-            box-shadow: 0 6px 0 #87b8c9, 0 8px 15px rgba(0,0,0,0.1);
-            position: relative;
-        }
+        .cat-card { background: var(--light-blue); padding: 15px 25px; border-radius: 12px; cursor: pointer; border: 1px solid rgba(0,0,0,0.1); font-weight: bold; color: var(--dark-blue); transition: 0.2s; min-width: 110px; text-align: center; box-shadow: 0 6px 0 #87b8c9, 0 8px 15px rgba(0,0,0,0.1); }
         .cat-card:active { transform: translateY(4px); box-shadow: 0 2px 0 #87b8c9; }
         .cat-card.active { background: var(--dark-blue); color: white; box-shadow: 0 4px 0 #1a3a5a; }
-
-        #surahFilterContainer {
-            display: none; background: #fff; padding: 15px; border-radius: 12px;
-            margin-bottom: 30px; border: 2px solid var(--light-blue);
-            text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        #surahSelect {
-            padding: 10px 20px; font-family: 'Cairo'; font-size: 1rem;
-            border-radius: 8px; border: 1px solid var(--light-blue);
-            width: 100%; max-width: 300px; color: var(--dark-blue); font-weight: bold;
-        }
-
-        .fixed-home-btn {
-            position: fixed; bottom: 30px; right: 30px;
-            background: var(--light-blue); color: var(--dark-blue);
-            padding: 15px 25px; border-radius: 12px;
-            text-decoration: none; font-weight: bold;
-            box-shadow: 0 6px 0 #87b8c9; z-index: 1000; transition: 0.2s;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-
+        #surahFilterContainer { display: none; background: #fff; padding: 15px; border-radius: 12px; margin-bottom: 30px; border: 2px solid var(--light-blue); text-align: center; }
+        #surahSelect { padding: 10px 20px; font-family: 'Cairo'; border-radius: 8px; border: 1px solid var(--light-blue); width: 100%; max-width: 300px; }
+        .fixed-home-btn { position: fixed; bottom: 30px; right: 30px; background: var(--light-blue); color: var(--dark-blue); padding: 15px 25px; border-radius: 12px; text-decoration: none; font-weight: bold; box-shadow: 0 6px 0 #87b8c9; z-index: 1000; }
         .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-        .lesson-card { 
-            background: white; padding: 20px; border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--light-blue);
-            display: flex; flex-direction: column;
-        }
+        .lesson-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--light-blue); }
         .lesson-card h3 { margin: 10px 0 20px 0; font-size: 1.15rem; color: var(--dark-blue); min-height: 2.5em; }
         audio { width: 100%; height: 38px; }
         .btn-group { display: flex; gap: 10px; margin-top: 20px; }
         .btn { flex: 1; text-align: center; padding: 10px; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: bold; }
-        .download-btn { background: #f0f4f8; color: #555; }
         .play-btn { background: var(--light-blue); color: var(--dark-blue); }
     </style>
 </head>
 <body>
 
-<a href="index.html" class="fixed-home-btn">🏠 العودة للرئيسية</a>
+<a href="index.html" class="fixed-home-btn">🏠 الرئيسية</a>
 
 <header class="site-header">
     <h1>موقع الشيخ سعيد مصطفى دياب</h1>
@@ -89,17 +41,13 @@
     <div class="category-grid">
         <div class="cat-card active" onclick="filterMain('حديث', this)">شروح الحديث</div>
         <div class="cat-card" onclick="filterMain('تفسير', this)">التفسير</div>
-        <div class="cat-card" onclick="filterMain('فقه', this)">الفقه</div>
-        <div class="cat-card" onclick="filterMain('سيرة', this)">السيرة</div>
+        <div class="cat-card" onclick="filterMain('توحيد', this)">التوحيد</div> <div class="cat-card" onclick="filterMain('فرائض', this)">الفرائض</div>
         <div class="cat-card" onclick="filterMain('رقائق', this)">الرقائق</div>
-        <div class="cat-card" onclick="filterMain('فرائض', this)">الفرائض</div>
     </div>
 
     <div id="surahFilterContainer">
-        <p style="margin-bottom: 10px; font-weight: bold; color: var(--dark-blue);">اختر السورة:</p>
-        <select id="surahSelect" onchange="filterBySurah(this.value)">
-            <option value="all">عرض كل سور التفسير</option>
-        </select>
+        <p>اختر السورة:</p>
+        <select id="surahSelect" onchange="filterBySurah(this.value)"></select>
     </div>
 
     <div class="lessons-grid" id="list"></div>
@@ -108,49 +56,41 @@
 <script src="tafseerData.js"></script>
 <script src="faraidData.js"></script>
 <script src="hadithData.js"></script>
-
-<script>
+<script src="tawheedData.js"></script> <script>
     let allData = [];
 
     function init() {
         allData = [];
         
-        // 1. إضافة دروس الحديث المرفوعة (22 درس)
-        for (let i = 1; i <= 22; i++) {
-            allData.push({ title: "شرح رياض الصالحين - الدرس " + i, file: "reyad-" + i + ".mp3", cat: 'حديث' });
-        }
+        // جلب البيانات بأمان: إذا فشل ملف لا يتوقف البقية
+        const load = (dataVar, category) => {
+            try {
+                if (typeof window[dataVar] !== 'undefined') {
+                    window[dataVar].forEach(i => allData.push({...i, cat: category}));
+                }
+            } catch(e) { console.error("خطأ في تحميل " + category); }
+        };
 
-        // 2. إضافة درس رمضان
+        load('hadithData', 'حديث');
+        load('tafseerData', 'تفسير');
+        load('faraidLessons', 'فرائض');
+        load('tawheedData', 'توحيد');
+        
+        // إضافة درس رمضان يدوياً في الرقائق
         allData.push({ title: "كيف نستقبل رمضان", file: "ramadan.mp3", cat: 'رقائق' });
 
-        // 3. محاولة جلب البيانات من الملفات الخارجية (تفسير، فرائض، سيرة...)
-        try {
-            if (typeof tafseerData !== 'undefined') {
-                tafseerData.forEach(item => allData.push({...item, cat: 'تفسير'}));
-            }
-        } catch(e) {}
-        
-        try {
-            if (typeof faraidLessons !== 'undefined') {
-                faraidLessons.forEach(item => allData.push({...item, cat: 'فرائض'}));
-            }
-        } catch(e) {}
-
-        // 4. تحديث القائمة المنسدلة للتفسير إذا وجد
-        updateSurahDropdown(allData.filter(i => i.cat === 'تفسير'));
-
-        // 5. عرض الحديث كقسم افتراضي عند الفتح
+        updateSurahDropdown();
         render(allData.filter(i => i.cat === 'حديث'));
     }
 
-    function updateSurahDropdown(data) {
+    function updateSurahDropdown() {
         const select = document.getElementById("surahSelect");
-        select.innerHTML = '<option value="all">عرض كل سور التفسير</option>'; // تفريغ الخيارات القديمة
-        const surahs = [...new Set(data.map(item => item.surah))].filter(s => s).sort();
+        const tafseerItems = allData.filter(i => i.cat === 'تفسير');
+        select.innerHTML = '<option value="all">عرض كل سور التفسير</option>';
+        const surahs = [...new Set(tafseerItems.map(item => item.surah))].filter(s => s).sort();
         surahs.forEach(name => {
             let opt = document.createElement("option");
-            opt.value = name;
-            opt.textContent = "سورة " + name;
+            opt.value = name; opt.textContent = "سورة " + name;
             select.appendChild(opt);
         });
     }
@@ -158,46 +98,28 @@
     function filterMain(cat, btn) {
         document.querySelectorAll('.cat-card').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        
-        const surahBox = document.getElementById("surahFilterContainer");
-        surahBox.style.display = (cat === 'تفسير') ? 'block' : 'none';
-
+        document.getElementById("surahFilterContainer").style.display = (cat === 'تفسير') ? 'block' : 'none';
         render(allData.filter(i => i.cat === cat));
-    }
-
-    function filterBySurah(surahName) {
-        if (surahName === 'all') render(allData.filter(i => i.cat === 'تفسير'));
-        else render(allData.filter(i => i.cat === 'تفسير' && i.surah === surahName));
     }
 
     function render(items) {
         const list = document.getElementById("list");
-        list.innerHTML = "";
-        
-        if (items.length === 0) {
-            list.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:50px; color:#999; font-weight:bold;'>قريباً إن شاء الله في هذا القسم..</p>";
-            return;
-        }
-
+        list.innerHTML = items.length ? "" : "<p style='text-align:center; width:100%; padding:50px;'>قريباً إن شاء الله..</p>";
         items.forEach(item => {
             let path = "audio/" + item.file.trim();
-            let displayCat = item.cat === 'حديث' ? 'شروح الحديث' : item.cat;
             list.innerHTML += `
                 <div class="lesson-card">
-                    <small style="color:var(--dark-blue); font-weight:bold;">📂 قسم ${displayCat}</small>
+                    <small>📂 قسم ${item.cat}</small>
                     <h3>${item.title}</h3>
-                    <audio controls preload="none">
-                        <source src="${path}" type="audio/mpeg">
-                    </audio>
+                    <audio controls preload="none"><source src="${path}" type="audio/mpeg"></audio>
                     <div class="btn-group">
-                        <a href="${path}" download class="btn download-btn">تحميل</a>
-                        <a href="${path}" target="_blank" class="btn play-btn">تشغيل مباشر</a>
+                        <a href="${path}" download class="btn" style="background:#f0f4f8; color:#555;">تحميل</a>
+                        <a href="${path}" target="_blank" class="btn play-btn">تشغيل</a>
                     </div>
                 </div>`;
         });
     }
 
-    // تشغيل الدالة عند تحميل الصفحة
     window.onload = init;
 </script>
 </body>
