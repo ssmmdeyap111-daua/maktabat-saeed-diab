@@ -183,3 +183,43 @@ body {
     border-top: 4px solid #ffffff;
     font-size: 1rem;
 }
+/* تنسيق شبكة الدروس */
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* تنسيق الأيقونات الموحد */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #f0f7ff; /* خلفية خفيفة جداً */
+    border-radius: 50%; /* أيقونة دائرية متوحدة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem; /* حجم موحد للأيقونة داخل الدائرة */
+    color: #2c5d87;
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+/* تنسيق بطاقة الدرس */
+.lesson-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-right: 5px solid #87ceeb;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    border-right-color: #2c5d87;
+}
