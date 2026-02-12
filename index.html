@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -13,7 +13,8 @@
             --accent-blue: #87ceeb; 
             --dark-blue: #2c5d87;
             --shadow-blue: #5f9ea0;
-            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); /* لون الشريط الأعلى */
+            --gold-color: #d4af37; /* اللون الذهبي */
+            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
         }
 
         body { 
@@ -51,23 +52,30 @@
         .nav-link-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--shadow-blue); }
         .nav-link-3d i { font-size: 1.8rem; }
 
-        /* 3. شريط الآية الشفاف تماماً */
-        .quran-strip-transparent {
-            background: rgba(255, 255, 255, 0.1); /* شفافية عالية */
-            color: var(--dark-blue); 
-            padding: 20px 0; 
+        /* 3. شريط الآية بالإطار الذهبي والخط العثماني */
+        .quran-strip-gold {
+            background: rgba(255, 255, 255, 0.5); 
+            margin: 30px auto;
+            width: 92%;
+            padding: 15px 0;
             text-align: center;
-            font-size: 1.6rem; 
-            font-weight: bold; 
-            margin: 20px 0;
-            backdrop-filter: blur(5px); /* تأثير الضباب */
-            border-top: 1px solid rgba(255,255,255,0.3);
-            border-bottom: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+            /* الإطار الذهبي المزدوج */
+            border-top: 3px double var(--gold-color);
+            border-bottom: 3px double var(--gold-color);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+        }
+        .quran-text {
+            font-family: 'Amiri', serif; /* الخط العثماني */
+            font-size: 2rem; 
+            color: #8a6d3b; /* بني ذهبي */
+            font-weight: 700;
+            display: block;
         }
 
         /* 4. شريط الكتب العريض */
         .books-container-wide { width: 96%; margin: 30px auto; }
-        .books-container-wide h3 { color: var(--dark-blue); margin-bottom: 15px; }
+        .books-container-wide h3 { color: var(--dark-blue); margin-bottom: 15px; font-weight: 900; }
         
         .slider-wrapper {
             display: flex; align-items: center; 
@@ -91,8 +99,9 @@
             border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             border: 3px solid #fff; transition: 0.3s;
         }
+        .book-img:hover { transform: scale(1.05); }
 
-        /* 5. وسائل التواصل */
+        /* 5. التواصل الاجتماعي */
         .social-section { text-align: center; padding: 30px 0; }
         .social-flex { display: flex; justify-content: center; gap: 20px; }
         .s-icon { 
@@ -102,9 +111,9 @@
         }
         .fb { background: #1877F2; } .wa { background: #25D366; } .tg { background: #229ED9; }
 
-        /* 6. شريط الحقوق (مطابق للشريط الأعلى) */
+        /* 6. الشريط الأسفل الموحد */
         .footer-rights {
-            background: var(--header-bg); /* نفس لون الهيدر */
+            background: var(--header-bg); 
             color: var(--dark-blue); 
             text-align: center;
             padding: 25px; 
@@ -127,9 +136,9 @@
         <a href="articles.html" class="nav-link-3d"><i class="fas fa-pen-nib"></i>المقالات</a>
     </nav>
 
-    <div class="quran-strip-transparent">
+    <div class="quran-strip-gold">
         <marquee scrollamount="5" direction="right">
-            ﴿ يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ ﴾
+            <span class="quran-text">﴿ يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ ﴾</span>
         </marquee>
     </div>
 
@@ -169,8 +178,8 @@
 
     <script>
         const slider = document.getElementById('b-slider');
-        document.getElementById('right-btn').onclick = () => slider.scrollBy(300, 0);
-        document.getElementById('left-btn').onclick = () => slider.scrollBy(-300, 0);
+        document.getElementById('right-btn').onclick = () => slider.scrollBy(350, 0);
+        document.getElementById('left-btn').onclick = () => slider.scrollBy(-350, 0);
     </script>
 
 </body>
