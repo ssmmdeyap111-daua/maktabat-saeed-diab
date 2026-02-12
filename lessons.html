@@ -33,46 +33,31 @@
 
         .section-title { text-align: center; color: var(--dark-blue); margin: 30px 0; font-size: 2.2rem; font-weight: 900; }
 
-        /* حاوية الدروس - شبكة مرنة */
         .lessons-grid {
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 20px; 
             max-width: 1200px; 
             margin: 0 auto; 
             padding: 20px;
         }
 
-        /* تنسيق البطاقة الموحد */
         .lesson-card {
-            background: white; 
-            border-radius: 15px; 
-            padding: 20px;
-            display: flex; 
-            align-items: center; 
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-            border-right: 6px solid var(--accent-blue);
+            background: white; border-radius: 15px; padding: 20px;
+            display: flex; align-items: center; text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 6px solid var(--accent-blue);
             transition: 0.3s;
         }
         .lesson-card:hover { transform: translateY(-5px); border-right-color: var(--dark-blue); }
 
-        /* توحيد شكل وحجم الأيقونات عبر الـ CSS */
+        /* توحيد الأيقونات بالكامل */
         .icon-box {
-            width: 60px;
-            height: 60px;
-            background: #f0f7ff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8rem;
-            color: var(--dark-blue);
-            margin-left: 15px;
-            flex-shrink: 0;
+            width: 65px; height: 65px; background: #f0f7ff; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 2rem; color: var(--dark-blue); margin-left: 15px; flex-shrink: 0;
         }
 
-        .lesson-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.3rem; font-weight: 700; }
+        .lesson-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.4rem; font-weight: 700; }
         .lesson-info p { margin: 5px 0 0; color: #777; font-size: 0.95rem; }
 
         .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; border-top: 4px solid #ffffff; margin-top: 50px; }
@@ -98,7 +83,7 @@
 
     <div class="section-title">الأقسام العلمية</div>
 
-    <div class="lessons-grid" id="main-lessons-container">
+    <div class="lessons-grid" id="all-lessons-container">
         </div>
 
     <div class="footer-rights">
@@ -106,26 +91,26 @@
     </div>
 
     <script>
-        // مصفوفة البيانات الثمانية كاملة
-        const lessons = [
-            { title: "التفسير", icon: "fas fa-book-open", desc: "تأملات وبيان معاني آيات الذكر الحكيم", link: "tafseer.html" },
+        // مصفوفة تجمع الدروس (تأكد من مراجعة روابط الملفات .html لكي تفتح دروسك القديمة)
+        const myFullLessons = [
+            { title: "التفسير", icon: "fas fa-book-open", desc: "بيان معاني آيات الذكر الحكيم", link: "tafseer.html" },
             { title: "علوم القرآن", icon: "fas fa-quran", desc: "دراسات في تاريخ القرآن وأحكامه", link: "quran-sciences.html" },
             { title: "شرح الحديث", icon: "fas fa-scroll", desc: "شرح الأحاديث النبوية الشريفة", link: "hadith.html" },
             { title: "العقيدة", icon: "fas fa-shield-halved", desc: "بيان أصول الإيمان والتوحيد", link: "aqidah.html" },
-            { title: "الفقه", icon: "fas fa-gavel", desc: "الأحكام الشرعية في العبادات والمعاملات", link: "fiqh.html" },
-            { title: "السيرة", icon: "fas fa-mosque", desc: "دروس من حياة النبي ﷺ وأصحابه", link: "seerah.html" },
+            { title: "الفقه", icon: "fas fa-gavel", desc: "الأحكام الشرعية والعبادات", link: "fiqh.html" },
+            { title: "السيرة", icon: "fas fa-mosque", desc: "دروس من حياة النبي ﷺ", link: "seerah.html" },
             { title: "الفرائض", icon: "fas fa-calculator", desc: "علم المواريث وتوزيع التركات", link: "faraid.html" },
-            { title: "الرقائق", icon: "fas fa-heart", desc: "دروس في تهذيب النفوس وأعمال القلوب", link: "raqaeq.html" }
+            { title: "الرقائق", icon: "fas fa-heart", desc: "تهذيب النفوس وأعمال القلوب", link: "raqaeq.html" }
         ];
 
-        // دالة عرض الدروس
-        const container = document.getElementById('main-lessons-container');
-        container.innerHTML = lessons.map(item => `
-            <a href="${item.link}" class="lesson-card">
-                <div class="icon-box"><i class="${item.icon}"></i></div>
+        const container = document.getElementById('all-lessons-container');
+        // هنا نقوم بعرض كل محتويات المصفوفة لضمان ظهور الجميع
+        container.innerHTML = myFullLessons.map(lesson => `
+            <a href="${lesson.link}" class="lesson-card">
+                <div class="icon-box"><i class="${lesson.icon}"></i></div>
                 <div class="lesson-info">
-                    <h3>${item.title}</h3>
-                    <p>${item.desc}</p>
+                    <h3>${lesson.title}</h3>
+                    <p>${lesson.desc}</p>
                 </div>
             </a>
         `).join('');
