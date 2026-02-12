@@ -13,14 +13,14 @@
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
         .nav-link { padding: 10px 20px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
 
-        /* حاوية الأقسام */
+        /* الأقسام الثمانية */
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 20px auto; padding: 20px; }
         .cat-card { background: white; padding: 20px; border-radius: 15px; display: flex; align-items: center; cursor: pointer; border-right: 6px solid var(--accent-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
         .icon-box { width: 60px; height: 60px; background: var(--light-sky); border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-left: 15px; font-size: 1.8rem; color: var(--dark-blue); }
 
-        /* حاوية الدروس (تظهر وتختفي) */
+        /* عرض الدروس */
         #details-view { max-width: 900px; margin: 30px auto; padding: 20px; display: none; }
-        .lesson-item { background: white; padding: 15px; border-radius: 12px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; border-right: 5px solid var(--dark-blue); flex-wrap: wrap; }
+        .lesson-item { background: white; padding: 15px; border-radius: 12px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; border-right: 5px solid var(--dark-blue); }
         .back-btn { background: var(--dark-blue); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-bottom: 20px; font-family: 'Cairo'; }
         audio { height: 35px; width: 250px; }
     </style>
@@ -31,12 +31,20 @@
 
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
-    <a href="khutbah.html" class="nav-link">الخطب</a>
     <a href="lessons.html" class="nav-link" style="background:var(--dark-blue)">الدروس</a>
 </div>
 
 <div id="main-view">
-    <div class="categories-grid" id="categories-container"></div>
+    <div class="categories-grid" id="categories-container">
+        <div class="cat-card" onclick="loadLessons('tafseerData', 'التفسير')"><div class="icon-box"><i class="fas fa-book-open"></i></div><h3>التفسير</h3></div>
+        <div class="cat-card" onclick="loadLessons('quranData', 'علوم القرآن')"><div class="icon-box"><i class="fas fa-quran"></i></div><h3>علوم القرآن</h3></div>
+        <div class="cat-card" onclick="loadLessons('hadithData', 'شرح الحديث')"><div class="icon-box"><i class="fas fa-scroll"></i></div><h3>شرح الحديث</h3></div>
+        <div class="cat-card" onclick="loadLessons('tawheedData', 'العقيدة')"><div class="icon-box"><i class="fas fa-shield-halved"></i></div><h3>العقيدة</h3></div>
+        <div class="cat-card" onclick="loadLessons('fiqhData', 'الفقه')"><div class="icon-box"><i class="fas fa-gavel"></i></div><h3>الفقه</h3></div>
+        <div class="cat-card" onclick="loadLessons('seerahData', 'السيرة')"><div class="icon-box"><i class="fas fa-mosque"></i></div><h3>السيرة</h3></div>
+        <div class="cat-card" onclick="loadLessons('faraidData', 'الفرائض')"><div class="icon-box"><i class="fas fa-calculator"></i></div><h3>الفرائض</h3></div>
+        <div class="cat-card" onclick="loadLessons('raqaeqData', 'الرقائق')"><div class="icon-box"><i class="fas fa-heart"></i></div><h3>الرقائق</h3></div>
+    </div>
 </div>
 
 <div id="details-view">
@@ -45,34 +53,28 @@
     <div id="lessons-container"></div>
 </div>
 
-<script src="lessons.data.js"></script>
+<script src="tafseer.data.js"></script>
+<script src="quran.data.js"></script>
+<script src="hadith.data.js"></script>
+<script src="aqidah.data.js"></script>
+<script src="fiqh.data.js"></script>
+<script src="seerah.data.js"></script>
+<script src="faraid.data.js"></script>
+<script src="raqaeq.data.js"></script>
 
 <script>
-    // وظيفة المحرك: عرض البيانات فقط
-    function renderApp() {
-        const catContainer = document.getElementById('categories-container');
-        // عرض الأقسام من ملف الـ JS
-        catContainer.innerHTML = allData.categories.map(cat => `
-            <div class="cat-card" onclick="loadCategory('${cat.id}')">
-                <div class="icon-box"><i class="${cat.icon}"></i></div>
-                <h3>${cat.name}</h3>
-            </div>
-        `).join('');
-    }
+    function loadLessons(variableName, title) {
+        // التحقق من وجود البيانات في الملفات المحملة
+        const data = window[variableName];
+        if (!data || data.length === 0) return alert("سيتم إضافة دروس " + title + " قريباً");
 
-    function loadCategory(id) {
-        const category = allData.lessons[id];
-        if (!category || category.length === 0) return alert("سيتم إضافة الدروس قريباً");
-
-        document.getElementById('section-title').innerText = allData.categories.find(c => c.id === id).name;
-        const lessonsContainer = document.getElementById('lessons-container');
+        document.getElementById('section-title').innerText = title;
+        const container = document.getElementById('lessons-container');
         
-        lessonsContainer.innerHTML = category.map(lesson => `
+        container.innerHTML = data.map(lesson => `
             <div class="lesson-item">
                 <span style="font-weight:bold">${lesson.title}</span>
-                <audio controls preload="none">
-                    <source src="audio/${id}/${lesson.file}" type="audio/mpeg">
-                </audio>
+                <audio controls preload="none"><source src="audio/${lesson.file}" type="audio/mpeg"></audio>
             </div>
         `).join('');
 
@@ -84,9 +86,6 @@
         document.getElementById('details-view').style.display = showDetails ? 'block' : 'none';
         window.scrollTo(0,0);
     }
-
-    // تشغيل التطبيق
-    if (typeof allData !== 'undefined') renderApp();
 </script>
 </body>
 </html>
