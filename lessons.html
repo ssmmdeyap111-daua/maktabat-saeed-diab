@@ -12,10 +12,33 @@
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; }
         .nav-link { padding: 8px 18px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.9rem; }
         
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; max-width: 1100px; margin: 20px auto; padding: 20px; }
-        .cat-card { background: white; padding: 15px; border-radius: 12px; display: flex; justify-content: center; align-items: center; cursor: pointer; border-right: 5px solid var(--accent-blue); box-shadow: 0 3px 8px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; min-height: 60px; }
-        .cat-card:hover { transform: translateY(-3px); background: #f0f7ff; border-right-color: var(--dark-blue); }
-        .cat-card h3 { margin: 0; font-size: 1rem; color: var(--dark-blue); font-weight: 700; }
+        /* ضبط الأيقونات لتكون في صف واحد مرن */
+        .categories-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 12px; 
+            max-width: 1200px; 
+            margin: 20px auto; 
+            padding: 10px; 
+        }
+        .cat-card { 
+            background: white; 
+            padding: 10px 15px; 
+            border-radius: 10px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+            border-right: 4px solid var(--accent-blue); 
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+            text-align: center; 
+            min-width: 140px; /* عرض أدنى لضمان ظهور النص */
+            flex: 0 1 auto;  /* يسمح لها بالبقاء بجانب بعضها */
+        }
+        .cat-card:hover { transform: translateY(-2px); background: #f0f7ff; border-right-color: var(--dark-blue); }
+        .cat-card h3 { margin: 0; font-size: 0.95rem; color: var(--dark-blue); font-weight: 700; white-space: nowrap; }
 
         #details-view { max-width: 900px; margin: 20px auto; padding: 20px; display: none; }
         .back-btn { background: var(--dark-blue); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; font-family: 'Cairo'; font-weight: bold; }
@@ -25,7 +48,7 @@
         .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
         
         .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
-        audio { height: 35px; width: 230px; }
+        audio { height: 35px; width: 220px; }
     </style>
 </head>
 <body>
@@ -42,14 +65,14 @@
 
 <div id="main-view">
     <div class="categories-grid">
-        <div class="cat-card" onclick="showSection('tafseer')"><h3>تفسير القرآن الكريم</h3></div>
+        <div class="cat-card" onclick="showSection('tafseer')"><h3>تفسير القرآن</h3></div>
         <div class="cat-card" onclick="showSection('quran_sciences')"><h3>علوم القرآن</h3></div>
         <div class="cat-card" onclick="showSection('hadith')"><h3>شروح الحديث</h3></div>
         <div class="cat-card" onclick="showSection('tawheed')"><h3>العقيدة</h3></div>
         <div class="cat-card" onclick="showSection('faraid')"><h3>علم الفرائض</h3></div>
-        <div class="cat-card" onclick="showSection('seerah')"><h3>السيرة النبوية</h3></div>
+        <div class="cat-card" onclick="showSection('seerah')"><h3>السيرة</h3></div>
         <div class="cat-card" onclick="showSection('raqaeq')"><h3>الرقائق</h3></div>
-        <div class="cat-card" onclick="showSection('fiker')"><h3>المذاهب الفكرية</h3></div>
+        <div class="cat-card" onclick="showSection('fiker')"><h3>المذاهب</h3></div>
     </div>
 </div>
 
@@ -60,9 +83,9 @@
 </div>
 
 <script>
-    // 1. بيانات التفسير
+    // بيانات التفسير (تلقائية الدروس)
     const tafseerData = [
-        { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}, {t: "الدرس 2", f: "fatiha-2.mp3"}] },
+        { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}] },
         { name: "سورة البقرة", lessons: Array.from({length: 40}, (_, i) => ({t: `الدرس ${i+1}`, f: `bakara-${i+1}.mp3`})) },
         { name: "سورة آل عمران", lessons: Array.from({length: 52}, (_, i) => ({t: `الدرس ${i+1}`, f: `aleimran-${i+1}.mp3`})) },
         { name: "سورة النساء", lessons: Array.from({length: 53}, (_, i) => ({t: `الدرس ${i+1}`, f: `nesa-${i+1}.mp3`})) },
@@ -77,7 +100,7 @@
         { name: "سورة الرعد", lessons: Array.from({length: 11}, (_, i) => ({t: `الدرس ${i+1}`, f: `raad-${i+1}.mp3`})) }
     ];
 
-    // 2. بيانات العقيدة
+    // بيانات العقيدة
     const tawheedData = [
         { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
         { name: "شرح العقيدة الواسطية", lessons: Array.from({length: 26}, (_, i) => ({t: `الدرس ${i+1}`, f: `wasitiya-${i+1}.mp3`})) },
@@ -85,14 +108,14 @@
         { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
     ];
 
-    // 3. البيانات الأخرى (القوائم المباشرة حالياً)
+    // البيانات الأخرى
     const otherData = {
         hadith: { title: "شروح الحديث", list: Array.from({length: 30}, (_, i) => ({ t: `رياض الصالحين - الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) },
         faraid: { title: "علم الفرائض", list: Array.from({length: 11}, (_, i) => ({ t: `المنظومة الرحبية - الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) },
-        quran_sciences: { title: "علوم القرآن", list: [{ t: "مقدمة في علوم القرآن", f: "quran-1.mp3" }] },
-        seerah: { title: "السيرة النبوية", list: [{ t: "السيرة النبوية - الدرس 1", f: "seerah-1.mp3" }] },
-        raqaeq: { title: "الرقائق", list: [{ t: "درس في الرقائق", f: "raqaeq-1.mp3" }] },
-        fiker: { title: "المذاهب الفكرية", list: [{ t: "المذاهب الفكرية - الدرس 1", f: "fiker-1.mp3" }] }
+        quran_sciences: { title: "علوم القرآن", list: [{ t: "درس تجريبي", f: "test.mp3" }] },
+        seerah: { title: "السيرة", list: [{ t: "درس تجريبي", f: "test.mp3" }] },
+        raqaeq: { title: "الرقائق", list: [{ t: "درس تجريبي", f: "test.mp3" }] },
+        fiker: { title: "المذاهب", list: [{ t: "درس تجريبي", f: "test.mp3" }] }
     };
 
     function showSection(key) {
@@ -101,7 +124,7 @@
         
         if (key === 'tafseer' || key === 'tawheed') {
             const currentData = (key === 'tafseer') ? tafseerData : tawheedData;
-            document.getElementById('section-title').innerText = (key === 'tafseer') ? "تفسير القرآن الكريم" : "العقيدة";
+            document.getElementById('section-title').innerText = (key === 'tafseer') ? "تفسير القرآن" : "العقيدة";
             currentData.forEach((item, index) => {
                 listDiv.innerHTML += `
                     <div class="item-wrapper">
