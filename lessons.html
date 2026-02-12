@@ -4,116 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الدروس العلمية - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        :root { 
-            --light-sky: #eef5ff; 
-            --accent-blue: #87ceeb; 
-            --dark-blue: #2c5d87;
-            --shadow-blue: #5f9ea0;
-            --gold-color: #d4af37;
-            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
-        }
-
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); min-height: 100vh; }
+        :root { --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
+        .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid white; }
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
+        .nav-link { padding: 10px 20px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; box-shadow: 0 4px 0 #5f9ea0; }
         
-        .site-header { text-align: center; padding: 50px 20px; background: var(--header-bg); border-bottom: 4px solid #ffffff; }
-        .site-header h1 { margin: 0; font-size: 2.5rem; font-weight: 900; color: var(--dark-blue); }
+        /* شبكة الأقسام الثمانية */
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 20px auto; padding: 20px; }
+        .cat-card { background: white; padding: 20px; border-radius: 15px; display: flex; align-items: center; cursor: pointer; border-right: 6px solid var(--accent-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .cat-card:hover { transform: translateY(-5px); background: #f0f7ff; }
+        .cat-card i { font-size: 2rem; color: var(--dark-blue); margin-left: 15px; width: 40px; text-align: center; }
+        .cat-card h3 { margin: 0; font-size: 1.2rem; color: var(--dark-blue); }
 
-        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; }
-        .nav-link-3d { padding: 12px 20px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 12px; font-weight: bold; box-shadow: 0 5px 0 var(--shadow-blue); transition: 0.2s; }
-
-        .quran-strip-gold {
-            background: rgba(255, 255, 255, 0.5); margin: 20px auto; width: 92%;
-            padding: 15px 0; text-align: center; border-top: 3px double var(--gold-color); border-bottom: 3px double var(--gold-color);
-        }
-        .quran-text { font-family: 'Amiri', serif; font-size: 1.8rem; color: #8a6d3b; }
-
-        .section-title { text-align: center; color: var(--dark-blue); margin: 30px 0; font-size: 2.2rem; font-weight: 900; }
-
-        .lessons-grid {
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 20px;
-        }
-
-        .lesson-card {
-            background: white; border-radius: 15px; padding: 20px;
-            display: flex; align-items: center; text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 6px solid var(--accent-blue);
-            transition: 0.3s;
-        }
-        .lesson-card:hover { transform: translateY(-5px); border-right-color: var(--dark-blue); }
-
-        /* توحيد الأيقونات بالكامل */
-        .icon-box {
-            width: 65px; height: 65px; background: #f0f7ff; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 2rem; color: var(--dark-blue); margin-left: 15px; flex-shrink: 0;
-        }
-
-        .lesson-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.4rem; font-weight: 700; }
-        .lesson-info p { margin: 5px 0 0; color: #777; font-size: 0.95rem; }
-
-        .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; border-top: 4px solid #ffffff; margin-top: 50px; }
+        /* منطقة عرض الدروس الصوتية */
+        #details-section { max-width: 900px; margin: 30px auto; padding: 20px; display: none; }
+        .lesson-item { background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; border-right: 4px solid var(--dark-blue); }
+        .lesson-title { font-weight: bold; color: var(--dark-blue); flex: 1; }
+        audio { height: 35px; }
+        .back-btn { background: var(--dark-blue); color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <h1>الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
-    </header>
+<header class="site-header">
+    <h1>المكتبة العلمية للشيخ سعيد مصطفى دياب</h1>
+</header>
 
-    <div class="nav-bar">
-        <a href="index.html" class="nav-link-3d">الرئيسية</a>
-        <a href="books.html" class="nav-link-3d">الكتب</a>
-        <a href="lessons.html" class="nav-link-3d" style="background:var(--dark-blue)">الدروس</a>
-        <a href="khutbah.html" class="nav-link-3d">الخطب</a>
-        <a href="articles.html" class="nav-link-3d">المقالات</a>
+<div class="nav-bar">
+    <a href="index.html" class="nav-link">الرئيسية</a>
+    <a href="khutbah.html" class="nav-link">الخطب</a>
+    <a href="lessons.html" class="nav-link" style="background:var(--dark-blue)">الدروس</a>
+</div>
+
+<div id="categories-view">
+    <div class="categories-grid">
+        <div class="cat-card" onclick="showLessons('hadith')"><i class="fas fa-scroll"></i><h3>شرح الحديث</h3></div>
+        <div class="cat-card" onclick="showLessons('tawheed')"><i class="fas fa-shield-halved"></i><h3>العقيدة</h3></div>
+        <div class="cat-card" onclick="showLessons('faraid')"><i class="fas fa-calculator"></i><h3>الفرائض</h3></div>
+        <div class="cat-card"><i class="fas fa-book-open"></i><h3>التفسير</h3></div>
+        <div class="cat-card"><i class="fas fa-quran"></i><h3>علوم القرآن</h3></div>
+        <div class="cat-card"><i class="fas fa-gavel"></i><h3>الفقه</h3></div>
+        <div class="cat-card"><i class="fas fa-mosque"></i><h3>السيرة</h3></div>
+        <div class="cat-card"><i class="fas fa-heart"></i><h3>الرقائق</h3></div>
     </div>
+</div>
 
-    <div class="quran-strip-gold">
-        <span class="quran-text">﴿ يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ ﴾</span>
-    </div>
+<div id="details-section">
+    <button class="back-btn" onclick="hideLessons()"><i class="fas fa-arrow-right"></i> عودة للأقسام</button>
+    <h2 id="section-title" style="color: var(--dark-blue); text-align: center;"></h2>
+    <div id="lessons-list"></div>
+</div>
 
-    <div class="section-title">الأقسام العلمية</div>
+<script>
+    // البيانات التي أرسلتها (الحديث، التوحيد، الفرائض)
+    const data = {
+        hadith: {
+            title: "شرح رياض الصالحين",
+            folder: "hadith",
+            list: Array.from({length: 30}, (_, i) => ({ title: `شرح رياض الصالحين - الدرس ${i+1}`, file: `reyad-${i+1}.mp3` }))
+        },
+        tawheed: {
+            title: "شرح كتاب التوحيد",
+            folder: "tawheed",
+            list: Array.from({length: 30}, (_, i) => ({ title: `شرح كتاب التوحيد - الدرس ${i+1}`, file: `tawheed-${i+1}.mp3` }))
+        },
+        faraid: {
+            title: "شرح المنظومة الرحبية",
+            folder: "faraid",
+            list: Array.from({length: 11}, (_, i) => ({ title: `شرح المنظومة الرحبية - الدرس ${i+1}`, file: `al-rhapih${i+1}.mp3` }))
+        }
+    };
 
-    <div class="lessons-grid" id="all-lessons-container">
-        </div>
+    function showLessons(key) {
+        const section = data[key];
+        if (!section) return alert("سيتم إضافة دروس هذا القسم قريباً");
 
-    <div class="footer-rights">
-        جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026
-    </div>
+        document.getElementById('categories-view').style.display = 'none';
+        document.getElementById('details-section').style.display = 'block';
+        document.getElementById('section-title').innerText = section.title;
 
-    <script>
-        // مصفوفة تجمع الدروس (تأكد من مراجعة روابط الملفات .html لكي تفتح دروسك القديمة)
-        const myFullLessons = [
-            { title: "التفسير", icon: "fas fa-book-open", desc: "بيان معاني آيات الذكر الحكيم", link: "tafseer.html" },
-            { title: "علوم القرآن", icon: "fas fa-quran", desc: "دراسات في تاريخ القرآن وأحكامه", link: "quran-sciences.html" },
-            { title: "شرح الحديث", icon: "fas fa-scroll", desc: "شرح الأحاديث النبوية الشريفة", link: "hadith.html" },
-            { title: "العقيدة", icon: "fas fa-shield-halved", desc: "بيان أصول الإيمان والتوحيد", link: "aqidah.html" },
-            { title: "الفقه", icon: "fas fa-gavel", desc: "الأحكام الشرعية والعبادات", link: "fiqh.html" },
-            { title: "السيرة", icon: "fas fa-mosque", desc: "دروس من حياة النبي ﷺ", link: "seerah.html" },
-            { title: "الفرائض", icon: "fas fa-calculator", desc: "علم المواريث وتوزيع التركات", link: "faraid.html" },
-            { title: "الرقائق", icon: "fas fa-heart", desc: "تهذيب النفوس وأعمال القلوب", link: "raqaeq.html" }
-        ];
-
-        const container = document.getElementById('all-lessons-container');
-        // هنا نقوم بعرض كل محتويات المصفوفة لضمان ظهور الجميع
-        container.innerHTML = myFullLessons.map(lesson => `
-            <a href="${lesson.link}" class="lesson-card">
-                <div class="icon-box"><i class="${lesson.icon}"></i></div>
-                <div class="lesson-info">
-                    <h3>${lesson.title}</h3>
-                    <p>${lesson.desc}</p>
-                </div>
-            </a>
+        const listContainer = document.getElementById('lessons-list');
+        listContainer.innerHTML = section.list.map(l => `
+            <div class="lesson-item">
+                <span class="lesson-title">${l.title}</span>
+                <audio controls preload="none"><source src="audio/${section.folder}/${l.file}" type="audio/mpeg"></audio>
+            </div>
         `).join('');
-    </script>
+    }
+
+    function hideLessons() {
+        document.getElementById('categories-view').style.display = 'block';
+        document.getElementById('details-section').style.display = 'none';
+    }
+</script>
+
 </body>
 </html>
