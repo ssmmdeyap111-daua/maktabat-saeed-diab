@@ -6,63 +6,64 @@
     <title>الدروس العلمية للشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87; }
+        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --header-bg: #add8e6; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
         
-        /* زيادة عرض وارتفاع الشريط الرئيسي بمقدار الضعف تقريباً */
+        /* الشريط الرئيسي العريض */
         .site-header { 
             text-align: center; 
-            padding: 80px 20px; /* زيادة الحشو الرأسي */
+            padding: 80px 20px; 
             background: linear-gradient(to right, #add8e6, #e0f2f7); 
             border-bottom: 5px solid white; 
         }
         .site-header h1 { margin: 0; font-size: 2.2rem; color: var(--dark-blue); font-weight: 900; }
 
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
-        .nav-link { padding: 10px 25px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
+        .nav-link { padding: 10px 25px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
         
-        /* تنسيق الأيقونات لتكون في صف واحد مستقيم */
+        /* تنسيق الأيقونات (الأزرق الفاتح) في صف واحد */
         .categories-grid { 
             display: flex; 
-            flex-wrap: nowrap; /* منع النزول لسطر جديد في الشاشات الكبيرة */
-            overflow-x: auto; /* إضافة تمرير جانبي في حال كانت الشاشة صغيرة جداً */
+            flex-wrap: nowrap; 
             justify-content: center; 
-            gap: 10px; 
-            max-width: 1300px; 
+            gap: 12px; 
+            max-width: 1400px; 
             margin: 30px auto; 
-            padding: 10px;
+            padding: 15px;
+            overflow-x: auto; /* للتمرير في الجوال */
         }
         .cat-card { 
-            background: white; 
-            padding: 15px 10px; 
+            background: var(--bright-blue); /* لون أزرق فاتح واضح */
+            padding: 20px 10px; 
             border-radius: 12px; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             cursor: pointer; 
-            border-right: 4px solid var(--accent-blue); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
             transition: 0.3s; 
-            min-width: 130px; /* عرض مناسب للأيقونة */
-            flex: 1; /* توزيع المساحة بالتساوي */
+            min-width: 130px; 
+            flex: 1;
         }
-        .cat-card:hover { transform: translateY(-3px); background: #f8fbff; border-right-color: var(--dark-blue); }
-        .cat-card h3 { margin: 0; font-size: 0.9rem; color: var(--dark-blue); font-weight: 700; white-space: nowrap; }
+        .cat-card:hover { transform: translateY(-5px); background: #b0e2f5; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .cat-card h3 { margin: 0; font-size: 1rem; color: var(--dark-blue); font-weight: 900; white-space: nowrap; }
 
         /* تنسيق عرض الدروس */
         #details-view { max-width: 900px; margin: 20px auto; padding: 20px; display: none; }
         .back-btn { background: var(--dark-blue); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; font-family: 'Cairo'; font-weight: bold; }
-        .item-wrapper { background: white; margin-bottom: 10px; border-radius: 10px; overflow: hidden; border-right: 5px solid var(--accent-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .item-wrapper { background: white; margin-bottom: 10px; border-radius: 10px; overflow: hidden; border-right: 5px solid var(--bright-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .item-header { background: #f8fbff; padding: 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: var(--dark-blue); }
         .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
         .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
         audio { height: 35px; width: 220px; }
 
-        /* للهواتف المحمولة: السماح بالتمرير الجانبي للأيقونات */
-        @media (max-width: 768px) {
-            .categories-grid { justify-content: flex-start; padding-bottom: 20px; }
-            .site-header { padding: 50px 10px; }
-            .site-header h1 { font-size: 1.5rem; }
+        /* تحسينات للجوال */
+        @media (max-width: 900px) {
+            .categories-grid { justify-content: flex-start; padding-bottom: 25px; }
+            .cat-card { min-width: 120px; }
+            .site-header { padding: 60px 10px; }
+            .site-header h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -75,7 +76,7 @@
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
     <a href="khutbah.html" class="nav-link">الخطب</a>
-    <a href="lessons.html" class="nav-link" style="background:var(--dark-blue)">الدروس</a>
+    <a href="lessons.html" class="nav-link" style="background:var(--bright-blue); color: var(--dark-blue);">الدروس</a>
 </div>
 
 <div id="main-view">
@@ -93,12 +94,11 @@
 
 <div id="details-view">
     <button class="back-btn" onclick="hideSection()">← عودة للقائمة</button>
-    <h2 id="section-title" style="color: var(--dark-blue); border-bottom: 2px solid var(--accent-blue); padding-bottom: 10px;"></h2>
+    <h2 id="section-title" style="color: var(--dark-blue); border-bottom: 3px solid var(--bright-blue); padding-bottom: 10px;"></h2>
     <div id="lessons-list"></div>
 </div>
 
 <script>
-    // بيانات التفسير
     const tafseerData = [
         { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}] },
         { name: "سورة البقرة", lessons: Array.from({length: 40}, (_, i) => ({t: `الدرس ${i+1}`, f: `bakara-${i+1}.mp3`})) },
@@ -115,7 +115,6 @@
         { name: "سورة الرعد", lessons: Array.from({length: 11}, (_, i) => ({t: `الدرس ${i+1}`, f: `raad-${i+1}.mp3`})) }
     ];
 
-    // بيانات العقيدة
     const tawheedData = [
         { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
         { name: "شرح العقيدة الواسطية", lessons: Array.from({length: 26}, (_, i) => ({t: `الدرس ${i+1}`, f: `wasitiya-${i+1}.mp3`})) },
@@ -129,7 +128,7 @@
         quran_sciences: { title: "علوم القرآن", list: [{ t: "مقدمة", f: "quran-1.mp3" }] },
         seerah: { title: "السيرة", list: [{ t: "مقدمة", f: "seerah-1.mp3" }] },
         raqaeq: { title: "الرقائق", list: [{ t: "مقدمة", f: "raqaeq-1.mp3" }] },
-        fiker: { title: "المذاهب", list: [{ t: "مقدمة", f: "fiker-1.mp3" }] }
+        fiker: { title: "المذاهب الفكرية", list: [{ t: "مقدمة", f: "fiker-1.mp3" }] }
     };
 
     function showSection(key) {
