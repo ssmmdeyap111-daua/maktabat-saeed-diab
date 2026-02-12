@@ -1,39 +1,4 @@
-// بيانات سلسلة علامات الساعة - الشيخ سعيد مصطفى دياب
-// ملاحظة: تأكد أن ملفات الصوت موجودة داخل مجلد اسمه audio بجانب صفحات الموقع
-const khutbahData = [];
-
-// توليد بيانات 40 خطبة تلقائياً بناءً على نمط التسمية الخاص بك
-for (let i = 1; i <= 40; i++) {
-    khutbahData.push({
-        id: i,
-        title: `علامات الساعة - ${i}`,
-        date: "2026", // يمكنك تعديل التاريخ لاحقاً لكل خطبة
-        link: `audio/alamat-${i}.mp3` // هذا هو الرابط الذي بدأت برفعه
-    });
-}
-
-// دالة عرض الخطب في الصفحة
-function displayKhutbahs() {
-    const container = document.getElementById('khutbah-list');
-    if (!container) return;
-
-    container.innerHTML = khutbahData.map(khutbah => `
-        <div class="khutbah-card">
-            <div style="display: flex; align-items: center;">
-                <div class="series-icon"><i class="fas fa-hourglass-half"></i></div>
-                <div class="khutbah-info">
-                    <h3>${khutbah.title}</h3>
-                    <p><i class="far fa-calendar-alt"></i> سلسلة علامات الساعة</p>
-                </div>
-            </div>
-            <a href="${khutbah.link}" class="play-btn" target="_blank" title="استماع">
-                <i class="fas fa-play"></i>
-            </a>
-        </div>
-    `).join('');
-}
-// بيانات سلسلة علامات الساعة - الشيخ سعيد مصطفى دياب
-// هذا الملف يحتوي على 40 خطبة مرتبة ومجهزة للعمل فوراً
+// ملف بيانات خطب علامات الساعة - الشيخ سعيد مصطفى دياب
 const khutbahData = [
     { id: 1, title: "علامات الساعة - 1", link: "audio/alamat-1.mp3" },
     { id: 2, title: "علامات الساعة - 2", link: "audio/alamat-2.mp3" },
@@ -77,7 +42,7 @@ const khutbahData = [
     { id: 40, title: "علامات الساعة - 40", link: "audio/alamat-40.mp3" }
 ];
 
-// دالة العرض البرمجية
+// دالة العرض في الصفحة
 function displayKhutbahs() {
     const container = document.getElementById('khutbah-list');
     if (!container) return;
@@ -88,7 +53,7 @@ function displayKhutbahs() {
                 <div class="series-icon"><i class="fas fa-hourglass-half"></i></div>
                 <div class="khutbah-info">
                     <h3>${khutbah.title}</h3>
-                    <p><i class="far fa-clock"></i> استماع للخطبة</p>
+                    <p><i class="far fa-clock"></i> سلسلة علامات الساعة</p>
                 </div>
             </div>
             <a href="${khutbah.link}" class="play-btn" target="_blank">
@@ -98,7 +63,5 @@ function displayKhutbahs() {
     `).join('');
 }
 
-// تنفيذ الدالة عند التحميل
-document.addEventListener('DOMContentLoaded', displayKhutbahs);
-// تشغيل الدالة عند تحميل الصفحة
+// تشغيل الدالة
 document.addEventListener('DOMContentLoaded', displayKhutbahs);
