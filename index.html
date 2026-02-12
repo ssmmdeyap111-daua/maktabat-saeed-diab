@@ -9,87 +9,94 @@
     
     <style>
         :root { 
-            --light-sky: #e3f2fd; /* اللون اللبني الفاتح جداً */
-            --soft-blue: #add8e6; 
-            --primary-blue: #2c5d87;
+            --light-sky: #eef5ff; /* اللون اللبني الفاتح جداً للخلفية */
+            --accent-blue: #87ceeb; /* نفس لون أيقونات صفحة الدروس */
+            --dark-blue: #2c5d87;
+            --shadow-blue: #5f9ea0; /* لون ظل الأيقونات 3D */
         }
 
         body { 
             margin: 0; 
             font-family: 'Cairo', sans-serif; 
-            background-color: var(--light-sky); /* لون الخلفية اللبني */
+            background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); 
             color: #333; 
             min-height: 100vh;
         }
         
         /* 1. شريط اسم الموقع */
-        .site-banner {
-            background-color: var(--soft-blue);
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: 5px solid #fff;
+        .site-header {
+            text-align: center; 
+            padding: 60px 20px; 
+            background: linear-gradient(to right, #add8e6, #e0f2f7); 
+            border-bottom: 4px solid #ffffff;
         }
-        .site-banner h1 {
-            margin: 0; font-size: 2.8rem; font-weight: 900;
-            color: var(--primary-blue);
+        .site-header h1 {
+            margin: 0; font-size: 2.5rem; font-weight: 900;
+            color: var(--dark-blue);
         }
 
-        /* 2. الأيقونات المستطيلة (لبنية 3D بدون صور) */
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 40px 20px;
+        /* 2. الأيقونات (مطابقة تماماً لصفحة الدروس - مستطيلة 3D) */
+        .nav-bar { 
+            display: flex; 
+            justify-content: center; 
+            gap: 15px; 
+            padding: 30px 20px; 
+            flex-wrap: wrap; 
         }
-        .cat-card-3d { 
-            background: #ffffff; 
-            padding: 18px 30px; 
+        .nav-link-3d { 
+            padding: 15px 25px; 
+            background: var(--accent-blue); 
+            color: white; 
+            text-decoration: none; 
             border-radius: 12px; 
-            font-weight: bold; 
-            color: var(--primary-blue); 
-            text-decoration: none;
-            transition: 0.2s; 
-            min-width: 120px; 
-            text-align: center; 
-            box-shadow: 0 6px 0 var(--soft-blue); /* تأثير 3D باللون اللبني */
-            border: 1px solid var(--soft-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+            min-width: 130px;
+            text-align: center;
+            box-shadow: 0 5px 0 var(--shadow-blue); /* تأثير 3D */
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
-        .cat-card-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--soft-blue); }
-        .cat-card-3d i { display: block; margin-bottom: 10px; font-size: 1.8rem; color: var(--soft-blue); }
+        .nav-link-3d:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--shadow-blue); }
+        .nav-link-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--shadow-blue); }
+        .nav-link-3d i { font-size: 1.8rem; } /* أيقونات فقط بدون صور */
 
         /* 3. شريط الآية (عريض وشفاف) */
-        .quran-strip-transparent {
-            background: rgba(44, 93, 135, 0.7); 
+        .quran-strip {
+            background: rgba(44, 93, 135, 0.75); 
             color: white; 
             padding: 25px 0; 
             text-align: center;
-            font-size: 1.6rem; 
+            font-size: 1.5rem; 
             font-weight: bold; 
             margin: 30px 0;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
 
-        /* 4. شريط الكتب (موسع ليشمل عرض الصفحة) */
-        .books-wrapper-wide { 
-            width: 95%; /* تم توسيع الحاوية */
+        /* 4. شريط الكتب الموسع (من اليمين للشمال) */
+        .books-container-wide { 
+            width: 96%; 
             margin: 40px auto; 
         }
-        .books-wrapper-wide h3 { color: var(--primary-blue); margin-bottom: 20px; padding-right: 10px; }
+        .books-container-wide h3 { color: var(--dark-blue); margin-bottom: 20px; font-weight: 900; }
         
-        .slider-box-wide {
+        .slider-box {
             display: flex; 
             align-items: center; 
             background: rgba(255, 255, 255, 0.4);
-            padding: 30px 10px; 
+            padding: 25px 10px; 
             border-radius: 20px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .arrow { font-size: 35px; color: var(--primary-blue); cursor: pointer; padding: 0 15px; }
+        .arrow { font-size: 40px; color: var(--dark-blue); cursor: pointer; transition: 0.3s; }
+        .arrow:hover { transform: scale(1.2); color: var(--accent-blue); }
         
         .books-scroll {
             display: flex; 
-            gap: 25px; 
+            gap: 20px; 
             overflow-x: auto; 
             scroll-behavior: smooth;
             scrollbar-width: none; 
@@ -97,62 +104,62 @@
         }
         .books-scroll::-webkit-scrollbar { display: none; }
         
-        /* أغلفة الكتب */
         .book-img {
-            width: 150px; 
-            height: 220px; 
+            width: 145px; 
+            height: 210px; 
             object-fit: cover;
             border-radius: 10px; 
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             border: 3px solid #fff; 
             transition: 0.3s;
         }
-        .book-img:hover { transform: scale(1.08); }
+        .book-img:hover { transform: scale(1.05) rotate(1deg); }
 
         /* 5. وسائل التواصل */
-        .social-area { text-align: center; padding: 40px; }
+        .social-section { text-align: center; padding: 40px 0; }
         .social-flex { display: flex; justify-content: center; gap: 20px; }
         .s-icon { 
-            font-size: 30px; color: white; width: 60px; height: 60px; 
+            font-size: 28px; color: white; width: 60px; height: 60px; 
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s;
         }
+        .s-icon:hover { transform: translateY(-5px); }
         .fb { background: #1877F2; } .wa { background: #25D366; } .tg { background: #229ED9; }
 
         /* 6. الحقوق */
-        .footer-rights {
-            background: var(--primary-blue); 
+        .footer {
+            background: var(--dark-blue); 
             color: white; 
             text-align: center;
             padding: 25px; 
             font-weight: bold;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="site-banner">
+    <header class="site-header">
         <h1>موقع الشيخ سعيد مصطفى دياب</h1>
-    </div>
+    </header>
 
-    <nav class="nav-container">
-        <a href="index.html" class="cat-card-3d"><i class="fas fa-home"></i>الرئيسية</a>
-        <a href="books.html" class="cat-card-3d"><i class="fas fa-book"></i>الكتب</a>
-        <a href="lessons.html" class="cat-card-3d"><i class="fas fa-microphone"></i>الدروس</a>
-        <a href="khutbah.html" class="cat-card-3d"><i class="fas fa-bullhorn"></i>الخطب</a>
-        <a href="articles.html" class="cat-card-3d"><i class="fas fa-pen-nib"></i>المقالات</a>
-        <a href="#" class="cat-card-3d"><i class="fas fa-user-circle"></i>عن الشيخ</a>
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-link-3d"><i class="fas fa-home"></i>الرئيسية</a>
+        <a href="books.html" class="nav-link-3d"><i class="fas fa-book"></i>الكتب</a>
+        <a href="lessons.html" class="nav-link-3d"><i class="fas fa-microphone"></i>الدروس</a>
+        <a href="khutbah.html" class="nav-link-3d"><i class="fas fa-bullhorn"></i>الخطب</a>
+        <a href="articles.html" class="nav-link-3d"><i class="fas fa-pen-nib"></i>المقالات</a>
     </nav>
 
-    <div class="quran-strip-transparent">
+    <div class="quran-strip">
         <marquee scrollamount="6" direction="right">
             ﴿ يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ ﴾
         </marquee>
     </div>
 
-    <div class="books-wrapper-wide">
-        <h3><i class="fas fa-layer-group"></i> مكتبة المؤلفات والسلاسل:</h3>
-        <div class="slider-box-wide">
+    <div class="books-container-wide">
+        <h3>📚 مؤلفات وسلاسل مختارة:</h3>
+        <div class="slider-box">
             <i class="fas fa-chevron-right arrow" onclick="document.getElementById('b-slider').scrollBy(300,0)"></i>
             <div class="books-scroll" id="b-slider">
                 <a href="books.html"><img src="images/al-arbon-veal-amthal.jpg.jpg" class="book-img"></a>
@@ -172,7 +179,7 @@
         </div>
     </div>
 
-    <div class="social-area">
+    <div class="social-section">
         <div class="social-flex">
             <a href="https://wa.me/97455703316" target="_blank" class="s-icon wa"><i class="fab fa-whatsapp"></i></a>
             <a href="https://t.me/haiatelqloop3" target="_blank" class="s-icon tg"><i class="fab fa-telegram-plane"></i></a>
@@ -180,7 +187,7 @@
         </div>
     </div>
 
-    <div class="footer-rights">
+    <div class="footer">
         جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026
     </div>
 
