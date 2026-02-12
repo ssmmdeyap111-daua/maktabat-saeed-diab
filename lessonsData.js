@@ -1,49 +1,54 @@
+/**
+ * ملف بيانات الدروس العلمية - الشيخ سعيد مصطفى دياب
+ * يحتوي على كافة الأقسام العلمية والأيقونات الخاصة بها
+ */
+
 const lessonsData = [
-    {
-        name: "التفسير",
-        lessons: [
-            { title: "تفسير سورة الفاتحة", src: "audio/tafseer-fatiha-1.mp3" },
-           { title: "تفسير سورة الفاتحة", src: "audio/tafseer-fatiha-2.mp3" }
-            { title: "تفسير سورة البقرة", src: "audio/tafseer-baqara-1.mp3" },
-           { title: "تفسير سورة البقرة", src: "audio/tafseer-baqara-2.mp3" } 
-          { title: "تفسير سورة البقرة", src: "audio/tafseer-baqara-3.mp3" }
-            { title: "تفسير سورة آل عمران", src: "audio/tafseer-al-imran-1.mp3" }
-        ]
+    { 
+        title: "علوم القرآن", 
+        icon: "fas fa-quran", 
+        desc: "شرح مباحث وعلوم الكتاب العزيز", 
+        link: "quran-sciences.html" 
     },
-    {
-        name: "شروح الحديث",
-        lessons: [
-            { title: "حديث إنما الأعمال بالنيات", src: "audio/hadith1.mp3" },
-            { title: "حديث من سلك طريقا", src: "audio/hadith2.mp3" }
-        ]
+    { 
+        title: "السيرة النبوية", 
+        icon: "fas fa-mosque", 
+        desc: "دروس في سيرة الحبيب المصطفى ﷺ", 
+        link: "seerah.html" 
     },
-    {
-        name: "التوحيد",
-        lessons: [
-            { title: "أنواع التوحيد", src: "audio/tawheed1.mp3" },
-            { title: "أركان الإيمان", src: "audio/tawheed2.mp3" }
-        ]
+    { 
+        title: "دروس العقيدة", 
+        icon: "fas fa-book-open", 
+        desc: "شرح أصول الإيمان والتوحيد", 
+        link: "aqidah.html" 
     },
-    {
-        name: "الفقه",
-        lessons: [
-            { title: "أحكام الطهارة", src: "audio/fiqh1.mp3" },
-            { title: "صلاة الجماعة", src: "audio/fiqh2.mp3" }
-        ]
-    },
-    {
-        name: "السيرة",
-        lessons: [
-            { title: "مولد النبي ﷺ", src: "audio/seerah1.mp3" },
-            { title: "الهجرة إلى المدينة", src: "audio/seerah2.mp3" }
-        ]
-    },
-    {
-        name: "الرقائق",
-        lessons: [
-            { title: "تزكية النفس", src: "audio/raqaiq1.mp3" },
-            { title: "فضل الصبر", src: "audio/raqaiq2.mp3" }
-        ]
+    { 
+        title: "الفقه الإسلامي", 
+        icon: "fas fa-gavel", 
+        desc: "دروس في الأحكام الفقهية والعبادات", 
+        link: "fiqh.html" 
     }
 ];
 
+// دالة عرض الدروس في الصفحة
+function displayLessons() {
+    const container = document.getElementById('lessons-list');
+    
+    // التأكد من وجود الحاوية في الصفحة لتجنب الأخطاء
+    if (!container) return;
+
+    container.innerHTML = lessonsData.map(lesson => `
+        <a href="${lesson.link}" class="lesson-card">
+            <div class="lesson-icon">
+                <i class="${lesson.icon}"></i>
+            </div>
+            <div class="lesson-info">
+                <h3>${lesson.title}</h3>
+                <p>${lesson.desc}</p>
+            </div>
+        </a>
+    `).join('');
+}
+
+// تشغيل الدالة فور تحميل الصفحة
+document.addEventListener('DOMContentLoaded', displayLessons);
