@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المكتبة العلمية - الشيخ سعيد مصطفى دياب</title>
+    <title>الدروس العلمية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -14,7 +14,6 @@
         .nav-link { padding: 10px 20px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 20px auto; padding: 20px; }
         .cat-card { background: white; padding: 20px; border-radius: 15px; display: flex; align-items: center; cursor: pointer; border-right: 6px solid var(--accent-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
-        .cat-card:hover { transform: translateY(-5px); background: #f0f7ff; }
         .icon-box { width: 60px; height: 60px; background: var(--light-sky); border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-left: 15px; font-size: 1.8rem; color: var(--dark-blue); }
         #details-view { max-width: 900px; margin: 30px auto; padding: 20px; display: none; }
         .lesson-item { background: white; padding: 15px; border-radius: 12px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; border-right: 5px solid var(--dark-blue); flex-wrap: wrap; }
@@ -49,10 +48,26 @@
 
 <script>
     const allData = {
-        tafseer: { title: "دروس التفسير", list: Array.from({length: 30}, (_, i) => ({ t: `تفسير سورة البقرة - درس ${i+1}`, f: `tafseer-${i+1}.mp3` })) },
-        hadith: { title: "شرح رياض الصالحين", list: Array.from({length: 30}, (_, i) => ({ t: `رياض الصالحين - درس ${i+1}`, f: `reyad-${i+1}.mp3` })) },
-        tawheed: { title: "شرح كتاب التوحيد", list: Array.from({length: 30}, (_, i) => ({ t: `كتاب التوحيد - درس ${i+1}`, f: `tawheed-${i+1}.mp3`, f2: `aqida-${i+1}.mp3` })) },
-        faraid: { title: "شرح المنظومة الرحبية", list: Array.from({length: 11}, (_, i) => ({ t: `المنظومة الرحبية - درس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }
+        tafseer: { 
+            title: "دروس التفسير", 
+            list: [
+                { t: "تفسير سورة الفاتحة", f: "fatiha-1.mp3" },
+                // توليد دروس سورة البقرة من 1 إلى 30 بلقب bakara
+                ...Array.from({length: 30}, (_, i) => ({ t: `تفسير سورة البقرة - الدرس ${i+1}`, f: `bakara-${i+1}.mp3` }))
+            ] 
+        },
+        hadith: { 
+            title: "شرح رياض الصالحين", 
+            list: Array.from({length: 30}, (_, i) => ({ t: `رياض الصالحين - درس ${i+1}`, f: `reyad-${i+1}.mp3` })) 
+        },
+        tawheed: { 
+            title: "شرح كتاب التوحيد", 
+            list: Array.from({length: 30}, (_, i) => ({ t: `كتاب التوحيد - درس ${i+1}`, f: `tawheed-${i+1}.mp3`, f2: `tawheed${i+1}.mp3` })) 
+        },
+        faraid: { 
+            title: "شرح المنظومة الرحبية", 
+            list: Array.from({length: 11}, (_, i) => ({ t: `المنظومة الرحبية - درس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) 
+        }
     };
 
     function showSection(key) {
