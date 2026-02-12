@@ -1,1 +1,1 @@
-
+const fiqhData = [];
