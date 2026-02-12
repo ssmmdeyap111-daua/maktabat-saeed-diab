@@ -12,15 +12,11 @@
         .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid white; }
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
         .nav-link { padding: 10px 20px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
-
-        /* تصميم شبكة الأقسام الثمانية الموحد */
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 20px auto; padding: 20px; }
         .cat-card { background: white; padding: 20px; border-radius: 15px; display: flex; align-items: center; cursor: pointer; border-right: 6px solid var(--accent-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
         .cat-card:hover { transform: translateY(-5px); background: #f0f7ff; }
         .icon-box { width: 60px; height: 60px; background: var(--light-sky); border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-left: 15px; font-size: 1.8rem; color: var(--dark-blue); }
         .cat-card h3 { margin: 0; font-size: 1.2rem; color: var(--dark-blue); font-weight: 700; }
-
-        /* واجهة عرض الدروس */
         #details-view { max-width: 900px; margin: 30px auto; padding: 20px; display: none; }
         .lesson-item { background: white; padding: 15px; border-radius: 12px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; border-right: 5px solid var(--dark-blue); flex-wrap: wrap; }
         .back-btn { background: var(--dark-blue); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-bottom: 20px; font-family: 'Cairo'; font-weight: bold; }
@@ -29,9 +25,7 @@
 </head>
 <body>
 
-<header class="site-header">
-    <h1>المكتبة العلمية للشيخ سعيد مصطفى دياب</h1>
-</header>
+<header class="site-header"><h1>الدروس العلمية - الشيخ سعيد دياب</h1></header>
 
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
@@ -45,10 +39,10 @@
         <div class="cat-card" onclick="showSection('hadith')"><div class="icon-box"><i class="fas fa-scroll"></i></div><h3>شرح الحديث</h3></div>
         <div class="cat-card" onclick="showSection('tawheed')"><div class="icon-box"><i class="fas fa-shield-halved"></i></div><h3>العقيدة</h3></div>
         <div class="cat-card" onclick="showSection('faraid')"><div class="icon-box"><i class="fas fa-calculator"></i></div><h3>الفرائض</h3></div>
-        <div class="cat-card" onclick="showSection('quran')"><div class="icon-box"><i class="fas fa-quran"></i></div><h3>علوم القرآن</h3></div>
-        <div class="cat-card" onclick="showSection('fiqh')"><div class="icon-box"><i class="fas fa-gavel"></i></div><h3>الفقه</h3></div>
-        <div class="cat-card" onclick="showSection('seerah')"><div class="icon-box"><i class="fas fa-mosque"></i></div><h3>السيرة</h3></div>
-        <div class="cat-card" onclick="showSection('raqaeq')"><div class="icon-box"><i class="fas fa-heart"></i></div><h3>الرقائق</h3></div>
+        <div class="cat-card" onclick="alert('قريباً')"><div class="icon-box"><i class="fas fa-quran"></i></div><h3>علوم القرآن</h3></div>
+        <div class="cat-card" onclick="alert('قريباً')"><div class="icon-box"><i class="fas fa-gavel"></i></div><h3>الفقه</h3></div>
+        <div class="cat-card" onclick="alert('قريباً')"><div class="icon-box"><i class="fas fa-mosque"></i></div><h3>السيرة</h3></div>
+        <div class="cat-card" onclick="alert('قريباً')"><div class="icon-box"><i class="fas fa-heart"></i></div><h3>الرقائق</h3></div>
     </div>
 </div>
 
@@ -58,18 +52,17 @@
     <div id="lessons-list"></div>
 </div>
 
-<script src="tafseer.data.js"></script>
-<script src="quran.data.js"></script>
-<script src="hadith.data.js"></script>
-<script src="aqidah.data.js"></script>
-<script src="fiqh.data.js"></script>
-<script src="seerah.data.js"></script>
-<script src="faraid.data.js"></script>
-<script src="raqaeq.data.js"></script>
-
 <script>
-    // البيانات المدمجة كنسخة احتياطية لضمان عمل الصفحة دائماً
-    const localData = {
+    // البيانات مدمجة هنا مباشرة لضمان العمل 100%
+    const allData = {
+        tafseer: {
+            title: "دروس التفسير",
+            list: [
+                { t: "تفسير سورة الفاتحة", f: "tafseer-1.mp3" },
+                { t: "تفسير سورة البقرة - 1", f: "tafseer-2.mp3" },
+                { t: "تفسير سورة البقرة - 2", f: "tafseer-3.mp3" }
+            ]
+        },
         hadith: {
             title: "شرح رياض الصالحين",
             list: Array.from({length: 30}, (_, i) => ({ t: `رياض الصالحين - الدرس ${i+1}`, f: `reyad-${i+1}.mp3` }))
@@ -81,41 +74,17 @@
         faraid: {
             title: "شرح المنظومة الرحبية",
             list: Array.from({length: 11}, (_, i) => ({ t: `المنظومة الرحبية - الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` }))
-        },
-        tafseer: { title: "دروس التفسير", list: [] },
-        quran: { title: "علوم القرآن", list: [] },
-        fiqh: { title: "الفقه", list: [] },
-        seerah: { title: "السيرة", list: [] },
-        raqaeq: { title: "الرقائق", list: [] }
+        }
     };
 
     function showSection(key) {
-        let currentSection = { title: "", list: [] };
+        const section = allData[key];
+        if (!section || section.list.length === 0) return;
 
-        // 1. محاولة قراءة البيانات من الملفات الخارجية أولاً
-        if (key === 'tafseer' && typeof tafseerData !== 'undefined') { currentSection = { title: "دروس التفسير", list: tafseerData }; }
-        else if (key === 'hadith' && typeof hadithData !== 'undefined') { currentSection = { title: "شرح الحديث", list: hadithData }; }
-        else if (key === 'tawheed' && typeof tawheedData !== 'undefined') { currentSection = { title: "العقيدة", list: tawheedData }; }
-        else if (key === 'faraid' && typeof faraidData !== 'undefined') { currentSection = { title: "الفرائض", list: faraidData }; }
-        else if (key === 'quran' && typeof quranData !== 'undefined') { currentSection = { title: "علوم القرآن", list: quranData }; }
-        else if (key === 'fiqh' && typeof fiqhData !== 'undefined') { currentSection = { title: "الفقه", list: fiqhData }; }
-        else if (key === 'seerah' && typeof seerahData !== 'undefined') { currentSection = { title: "السيرة", list: seerahData }; }
-        else if (key === 'raqaeq' && typeof raqaeqData !== 'undefined') { currentSection = { title: "الرقائق", list: raqaeqData }; }
-        
-        // 2. إذا كانت الملفات الخارجية فارغة، استخدم البيانات المدمجة (localData)
-        if (currentSection.list.length === 0) {
-            currentSection = localData[key];
-        }
-
-        if (!currentSection || currentSection.list.length === 0) {
-            alert('سيتم إضافة دروس هذا القسم قريباً بإذن الله');
-            return;
-        }
-
-        document.getElementById('section-title').innerText = currentSection.title;
+        document.getElementById('section-title').innerText = section.title;
         const listDiv = document.getElementById('lessons-list');
         
-        listDiv.innerHTML = currentSection.list.map(item => `
+        listDiv.innerHTML = section.list.map(item => `
             <div class="lesson-item">
                 <span style="font-weight:bold; color:var(--dark-blue)">${item.t}</span>
                 <audio controls preload="none">
@@ -133,6 +102,5 @@
         document.getElementById('details-view').style.display = 'none';
     }
 </script>
-
 </body>
 </html>
