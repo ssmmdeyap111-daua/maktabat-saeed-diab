@@ -12,18 +12,17 @@
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; }
         .nav-link { padding: 8px 18px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.9rem; }
         
-        /* تصميم الأيقونات (الكروت) بحجم أصغر وبدون صور */
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-width: 1000px; margin: 20px auto; padding: 20px; }
         .cat-card { background: white; padding: 15px; border-radius: 12px; display: flex; justify-content: center; align-items: center; cursor: pointer; border-right: 5px solid var(--accent-blue); box-shadow: 0 3px 8px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; }
-        .cat-card:hover { transform: translateY(-3px); background: #f0f7ff; border-right-color: var(--dark-blue); }
+        .cat-card:hover { transform: translateY(-3px); background: #f0f7ff; }
         .cat-card h3 { margin: 0; font-size: 1.1rem; color: var(--dark-blue); }
 
         #details-view { max-width: 900px; margin: 20px auto; padding: 20px; display: none; }
         .back-btn { background: var(--dark-blue); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; font-family: 'Cairo'; font-weight: bold; }
 
-        .surah-wrapper { background: white; margin-bottom: 10px; border-radius: 10px; overflow: hidden; border-right: 5px solid var(--accent-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .surah-header { background: #f8fbff; padding: 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: var(--dark-blue); }
-        .surah-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
+        .item-wrapper { background: white; margin-bottom: 10px; border-radius: 10px; overflow: hidden; border-right: 5px solid var(--accent-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .item-header { background: #f8fbff; padding: 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: var(--dark-blue); }
+        .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
         
         .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
         audio { height: 35px; width: 230px; }
@@ -57,7 +56,8 @@
 </div>
 
 <script>
-    const tafseerBySurah = [
+    // 1. بيانات التفسير
+    const tafseerData = [
         { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}, {t: "الدرس 2", f: "fatiha-2.mp3"}] },
         { name: "سورة البقرة", lessons: Array.from({length: 40}, (_, i) => ({t: `الدرس ${i+1}`, f: `bakara-${i+1}.mp3`})) },
         { name: "سورة آل عمران", lessons: Array.from({length: 52}, (_, i) => ({t: `الدرس ${i+1}`, f: `aleimran-${i+1}.mp3`})) },
@@ -73,23 +73,34 @@
         { name: "سورة الرعد", lessons: Array.from({length: 11}, (_, i) => ({t: `الدرس ${i+1}`, f: `raad-${i+1}.mp3`})) }
     ];
 
+    // 2. بيانات العقيدة المحدثة (4 كتب بقوائم منسدلة)
+    const tawheedData = [
+        { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
+        { name: "شرح العقيدة الواسطية", lessons: Array.from({length: 26}, (_, i) => ({t: `الدرس ${i+1}`, f: `wasitiya-${i+1}.mp3`})) },
+        { name: "شرح سلم الوصول", lessons: Array.from({length: 25}, (_, i) => ({t: `الدرس ${i+1}`, f: `sollam-${i+1}.mp3`})) },
+        { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
+    ];
+
+    // 3. البيانات الأخرى (القوائم المباشرة)
     const otherData = {
         hadith: { title: "شروح الحديث", list: Array.from({length: 30}, (_, i) => ({ t: `رياض الصالحين - الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) },
-        tawheed: { title: "العقيدة", list: Array.from({length: 35}, (_, i) => ({ t: `كتاب التوحيد - الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`, f2: `tawheed${i+1}.mp3` })) },
         faraid: { title: "علم الفرائض", list: Array.from({length: 11}, (_, i) => ({ t: `المنظومة الرحبية - الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }
     };
 
     function showSection(key) {
         const listDiv = document.getElementById('lessons-list');
         listDiv.innerHTML = "";
-        if (key === 'tafseer') {
-            document.getElementById('section-title').innerText = "تفسير القرآن الكريم";
-            tafseerBySurah.forEach((surah, index) => {
+        
+        if (key === 'tafseer' || key === 'tawheed') {
+            const currentData = (key === 'tafseer') ? tafseerData : tawheedData;
+            document.getElementById('section-title').innerText = (key === 'tafseer') ? "تفسير القرآن الكريم" : "العقيدة";
+            
+            currentData.forEach((item, index) => {
                 listDiv.innerHTML += `
-                    <div class="surah-wrapper">
-                        <div class="surah-header" onclick="toggleSurah(${index})"><span>${surah.name}</span> <small>▼</small></div>
-                        <div class="surah-content" id="surah-${index}">
-                            ${surah.lessons.map(l => `<div class="lesson-item"><span>${l.t}</span><audio controls preload="none"><source src="audio/${l.f}" type="audio/mpeg"></audio></div>`).join('')}
+                    <div class="item-wrapper">
+                        <div class="item-header" onclick="toggleItem('${key}-${index}')"><span>${item.name}</span> <small>▼</small></div>
+                        <div class="item-content" id="${key}-${index}">
+                            ${item.lessons.map(l => `<div class="lesson-item"><span>${l.t}</span><audio controls preload="none"><source src="audio/${l.f}" type="audio/mpeg"></audio></div>`).join('')}
                         </div>
                     </div>`;
             });
@@ -99,18 +110,16 @@
             listDiv.innerHTML = section.list.map(item => `
                 <div class="lesson-item" style="background:white; margin-bottom:8px; padding:15px; border-radius:10px; border-right:5px solid var(--dark-blue);">
                     <span style="font-weight:bold">${item.t}</span>
-                    <audio controls preload="none">
-                        <source src="audio/${item.f}" type="audio/mpeg">
-                        ${item.f2 ? `<source src="audio/${item.f2}" type="audio/mpeg">` : ''}
-                    </audio>
+                    <audio controls preload="none"><source src="audio/${item.f}" type="audio/mpeg"></audio>
                 </div>`).join('');
         }
         document.getElementById('main-view').style.display = 'none';
         document.getElementById('details-view').style.display = 'block';
+        window.scrollTo(0,0);
     }
 
-    function toggleSurah(index) {
-        const content = document.getElementById(`surah-${index}`);
+    function toggleItem(id) {
+        const content = document.getElementById(id);
         content.style.display = (content.style.display === 'block') ? 'none' : 'block';
     }
 
