@@ -18,7 +18,7 @@
     "category": "الأدعية"
   },
   {
-    "title": "إشفاء أهل الرسوخ",
+    "title": "إتحاف أهل الرسوخ",
     "pdf": "pdfs/itshaf-ahli-al-rusukh.pdf",
     "image": "images/itshaf-ahli-al-rusukh.jpg",
     "category": "الفقه"
@@ -34,6 +34,41 @@
     "pdf": "pdfs/al-ilmam-siyam.pdf",
     "image": "images/al-ilmam-siyam.jpg",
     "category": "الفقه"
+  },
+  {
+    "title": "الأربعون في الأمثال",
+    "pdf": "books/al-arbon-veal-amthal.pdf",
+    "image": "images/al-arbon-veal-amthal.jpg.jpg",
+    "category": "الحديث"
+  },
+  {
+    "title": "الاعتبار بطرائف الأخبار",
+    "pdf": "books/al-eatbaar-ptraef-alakbaar.pdf",
+    "image": "images/al-eatbaar-ptraef-alakbaar.jpg.jpg",
+    "category": "الحديث"
+  },
+  {
+    "title": "خبر الآحاد",
+    "pdf": "books/kabar-al-ahad.pdf",
+    "image": "images/kabar-al-ahad.jpg.jpg",
+    "category": "الحديث"
+  },
+  {
+    "title": "كشف النقاب",
+    "pdf": "books/kashf-alnqab.pdf",
+    "image": "images/kashf-alnqab.jpg.jpg",
+    "category": "السيرة"
+  },
+  {
+    "title": "خطر الربا",
+    "pdf": "books/katar-al-reba.pdf",
+    "image": "images/katar-al-reba.jpg.jpg",
+    "category": "الفقه"
+  },
+  {
+    "title": "شمائل الرسول",
+    "pdf": "books/shmael-al-rasool.pdf",
+    "image": "images/shmael-al-rasool.jpg.jpg",
+    "category": "السيرة"
   }
 ]
-
