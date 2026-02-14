@@ -18,8 +18,7 @@
         .book-card { background: white; padding: 15px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-bottom: 4px solid var(--light-blue); transition: 0.3s; }
         .book-card img { width: 100%; height: 260px; object-fit: cover; border-radius: 10px; }
         .book-card p { font-weight: 900; color: var(--primary-blue); margin: 15px 0; font-size: 0.95rem; min-height: 3em; }
-        .download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 90%; transition: 0.3s; }
-        .back-home { position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px; background: var(--primary-blue); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 25px; }
+        .download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 90%; transition: 0.3s; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -36,42 +35,21 @@
     <div class="quran-strip">﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾</div>
 
     <div class="books-grid">
-        
         <div class="book-card">
-            <a href="lessons.html?book=amthal">
-                <img src="images/al-arbon-veal-amthal.jpg.jpg">
-            </a>
+            <a href="lessons.html?book=amthal"><img src="images/al-arbon-veal-amthal.jpg.jpg"></a>
             <p>الأربعون في الأمثال</p>
-            <a href="https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books/al-arbon-veal-amthal.pdf" class="download-btn">فتح وتحميل الكتاب</a>
+            <a href="books/al-arbon-veal-amthal.pdf" class="download-btn">فتح وتحميل الكتاب</a>
         </div>
 
         <div class="book-card">
-            <a href="lessons.html?book=akbar">
-                <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg">
-            </a>
+            <a href="lessons.html?book=akbar"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></a>
             <p>الاعتبار بطرائف الأخبار</p>
-            <a href="https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books/al-eatbaar-ptraef-alakbaar.pdf" class="download-btn">فتح وتحميل الكتاب</a>
+            <a href="books/al-eatbaar-ptraef-alakbaar.pdf" class="download-btn">فتح وتحميل الكتاب</a>
+        </div>
+        
         </div>
 
-        <div class="book-card">
-            <a href="lessons.html?book=siyam">
-                <img src="images/al-ilmam-siyam.jpg">
-            </a>
-            <p>الإلمام بالصيام</p>
-            <a href="https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books/al-ilmam-siyam.pdf" class="download-btn">فتح وتحميل الكتاب</a>
-        </div>
-
-        <div class="book-card">
-            <a href="lessons.html?book=irshad">
-                <img src="images/al-irshad.jpg">
-            </a>
-            <p>الإرشاد</p>
-            <a href="https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books/al-irshad.pdf" class="download-btn">فتح وتحميل الكتاب</a>
-        </div>
-
-    </div>
-
-    <a href="index.html" class="back-home">🏠</a>
+    <a href="index.html" style="position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px; background: var(--primary-blue); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 25px;">🏠</a>
 
 </body>
 </html>
