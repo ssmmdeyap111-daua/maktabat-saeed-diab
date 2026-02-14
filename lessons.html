@@ -6,7 +6,7 @@
     <title>الدروس العلمية للشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --header-bg: #add8e6; }
+        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
         .site-header { text-align: center; padding: 60px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
         .site-header h1 { margin: 0; font-size: 2rem; color: var(--dark-blue); font-weight: 900; }
@@ -27,9 +27,7 @@
 </head>
 <body>
 
-<header class="site-header">
-    <h1>الدروس العلمية للشيخ سعيد مصطفى دياب</h1>
-</header>
+<header class="site-header"><h1>الدروس العلمية للشيخ سعيد مصطفى دياب</h1></header>
 
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
@@ -40,8 +38,9 @@
 <div id="main-view">
     <div class="categories-grid">
         <div class="cat-card" onclick="showSection('tafseer')"><h3>تفسير القرآن</h3></div>
-        <div class="cat-card" onclick="showSection('tawheed')"><h3>العقيدة</h3></div>
+        <div class="cat-card" onclick="showSection('quran_sciences')"><h3>علوم القرآن</h3></div>
         <div class="cat-card" onclick="showSection('hadith')"><h3>شروح الحديث</h3></div>
+        <div class="cat-card" onclick="showSection('tawheed')"><h3>العقيدة</h3></div>
         <div class="cat-card" onclick="showSection('faraid')"><h3>علم الفرائض</h3></div>
     </div>
 </div>
@@ -53,61 +52,60 @@
 </div>
 
 <script>
-    const dataStore = {
-        'tafseer': [
-            { 
-                name: "سورة البقرة", 
-                lessons: [
-                    // دروس الأرشيف (الجديدة)
-                    {t: "الدرس 11", f: "https://archive.org/download/bakara-11_202602/bakara-11.mp3"},
-                    {t: "الدرس 10", f: "https://archive.org/download/bakara-10/bakara-10.mp3"},
-                    // دروس جيت هاب (القديمة - سيقرأها الكود من مجلد audio تلقائياً)
-                    {t: "الدرس 1", f: "bakara-1.mp3"},
-                    {t: "الدرس 2", f: "bakara-2.mp3"}
-                ] 
-            },
-            { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}] }
-        ],
-        'tawheed': [
-            { name: "شرح العقيدة الطحاوية", lessons: [{t: "الدرس 1", f: "tahawiya-1.mp3"}] },
-            { name: "شرح كتاب التوحيد", lessons: [{t: "الدرس 1", f: "tawheed-1.mp3"}] }
-        ],
-        'hadith': [
-            { name: "رياض الصالحين", lessons: [{t: "الدرس 1", f: "reyad-1.mp3"}] }
-        ],
-        'faraid': [
-            { name: "المنظومة الرحبية", lessons: [{t: "الدرس 1", f: "al-rhapih1.mp3"}] }
-        ]
+    // هذه هي القائمة الكاملة التي كانت لديك مع دمج درس الأرشيف الجديد
+    const tafseerData = [
+        { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}] },
+        { 
+            name: "سورة البقرة", 
+            lessons: [
+                {t: "الدرس 11 (جديد)", f: "https://archive.org/download/bakara-11_202602/bakara-11.mp3"}, // الدرس الجديد
+                ...Array.from({length: 40}, (_, i) => ({t: `الدرس ${i+1}`, f: `bakara-${i+1}.mp3`})) // الـ 40 درس القديمة
+            ] 
+        },
+        { name: "سورة آل عمران", lessons: Array.from({length: 52}, (_, i) => ({t: `الدرس ${i+1}`, f: `aleimran-${i+1}.mp3`})) },
+        { name: "سورة النساء", lessons: Array.from({length: 53}, (_, i) => ({t: `الدرس ${i+1}`, f: `nesa-${i+1}.mp3`})) },
+        { name: "سورة المائدة", lessons: Array.from({length: 34}, (_, i) => ({t: `الدرس ${i+1}`, f: `maida-${i+1}.mp3`})) }
+    ];
+
+    const tawheedData = [
+        { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
+        { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
+    ];
+
+    const otherData = {
+        hadith: { title: "شروح الحديث", list: Array.from({length: 30}, (_, i) => ({ t: `رياض الصالحين - الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) },
+        faraid: { title: "علم الفرائض", list: Array.from({length: 11}, (_, i) => ({ t: `المنظومة الرحبية - الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) },
+        quran_sciences: { title: "علوم القرآن", list: [{ t: "مقدمة", f: "quran-1.mp3" }] }
     };
 
     function showSection(key) {
         const listDiv = document.getElementById('lessons-list');
         listDiv.innerHTML = "";
-        const sectionData = dataStore[key];
         
-        const titles = { 'tafseer': 'تفسير القرآن', 'tawheed': 'العقيدة', 'hadith': 'شروح الحديث', 'faraid': 'علم الفرائض' };
-        document.getElementById('section-title').innerText = titles[key];
-
-        sectionData.forEach((item, index) => {
-            listDiv.innerHTML += `
-                <div class="item-wrapper">
-                    <div class="item-header" onclick="toggleItem('${key}-${index}')">
-                        <span>${item.name}</span> <small>▼</small>
-                    </div>
-                    <div class="item-content" id="${key}-${index}">
-                        ${item.lessons.map(l => {
-                            // إذا كان الرابط يبدأ بـ http يستخدمه كما هو، وإلا يضيف مسار audio/
-                            let finalPath = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                            return `
-                            <div class="lesson-item">
-                                <span>${l.t}</span>
-                                <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
-                            </div>`;
-                        }).join('')}
-                    </div>
-                </div>`;
-        });
-
+        if (key === 'tafseer' || key === 'tawheed') {
+            const currentData = (key === 'tafseer') ? tafseerData : tawheedData;
+            document.getElementById('section-title').innerText = (key === 'tafseer') ? "تفسير القرآن" : "العقيدة";
+            currentData.forEach((item, index) => {
+                listDiv.innerHTML += `
+                    <div class="item-wrapper">
+                        <div class="item-header" onclick="toggleItem('${key}-${index}')"><span>${item.name}</span> <small>▼</small></div>
+                        <div class="item-content" id="${key}-${index}">
+                            ${item.lessons.map(l => {
+                                let finalPath = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
+                                return `<div class="lesson-item"><span>${l.t}</span><audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio></div>`;
+                            }).join('')}
+                        </div>
+                    </div>`;
+            });
+        } else {
+            const section = otherData[key];
+            document.getElementById('section-title').innerText = section.title;
+            listDiv.innerHTML = section.list.map(item => {
+                let finalPath = item.f.startsWith('http') ? item.f : `audio/${item.f}`;
+                return `<div class="lesson-item" style="background:white; margin-bottom:8px; padding:15px; border-radius:10px; border-right:5px solid var(--dark-blue);">
+                    <span style="font-weight:bold">${item.t}</span><audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio></div>`;
+            }).join('');
+        }
         document.getElementById('main-view').style.display = 'none';
         document.getElementById('details-view').style.display = 'block';
     }
@@ -121,13 +119,6 @@
         document.getElementById('main-view').style.display = 'block';
         document.getElementById('details-view').style.display = 'none';
     }
-
-    // لفتح التفسير مباشرة إذا جاء من صفحة الكتب
-    window.onload = function() {
-        const params = new URLSearchParams(window.location.search);
-        const book = params.get('book');
-        if (book && dataStore[book]) showSection(book);
-    };
 </script>
 </body>
 </html>
