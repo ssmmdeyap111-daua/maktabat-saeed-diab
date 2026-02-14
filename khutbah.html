@@ -37,7 +37,6 @@
         <div class="item-header" onclick="toggleItem('sa-list')"><span>سلسلة علامات الساعة</span><small>▼</small></div>
         <div class="item-content" id="sa-list"></div>
     </div>
-
     <div class="item-wrapper">
         <div class="item-header" onclick="toggleItem('fa-list')"><span>سلسلة فضائل الأعمال</span><small>▼</small></div>
         <div class="item-content" id="fa-list"></div>
@@ -45,16 +44,22 @@
 </div>
 
 <script>
-    // هذه الوظيفة تولد القوائم بنفس الطريقة التي كانت تعمل بها عندك سابقاً تماماً
     function generateList(prefix, count, elementId, label) {
         const container = document.getElementById(elementId);
         let html = "";
+        
+        // الحصول على مسار الموقع الحالي لضمان الوصول للمجلد
+        const currentPath = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+        
         for (let i = 1; i <= count; i++) {
-            // التعديل الجوهري: نستخدم المسار audio/ مباشرة كما كان في كودك الناجح
+            // نستخدم المسار الكامل للملف الصوتي
+            let audioUrl = currentPath + "audio/" + prefix + "-" + i + ".mp3";
+            
             html += `
                 <div class="lesson-item">
                     <span>${label} - الدرس ${i}</span>
                     <audio controls preload="none">
+                        <source src="${audioUrl}" type="audio/mpeg">
                         <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
                     </audio>
                 </div>`;
@@ -67,9 +72,9 @@
         content.style.display = (content.style.display === 'block') ? 'none' : 'block';
     }
 
-    // تشغيل التوليد فور تحميل الصفحة
     window.onload = function() {
-        generateList('sa', 40, 'sa-list', 'علامات الساعة');
+        // نستخدم 'alamat' للتوافق مع ملفاتك
+        generateList('alamat', 40, 'sa-list', 'علامات الساعة');
         generateList('fa', 20, 'fa-list', 'فضائل الأعمال');
     };
 </script>
