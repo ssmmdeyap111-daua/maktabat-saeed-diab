@@ -35,36 +35,43 @@
 
     <div class="quran-strip">﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾</div>
 
-    <div class="books-grid" id="grid">
-        <div class="book-card">
-            <a href="lessons.html?book=amthal"><img src="images/al-arbon-veal-amthal.jpg.jpg"></a>
-            <p>الأربعون في الأمثال</p>
-            <a href="books/al-arbon-veal-amthal.pdf" class="download-btn">فتح وقراءة الكتاب</a>
-        </div>
-
-        <div class="book-card">
-            <a href="lessons.html?book=akbar"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></a>
-            <p>الاعتبار بطرائف الأخبار</p>
-            <a href="books/al-eatbaar-ptraef-alakbaar.pdf" class="download-btn">فتح وقراءة الكتاب</a>
-        </div>
-
-        <div class="book-card">
-            <a href="lessons.html?book=siyam"><img src="images/al-ilmam-siyam.jpg"></a>
-            <p>الإلمام بالصيام</p>
-            <a href="books/al-ilmam-siyam.pdf" class="download-btn">فتح وقراءة الكتاب</a>
-        </div>
+    <div class="books-grid">
         
+        <div class="book-card">
+            <a href="lessons.html?book=amthal">
+                <img src="images/al-arbon-veal-amthal.jpg.jpg">
+            </a>
+            <p>الأربعون في الأمثال</p>
+            <a href="https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books/al-arbon-veal-amthal.pdf" class="download-btn">فتح وتحميل الكتاب</a>
         </div>
+
+        <div class="book-card">
+            <a href="lessons.html?book=akbar">
+                <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg">
+            </a>
+            <p>الاعتبار بطرائف الأخبار</p>
+            <a href="https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books/al-eatbaar-ptraef-alakbaar.pdf" class="download-btn">فتح وتحميل الكتاب</a>
+        </div>
+
+        <div class="book-card">
+            <a href="lessons.html?book=siyam">
+                <img src="images/al-ilmam-siyam.jpg">
+            </a>
+            <p>الإلمام بالصيام</p>
+            <a href="https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books/al-ilmam-siyam.pdf" class="download-btn">فتح وتحميل الكتاب</a>
+        </div>
+
+        <div class="book-card">
+            <a href="lessons.html?book=irshad">
+                <img src="images/al-irshad.jpg">
+            </a>
+            <p>الإرشاد</p>
+            <a href="https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books/al-irshad.pdf" class="download-btn">فتح وتحميل الكتاب</a>
+        </div>
+
+    </div>
 
     <a href="index.html" class="back-home">🏠</a>
 
-    <script>
-        // هذا السطر البرمجي يصحح المسارات تلقائياً لتوافق GitHub
-        document.querySelectorAll('.download-btn').forEach(btn => {
-            let currentHref = btn.getAttribute('href');
-            // تأكيد المسار الصحيح للمجلد
-            btn.href = window.location.pathname.replace('books.html', '') + currentHref;
-        });
-    </script>
 </body>
 </html>
