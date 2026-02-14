@@ -7,16 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --primary-blue: #2c5d87; --light-blue: #add8e6; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(135deg, #eef5ff 0%, #add8e6 100%); text-align: center; min-height: 100vh; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(135deg, #eef5ff 0%, #add8e6 100%); text-align: center; min-height: 100vh; padding-bottom: 50px; }
         .site-banner { background-color: var(--light-blue); padding: 40px 20px; border-bottom: 5px solid #fff; }
         .site-banner h1 { margin: 0; font-size: 2.5rem; font-weight: 900; color: var(--primary-blue); }
         .nav-bar { display: flex; justify-content: center; gap: 12px; padding: 20px; flex-wrap: wrap; }
-        .nav-item-3d { padding: 10px 20px; background: #fff; color: var(--primary-blue); text-decoration: none; border-radius: 12px; font-weight: bold; box-shadow: 0 5px 0 #d1d1d1; transition: 0.2s; }
-        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; width: 90%; margin: 30px auto; }
-        .book-card { background: white; padding: 15px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-bottom: 4px solid var(--light-blue); }
-        .book-card img { width: 100%; height: 260px; object-fit: cover; border-radius: 10px; }
-        .book-card p { font-weight: 900; color: var(--primary-blue); margin: 15px 0; min-height: 3em; }
-        .download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 90%; transition: 0.3s; }
+        .nav-item-3d { padding: 10px 20px; background: #fff; color: var(--primary-blue); text-decoration: none; border-radius: 12px; font-weight: bold; box-shadow: 0 5px 0 #d1d1d1; }
+        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; width: 90%; margin: 30px auto; }
+        .book-card { background: white; padding: 15px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-bottom: 4px solid var(--light-blue); transition: 0.3s; }
+        .book-card:hover { transform: translateY(-5px); }
+        .book-card img { width: 100%; height: 280px; object-fit: cover; border-radius: 10px; background-color: #f0f0f0; }
+        .book-card p { font-weight: 900; color: var(--primary-blue); margin: 15px 0; min-height: 3em; font-size: 1rem; line-height: 1.4; }
+        .download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 90%; transition: 0.2s; }
+        .download-btn:hover { background: #219150; }
     </style>
 </head>
 <body>
@@ -24,42 +26,68 @@
     <div class="nav-bar">
         <a href="index.html" class="nav-item-3d">الرئيسية</a>
         <a href="books.html" class="nav-item-3d" style="background:var(--primary-blue); color:white;">الكتب</a>
+        <a href="khutbah.html" class="nav-item-3d">الخطب</a>
     </div>
 
     <div class="books-grid">
         <div class="book-card">
             <img src="images/alslsapel.jpg"><p>السلاسل في شرح الدليل</p>
-            <a href="pdfs/alslsapel.pdf" class="download-btn" target="_blank">قراءة وتحميل</a>
+            <a href="pdfs/alslsapel.pdf" class="download-btn">قراءة وتحميل</a>
         </div>
 
         <div class="book-card">
             <img src="images/haiat-alqolob.jpg"><p>حياة القلوب</p>
-            <a href="pdfs/haiat-alqolob.pdf" class="download-btn" target="_blank">قراءة وتحميل</a>
-        </div>
-
-        <div class="book-card">
-            <img src="images/asaleeb-alquran.jpg"><p>أساليب القرآن</p>
-            <a href="pdfs/asaleeb-alquran.pdf" class="download-btn" target="_blank">قراءة وتحميل</a>
+            <a href="pdfs/haiat-alqolob.pdf" class="download-btn">قراءة وتحميل</a>
         </div>
 
         <div class="book-card">
             <img src="images/al-irshad.jpg"><p>الإرشاد إلى أسباب محبة الله</p>
-            <a href="pdfs/al-irshad.pdf.pdf" class="download-btn" target="_blank">قراءة وتحميل</a>
+            <a href="pdfs/al-irshad.pdf" class="download-btn">قراءة وتحميل</a>
         </div>
 
         <div class="book-card">
-            <img src="images/katar-al-reba.pdf"><p>خطر الربا</p>
-            <a href="pdfs/katar-al-reba.pdf.pdf" class="download-btn" target="_blank">قراءة وتحميل</a>
+            <img src="images/katar-al-reba.jpg.jpg"><p>خطر الربا على الأمة</p>
+            <a href="pdfs/katar-al-reba.pdf" class="download-btn">قراءة وتحميل</a>
         </div>
 
         <div class="book-card">
-            <img src="images/shmael-al-rasool.pdf"><p>شمائل الرسول</p>
-            <a href="pdfs/shmael-al-rasool.pdf.pdf" class="download-btn" target="_blank">قراءة وتحميل</a>
+            <img src="images/asaleeb-alquran.jpg"><p>أساليب القرآن</p>
+            <a href="pdfs/asaleeb-alquran.pdf" class="download-btn">قراءة وتحميل</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/fadhl-duaa.jpg"><p>فضل الدعاء</p>
+            <a href="pdfs/fadhl-duaa.pdf" class="download-btn">قراءة وتحميل</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/shmael-al-rasool.jpg.jpg"><p>شمائل الرسول ﷺ</p>
+            <a href="pdfs/shmael-al-rasool.pdf" class="download-btn">قراءة وتحميل</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/tamam-al-minah.jpg"><p>تمام المنة</p>
+            <a href="pdfs/tamam-al-minah.pdf" class="download-btn">قراءة وتحميل</a>
         </div>
 
         <div class="book-card">
             <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"><p>الاعتبار بطرائف الأخبار</p>
-            <a href="pdfs/al-eatbaar-ptraef-alakbaar.pdf.pdf" class="download-btn" target="_blank">قراءة وتحميل</a>
+            <a href="pdfs/al-eatbaar-ptraef-alakbaar.pdf" class="download-btn">قراءة وتحميل</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/kabar-al-ahad.jpg.jpg"><p>خبر الآحاد</p>
+            <a href="pdfs/kabar-al-ahad.pdf" class="download-btn">قراءة وتحميل</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/ithaf-ahl-alrusoukh.jpg"><p>إتحاف أهل الرسوخ</p>
+            <a href="pdfs/itshaf-ahli-al-rusukh.pdf" class="download-btn">قراءة وتحميل</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/al-ilmam-siyam.jpg"><p>الإلمام بالصيام</p>
+            <a href="pdfs/al-ilmam-siyam.pdf" class="download-btn">قراءة وتحميل</a>
         </div>
     </div>
 </body>
