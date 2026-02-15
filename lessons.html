@@ -23,6 +23,7 @@
         .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
         .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
         audio { height: 35px; width: 220px; }
+        .download-icon { text-decoration: none; color: #27ae60; font-size: 1.2rem; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -52,14 +53,20 @@
 </div>
 
 <script>
-    // هذه هي القائمة الكاملة التي كانت لديك مع دمج درس الأرشيف الجديد
+    // تم تصحيح القائمة وإضافة الفاتحة بدرسين
     const tafseerData = [
-     <a href="audio/fatiha-1.mp3" download class="download-btn">تحميل الدرس 1</a> 
+        {
+            name: "سورة الفاتحة",
+            lessons: [
+                {t: "الدرس 1", f: "fatiha-1.mp3"},
+                {t: "الدرس 2", f: "fatiha-2.mp3"}
+            ]
+        },
         { 
             name: "سورة البقرة", 
             lessons: [
-                {t: "الدرس 11 (جديد)", f: "https://archive.org/download/bakara-11_202602/bakara-11.mp3"}, // الدرس الجديد
-                ...Array.from({length: 40}, (_, i) => ({t: `الدرس ${i+1}`, f: `bakara-${i+1}.mp3`})) // الـ 40 درس القديمة
+                {t: "الدرس 11 (أرشيف)", f: "https://archive.org/download/bakara-11_202602/bakara-11.mp3"},
+                ...Array.from({length: 40}, (_, i) => ({t: `الدرس ${i+1}`, f: `bakara-${i+1}.mp3`}))
             ] 
         },
         { name: "سورة آل عمران", lessons: Array.from({length: 52}, (_, i) => ({t: `الدرس ${i+1}`, f: `aleimran-${i+1}.mp3`})) },
@@ -92,7 +99,12 @@
                         <div class="item-content" id="${key}-${index}">
                             ${item.lessons.map(l => {
                                 let finalPath = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                                return `<div class="lesson-item"><span>${l.t}</span><audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio></div>`;
+                                return `
+                                <div class="lesson-item">
+                                    <span>${l.t}</span>
+                                    <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
+                                    <a href="${finalPath}" download class="download-icon" title="تحميل">📥</a>
+                                </div>`;
                             }).join('')}
                         </div>
                     </div>`;
@@ -103,7 +115,10 @@
             listDiv.innerHTML = section.list.map(item => {
                 let finalPath = item.f.startsWith('http') ? item.f : `audio/${item.f}`;
                 return `<div class="lesson-item" style="background:white; margin-bottom:8px; padding:15px; border-radius:10px; border-right:5px solid var(--dark-blue);">
-                    <span style="font-weight:bold">${item.t}</span><audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio></div>`;
+                    <span style="font-weight:bold">${item.t}</span>
+                    <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
+                    <a href="${finalPath}" download class="download-icon">📥</a>
+                </div>`;
             }).join('');
         }
         document.getElementById('main-view').style.display = 'none';
