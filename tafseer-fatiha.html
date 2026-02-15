@@ -47,12 +47,13 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-right: 8px solid var(--dark-blue);
             transition: 0.3s;
+            text-align: right;
         }
 
         .lesson-card h3 { margin: 0 0 10px 0; color: var(--dark-blue); font-size: 1.3rem; }
         .duration-tag { color: #888; font-size: 14px; display: block; margin-bottom: 15px; font-weight: bold; }
 
-        audio { width: 100%; height: 40px; margin-bottom: 15px; }
+        audio { width: 100%; height: 40px; margin-bottom: 15px; border-radius: 8px; }
 
         .download-btn {
             display: inline-block;
@@ -64,7 +65,9 @@
             font-size: 14px;
             font-weight: bold;
             box-shadow: 0 4px 0 #1e8449;
+            transition: 0.1s;
         }
+        .download-btn:active { transform: translateY(2px); box-shadow: 0 0 0; }
 
         .back-fixed {
             position: fixed; bottom: 25px; left: 25px;
@@ -99,9 +102,9 @@
     <script>
         const container = document.getElementById("fatihaContainer");
 
-        // التأكد من تحميل مصفوفة البيانات
+        // التأكد من أن ملف tafseerData.js محمل بنجاح
         if (typeof tafseerLessons !== 'undefined') {
-            // تصفية الدروس الخاصة بسورة الفاتحة فقط
+            // فلترة دروس سورة الفاتحة فقط
             const lessons = tafseerLessons.filter(l => l.surah === "الفاتحة");
 
             if (lessons.length > 0) {
@@ -111,19 +114,19 @@
                             <h3>${lesson.title}</h3>
                             <span class="duration-tag">⏱ المدة: ${lesson.duration}</span>
                             <audio controls preload="none">
-                                <source src="audio/${lesson.file}" type="audio/mpeg">
+                                <source src="${lesson.file}" type="audio/mpeg">
                                 متصفحك لا يدعم مشغل الصوت.
                             </audio>
                             <br>
-                            <a href="audio/${lesson.file}" download class="download-btn">📥 تحميل الدرس (MP3)</a>
+                            <a href="${lesson.file}" download class="download-btn">📥 تحميل الدرس (MP3)</a>
                         </div>
                     `;
                 });
             } else {
-                container.innerHTML = "<p style='text-align:center;'>لم يتم إضافة دروس لهذه السورة بعد.</p>";
+                container.innerHTML = "<p style='text-align:center;'>لم يتم العثور على دروس لهذه السورة في ملف البيانات.</p>";
             }
         } else {
-            container.innerHTML = "<p style='text-align:center; color:red;'>خطأ: تعذر الوصول لملف البيانات tafseerData.js</p>";
+            container.innerHTML = "<p style='text-align:center; color:red;'>خطأ: تعذر الوصول لملف البيانات tafseerData.js. تأكد من رفعه في المجلد الرئيسي.</p>";
         }
     </script>
 </body>
