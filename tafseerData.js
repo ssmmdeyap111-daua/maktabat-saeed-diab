@@ -1,6 +1,20 @@
 // ملف بيانات دروس التفسير
 const tafseerData = [
-    { t: "تفسير سورة الفاتحة", f: "tafseer-1.mp3" },
+    const tafseerLessons = [
+    {
+        surah: "الفاتحة",
+        title: "تفسير سورة الفاتحة - الدرس 1",
+        file: "fatiha-1.mp3",
+        duration: "15 دقيقة"
+    },
+    {
+        surah: "الفاتحة",
+        title: "تفسير سورة الفاتحة - الدرس 2",
+        file: "fatiha-2.mp3",
+        duration: "18 دقيقة"
+    }
+];
+    
     { t: "تفسير سورة البقرة - الدرس 1", f: "tafseer-2.mp3" },
     { t: "تفسير سورة البقرة - الدرس 2", f: "tafseer-3.mp3" },
     { t: "تفسير سورة البقرة - الدرس 3", f: "tafseer-4.mp3" },
