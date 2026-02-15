@@ -53,7 +53,6 @@
 </div>
 
 <script>
-    // تم تصحيح سورة البقرة لإصلاح الدروس 3 و 7 و 10 و 11 و 12 و 13
     const tafseerData = [
         {
             name: "سورة الفاتحة",
@@ -63,21 +62,21 @@
             ]
         },
         { 
-            name: "سورة البقرة (13 درساً مصلحاً)", 
+            name: "سورة البقرة", 
             lessons: [
                 {t: "الدرس 1", f: "bakara-1.mp3"},
                 {t: "الدرس 2", f: "bakara-2.mp3"},
-                {t: "الدرس 3 (أرشيف مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-3.mp3"},
+                {t: "الدرس 3 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-3.mp3"},
                 {t: "الدرس 4", f: "bakara-4.mp3"},
                 {t: "الدرس 5", f: "bakara-5.mp3"},
                 {t: "الدرس 6", f: "bakara-6.mp3"},
-                {t: "الدرس 7 (أرشيف مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-7.mp3"},
+                {t: "الدرس 7 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-7.mp3"},
                 {t: "الدرس 8", f: "bakara-8.mp3"},
                 {t: "الدرس 9", f: "bakara-9.mp3"},
-                {t: "الدرس 10 (أرشيف)", f: "https://archive.org/download/bakara-10_202602/bakara-10.mp3"},
-                {t: "الدرس 11 (أرشيف)", f: "https://archive.org/download/bakara-11_202602/bakara-11.mp3"},
-                {t: "الدرس 12 (أرشيف)", f: "https://archive.org/download/bakara-10_202602/bakara-12.mp3"},
-                {t: "الدرس 13 (أرشيف)", f: "https://archive.org/download/bakara-10_202602/bakara-13.mp3"}
+                {t: "الدرس 10 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-10.mp3"},
+                {t: "الدرس 11 (مصلح)", f: "https://archive.org/download/bakara-11_202602/bakara-11.mp3"},
+                {t: "الدرس 12 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-12.mp3"},
+                {t: "الدرس 13 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-13.mp3"}
             ] 
         },
         { name: "سورة آل عمران", lessons: Array.from({length: 52}, (_, i) => ({t: `الدرس ${i+1}`, f: `aleimran-${i+1}.mp3`})) },
@@ -139,7 +138,7 @@
     function toggleItem(id) {
         const content = document.getElementById(id);
         if (content) {
-             content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+            content.style.display = (content.style.display === 'block') ? 'none' : 'block';
         }
     }
 
