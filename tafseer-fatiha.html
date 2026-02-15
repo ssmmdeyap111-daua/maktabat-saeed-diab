@@ -65,16 +65,14 @@
             font-size: 14px;
             font-weight: bold;
             box-shadow: 0 4px 0 #1e8449;
-            transition: 0.1s;
         }
-        .download-btn:active { transform: translateY(2px); box-shadow: 0 0 0; }
 
         .back-fixed {
             position: fixed; bottom: 25px; left: 25px;
             width: 60px; height: 60px;
             background: var(--dark-blue); color: white;
             border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            text-decoration: none; font-size: 26px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none; font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             z-index: 1000;
         }
     </style>
@@ -93,41 +91,31 @@
 
     <h2 class="page-title">📖 تفسير سورة الفاتحة</h2>
 
-    <div class="lessons-container" id="fatihaContainer"></div>
+    <div class="lessons-container" id="fatihaContainer">
+        <div class="lesson-card">
+            <h3>تفسير سورة الفاتحة - الدرس 1</h3>
+            <span class="duration-tag">⏱ المدة: 15 دقيقة</span>
+            <audio controls preload="none">
+                <source src="https://archive.org/download/bakara-10_202602/fatiha-1.mp3" type="audio/mpeg">
+                متصفحك لا يدعم مشغل الصوت.
+            </audio>
+            <br>
+            <a href="https://archive.org/download/bakara-10_202602/fatiha-1.mp3" download class="download-btn">📥 تحميل الدرس (MP3)</a>
+        </div>
+
+        <div class="lesson-card">
+            <h3>تفسير سورة الفاتحة - الدرس 2</h3>
+            <span class="duration-tag">⏱ المدة: 18 دقيقة</span>
+            <audio controls preload="none">
+                <source src="https://archive.org/download/bakara-10_202602/fatiha-2.mp3" type="audio/mpeg">
+                متصفحك لا يدعم مشغل الصوت.
+            </audio>
+            <br>
+            <a href="https://archive.org/download/bakara-10_202602/fatiha-2.mp3" download class="download-btn">📥 تحميل الدرس (MP3)</a>
+        </div>
+    </div>
 
     <a href="tafseer.html" class="back-fixed" title="عودة">🔙</a>
 
-    <script src="tafseerData.js"></script>
-
-    <script>
-        const container = document.getElementById("fatihaContainer");
-
-        // التأكد من أن ملف tafseerData.js محمل بنجاح
-        if (typeof tafseerLessons !== 'undefined') {
-            // فلترة دروس سورة الفاتحة فقط
-            const lessons = tafseerLessons.filter(l => l.surah === "الفاتحة");
-
-            if (lessons.length > 0) {
-                lessons.forEach(lesson => {
-                    container.innerHTML += `
-                        <div class="lesson-card">
-                            <h3>${lesson.title}</h3>
-                            <span class="duration-tag">⏱ المدة: ${lesson.duration}</span>
-                            <audio controls preload="none">
-                                <source src="${lesson.file}" type="audio/mpeg">
-                                متصفحك لا يدعم مشغل الصوت.
-                            </audio>
-                            <br>
-                            <a href="${lesson.file}" download class="download-btn">📥 تحميل الدرس (MP3)</a>
-                        </div>
-                    `;
-                });
-            } else {
-                container.innerHTML = "<p style='text-align:center;'>لم يتم العثور على دروس لهذه السورة في ملف البيانات.</p>";
-            }
-        } else {
-            container.innerHTML = "<p style='text-align:center; color:red;'>خطأ: تعذر الوصول لملف البيانات tafseerData.js. تأكد من رفعه في المجلد الرئيسي.</p>";
-        }
-    </script>
 </body>
 </html>
