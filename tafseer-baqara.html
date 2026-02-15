@@ -6,148 +6,81 @@
     <title>تفسير سورة البقرة - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --light-blue: #eef5ff;
-            --main-blue: #add8e6;
-            --dark-blue: #2c5d87;
-            --accent-blue: #87ceeb;
-        }
-
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
-            min-height: 100vh;
-            padding-bottom: 100px;
-        }
-
-        .site-header { 
-            text-align: center; padding: 30px 20px; 
-            background: linear-gradient(to right, #add8e6, #e0f2f7); 
-            border-bottom: 4px solid #ffffff;
-        }
-
-        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; }
-        .nav-link { 
-            padding: 8px 18px; background: var(--dark-blue); color: white; 
-            text-decoration: none; border-radius: 8px; font-weight: bold;
-            box-shadow: 0 4px 0 #1a3a55; transition: 0.2s;
-        }
-
+        :root { --dark-blue: #2c5d87; --accent-blue: #87ceeb; }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: #f0f7ff; direction: rtl; }
+        .site-header { text-align: center; padding: 40px 20px; background: #add8e6; border-bottom: 5px solid white; }
+        .site-header h1 { margin: 0; color: var(--dark-blue); font-weight: 900; }
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 20px; }
+        .nav-link { padding: 10px 20px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
         .page-title { text-align: center; color: var(--dark-blue); margin: 30px 0; font-weight: 900; }
-
-        .lessons-grid { 
-            max-width: 900px; 
-            margin: auto; 
-            padding: 0 15px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .lesson-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-right: 8px solid var(--accent-blue);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .lesson-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.2rem; }
-        
-        .player-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        audio { flex-grow: 1; height: 40px; }
-
-        .download-btn {
-            background: #27ae60;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 7px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            box-shadow: 0 3px 0 #1e8449;
-        }
-
-        .back-fixed {
-            position: fixed; bottom: 25px; left: 25px;
-            width: 55px; height: 55px;
-            background: var(--dark-blue); color: white;
-            border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            text-decoration: none; font-size: 22px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
+        .lessons-grid { max-width: 800px; margin: auto; padding: 0 20px; }
+        .lesson-card { background: white; margin-bottom: 20px; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-right: 8px solid var(--accent-blue); }
+        .lesson-card h3 { margin: 0 0 10px 0; color: var(--dark-blue); font-size: 1.2rem; }
+        .player-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        audio { flex: 1; min-width: 200px; height: 40px; }
+        .download-btn { background: #27ae60; color: white; padding: 8px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; }
+        .back-fixed { position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background: var(--dark-blue); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <h1 style="margin:0; color: var(--dark-blue); font-weight: 900;">الشيخ سعيد مصطفى دياب</h1>
-    </header>
+<header class="site-header">
+    <h1>الشيخ سعيد مصطفى دياب</h1>
+</header>
 
-    <div class="nav-bar">
-        <a href="index.html" class="nav-link">الرئيسية</a>
-        <a href="tafseer.html" class="nav-link">الفهرس</a>
-        <a href="lessons.html" class="nav-link">الدروس</a>
+<div class="nav-bar">
+    <a href="index.html" class="nav-link">الرئيسية</a>
+    <a href="tafseer.html" class="nav-link">الفهرس</a>
+    <a href="lessons.html" class="nav-link">كل الدروس</a>
+</div>
+
+<h2 class="page-title">📖 تفسير سورة البقرة</h2>
+
+<div class="lessons-grid">
+
+    <div class="lesson-card">
+        <h3>تفسير سورة البقرة - الدرس 1</h3>
+        <div class="player-row">
+            <audio controls preload="none"><source src="audio/bakara-1.mp3" type="audio/mpeg"></audio>
+            <a href="audio/bakara-1.mp3" download class="download-btn">تحميل</a>
+        </div>
     </div>
 
-    <h2 class="page-title">📖 تفسير سورة البقرة</h2>
-
-    <div class="lessons-grid" id="baqaraContainer">
+    <div class="lesson-card">
+        <h3>تفسير سورة البقرة - الدرس 10</h3>
+        <div class="player-row">
+            <audio controls preload="none"><source src="https://archive.org/download/bakara-10_202602/bakara-10.mp3" type="audio/mpeg"></audio>
+            <a href="https://archive.org/download/bakara-10_202602/bakara-10.mp3" download class="download-btn">تحميل</a>
         </div>
+    </div>
 
-    <a href="tafseer.html" class="back-fixed">🔙</a>
+    <div class="lesson-card">
+        <h3>تفسير سورة البقرة - الدرس 11</h3>
+        <div class="player-row">
+            <audio controls preload="none"><source src="https://archive.org/download/bakara-11_202602/bakara-11.mp3" type="audio/mpeg"></audio>
+            <a href="https://archive.org/download/bakara-11_202602/bakara-11.mp3" download class="download-btn">تحميل</a>
+        </div>
+    </div>
 
-    <script>
-        // قائمة الدروس وروابطها
-        const baqaraLessons = [
-            { t: "الدرس 1", f: "bakara-1.mp3" },
-            { t: "الدرس 2", f: "bakara-2.mp3" },
-            { t: "الدرس 3", f: "bakara-3.mp3" },
-            { t: "الدرس 4", f: "bakara-4.mp3" },
-            { t: "الدرس 5", f: "bakara-5.mp3" },
-            { t: "الدرس 6", f: "bakara-6.mp3" },
-            { t: "الدرس 7", f: "bakara-7.mp3" },
-            { t: "الدرس 8", f: "bakara-8.mp3" },
-            { t: "الدرس 9", f: "bakara-9.mp3" },
-            { t: "الدرس 10", f: "https://archive.org/download/bakara-10_202602/bakara-10.mp3" },
-            { t: "الدرس 11", f: "https://archive.org/download/bakara-11_202602/bakara-11.mp3" },
-            { t: "الدرس 12", f: "https://archive.org/download/bakara-10_202602/bakara-12.mp3" },
-            { t: "الدرس 13", f: "https://archive.org/download/bakara-10_202602/bakara-13.mp3" }
-        ];
+    <div class="lesson-card">
+        <h3>تفسير سورة البقرة - الدرس 12</h3>
+        <div class="player-row">
+            <audio controls preload="none"><source src="https://archive.org/download/bakara-10_202602/bakara-12.mp3" type="audio/mpeg"></audio>
+            <a href="https://archive.org/download/bakara-10_202602/bakara-12.mp3" download class="download-btn">تحميل</a>
+        </div>
+    </div>
 
-        const container = document.getElementById('baqaraContainer');
+    <div class="lesson-card">
+        <h3>تفسير سورة البقرة - الدرس 13</h3>
+        <div class="player-row">
+            <audio controls preload="none"><source src="https://archive.org/download/bakara-10_202602/bakara-13.mp3" type="audio/mpeg"></audio>
+            <a href="https://archive.org/download/bakara-10_202602/bakara-13.mp3" download class="download-btn">تحميل</a>
+        </div>
+    </div>
 
-        baqaraLessons.forEach(lesson => {
-            // تحديد المسار: إذا كان يبدأ بـ http يستخدمه مباشرة، وإلا يضيف audio/
-            let path = lesson.f.startsWith('http') ? lesson.f : `audio/${lesson.f}`;
-            
-            container.innerHTML += `
-                <div class="lesson-card">
-                    <div class="lesson-info">
-                        <h3>تفسير سورة البقرة - ${lesson.t}</h3>
-                    </div>
-                    <div class="player-row">
-                        <audio controls preload="none">
-                            <source src="${path}" type="audio/mpeg">
-                        </audio>
-                        <a href="${path}" download class="download-btn">📥 تحميل</a>
-                    </div>
-                </div>
-            `;
-        });
-    </script>
+</div>
+
+<a href="tafseer.html" class="back-fixed">🔙</a>
+
 </body>
 </html>
