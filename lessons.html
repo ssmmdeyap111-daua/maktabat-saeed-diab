@@ -42,6 +42,7 @@
         <div class="cat-card" onclick="showSection('quran_sciences')"><h3>علوم القرآن</h3></div>
         <div class="cat-card" onclick="showSection('hadith')"><h3>شروح الحديث</h3></div>
         <div class="cat-card" onclick="showSection('tawheed')"><h3>العقيدة</h3></div>
+        <div class="cat-card" onclick="showSection('fiqh')"><h3>الفقه</h3></div>
         <div class="cat-card" onclick="showSection('faraid')"><h3>علم الفرائض</h3></div>
     </div>
 </div>
@@ -84,6 +85,20 @@
         { name: "سورة المائدة", lessons: Array.from({length: 34}, (_, i) => ({t: `الدرس ${i+1}`, f: `maida-${i+1}.mp3`})) }
     ];
 
+    const fiqhData = [
+        {
+            name: "دورة أحكام الزكاة والصيام",
+            lessons: [
+                {t: "الدرس 1", f: "lesson1.mp3"},
+                {t: "الدرس 2", f: "lesson2.mp3"},
+                {t: "الدرس 3", f: "lesson3.mp3"},
+                {t: "الدرس 4", f: "lesson4.mp3"},
+                {t: "الدرس 5", f: "lesson5.mp3"},
+                {t: "الدرس 6", f: "lesson6.mp3"}
+            ]
+        }
+    ];
+
     const tawheedData = [
         { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
         { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
@@ -99,9 +114,15 @@
         const listDiv = document.getElementById('lessons-list');
         listDiv.innerHTML = "";
         
-        if (key === 'tafseer' || key === 'tawheed') {
-            const currentData = (key === 'tafseer') ? tafseerData : tawheedData;
-            document.getElementById('section-title').innerText = (key === 'tafseer') ? "تفسير القرآن" : "العقيدة";
+        if (key === 'tafseer' || key === 'tawheed' || key === 'fiqh') {
+            let currentData;
+            if (key === 'tafseer') currentData = tafseerData;
+            else if (key === 'tawheed') currentData = tawheedData;
+            else if (key === 'fiqh') currentData = fiqhData;
+
+            document.getElementById('section-title').innerText = 
+                (key === 'tafseer') ? "تفسير القرآن" : (key === 'tawheed' ? "العقيدة" : "الفقه");
+
             currentData.forEach((item, index) => {
                 listDiv.innerHTML += `
                     <div class="item-wrapper">
