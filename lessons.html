@@ -100,11 +100,14 @@
         }
     ];
 
+    // قسم السيرة المعدل ليدعم جميع الامتدادات (mp3, MP3, MP3K)
     const seerahData = [
         {
             name: "السيرة النبوية",
-            // تم التعديل ليتناسب مع كتابة الملفات sera7.MP3
-            lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}.MP3`}))
+            lessons: Array.from({length: 32}, (_, i) => ({
+                t: `الدرس ${i+1}`, 
+                base: `sera${i+1}`
+            }))
         }
     ];
 
@@ -130,14 +133,8 @@
             else if (key === 'fiqh') currentData = fiqhData;
             else if (key === 'seerah') currentData = seerahData;
 
-            const titles = {
-                tafseer: "تفسير القرآن",
-                tawheed: "العقيدة",
-                fiqh: "الفقه",
-                seerah: "السيرة النبوية"
-            };
-
-            document.getElementById('section-title').innerText = titles[key];
+            document.getElementById('section-title').innerText = 
+                (key === 'tafseer') ? "تفسير القرآن" : (key === 'tawheed' ? "العقيدة" : (key === 'fiqh' ? "الفقه" : "السيرة النبوية"));
 
             currentData.forEach((item, index) => {
                 listDiv.innerHTML += `
@@ -145,13 +142,27 @@
                         <div class="item-header" onclick="toggleItem('${key}-${index}')"><span>${item.name}</span> <small>▼</small></div>
                         <div class="item-content" id="${key}-${index}">
                             ${item.lessons.map(l => {
-                                let finalPath = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                                return `
-                                <div class="lesson-item">
-                                    <span>${l.t}</span>
-                                    <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
-                                    <a href="${finalPath}" download class="download-icon" title="تحميل">📥</a>
-                                </div>`;
+                                if (key === 'seerah') {
+                                    // حل ذكي للسيرة: يجرب جميع الامتدادات المحتملة
+                                    return `
+                                    <div class="lesson-item">
+                                        <span>${l.t}</span>
+                                        <audio controls preload="none">
+                                            <source src="audio/${l.base}.mp3" type="audio/mpeg">
+                                            <source src="audio/${l.base}.MP3" type="audio/mpeg">
+                                            <source src="audio/${l.base}.MP3K" type="audio/mpeg">
+                                        </audio>
+                                        <a href="audio/${l.base}.mp3" download class="download-icon" title="تحميل">📥</a>
+                                    </div>`;
+                                } else {
+                                    let finalPath = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
+                                    return `
+                                    <div class="lesson-item">
+                                        <span>${l.t}</span>
+                                        <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
+                                        <a href="${finalPath}" download class="download-icon" title="تحميل">📥</a>
+                                    </div>`;
+                                }
                             }).join('')}
                         </div>
                     </div>`;
