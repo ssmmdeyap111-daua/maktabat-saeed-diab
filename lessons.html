@@ -55,12 +55,13 @@
 </div>
 
 <script>
-    // بيانات السيرة النبوية مع دعم الامتدادين الكبير والصغير
-    const seerahData = [
-        {
-            name: "السيرة النبوية",
-            lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`}))
-        }
+    const tawheedData = [
+        { 
+            name: "شرح أسماء الله الحسنى", 
+            lessons: Array.from({length: 33}, (_, i) => ({t: `الدرس ${i+1}`, f: `asma${i+1}.mp3`})) 
+        },
+        { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
+        { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
     ];
 
     const tafseerData = [
@@ -89,9 +90,11 @@
         }
     ];
 
-    const tawheedData = [
-        { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
-        { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
+    const seerahData = [
+        {
+            name: "السيرة النبوية",
+            lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`}))
+        }
     ];
 
     const otherData = {
@@ -118,16 +121,26 @@
                         <div class="item-header" onclick="toggleItem('${key}-${index}')"><span>${item.name}</span> <small>▼</small></div>
                         <div class="item-content" id="${key}-${index}">
                             ${item.lessons.map(l => {
-                                let path = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                                return `
-                                <div class="lesson-item">
-                                    <span>${l.t}</span>
-                                    <audio controls preload="none">
-                                        <source src="${path}.MP3" type="audio/mpeg">
-                                        <source src="${path}.mp3" type="audio/mpeg">
-                                    </audio>
-                                    <a href="${path}.MP3" download class="download-icon">📥</a>
-                                </div>`;
+                                if (key === 'seerah') {
+                                    let path = `audio/${l.f}`;
+                                    return `
+                                    <div class="lesson-item">
+                                        <span>${l.t}</span>
+                                        <audio controls preload="none">
+                                            <source src="${path}.MP3" type="audio/mpeg">
+                                            <source src="${path}.mp3" type="audio/mpeg">
+                                        </audio>
+                                        <a href="${path}.MP3" download class="download-icon">📥</a>
+                                    </div>`;
+                                } else {
+                                    let finalPath = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
+                                    return `
+                                    <div class="lesson-item">
+                                        <span>${l.t}</span>
+                                        <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
+                                        <a href="${finalPath}" download class="download-icon">📥</a>
+                                    </div>`;
+                                }
                             }).join('')}
                         </div>
                     </div>`;
