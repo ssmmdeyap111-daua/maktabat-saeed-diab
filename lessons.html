@@ -44,7 +44,7 @@
         <div class="cat-card" onclick="showSection('tawheed')"><h3>العقيدة</h3></div>
         <div class="cat-card" onclick="showSection('fiqh')"><h3>الفقه</h3></div>
         <div class="cat-card" onclick="showSection('seerah')"><h3>السيرة النبوية</h3></div>
-        <div class="cat-card" onclick="showSection('faraid')"><h3>علم الفرائض</h3></div>
+        <div class="cat-card" onclick="showSection('rakaik')"><h3>الرقائق</h3></div> <div class="cat-card" onclick="showSection('faraid')"><h3>علم الفرائض</h3></div>
     </div>
 </div>
 
@@ -55,11 +55,16 @@
 </div>
 
 <script>
+    // بيانات الرقائق الجديدة
+    const rakaikData = [
+        {
+            name: "أنوار الأذكار",
+            lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`}))
+        }
+    ];
+
     const tawheedData = [
-        { 
-            name: "شرح أسماء الله الحسنى", 
-            lessons: Array.from({length: 33}, (_, i) => ({t: `الدرس ${i+1}`, f: `asma${i+1}.mp3`})) 
-        },
+        { name: "شرح أسماء الله الحسنى", lessons: Array.from({length: 33}, (_, i) => ({t: `الدرس ${i+1}`, f: `asma${i+1}.mp3`})) },
         { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
         { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
     ];
@@ -108,13 +113,22 @@
         listDiv.innerHTML = "";
         
         let currentData;
+        const titles = {
+            tafseer: "تفسير القرآن",
+            tawheed: "العقيدة",
+            fiqh: "الفقه",
+            seerah: "السيرة النبوية",
+            rakaik: "الرقائق"
+        };
+
         if (key === 'tafseer') currentData = tafseerData;
         else if (key === 'tawheed') currentData = tawheedData;
         else if (key === 'fiqh') currentData = fiqhData;
         else if (key === 'seerah') currentData = seerahData;
+        else if (key === 'rakaik') currentData = rakaikData;
 
         if (currentData) {
-            document.getElementById('section-title').innerText = (key === 'tafseer') ? "تفسير القرآن" : (key === 'tawheed' ? "العقيدة" : (key === 'fiqh' ? "الفقه" : "السيرة النبوية"));
+            document.getElementById('section-title').innerText = titles[key];
             currentData.forEach((item, index) => {
                 listDiv.innerHTML += `
                     <div class="item-wrapper">
@@ -138,7 +152,7 @@
                                     <div class="lesson-item">
                                         <span>${l.t}</span>
                                         <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
-                                        <a href="${finalPath}" download class="download-icon">📥</a>
+                                        <a href="${finalPath}" download class="download-icon" title="تحميل">📥</a>
                                     </div>`;
                                 }
                             }).join('')}
