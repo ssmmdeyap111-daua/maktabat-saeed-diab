@@ -12,8 +12,8 @@
         .site-header h1 { margin: 0; font-size: 2rem; color: var(--dark-blue); font-weight: 900; }
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
         .nav-link { padding: 10px 25px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
-        .categories-grid { display: flex; flex-wrap: nowrap; justify-content: center; gap: 12px; max-width: 1400px; margin: 30px auto; padding: 15px; overflow-x: auto; }
-        .cat-card { background: var(--bright-blue); padding: 20px 10px; border-radius: 12px; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; min-width: 130px; flex: 1; }
+        .categories-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 1400px; margin: 30px auto; padding: 15px; }
+        .cat-card { background: var(--bright-blue); padding: 20px 10px; border-radius: 12px; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; min-width: 130px; flex: 1 1 150px; }
         .cat-card:hover { transform: translateY(-5px); background: #b0e2f5; }
         .cat-card h3 { margin: 0; font-size: 1rem; color: var(--dark-blue); font-weight: 900; white-space: nowrap; }
         #details-view { max-width: 900px; margin: 20px auto; padding: 20px; display: none; }
@@ -44,7 +44,8 @@
         <div class="cat-card" onclick="showSection('tawheed')"><h3>العقيدة</h3></div>
         <div class="cat-card" onclick="showSection('fiqh')"><h3>الفقه</h3></div>
         <div class="cat-card" onclick="showSection('seerah')"><h3>السيرة النبوية</h3></div>
-        <div class="cat-card" onclick="showSection('rakaik')"><h3>الرقائق</h3></div> <div class="cat-card" onclick="showSection('faraid')"><h3>علم الفرائض</h3></div>
+        <div class="cat-card" onclick="showSection('khotab')"><h3>الخطب</h3></div> <div class="cat-card" onclick="showSection('rakaik')"><h3>الرقائق</h3></div>
+        <div class="cat-card" onclick="showSection('faraid')"><h3>علم الفرائض</h3></div>
     </div>
 </div>
 
@@ -55,7 +56,14 @@
 </div>
 
 <script>
-    // بيانات الرقائق الجديدة
+    // بيانات الخطب الجديدة
+    const khotabData = [
+        {
+            name: "وصف الجنة ونعيمها",
+            lessons: Array.from({length: 14}, (_, i) => ({t: `الخطبة ${i+1}`, f: `wasf-algana-${i+1}`}))
+        }
+    ];
+
     const rakaikData = [
         {
             name: "أنوار الأذكار",
@@ -118,7 +126,8 @@
             tawheed: "العقيدة",
             fiqh: "الفقه",
             seerah: "السيرة النبوية",
-            rakaik: "الرقائق"
+            rakaik: "الرقائق",
+            khotab: "الخطب"
         };
 
         if (key === 'tafseer') currentData = tafseerData;
@@ -126,6 +135,7 @@
         else if (key === 'fiqh') currentData = fiqhData;
         else if (key === 'seerah') currentData = seerahData;
         else if (key === 'rakaik') currentData = rakaikData;
+        else if (key === 'khotab') currentData = khotabData;
 
         if (currentData) {
             document.getElementById('section-title').innerText = titles[key];
@@ -135,7 +145,8 @@
                         <div class="item-header" onclick="toggleItem('${key}-${index}')"><span>${item.name}</span> <small>▼</small></div>
                         <div class="item-content" id="${key}-${index}">
                             ${item.lessons.map(l => {
-                                if (key === 'seerah') {
+                                // دعم للامتدادين الكبير والصغير للخطب والسيرة
+                                if (key === 'seerah' || key === 'khotab') {
                                     let path = `audio/${l.f}`;
                                     return `
                                     <div class="lesson-item">
