@@ -3,80 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الخطب المنبرية - الشيخ سعيد مصطفى دياب</title>
+    <title>الخطب والجمعة - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --light-sky: #eef5ff; --bright-blue: #add8e6; --dark-blue: #2c5d87; }
+        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
-        .site-header { text-align: center; padding: 60px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
-        .site-header h1 { margin: 0; font-size: 2.2rem; color: var(--dark-blue); font-weight: 900; }
-        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
-        .nav-link { padding: 10px 25px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
-        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
-        .item-wrapper { background: white; margin-bottom: 12px; border-radius: 12px; overflow: hidden; border-right: 6px solid var(--bright-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .item-header { background: #f8fbff; padding: 18px; cursor: pointer; font-weight: 900; display: flex; justify-content: space-between; align-items: center; color: var(--dark-blue); }
-        .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
+        .site-header { text-align: center; padding: 40px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
+        .site-header h1 { margin: 0; font-size: 1.8rem; color: var(--dark-blue); font-weight: 900; }
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; }
+        .nav-link { padding: 8px 20px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .container { max-width: 850px; margin: 20px auto; padding: 15px; }
+        .item-wrapper { background: white; margin-bottom: 15px; border-radius: 12px; border-right: 6px solid var(--dark-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+        .item-header { background: #f8fbff; padding: 18px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: var(--dark-blue); font-size: 1.1rem; }
+        .item-content { display: block; padding: 10px; background: #fff; border-top: 1px solid #eee; }
         .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
-        audio { height: 35px; width: 230px; }
-        @media (max-width: 600px) { .lesson-item { flex-direction: column; text-align: center; } audio { width: 100%; } }
+        audio { height: 35px; width: 220px; }
+        .download-icon { text-decoration: none; color: #27ae60; font-size: 1.2rem; font-weight: bold; }
+        .back-home { display: block; text-align: center; margin-top: 20px; color: var(--dark-blue); text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<header class="site-header"><h1>الخطب المنبرية</h1></header>
+<header class="site-header"><h1>الخطب والجمعة</h1></header>
 
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
-    <a href="books.html" class="nav-link">المكتبة</a>
-    <a href="lessons.html" class="nav-link">الدروس</a>
+    <a href="lessons.html" class="nav-link">الدروس العلمية</a>
     <a href="khutbah.html" class="nav-link" style="background:var(--bright-blue); color: var(--dark-blue);">الخطب</a>
 </div>
 
 <div class="container">
     <div class="item-wrapper">
-        <div class="item-header" onclick="toggleItem('sa-list')"><span>سلسلة علامات الساعة</span><small>▼</small></div>
-        <div class="item-content" id="sa-list"></div>
+        <div class="item-header">
+            <span>سلسلة وصف الجنة ونعيمها</span>
+            <small>▼</small>
+        </div>
+        <div class="item-content">
+            <div id="khutbah-list"></div>
+        </div>
     </div>
-    <div class="item-wrapper">
-        <div class="item-header" onclick="toggleItem('fa-list')"><span>سلسلة فضائل الأعمال</span><small>▼</small></div>
-        <div class="item-content" id="fa-list"></div>
-    </div>
+    
+    <a href="index.html" class="back-home">عودة للصفحة الرئيسية</a>
 </div>
 
 <script>
-    function generateList(prefix, count, elementId, label) {
-        const container = document.getElementById(elementId);
-        let html = "";
-        
-        // الحصول على مسار الموقع الحالي لضمان الوصول للمجلد
-        const currentPath = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
-        
-        for (let i = 1; i <= count; i++) {
-            // نستخدم المسار الكامل للملف الصوتي
-            let audioUrl = currentPath + "audio/" + prefix + "-" + i + ".mp3";
-            
-            html += `
-                <div class="lesson-item">
-                    <span>${label} - الدرس ${i}</span>
-                    <audio controls preload="none">
-                        <source src="${audioUrl}" type="audio/mpeg">
-                        <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
-                    </audio>
-                </div>`;
-        }
-        container.innerHTML = html;
-    }
+    const listContainer = document.getElementById('khutbah-list');
+    const totalKhotab = 14;
+    const baseName = "wasf-algana-";
 
-    function toggleItem(id) {
-        const content = document.getElementById(id);
-        content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+    let html = "";
+    for (let i = 1; i <= totalKhotab; i++) {
+        let fileName = `${baseName}${i}`;
+        let path = `audio/${fileName}`;
+        
+        html += `
+        <div class="lesson-item">
+            <span>الخطبة ${i}</span>
+            <audio controls preload="none">
+                <source src="${path}.MP3" type="audio/mpeg">
+                <source src="${path}.mp3" type="audio/mpeg">
+            </audio>
+            <a href="${path}.MP3" download class="download-icon" title="تحميل">📥</a>
+        </div>`;
     }
-
-    window.onload = function() {
-        // نستخدم 'alamat' للتوافق مع ملفاتك
-        generateList('alamat', 40, 'sa-list', 'علامات الساعة');
-        generateList('fa', 20, 'fa-list', 'فضائل الأعمال');
-    };
+    listContainer.innerHTML = html;
 </script>
+
 </body>
 </html>
