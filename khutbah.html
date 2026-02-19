@@ -18,7 +18,8 @@
         .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
         .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
         audio { height: 35px; width: 230px; }
-        .download-btn { text-decoration: none; color: #27ae60; font-size: 1.2rem; font-weight: bold; }
+        .download-btn { text-decoration: none; color: #27ae60; font-size: 1.3rem; font-weight: bold; transition: 0.3s; }
+        .download-btn:hover { color: #2ecc71; transform: scale(1.1); }
         @media (max-width: 600px) { .lesson-item { flex-direction: column; text-align: center; } audio { width: 100%; } }
     </style>
 </head>
@@ -43,10 +44,47 @@
         <div class="item-header" onclick="toggleItem('sa-list')"><span>سلسلة علامات الساعة</span><small>▼</small></div>
         <div class="item-content" id="sa-list"></div>
     </div>
+    
     <div class="item-wrapper">
         <div class="item-header" onclick="toggleItem('fa-list')"><span>سلسلة فضائل الأعمال</span><small>▼</small></div>
         <div class="item-content" id="fa-list"></div>
     </div>
 </div>
 
-<script
+<script>
+    function generateList(prefix, count, elementId, label) {
+        const container = document.getElementById(elementId);
+        let html = "";
+        
+        for (let i = 1; i <= count; i++) {
+            // نجهز رابط الملف (يدعم الامتداد الصغير والكبير)
+            let audioUrl = "audio/" + prefix + "-" + i;
+            
+            html += `
+                <div class="lesson-item">
+                    <span>${label} - الخطبة ${i}</span>
+                    <audio controls preload="none">
+                        <source src="${audioUrl}.MP3" type="audio/mpeg">
+                        <source src="${audioUrl}.mp3" type="audio/mpeg">
+                    </audio>
+                    <a href="${audioUrl}.MP3" download class="download-btn" title="تحميل">📥</a>
+                </div>`;
+        }
+        container.innerHTML = html;
+    }
+
+    function toggleItem(id) {
+        const content = document.getElementById(id);
+        content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+    }
+
+    window.onload = function() {
+        // توليد سلسلة وصف الجنة (14 خطبة)
+        generateList('wasf-algana', 14, 'ganna-list', 'وصف الجنة');
+        // توليد السلاسل القديمة
+        generateList('alamat', 40, 'sa-list', 'علامات الساعة');
+        generateList('fa', 20, 'fa-list', 'فضائل الأعمال');
+    };
+</script>
+</body>
+</html>
