@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدروس العلمية للشيخ سعيد مصطفى دياب</title>
+    <title>الدروس العلمية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; }
@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<header class="site-header"><h1>الدروس العلمية للشيخ سعيد مصطفى دياب</h1></header>
+<header class="site-header"><h1>الدروس العلمية</h1></header>
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
     <a href="books.html" class="nav-link">المكتبة</a>
@@ -42,12 +42,11 @@
         <div class="cat-card" onclick="showContent('tawheed')"><h3>العقيدة</h3></div>
         <div class="cat-card" onclick="showContent('fiqh')"><h3>الفقه</h3></div>
         <div class="cat-card" onclick="showContent('seerah')"><h3>السيرة النبوية</h3></div>
-        <div class="cat-card" onclick="showContent('rakaik')"><h3>الرقائق</h3></div>
-        <div class="cat-card" onclick="showContent('faraid')"><h3>علم الفرائض</h3></div>
+        <div class="cat-card" onclick="showContent('rakaik')"><h3>الرقائق</h3></div> <div class="cat-card" onclick="showContent('faraid')"><h3>علم الفرائض</h3></div>
     </div>
 </div>
 <div id="details-view">
-    <button class="back-btn" onclick="backToMain()">← عودة للقائمة</button>
+    <button class="back-btn" onclick="backToMain()">← عودة</button>
     <h2 id="section-title"></h2>
     <div id="lessons-render"></div>
 </div>
@@ -62,8 +61,8 @@
             { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
             { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
         ]},
-        seerah: { title: "السيرة النبوية", items: [{ name: "السيرة النبوية", lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`})) }] },
         rakaik: { title: "الرقائق", items: [{ name: "أنوار الأذكار", lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`})) }] },
+        seerah: { title: "السيرة النبوية", items: [{ name: "السيرة النبوية", lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`})) }] },
         fiqh: { title: "الفقه", items: [{ name: "دورة الزكاة والصيام", lessons: Array.from({length: 6}, (_, i) => ({t: `الدرس ${i+1}`, f: `lesson${i+1}.mp3`})) }] },
         hadith: { title: "شروح الحديث", items: [{ name: "رياض الصالحين", lessons: Array.from({length: 30}, (_, i) => ({ t: `الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) }] },
         faraid: { title: "علم الفرائض", items: [{ name: "المنظومة الرحبية", lessons: Array.from({length: 11}, (_, i) => ({ t: `الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }] },
