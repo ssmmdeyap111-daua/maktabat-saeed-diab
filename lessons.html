@@ -8,17 +8,17 @@
     <style>
         :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
-        .site-header { text-align: center; padding: 60px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
-        .site-header h1 { margin: 0; font-size: 2rem; color: var(--dark-blue); font-weight: 900; }
-        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
-        .nav-link { padding: 10px 25px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; max-width: 1200px; margin: 30px auto; padding: 15px; }
-        .cat-card { background: var(--bright-blue); padding: 20px 10px; border-radius: 12px; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; }
-        .cat-card:hover { transform: translateY(-5px); background: #b0e2f5; }
+        .site-header { text-align: center; padding: 40px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
+        .site-header h1 { margin: 0; font-size: 1.8rem; color: var(--dark-blue); font-weight: 900; }
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; }
+        .nav-link { padding: 8px 20px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; max-width: 1000px; margin: 20px auto; padding: 15px; }
+        .cat-card { background: var(--bright-blue); padding: 25px 10px; border-radius: 12px; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.2s; text-align: center; }
+        .cat-card:hover { transform: translateY(-3px); background: #b0e2f5; }
         .cat-card h3 { margin: 0; font-size: 1rem; color: var(--dark-blue); font-weight: 900; }
-        #details-view { max-width: 900px; margin: 20px auto; padding: 20px; display: none; }
+        #details-view { max-width: 850px; margin: 20px auto; padding: 15px; display: none; }
         .back-btn { background: var(--dark-blue); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; font-family: 'Cairo'; font-weight: bold; }
-        .item-wrapper { background: white; margin-bottom: 10px; border-radius: 10px; overflow: hidden; border-right: 5px solid var(--bright-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .item-wrapper { background: white; margin-bottom: 10px; border-radius: 10px; border-right: 5px solid var(--bright-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .item-header { background: #f8fbff; padding: 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: var(--dark-blue); }
         .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
         .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
@@ -38,156 +38,110 @@
 
 <div id="main-view">
     <div class="categories-grid">
-        <div class="cat-card" onclick="showSection('tafseer')"><h3>تفسير القرآن</h3></div>
-        <div class="cat-card" onclick="showSection('quran_sciences')"><h3>علوم القرآن</h3></div>
-        <div class="cat-card" onclick="showSection('hadith')"><h3>شروح الحديث</h3></div>
-        <div class="cat-card" onclick="showSection('tawheed')"><h3>العقيدة</h3></div>
-        <div class="cat-card" onclick="showSection('fiqh')"><h3>الفقه</h3></div>
-        <div class="cat-card" onclick="showSection('seerah')"><h3>السيرة النبوية</h3></div>
-        <div class="cat-card" onclick="showSection('khotab')"><h3>الخطب والجمعة</h3></div>
-        <div class="cat-card" onclick="showSection('rakaik')"><h3>الرقائق</h3></div>
-        <div class="cat-card" onclick="showSection('faraid')"><h3>علم الفرائض</h3></div>
+        <div class="cat-card" onclick="showContent('tafseer')"><h3>تفسير القرآن</h3></div>
+        <div class="cat-card" onclick="showContent('quran_sciences')"><h3>علوم القرآن</h3></div>
+        <div class="cat-card" onclick="showContent('hadith')"><h3>شروح الحديث</h3></div>
+        <div class="cat-card" onclick="showContent('tawheed')"><h3>العقيدة</h3></div>
+        <div class="cat-card" onclick="showContent('fiqh')"><h3>الفقه</h3></div>
+        <div class="cat-card" onclick="showContent('seerah')"><h3>السيرة النبوية</h3></div>
+        <div class="cat-card" onclick="showContent('khotab')"><h3>الخطب</h3></div>
+        <div class="cat-card" onclick="showContent('rakaik')"><h3>الرقائق</h3></div>
+        <div class="cat-card" onclick="showContent('faraid')"><h3>علم الفرائض</h3></div>
     </div>
 </div>
 
 <div id="details-view">
-    <button class="back-btn" onclick="hideSection()">← عودة للقائمة</button>
+    <button class="back-btn" onclick="backToMain()">← عودة للقائمة</button>
     <h2 id="section-title" style="color: var(--dark-blue); border-bottom: 3px solid var(--bright-blue); padding-bottom: 10px;"></h2>
-    <div id="lessons-list"></div>
+    <div id="lessons-render"></div>
 </div>
 
 <script>
-    // بيانات الخطب
-    const khotabData = [
-        {
-            name: "سلسلة وصف الجنة ونعيمها",
-            lessons: Array.from({length: 14}, (_, i) => ({t: `الخطبة ${i+1}`, f: `wasf-algana-${i+1}`}))
-        }
-    ];
-
-    // بيانات الرقائق
-    const rakaikData = [
-        {
-            name: "أنوار الأذكار",
-            lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`}))
-        }
-    ];
-
-    const tawheedData = [
-        { name: "شرح أسماء الله الحسنى", lessons: Array.from({length: 33}, (_, i) => ({t: `الدرس ${i+1}`, f: `asma${i+1}.mp3`})) },
-        { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
-        { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
-    ];
-
-    const tafseerData = [
-        { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}, {t: "الدرس 2", f: "fatiha-2.mp3"}] },
-        { 
-            name: "سورة البقرة", 
-            lessons: [
-                {t: "الدرس 1", f: "bakara-1.mp3"}, {t: "الدرس 2", f: "bakara-2.mp3"},
-                {t: "الدرس 3 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-3.mp3"},
-                {t: "الدرس 4", f: "bakara-4.mp3"}, {t: "الدرس 5", f: "bakara-5.mp3"},
-                {t: "الدرس 6", f: "bakara-6.mp3"},
-                {t: "الدرس 7 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-7.mp3"},
-                {t: "الدرس 8", f: "bakara-8.mp3"}, {t: "الدرس 9", f: "bakara-9.mp3"},
-                {t: "الدرس 10 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-10.mp3"},
-                {t: "الدرس 11 (مصلح)", f: "https://archive.org/download/bakara-11_202602/bakara-11.mp3"},
-                {t: "الدرس 12 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-12.mp3"},
-                {t: "الدرس 13 (مصلح)", f: "https://archive.org/download/bakara-10_202602/bakara-13.mp3"}
-            ] 
-        }
-    ];
-
-    const fiqhData = [
-        { name: "دورة أحكام الزكاة والصيام", lessons: Array.from({length: 6}, (_, i) => ({t: `الدرس ${i+1}`, f: `lesson${i+1}.mp3`})) }
-    ];
-
-    const seerahData = [
-        { name: "السيرة النبوية", lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`})) }
-    ];
-
-    const otherData = {
-        hadith: { title: "شروح الحديث", list: Array.from({length: 30}, (_, i) => ({ t: `رياض الصالحين - الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) },
-        faraid: { title: "علم الفرائض", list: Array.from({length: 11}, (_, i) => ({ t: `المنظومة الرحبية - الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) },
-        quran_sciences: { title: "علوم القرآن", list: [{ t: "مقدمة", f: "quran-1.mp3" }] }
+    const data = {
+        tafseer: {
+            title: "تفسير القرآن",
+            items: [
+                { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}, {t: "الدرس 2", f: "fatiha-2.mp3"}] },
+                { name: "سورة البقرة", lessons: Array.from({length: 13}, (_, i) => ({t: `الدرس ${i+1}`, f: (i+1==3||i+1==7||i+1==10||i+1==11||i+1==12||i+1==13) ? `https://archive.org/download/bakara-10_202602/bakara-${i+1}.mp3` : `bakara-${i+1}.mp3`})) }
+            ]
+        },
+        tawheed: {
+            title: "العقيدة",
+            items: [
+                { name: "شرح أسماء الله الحسنى", lessons: Array.from({length: 33}, (_, i) => ({t: `الدرس ${i+1}`, f: `asma${i+1}.mp3`})) },
+                { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
+                { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
+            ]
+        },
+        seerah: {
+            title: "السيرة النبوية",
+            items: [
+                { name: "السيرة النبوية", lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`})) }
+            ]
+        },
+        khotab: {
+            title: "الخطب",
+            items: [
+                { name: "وصف الجنة ونعيمها", lessons: Array.from({length: 14}, (_, i) => ({t: `الخطبة ${i+1}`, f: `wasf-algana-${i+1}`})) }
+            ]
+        },
+        rakaik: {
+            title: "الرقائق",
+            items: [
+                { name: "أنوار الأذكار", lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`})) }
+            ]
+        },
+        fiqh: { title: "الفقه", items: [{ name: "دورة أحكام الزكاة والصيام", lessons: Array.from({length: 6}, (_, i) => ({t: `الدرس ${i+1}`, f: `lesson${i+1}.mp3`})) }] },
+        hadith: { title: "شروح الحديث", items: [{ name: "رياض الصالحين", lessons: Array.from({length: 30}, (_, i) => ({ t: `الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) }] },
+        faraid: { title: "علم الفرائض", items: [{ name: "المنظومة الرحبية", lessons: Array.from({length: 11}, (_, i) => ({ t: `الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }] },
+        quran_sciences: { title: "علوم القرآن", items: [{ name: "دروس علوم القرآن", lessons: [{ t: "مقدمة", f: "quran-1.mp3" }] }] }
     };
 
-    function showSection(key) {
-        const listDiv = document.getElementById('lessons-list');
-        listDiv.innerHTML = "";
-        
-        let currentData;
-        const titles = {
-            tafseer: "تفسير القرآن",
-            tawheed: "العقيدة",
-            fiqh: "الفقه",
-            seerah: "السيرة النبوية",
-            rakaik: "الرقائق",
-            khotab: "الخطب المنبرية"
-        };
+    function showContent(key) {
+        const section = data[key];
+        document.getElementById('section-title').innerText = section.title;
+        const container = document.getElementById('lessons-render');
+        container.innerHTML = "";
 
-        if (key === 'tafseer') currentData = tafseerData;
-        else if (key === 'tawheed') currentData = tawheedData;
-        else if (key === 'fiqh') currentData = fiqhData;
-        else if (key === 'seerah') currentData = seerahData;
-        else if (key === 'rakaik') currentData = rakaikData;
-        else if (key === 'khotab') currentData = khotabData;
+        section.items.forEach((group, gIdx) => {
+            let lessonsHTML = group.lessons.map(l => {
+                let path = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
+                // إضافة دعم الامتداد المزدوج للسيرة والخطب
+                let sources = (key === 'seerah' || key === 'khotab') 
+                    ? `<source src="${path}.MP3" type="audio/mpeg"><source src="${path}.mp3" type="audio/mpeg">`
+                    : `<source src="${path}" type="audio/mpeg">`;
+                let downloadLink = (key === 'seerah' || key === 'khotab') ? `${path}.MP3` : path;
 
-        if (currentData) {
-            document.getElementById('section-title').innerText = titles[key];
-            currentData.forEach((item, index) => {
-                listDiv.innerHTML += `
-                    <div class="item-wrapper">
-                        <div class="item-header" onclick="toggleItem('${key}-${index}')"><span>${item.name}</span> <small>▼</small></div>
-                        <div class="item-content" id="${key}-${index}">
-                            ${item.lessons.map(l => {
-                                // معالجة خاصة للسيرة والخطب لدعم MP3 و mp3
-                                if (key === 'seerah' || key === 'khotab') {
-                                    let path = `audio/${l.f}`;
-                                    return `
-                                    <div class="lesson-item">
-                                        <span>${l.t}</span>
-                                        <audio controls preload="none">
-                                            <source src="${path}.MP3" type="audio/mpeg">
-                                            <source src="${path}.mp3" type="audio/mpeg">
-                                        </audio>
-                                        <a href="${path}.MP3" download class="download-icon">📥</a>
-                                    </div>`;
-                                } else {
-                                    let finalPath = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                                    return `
-                                    <div class="lesson-item">
-                                        <span>${l.t}</span>
-                                        <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
-                                        <a href="${finalPath}" download class="download-icon">📥</a>
-                                    </div>`;
-                                }
-                            }).join('')}
-                        </div>
-                    </div>`;
-            });
-        } else {
-            const section = otherData[key];
-            document.getElementById('section-title').innerText = section.title;
-            listDiv.innerHTML = section.list.map(item => {
-                let finalPath = item.f.startsWith('http') ? item.f : `audio/${item.f}`;
-                return `<div class="lesson-item" style="background:white; margin-bottom:8px; padding:15px; border-radius:10px; border-right:5px solid var(--dark-blue);">
-                    <span style="font-weight:bold">${item.t}</span>
-                    <audio controls preload="none"><source src="${finalPath}" type="audio/mpeg"></audio>
-                    <a href="${finalPath}" download class="download-icon">📥</a>
+                return `
+                <div class="lesson-item">
+                    <span>${l.t}</span>
+                    <audio controls preload="none">${sources}</audio>
+                    <a href="${downloadLink}" download class="download-icon">📥</a>
                 </div>`;
             }).join('');
-        }
+
+            container.innerHTML += `
+                <div class="item-wrapper">
+                    <div class="item-header" onclick="toggle('${key}-${gIdx}')">
+                        <span>${group.name}</span>
+                        <small>▼</small>
+                    </div>
+                    <div class="item-content" id="${key}-${gIdx}">
+                        ${lessonsHTML}
+                    </div>
+                </div>`;
+        });
+
         document.getElementById('main-view').style.display = 'none';
         document.getElementById('details-view').style.display = 'block';
     }
 
-    function toggleItem(id) {
-        const content = document.getElementById(id);
-        if (content) content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+    function toggle(id) {
+        const el = document.getElementById(id);
+        el.style.display = (el.style.display === 'block') ? 'none' : 'block';
     }
 
-    function hideSection() {
+    function backToMain() {
         document.getElementById('main-view').style.display = 'block';
         document.getElementById('details-view').style.display = 'none';
     }
