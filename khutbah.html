@@ -19,30 +19,42 @@
         .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
         audio { height: 35px; width: 230px; }
         .download-btn { text-decoration: none; color: #27ae60; font-size: 1.2rem; font-weight: bold; }
+        @media (max-width: 600px) { .lesson-item { flex-direction: column; text-align: center; } audio { width: 100%; } }
     </style>
 </head>
 <body>
+
 <header class="site-header"><h1>الخطب المنبرية</h1></header>
+
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
     <a href="books.html" class="nav-link">المكتبة</a>
     <a href="lessons.html" class="nav-link">الدروس</a>
     <a href="khutbah.html" class="nav-link" style="background:var(--bright-blue); color: var(--dark-blue);">الخطب</a>
 </div>
+
 <div class="container">
+    <div class="item-wrapper">
+        <div class="item-header" onclick="toggleItem('siam-list')"><span>سلسلة فضائل الصيام (رمضان)</span><small>▼</small></div>
+        <div class="item-content" id="siam-list"></div>
+    </div>
+
     <div class="item-wrapper">
         <div class="item-header" onclick="toggleItem('ganna-list')"><span>سلسلة وصف الجنة ونعيمها</span><small>▼</small></div>
         <div class="item-content" id="ganna-list"></div>
     </div>
+
     <div class="item-wrapper">
         <div class="item-header" onclick="toggleItem('sa-list')"><span>سلسلة علامات الساعة</span><small>▼</small></div>
         <div class="item-content" id="sa-list"></div>
     </div>
+
     <div class="item-wrapper">
         <div class="item-header" onclick="toggleItem('fa-list')"><span>سلسلة فضائل الأعمال</span><small>▼</small></div>
         <div class="item-content" id="fa-list"></div>
     </div>
 </div>
+
 <script>
     function generateList(prefix, count, elementId, label) {
         const container = document.getElementById(elementId);
@@ -52,19 +64,24 @@
             html += `<div class="lesson-item">
                 <span>${label} - الخطبة ${i}</span>
                 <audio controls preload="none">
-                    <source src="${audioUrl}.MP3" type="audio/mpeg">
                     <source src="${audioUrl}.mp3" type="audio/mpeg">
+                    <source src="${audioUrl}.MP3" type="audio/mpeg">
                 </audio>
-                <a href="${audioUrl}.MP3" download class="download-btn">📥</a>
+                <a href="${audioUrl}.mp3" download class="download-btn">📥</a>
             </div>`;
         }
         container.innerHTML = html;
     }
+
     function toggleItem(id) {
         const content = document.getElementById(id);
         content.style.display = (content.style.display === 'block') ? 'none' : 'block';
     }
+
     window.onload = function() {
+        // تم تعديل البريفكس هنا إلى fdl-alsiam
+        generateList('fdl-alsiam', 20, 'siam-list', 'فضائل الصيام');
+        
         generateList('wasf-algana', 14, 'ganna-list', 'وصف الجنة');
         generateList('alamat', 40, 'sa-list', 'علامات الساعة');
         generateList('fa', 20, 'fa-list', 'فضائل الأعمال');
