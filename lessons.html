@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<header class="site-header"><h1>الدروس العلمية</h1></header>
+<header class="site-header"><h1>الدروس العلمية للشيخ سعيد مصطفى دياب</h1></header>
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
     <a href="books.html" class="nav-link">المكتبة</a>
@@ -42,11 +42,12 @@
         <div class="cat-card" onclick="showContent('tawheed')"><h3>العقيدة</h3></div>
         <div class="cat-card" onclick="showContent('fiqh')"><h3>الفقه</h3></div>
         <div class="cat-card" onclick="showContent('seerah')"><h3>السيرة النبوية</h3></div>
-        <div class="cat-card" onclick="showContent('rakaik')"><h3>الرقائق</h3></div> <div class="cat-card" onclick="showContent('faraid')"><h3>علم الفرائض</h3></div>
+        <div class="cat-card" onclick="showContent('rakaik')"><h3>الرقائق</h3></div>
+        <div class="cat-card" onclick="showContent('faraid')"><h3>علم الفرائض</h3></div>
     </div>
 </div>
 <div id="details-view">
-    <button class="back-btn" onclick="backToMain()">← عودة</button>
+    <button class="back-btn" onclick="backToMain()">← عودة للقائمة</button>
     <h2 id="section-title"></h2>
     <div id="lessons-render"></div>
 </div>
@@ -56,18 +57,22 @@
             { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}, {t: "الدرس 2", f: "fatiha-2.mp3"}] },
             { name: "سورة البقرة", lessons: Array.from({length: 13}, (_, i) => ({t: `الدرس ${i+1}`, f: (i+1==3||i+1==7||i+1==10||i+1==11||i+1==12||i+1==13) ? `https://archive.org/download/bakara-10_202602/bakara-${i+1}.mp3` : `bakara-${i+1}.mp3`})) }
         ]},
+        hadith: { title: "شروح الحديث", items: [
+            { name: "شرح عمدة الأحكام", lessons: Array.from({length: 71}, (_, i) => ({ t: `الدرس ${i+1}`, f: `omda-${i+1}` })) },
+            { name: "رياض الصالحين", lessons: Array.from({length: 30}, (_, i) => ({ t: `الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) }
+        ]},
         tawheed: { title: "العقيدة", items: [
             { name: "شرح أسماء الله الحسنى", lessons: Array.from({length: 33}, (_, i) => ({t: `الدرس ${i+1}`, f: `asma${i+1}.mp3`})) },
             { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
             { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
         ]},
-        rakaik: { title: "الرقائق", items: [{ name: "أنوار الأذكار", lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`})) }] },
         seerah: { title: "السيرة النبوية", items: [{ name: "السيرة النبوية", lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`})) }] },
+        rakaik: { title: "الرقائق", items: [{ name: "أنوار الأذكار", lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`})) }] },
         fiqh: { title: "الفقه", items: [{ name: "دورة الزكاة والصيام", lessons: Array.from({length: 6}, (_, i) => ({t: `الدرس ${i+1}`, f: `lesson${i+1}.mp3`})) }] },
-        hadith: { title: "شروح الحديث", items: [{ name: "رياض الصالحين", lessons: Array.from({length: 30}, (_, i) => ({ t: `الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) }] },
         faraid: { title: "علم الفرائض", items: [{ name: "المنظومة الرحبية", lessons: Array.from({length: 11}, (_, i) => ({ t: `الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }] },
         quran_sciences: { title: "علوم القرآن", items: [{ name: "دروس علوم القرآن", lessons: [{ t: "مقدمة", f: "quran-1.mp3" }] }] }
     };
+
     function showContent(key) {
         const section = data[key];
         document.getElementById('section-title').innerText = section.title;
@@ -76,14 +81,21 @@
         section.items.forEach((group, gIdx) => {
             let lessonsHTML = group.lessons.map(l => {
                 let path = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                let sources = (key === 'seerah') ? `<source src="${path}.MP3" type="audio/mpeg"><source src="${path}.mp3" type="audio/mpeg">` : `<source src="${path}" type="audio/mpeg">`;
-                return `<div class="lesson-item"><span>${l.t}</span><audio controls preload="none">${sources}</audio><a href="${path}" download class="download-icon">📥</a></div>`;
+                // دعم الصيغتين وتلقي اسم omda بدون الامتداد في المصفوفة
+                let sources = (l.f.includes('omda') || l.f.includes('sera')) 
+                    ? `<source src="${path}.MP3" type="audio/mpeg"><source src="${path}.mp3" type="audio/mpeg">` 
+                    : `<source src="${path}" type="audio/mpeg">`;
+                
+                let downloadPath = (l.f.includes('omda') || l.f.includes('sera')) ? `${path}.MP3` : path;
+                
+                return `<div class="lesson-item"><span>${l.t}</span><audio controls preload="none">${sources}</audio><a href="${downloadPath}" download class="download-icon">📥</a></div>`;
             }).join('');
             container.innerHTML += `<div class="item-wrapper"><div class="item-header" onclick="toggle('${key}-${gIdx}')"><span>${group.name}</span><small>▼</small></div><div class="item-content" id="${key}-${gIdx}">${lessonsHTML}</div></div>`;
         });
         document.getElementById('main-view').style.display = 'none';
         document.getElementById('details-view').style.display = 'block';
     }
+
     function toggle(id) { const el = document.getElementById(id); el.style.display = (el.style.display === 'block') ? 'none' : 'block'; }
     function backToMain() { document.getElementById('main-view').style.display = 'block'; document.getElementById('details-view').style.display = 'none'; }
 </script>
