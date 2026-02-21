@@ -62,6 +62,7 @@
             { name: "رياض الصالحين", lessons: Array.from({length: 30}, (_, i) => ({ t: `الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) }
         ]},
         tawheed: { title: "العقيدة", items: [
+            { name: "شرح العقيدة الواسطية", lessons: Array.from({length: 26}, (_, i) => ({t: `الدرس ${i+1}`, f: `wastya-${i+1}.mp3`})) },
             { name: "شرح أسماء الله الحسنى", lessons: Array.from({length: 33}, (_, i) => ({t: `الدرس ${i+1}`, f: `asma${i+1}.mp3`})) },
             { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
             { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
@@ -81,7 +82,6 @@
         section.items.forEach((group, gIdx) => {
             let lessonsHTML = group.lessons.map(l => {
                 let path = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                // دعم الصيغتين وتلقي اسم omda بدون الامتداد في المصفوفة
                 let sources = (l.f.includes('omda') || l.f.includes('sera')) 
                     ? `<source src="${path}.MP3" type="audio/mpeg"><source src="${path}.mp3" type="audio/mpeg">` 
                     : `<source src="${path}" type="audio/mpeg">`;
