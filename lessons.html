@@ -57,6 +57,10 @@
             { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}, {t: "الدرس 2", f: "fatiha-2.mp3"}] },
             { name: "سورة البقرة", lessons: Array.from({length: 13}, (_, i) => ({t: `الدرس ${i+1}`, f: (i+1==3||i+1==7||i+1==10||i+1==11||i+1==12||i+1==13) ? `https://archive.org/download/bakara-10_202602/bakara-${i+1}.mp3` : `bakara-${i+1}.mp3`})) }
         ]},
+        quran_sciences: { title: "علوم القرآن", items: [
+            { name: "شرح مقدمة في أصول التفسير", lessons: Array.from({length: 27}, (_, i) => ({ t: `الدرس ${i+1}`, f: `osol-altfser-${i+1}.mp3` })) },
+            { name: "دروس علوم القرآن", lessons: [{ t: "مقدمة", f: "quran-1.mp3" }] }
+        ]},
         hadith: { title: "شروح الحديث", items: [
             { name: "شرح عمدة الأحكام", lessons: Array.from({length: 71}, (_, i) => ({ t: `الدرس ${i+1}`, f: `omda-${i+1}` })) },
             { name: "رياض الصالحين", lessons: Array.from({length: 30}, (_, i) => ({ t: `الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) }
@@ -70,8 +74,7 @@
         seerah: { title: "السيرة النبوية", items: [{ name: "السيرة النبوية", lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`})) }] },
         rakaik: { title: "الرقائق", items: [{ name: "أنوار الأذكار", lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`})) }] },
         fiqh: { title: "الفقه", items: [{ name: "دورة الزكاة والصيام", lessons: Array.from({length: 6}, (_, i) => ({t: `الدرس ${i+1}`, f: `lesson${i+1}.mp3`})) }] },
-        faraid: { title: "علم الفرائض", items: [{ name: "المنظومة الرحبية", lessons: Array.from({length: 11}, (_, i) => ({ t: `الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }] },
-        quran_sciences: { title: "علوم القرآن", items: [{ name: "دروس علوم القرآن", lessons: [{ t: "مقدمة", f: "quran-1.mp3" }] }] }
+        faraid: { title: "علم الفرائض", items: [{ name: "المنظومة الرحبية", lessons: Array.from({length: 11}, (_, i) => ({ t: `الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }] }
     };
 
     function showContent(key) {
@@ -82,11 +85,12 @@
         section.items.forEach((group, gIdx) => {
             let lessonsHTML = group.lessons.map(l => {
                 let path = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                let sources = (l.f.includes('omda') || l.f.includes('sera')) 
+                let isSpecial = (l.f.includes('omda') || l.f.includes('sera'));
+                let sources = isSpecial 
                     ? `<source src="${path}.MP3" type="audio/mpeg"><source src="${path}.mp3" type="audio/mpeg">` 
                     : `<source src="${path}" type="audio/mpeg">`;
                 
-                let downloadPath = (l.f.includes('omda') || l.f.includes('sera')) ? `${path}.MP3` : path;
+                let downloadPath = isSpecial ? `${path}.MP3` : path;
                 
                 return `<div class="lesson-item"><span>${l.t}</span><audio controls preload="none">${sources}</audio><a href="${downloadPath}" download class="download-icon">📥</a></div>`;
             }).join('');
