@@ -76,7 +76,10 @@
             { name: "سلسلة مكارم الأخلاق", lessons: Array.from({length: 40}, (_, i) => ({ t: `الدرس ${i+1}`, f: `mkarem-${i+1}` })) },
             { name: "أنوار الأذكار", lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`})) }
         ]},
-        fiqh: { title: "الفقه", items: [{ name: "دورة الزكاة والصيام", lessons: Array.from({length: 6}, (_, i) => ({t: `الدرس ${i+1}`, f: `lesson${i+1}.mp3`})) }] },
+        fiqh: { title: "الفقه", items: [
+            { name: "شرح كتاب أخصر المختصرات", lessons: Array.from({length: 27}, (_, i) => ({ t: `الدرس ${i+1}`, f: `akhasar-${i+1}.mp3` })) },
+            { name: "دورة الزكاة والصيام", lessons: Array.from({length: 6}, (_, i) => ({t: `الدرس ${i+1}`, f: `lesson${i+1}.mp3`})) }
+        ]},
         faraid: { title: "علم الفرائض", items: [{ name: "المنظومة الرحبية", lessons: Array.from({length: 11}, (_, i) => ({ t: `الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }] }
     };
 
@@ -88,7 +91,6 @@
         section.items.forEach((group, gIdx) => {
             let lessonsHTML = group.lessons.map(l => {
                 let path = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                // دعم الملفات التي تنتهي بـ MP3 كبيرة مثل عمدة الأحكام ومكارم الأخلاق والسيرة
                 let isSpecial = (l.f.includes('omda') || l.f.includes('sera') || l.f.includes('mkarem'));
                 let sources = isSpecial 
                     ? `<source src="${path}.MP3" type="audio/mpeg"><source src="${path}.mp3" type="audio/mpeg">` 
