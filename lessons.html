@@ -6,8 +6,8 @@
     <title>الدروس العلمية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; overflow-x: hidden; }
+        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --shadow-color: #5da0bc; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
         
         .site-header { text-align: center; padding: 40px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
         .site-header h1 { margin: 0; font-size: 1.8rem; color: var(--dark-blue); font-weight: 900; }
@@ -15,39 +15,48 @@
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; }
         .nav-link { padding: 8px 20px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
 
-        /* تصميم الأيقونات ثلاثية الأبعاد في صف واحد */
+        /* حاوية الأيقونات: صف واحد إجباري مع تمرير */
         .categories-container { 
-            padding: 30px 10px; 
-            overflow-x: auto; /* السماح بالتمرير الأفقي */
-            white-space: nowrap; /* منع انكسار السطر */
             display: flex;
-            gap: 20px;
-            scrollbar-width: thin; /* تحسين شكل شريط التمرير */
+            flex-wrap: nowrap; /* إجبارهم على صف واحد */
+            overflow-x: auto;
+            padding: 40px 20px;
+            gap: 25px;
+            scrollbar-width: none; /* إخفاء شريط التمرير للمظهر الجمالي */
+            -webkit-overflow-scrolling: touch;
         }
-        
-        .categories-container::-webkit-scrollbar { height: 6px; }
-        .categories-container::-webkit-scrollbar-thumb { background: var(--bright-blue); border-radius: 10px; }
+        .categories-container::-webkit-scrollbar { display: none; } /* إخفاء شريط التمرير في كروم */
 
+        /* تصميم الأيقونة ثلاثية الأبعاد */
         .cat-card { 
-            display: inline-block;
-            min-width: 160px;
-            background: white;
-            padding: 30px 15px;
+            flex: 0 0 auto; /* منع البطاقات من التمدد أو التقلص */
+            width: 150px;
+            height: 120px;
+            background: linear-gradient(145deg, #ffffff, #e6f7ff);
             border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            /* التأثير ثلاثي الأبعاد */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1), inset 0 -5px 0 var(--bright-blue);
-            border: 1px solid #fff;
-            flex-shrink: 0;
+            position: relative;
+            transition: all 0.1s ease; /* سرعة استجابة للنقر */
+            
+            /* ظل ثلاثي الأبعاد بارز */
+            box-shadow: 0 10px 0 var(--shadow-color), 0 15px 20px rgba(0,0,0,0.1);
+            border: 1px solid #cceeff;
         }
 
+        /* عند تحريك الفأرة فوقها */
         .cat-card:hover { 
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.15), inset 0 -5px 0 var(--dark-blue);
-            background: var(--light-sky);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 0 var(--shadow-color), 0 18px 25px rgba(0,0,0,0.15);
+        }
+
+        /* تأثير الضغط الفعلي (عند النقر) */
+        .cat-card:active {
+            transform: translateY(8px); /* تهبط للأسفل بمقدار الظل */
+            box-shadow: 0 2px 0 var(--shadow-color), 0 5px 10px rgba(0,0,0,0.1); /* يختفي الظل الكبير */
         }
 
         .cat-card h3 { 
@@ -55,12 +64,16 @@
             font-size: 1.1rem; 
             color: var(--dark-blue); 
             font-weight: 900; 
-            white-space: normal; /* السماح للنص بالالتفاف داخل البطاقة */
+            padding: 10px;
+            line-height: 1.4;
+            user-select: none;
         }
 
         /* تفاصيل الدروس */
         #details-view { max-width: 850px; margin: 20px auto; padding: 15px; display: none; }
-        .back-btn { background: var(--dark-blue); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; font-family: 'Cairo'; font-weight: bold; }
+        .back-btn { background: var(--dark-blue); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; font-family: 'Cairo'; font-weight: bold; box-shadow: 0 4px 0 #1a3a55; }
+        .back-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #1a3a55; }
+
         .item-wrapper { background: white; margin-bottom: 10px; border-radius: 10px; border-right: 5px solid var(--bright-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .item-header { background: #f8fbff; padding: 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: var(--dark-blue); }
         .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
@@ -100,6 +113,7 @@
 </div>
 
 <script>
+    // البيانات والسلاسل (نفس البيانات السابقة بدون تغيير)
     const data = {
         tafseer: { title: "تفسير القرآن", items: [
             { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}, {t: "الدرس 2", f: "fatiha-2.mp3"}] },
