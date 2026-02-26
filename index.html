@@ -25,41 +25,54 @@
             min-height: 100vh;
         }
         
-        /* تصميم شريط التاريخ في أعلى اليمين */
-        .date-container {
+        /* تصميم الخانة البيضاوية للتاريخ */
+        .date-oval-box {
             position: absolute;
-            top: 15px;
+            top: 20px;
             right: 20px;
-            text-align: right;
-            font-size: 0.85rem;
-            color: var(--dark-blue);
-            font-weight: bold;
-            line-height: 1.6;
-            background: rgba(255, 255, 255, 0.4);
-            padding: 5px 15px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            z-index: 100;
+            background: white;
+            padding: 8px 25px;
+            border-radius: 50px; /* جعلها بيضاوية */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
         }
-        .date-container i { margin-left: 5px; color: var(--gold-color); }
+
+        .date-item {
+            font-size: 0.9rem;
+            color: var(--dark-blue);
+            font-weight: 700;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .date-divider {
+            width: 2px;
+            height: 20px;
+            background: #ddd;
+        }
+
+        .date-item i { color: var(--gold-color); }
 
         .site-header {
             text-align: center; 
-            padding: 60px 20px; 
+            padding: 70px 20px; 
             background: var(--header-bg); 
             border-bottom: 4px solid #ffffff;
-            position: relative; /* لضمان تموضع التاريخ بالنسبة للهيدر */
+            position: relative;
         }
         .site-header h1 {
             margin: 0; font-size: 2.5rem; font-weight: 900;
             color: var(--dark-blue);
         }
 
-        .nav-bar { 
-            display: flex; justify-content: center; 
-            gap: 15px; padding: 30px 20px; flex-wrap: wrap; 
-        }
+        /* باقي التنسيقات (الأزرار والكتب والسلايدر) كما هي */
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 30px 20px; flex-wrap: wrap; }
         .nav-link-3d { 
             padding: 15px 25px; background: var(--accent-blue); color: white; 
             text-decoration: none; border-radius: 12px; font-weight: bold;
@@ -72,87 +85,44 @@
 
         .quran-strip-gold {
             background: rgba(255, 255, 255, 0.5); 
-            margin: 30px auto;
-            width: 92%;
-            padding: 15px 0;
-            text-align: center;
-            backdrop-filter: blur(5px);
-            border-top: 3px double var(--gold-color);
-            border-bottom: 3px double var(--gold-color);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+            margin: 30px auto; width: 92%; padding: 15px 0; text-align: center;
+            border-top: 3px double var(--gold-color); border-bottom: 3px double var(--gold-color);
         }
-        .quran-text {
-            font-family: 'Amiri', serif;
-            font-size: 2rem; 
-            color: #8a6d3b;
-            font-weight: 700;
-            display: block;
-        }
+        .quran-text { font-family: 'Amiri', serif; font-size: 2rem; color: #8a6d3b; font-weight: 700; }
 
         .books-container-wide { width: 96%; margin: 30px auto; }
-        .books-container-wide h3 { color: var(--dark-blue); margin-bottom: 15px; font-weight: 900; }
-        
-        .slider-wrapper {
-            display: flex; align-items: center; 
-            background: rgba(255, 255, 255, 0.3);
-            padding: 20px 10px; border-radius: 20px;
-        }
-        .arrow { 
-            font-size: 40px; color: var(--dark-blue); 
-            cursor: pointer; transition: 0.3s; z-index: 10;
-        }
-        .arrow:hover { color: var(--accent-blue); transform: scale(1.2); }
-        
-        .books-scroll {
-            display: flex; gap: 20px; overflow-x: auto; 
-            scroll-behavior: smooth; flex: 1; padding: 10px;
-        }
+        .slider-wrapper { display: flex; align-items: center; background: rgba(255, 255, 255, 0.3); padding: 20px 10px; border-radius: 20px; }
+        .books-scroll { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; flex: 1; padding: 10px; }
         .books-scroll::-webkit-scrollbar { display: none; }
-        
-        .book-img {
-            width: 150px; height: 215px; object-fit: cover;
-            border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border: 3px solid #fff; transition: 0.3s;
-        }
-        .book-img:hover { transform: scale(1.05); }
+        .book-img { width: 150px; height: 215px; border-radius: 10px; border: 3px solid #fff; transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .arrow { font-size: 40px; color: var(--dark-blue); cursor: pointer; }
 
         .social-section { text-align: center; padding: 30px 0; }
         .social-flex { display: flex; justify-content: center; gap: 20px; }
-        .s-icon { 
-            font-size: 26px; color: white; width: 55px; height: 55px; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+        .s-icon { font-size: 26px; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; }
         .fb { background: #1877F2; } .wa { background: #25D366; } .tg { background: #229ED9; }
 
-        .footer-rights {
-            background: var(--header-bg); 
-            color: var(--dark-blue); 
-            text-align: center;
-            padding: 25px; 
-            font-weight: bold;
-            border-top: 4px solid #ffffff;
-        }
+        .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; border-top: 4px solid #ffffff; }
 
-        /* تعديل التاريخ للجوال ليكون في المنتصف تحت العنوان لتجنب التداخل */
-        @media (max-width: 600px) {
-            .date-container {
-                position: static;
-                text-align: center;
-                margin: 0 auto 10px;
-                display: inline-block;
-                width: auto;
-            }
-            .site-header { padding: 30px 10px; }
+        @media (max-width: 768px) {
+            .date-oval-box { position: static; margin: 0 auto 20px; justify-content: center; width: fit-content; }
+            .site-header { padding: 40px 10px; }
         }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <div class="date-container" id="date-box">
-            <div><i class="fas fa-calendar-alt"></i> <span id="hijri-date">جارٍ التحميل...</span></div>
-            <div><i class="fas fa-clock"></i> <span id="gregorian-date"></span></div>
+        <div class="date-oval-box">
+            <div class="date-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span id="hijri-display">جارٍ التحميل...</span>
+            </div>
+            <div class="date-divider"></div>
+            <div class="date-item">
+                <i class="fas fa-clock"></i>
+                <span id="gregorian-display"></span>
+            </div>
         </div>
         
         <h1>موقع الشيخ سعيد مصطفى دياب</h1>
@@ -203,9 +173,9 @@
 
     <div class="social-section">
         <div class="social-flex">
-            <a href="https://wa.me/97455703316" target="_blank" class="s-icon wa"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://t.me/haiatelqloop3" target="_blank" class="s-icon tg"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://www.facebook.com/share/1A3tyjPjy4/" target="_blank" class="s-icon fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/97455703316" class="s-icon wa"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/haiatelqloop3" class="s-icon tg"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://www.facebook.com/share/1A3tyjPjy4/" class="s-icon fb"><i class="fab fa-facebook-f"></i></a>
         </div>
     </div>
 
@@ -214,31 +184,31 @@
     </div>
 
     <script>
-        // كود السلايدر الأصلي
+        // سكرول الكتب
         const slider = document.getElementById('b-slider');
         document.getElementById('right-btn').onclick = () => slider.scrollBy(350, 0);
         document.getElementById('left-btn').onclick = () => slider.scrollBy(-350, 0);
 
-        // كود استخراج التاريخ الهجري والميلادي
-        function updateDate() {
-            const today = new Date();
+        // وظيفة التاريخ الموحدة والدقيقة
+        function displayDates() {
+            const now = new Date();
             
-            // التاريخ الميلادي
-            const gregorianOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-            document.getElementById('gregorian-date').innerText = today.toLocaleDateString('ar-EG', gregorianOptions);
-            
-            // التاريخ الهجري باستخدام Intl
-            const hijriOptions = { day: 'numeric', month: 'long', year: 'numeric', calendar: 'islamic-uma' };
+            // 1. التاريخ الهجري
             try {
-                const hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-uma', hijriOptions).format(today);
-                document.getElementById('hijri-date').innerText = hijriDate;
-            } catch (e) {
-                document.getElementById('hijri-date').innerText = "التاريخ الهجري غير متاح";
+                const hijriFormatter = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-uma-nu-latn', {
+                    day: 'numeric', month: 'long', year: 'numeric'
+                });
+                document.getElementById('hijri-display').innerText = hijriFormatter.format(now);
+            } catch(e) {
+                document.getElementById('hijri-display').innerText = "تاريخ هجري";
             }
-        }
-        
-        updateDate();
-    </script>
 
+            // 2. التاريخ الميلادي
+            const gregOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+            document.getElementById('gregorian-display').innerText = now.toLocaleDateString('ar-EG', gregOptions);
+        }
+
+        displayDates();
+    </script>
 </body>
 </html>
