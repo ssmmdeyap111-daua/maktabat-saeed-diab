@@ -7,152 +7,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --light-sky: #eef5ff; 
-            --bright-blue: #87ceeb; 
-            --dark-blue: #2c5d87; 
-            --shadow-color: #5da0bc;
-            --gold: #d4af37;
-        }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
-        
-        .site-header { 
-            text-align: center; padding: 60px 20px; 
-            background: linear-gradient(to right, #add8e6, #e0f2f7); 
-            border-bottom: 6px solid white;
-        }
-        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; font-size: 2.8rem; color: var(--dark-blue); }
-        
-        .nav-bar { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; gap: 15px; }
-        .btn-3d { 
-            padding: 12px 25px; background: white; border-radius: 15px;
-            text-decoration: none; color: var(--dark-blue); font-weight: bold;
-            box-shadow: 0 5px 0 var(--shadow-color); transition: 0.1s;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .btn-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--shadow-color); }
-        .active-btn { background: var(--bright-blue); color: white; box-shadow: 0 5px 0 var(--dark-blue); }
-
+        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --gold: #d4af37; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
+        .site-header { text-align: center; padding: 50px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
+        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; font-size: 2.5rem; color: var(--dark-blue); }
+        .nav-bar { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; gap: 10px; }
+        .btn-3d { padding: 12px 25px; background: white; border-radius: 12px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 #5da0bc; transition: 0.1s; }
+        .active-btn { background: var(--bright-blue); color: white; box-shadow: 0 4px 0 var(--dark-blue); }
         .container { max-width: 1000px; margin: 20px auto; padding: 15px; }
         
-        .category-title { 
-            color: var(--dark-blue); font-family: 'Reem Kufi', sans-serif; font-size: 1.8rem; 
-            margin: 40px 0 25px; text-align: center; position: relative;
-        }
-        .category-title::after {
-            content: ''; display: block; width: 100px; height: 3px; background: var(--gold); margin: 10px auto;
-        }
+        /* تصميم فهرس الأقسام */
+        .main-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .cat-card { background: white; padding: 20px; border-radius: 15px; text-align: center; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .cat-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; display: block; }
+        .cat-card span { font-weight: 900; color: var(--dark-blue); }
 
-        /* شبكة الأيقونات للدروس */
-        .lessons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-        
-        .lesson-card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 20px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--dark-blue);
-            box-shadow: 0 10px 0 var(--shadow-color);
-            transition: 0.3s;
-            border: 1px solid #e0eaf3;
-        }
-        .lesson-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 0 var(--shadow-color);
-        }
-        .lesson-card i {
-            font-size: 3.5rem;
-            color: var(--gold);
-            margin-bottom: 15px;
-            display: block;
-        }
-        .lesson-card h4 {
-            margin: 10px 0 5px;
-            font-size: 1.3rem;
-            font-weight: 900;
-        }
-        .lesson-card p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* قسم التفسير بلون مميز */
-        .tafseer-card {
-            background: linear-gradient(145deg, #ffffff, #f0faff);
-            border: 2px solid var(--gold);
-        }
-
-        @media (max-width: 600px) {
-            .site-header h1 { font-size: 1.8rem; }
-            .lessons-grid { grid-template-columns: 1fr; }
-        }
+        /* تصميم قوائم الدروس */
+        .lesson-section { background: white; border-radius: 15px; padding: 20px; margin-bottom: 30px; border-right: 6px solid var(--gold); }
+        .sec-title { color: var(--dark-blue); border-bottom: 2px solid var(--light-sky); padding-bottom: 10px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .lessons-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+        .lesson-item { background: #f9fbfd; padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #edf2f7; }
+        audio { height: 30px; width: 160px; }
+        .dl { color: #27ae60; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
-<header class="site-header">
-    <h1>مكتبة الدروس العلمية</h1>
-</header>
+<header class="site-header"><h1>دروس الشيخ سعيد مصطفى دياب</h1></header>
 
 <div class="nav-bar">
-    <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
-    <a href="books.html" class="btn-3d"><i class="fas fa-book"></i> المكتبة</a>
-    <a href="lessons.html" class="btn-3d active-btn"><i class="fas fa-microphone"></i> الدروس</a>
-    <a href="khutbah.html" class="btn-3d"><i class="fas fa-bullhorn"></i> الخطب</a>
+    <a href="index.html" class="btn-3d">الرئيسية</a>
+    <a href="tafseer.html" class="btn-3d active-btn"><i class="fas fa-book-quran"></i> دروس التفسير</a>
+    <a href="khutbah.html" class="btn-3d">الخطب</a>
 </div>
 
 <div class="container">
-    <h2 class="category-title">اختر السلسلة العلمية</h2>
 
-    <div class="lessons-grid">
-        <a href="tafseer.html" class="lesson-card tafseer-card">
-            <i class="fas fa-book-quran"></i>
-            <h4>سلاسل التفسير</h4>
-            <p>تفسير سور القرآن الكريم</p>
-        </a>
-
-        <a href="aqidah.html" class="lesson-card">
-            <i class="fas fa-mosque"></i>
-            <h4>دروس العقيدة</h4>
-            <p>شروحات كتب التوحيد</p>
-        </a>
-
-        <a href="fiqh.html" class="lesson-card">
-            <i class="fas fa-gavel"></i>
-            <h4>دروس الفقه</h4>
-            <p>الفقه وأصوله</p>
-        </a>
-
-        <a href="seerah.html" class="lesson-card">
-            <i class="fas fa-history"></i>
-            <h4>السيرة النبوية</h4>
-            <p>حياة النبي ﷺ وأصحابه</p>
-        </a>
-
-        <a href="zuhd.html" class="lesson-card">
-            <i class="fas fa-heart"></i>
-            <h4>الرقائق والزهد</h4>
-            <p>مواعظ وتربية القلوب</p>
-        </a>
-
-        <a href="hadith.html" class="lesson-card">
-            <i class="fas fa-scroll"></i>
-            <h4>شروح الحديث</h4>
-            <p>الأربعون والرياض وغيرها</p>
-        </a>
+    <div class="lesson-section">
+        <h2 class="sec-title"><i class="fas fa-mosque"></i> دروس العقيدة والتوحيد</h2>
+        <div class="lessons-list">
+            <div class="lesson-item"><span>شرح كتاب التوحيد 01</span><audio controls><source src="audio/aqidah-01.mp3"></audio></div>
+            <div class="lesson-item"><span>شرح كتاب التوحيد 02</span><audio controls><source src="audio/aqidah-02.mp3"></audio></div>
+            <div class="lesson-item"><span>الأصول الثلاثة</span><audio controls><source src="audio/osol.mp3"></audio></div>
+        </div>
     </div>
+
+    <div class="lesson-section">
+        <h2 class="sec-title"><i class="fas fa-gavel"></i> دروس الفقه وأصوله</h2>
+        <div class="lessons-list">
+            <div class="lesson-item"><span>كتاب الصلاة 01</span><audio controls><source src="audio/fiqh-01.mp3"></audio></div>
+            <div class="lesson-item"><span>أحكام الصيام</span><audio controls><source src="audio/siyam.mp3"></audio></div>
+        </div>
+    </div>
+
+    <div class="lesson-section">
+        <h2 class="sec-title"><i class="fas fa-history"></i> السيرة النبوية العطرة</h2>
+        <div class="lessons-list">
+            <div class="lesson-item"><span>نسب النبي ﷺ</span><audio controls><source src="audio/seerah-01.mp3"></audio></div>
+            <div class="lesson-item"><span>بعثته ﷺ</span><audio controls><source src="audio/seerah-02.mp3"></audio></div>
+        </div>
+    </div>
+
+    <div class="lesson-section">
+        <h2 class="sec-title"><i class="fas fa-heart"></i> الرقائق وتربية القلوب</h2>
+        <div class="lessons-list">
+            <div class="lesson-item"><span>الإخلاص</span><audio controls><source src="audio/zuhd-01.mp3"></audio></div>
+            <div class="lesson-item"><span>التوبة الصادقة</span><audio controls><source src="audio/zuhd-02.mp3"></audio></div>
+        </div>
+    </div>
+
 </div>
 
-<footer style="text-align: center; padding: 40px; color: #888;">
-    جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
-</footer>
+<footer style="text-align: center; padding: 20px; color: #888;">جميع الحقوق محفوظة &copy; 2026</footer>
 
 </body>
 </html>
