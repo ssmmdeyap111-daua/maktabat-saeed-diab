@@ -31,8 +31,7 @@
         .active-btn { background: var(--bright-blue); color: white; box-shadow: 0 5px 0 var(--dark-blue); }
 
         .container { max-width: 900px; margin: 20px auto; padding: 15px; }
-
-        .section-title { color: var(--dark-blue); border-bottom: 2px solid var(--bright-blue); padding-bottom: 10px; margin: 30px 0 20px; font-weight: 900; }
+        .section-title { color: var(--dark-blue); border-bottom: 3px solid var(--bright-blue); padding-bottom: 10px; margin: 40px 0 20px; font-weight: 900; display: flex; align-items: center; gap: 10px; }
 
         .khutbah-item {
             background: white;
@@ -50,7 +49,7 @@
         .khutbah-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.1rem; }
         .khutbah-controls { display: flex; align-items: center; gap: 15px; }
         audio { height: 35px; width: 220px; }
-        .download-btn { text-decoration: none; color: #27ae60; font-size: 1.3rem; transition: 0.2s; }
+        .download-btn { text-decoration: none; color: #27ae60; font-size: 1.4rem; transition: 0.2s; }
         .download-btn:hover { transform: scale(1.2); }
 
         @media (max-width: 600px) {
@@ -74,7 +73,7 @@
 
 <div class="container">
     
-    <h2 class="section-title"><i class="fas fa-star"></i> خطب مختارة</h2>
+    <h2 class="section-title"><i class="fas fa-bullhorn"></i> خطب جديدة</h2>
     <div class="khutbah-item">
         <div class="khutbah-info"><h3>رمضان شهر القرآن</h3></div>
         <div class="khutbah-controls">
@@ -83,21 +82,9 @@
         </div>
     </div>
 
-    <h2 class="section-title"><i class="fas fa-hourglass-half"></i> سلسلة علامات الساعة</h2>
-    <div class="khutbah-item">
-        <div class="khutbah-info"><h3>علامات الساعة (01)</h3></div>
-        <div class="khutbah-controls">
-            <audio controls preload="none"><source src="audio/saaa-01.mp3" type="audio/mpeg"></audio>
-            <a href="audio/saaa-01.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
-        </div>
-    </div>
-    <div class="khutbah-item">
-        <div class="khutbah-info"><h3>علامات الساعة (02)</h3></div>
-        <div class="khutbah-controls">
-            <audio controls preload="none"><source src="audio/saaa-02.mp3" type="audio/mpeg"></audio>
-            <a href="audio/saaa-02.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
-        </div>
-    </div>
+    <h2 class="section-title"><i class="fas fa-clock"></i> سلسلة علامات الساعة (30 خطبة)</h2>
+    <div id="series-container"></div>
+
     <h2 class="section-title"><i class="fas fa-microphone"></i> خطب عامة</h2>
     <div class="khutbah-item">
         <div class="khutbah-info"><h3>أهمية السعي في طلب الرزق</h3></div>
@@ -108,6 +95,27 @@
     </div>
 
 </div>
+
+<script>
+    // كود تلقائي لإنشاء قائمة الـ 30 خطبة لعلامات الساعة
+    const container = document.getElementById('series-container');
+    let htmlContent = '';
+
+    for (let i = 1; i <= 30; i++) {
+        // تنسيق الرقم ليظهر دائماً بصيغة 01, 02...
+        let num = i < 10 ? '0' + i : i;
+        
+        htmlContent += `
+        <div class="khutbah-item">
+            <div class="khutbah-info"><h3>علامات الساعة - الخطبة رقم (${num})</h3></div>
+            <div class="khutbah-controls">
+                <audio controls preload="none"><source src="audio/alamat-${num}.mp3" type="audio/mpeg"></audio>
+                <a href="audio/alamat-${num}.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
+            </div>
+        </div>`;
+    }
+    container.innerHTML = htmlContent;
+</script>
 
 </body>
 </html>
