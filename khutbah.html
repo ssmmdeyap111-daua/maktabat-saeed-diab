@@ -73,7 +73,16 @@
 
 <div class="container">
     
-    <h2 class="section-title"><i class="fas fa-bullhorn"></i> خطب جديدة</h2>
+    <h2 class="section-title"><i class="fas fa-moon"></i> خطب شهر رمضان المبارك</h2>
+    
+    <div class="khutbah-item">
+        <div class="khutbah-info"><h3>كيف نستقبل شهر رمضان؟</h3></div>
+        <div class="khutbah-controls">
+            <audio controls preload="none"><source src="audio/ramadan.mp3" type="audio/mpeg"></audio>
+            <a href="audio/ramadan.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
+        </div>
+    </div>
+
     <div class="khutbah-item">
         <div class="khutbah-info"><h3>رمضان شهر القرآن</h3></div>
         <div class="khutbah-controls">
@@ -82,10 +91,10 @@
         </div>
     </div>
 
-    <h2 class="section-title"><i class="fas fa-clock"></i> سلسلة علامات الساعة (30 خطبة)</h2>
+    <h2 class="section-title"><i class="fas fa-history"></i> سلسلة علامات الساعة (30 خطبة)</h2>
     <div id="series-container"></div>
 
-    <h2 class="section-title"><i class="fas fa-microphone"></i> خطب عامة</h2>
+    <h2 class="section-title"><i class="fas fa-microphone"></i> خطب متنوعة</h2>
     <div class="khutbah-item">
         <div class="khutbah-info"><h3>أهمية السعي في طلب الرزق</h3></div>
         <div class="khutbah-controls">
@@ -97,14 +106,11 @@
 </div>
 
 <script>
-    // كود تلقائي لإنشاء قائمة الـ 30 خطبة لعلامات الساعة
+    // توليد سلسلة علامات الساعة تلقائياً
     const container = document.getElementById('series-container');
     let htmlContent = '';
-
     for (let i = 1; i <= 30; i++) {
-        // تنسيق الرقم ليظهر دائماً بصيغة 01, 02...
         let num = i < 10 ? '0' + i : i;
-        
         htmlContent += `
         <div class="khutbah-item">
             <div class="khutbah-info"><h3>علامات الساعة - الخطبة رقم (${num})</h3></div>
