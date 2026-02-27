@@ -1,1 +1,18 @@
+<div class="series-box">
+    <h2 class="series-title">سلسلة أنوار الأذكار (30 درساً)</h2>
+    <div class="lessons-grid" id="azkar-list"></div>
+</div>
 
+<script>
+    // التوليد بمسار الملف الدقيق al-azkar-1.mp3
+    const container = document.getElementById('azkar-list');
+    for (let i = 1; i <= 30; i++) {
+        container.innerHTML += `
+        <div class="lesson-item">
+            <span>الدرس ${i}</span>
+            <audio controls preload="none">
+                <source src="audio/al-azkar-${i}.mp3" type="audio/mpeg">
+            </audio>
+        </div>`;
+    }
+</script>
