@@ -1,159 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شروح الحديث - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --light-blue: #eef5ff;
-            --main-blue: #add8e6;
-            --dark-blue: #2c5d87;
-            --accent-blue: #87ceeb;
-        }
-
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
-            min-height: 100vh;
-            padding-bottom: 120px;
-        }
-
-        /* الهيدر الموحد (العنوان مصغر) */
-        .site-header { 
-            text-align: center; padding: 60px 20px; 
-            background: linear-gradient(to right, #add8e6, #e0f2f7); 
-            border-bottom: 4px solid #ffffff;
-        }
-        .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 700; }
-
-        /* شريط التنقل العلوي الموحد */
-        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.2); }
-        .nav-link { 
-            padding: 10px 18px; background: var(--accent-blue); color: white; 
-            text-decoration: none; border-radius: 10px; font-weight: bold;
-            box-shadow: 0 4px 0 #5f9ea0; transition: 0.2s;
-        }
-        .nav-link:hover { transform: translateY(-2px); }
-
-        /* عنوان الصفحة والأيقونة */
-        .page-intro { text-align: center; margin: 40px 0; }
-        .page-intro img { width: 90px; filter: drop-shadow(0 8px 10px rgba(0,0,0,0.1)); }
-        .page-intro h2 { color: var(--dark-blue); margin-top: 15px; }
-
-        /* شبكة الكتب الحديثية */
-        .hadith-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 25px;
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .hadith-card {
-            text-decoration: none;
-            background: #ffffff;
-            padding: 30px 20px;
-            border-radius: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: var(--dark-blue);
-            /* تصميم Neumorphism */
-            box-shadow: 8px 8px 16px #c9d6e6, -8px -8px 16px #ffffff;
-            transition: .3s ease;
-            border: 1px solid rgba(255,255,255,0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .hadith-card:hover {
-            transform: translateY(-8px);
-            background: var(--light-blue);
-            box-shadow: 12px 12px 20px #b8c7d9, -8px -8px 20px #ffffff;
-        }
-
-        .book-icon {
-            font-size: 30px;
-            margin-bottom: 5px;
-        }
-
-        /* أيقونة العودة الدائرية لصفحة الدروس */
-        .back-fixed {
-            position: fixed; bottom: 30px; left: 30px;
-            width: 65px; height: 65px;
-            background: linear-gradient(145deg, #add8e6, #87ceeb);
-            color: var(--dark-blue); text-decoration: none;
-            border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
-        }
-        .back-fixed:hover { transform: scale(1.1); }
-
-        footer { text-align: center; padding: 40px; color: var(--dark-blue); font-weight: bold; }
+        :root { --light-sky: #eef5ff; --dark-blue: #2c5d87; --gold: #d4af37; --shadow: #5da0bc; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
+        .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
+        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.2rem; }
+        .nav-bar { display: flex; justify-content: center; padding: 20px; gap: 15px; }
+        .btn-3d { padding: 10px 20px; background: white; border-radius: 12px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 var(--shadow); transition: 0.1s; display: flex; align-items: center; gap: 8px; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 15px; }
+        .series-box { background: white; border-radius: 20px; padding: 25px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 8px solid var(--dark-blue); }
+        .series-title { color: var(--dark-blue); font-size: 1.5rem; font-weight: 900; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+        .series-title i { color: var(--gold); }
+        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+        .lesson-item { background: #f9fbfd; padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #edf2f7; }
+        audio { height: 30px; width: 150px; }
+        .dl-link { color: #27ae60; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <h1 class="sheikh-title">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
-    </header>
+<header class="site-header">
+    <h1>شروح الحديث النبوي الشريف</h1>
+</header>
 
-    <div class="nav-bar">
-        <a href="index.html" class="nav-link">الرئيسية</a>
-        <a href="books.html" class="nav-link">الكتب</a>
-        <a href="lessons.html" class="nav-link">الدروس</a>
-        <a href="khutbah.html" class="nav-link">الخطب</a>
-        <a href="articles.html" class="nav-link">المقالات</a>
+<div class="nav-bar">
+    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> الرجوع للفهرس</a>
+    <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
+</div>
+
+<div class="container">
+    <div class="series-box">
+        <div class="series-title">
+            <i class="fas fa-scroll"></i>
+            شرح رياض الصالحين (50 درساً)
+        </div>
+        
+        <div class="lessons-grid" id="riyadh-list">
+            </div>
     </div>
+</div>
 
-    <div class="page-intro">
-        <span style="font-size: 60px;">📜</span>
-        <h2>شروح السنة النبوية المطهرة</h2>
-    </div>
+<script>
+    // توليد 50 درساً بمسار riyadh-1.mp3 وما بعدها
+    const container = document.getElementById('riyadh-list');
+    const totalLessons = 50;
+    const prefix = 'riyadh';
 
-    <div class="hadith-grid">
-        <a href="hadith-nawawi.html" class="hadith-card">
-            <span class="book-icon">📚</span>
-            <span>الأربعون النووية</span>
-        </a>
+    for (let i = 1; i <= totalLessons; i++) {
+        container.innerHTML += `
+            <div class="lesson-item">
+                <span>الدرس ${i}</span>
+                <audio controls preload="none">
+                    <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                </audio>
+                <a href="audio/${prefix}-${i}.mp3" download class="dl-link"><i class="fas fa-download"></i></a>
+            </div>
+        `;
+    }
+</script>
 
-        <a href="hadith-riyad.html" class="hadith-card">
-            <span class="book-icon">📖</span>
-            <span>رياض الصالحين</span>
-        </a>
-
-        <a href="hadith-bukhari.html" class="hadith-card">
-            <span class="book-icon">🕌</span>
-            <span>صحيح البخاري</span>
-        </a>
-
-        <a href="hadith-muslim.html" class="hadith-card">
-            <span class="book-icon">✍️</span>
-            <span>صحيح مسلم</span>
-        </a>
-
-        <a href="hadith-umdah.html" class="hadith-card">
-            <span class="book-icon">📜</span>
-            <span>عمدة الأحكام</span>
-        </a>
-
-        <a href="hadith-bulugh.html" class="hadith-card">
-            <span class="book-icon">💎</span>
-            <span>بلوغ المرام</span>
-        </a>
-    </div>
-
-    <a href="lessons.html" class="back-fixed" title="العودة للدروس">⬅️</a>
-
-    <footer>
-        جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026
-    </footer>
+<footer style="text-align: center; padding: 40px; color: #888;">
+    جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
+</footer>
 
 </body>
 </html>
