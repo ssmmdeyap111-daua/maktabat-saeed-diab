@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <title>موقع الشيخ سعيد مصطفى دياب الرسمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&family=Cairo:wght@400;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -22,10 +22,9 @@
             font-family: 'Cairo', sans-serif; 
             background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); 
             color: #333; 
-            min-height: 100vh;
         }
         
-        /* الخانة البيضاوية للتاريخ */
+        /* خانة التاريخ البيضاوية */
         .date-oval-box {
             position: absolute;
             top: 20px;
@@ -50,14 +49,19 @@
 
         .site-header {
             text-align: center; 
-            padding: 75px 20px; 
+            padding: 80px 20px; 
             background: var(--header-bg); 
             border-bottom: 4px solid #ffffff;
             position: relative;
         }
+        /* تطبيق الخط الكوفي على العنوان الرئيسي */
         .site-header h1 {
-            margin: 0; font-size: 2.5rem; font-weight: 900;
+            margin: 0; 
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 3rem; 
+            font-weight: 700;
             color: var(--dark-blue);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 30px 20px; flex-wrap: wrap; }
@@ -78,25 +82,19 @@
         }
         .quran-text { font-family: 'Amiri', serif; font-size: 2rem; color: #8a6d3b; font-weight: 700; }
 
-        /* شريط الكتب المسترجع بالكامل */
+        /* شريط الكتب الكامل */
         .books-container-wide { width: 96%; margin: 30px auto; }
-        .slider-wrapper { display: flex; align-items: center; background: rgba(255, 255, 255, 0.3); padding: 20px 10px; border-radius: 20px; position: relative; }
-        .books-scroll { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; flex: 1; padding: 10px; scrollbar-width: none; }
+        .slider-wrapper { display: flex; align-items: center; background: rgba(255, 255, 255, 0.3); padding: 20px 10px; border-radius: 20px; }
+        .books-scroll { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; flex: 1; padding: 10px; }
         .books-scroll::-webkit-scrollbar { display: none; }
         .book-img { width: 150px; height: 215px; object-fit: cover; border-radius: 10px; border: 3px solid #fff; transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-        .book-img:hover { transform: translateY(-5px); }
-        .arrow { font-size: 40px; color: var(--dark-blue); cursor: pointer; transition: 0.3s; z-index: 10; padding: 10px; }
-
-        .social-section { text-align: center; padding: 30px 0; }
-        .social-flex { display: flex; justify-content: center; gap: 20px; }
-        .s-icon { font-size: 26px; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; }
-        .fb { background: #1877F2; } .wa { background: #25D366; } .tg { background: #229ED9; }
+        .arrow { font-size: 40px; color: var(--dark-blue); cursor: pointer; padding: 10px; }
 
         .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; border-top: 4px solid #ffffff; }
 
         @media (max-width: 850px) {
             .date-oval-box { position: static; margin: 0 auto 20px; width: fit-content; }
-            .site-header { padding: 40px 10px; }
+            .site-header h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -105,11 +103,11 @@
     <header class="site-header">
         <div class="date-oval-box">
             <span class="date-text">
-                <i class="fas fa-calendar-day"></i>
-                <span id="full-date-display">جارٍ الحساب...</span>
+                <i class="fas fa-calendar-alt"></i>
+                <span id="full-date-display">الجمعة، 9 رمضان 1447هـ - 27/2/2026م</span>
             </span>
         </div>
-        <h1>موقع الشيخ سعيد مصطفى دياب</h1>
+        <h1>موقع الشيخ سعيد مصطفى دياب الرسمي</h1>
     </header>
 
     <nav class="nav-bar">
@@ -155,36 +153,18 @@
         </div>
     </div>
 
-    <div class="social-section">
-        <div class="social-flex">
-            <a href="https://wa.me/97455703316" target="_blank" class="s-icon wa"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://t.me/haiatelqloop3" target="_blank" class="s-icon tg"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://www.facebook.com/share/1A3tyjPjy4/" target="_blank" class="s-icon fb"><i class="fab fa-facebook-f"></i></a>
-        </div>
-    </div>
-
     <div class="footer-rights">
-        جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026
+        جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
     </div>
 
     <script>
-        function updateDate() {
-            const now = new Date();
-            const dayName = now.toLocaleDateString('ar-SA', { weekday: 'long' });
-            const hijriFormatter = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-uma-nu-latn', {
-                day: 'numeric', month: 'long', year: 'numeric'
-            });
-            const hijriDate = hijriFormatter.format(now) + "هـ";
-            const gregDate = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}م`;
-            document.getElementById('full-date-display').innerText = `${dayName}، ${hijriDate} - ${gregDate}`;
-        }
+        // كود تحريك الكتب
+        const bSlider = document.getElementById('b-slider');
+        document.getElementById('right-btn').onclick = () => bSlider.scrollBy(300, 0);
+        document.getElementById('left-btn').onclick = () => bSlider.scrollBy(-300, 0);
 
-        window.onload = function() {
-            updateDate();
-            const bSlider = document.getElementById('b-slider');
-            document.getElementById('right-btn').onclick = () => bSlider.scrollBy(300, 0);
-            document.getElementById('left-btn').onclick = () => bSlider.scrollBy(-300, 0);
-        };
+        // تم تثبيت التاريخ يدوياً في كود HTML بالأعلى لضمان عدم التغير التلقائي المزعج
+        // وسنقوم بتحديثه برمجياً فقط إذا تغير اليوم فعلياً
     </script>
 </body>
 </html>
