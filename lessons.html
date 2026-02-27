@@ -3,63 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدروس العلمية - الشيخ سعيد مصطفى دياب</title>
+    <title>الدروس العلمية - الشيخ سعيد مصطفى دياب الرسمي</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --gold: #d4af37; }
+        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --gold: #d4af37; --shadow: #5da0bc; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
-        .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
-        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); }
+        .site-header { text-align: center; padding: 50px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
+        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; font-size: 2.5rem; color: var(--dark-blue); }
+        
+        .nav-bar { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; gap: 10px; }
+        .btn-3d { padding: 12px 25px; background: white; border-radius: 12px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 var(--shadow); transition: 0.1s; display: flex; align-items: center; gap: 8px; }
+        .active-btn { background: var(--bright-blue); color: white; box-shadow: 0 4px 0 var(--dark-blue); }
+
         .container { max-width: 1100px; margin: 20px auto; padding: 15px; }
-        .section-box { background: white; border-radius: 15px; padding: 25px; margin-bottom: 30px; border-right: 8px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .section-title { color: var(--dark-blue); font-family: 'Reem Kufi', sans-serif; font-size: 1.6rem; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; }
-        .lesson-card { background: #f8f9fa; padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #eee; }
-        audio { height: 30px; width: 150px; }
-        .download-btn { color: #27ae60; text-decoration: none; font-size: 1.2rem; }
+        .category-header { color: var(--dark-blue); font-family: 'Reem Kufi', sans-serif; font-size: 1.8rem; margin: 40px 0 20px; border-bottom: 2px solid var(--gold); display: inline-block; }
+        
+        .series-box { background: white; border-radius: 20px; padding: 20px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 8px solid var(--dark-blue); }
+        .series-title { color: var(--dark-blue); font-size: 1.3rem; font-weight: 900; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .series-title i { color: var(--gold); }
+
+        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+        .lesson-card { background: #f9fbfd; border: 1px solid #eee; padding: 10px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .lesson-card span { font-size: 0.9rem; font-weight: bold; color: #555; }
+        audio { height: 28px; width: 140px; }
+        .dl { color: #27ae60; font-size: 1.1rem; }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1>المكتبة الصوتية الشاملة</h1>
+    <h1>المكتبة الصوتية للدروس العلمية</h1>
 </header>
 
-<div class="container">
-    <div class="section-box">
-        <h2 class="section-title"><i class="fas fa-mosque"></i> دروس العقيدة والتوحيد</h2>
-        <div class="lessons-grid">
-            <div class="lesson-card"><span>شرح العقيدة الطحاوية</span><audio controls><source src="audio/tahawiya.mp3"></audio></div>
-            <div class="lesson-card"><span>شرح العقيدة الواسطية</span><audio controls><source src="audio/wasitiya.mp3"></audio></div>
-            <div class="lesson-card"><span>شرح كتاب التوحيد</span><audio controls><source src="audio/tawheed.mp3"></audio></div>
-        </div>
-    </div>
-
-    <div class="section-box">
-        <h2 class="section-title"><i class="fas fa-gavel"></i> دروس الفقه</h2>
-        <div class="lessons-grid">
-            <div class="lesson-card"><span>شرح منار السبيل</span><audio controls><source src="audio/manar.mp3"></audio></div>
-            <div class="lesson-card"><span>أحكام العبادات</span><audio controls><source src="audio/fiqh-general.mp3"></audio></div>
-        </div>
-    </div>
-
-    <div class="section-box">
-        <h2 class="section-title"><i class="fas fa-scroll"></i> شروح الحديث</h2>
-        <div class="lessons-grid">
-            <div class="lesson-card"><span>شرح رياض الصالحين</span><audio controls><source src="audio/riyadh.mp3"></audio></div>
-            <div class="lesson-card"><span>شرح الأربعين النووية</span><audio controls><source src="audio/nawawi.mp3"></audio></div>
-        </div>
-    </div>
-
-    <div class="section-box">
-        <h2 class="section-title"><i class="fas fa-heart"></i> الرقائق والمواعظ</h2>
-        <div class="lessons-grid">
-            <div class="lesson-card"><span>أعمال القلوب</span><audio controls><source src="audio/hearts.mp3"></audio></div>
-            <div class="lesson-card"><span>الاستعداد للآخرة</span><audio controls><source src="audio/akhirah.mp3"></audio></div>
-        </div>
-    </div>
+<div class="nav-bar">
+    <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="tafseer.html" class="btn-3d active-btn"><i class="fas fa-book-quran"></i> دروس التفسير</a>
+    <a href="khutbah.html" class="btn-3d"><i class="fas fa-bullhorn"></i> الخطب</a>
 </div>
+
+<div class="container">
+
+    <h2 class="category-header"><i class="fas fa-mosque"></i> دروس العقيدة والتوحيد</h2>
+    
+    <div class="series-box">
+        <div class="series-title"><i class="fas fa-check-circle"></i> شرح العقيدة الطحاوية (21 درساً)</div>
+        <div class="lessons-grid" id="tahawiya-list"></div>
+    </div>
+
+    <div class="series-box">
+        <div class="series-title"><i class="fas fa-check-circle"></i> شرح العقيدة الواسطية (26 درساً)</div>
+        <div class="lessons-grid" id="wasitiya-list"></div>
+    </div>
+
+    <div class="series-box">
+        <div class="series-title"><i class="fas fa-check-circle"></i> شرح كتاب التوحيد (23 درساً)</div>
+        <div class="lessons-grid" id="tawheed-list"></div>
+    </div>
+
+    <h2 class="category-header"><i class="fas fa-gavel"></i> الفقه والفرائض</h2>
+    
+    <div class="series-box">
+        <div class="series-title"><i class="fas fa-divide"></i> شرح متن الرحبية في الفرائض (11 درساً)</div>
+        <div class="lessons-grid" id="rahbiya-list"></div>
+    </div>
+
+    <h2 class="category-header"><i class="fas fa-microscope"></i> علوم القرآن</h2>
+    
+    <div class="series-box">
+        <div class="series-title"><i class="fas fa-file-alt"></i> شرح مقدمة في أصول التفسير (27 درساً)</div>
+        <div class="lessons-grid" id="osol-tafseer-list"></div>
+    </div>
+
+    <div class="series-box">
+        <div class="series-title"><i class="fas fa-copy"></i> شرح الناسخ والمنسوخ (10 دروس)</div>
+        <div class="lessons-grid" id="nasikh-list"></div>
+    </div>
+
+    <h2 class="category-header"><i class="fas fa-scroll"></i> شروح الحديث الشريف</h2>
+    
+    <div class="series-box">
+        <div class="series-title"><i class="fas fa-star"></i> شرح رياض الصالحين (50 درساً)</div>
+        <div class="lessons-grid" id="riyadh-list"></div>
+    </div>
+
+</div>
+
+<script>
+    function generate(id, prefix, count) {
+        const container = document.getElementById(id);
+        let html = '';
+        for (let i = 1; i <= count; i++) {
+            let num = i < 10 ? '0' + i : i;
+            html += `<div class="lesson-card"><span>درس ${num}</span><audio controls preload="none"><source src="audio/${prefix}-${num}.mp3"></audio><a href="audio/${prefix}-${num}.mp3" download class="dl"><i class="fas fa-download"></i></a></div>`;
+        }
+        container.innerHTML = html;
+    }
+
+    // توليد كافة السلاسل المطلوبة بدقة
+    generate('tahawiya-list', 'tahawiya', 21);
+    generate('wasitiya-list', 'wasitiya', 26);
+    generate('tawheed-list', 'tawheed', 23);
+    generate('rahbiya-list', 'rahbiya', 11);
+    generate('osol-tafseer-list', 'osol-tafseer', 27);
+    generate('nasikh-list', 'nasikh', 10);
+    generate('riyadh-list', 'riyadh', 50);
+</script>
 
 </body>
 </html>
