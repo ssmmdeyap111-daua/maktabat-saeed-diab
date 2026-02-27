@@ -3,145 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفسير القرآن الكريم - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>سلاسل التفسير - الشيخ سعيد مصطفى دياب الرسمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --light-blue: #eef5ff;
-            --main-blue: #add8e6;
-            --dark-blue: #2c5d87;
-            --accent-blue: #87ceeb;
-        }
-
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
-            min-height: 100vh;
-            padding-bottom: 120px;
-        }
-
-        /* الهيدر وشريط التنقل الموحد */
-        .site-header { 
-            text-align: center; padding: 60px 20px; 
-            background: linear-gradient(to right, #add8e6, #e0f2f7); 
-            border-bottom: 4px solid #ffffff;
-        }
-        .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 700; }
-
-        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.2); }
-        .nav-link { 
-            padding: 10px 18px; background: var(--accent-blue); color: white; 
-            text-decoration: none; border-radius: 10px; font-weight: bold;
-            box-shadow: 0 4px 0 #5f9ea0; transition: 0.2s;
-        }
-        .nav-link:hover { transform: translateY(-2px); }
-
-        /* صورة القرآن */
-        .quran-header { text-align: center; margin: 40px 0; }
-        .quran-header img { width: 100px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
-
-        /* شبكة السور بتصميم 3D ناعم */
-        .tafseer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 25px;
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .surah-card {
-            text-decoration: none;
-            background: #ffffff;
-            padding: 25px 15px;
-            border-radius: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: var(--dark-blue);
-            box-shadow: 8px 8px 16px #c9d6e6, -8px -8px 16px #ffffff;
-            transition: .3s ease;
-            border: 1px solid rgba(255,255,255,0.8);
-        }
-
-        .surah-card:hover {
-            transform: translateY(-8px);
-            background: var(--light-blue);
-            box-shadow: 12px 12px 20px #b8c7d9, -8px -8px 20px #ffffff;
-        }
-
-        .surah-number {
-            font-size: 12px;
-            background: var(--main-blue);
-            color: var(--dark-blue);
-            padding: 2px 10px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        /* أيقونة العودة الدائرية */
-        .back-fixed {
-            position: fixed; bottom: 30px; left: 30px;
-            width: 65px; height: 65px;
-            background: linear-gradient(145deg, #add8e6, #87ceeb);
-            color: var(--dark-blue); text-decoration: none;
-            border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
-        }
-        .back-fixed:hover { transform: scale(1.1); }
-
+        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --shadow-color: #5da0bc; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
+        .site-header { text-align: center; padding: 40px 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
+        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.2rem; }
+        .nav-bar { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; gap: 10px; }
+        .btn-3d { padding: 10px 20px; background: white; border-radius: 12px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 var(--shadow-color); transition: 0.1s; }
+        .active-btn { background: var(--bright-blue); color: white; box-shadow: 0 4px 0 var(--dark-blue); }
+        .container { max-width: 1100px; margin: 20px auto; padding: 15px; }
+        .surah-section { background: white; border-radius: 15px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-right: 6px solid #d4af37; }
+        .surah-title { color: var(--dark-blue); font-size: 1.4rem; font-weight: 900; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+        .lesson-card { background: #fdfdfd; border: 1px solid #eee; padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        audio { height: 28px; width: 140px; }
+        .dl-icon { color: #27ae60; font-size: 1.1rem; }
     </style>
 </head>
-
 <body>
-
-    <header class="site-header">
-        <h1 class="sheikh-title">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
-    </header>
-
+    <header class="site-header"><h1>سلاسل تفسير القرآن الكريم</h1></header>
     <div class="nav-bar">
-        <a href="index.html" class="nav-link">الرئيسية</a>
-        <a href="books.html" class="nav-link">الكتب</a>
-        <a href="lessons.html" class="nav-link">الدروس</a>
-        <a href="khutbah.html" class="nav-link">الخطب</a>
-        <a href="articles.html" class="nav-link">المقالات</a>
+        <a href="index.html" class="btn-3d">الرئيسية</a>
+        <a href="lessons.html" class="btn-3d active-btn">رجوع للدروس</a>
     </div>
-
-    <div class="quran-header">
-        <img src="images/quran.png" alt="القرآن الكريم">
-        <h2 style="color: var(--dark-blue);">تفسير القرآن الكريم</h2>
+    <div class="container">
+        <div class="surah-section"><div class="surah-title"><i class="fas fa-book-quran"></i> تفسير سورة البقرة (75 درساً)</div><div class="lessons-grid" id="baqarah-list"></div></div>
+        <div class="surah-section"><div class="surah-title"><i class="fas fa-book-quran"></i> تفسير سورة آل عمران (52 درساً)</div><div class="lessons-grid" id="imran-list"></div></div>
+        <div class="surah-section"><div class="surah-title"><i class="fas fa-book-quran"></i> تفسير سورة النساء (53 درساً)</div><div class="lessons-grid" id="nisa-list"></div></div>
+        <div class="surah-section"><div class="surah-title"><i class="fas fa-book-quran"></i> تفسير سورة المائدة (34 درساً)</div><div class="lessons-grid" id="maidah-list"></div></div>
     </div>
-
-    <div class="tafseer-grid" id="tafseerList"></div>
-
-    <a href="lessons.html" class="back-fixed" title="العودة للدروس">⬅️</a>
-
     <script>
-        const surahs = [
-            { name:"الفاتحة", link:"tafseer-fatiha.html" },
-            { name:"البقرة", link:"tafseer-baqara.html" },
-            { name:"آل عمران", link:"tafseer-aal-imran.html" },
-            { name:"النساء", link:"tafseer-nisa.html" },
-            { name:"المائدة", link:"tafseer-maidah.html" },
-            { name:"الأنعام", link:"tafseer-anaam.html" },
-            { name:"الأعراف", link:"tafseer-aaraf.html" },
-            { name:"الأنفال", link:"tafseer-anfal.html" },
-            { name:"التوبة", link:"tafseer-tawbah.html" }
-        ];
-
-        const container = document.getElementById("tafseerList");
-
-        surahs.forEach((surah, index) => {
-            container.innerHTML += `
-            <a href="${surah.link}" class="surah-card">
-                <div class="surah-number">سورة ${index + 1}</div>
-                <div>${surah.name}</div>
-            </a>
-            `;
-        });
+        function generate(containerId, prefix, count) {
+            const container = document.getElementById(containerId);
+            let html = '';
+            for (let i = 1; i <= count; i++) {
+                let num = i < 10 ? '0' + i : i;
+                html += `<div class="lesson-card"><span>درس ${num}</span><audio controls preload="none"><source src="audio/tafseer/${prefix}-${num}.mp3"></audio><a href="audio/tafseer/${prefix}-${num}.mp3" download class="dl-icon"><i class="fas fa-download"></i></a></div>`;
+            }
+            container.innerHTML = html;
+        }
+        generate('baqarah-list', 'baqarah', 75);
+        generate('imran-list', 'imran', 52);
+        generate('nisa-list', 'nisa', 53);
+        generate('maidah-list', 'maidah', 34);
     </script>
-
 </body>
 </html>
