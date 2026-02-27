@@ -1,162 +1,80 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>السيرة النبوية - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --light-blue: #eef5ff;
-            --main-blue: #add8e6;
-            --dark-blue: #2c5d87;
-            --accent-blue: #87ceeb;
-        }
+        :root { --light-sky: #eef5ff; --dark-blue: #2c5d87; --gold: #d4af37; --shadow: #5da0bc; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
+        
+        .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
+        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.2rem; }
+        
+        .nav-bar { display: flex; justify-content: center; padding: 20px; gap: 15px; }
+        .btn-3d { padding: 10px 20px; background: white; border-radius: 12px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 var(--shadow); transition: 0.1s; display: flex; align-items: center; gap: 8px; }
+        .btn-3d:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--shadow); }
 
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
-            min-height: 100vh;
-            padding-bottom: 120px;
-        }
+        .container { max-width: 900px; margin: 30px auto; padding: 15px; }
+        
+        .series-box { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 8px solid var(--dark-blue); }
+        .series-title { color: var(--dark-blue); font-size: 1.5rem; font-weight: 900; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+        .series-title i { color: var(--gold); }
 
-        /* الهيدر الموحد */
-        .site-header { 
-            text-align: center; padding: 60px 20px; 
-            background: linear-gradient(to right, #add8e6, #e0f2f7); 
-            border-bottom: 4px solid #ffffff;
-        }
-        .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 700; }
-
-        /* شريط التنقل العلوي */
-        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.2); }
-        .nav-link { 
-            padding: 10px 18px; background: var(--accent-blue); color: white; 
-            text-decoration: none; border-radius: 10px; font-weight: bold;
-            box-shadow: 0 4px 0 #5f9ea0; transition: 0.2s;
-        }
-        .nav-link:hover { transform: translateY(-2px); }
-
-        /* ترويسة القسم */
-        .page-intro { text-align: center; margin: 40px 0; }
-        .page-intro .icon-box { font-size: 60px; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
-        .page-intro h2 { color: var(--dark-blue); margin-top: 10px; font-weight: 700; }
-
-        /* شبكة دروس السيرة */
-        .seerah-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .seerah-card {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255,255,255,0.8);
-            border-right: 6px solid var(--dark-blue);
-            transition: 0.3s ease;
-        }
-
-        .seerah-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .seerah-card h3 { color: var(--dark-blue); font-size: 1.3rem; margin-bottom: 15px; }
-
-        audio { width: 100%; height: 40px; margin-bottom: 15px; }
-
-        .btn-download {
-            display: inline-block;
-            background: var(--accent-blue);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 0 #5f9ea0;
-            transition: 0.1s;
-        }
-        .btn-download:active { transform: translateY(3px); box-shadow: 0 0 0; }
-
-        /* أيقونة العودة الدائرية */
-        .back-fixed {
-            position: fixed; bottom: 30px; left: 30px;
-            width: 65px; height: 65px;
-            background: linear-gradient(145deg, #add8e6, #87ceeb);
-            color: var(--dark-blue); text-decoration: none;
-            border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
-        }
-        .back-fixed:hover { transform: scale(1.1); }
-
-        footer { text-align: center; padding: 40px; color: var(--dark-blue); font-weight: bold; }
+        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+        .lesson-item { background: #f9fbfd; padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #edf2f7; }
+        .lesson-item span { font-weight: bold; color: #444; }
+        audio { height: 30px; width: 150px; }
+        .dl-link { color: #27ae60; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <h1 class="sheikh-title">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
-    </header>
+<header class="site-header">
+    <h1>دروس السيرة النبوية العطرة</h1>
+</header>
 
-    <div class="nav-bar">
-        <a href="index.html" class="nav-link">الرئيسية</a>
-        <a href="books.html" class="nav-link">الكتب</a>
-        <a href="lessons.html" class="nav-link">الدروس</a>
-        <a href="khutbah.html" class="nav-link">الخطب</a>
-        <a href="articles.html" class="nav-link">المقالات</a>
-    </div>
+<div class="nav-bar">
+    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> الرجوع للفهرس</a>
+    <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
+</div>
 
-    <div class="page-intro">
-        <div class="icon-box">📜</div>
-        <h2>دروس السيرة النبوية</h2>
-        <p style="color: var(--dark-blue);">سيرة خير الأنام صلى الله عليه وسلم من الميلاد إلى الرفيق الأعلى</p>
-    </div>
-
-    <div class="seerah-grid">
-        <div class="seerah-card">
-            <h3>من المولد إلى المبعث</h3>
-            <p style="font-size: 14px; color: #666;">نشأته صلى الله عليه وسلم وأحوال مكة قبل البعثة</p>
-            <audio controls>
-                <source src="audio/seerah1.mp3" type="audio/mpeg">
-                متصفحك لا يدعم مشغل الصوت.
-            </audio>
-            <a href="audio/seerah1.mp3" download class="btn-download">📥 تحميل الدرس</a>
+<div class="container">
+    <div class="series-box">
+        <div class="series-title">
+            <i class="fas fa-moon"></i>
+            شرح السيرة النبوية
         </div>
-
-        <div class="seerah-card">
-            <h3>الهجرة النبوية المباركة</h3>
-            <p style="font-size: 14px; color: #666;">أحداث الهجرة والدروس المستفادة منها</p>
-            <audio controls>
-                <source src="audio/seerah2.mp3" type="audio/mpeg">
-            </audio>
-            <a href="audio/seerah2.mp3" download class="btn-download">📥 تحميل الدرس</a>
-        </div>
-
-        <div class="seerah-card">
-            <h3>غزوات الرسول ﷺ</h3>
-            <p style="font-size: 14px; color: #666;">سلسلة دروس في فقه الغزوات والفتوحات</p>
-            <audio controls>
-                <source src="audio/seerah3.mp3" type="audio/mpeg">
-            </audio>
-            <a href="audio/seerah3.mp3" download class="btn-download">📥 تحميل الدرس</a>
-        </div>
+        
+        <div class="lessons-grid" id="seerah-list">
+            </div>
     </div>
+</div>
 
-    <a href="lessons.html" class="back-fixed" title="العودة للدروس">⬅️</a>
+<script>
+    // توليد الدروس تلقائياً بمسار seerah-1.mp3
+    const container = document.getElementById('seerah-list');
+    const totalLessons = 10; // يمكنك تغيير الرقم حسب عدد دروس السيرة المرفوعة
+    const prefix = 'seerah';
 
-    <footer>
-        جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026
-    </footer>
+    for (let i = 1; i <= totalLessons; i++) {
+        container.innerHTML += `
+            <div class="lesson-item">
+                <span>الدرس ${i}</span>
+                <audio controls preload="none">
+                    <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                </audio>
+                <a href="audio/${prefix}-${i}.mp3" download class="dl-link"><i class="fas fa-download"></i></a>
+            </div>
+        `;
+    }
+</script>
+
+<footer style="text-align: center; padding: 40px; color: #888;">
+    جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
+</footer>
 
 </body>
 </html>
