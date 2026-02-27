@@ -3,175 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدروس العلمية - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>دروس التفسير - الشيخ سعيد مصطفى دياب الرسمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --shadow-color: #5da0bc; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
         
-        /* تكبير شريط العنوان بمقدار الضعفين */
         .site-header { 
-            text-align: center; 
-            padding: 80px 20px; /* تم مضاعفة الحشو (Padding) */
+            text-align: center; padding: 50px 20px; 
             background: linear-gradient(to right, #add8e6, #e0f2f7); 
-            border-bottom: 8px solid white; /* زيادة سمك الإطار السفلي */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 6px solid white;
         }
-        .site-header h1 { 
-            margin: 0; 
-            font-size: 2.20rem; /* تكبير حجم الخط ليتناسب مع الحجم الجديد */
-            color: var(--dark-blue); 
-            font-weight: 900; 
-            text-shadow: 2px 2px 4px rgba(255,255,255,0.5); /* إضافة ظل خفيف للنص لبروزه */
-        }
+        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; font-size: 2.5rem; color: var(--dark-blue); }
         
-        /* تصميم الأزرار الموحد 3D */
-        .btn-3d { 
-            flex: 0 0 auto;
-            width: 140px;
-            height: 100px;
-            background: linear-gradient(145deg, #ffffff, #e6f7ff);
-            border-radius: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            cursor: pointer;
-            text-decoration: none;
-            position: relative;
-            transition: all 0.1s ease;
-            box-shadow: 0 8px 0 var(--shadow-color), 0 12px 15px rgba(0,0,0,0.1);
-            border: 1px solid #cceeff;
-            margin: 10px;
-        }
-
-        .btn-3d:hover { transform: translateY(-2px); box-shadow: 0 10px 0 var(--shadow-color), 0 15px 20px rgba(0,0,0,0.15); }
-        .btn-3d:active { transform: translateY(6px); box-shadow: 0 2px 0 var(--shadow-color), 0 4px 8px rgba(0,0,0,0.1); }
-        .btn-3d h3, .btn-3d span { margin: 0; font-size: 1rem; color: var(--dark-blue); font-weight: 900; line-height: 1.3; }
-
         .nav-bar { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; gap: 10px; }
-
-        .categories-wrapper {
-            display: flex;
-            justify-content: center;
-            overflow-x: auto;
-            padding: 30px 10px;
-            -webkit-overflow-scrolling: touch;
+        .btn-3d { 
+            padding: 12px 25px; background: white; border-radius: 15px;
+            text-decoration: none; color: var(--dark-blue); font-weight: bold;
+            box-shadow: 0 5px 0 var(--shadow-color); transition: 0.1s;
         }
+        .active-btn { background: var(--bright-blue); color: white; box-shadow: 0 5px 0 var(--dark-blue); }
+
+        .container { max-width: 1000px; margin: 20px auto; padding: 15px; }
         
-        .categories-container { display: flex; flex-wrap: nowrap; gap: 5px; }
-        .categories-wrapper::-webkit-scrollbar { display: none; }
+        /* تصميم الأقسام (السور) */
+        .surah-section { 
+            background: white; border-radius: 20px; padding: 20px; margin-bottom: 30px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--dark-blue);
+        }
+        .surah-title { 
+            color: var(--dark-blue); font-size: 1.5rem; font-weight: 900; 
+            margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+            border-bottom: 2px solid var(--light-sky); padding-bottom: 10px;
+        }
 
-        #details-view { max-width: 850px; margin: 20px auto; padding: 15px; display: none; }
-        .back-btn-box { background: var(--dark-blue); color: white !important; width: 120px; height: 60px; margin: 0 auto 30px; box-shadow: 0 6px 0 #1a3a55; }
-        .back-btn-box:active { transform: translateY(4px); box-shadow: 0 2px 0 #1a3a55; }
+        .lessons-grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; 
+        }
+        .lesson-card {
+            background: #f9fbfd; border: 1px solid #e0eaf3; padding: 15px; border-radius: 12px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .lesson-card h4 { margin: 0; color: #444; font-size: 1rem; }
+        audio { height: 30px; width: 180px; }
+        .dl-icon { color: #27ae60; font-size: 1.2rem; text-decoration: none; }
 
-        .item-wrapper { background: white; margin-bottom: 10px; border-radius: 10px; border-right: 5px solid var(--bright-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .item-header { background: #f8fbff; padding: 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: var(--dark-blue); }
-        .item-content { display: none; padding: 10px; background: #fff; border-top: 1px solid #eee; }
-        .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 10px; }
-        audio { height: 35px; width: 220px; }
-        .download-icon { text-decoration: none; color: #27ae60; font-size: 1.2rem; font-weight: bold; }
-
-        /* تعديل للجوال لتناسب حجم الهيدر الجديد */
         @media (max-width: 600px) {
-            .site-header { padding: 40px 10px; }
-            .site-header h1 { font-size: 1.8rem; }
+            .lessons-grid { grid-template-columns: 1fr; }
+            audio { width: 140px; }
         }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1>الدروس العلمية للشيخ سعيد مصطفى دياب</h1>
+    <h1>سلاسل دروس التفسير</h1>
 </header>
 
 <div class="nav-bar">
-    <a href="index.html" class="btn-3d"><span>الرئيسية</span></a>
-    <a href="books.html" class="btn-3d"><span>المكتبة</span></a>
-    <a href="lessons.html" class="btn-3d" style="background: var(--bright-blue);"><span>الدروس</span></a>
-    <a href="khutbah.html" class="btn-3d"><span>الخطب</span></a>
+    <a href="index.html" class="btn-3d">الرئيسية</a>
+    <a href="books.html" class="btn-3d">المكتبة</a>
+    <a href="lessons.html" class="btn-3d active-btn">الدروس</a>
+    <a href="khutbah.html" class="btn-3d">الخطب</a>
 </div>
 
-<div id="main-view">
-    <div class="categories-wrapper">
-        <div class="categories-container">
-            <div class="btn-3d" onclick="showContent('tafseer')"><h3>تفسير القرآن</h3></div>
-            <div class="btn-3d" onclick="showContent('quran_sciences')"><h3>علوم القرآن</h3></div>
-            <div class="btn-3d" onclick="showContent('hadith')"><h3>شروح الحديث</h3></div>
-            <div class="btn-3d" onclick="showContent('tawheed')"><h3>العقيدة</h3></div>
-            <div class="btn-3d" onclick="showContent('fiqh')"><h3>الفقه</h3></div>
-            <div class="btn-3d" onclick="showContent('seerah')"><h3>السيرة النبوية</h3></div>
-            <div class="btn-3d" onclick="showContent('rakaik')"><h3>الرقائق</h3></div>
-            <div class="btn-3d" onclick="showContent('faraid')"><h3>علم الفرائض</h3></div>
-        </div>
+<div class="container">
+
+    <div class="surah-section">
+        <div class="surah-title"><i class="fas fa-book-open"></i> تفسير سورة البقرة (75 درساً)</div>
+        <div class="lessons-grid" id="baqarah-list"></div>
     </div>
-</div>
 
-<div id="details-view">
-    <div class="btn-3d back-btn-box" onclick="backToMain()"><span>← عودة</span></div>
-    <h2 id="section-title" style="text-align:center; color: var(--dark-blue); margin-bottom: 25px;"></h2>
-    <div id="lessons-render"></div>
+    <div class="surah-section">
+        <div class="surah-title"><i class="fas fa-book-open"></i> تفسير سورة آل عمران (52 درساً)</div>
+        <div class="lessons-grid" id="imran-list"></div>
+    </div>
+
+    <div class="surah-section">
+        <div class="surah-title"><i class="fas fa-book-open"></i> تفسير سورة النساء (53 درساً)</div>
+        <div class="lessons-grid" id="nisa-list"></div>
+    </div>
+
+    <div class="surah-section">
+        <div class="surah-title"><i class="fas fa-book-open"></i> تفسير سورة المائدة (34 درساً)</div>
+        <div class="lessons-grid" id="maidah-list"></div>
+    </div>
+
 </div>
 
 <script>
-    // تم الحفاظ على قسم البيانات (data) والسكربت (script) كما هما في الرد السابق تماماً.
-    const data = {
-        tafseer: { title: "تفسير القرآن", items: [
-            { name: "سورة الفاتحة", lessons: [{t: "الدرس 1", f: "fatiha-1.mp3"}, {t: "الدرس 2", f: "fatiha-2.mp3"}] },
-            { name: "سورة البقرة", lessons: Array.from({length: 13}, (_, i) => ({t: `الدرس ${i+1}`, f: (i+1==3||i+1==7||i+1==10||i+1==11||i+1==12||i+1==13) ? `https://archive.org/download/bakara-10_202602/bakara-${i+1}.mp3` : `bakara-${i+1}.mp3`})) }
-        ]},
-        quran_sciences: { title: "علوم القرآن", items: [
-            { name: "شرح منظومة الناسخ والمنسوخ للسيوطي", lessons: Array.from({length: 10}, (_, i) => ({ t: `الدرس ${i+1}`, f: `nasekh-${i+1}.mp3` })) },
-            { name: "شرح مقدمة في أصول التفسير", lessons: Array.from({length: 27}, (_, i) => ({ t: `الدرس ${i+1}`, f: `osol-altfser-${i+1}.mp3` })) },
-            { name: "دروس علوم القرآن", lessons: [{ t: "مقدمة", f: "quran-1.mp3" }] }
-        ]},
-        hadith: { title: "شروح الحديث", items: [
-            { name: "شرح عمدة الأحكام", lessons: Array.from({length: 71}, (_, i) => ({ t: `الدرس ${i+1}`, f: `omda-${i+1}` })) },
-            { name: "رياض الصالحين", lessons: Array.from({length: 30}, (_, i) => ({ t: `الدرس ${i+1}`, f: `reyad-${i+1}.mp3` })) }
-        ]},
-        tawheed: { title: "العقيدة", items: [
-            { name: "شرح العقيدة الواسطية", lessons: Array.from({length: 26}, (_, i) => ({t: `الدرس ${i+1}`, f: `wastya-${i+1}.mp3`})) },
-            { name: "شرح أسماء الله الحسنى", lessons: Array.from({length: 33}, (_, i) => ({t: `الدرس ${i+1}`, f: `asma${i+1}.mp3`})) },
-            { name: "شرح العقيدة الطحاوية", lessons: Array.from({length: 21}, (_, i) => ({t: `الدرس ${i+1}`, f: `tahawiya-${i+1}.mp3`})) },
-            { name: "شرح كتاب التوحيد", lessons: Array.from({length: 23}, (_, i) => ({t: `الدرس ${i+1}`, f: `tawheed-${i+1}.mp3`})) }
-        ]},
-        seerah: { title: "السيرة النبوية", items: [{ name: "السيرة النبوية", lessons: Array.from({length: 32}, (_, i) => ({t: `الدرس ${i+1}`, f: `sera${i+1}`})) }] },
-        rakaik: { title: "الرقائق", items: [
-            { name: "سلسلة مكارم الأخلاق", lessons: Array.from({length: 40}, (_, i) => ({ t: `الدرس ${i+1}`, f: `mkarem-${i+1}` })) },
-            { name: "أنوار الأذكار", lessons: Array.from({length: 30}, (_, i) => ({t: `الدرس ${i+1}`, f: `al-azkar-${i+1}.mp3`})) }
-        ]},
-        fiqh: { title: "الفقه", items: [
-            { name: "شرح كتاب أخصر المختصرات", lessons: Array.from({length: 27}, (_, i) => ({ t: `الدرس ${i+1}`, f: `akhasar-${i+1}.mp3` })) },
-            { name: "دورة الزكاة والصيام", lessons: Array.from({length: 6}, (_, i) => ({t: `الدرس ${i+1}`, f: `lesson${i+1}.mp3`})) }
-        ]},
-        faraid: { title: "علم الفرائض", items: [{ name: "المنظومة الرحبية", lessons: Array.from({length: 11}, (_, i) => ({ t: `الدرس ${i+1}`, f: `al-rhapih${i+1}.mp3` })) }] }
-    };
-
-    function showContent(key) {
-        const section = data[key];
-        document.getElementById('section-title').innerText = section.title;
-        const container = document.getElementById('lessons-render');
-        container.innerHTML = "";
-        section.items.forEach((group, gIdx) => {
-            let lessonsHTML = group.lessons.map(l => {
-                let path = l.f.startsWith('http') ? l.f : `audio/${l.f}`;
-                let isSpecial = (l.f.includes('omda') || l.f.includes('sera') || l.f.includes('mkarem'));
-                let sources = isSpecial 
-                    ? `<source src="${path}.MP3" type="audio/mpeg"><source src="${path}.mp3" type="audio/mpeg">` 
-                    : `<source src="${path}" type="audio/mpeg">`;
-                let downloadPath = isSpecial ? `${path}.MP3` : path;
-                return `<div class="lesson-item"><span>${l.t}</span><audio controls preload="none">${sources}</audio><a href="${downloadPath}" download class="download-icon">📥</a></div>`;
-            }).join('');
-            container.innerHTML += `<div class="item-wrapper"><div class="item-header" onclick="toggle('${key}-${gIdx}')"><span>${group.name}</span><small>▼</small></div><div class="item-content" id="${key}-${gIdx}">${lessonsHTML}</div></div>`;
-        });
-        document.getElementById('main-view').style.display = 'none';
-        document.getElementById('details-view').style.display = 'block';
-        window.scrollTo(0,0);
+    function generateLessons(containerId, prefix, count) {
+        const container = document.getElementById(containerId);
+        let html = '';
+        for (let i = 1; i <= count; i++) {
+            let num = i < 10 ? '0' + i : i;
+            html += `
+            <div class="lesson-card">
+                <h4>الدرس ${num}</h4>
+                <audio controls preload="none">
+                    <source src="audio/tafseer/${prefix}-${num}.mp3" type="audio/mpeg">
+                </audio>
+                <a href="audio/tafseer/${prefix}-${num}.mp3" download class="dl-icon"><i class="fas fa-download"></i></a>
+            </div>`;
+        }
+        container.innerHTML = html;
     }
 
-    function toggle(id) { const el = document.getElementById(id); el.style.display = (el.style.display === 'block') ? 'none' : 'block'; }
-    function backToMain() { document.getElementById('main-view').style.display = 'block'; document.getElementById('details-view').style.display = 'none'; }
+    // توليد الدروس تلقائياً بناءً على الأعداد المطلوبة
+    generateLessons('baqarah-list', 'baqarah', 75);
+    generateLessons('imran-list', 'imran', 52);
+    generateLessons('nisa-list', 'nisa', 53);
+    generateLessons('maidah-list', 'maidah', 34);
 </script>
+
 </body>
 </html>
