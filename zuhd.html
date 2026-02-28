@@ -37,7 +37,6 @@
 </div>
 
 <div class="container">
-
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <span><i class="fas fa-pray"></i> سلسلة أنوار الأذكار (30 درساً)</span>
@@ -67,7 +66,6 @@
             <div class="lessons-list" id="wasf-list"></div>
         </div>
     </div>
-
 </div>
 
 <script>
@@ -75,7 +73,8 @@
         header.parentElement.classList.toggle('active');
     }
 
-    function generate(id, prefix, count) {
+    // تعديل الوظيفة لتقبل الإمتداد الكبير MP3
+    function generate(id, prefix, count, extension) {
         const container = document.getElementById(id);
         let html = '';
         for (let i = 1; i <= count; i++) {
@@ -83,17 +82,18 @@
             <div class="lesson-card">
                 <span>درس ${i}</span>
                 <audio controls preload="none">
-                    <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                    <source src="audio/${prefix}-${i}.${extension}" type="audio/mpeg">
                 </audio>
             </div>`;
         }
         container.innerHTML = html;
     }
 
-    // توليد السلاسل الثلاث
-    generate('azkar-list', 'al-azkar', 30);
-    generate('mkarem-list', 'mkarem', 30);
-    generate('wasf-list', 'wasf-algana', 30);
+    // أنوار الأذكار (صغيرة)
+    generate('azkar-list', 'al-azkar', 30, 'mp3');
+    // مكارم الأخلاق ووصف الجنة (كبيرة)
+    generate('mkarem-list', 'mkarem', 30, 'MP3');
+    generate('wasf-list', 'wasf-algana', 30, 'MP3');
 </script>
 
 <footer style="text-align: center; padding: 40px; color: #888;">
