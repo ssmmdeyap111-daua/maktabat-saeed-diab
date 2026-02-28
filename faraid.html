@@ -3,73 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دروس الفرائض - الشيخ سعيد مصطفى دياب</title>
+    <title>علم الفرائض - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --light-sky: #eef5ff; --dark-blue: #2c5d87; --gold: #d4af37; --shadow: #5da0bc; }
+        :root { --light-sky: #eef5ff; --dark-blue: #2c5d87; --gold: #d4af37; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
-        
         .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
         .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.2rem; }
-        
         .nav-bar { display: flex; justify-content: center; padding: 20px; gap: 15px; }
-        .btn-3d { padding: 10px 20px; background: white; border-radius: 12px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 var(--shadow); transition: 0.1s; display: flex; align-items: center; gap: 8px; }
-        .btn-3d:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--shadow); }
+        .btn-3d { padding: 10px 20px; background: white; border-radius: 12px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 #5da0bc; transition: 0.1s; display: flex; align-items: center; gap: 8px; }
+        .container { max-width: 900px; margin: 20px auto; padding: 15px; }
 
-        .container { max-width: 900px; margin: 30px auto; padding: 15px; }
+        .accordion-item {
+            background: white; border-radius: 15px; margin-bottom: 15px; overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee;
+        }
+        .accordion-header {
+            padding: 20px; background: #fff; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center; transition: 0.3s;
+            font-weight: 900; color: var(--dark-blue); font-size: 1.3rem;
+        }
+        .accordion-header:hover { background: #f0faff; }
         
-        .series-box { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 8px solid var(--dark-blue); }
-        .series-title { color: var(--dark-blue); font-size: 1.5rem; font-weight: 900; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; display: flex; align-items: center; gap: 12px; }
-        .series-title i { color: var(--gold); }
-
-        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-        .lesson-item { background: #f9fbfd; padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #edf2f7; }
-        .lesson-item span { font-weight: bold; color: #444; }
-        audio { height: 30px; width: 150px; }
-        .dl-link { color: #27ae60; font-size: 1.2rem; }
+        .accordion-content {
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out;
+            background: #f9fbfd; border-top: 1px solid #eee;
+        }
+        .lessons-list { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+        .lesson-card { 
+            background: white; padding: 10px; border-radius: 8px; border: 1px solid #edf2f7;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        audio { height: 28px; width: 140px; }
+        .active .accordion-content { max-height: 2000px; padding-bottom: 20px; }
+        .active i.fa-chevron-down { transform: rotate(180deg); }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1>علم الفرائض والمواريث</h1>
+    <h1>دروس علم الفرائض والمواريث</h1>
 </header>
 
 <div class="nav-bar">
-    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> الرجوع للفهرس</a>
+    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> الفهرس</a>
     <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
 </div>
 
 <div class="container">
-    <div class="series-box">
-        <div class="series-title">
-            <i class="fas fa-divide"></i>
-            شرح متن الرحبية (11 درساً)
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-divide"></i> شرح متن الرحبية (11 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
-        
-        <div class="lessons-grid" id="rahbiya-list">
-            </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="rahbiya-list"></div>
+        </div>
     </div>
+
 </div>
 
 <script>
-    // توليد الدروس تلقائياً بمسار الملف الصوتيrahbiya-1.mp3 وما بعدها
-    const container = document.getElementById('rahbiya-list');
-    const totalLessons = 11;
-    const prefix = 'rahbiya';
+    function toggleAccordion(header) {
+        header.parentElement.classList.toggle('active');
+    }
 
-    for (let i = 1; i <= totalLessons; i++) {
-        container.innerHTML += `
-            <div class="lesson-item">
+    function generate(id, prefix, count) {
+        const container = document.getElementById(id);
+        let html = '';
+        for (let i = 1; i <= count; i++) {
+            html += `
+            <div class="lesson-card">
                 <span>الدرس ${i}</span>
                 <audio controls preload="none">
                     <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
                 </audio>
-                <a href="audio/${prefix}-${i}.mp3" download class="dl-link"><i class="fas fa-download"></i></a>
-            </div>
-        `;
+            </div>`;
+        }
+        container.innerHTML = html;
     }
+
+    // توليد الدروس (rahbiya-1.mp3 إلى rahbiya-11.mp3)
+    generate('rahbiya-list', 'rahbiya', 11);
 </script>
 
 <footer style="text-align: center; padding: 40px; color: #888;">
