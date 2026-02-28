@@ -55,6 +55,16 @@
 
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-moon"></i> شرح كتاب الصيام من صحيح البخاري (15 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="seyam-list"></div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
             <span><i class="fas fa-star"></i> شرح رياض الصالحين (50 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
@@ -89,19 +99,21 @@
                 <span>درس ${i}</span>
                 <audio controls preload="none">
                     <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                    <source src="audio/${prefix}-${i}.MP3" type="audio/mpeg">
                 </audio>
             </div>`;
         }
         container.innerHTML = html;
     }
 
-    // تم تعديل الإسم هنا إلى reyad ليتوافق مع ملفاتك
-    generate('reyad-list', 'reyad', 50);
-    generate('omda-list', 'omda', 71);
+    // توليد السلاسل
+    generate('seyam-list', 'seyam.b', 15); // كتاب الصيام
+    generate('reyad-list', 'reyad', 50);   // رياض الصالحين
+    generate('omda-list', 'omda', 71);     // عمدة الأحكام
 </script>
 
 <footer style="text-align: center; padding: 40px; color: #888;">
-    جميع الحقوق محفوظة &copy; 2026
+    جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
 </footer>
 
 </body>
