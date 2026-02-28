@@ -14,31 +14,14 @@
         .nav-bar { display: flex; justify-content: center; padding: 20px; gap: 15px; }
         .btn-3d { padding: 10px 20px; background: white; border-radius: 12px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 #5da0bc; transition: 0.1s; display: flex; align-items: center; gap: 8px; }
         .container { max-width: 900px; margin: 20px auto; padding: 15px; }
-
-        .accordion-item {
-            background: white; border-radius: 15px; margin-bottom: 15px; overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee;
-        }
-        .accordion-header {
-            padding: 20px; background: #fff; cursor: pointer; display: flex;
-            justify-content: space-between; align-items: center; transition: 0.3s;
-            font-weight: 900; color: var(--dark-blue); font-size: 1.3rem;
-        }
+        .accordion-item { background: white; border-radius: 15px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .accordion-header { padding: 20px; background: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; font-weight: 900; color: var(--dark-blue); font-size: 1.3rem; }
         .accordion-header:hover { background: #f0faff; }
-        
-        .accordion-content {
-            max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out;
-            background: #f9fbfd; border-top: 1px solid #eee;
-        }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: #f9fbfd; border-top: 1px solid #eee; }
         .lessons-list { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
-        .lesson-card { 
-            background: white; padding: 10px; border-radius: 8px; border: 1px solid #edf2f7;
-            display: flex; justify-content: space-between; align-items: center;
-        }
+        .lesson-card { background: white; padding: 10px; border-radius: 8px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
         audio { height: 28px; width: 140px; }
-
-        /* حالة الفتح */
-        .active .accordion-content { max-height: 3000px; padding-bottom: 20px; }
+        .active .accordion-content { max-height: 4000px; padding-bottom: 20px; }
         .active i.fa-chevron-down { transform: rotate(180deg); }
     </style>
 </head>
@@ -54,7 +37,6 @@
 </div>
 
 <div class="container">
-
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <span><i class="fas fa-book-bookmark"></i> شرح مقدمة أصول التفسير (27 درساً)</span>
@@ -74,7 +56,6 @@
             <div class="lessons-list" id="nasikh-list"></div>
         </div>
     </div>
-
 </div>
 
 <script>
@@ -97,9 +78,9 @@
         container.innerHTML = html;
     }
 
-    // توليد الدروس
-    generate('osol-list', 'osol-tafseer', 27);
-    generate('nasikh-list', 'nasikh', 10);
+    // التعديل هنا ليتوافق مع أسماء ملفاتك بالضبط
+    generate('osol-list', 'osol-altfser', 27); // أصول التفسير
+    generate('nasikh-list', 'nasekh', 10);     // الناسخ والمنسوخ
 </script>
 
 <footer style="text-align: center; padding: 40px; color: #888;">
