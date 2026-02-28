@@ -72,19 +72,20 @@
                 <span>درس ${i}</span>
                 <audio controls preload="none">
                     <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                    <source src="audio/${prefix}-${i}.MP3" type="audio/mpeg">
                 </audio>
             </div>`;
         }
         container.innerHTML = html;
     }
 
-    // التعديل هنا ليتوافق مع أسماء ملفاتك بالضبط
-    generate('osol-list', 'osol-altfser', 27); // أصول التفسير
-    generate('nasikh-list', 'nasekh', 10);     // الناسخ والمنسوخ
+    // التعديل الدقيق للأسماء:
+    generate('osol-list', 'osol-altfser', 27); // سيبحث عن osol-altfser-1.mp3
+    generate('nasikh-list', 'nasekh', 10);     // سيبحث عن nasekh-1.mp3
 </script>
 
 <footer style="text-align: center; padding: 40px; color: #888;">
-    جميع الحقوق محفوظة &copy; 2026
+    جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
 </footer>
 
 </body>
