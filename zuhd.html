@@ -37,6 +37,17 @@
 </div>
 
 <div class="container">
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-heart"></i> أسباب محبة الله للعباد (18 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="mahba-list"></div>
+        </div>
+    </div>
+
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <span><i class="fas fa-pray"></i> سلسلة أنوار الأذكار (30 درساً)</span>
@@ -49,7 +60,7 @@
 
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-heart"></i> سلسلة مكارم الأخلاق (30 درساً)</span>
+            <span><i class="fas fa-sun"></i> سلسلة مكارم الأخلاق (30 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
         <div class="accordion-content">
@@ -66,6 +77,7 @@
             <div class="lessons-list" id="wasf-list"></div>
         </div>
     </div>
+
 </div>
 
 <script>
@@ -73,7 +85,6 @@
         header.parentElement.classList.toggle('active');
     }
 
-    // تعديل الوظيفة لتقبل الإمتداد الكبير MP3
     function generate(id, prefix, count, extension) {
         const container = document.getElementById(id);
         let html = '';
@@ -83,15 +94,16 @@
                 <span>درس ${i}</span>
                 <audio controls preload="none">
                     <source src="audio/${prefix}-${i}.${extension}" type="audio/mpeg">
+                    <source src="audio/${prefix}-${i}.${extension === 'mp3' ? 'MP3' : 'mp3'}" type="audio/mpeg">
                 </audio>
             </div>`;
         }
         container.innerHTML = html;
     }
 
-    // أنوار الأذكار (صغيرة)
+    // توليد السلاسل الأربع
+    generate('mahba-list', 'mahba', 18, 'mp3');
     generate('azkar-list', 'al-azkar', 30, 'mp3');
-    // مكارم الأخلاق ووصف الجنة (كبيرة)
     generate('mkarem-list', 'mkarem', 30, 'MP3');
     generate('wasf-list', 'wasf-algana', 30, 'MP3');
 </script>
