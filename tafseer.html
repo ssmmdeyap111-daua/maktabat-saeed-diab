@@ -50,21 +50,27 @@
         <div class="accordion-content"><div class="lessons-list" id="maeda-list"></div></div>
     </div>
 </div>
+
 <script>
     function toggleAccordion(header) { header.parentElement.classList.toggle('active'); }
+    
     function generate(id, prefix, count) {
         const container = document.getElementById(id);
+        if(!container) return; // تأمين الكود في حال لم يجد العنصر
         let html = '';
         for (let i = 1; i <= count; i++) {
             html += `<div class="lesson-card"><span>درس ${i}</span><audio controls preload="none"><source src="audio/${prefix}-${i}.mp3"></audio><a href="audio/${prefix}-${i}.mp3" download class="dl-icon"><i class="fas fa-download"></i></a></div>`;
         }
         container.innerHTML = html;
     }
-    // يرجى التأكد من أسماء الملفات في مجلد audio
-    generate('baqarah-list', 'baqarah', 75);
-    generate('imran-list', 'imran', 52);
-    generate('nisa-list', 'nisa', 53);
-    generate('maeda-list', 'maeda', 34);
+
+    // الانتظار حتى يتم تحميل الصفحة بالكامل قبل توليد الدروس
+    window.onload = function() {
+        generate('baqarah-list', 'baqarah', 75);
+        generate('imran-list', 'imran', 52);
+        generate('nisa-list', 'nisa', 53);
+        generate('maeda-list', 'maeda', 34);
+    };
 </script>
 </body>
 </html>
