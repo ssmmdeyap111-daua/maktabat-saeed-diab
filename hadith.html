@@ -21,7 +21,7 @@
         .lessons-list { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
         .lesson-card { background: white; padding: 10px; border-radius: 8px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
         audio { height: 28px; width: 140px; }
-        .active .accordion-content { max-height: 6000px; padding-bottom: 20px; }
+        .active .accordion-content { max-height: 8000px; padding-bottom: 20px; }
         .active i.fa-chevron-down { transform: rotate(180deg); }
     </style>
 </head>
@@ -37,6 +37,16 @@
 </div>
 
 <div class="container">
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-book-open"></i> شرح كتاب الصيام من سنن أبي داود (13 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="dawood-list"></div>
+        </div>
+    </div>
 
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
@@ -102,10 +112,11 @@
     }
 
     // توليد السلاسل
-    generate('muaz-list', 'muaz', 7);     // وصية معاذ
-    generate('seyam-list', 'seyam.b', 15); // كتاب الصيام
-    generate('reyad-list', 'reyad', 50);   // رياض الصالحين
-    generate('omda-list', 'omda', 71);     // عمدة الأحكام
+    generate('dawood-list', 'dawood', 13); // سنن أبي داود
+    generate('muaz-list', 'muaz', 7);       // وصية معاذ
+    generate('seyam-list', 'seyam.b', 15);   // كتاب الصيام (البخاري)
+    generate('reyad-list', 'reyad', 50);     // رياض الصالحين
+    generate('omda-list', 'omda', 71);       // عمدة الأحكام
 </script>
 
 <footer style="text-align: center; padding: 40px; color: #888;">
