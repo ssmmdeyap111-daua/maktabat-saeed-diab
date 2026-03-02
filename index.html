@@ -88,6 +88,28 @@
         .book-img { width: 150px; height: 215px; object-fit: cover; border-radius: 10px; border: 3px solid #fff; transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .arrow { font-size: 40px; color: var(--dark-blue); cursor: pointer; padding: 10px; }
 
+        /* تنسيق أيقونات التواصل */
+        .social-container { text-align: center; padding: 30px 20px; }
+        .social-container h3 { color: var(--dark-blue); margin-bottom: 20px; font-size: 1.5rem; }
+        .social-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 55px;
+            margin: 0 12px;
+            background: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 0 var(--accent-blue);
+            transition: 0.2s;
+        }
+        .social-link:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--accent-blue); }
+        .social-link.fb { color: #1877f2; }
+        .social-link.tg { color: #0088cc; }
+        .social-link.yt { color: #ff0000; }
+
         .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; border-top: 4px solid #ffffff; }
 
         @media (max-width: 850px) {
@@ -105,7 +127,7 @@
                 <span id="full-date-display">جاري تحميل التاريخ...</span>
             </span>
         </div>
-        <h1>موقع الشيخ سعيد مصطفى دياب الرسمي</h1>
+        <h1>الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
     </header>
 
     <nav class="nav-bar">
@@ -151,33 +173,30 @@
         </div>
     </div>
 
+    <div class="social-container">
+        <h3>تواصل معنا:</h3>
+        <a href="https://www.facebook.com/profile.php?id=100063517406253&mibextid=ZbWKwL" class="social-link fb" target="_blank" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://t.me/saeeddeab" class="social-link tg" target="_blank" title="تيليجرام"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://youtube.com/@user-vv1pw4qj6u?si=Uv28C4YgY8-lE5Xq" class="social-link yt" target="_blank" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+    </div>
+
     <div class="footer-rights">
         جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
     </div>
 
     <script>
-        // 1. كود تحريك الكتب الأصلي
         const bSlider = document.getElementById('b-slider');
         document.getElementById('right-btn').onclick = () => bSlider.scrollBy(300, 0);
         document.getElementById('left-btn').onclick = () => bSlider.scrollBy(-300, 0);
 
-        // 2. كود تحديث التاريخ التلقائي (ميلادي + هجري)
         function updateLiveDate() {
             const today = new Date();
-            
-            // الميلادي
             const gregOptions = { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' };
             let gregDate = today.toLocaleDateString('ar-EG', gregOptions);
-            
-            // الهجري
             const hijriOptions = { day: 'numeric', month: 'long', year: 'numeric' };
             let hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', hijriOptions).format(today);
-
-            // دمج التاريخين في السطر
             document.getElementById('full-date-display').innerText = hijriDate + " هـ - " + gregDate + "م";
         }
-        
-        // تنفيذ التحديث فور التحميل
         updateLiveDate();
     </script>
 </body>
