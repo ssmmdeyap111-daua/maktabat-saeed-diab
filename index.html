@@ -54,7 +54,6 @@
             border-bottom: 4px solid #ffffff;
             position: relative;
         }
-        /* تطبيق الخط الكوفي على العنوان الرئيسي */
         .site-header h1 {
             margin: 0; 
             font-family: 'Reem Kufi', sans-serif;
@@ -82,7 +81,6 @@
         }
         .quran-text { font-family: 'Amiri', serif; font-size: 2rem; color: #8a6d3b; font-weight: 700; }
 
-        /* شريط الكتب الكامل */
         .books-container-wide { width: 96%; margin: 30px auto; }
         .slider-wrapper { display: flex; align-items: center; background: rgba(255, 255, 255, 0.3); padding: 20px 10px; border-radius: 20px; }
         .books-scroll { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; flex: 1; padding: 10px; }
@@ -104,7 +102,7 @@
         <div class="date-oval-box">
             <span class="date-text">
                 <i class="fas fa-calendar-alt"></i>
-                <span id="full-date-display">الجمعة، 9 رمضان 1447هـ - 27/2/2026م</span>
+                <span id="full-date-display">جاري تحميل التاريخ...</span>
             </span>
         </div>
         <h1>موقع الشيخ سعيد مصطفى دياب الرسمي</h1>
@@ -158,13 +156,29 @@
     </div>
 
     <script>
-        // كود تحريك الكتب
+        // 1. كود تحريك الكتب الأصلي
         const bSlider = document.getElementById('b-slider');
         document.getElementById('right-btn').onclick = () => bSlider.scrollBy(300, 0);
         document.getElementById('left-btn').onclick = () => bSlider.scrollBy(-300, 0);
 
-        // تم تثبيت التاريخ يدوياً في كود HTML بالأعلى لضمان عدم التغير التلقائي المزعج
-        // وسنقوم بتحديثه برمجياً فقط إذا تغير اليوم فعلياً
+        // 2. كود تحديث التاريخ التلقائي (ميلادي + هجري)
+        function updateLiveDate() {
+            const today = new Date();
+            
+            // الميلادي
+            const gregOptions = { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' };
+            let gregDate = today.toLocaleDateString('ar-EG', gregOptions);
+            
+            // الهجري
+            const hijriOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+            let hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', hijriOptions).format(today);
+
+            // دمج التاريخين في السطر
+            document.getElementById('full-date-display').innerText = hijriDate + " هـ - " + gregDate + "م";
+        }
+        
+        // تنفيذ التحديث فور التحميل
+        updateLiveDate();
     </script>
 </body>
 </html>
