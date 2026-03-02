@@ -11,69 +11,63 @@
             --light-sky: #eef5ff; 
             --dark-blue: #2c5d87; 
             --accent-blue: #87ceeb;
-            --shadow-blue: #5da0bc;
         }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
         
         .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
         .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.2rem; }
 
-        /* شريط الأزرار المستطيلة */
+        /* حاوية المستطيلات النصية */
         .categories-container {
             max-width: 1100px;
             margin: 40px auto;
             padding: 0 15px;
             display: flex;
-            flex-wrap: wrap; /* يسمح بالنزول لسطر جديد في الشاشات الصغيرة */
+            flex-wrap: wrap; 
             justify-content: center;
-            gap: 15px; /* المسافة بين المستطيلات */
+            gap: 15px; 
         }
 
+        /* التصميم المطلوب: مستطيل، نص فقط، بدون صور */
         .category-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
             background: white;
             color: var(--dark-blue);
             text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 12px;
+            padding: 20px 30px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 1.1rem;
-            min-width: 180px; /* طول المستطيل */
-            box-shadow: 0 5px 0 var(--accent-blue);
+            font-size: 1.2rem;
+            min-width: 220px; 
+            box-shadow: 0 4px 0 var(--accent-blue);
             transition: 0.2s;
-            border: 1px solid #d0e4ff;
+            border: 2px solid #d0e4ff;
+            text-align: center;
         }
-
-        .category-btn i { font-size: 1.4rem; color: var(--dark-blue); }
 
         .category-btn:hover {
             background: #f0faff;
             transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--accent-blue);
         }
 
         .category-btn:active {
-            transform: translateY(3px);
+            transform: translateY(2px);
             box-shadow: 0 2px 0 var(--accent-blue);
         }
 
-        /* زر العودة للرئيسية */
         .back-home {
-            display: block;
-            width: fit-content;
-            margin: 50px auto;
-            padding: 10px 30px;
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 40px;
             background: var(--dark-blue);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            transition: 0.3s;
         }
-        .back-home:hover { background: #1a3c5a; }
-
     </style>
 </head>
 <body>
@@ -83,36 +77,19 @@
 </header>
 
 <div class="categories-container">
-    <a href="aqidah.html" class="category-btn">
-        <i class="fas fa-book-quran"></i> العقيدة والتوحيد
-    </a>
-    <a href="hadith.html" class="category-btn">
-        <i class="fas fa-scroll"></i> شروح الحديث
-    </a>
-    <a href="faraid.html" class="category-btn">
-        <i class="fas fa-calculator"></i> علم الفرائض
-    </a>
-    <a href="seerah.html" class="category-btn">
-        <i class="fas fa-mosque"></i> السيرة النبوية
-    </a>
-    <a href="t تفسير.html" class="category-btn"> <i class="fas fa-feather-pointed"></i> تفسير القرآن
-    </a>
-    <a href="zuhd.html" class="category-btn">
-        <i class="fas fa-heart"></i> الرقائق والزهد
-    </a>
-    <a href="fقه.html" class="category-btn">
-        <i class="fas fa-gavel"></i> الفقه الإسلامي
-    </a>
-    <a href="articles.html" class="category-btn">
-        <i class="fas fa-pen-nib"></i> مقالات متنوعة
-    </a>
+    <a href="aqidah.html" class="category-btn">العقيدة والتوحيد</a>
+    <a href="hadith.html" class="category-btn">شروح الحديث الشريف</a>
+    <a href="faraid.html" class="category-btn">علم الفرائض والمواريث</a>
+    <a href="seerah.html" class="category-btn">السيرة النبوية</a>
+    <a href="t-تفسير.html" class="category-btn">تفسير القرآن الكريم</a>
+    <a href="a.quran.html" class="category-btn">علوم القرآن الكريم</a>
+    <a href="zuhd.html" class="category-btn">الرقائق والزهد</a>
+    <a href="fقه.html" class="category-btn">الفقه الإسلامي</a>
 </div>
 
-<a href="index.html" class="back-home"><i class="fas fa-home"></i> العودة للرئيسية</a>
-
-<footer style="text-align: center; padding: 40px; color: #888;">
-    جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
-</footer>
+<div style="text-align: center; margin-bottom: 50px;">
+    <a href="index.html" class="back-home">العودة للرئيسية</a>
+</div>
 
 </body>
 </html>
