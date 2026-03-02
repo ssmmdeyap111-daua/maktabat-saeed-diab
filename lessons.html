@@ -7,89 +7,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --light-sky: #eef5ff; 
-            --dark-blue: #2c5d87; 
-            --accent-blue: #87ceeb;
-        }
+        :root { --light-sky: #eef5ff; --dark-blue: #2c5d87; --accent-blue: #87ceeb; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
-        
         .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
         .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.2rem; }
-
-        /* حاوية المستطيلات النصية */
-        .categories-container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 15px;
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center;
-            gap: 15px; 
-        }
-
-        /* التصميم المطلوب: مستطيل، نص فقط، بدون صور */
-        .category-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            color: var(--dark-blue);
-            text-decoration: none;
-            padding: 20px 30px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            min-width: 220px; 
-            box-shadow: 0 4px 0 var(--accent-blue);
-            transition: 0.2s;
-            border: 2px solid #d0e4ff;
-            text-align: center;
-        }
-
-        .category-btn:hover {
-            background: #f0faff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 var(--accent-blue);
-        }
-
-        .category-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 var(--accent-blue);
-        }
-
-        .back-home {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 40px;
-            background: var(--dark-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-        }
+        .categories-container { max-width: 1100px; margin: 40px auto; padding: 0 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .category-btn { display: flex; align-items: center; justify-content: center; background: white; color: var(--dark-blue); text-decoration: none; padding: 20px 30px; border-radius: 8px; font-weight: bold; font-size: 1.2rem; min-width: 220px; box-shadow: 0 4px 0 var(--accent-blue); transition: 0.2s; border: 2px solid #d0e4ff; text-align: center; }
+        .category-btn:hover { background: #f0faff; transform: translateY(-2px); box-shadow: 0 6px 0 var(--accent-blue); }
+        .back-home { display: inline-block; margin-top: 30px; padding: 10px 40px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; }
     </style>
 </head>
 <body>
-
-<header class="site-header">
-    <h1>فهرس السلاسل والدروس العلمية</h1>
-</header>
+<header class="site-header"><h1>فهرس السلاسل والدروس العلمية</h1></header>
 
 <div class="categories-container">
     <a href="aqidah.html" class="category-btn">العقيدة والتوحيد</a>
     <a href="hadith.html" class="category-btn">شروح الحديث الشريف</a>
     <a href="faraid.html" class="category-btn">علم الفرائض والمواريث</a>
     <a href="seerah.html" class="category-btn">السيرة النبوية</a>
-    <a href="t-تفسير.html" class="category-btn">تفسير القرآن الكريم</a>
-    <a href="a.quran.html" class="category-btn">علوم القرآن الكريم</a>
+    <a href="tafseer.html" class="category-btn">تفسير القرآن الكريم</a>
+    <a href="quran_sciences.html" class="category-btn">علوم القرآن الكريم</a>
     <a href="zuhd.html" class="category-btn">الرقائق والزهد</a>
-    <a href="fقه.html" class="category-btn">الفقه الإسلامي</a>
+    <a href="fiqh.html" class="category-btn">الفقه الإسلامي</a>
 </div>
 
 <div style="text-align: center; margin-bottom: 50px;">
     <a href="index.html" class="back-home">العودة للرئيسية</a>
 </div>
-
 </body>
 </html>
