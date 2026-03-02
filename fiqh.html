@@ -41,7 +41,7 @@
         .dl-icon { color: #27ae60; text-decoration: none; }
 
         /* حالة الفتح */
-        .active .accordion-content { max-height: 2500px; padding-bottom: 20px; }
+        .active .accordion-content { max-height: 4000px; padding-bottom: 20px; }
         .active i.fa-chevron-down { transform: rotate(180deg); }
     </style>
 </head>
@@ -68,7 +68,17 @@
         </div>
     </div>
 
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-pen-nib"></i> شرح منظومة الناسخ والمنسوخ (10 دروس)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="naskh-list"></div>
+        </div>
     </div>
+
+</div>
 
 <script>
     function toggleAccordion(header) {
@@ -91,8 +101,9 @@
         container.innerHTML = html;
     }
 
-    // توليد دروس أخصر المختصرات (akhasar-1.mp3 إلى akhasar-26.mp3)
+    // توليد الدروس بناءً على طلبك
     generate('akhasar-list', 'akhasar', 26);
+    generate('naskh-list', 'naskh', 10);
 </script>
 
 <footer style="text-align: center; padding: 40px; color: #888;">
