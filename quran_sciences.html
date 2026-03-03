@@ -1,66 +1,89 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>علوم القرآن - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>علوم القرآن - الشيخ سعيد مصطفى دياب</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
-<header class="site-header">
-    <h1>دروس علوم القرآن</h1>
-</header>
+<div id="content">
 
-<div class="nav-bar">
-    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> الفهرس</a>
-    <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
+<div class="section-title">
+    <h2>علوم القرآن</h2>
 </div>
 
 <div class="container">
+
+    <!-- ناسخ الحديث ومنسوخه -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-scroll"></i> منظومة الناسخ والمنسوخ (10 دروس)</span>
+            <span><i class="fas fa-book-open"></i> ناسخ الحديث ومنسوخه (10 دروس)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
         <div class="accordion-content">
-            <div class="lessons-list" id="naskh-list"></div>
+            <div class="lessons-list" id="nasekh-list"></div>
         </div>
     </div>
+
+    <!-- أصول التفسير -->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-book"></i> أصول التفسير (27 درسًا)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="osol-list"></div>
+        </div>
+    </div>
+
+</div>
 </div>
 
 <script>
-    function toggleAccordion(header) {
-        header.parentElement.classList.toggle('active');
-    }
+function toggleAccordion(header) {
+    header.parentElement.classList.toggle('active');
+}
 
-    function generate(id, prefix, count) {
-        const container = document.getElementById(id);
-        if (!container) return;
-        let html = '';
-        for (let i = 1; i <= count; i++) {
-            html += `
-            <div class="lesson-card">
-                <span>درس ${i}</span>
-                <audio controls preload="none">
-                    <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
-                </audio>
-                <a href="audio/${prefix}-${i}.mp3" download class="dl-icon"><i class="fas fa-download"></i></a>
-            </div>`;
-        }
-        container.innerHTML = html;
+function generate(id, prefix, count) {
+    const container = document.getElementById(id);
+    let html = '';
+    for (let i = 1; i <= count; i++) {
+        html += `
+        <div class="lesson-card">
+            <span>الدرس ${i}</span>
+            <audio controls preload="none">
+                <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+            </audio>
+            <a href="audio/${prefix}-${i}.mp3" download class="download-btn">
+                <i class="fas fa-download"></i>
+            </a>
+        </div>`;
     }
+    container.innerHTML = html;
+}
 
-    window.onload = function() {
-        generate('naskh-list', 'naskh', 10);
-    };
+generate('nasekh-list', 'nasekh', 10);
+generate('osol-list', 'osol-altfser', 27);
 </script>
 
-<footer style="text-align: center; padding: 40px; color: #888;">
-    جميع الحقوق محفوظة &copy; 2026
+<footer class="main-footer">
+جميع الحقوق محفوظة © 2026
 </footer>
+
+<script>
+window.addEventListener("load", function() {
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.body.insertAdjacentHTML('afterbegin', data);
+    });
+});
+</script>
 
 </body>
 </html>
