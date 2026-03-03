@@ -11,15 +11,6 @@
 
 <body>
 
-<!-- إدراج الهيدر الموحد -->
-<script>
-fetch('header.html')
-  .then(response => response.text())
-  .then(data => {
-    document.body.insertAdjacentHTML('afterbegin', data);
-  });
-</script>
-
 <div id="content">
 
 <div class="section-title">
@@ -28,7 +19,7 @@ fetch('header.html')
 
 <div class="container">
 
-    <!-- مثال سلسلة فقهية -->
+    <!-- شرح كتاب الطهارة -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <span><i class="fas fa-book"></i> شرح كتاب الطهارة (8 دروس)</span>
@@ -39,6 +30,7 @@ fetch('header.html')
         </div>
     </div>
 
+    <!-- شرح كتاب الصلاة -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <span><i class="fas fa-mosque"></i> شرح كتاب الصلاة (12 درساً)</span>
@@ -82,6 +74,17 @@ generate('salah-list', 'salah', 12);
 <footer class="main-footer">
 جميع الحقوق محفوظة © 2026
 </footer>
+
+<!-- تحميل الهيدر الموحد -->
+<script>
+window.addEventListener("load", function() {
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.body.insertAdjacentHTML('afterbegin', data);
+    });
+});
+</script>
 
 </body>
 </html>
