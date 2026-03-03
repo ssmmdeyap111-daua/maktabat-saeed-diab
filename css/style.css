@@ -1,225 +1,186 @@
-/* 1. الإعدادات العامة والألوان */
-:root { 
-    --light-sky: #eef5ff;       /* اللون اللبني الفاتح جداً للخلفية */
-    --accent-blue: #87ceeb;      /* لون الأيقونات (سماوي) */
-    --dark-blue: #2c5d87;       /* اللون الكحلي للنصوص والعناوين */
-    --shadow-blue: #5f9ea0;      /* لون ظل الأزرار 3D */
-    --gold-color: #d4af37;       /* اللون الذهبي للإطارات */
-    --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); /* تدرج الهيدر والفوتر */
+/* ====== متغيرات الألوان ====== */
+:root {
+    --light-sky: #eef5ff;
+    --dark-blue: #2c5d87;
+    --gold: #d4af37;
+    --btn-shadow: #5da0bc;
 }
 
-body { 
-    margin: 0; 
-    font-family: 'Cairo', sans-serif; 
-    background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); 
-    color: #333; 
-    min-height: 100vh;
-    overflow-x: hidden; /* لمنع أي اهتزاز عرضي */
+/* ====== تنسيقات عامة ====== */
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background: var(--light-sky);
 }
 
-/* 2. شريط العنوان الأعلى (الهيدر) */
+a {
+    text-decoration: none;
+}
+
+/* ====== الهيدر ====== */
 .site-header {
-    text-align: center; 
-    padding: 50px 20px; 
-    background: var(--header-bg); 
-    border-bottom: 4px solid #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(to right, #add8e6, #e0f2f7);
+    border-bottom: 5px solid white;
 }
+
 .site-header h1 {
-    margin: 0; 
-    font-size: 2.5rem; 
+    margin: 0;
+    font-family: 'Reem Kufi', sans-serif;
+    color: var(--dark-blue);
+    font-size: 2.2rem;
+}
+
+/* ====== شريط التنقل ====== */
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+}
+
+.btn-3d {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 12px;
+    color: var(--dark-blue);
+    font-weight: bold;
+    box-shadow: 0 4px 0 var(--btn-shadow);
+    transition: 0.1s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-3d:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--btn-shadow);
+}
+
+/* ====== الحاويات ====== */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 15px;
+}
+
+/* ====== الاكورديون ====== */
+.accordion-item {
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.accordion-header {
+    padding: 20px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
     font-weight: 900;
+    color: var(--dark-blue);
+    font-size: 1.3rem;
+}
+
+.accordion-header:hover {
+    background: #f0faff;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background: #f9fbfd;
+    border-top: 1px solid #eee;
+}
+
+.active .accordion-content {
+    max-height: 8000px; /* يكفي لكل الصفحات */
+    padding-bottom: 20px;
+}
+
+.active i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* ====== قائمة الدروس ====== */
+.lessons-list {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+}
+
+.lesson-card {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #edf2f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+audio {
+    height: 28px;
+    width: 140px;
+}
+
+/* ====== أيقونة التحميل ====== */
+.dl-icon, .download-btn {
+    color: #27ae60;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.download-btn i {
+    font-size: 1.2rem;
+}
+
+/* ====== قسم الخطب ====== */
+.khutbah-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #edf2f7;
+    margin-bottom: 10px;
+}
+
+.khutbah-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
     color: var(--dark-blue);
 }
 
-/* 3. شريط التنقل (الأيقونات المستطيلة 3D) */
-.nav-bar { 
-    display: flex; 
-    justify-content: center; 
-    gap: 15px; 
-    padding: 30px 20px; 
-    flex-wrap: wrap; 
+.khutbah-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-.nav-link-3d { 
-    padding: 15px 25px; 
-    background: var(--accent-blue); 
-    color: white; 
-    text-decoration: none; 
-    border-radius: 12px; 
-    font-weight: bold;
-    min-width: 130px; 
-    text-align: center;
-    box-shadow: 0 5px 0 var(--shadow-blue); /* تأثير البروز */
-    transition: 0.2s;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--dark-blue);
+    margin: 25px 0 10px 0;
+    display: flex;
+    align-items: center;
     gap: 8px;
 }
-.nav-link-3d:hover { 
-    transform: translateY(-2px); 
-    box-shadow: 0 7px 0 var(--shadow-blue); 
-}
-.nav-link-3d:active { 
-    transform: translateY(3px); 
-    box-shadow: 0 2px 0 var(--shadow-blue); 
-}
-.nav-link-3d i { 
-    font-size: 1.8rem; 
-}
 
-/* 4. شريط الآية بالإطار الذهبي والخط العثماني */
-.quran-strip-gold {
-    background: rgba(255, 255, 255, 0.5); 
-    margin: 30px auto;
-    width: 92%;
-    padding: 15px 0;
+/* ====== الفوتر ====== */
+footer {
     text-align: center;
-    backdrop-filter: blur(5px);
-    border-top: 3px double var(--gold-color);
-    border-bottom: 3px double var(--gold-color);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
-}
-.quran-text {
-    font-family: 'Amiri', serif; /* الخط العثماني */
-    font-size: 2.2rem; 
-    color: #8a6d3b; /* بني ذهبي فخم */
-    font-weight: 700;
-    display: block;
-}
-
-/* 5. شريط الكتب والأسهم (الموسع) */
-.books-container-wide { 
-    width: 96%; 
-    margin: 30px auto; 
-}
-.books-container-wide h3 { 
-    color: var(--dark-blue); 
-    margin-bottom: 15px; 
-    font-weight: 900;
-    padding-right: 10px;
-}
-.slider-wrapper {
-    display: flex; 
-    align-items: center; 
-    background: rgba(255, 255, 255, 0.3);
-    padding: 20px 10px; 
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.5);
-}
-.arrow { 
-    font-size: 40px; 
-    color: var(--dark-blue); 
-    cursor: pointer; 
-    transition: 0.3s; 
-    z-index: 10;
-    padding: 0 10px;
-}
-.arrow:hover { 
-    color: var(--accent-blue); 
-    transform: scale(1.2); 
-}
-.books-scroll {
-    display: flex; 
-    gap: 20px; 
-    overflow-x: auto; 
-    scroll-behavior: smooth; 
-    flex: 1; 
-    padding: 15px 5px;
-}
-.books-scroll::-webkit-scrollbar { 
-    display: none; /* إخفاء شريط التمرير الافتراضي */
-}
-.book-img {
-    width: 150px; 
-    height: 215px; 
-    object-fit: cover;
-    border-radius: 10px; 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    border: 3px solid #fff; 
-    transition: 0.3s;
-}
-.book-img:hover { 
-    transform: scale(1.05) rotate(1deg); 
-}
-
-/* 6. وسائل التواصل الاجتماعي */
-.social-section { 
-    text-align: center; 
-    padding: 30px 0; 
-}
-.social-flex { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-}
-.s-icon { 
-    font-size: 26px; 
-    color: white; 
-    width: 55px; 
-    height: 55px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    text-decoration: none; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-.s-icon:hover { 
-    transform: translateY(-5px); 
-}
-.fb { background: #1877F2; } 
-.wa { background: #25D366; } 
-.tg { background: #229ED9; }
-
-/* 7. الشريط الأسفل (الفوتر الموحد) */
-.footer-rights {
-    background: var(--header-bg); 
-    color: var(--dark-blue); 
-    text-align: center;
-    padding: 25px; 
-    font-weight: bold;
-    border-top: 4px solid #ffffff;
-    font-size: 1rem;
-}
-/* تنسيق شبكة الدروس */
-.lessons-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-/* تنسيق الأيقونات الموحد */
-.icon-box {
-    width: 60px;
-    height: 60px;
-    background: #f0f7ff; /* خلفية خفيفة جداً */
-    border-radius: 50%; /* أيقونة دائرية متوحدة */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem; /* حجم موحد للأيقونة داخل الدائرة */
-    color: #2c5d87;
-    margin-left: 15px;
-    flex-shrink: 0;
-}
-
-/* تنسيق بطاقة الدرس */
-.lesson-card {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    border-right: 5px solid #87ceeb;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-.lesson-card:hover {
-    transform: translateY(-5px);
-    border-right-color: #2c5d87;
+    padding: 40px;
+    color: #888;
+    font-size: 0.95rem;
 }
