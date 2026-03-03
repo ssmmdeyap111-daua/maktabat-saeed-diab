@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/</loc>
-    <lastmod>2026-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/index.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/articles.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/article1.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/article2.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/article3.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/article4.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/article5.html</loc></url>
 
-  <url>
-    <loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/books.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/aqidah.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/tawheed.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/fiqh.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/faraid.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/raqaiq.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/zuhd.html</loc></url>
+
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/quran_sciences.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/tafseer.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/tafseer-fatiha.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/tafseer-baqara.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/tafseer-baqara-final.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/tafseer-aal-imran.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/baqara-new.html</loc></url>
+
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/hadith.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/seerah.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/lessons.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/khutbah.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/search.html</loc></url>
+  <url><loc>https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/contact.html</loc></url>
 
 </urlset>
