@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دروس التفسير - الشيخ سعيد مصطفى دياب</title>
+    <title>تفسير القرآن - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -17,19 +17,19 @@
         .accordion-item { background: white; border-radius: 15px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
         .accordion-header { padding: 20px; background: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; font-weight: 900; color: var(--dark-blue); font-size: 1.3rem; }
         .accordion-header:hover { background: #f0faff; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: #f9fbfd; border-top: 1px solid #eee; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #f9fbfd; border-top: 1px solid #eee; }
         .lessons-list { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
         .lesson-card { background: white; padding: 10px; border-radius: 8px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
         audio { height: 28px; width: 140px; }
         .dl-icon { color: #27ae60; text-decoration: none; }
-        .active .accordion-content { max-height: 5000px; padding-bottom: 20px; }
+        .active .accordion-content { max-height: 10000px; padding-bottom: 20px; }
         .active i.fa-chevron-down { transform: rotate(180deg); }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1>دروس التفسير</h1>
+    <h1>تفسير القرآن الكريم</h1>
 </header>
 
 <div class="nav-bar">
@@ -37,28 +37,46 @@
     <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
 </div>
 
-<div class="container">
-    <!-- مثال لسلسلة تفسيرية -->
+<div class="container" id="tafseer-container">
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-book"></i> تفسير سورة البقرة (20 درساً)</span>
+            <span><i class="fas fa-book-quran"></i> سورة الفاتحة (درسان)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="accordion-content">
-            <div class="lessons-list" id="baqara-list"></div>
-        </div>
+        <div class="accordion-content"><div class="lessons-list" id="fatiha-list"></div></div>
     </div>
 
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-star"></i> تفسير سورة آل عمران (18 درساً)</span>
+            <span><i class="fas fa-book-quran"></i> سورة البقرة (75 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="accordion-content">
-            <div class="lessons-list" id="imran-list"></div>
-        </div>
+        <div class="accordion-content"><div class="lessons-list" id="bakara-list"></div></div>
     </div>
 
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-book-quran"></i> سورة آل عمران (52 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content"><div class="lessons-list" id="imran-list"></div></div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-book-quran"></i> سورة النساء (53 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content"><div class="lessons-list" id="nesa-list"></div></div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-book-quran"></i> سورة المائدة (34 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content"><div class="lessons-list" id="maeda-list"></div></div>
+    </div>
 </div>
 
 <script>
@@ -71,26 +89,28 @@
         if(!container) return;
         let html = '';
         for (let i = 1; i <= count; i++) {
+            // استخدام الشرطة في التسمية كما في الأمثلة التي ذكرتها
+            const fileName = `audio/${prefix}-${i}.mp3`;
             html += `
             <div class="lesson-card">
                 <span>درس ${i}</span>
                 <audio controls preload="none">
-                    <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                    <source src="${fileName}" type="audio/mpeg">
                 </audio>
-                <a href="audio/${prefix}-${i}.mp3" download class="dl-icon"><i class="fas fa-download"></i></a>
+                <a href="${fileName}" download class="dl-icon"><i class="fas fa-download"></i></a>
             </div>`;
         }
         container.innerHTML = html;
     }
 
-    // توليد الدروس
-    generate('baqara-list', 'baqara', 20); // ضع هنا عدد ملفاتك الحقيقية
-    generate('imran-list', 'imran', 18);   // ضع هنا عدد ملفاتك الحقيقية
+    window.onload = function() {
+        generate('fatiha-list', 'fatiha', 2);
+        generate('bakara-list', 'bakara', 75);
+        generate('imran-list', 'al-emran', 52);
+        generate('nesa-list', 'al-nesa', 53);
+        generate('maeda-list', 'al-maeda', 34);
+    };
 </script>
-
-<footer style="text-align: center; padding: 40px; color: #888;">
-    جميع الحقوق محفوظة &copy; 2026
-</footer>
 
 </body>
 </html>
