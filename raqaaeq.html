@@ -75,30 +75,39 @@
         header.parentElement.classList.toggle('active');
     }
 
-    function generateLessons(id, prefix, count, extension = 'mp3') {
+    // وظيفة عامة لتوليد الدروس تدعم الشرطة أو عدمها
+    function generate(id, prefix, count, hasDash, extension) {
         const container = document.getElementById(id);
         if (!container) return;
         let html = '';
+        const separator = hasDash ? '-' : ''; // إضافة شرطة إذا كان hasDash صحيحاً
         for (let i = 1; i <= count; i++) {
-            const fileUrl = `audio/${prefix}-${i}.${extension}`;
+            const fileName = `audio/${prefix}${separator}${i}.${extension}`;
             html += `
             <div class="lesson-card">
                 <span>الدرس ${i}</span>
                 <audio controls preload="none">
-                    <source src="${fileUrl}" type="audio/mpeg">
+                    <source src="${fileName}" type="audio/mpeg">
                 </audio>
-                <a href="${fileUrl}" download class="dl-icon"><i class="fas fa-cloud-download-alt"></i></a>
+                <a href="${fileName}" download class="dl-icon"><i class="fas fa-cloud-download-alt"></i></a>
             </div>`;
         }
         container.innerHTML = html;
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        generateLessons('azkar-list', 'al-azkar', 30);
-        generateLessons('mahba-list', 'mahba', 30);
-        generateLessons('mkarem-list', 'mkarem', 40, 'MP3'); // حروف كبيرة للصيغة
-        generateLessons('ganah-list', 'wasf-algana', 15, 'MP3'); // حروف كبيرة للصيغة
-    });
+    window.onload = function() {
+        // أنوار الأذكار (بشرطة): al-azkar-17.mp3
+        generate('azkar-list', 'al-azkar', 30, true, 'mp3');
+        
+        // محبة الله (بشرطة): mahba-2.mp3
+        generate('mahba-list', 'mahba', 30, true, 'mp3');
+        
+        // مكارم الأخلاق (بشرطة وصيغة كبيرة): mkarem-22.MP3
+        generate('mkarem-list', 'mkarem', 40, true, 'MP3');
+        
+        // وصف الجنة (بشرطة وصيغة كبيرة): wasf-algana-14.MP3
+        generate('ganah-list', 'wasf-algana', 15, true, 'MP3');
+    };
 </script>
 
 </body>
