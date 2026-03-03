@@ -1,75 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دروس الفرائض - الشيخ سعيد مصطفى دياب</title>
-    <!-- ربط ملف CSS الموحد -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الفرائض - الشيخ سعيد مصطفى دياب</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
-<!-- سيتم إدراج header.html تلقائيًا -->
-<div id="content">
-    <div class="container">
-
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span><i class="fas fa-book"></i> شرح متن الفرائض الكبرى (12 درساً)</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="accordion-content">
-                <div class="lessons-list" id="foradh-list"></div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span><i class="fas fa-scroll"></i> شرح متن الفرائض الصغرى (10 درساً)</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="accordion-content">
-                <div class="lessons-list" id="foradh-soghla-list"></div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<script>
-    // تفعيل Accordion
-    function toggleAccordion(header) {
-        header.parentElement.classList.toggle('active');
-    }
-
-    // توليد الدروس
-    function generate(id, prefix, count) {
-        const container = document.getElementById(id);
-        let html = '';
-        for (let i = 1; i <= count; i++) {
-            html += `
-            <div class="lesson-card">
-                <span>الدرس ${i}</span>
-                <audio controls preload="none">
-                    <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
-                </audio>
-                <a href="audio/${prefix}-${i}.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
-            </div>`;
-        }
-        container.innerHTML = html;
-    }
-
-    // توليد السلاسل
-    generate('foradh-list', 'foradh-kubra', 12);
-    generate('foradh-soghla-list', 'foradh-sughra', 10);
-</script>
-
-<footer style="text-align: center; padding: 40px; color: #888;">
-    جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
-</footer>
-
-<!-- إدراج Header المشترك -->
+<!-- الهيدر -->
 <script>
 fetch('header.html')
   .then(response => response.text())
@@ -77,6 +19,58 @@ fetch('header.html')
     document.body.insertAdjacentHTML('afterbegin', data);
   });
 </script>
+
+<div id="content">
+
+<div class="section-title">
+    <h2>الفرائض</h2>
+</div>
+
+<div class="container">
+
+    <!-- شرح الرحبية -->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-book-open"></i> شرح متن الرحبية (11 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="rahbiya-list"></div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+function toggleAccordion(header) {
+    header.parentElement.classList.toggle('active');
+}
+
+function generate(id, prefix, count) {
+    const container = document.getElementById(id);
+    let html = '';
+    for (let i = 1; i <= count; i++) {
+        html += `
+        <div class="lesson-card">
+            <span>الدرس ${i}</span>
+            <audio controls preload="none">
+                <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+            </audio>
+            <a href="audio/${prefix}-${i}.mp3" download class="download-btn">
+                <i class="fas fa-download"></i>
+            </a>
+        </div>`;
+    }
+    container.innerHTML = html;
+}
+
+generate('rahbiya-list', 'rahbiya', 11);
+</script>
+
+<footer class="main-footer">
+جميع الحقوق محفوظة © 2026
+</footer>
 
 </body>
 </html>
