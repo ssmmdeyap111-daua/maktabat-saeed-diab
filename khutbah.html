@@ -1,62 +1,97 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الخطب المنبرية - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --light-sky: #eef5ff; --bright-blue: #87ceeb; --dark-blue: #2c5d87; --shadow-color: #5da0bc; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); direction: rtl; }
-        
-        .site-header { 
-            text-align: center; 
-            padding: 60px 20px; 
-            background: linear-gradient(to right, #add8e6, #e0f2f7); 
-            border-bottom: 6px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .site-header h1 { margin: 0; font-size: 2.5rem; color: var(--dark-blue); font-weight: 900; }
-        
-        .nav-bar { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; gap: 10px; }
-        
-        .btn-3d { 
-            padding: 12px 25px; background: white; border-radius: 15px;
-            text-decoration: none; color: var(--dark-blue); font-weight: bold;
-            box-shadow: 0 5px 0 var(--shadow-color); transition: 0.1s;
-            display: flex; align-items: center; justify-content: center; min-width: 120px;
-        }
-        .btn-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--shadow-color); }
-        .active-btn { background: var(--bright-blue); color: white; box-shadow: 0 5px 0 var(--dark-blue); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخطب المنبرية - الشيخ سعيد مصطفى دياب</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root {
+    --light-sky: #eef5ff; 
+    --bright-blue: #87ceeb; 
+    --dark-blue: #2c5d87; 
+    --shadow-color: #5da0bc;
+}
+body {
+    margin: 0; 
+    font-family: 'Cairo', sans-serif; 
+    background: var(--light-sky); 
+    direction: rtl;
+}
 
-        .container { max-width: 900px; margin: 20px auto; padding: 15px; }
-        .section-title { color: var(--dark-blue); border-bottom: 3px solid var(--bright-blue); padding-bottom: 10px; margin: 40px 0 20px; font-weight: 900; display: flex; align-items: center; gap: 10px; }
+.site-header { 
+    text-align: center; 
+    padding: 60px 20px; 
+    background: linear-gradient(to right, #add8e6, #e0f2f7); 
+    border-bottom: 6px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.site-header h1 { 
+    margin: 0; font-size: 2.5rem; color: var(--dark-blue); font-weight: 900; 
+}
 
-        .khutbah-item {
-            background: white;
-            margin-bottom: 12px;
-            padding: 15px 20px;
-            border-radius: 12px;
-            border-right: 6px solid var(--bright-blue);
-            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .khutbah-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.1rem; }
-        .khutbah-controls { display: flex; align-items: center; gap: 15px; }
-        audio { height: 35px; width: 220px; }
-        .download-btn { text-decoration: none; color: #27ae60; font-size: 1.4rem; transition: 0.2s; }
-        .download-btn:hover { transform: scale(1.2); }
+.nav-bar { 
+    display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; gap: 10px; 
+}
 
-        @media (max-width: 600px) {
-            .khutbah-item { flex-direction: column; text-align: center; }
-            audio { width: 100%; }
-        }
-    </style>
+.btn-3d { 
+    padding: 12px 25px; background: white; border-radius: 15px;
+    text-decoration: none; color: var(--dark-blue); font-weight: bold;
+    box-shadow: 0 5px 0 var(--shadow-color); transition: 0.1s;
+    display: flex; align-items: center; justify-content: center; min-width: 120px;
+}
+.btn-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--shadow-color); }
+.active-btn { background: var(--bright-blue); color: white; box-shadow: 0 5px 0 var(--dark-blue); }
+
+.container { max-width: 900px; margin: 20px auto; padding: 15px; }
+.section-title { color: var(--dark-blue); border-bottom: 3px solid var(--bright-blue); padding-bottom: 10px; margin: 40px 0 20px; font-weight: 900; display: flex; align-items: center; gap: 10px; }
+
+.accordion-item {
+    background: white;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border-right: 6px solid var(--bright-blue);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+.accordion-header:hover { background: #f0f8ff; }
+
+.accordion-body {
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.accordion-body .khutbah-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+}
+
+audio { height: 35px; width: 220px; }
+.download-btn { text-decoration: none; color: #27ae60; font-size: 1.4rem; transition: 0.2s; }
+.download-btn:hover { transform: scale(1.2); }
+
+@media (max-width: 600px) {
+    audio { width: 100%; }
+    .accordion-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+    .accordion-body .khutbah-controls { flex-direction: column; gap: 10px; }
+}
+</style>
 </head>
 <body>
 
@@ -72,55 +107,67 @@
 </div>
 
 <div class="container">
-    
-    <h2 class="section-title"><i class="fas fa-moon"></i> خطب شهر رمضان المبارك</h2>
-    
-    <div class="khutbah-item">
-        <div class="khutbah-info"><h3>كيف نستقبل شهر رمضان؟</h3></div>
-        <div class="khutbah-controls">
-            <audio controls preload="none"><source src="audio/ramadan.mp3" type="audio/mpeg"></audio>
-            <a href="audio/ramadan.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
-        </div>
-    </div>
 
-    <div class="khutbah-item">
-        <div class="khutbah-info"><h3>رمضان شهر القرآن</h3></div>
-        <div class="khutbah-controls">
-            <audio controls preload="none"><source src="audio/shahr-alqoran.mp3" type="audio/mpeg"></audio>
-            <a href="audio/shahr-alqoran.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
-        </div>
-    </div>
+    <h2 class="section-title"><i class="fas fa-moon"></i> خطب شهر رمضان المبارك</h2>
+    <div id="ramadan-accordion"></div>
 
     <h2 class="section-title"><i class="fas fa-history"></i> سلسلة علامات الساعة (30 خطبة)</h2>
-    <div id="series-container"></div>
+    <div id="series-accordion"></div>
 
     <h2 class="section-title"><i class="fas fa-microphone"></i> خطب متنوعة</h2>
-    <div class="khutbah-item">
-        <div class="khutbah-info"><h3>أهمية السعي في طلب الرزق</h3></div>
-        <div class="khutbah-controls">
-            <audio controls preload="none"><source src="audio/alsai.mp3" type="audio/mpeg"></audio>
-            <a href="audio/alsai.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
-        </div>
-    </div>
+    <div id="misc-accordion"></div>
 
 </div>
 
 <script>
-    // توليد سلسلة علامات الساعة تلقائياً
-    const container = document.getElementById('series-container');
-    let htmlContent = '';
-    for (let i = 1; i <= 30; i++) {
-        let num = i < 10 ? '0' + i : i;
-        htmlContent += `
-        <div class="khutbah-item">
-            <div class="khutbah-info"><h3>علامات الساعة - الخطبة رقم (${num})</h3></div>
-            <div class="khutbah-controls">
-                <audio controls preload="none"><source src="audio/alamat-${num}.mp3" type="audio/mpeg"></audio>
-                <a href="audio/alamat-${num}.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
+function createAccordion(containerId, khutbahs) {
+    const container = document.getElementById(containerId);
+    let html = '';
+    khutbahs.forEach((item, index) => {
+        html += `
+        <div class="accordion-item">
+            <div class="accordion-header">
+                ${item.title} <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-body">
+                <div class="khutbah-controls">
+                    <audio controls preload="none"><source src="${item.audio}" type="audio/mpeg"></audio>
+                    <a href="${item.audio}" download class="download-btn"><i class="fas fa-file-download"></i></a>
+                </div>
             </div>
         </div>`;
-    }
-    container.innerHTML = htmlContent;
+    });
+    container.innerHTML = html;
+
+    // إضافة وظيفة الطي/الفتح
+    container.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const body = header.nextElementSibling;
+            const currentlyOpen = container.querySelector('.accordion-body[style*="max-height"]');
+            if (currentlyOpen && currentlyOpen !== body) currentlyOpen.style.maxHeight = null;
+            body.style.maxHeight = body.style.maxHeight ? null : body.scrollHeight + 'px';
+        });
+    });
+}
+
+// خطب رمضان
+createAccordion('ramadan-accordion', [
+    {title: 'كيف نستقبل شهر رمضان؟', audio: 'audio/ramadan.mp3'},
+    {title: 'رمضان شهر القرآن', audio: 'audio/shahr-alqoran.mp3'}
+]);
+
+// سلسلة علامات الساعة
+const seriesKhutbahs = [];
+for (let i=1; i<=30; i++){
+    let num = i < 10 ? '0'+i : i;
+    seriesKhutbahs.push({title:`علامات الساعة - الخطبة رقم (${num})`, audio:`audio/alamat-${num}.mp3`});
+}
+createAccordion('series-accordion', seriesKhutbahs);
+
+// خطب متنوعة
+createAccordion('misc-accordion', [
+    {title: 'أهمية السعي في طلب الرزق', audio:'audio/alsai.mp3'}
+]);
 </script>
 
 </body>
