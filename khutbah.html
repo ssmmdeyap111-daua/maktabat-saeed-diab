@@ -45,7 +45,7 @@ body {
 .active-btn { background: var(--bright-blue); color: white; box-shadow: 0 5px 0 var(--dark-blue); }
 
 .container { max-width: 900px; margin: 20px auto; padding: 15px; }
-.section-title { color: var(--dark-blue); border-bottom: 3px solid var(--bright-blue); padding-bottom: 10px; margin: 40px 0 20px; font-weight: 900; display: flex; align-items: center; gap: 10px; }
+.section-title { color: var(--dark-blue); border-bottom: 3px solid var(--bright-blue); padding-bottom: 10px; margin: 40px 0 20px; font-weight: 900; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
 
 .accordion-item {
     background: white;
@@ -64,9 +64,12 @@ body {
     align-items: center;
     font-weight: 700;
     color: var(--dark-blue);
+    gap: 10px;
 }
 
 .accordion-header:hover { background: #f0f8ff; }
+
+.accordion-header i.section-icon { font-size: 1.2rem; }
 
 .accordion-body {
     max-height: 0;
@@ -88,7 +91,7 @@ audio { height: 35px; width: 220px; }
 
 @media (max-width: 600px) {
     audio { width: 100%; }
-    .accordion-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+    .accordion-header { flex-direction: row; align-items: center; gap: 8px; }
     .accordion-body .khutbah-controls { flex-direction: column; gap: 10px; }
 }
 </style>
@@ -120,14 +123,15 @@ audio { height: 35px; width: 220px; }
 </div>
 
 <script>
-function createAccordion(containerId, khutbahs) {
+function createAccordion(containerId, khutbahs, icon) {
     const container = document.getElementById(containerId);
     let html = '';
     khutbahs.forEach((item, index) => {
         html += `
         <div class="accordion-item">
             <div class="accordion-header">
-                ${item.title} <i class="fas fa-chevron-down"></i>
+                <span><i class="section-icon">${icon}</i> ${item.title}</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
             <div class="accordion-body">
                 <div class="khutbah-controls">
@@ -139,7 +143,6 @@ function createAccordion(containerId, khutbahs) {
     });
     container.innerHTML = html;
 
-    // إضافة وظيفة الطي/الفتح
     container.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
             const body = header.nextElementSibling;
@@ -150,24 +153,24 @@ function createAccordion(containerId, khutbahs) {
     });
 }
 
-// خطب رمضان
+// خطب رمضان 🌙
 createAccordion('ramadan-accordion', [
     {title: 'كيف نستقبل شهر رمضان؟', audio: 'audio/ramadan.mp3'},
     {title: 'رمضان شهر القرآن', audio: 'audio/shahr-alqoran.mp3'}
-]);
+], '🌙');
 
-// سلسلة علامات الساعة
+// سلسلة علامات الساعة ⏳
 const seriesKhutbahs = [];
 for (let i=1; i<=30; i++){
     let num = i < 10 ? '0'+i : i;
     seriesKhutbahs.push({title:`علامات الساعة - الخطبة رقم (${num})`, audio:`audio/alamat-${num}.mp3`});
 }
-createAccordion('series-accordion', seriesKhutbahs);
+createAccordion('series-accordion', seriesKhutbahs, '⏳');
 
-// خطب متنوعة
+// خطب متنوعة 🎤
 createAccordion('misc-accordion', [
     {title: 'أهمية السعي في طلب الرزق', audio:'audio/alsai.mp3'}
-]);
+], '🎤');
 </script>
 
 </body>
