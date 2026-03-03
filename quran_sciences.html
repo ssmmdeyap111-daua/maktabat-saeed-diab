@@ -19,7 +19,6 @@
 
 <div class="container">
 
-    <!-- ناسخ الحديث ومنسوخه -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <span><i class="fas fa-book-open"></i> ناسخ الحديث ومنسوخه (10 دروس)</span>
@@ -30,7 +29,6 @@
         </div>
     </div>
 
-    <!-- أصول التفسير -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <span><i class="fas fa-book"></i> أصول التفسير (27 درسًا)</span>
@@ -43,6 +41,10 @@
 
 </div>
 </div>
+
+<footer class="main-footer">
+جميع الحقوق محفوظة © 2026
+</footer>
 
 <script>
 function toggleAccordion(header) {
@@ -69,13 +71,7 @@ function generate(id, prefix, count) {
 
 generate('nasekh-list', 'nasekh', 10);
 generate('osol-list', 'osol-altfser', 27);
-</script>
 
-<footer class="main-footer">
-جميع الحقوق محفوظة © 2026
-</footer>
-
-<script>
 window.addEventListener("load", function() {
   fetch('header.html')
     .then(response => response.text())
