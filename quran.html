@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>علوم القرآن - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 
+<header class="site-header">
+    <h1>دروس علوم القرآن</h1>
+</header>
+
+<div class="nav-bar">
+    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> الفهرس</a>
+    <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
+</div>
+
+<div class="container">
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-scroll"></i> منظومة الناسخ والمنسوخ (10 دروس)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="naskh-list"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleAccordion(header) {
+        header.parentElement.classList.toggle('active');
+    }
+
+    function generate(id, prefix, count) {
+        const container = document.getElementById(id);
+        if (!container) return;
+        let html = '';
+        for (let i = 1; i <= count; i++) {
+            html += `
+            <div class="lesson-card">
+                <span>درس ${i}</span>
+                <audio controls preload="none">
+                    <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                </audio>
+                <a href="audio/${prefix}-${i}.mp3" download class="dl-icon"><i class="fas fa-download"></i></a>
+            </div>`;
+        }
+        container.innerHTML = html;
+    }
+
+    window.onload = function() {
+        generate('naskh-list', 'naskh', 10);
+    };
+</script>
+
+<footer style="text-align: center; padding: 40px; color: #888;">
+    جميع الحقوق محفوظة &copy; 2026
+</footer>
+
+</body>
+</html>
