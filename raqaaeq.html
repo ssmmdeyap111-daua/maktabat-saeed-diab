@@ -19,8 +19,8 @@
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); background: #fafcfe; }
         .active .accordion-content { max-height: 10000px; }
         .lessons-list { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-        .lesson-card { background: var(--white); padding: 15px; border-radius: 12px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
-        audio { height: 32px; width: 150px; }
+        .lesson-card { background: var(--white); padding: 10px; border-radius: 12px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
+        audio { height: 30px; width: 140px; }
         .dl-icon { color: #2ecc71; text-decoration: none; font-size: 1.2rem; }
         .active .fa-chevron-down { transform: rotate(180deg); color: var(--gold); }
     </style>
@@ -39,12 +39,34 @@
 <div class="container">
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-heart" style="margin-left:10px; color:#e74c3c;"></i> منهاج القاصدين</span>
+            <span><i class="fas fa-pray" style="margin-left:10px; color:var(--gold);"></i> أنوار الأذكار (30 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="accordion-content">
-            <div class="lessons-list" id="raq-list"></div>
+        <div class="accordion-content"><div class="lessons-list" id="azkar-list"></div></div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-heart" style="margin-left:10px; color:#e74c3c;"></i> أسباب محبة الله للعباد (30 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
+        <div class="accordion-content"><div class="lessons-list" id="mahba-list"></div></div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-star" style="margin-left:10px; color:#3498db;"></i> مكارم الأخلاق (40 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content"><div class="lessons-list" id="mkarem-list"></div></div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-cloud-sun" style="margin-left:10px; color:#2ecc71;"></i> وصف الجنة ونعيمها (15 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content"><div class="lessons-list" id="ganah-list"></div></div>
     </div>
 </div>
 
@@ -53,13 +75,12 @@
         header.parentElement.classList.toggle('active');
     }
 
-    function generateLessons(id, prefix, count) {
+    function generateLessons(id, prefix, count, extension = 'mp3') {
         const container = document.getElementById(id);
         if (!container) return;
         let html = '';
         for (let i = 1; i <= count; i++) {
-            // التسمية الملتصقة بالرقم
-            const fileUrl = `audio/${prefix}${i}.mp3`;
+            const fileUrl = `audio/${prefix}-${i}.${extension}`;
             html += `
             <div class="lesson-card">
                 <span>الدرس ${i}</span>
@@ -73,8 +94,10 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-        // غيّر 'raq' إلى الاسم الحقيقي لملفاتك في مجلد audio
-        generateLessons('raq-list', 'raq', 10);
+        generateLessons('azkar-list', 'al-azkar', 30);
+        generateLessons('mahba-list', 'mahba', 30);
+        generateLessons('mkarem-list', 'mkarem', 40, 'MP3'); // حروف كبيرة للصيغة
+        generateLessons('ganah-list', 'wasf-algana', 15, 'MP3'); // حروف كبيرة للصيغة
     });
 </script>
 
