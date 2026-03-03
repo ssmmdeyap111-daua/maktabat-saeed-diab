@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>علوم القرآن - الشيخ سعيد مصطفى دياب</title>
+    <title>الرّقائق - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -19,17 +19,18 @@
         .accordion-header:hover { background: #f0faff; }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #f9fbfd; border-top: 1px solid #eee; }
         .lessons-list { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
-        .lesson-card { background: white; padding: 10px; border-radius: 8px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
+        .lesson-card { background: white; padding: 10px; border-radius: 8px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; cursor: pointer; }
+        .lesson-card:hover { background: #f0faff; }
         audio { height: 28px; width: 140px; }
         .dl-icon { color: #27ae60; text-decoration: none; }
-        .active .accordion-content { max-height: 2000px; padding-bottom: 20px; }
+        .active .accordion-content { max-height: 3000px; padding-bottom: 20px; }
         .active i.fa-chevron-down { transform: rotate(180deg); }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1>دروس علوم القرآن</h1>
+    <h1>الرّقائق - دروس روحانية</h1>
 </header>
 
 <div class="nav-bar">
@@ -38,15 +39,27 @@
 </div>
 
 <div class="container">
+
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-scroll"></i> منظومة الناسخ والمنسوخ (10 دروس)</span>
+            <span><i class="fas fa-heart"></i> سلسلة الرّقائق الأولى (15 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
         <div class="accordion-content">
-            <div class="lessons-list" id="naskh-list"></div>
+            <div class="lessons-list" id="raqaa-1-list"></div>
         </div>
     </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-feather-alt"></i> سلسلة الرّقائق الثانية (12 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="lessons-list" id="raqaa-2-list"></div>
+        </div>
+    </div>
+
 </div>
 
 <script>
@@ -72,10 +85,14 @@
     }
 
     window.onload = function() {
-        // تأكد أن ملفات الصوت تبدأ بـ naskh-1.mp3
-        generate('naskh-list', 'naskh', 10);
+        generate('raqaa-1-list', 'raqaa1', 15); // عدّل prefix وعدد الدروس حسب ملفاتك
+        generate('raqaa-2-list', 'raqaa2', 12);
     };
 </script>
+
+<footer style="text-align: center; padding: 40px; color: #888;">
+    جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
+</footer>
 
 </body>
 </html>
