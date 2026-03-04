@@ -4,111 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الرقائق والزهد - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --light-sky: #eef5ff; --dark-blue: #2c5d87; --gold: #d4af37; --white: #ffffff; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); color: #333; }
-        .site-header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #add8e6 0%, #e0f2f7 100%); border-bottom: 5px solid var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.5rem; }
-        .nav-bar { display: flex; justify-content: center; padding: 25px; gap: 15px; flex-wrap: wrap; }
-        .btn-3d { padding: 12px 25px; background: var(--white); border-radius: 15px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 #5da0bc; transition: all 0.2s; display: flex; align-items: center; gap: 10px; border: 1px solid #d0e4ff; }
-        .container { max-width: 900px; margin: 10px auto 50px; padding: 15px; }
-        .accordion-item { background: var(--white); border-radius: 20px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 6px 15px rgba(44, 93, 135, 0.08); border: 1px solid #e1e8ed; }
-        .accordion-header { padding: 25px; background: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; font-weight: 900; color: var(--dark-blue); font-size: 1.4rem; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); background: #fafcfe; }
-        .active .accordion-content { max-height: 10000px; }
-        .lessons-list { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-        .lesson-card { background: var(--white); padding: 10px; border-radius: 12px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
-        audio { height: 30px; width: 140px; }
-        .dl-icon { color: #2ecc71; text-decoration: none; font-size: 1.2rem; }
-        .active .fa-chevron-down { transform: rotate(180deg); color: var(--gold); }
+        :root { --primary: #2c5d87; --gold: #d4af37; --bg: #f4f7f9; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); }
+        .site-header { background: white; padding: 30px; text-align: center; border-bottom: 4px solid var(--primary); }
+        .series-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px; max-width: 1200px; margin: 0 auto; }
+        .series-card { background: white; padding: 25px; border-radius: 20px; text-align: center; text-decoration: none; color: var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .series-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        .series-card i { font-size: 3.5rem; margin-bottom: 15px; display: block; }
+        .series-card h3 { margin: 0; font-size: 1.3rem; font-weight: 900; }
+        .count { background: #f0f4f8; padding: 4px 12px; border-radius: 50px; font-size: 0.8rem; margin-top: 10px; display: inline-block; }
+        .nav-bar { display: flex; justify-content: center; padding: 20px; }
     </style>
 </head>
 <body>
+<header class="site-header"><h1>قسم الرقائق والزهد</h1></header>
+<div class="nav-bar"><a href="lessons.html" style="text-decoration:none; color:var(--primary); font-weight:bold;"><i class="fas fa-arrow-right"></i> العودة للفهرس العام</a></div>
 
-<header class="site-header">
-    <h1>دروس الرقائق والزهد</h1>
-</header>
-
-<div class="nav-bar">
-    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> الفهرس العام</a>
-    <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
+<div class="series-grid">
+    <a href="raq_azkar.html" class="series-card">
+        <i class="fas fa-pray" style="color: #3498db;"></i>
+        <h3>أنوار الأذكار</h3>
+        <span class="count">30 درساً</span>
+    </a>
+    <a href="raq_mahba.html" class="series-card">
+        <i class="fas fa-heart" style="color: #e74c3c;"></i>
+        <h3>أسباب محبة الله</h3>
+        <span class="count">30 درساً</span>
+    </a>
+    <a href="raq_mkarem.html" class="series-card">
+        <i class="fas fa-star" style="color: #f1c40f;"></i>
+        <h3>مكارم الأخلاق</h3>
+        <span class="count">40 درساً</span>
+    </a>
+    <a href="raq_ganah.html" class="series-card">
+        <i class="fas fa-cloud-sun" style="color: #2ecc71;"></i>
+        <h3>وصف الجنة ونعيمها</h3>
+        <span class="count">15 درساً</span>
+    </a>
 </div>
-
-<div class="container">
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-pray" style="margin-left:10px; color:var(--gold);"></i> أنوار الأذكار (30 درساً)</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content"><div class="lessons-list" id="azkar-list"></div></div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-heart" style="margin-left:10px; color:#e74c3c;"></i> أسباب محبة الله للعباد (30 درساً)</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content"><div class="lessons-list" id="mahba-list"></div></div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-star" style="margin-left:10px; color:#3498db;"></i> مكارم الأخلاق (40 درساً)</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content"><div class="lessons-list" id="mkarem-list"></div></div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-cloud-sun" style="margin-left:10px; color:#2ecc71;"></i> وصف الجنة ونعيمها (15 درساً)</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content"><div class="lessons-list" id="ganah-list"></div></div>
-    </div>
-</div>
-
-<script>
-    function toggleAccordion(header) {
-        header.parentElement.classList.toggle('active');
-    }
-
-    // وظيفة عامة لتوليد الدروس تدعم الشرطة أو عدمها
-    function generate(id, prefix, count, hasDash, extension) {
-        const container = document.getElementById(id);
-        if (!container) return;
-        let html = '';
-        const separator = hasDash ? '-' : ''; // إضافة شرطة إذا كان hasDash صحيحاً
-        for (let i = 1; i <= count; i++) {
-            const fileName = `audio/${prefix}${separator}${i}.${extension}`;
-            html += `
-            <div class="lesson-card">
-                <span>الدرس ${i}</span>
-                <audio controls preload="none">
-                    <source src="${fileName}" type="audio/mpeg">
-                </audio>
-                <a href="${fileName}" download class="dl-icon"><i class="fas fa-cloud-download-alt"></i></a>
-            </div>`;
-        }
-        container.innerHTML = html;
-    }
-
-    window.onload = function() {
-        // أنوار الأذكار (بشرطة): al-azkar-17.mp3
-        generate('azkar-list', 'al-azkar', 30, true, 'mp3');
-        
-        // محبة الله (بشرطة): mahba-2.mp3
-        generate('mahba-list', 'mahba', 30, true, 'mp3');
-        
-        // مكارم الأخلاق (بشرطة وصيغة كبيرة): mkarem-22.MP3
-        generate('mkarem-list', 'mkarem', 40, true, 'MP3');
-        
-        // وصف الجنة (بشرطة وصيغة كبيرة): wasf-algana-14.MP3
-        generate('ganah-list', 'wasf-algana', 15, true, 'MP3');
-    };
-</script>
-
 </body>
 </html>
