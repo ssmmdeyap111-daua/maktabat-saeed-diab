@@ -9,42 +9,20 @@
     <style>
         :root { --light-sky: #eef5ff; --dark-blue: #2c5d87; --gold: #d4af37; --white: #ffffff; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); color: #333; }
-        
-        /* الهيدر */
         .site-header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #add8e6 0%, #e0f2f7 100%); border-bottom: 5px solid var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.5rem; text-shadow: 1px 1px 0px var(--white); }
-        
-        /* أزرار التنقل */
+        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.5rem; }
         .nav-bar { display: flex; justify-content: center; padding: 25px; gap: 15px; flex-wrap: wrap; }
         .btn-3d { padding: 12px 25px; background: var(--white); border-radius: 15px; text-decoration: none; color: var(--dark-blue); font-weight: bold; box-shadow: 0 4px 0 #5da0bc; transition: all 0.2s; display: flex; align-items: center; gap: 10px; border: 1px solid #d0e4ff; }
-        .btn-3d:active { transform: translateY(4px); box-shadow: 0 0px 0 #5da0bc; }
-        .btn-3d:hover { background: #f8fdff; }
-
-        /* حاوي الدروس */
         .container { max-width: 900px; margin: 10px auto 50px; padding: 15px; }
         .accordion-item { background: var(--white); border-radius: 20px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 6px 15px rgba(44, 93, 135, 0.08); border: 1px solid #e1e8ed; }
-        
-        /* رأس القائمة */
-        .accordion-header { padding: 25px; background: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; font-weight: 900; color: var(--dark-blue); font-size: 1.4rem; border-bottom: 1px solid transparent; }
-        .accordion-header:hover { background: #f0faff; }
-        .active .accordion-header { border-bottom-color: #eee; background: #f9feff; }
-
-        /* محتوى القائمة */
+        .accordion-header { padding: 25px; background: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; font-weight: 900; color: var(--dark-blue); font-size: 1.4rem; }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); background: #fafcfe; }
-        .active .accordion-content { max-height: 10000px; transition: max-height 1s ease-in-out; }
-        
-        /* شبكة الدروس */
+        .active .accordion-content { max-height: 10000px; }
         .lessons-list { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-        .lesson-card { background: var(--white); padding: 15px; border-radius: 12px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
-        .lesson-card span { font-weight: 700; color: #4a5568; }
-        
-        audio { height: 32px; width: 150px; filter: sepia(20%) saturate(70%) grayscale(1); }
-        .dl-icon { color: #2ecc71; text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
-        .dl-icon:hover { transform: scale(1.2); color: #27ae60; }
-
-        /* أيقونة السهم */
-        .fa-chevron-down { transition: 0.4s; font-size: 1.1rem; opacity: 0.6; }
-        .active .fa-chevron-down { transform: rotate(180deg); opacity: 1; color: var(--gold); }
+        .lesson-card { background: var(--white); padding: 10px; border-radius: 12px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
+        audio { height: 30px; width: 140px; }
+        .dl-icon { color: #2ecc71; text-decoration: none; font-size: 1.2rem; }
+        .active .fa-chevron-down { transform: rotate(180deg); color: var(--gold); }
     </style>
 </head>
 <body>
@@ -59,51 +37,51 @@
 </div>
 
 <div class="container">
-    <div class="accordion-item" id="akhasar-section">
+    <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i class="fas fa-book-open" style="margin-left:10px; color:var(--gold);"></i> شرح أخصر المختصرات (26 درساً)</span>
+            <span><i class="fas fa-book" style="margin-left:10px; color:var(--gold);"></i> بداية العابد وكفاية الزاهد (24 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="accordion-content">
-            <div class="lessons-list" id="akhasar-list">
-                </div>
+        <div class="accordion-content"><div class="lessons-list" id="bedayt-list"></div></div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-scroll" style="margin-left:10px; color:var(--gold);"></i> شرح أخصر المختصرات (26 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
+        <div class="accordion-content"><div class="lessons-list" id="akhasar-list"></div></div>
     </div>
 </div>
 
 <script>
-    // وظيفة الفتح والإغلاق
     function toggleAccordion(header) {
-        const item = header.parentElement;
-        item.classList.toggle('active');
+        header.parentElement.classList.toggle('active');
     }
 
-    // وظيفة توليد الدروس
-    function generateLessons(id, prefix, count) {
+    function generate(id, prefix, count) {
         const container = document.getElementById(id);
         if (!container) return;
-        
         let html = '';
         for (let i = 1; i <= count; i++) {
-            const fileUrl = `audio/${prefix}-${i}.mp3`;
+            // التعديل هنا ليكون الاسم دائماً بشرطة كما طلبت: prefix-1.mp3
+            const fileName = `audio/${prefix}-${i}.mp3`;
             html += `
             <div class="lesson-card">
                 <span>الدرس ${i}</span>
                 <audio controls preload="none">
-                    <source src="${fileUrl}" type="audio/mpeg">
+                    <source src="${fileName}" type="audio/mpeg">
                 </audio>
-                <a href="${fileUrl}" download title="تحميل الدرس" class="dl-icon">
-                    <i class="fas fa-cloud-download-alt"></i>
-                </a>
+                <a href="${fileName}" download class="dl-icon"><i class="fas fa-cloud-download-alt"></i></a>
             </div>`;
         }
         container.innerHTML = html;
     }
 
-    // التنفيذ عند تحميل الصفحة
-    window.addEventListener('DOMContentLoaded', () => {
-        generateLessons('akhasar-list', 'akhasar', 26);
-    });
+    window.onload = function() {
+        generate('bedayt-list', 'bedayt', 24);
+        generate('akhasar-list', 'akhasar', 26);
+    };
 </script>
 
 </body>
