@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أخصر المختصرات - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary-blue: #2c5d87; --bg: #f8fafc; --white: #ffffff; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); }
+        
+        .site-header { background: var(--white); padding: 20px; text-align: center; border-bottom: 3px solid var(--primary-blue); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .container { width: 98%; max-width: 1600px; margin: 20px auto; }
+        
+        /* السطر العريض */
+        .lesson-row {
+            display: flex; align-items: center; background: var(--white); 
+            margin-bottom: 8px; padding: 15px 30px; border-radius: 10px;
+            border: 1px solid #e2e8f0; transition: 0.3s ease;
+        }
+        .lesson-row:hover { background: #f1f5f9; border-right: 6px solid var(--primary-blue); transform: scale(1.002); }
+        
+        .lesson-info { flex: 2; font-weight: 700; font-size: 1.2rem; color: #334155; display: flex; align-items: center; gap: 15px; }
+        .audio-player { flex: 4; display: flex; justify-content: center; }
+        audio { width: 95%; height: 40px; }
+        
+        .actions { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
+        .actions a { color: #10b981; font-size: 1.4rem; text-decoration: none; transition: 0.2s; }
+        .actions a:hover { transform: translateY(-3px); }
+        
+        .pagination { display: flex; justify-content: center; margin: 40px 0; gap: 10px; direction: ltr; }
+        .page-btn { padding: 10px 20px; background: var(--white); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; color: var(--primary-blue); }
+        .page-btn.active { background: var(--primary-blue); color: var(--white); border-color: var(--primary-blue); }
+    </style>
+</head>
+<body>
 
+<header class="site-header">
+    <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+        <a href="fiqh.html" style="text-decoration:none; color:var(--primary-blue); font-weight:bold; display:flex; align-items:center; gap:8px;">
+            <i class="fas fa-chevron-right"></i> عودة لقسم الفقه
+        </a>
+        <h2 style="margin:0; color:var(--primary-blue);">شرح أخصر المختصرات</h2>
+        <div style="width:100px;"></div> </div>
+</header>
+
+<div class="container" id="lesson-list">
+    </div>
+
+<div class="pagination" id="pagination">
+    </div>
+
+<script>
+    const count = 26; // عدد دروس أخصر المختصرات
+    const prefix = "akhasar"; // اسم الملف الصوتي
+    const perPage = 10; // عدد الدروس في كل صفحة
+    let currentPage = 1;
+
+    function render(page) {
+        const list = document.getElementById('lesson-list');
+        list.innerHTML = "";
+        
+        let start = (page - 1) * perPage + 1;
+        let end = Math.min(start + perPage - 1, count);
+
+        for (let i = start; i <= end; i++) {
+            const row = document.createElement('div');
+            row.className = 'lesson-row';
+            row.innerHTML = `
+                <div class="lesson-info">
+                    <i class="fas fa-headphones-simple" style="color:#cbd5e1;"></i>
+                    الدرس رقم ${i}
+                </div>
+                <div class="audio-player">
+                    <audio controls preload="none">
+                        <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="actions">
+                    <a href="audio/${prefix}-${i}.mp3" download title="تحميل الدرس">
+                        <i class="fas fa-cloud-arrow-down"></i>
+                    </a>
+                </div>`;
+            list.appendChild(row);
+        }
+        renderPagination();
+    }
+
+    function renderPagination() {
+        const pag = document.getElementById('pagination');
+        pag.innerHTML = "";
+        const totalPages = Math.ceil(count / perPage);
+        
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.innerText = i;
+            btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+            btn.onclick = () => { 
+                currentPage = i; 
+                render(i); 
+                window.scrollTo(0, 0); 
+            };
+            pag.appendChild(btn);
+        }
+    }
+
+    // التشغيل الأول عند فتح الصفحة
+    render(1);
+</script>
+
+</body>
+</html>
