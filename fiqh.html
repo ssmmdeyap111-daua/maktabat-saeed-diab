@@ -7,105 +7,142 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg-color: #f4f7f9; --header-bg: #ffffff; --primary-blue: #2c5d87; --item-bg: #fdfdfd; }
+        :root { --bg-color: #f8fafc; --primary-blue: #2c5d87; --item-bg: #ffffff; --border-color: #e2e8f0; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: var(--bg-color); }
 
-        /* الهيدر */
-        .site-header { background: var(--header-bg); padding: 20px; text-align: center; border-bottom: 2px solid #eee; }
-        .site-header h1 { color: var(--primary-blue); margin: 0; font-size: 1.8rem; }
+        .site-header { background: white; padding: 25px; text-align: center; border-bottom: 3px solid var(--primary-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .site-header h1 { color: var(--primary-blue); margin: 0; font-size: 1.8rem; font-weight: 900; }
 
-        /* حاوي الدروس - ممتد بعرض الشاشة */
-        .container { width: 95%; max-width: 1400px; margin: 20px auto; }
+        .container { width: 95%; max-width: 1500px; margin: 30px auto; }
         
+        /* تصميم السطر بعرض الشاشة */
         .lesson-row {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             background: var(--item-bg);
-            margin-bottom: 8px;
-            padding: 12px 25px;
-            border-radius: 5px;
-            border: 1px solid #e1e1e1;
+            margin-bottom: 10px;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: 0.3s ease;
+        }
+        .lesson-row:hover { transform: scale(1.005); box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-right: 5px solid var(--primary-blue); }
+
+        .lesson-info { flex: 1.5; display: flex; align-items: center; gap: 20px; }
+        .lesson-title { font-weight: 700; color: #334155; font-size: 1.15rem; }
+
+        /* مشغل الصوت واسع جداً */
+        .audio-player { flex: 3; display: flex; justify-content: center; padding: 0 40px; }
+        audio { width: 100%; height: 40px; }
+
+        .actions { flex: 0.8; display: flex; gap: 25px; justify-content: flex-end; align-items: center; }
+        .actions a { color: #64748b; transition: 0.2s; font-size: 1.3rem; text-decoration: none; }
+        .actions a:hover { color: var(--primary-blue); transform: translateY(-2px); }
+        .dl-btn { color: #10b981 !important; }
+
+        /* الترقيم (Pagination) */
+        .pagination { display: flex; justify-content: center; margin: 50px 0; gap: 8px; direction: ltr; }
+        .page-btn {
+            padding: 10px 18px;
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--primary-blue);
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: bold;
             transition: 0.2s;
         }
-        .lesson-row:hover { background: #f9f9f9; }
-
-        .lesson-info { display: flex; align-items: center; gap: 15px; flex: 1; }
-        .lesson-title { font-weight: bold; color: #444; font-size: 1.1rem; }
-
-        /* مشغل الصوت - عرض أكبر */
-        .audio-player { flex: 2; display: flex; justify-content: center; }
-        audio { width: 100%; max-width: 600px; height: 35px; }
-
-        .actions { display: flex; gap: 20px; flex: 0.5; justify-content: flex-end; }
-        .actions i { color: #888; cursor: pointer; font-size: 1.2rem; }
-        .actions i:hover { color: var(--primary-blue); }
-
-        /* نظام الترقيم (Pagination) */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin: 40px 0;
-            gap: 5px;
-            direction: ltr; /* لضمان ترتيب الأرقام من اليسار لليمين */
-        }
-        .page-link {
-            padding: 8px 16px;
-            background: white;
-            border: 1px solid #ddd;
-            text-decoration: none;
-            color: var(--primary-blue);
-            font-weight: bold;
-            border-radius: 4px;
-        }
-        .page-link.active { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
-        .page-link:hover:not(.active) { background: #eee; }
+        .page-btn.active { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
+        .page-btn:hover:not(.active) { background: #e2e8f0; }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1>بداية العابد وكفاية الزاهد</h1>
+    <h1>دروس الفقه - الشيخ سعيد مصطفى دياب</h1>
 </header>
 
-<div class="container" id="lessons-container">
+<div class="container" id="lessons-list">
     </div>
 
 <div class="pagination" id="pagination">
-    <a href="#" class="page-link">&laquo;</a>
-    <a href="#" class="page-link active">1</a>
-    <a href="#" class="page-link">2</a>
-    <a href="#" class="page-link">3</a>
-    <a href="#" class="page-link">4</a>
-    <a href="#" class="page-link">&raquo;</a>
-</div>
+    </div>
 
 <script>
-    // بيانات الدروس (مثال لـ 15 درساً للصفحة الأولى)
-    const lessonsCount = 15; 
-    const prefix = "bedayt";
-    const container = document.getElementById('lessons-container');
+    // الإعدادات
+    const lessonsData = [
+        { title: "بداية العابد وكفاية الزاهد", prefix: "bedayt", count: 24 },
+        { title: "أخصر المختصرات", prefix: "akhasar", count: 26 }
+    ];
+    
+    const lessonsPerPage = 10; // عدد الدروس في كل صفحة
+    let currentPage = 1;
 
-    for (let i = 1; i <= lessonsCount; i++) {
-        const row = document.createElement('div');
-        row.className = 'lesson-row';
-        row.innerHTML = `
-            <div class="lesson-info">
-                <div class="actions" style="justify-content: flex-start; flex: none;">
-                    <i class="fas fa-play-circle"></i>
-                    <i class="fas fa-download"></i>
-                    <i class="fas fa-exclamation-triangle"></i>
+    // تجميع كل الدروس في مصفوفة واحدة
+    let allLessons = [];
+    lessonsData.forEach(series => {
+        for(let i=1; i<=series.count; i++) {
+            allLessons.push({
+                seriesName: series.title,
+                fileName: `${series.prefix}-${i}.mp3`,
+                lessonNum: i
+            });
+        }
+    });
+
+    function displayLessons(page) {
+        const list = document.getElementById('lessons-list');
+        list.innerHTML = "";
+        page--;
+
+        let start = page * lessonsPerPage;
+        let end = start + lessonsPerPage;
+        let paginatedItems = allLessons.slice(start, end);
+
+        paginatedItems.forEach(item => {
+            const row = document.createElement('div');
+            row.className = 'lesson-row';
+            row.innerHTML = `
+                <div class="lesson-info">
+                    <i class="fas fa-book-open" style="color: #cbd5e1;"></i>
+                    <span class="lesson-title">${item.seriesName} - الدرس ${item.lessonNum}</span>
                 </div>
-                <span class="lesson-title">بداية العابد وكفاية الزاهد - الدرس ${i}</span>
-            </div>
-            <div class="audio-player">
-                <audio controls preload="none">
-                    <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
-                </audio>
-            </div>
-        `;
-        container.appendChild(row);
+                <div class="audio-player">
+                    <audio controls preload="none">
+                        <source src="audio/${item.fileName}" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="actions">
+                    <a href="audio/${item.fileName}" download class="dl-btn" title="تحميل"><i class="fas fa-download"></i></a>
+                    <a href="#" title="مشاركة"><i class="fas fa-share-alt"></i></a>
+                </div>
+            `;
+            list.appendChild(row);
+        });
+        setupPagination();
     }
+
+    function setupPagination() {
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = "";
+        let pageCount = Math.ceil(allLessons.length / lessonsPerPage);
+
+        for (let i = 1; i <= pageCount; i++) {
+            let btn = document.createElement('button');
+            btn.innerText = i;
+            btn.className = "page-btn" + (currentPage === i ? " active" : "");
+            btn.addEventListener('click', () => {
+                currentPage = i;
+                displayLessons(currentPage);
+                window.scrollTo(0,0);
+            });
+            pagination.appendChild(btn);
+        }
+    }
+
+    // التشغيل الأولي
+    displayLessons(currentPage);
 </script>
 
 </body>
