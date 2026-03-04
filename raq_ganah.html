@@ -35,10 +35,9 @@
 <div class="pagination" id="pagination"></div>
 
 <script>
-    // الإعدادات الخاصة بوصف الجنة
     const count = 15;            
     const prefix = "wasf-algana"; 
-    const ext = "MP3";           
+    const ext = "MP3";           // حروف كبيرة
     const title = "سلسلة وصف الجنة ونعيمها"; 
 
     document.getElementById('series-title').innerText = title;
@@ -52,8 +51,8 @@
         let end = Math.min(start + perPage - 1, count);
 
         for (let i = start; i <= end; i++) {
-            // التسمية: wasf-algana-1..MP3
-            const fileName = `audio/${prefix}-${i}..${ext}`;
+            // العودة للصيغة الأصلية بنقطة واحدة فقط
+            const fileName = `audio/${prefix}-${i}.${ext}`;
             const row = document.createElement('div');
             row.className = 'lesson-row';
             row.innerHTML = `<div class="lesson-info">الدرس رقم ${i}</div>
@@ -63,7 +62,7 @@
         }
         renderPagination();
     }
-    // (دالة الترقيم تبقى كما هي)
+
     function renderPagination() {
         const pag = document.getElementById('pagination');
         pag.innerHTML = "";
