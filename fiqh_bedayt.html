@@ -55,15 +55,20 @@
         let end = Math.min(start + perPage - 1, count);
 
         for (let i = start; i <= end; i++) {
+            // تم إضافة النقطة الإضافية هنا لتطابق مسمى ملفاتك: bedayt-3..mp3
+            const fileName = `audio/${prefix}-${i}..mp3`;
+            
             const row = document.createElement('div');
             row.className = 'lesson-row';
             row.innerHTML = `
                 <div class="lesson-info">الدرس رقم ${i}</div>
                 <div class="audio-player">
-                    <audio controls preload="none"><source src="audio/${prefix}-${i}.mp3"></audio>
+                    <audio controls preload="none">
+                        <source src="${fileName}" type="audio/mpeg">
+                    </audio>
                 </div>
                 <div class="actions">
-                    <a href="audio/${prefix}-${i}.mp3" download><i class="fas fa-download"></i></a>
+                    <a href="${fileName}" download><i class="fas fa-download"></i></a>
                 </div>`;
             list.appendChild(row);
         }
@@ -84,5 +89,3 @@
     }
     render(1);
 </script>
-</body>
-</html>
