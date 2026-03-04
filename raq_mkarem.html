@@ -35,12 +35,11 @@
 <div class="pagination" id="pagination"></div>
 
 <script>
-    // --- إعدادات السلسلة (قم بتغييرها لكل ملف) ---
-    const count = 40;            // عدد الدروس
-    const prefix = "mkarem";   // بريفكس الملف الصوتي
-    const ext = "mp3";           // الامتداد (mp3 أو MP3)
-    const title = "سلسلة مكارم الأخلاق"; // عنوان الصفحة
-    // ------------------------------------------
+    // الإعدادات الخاصة بمكارم الأخلاق
+    const count = 40;            
+    const prefix = "mkarem";     
+    const ext = "MP3";           // صيغة كبيرة كما ذكرت سابقاً
+    const title = "سلسلة مكارم الأخلاق"; 
 
     document.getElementById('series-title').innerText = title;
     const perPage = 10;
@@ -53,7 +52,8 @@
         let end = Math.min(start + perPage - 1, count);
 
         for (let i = start; i <= end; i++) {
-            const fileName = `audio/${prefix}-${i}.${ext}`;
+            // إضافة النقطتين - والشرطة - والصيغة الكبيرة
+            const fileName = `audio/${prefix}-${i}..${ext}`;
             const row = document.createElement('div');
             row.className = 'lesson-row';
             row.innerHTML = `<div class="lesson-info">الدرس رقم ${i}</div>
@@ -63,7 +63,7 @@
         }
         renderPagination();
     }
-
+    // (بقية دالة renderPagination تبقى كما هي)
     function renderPagination() {
         const pag = document.getElementById('pagination');
         pag.innerHTML = "";
@@ -78,5 +78,3 @@
     }
     render(1);
 </script>
-</body>
-</html>
