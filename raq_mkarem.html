@@ -35,10 +35,9 @@
 <div class="pagination" id="pagination"></div>
 
 <script>
-    // الإعدادات الخاصة بمكارم الأخلاق
     const count = 40;            
     const prefix = "mkarem";     
-    const ext = "MP3";           // صيغة كبيرة كما ذكرت سابقاً
+    const ext = "MP3";           // حروف كبيرة
     const title = "سلسلة مكارم الأخلاق"; 
 
     document.getElementById('series-title').innerText = title;
@@ -52,8 +51,8 @@
         let end = Math.min(start + perPage - 1, count);
 
         for (let i = start; i <= end; i++) {
-            // إضافة النقطتين - والشرطة - والصيغة الكبيرة
-            const fileName = `audio/${prefix}-${i}..${ext}`;
+            // العودة للصيغة الأصلية بنقطة واحدة فقط
+            const fileName = `audio/${prefix}-${i}.${ext}`;
             const row = document.createElement('div');
             row.className = 'lesson-row';
             row.innerHTML = `<div class="lesson-info">الدرس رقم ${i}</div>
@@ -63,7 +62,7 @@
         }
         renderPagination();
     }
-    // (بقية دالة renderPagination تبقى كما هي)
+
     function renderPagination() {
         const pag = document.getElementById('pagination');
         pag.innerHTML = "";
