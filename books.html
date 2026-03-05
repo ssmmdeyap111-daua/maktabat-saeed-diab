@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<!-- سيتم إدراج header.html تلقائيًا -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤلفات الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #2c5d87; --bg: #f4f7f9; }
+        body { font-family: 'Cairo', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        #content { max-width: 1200px; margin: 40px auto; padding: 20px; }
+        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
+        .book-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 15px; text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .book-card:hover { transform: translateY(-5px); }
+        .book-card img { width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee; }
+        .book-card p { font-weight: 700; color: var(--primary); font-size: 1.1rem; margin: 10px 0 20px; min-height: 50px; }
+        .btn-group { display: flex; gap: 8px; justify-content: center; }
+        .btn { flex: 1; padding: 10px 5px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: 0.3s; }
+        .read-btn { background: #e2e8f0; color: #475569; }
+        .down-btn { background: var(--primary); color: #fff; }
+    </style>
+</head>
 <body>
 
 <div id="content">
     <div class="books-grid">
+        
         <div class="book-card">
             <img src="images/kashf-alnqab.jpg.jpg"><p>كشف النقاب عن أحكام الحجاب</p>
             <div class="btn-group">
@@ -124,16 +145,16 @@
                 <a href="pdfs/al-ilmam-pahkam.al. siyam.pdf.pdf" download class="btn down-btn">تحميل</a>
             </div>
         </div>
+
     </div>
 </div>
 
-<!-- إدراج Header المشترك -->
 <script>
-fetch('header.html')
-  .then(response => response.text())
-  .then(data => {
-    document.body.insertAdjacentHTML('afterbegin', data);
-  });
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('afterbegin', data);
+      });
 </script>
 
 </body>
