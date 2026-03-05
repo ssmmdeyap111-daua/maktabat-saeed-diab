@@ -13,65 +13,131 @@
             --dark-blue: #2c5d87;
             --gold: #b59410;
             --quran-color: #15803d;
+            --hadith-color: #991b1b;
         }
 
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Cairo', sans-serif;
-            background: #f8fafc;
-        }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: #f8fafc; }
 
-        /* الهيدر الموحد والواسع */
-        .site-header { 
-            background: var(--light-blue); 
-            padding: 60px 20px; 
-            text-align: center; 
-            border-bottom: 5px solid var(--dark-blue); 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .sheikh-title { font-size: 2.5rem; color: var(--dark-blue); margin: 0; font-weight: 900; }
-        .sub-header { color: var(--dark-blue); margin-top: 10px; font-size: 1.1rem; opacity: 0.8; }
+        /* الهيدر */
+        .site-header { background: var(--light-blue); padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        .sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 900; }
 
         /* شريط التنقل */
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .nav-link { padding: 8px 20px; color: var(--dark-blue); text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; }
+        .nav-link { padding: 8px 18px; color: var(--dark-blue); text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; }
         .nav-link:hover, .active-nav { background: var(--dark-blue); color: white; }
 
-        /* شريط الآية */
-        .quran-strip {
-            background: var(--dark-blue);
-            color: white; padding: 18px; text-align: center;
-            font-size: 1.4rem; font-weight: bold; margin: 0;
-        }
-
-        .articles-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .articles-container { max-width: 950px; margin: 40px auto; padding: 0 20px; }
         
-        /* تنسيق الأكورديون */
-        .accordion-item {
-            background: white; border-radius: 15px; margin-bottom: 25px;
-            border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden;
-        }
-
-        .accordion-header {
-            padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            font-weight: 900; color: var(--dark-blue); font-size: 1.4rem; background: #fff; transition: 0.3s;
-        }
-        .accordion-header:hover { background: #f0f7ff; }
-
-        .accordion-content {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            background: #ffffff;
-        }
-
-        /* عندما يكون العنصر نشطاً */
+        .accordion-item { background: white; border-radius: 12px; margin-bottom: 25px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden; }
+        .accordion-header { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 900; color: var(--dark-blue); font-size: 1.4rem; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.8s ease-in-out; background: #ffffff; }
         .accordion-item.active .accordion-content { max-height: 15000px; border-top: 1px solid #eee; }
-        .accordion-item.active .accordion-header { background: var(--light-blue); }
-        .accordion-item.active .accordion-header i { transform: rotate(180deg); }
 
-        .content-inner { padding: 40px; line-height: 2.2; color: #334155; font-size: 1.25rem; text-align: justify; }
-
-        /* تنسيق النصوص الخاصة */
+        /* تنسيق المحتوى */
+        .content-inner { padding: 35px; line-height: 2.1; color: #334155; font-size: 1.25rem; text-align: justify; }
         .quran-text { font-family: 'Amiri', serif; color: var(--quran-color); font-weight: bold; font-size: 1.5rem; }
-        .quote { border-right: 4px solid var(--gold); padding-right: 20px; margin: 20px 0; color: #475569; font-style: italic; background: #fffcf0; padding: 15px; }
-        .references { margin-top: 40px; padding-top: 20px; border
+        .hadith-text { color: var(--hadith-color); font-weight: bold; }
+        
+        /* تنسيق الشعر */
+        .poetry-block { text-align: center; margin: 25px 0; background: #fdfdfd; padding: 15px; border: 1px solid #f1f5f9; border-radius: 8px; font-family: 'Amiri', serif; }
+        .poetry-line { display: block; margin-bottom: 5px; font-weight: bold; color: #1e293b; }
+
+        .sub-title { color: var(--gold); font-weight: 900; font-size: 1.4rem; margin-top: 30px; display: block; border-bottom: 2px solid #f1f5f9; padding-bottom: 5px; }
+        .references { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 1rem; color: #64748b; }
+        .ref-item { display: block; margin-bottom: 5px; }
+
+        .back-fixed { position: fixed; bottom: 30px; left: 30px; width: 55px; height: 55px; background: var(--dark-blue); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 22px; z-index: 1000; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <h1 class="sheikh-title">المقالات العلمية</h1>
+</header>
+
+<div class="nav-bar">
+    <a href="index.html" class="nav-link">الرئيسية</a>
+    <a href="books.html" class="nav-link">الكتب</a>
+    <a href="tafseer.html" class="nav-link">التفسير</a>
+    <a href="articles.html" class="nav-link active-nav">المقالات</a>
+</div>
+
+<div class="articles-container">
+    
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>مَعْنَى تَدَبُّرِ الْقُرْآنِ</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="content-inner">... (محتوى المقال الأول) ...</div>
+        </div>
+    </div>
+
+    <div class="accordion-item active">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>فَوَائِدُ تَدَبُّرِ الْقُرْآنِ</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="content-inner">
+                
+                <span class="sub-title">1- فهم مراد الله تعالى من الآيات:</span>
+                <p>
+                    من فَوَائِدِ تَدَبُّرِ الْقُرْآنِ الفهم عن الله تعالى وهو مقصد عظيم من مقاصد الْقُرْآنِ؛ كما قال الله تَعَالَى: <span class="quran-text">﴿قُلْ هُوَ الْقَادِرُ عَلَى أَنْ يَبْعَثَ عَلَيْكُمْ عَذَابًا مِنْ فَوْقِكُمْ أَوْ مِنْ تَحْتِ أَرْجُلِكُمْ أَوْ يَلْبِسَكُمْ شِيَعًا وَيُذِيقَ بَعْضَكُمْ بَأْسَ بَعْضٍ انْظُرْ كَيْفَ نُصَرِّفُ الآيَاتِ لَعَلَّهُمْ يَفْقَهُونَ﴾</span>.[1]
+                </p>
+                <p>
+                    قال ابن كثير رحمه الله: أَيْ: نُبَيِّنُهَا وَنُوَضِّحُهَا ونُقِرُّهَا <span class="quran-text">﴿لَعَلَّهُمْ يَفْقَهُونَ﴾</span> أَيْ: يَفْهَمُونَ وَيَتَدَبَّرُونَ عَنِ اللَّهِ آيَاتِهِ وَحُجَجَهُ وَبَرَاهِينَهُ.[2] 
+                </p>
+                <p>
+                    ومما يدل على ذلك ما ثبت عَنْ عَبْدِ اللَّهِ بْنِ عَمْرٍو، قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: <span class="hadith-text">«لَا يَفْقَهُ مَنْ قَرَأَ الْقُرْآنَ فِي أَقَلَّ مِنْ ثَلَاثٍ»</span>.[3]
+                </p>
+
+                <div class="poetry-block">
+                    <span class="poetry-line">فتدبر القرآن إن رمت الهدى ***** فالعلم تحت تدبر القرآن</span>
+                </div>
+
+                <span class="sub-title">2- تحقيق الخشية من الله تعالى:</span>
+                <p>
+                    ومن فوائد تدبر القرآن استحضار عظمة الله تعالى، واستشعار خشيته من جلال كلامه، كَمَا قَالَ اللَّهُ تَعَالَى: <span class="quran-text">﴿اللَّهُ نزلَ أَحْسَنَ الْحَدِيثِ كِتَابًا مُتَشَابِهًا مَثَانِيَ تَقْشَعِرُّ مِنْهُ جُلُودُ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ ثُمَّ تَلِينُ جُلُودُهُمْ وَقُلُوبُهُمْ إِلَى ذِكْرِ اللَّهِ﴾</span>.[10]
+                </p>
+
+                <div class="poetry-block">
+                    <span class="poetry-line">منع القرآن بوعده ووعيده ***** مقل العيون بليلها لا تهجع</span>
+                    <span class="poetry-line">فهموا عن الملك الكريم كلامه ***** فهمًا تذل له الرقاب وتخضع</span>
+                </div>
+
+                <span class="sub-title">3- تَيسِيرُ العَمَلِ بالْقُرْآنِ:</span>
+                <p>
+                    قَالَ عُمَرُ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ: <span class="hadith-text">«لَا يَغُرَّنَّكُمْ مَنْ قَرَأَ الْقُرْآنَ، إِنَّمَا هُوَ كَلَامٌ يُتَكَلَّمُ بِهِ، وَلَكِنِ انْظُرُوا إِلَى مَنْ يَعْمَلُ بِهِ»</span>.[16]
+                </p>
+
+                <span class="sub-title">4- معرفة الله تعالى بأسمائه وصفاته:</span>
+                <p>
+                    قَالَ ابنُ القيمِ رَحِمَهُ اللَّهُ: وَبِالْجُمْلَةِ تُعَرِّفُهُ الرَّبَّ الْمَدْعُوَّ إِلَيْهِ، وَطَرِيقَ الْوُصُولِ إِلَيْهِ... فَتُرِيهِ الْحَقَّ حَقًّا، وَالْبَاطِلَ بَاطِلًا، وَتُعْطِيهِ فُرْقَانًا وَنُورًا يُفَرِّقُ بِهِ بَيْنَ الْهُدَى وَالضَّلَالِ.[20]
+                </p>
+
+                <div class="references">
+                    <span class="ref-item">[1] - سورة الأنعام: 65</span>
+                    <span class="ref-item">[3] - رواه أبو داود (1394) والترمذي (2949) بسند صحيح.</span>
+                    <span class="ref-item">[10] - سُورَةُ الزُّمَرِ: 23</span>
+                    <span class="ref-item">[20] - مدارج السالكين (1/ 450)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+<a href="index.html" class="back-fixed">🏠</a>
+
+<script>
+function toggleAccordion(header) {
+    const item = header.parentElement;
+    item.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
