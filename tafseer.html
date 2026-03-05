@@ -7,38 +7,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --gold: #d4af37; --bg: #f4f7f9; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); }
-        
-        /* شريط العنوان العلوي */
-        .site-header { 
-            background: white; 
-            padding: 25px; 
-            text-align: center; 
-            border-bottom: 4px solid var(--primary); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        :root { 
+            --primary: #2c5d87; 
+            --light-blue: #e3effb; 
+            --gold: #d4af37; 
+            --white: #ffffff; 
         }
-        .site-header h1 { margin: 0; color: var(--primary); font-size: 2rem; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f8fafc; color: #333; }
+        
+        /* الشريط العلوي الواسع والموحد */
+        .site-header { 
+            background: var(--light-blue); 
+            padding: 60px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--primary); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .site-header h1 { margin: 0; color: var(--primary); font-size: 2.5rem; font-weight: 900; }
+        .site-header p { color: var(--primary); margin-top: 10px; font-size: 1.2rem; opacity: 0.8; }
 
-        /* شبكة السلاسل (الأيقونات) */
+        .container { max-width: 95%; margin: 30px auto; padding: 20px; }
+
+        .back-nav { text-align: center; margin-bottom: 30px; }
+        .back-nav a { text-decoration: none; color: var(--primary); font-weight: bold; }
+
+        /* شبكة السور (أيقونات أصغر لتسع الجميع) */
         .series-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            padding: 40px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* تصغير العرض الأدنى */
+            gap: 15px; 
         }
 
         .series-card { 
-            background: white; 
-            padding: 35px 20px; 
-            border-radius: 20px; 
+            background: var(--white); 
+            padding: 20px 10px; 
+            border-radius: 12px; 
             text-align: center; 
             text-decoration: none; 
             color: var(--primary); 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-            transition: 0.3s ease; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
             border: 1px solid #eee; 
             display: flex;
             flex-direction: column;
@@ -46,106 +54,85 @@
         }
 
         .series-card:hover { 
-            transform: translateY(-10px); 
+            transform: translateY(-5px); 
             border-color: var(--gold); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            background: var(--light-blue);
         }
 
-        /* تنسيق الأيقونات */
+        /* تصغير الأيقونة */
         .series-card i { 
-            font-size: 4rem; 
+            font-size: 2.2rem; 
             color: var(--gold); 
-            margin-bottom: 20px; 
+            margin-bottom: 12px; 
         }
 
         .series-card h3 { 
             margin: 0; 
-            font-size: 1.4rem; 
-            font-weight: 900; 
+            font-size: 1.1rem; 
+            font-weight: 700; 
         }
 
         .count { 
             background: #f0f4f8; 
-            padding: 6px 18px; 
+            padding: 2px 10px; 
             border-radius: 50px; 
-            font-size: 0.9rem; 
-            margin-top: 15px; 
+            font-size: 0.75rem; 
+            margin-top: 8px; 
             color: #64748b;
-            font-weight: bold;
-        }
-
-        .back-nav {
-            text-align: center;
-            padding: 20px;
-        }
-        .back-nav a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1><i class="fas fa-book-quran"></i> تفسير القرآن الكريم</h1>
+    <h1><i class="fas fa-quran"></i> تفسير القرآن الكريم</h1>
+    <p>تدبر آيات الذكر الحكيم بصوت فضيلة الشيخ</p>
 </header>
 
-<div class="back-nav">
-    <a href="index.html"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+<div class="container">
+    <div class="back-nav">
+        <a href="index.html"><i class="fas fa-home"></i> العودة للرئيسية</a>
+    </div>
+
+    <div class="series-grid">
+        <a href="tafseer-fatiha.html" class="series-card">
+            <i class="fas fa-book-open"></i>
+            <h3>سورة الفاتحة</h3>
+            <span class="count">2 درس</span>
+        </a>
+
+        <a href="tafseer-baqara.html" class="series-card">
+            <i class="fas fa-quran"></i>
+            <h3>سورة البقرة</h3>
+            <span class="count">75 درس</span>
+        </a>
+
+        <a href="tafseer-imran.html" class="series-card">
+            <i class="fas fa-quran"></i>
+            <h3>سورة آل عمران</h3>
+            <span class="count">52 درس</span>
+        </a>
+
+        <a href="tafseer-nisa.html" class="series-card">
+            <i class="fas fa-quran"></i>
+            <h3>سورة النساء</h3>
+            <span class="count">53 درس</span>
+        </a>
+
+        <a href="tafseer-maida.html" class="series-card">
+            <i class="fas fa-quran"></i>
+            <h3>سورة المائدة</h3>
+            <span class="count">34 درس</span>
+        </a>
+
+        <a href="tafseer-anaam.html" class="series-card">
+            <i class="fas fa-quran"></i>
+            <h3>سورة الأنعام</h3>
+            <span class="count">40 درس</span>
+        </a>
+
+        </div>
 </div>
-
-<div class="series-grid">
-    <a href="tafseer-fatiha.html" class="series-card">
-        <i class="fas fa-book-open"></i>
-        <h3>سورة الفاتحة</h3>
-        <span class="count">2 درس</span>
-    </a>
-
-    <a href="tafseer-baqara.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة البقرة</h3>
-        <span class="count">75 درس</span>
-    </a>
-
-    <a href="tafseer-imran.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة آل عمران</h3>
-        <span class="count">52 درس</span>
-    </a>
-
-    <a href="tafseer-nisa.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة النساء</h3>
-        <span class="count">53 درس</span>
-    </a>
-
-    <a href="tafseer-maida.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة المائدة</h3>
-        <span class="count">34 درس</span>
-    </a>
-
-    <a href="tafseer-anaam.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة الأنعام</h3>
-        <span class="count">40 درس</span>
-    </a>
-</div>
-
-<script>
-    // إذا كنت تريد جلب الهيدر الموحد ففعل هذا الكود:
-    /*
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.body.insertAdjacentHTML('afterbegin', data);
-      });
-    */
-</script>
 
 </body>
 </html>
