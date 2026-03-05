@@ -7,155 +7,161 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --bg: #f4f7f9; }
+        :root { --primary: #2c5d87; --accent: #10b981; --bg: #f4f7f9; --gold: #d4af37; }
         body { font-family: 'Cairo', sans-serif; background: var(--bg); margin: 0; padding: 0; }
-        #content { max-width: 1200px; margin: 40px auto; padding: 20px; }
-        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
-        .book-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 15px; text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
-        .book-card:hover { transform: translateY(-5px); }
-        .book-card img { width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee; }
-        .book-card p { font-weight: 700; color: var(--primary); font-size: 1.1rem; margin: 10px 0 20px; min-height: 50px; }
-        .btn-group { display: flex; gap: 8px; justify-content: center; }
-        .btn { flex: 1; padding: 10px 5px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: 0.3s; }
-        .read-btn { background: #e2e8f0; color: #475569; }
+        
+        /* الشريط العلوي */
+        .site-header { 
+            background: white; 
+            padding: 25px; 
+            text-align: center; 
+            border-bottom: 4px solid var(--primary); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .site-header h1 { margin: 0; color: var(--primary); font-size: 2rem; }
+
+        #content { max-width: 1200px; margin: 30px auto; padding: 20px; }
+        
+        .back-nav { text-align: center; margin-bottom: 30px; }
+        .back-nav a { text-decoration: none; color: var(--primary); font-weight: bold; display: inline-flex; align-items: center; gap: 8px; }
+
+        /* شبكة الكتب */
+        .books-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 30px; 
+        }
+        
+        /* بطاقة الكتاب */
+        .book-card { 
+            background: #fff; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06); 
+            padding: 20px; 
+            text-align: center; 
+            transition: 0.3s ease;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+        .book-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        
+        .book-card img { 
+            width: 100%; 
+            height: 350px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .book-card p { 
+            font-weight: 900; 
+            color: var(--primary); 
+            font-size: 1.2rem; 
+            margin: 10px 0 20px;
+            min-height: 45px;
+            line-height: 1.4;
+        }
+        
+        /* الأزرار */
+        .btn-group { display: flex; gap: 10px; }
+        .btn { 
+            flex: 1; 
+            padding: 12px 5px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .read-btn { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .read-btn:hover { background: #e2e8f0; }
+        
         .down-btn { background: var(--primary); color: #fff; }
+        .down-btn:hover { background: #1e405e; }
     </style>
 </head>
 <body>
 
+<header class="site-header">
+    <h1><i class="fas fa-book" style="color: var(--gold);"></i> مؤلفات وتحقيقات الشيخ</h1>
+</header>
+
 <div id="content">
+    <div class="back-nav">
+        <a href="index.html"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+    </div>
+
     <div class="books-grid">
-        
         <div class="book-card">
-            <img src="images/kashf-alnqab.jpg.jpg"><p>كشف النقاب عن أحكام الحجاب</p>
+            <img src="images/kashf-alnqab.jpg.jpg">
+            <p>كشف النقاب عن أحكام الحجاب</p>
             <div class="btn-group">
-                <a href="pdfs/kashf-alnqab.pdf" target="_blank" class="btn read-btn">عرض القراءة</a>
-                <a href="pdfs/kashf-alnqab.pdf" download class="btn down-btn">تحميل</a>
+                <a href="pdfs/kashf-alnqab.pdf" target="_blank" class="btn read-btn"><i class="fas fa-eye"></i> عرض</a>
+                <a href="pdfs/kashf-alnqab.pdf" download class="btn down-btn"><i class="fas fa-download"></i> تحميل</a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="images/shmael-al-rasool.jpg.jpg"><p>شمائل الرسول</p>
+            <img src="images/shmael-al-rasool.jpg.jpg">
+            <p>شمائل الرسول</p>
             <div class="btn-group">
-                <a href="pdfs/shmael-al-rasool.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/shmael-al-rasool.pdf.pdf" download class="btn down-btn">تحميل</a>
+                <a href="pdfs/shmael-al-rasool.pdf.pdf" target="_blank" class="btn read-btn"><i class="fas fa-eye"></i> عرض</a>
+                <a href="pdfs/shmael-al-rasool.pdf.pdf" download class="btn down-btn"><i class="fas fa-download"></i> تحميل</a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="images/allaalea-wa-aldorr.jpg.jpg"><p>اللآلئ والدرر</p>
+            <img src="images/allaalea-wa-aldorr.jpg.jpg">
+            <p>اللآلئ والدرر</p>
             <div class="btn-group">
-                <a href="pdfs/allaalea-wa-aldorr.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/allaalea-wa-aldorr.pdf.pdf" download class="btn down-btn">تحميل</a>
+                <a href="pdfs/allaalea-wa-aldorr.pdf.pdf" target="_blank" class="btn read-btn"><i class="fas fa-eye"></i> عرض</a>
+                <a href="pdfs/allaalea-wa-aldorr.pdf.pdf" download class="btn down-btn"><i class="fas fa-download"></i> تحميل</a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="images/katar-al-reba.jpg.jpg"><p>خطر الربا</p>
+            <img src="images/katar-al-reba.jpg.jpg">
+            <p>خطر الربا</p>
             <div class="btn-group">
-                <a href="pdfs/katar-al-reba.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/katar-al-reba.pdf.pdf" download class="btn down-btn">تحميل</a>
+                <a href="pdfs/katar-al-reba.pdf.pdf" target="_blank" class="btn read-btn"><i class="fas fa-eye"></i> عرض</a>
+                <a href="pdfs/katar-al-reba.pdf.pdf" download class="btn down-btn"><i class="fas fa-download"></i> تحميل</a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="images/tzker-alobat.jpg"><p>تذكير الأباة</p>
+            <img src="images/tzker-alobat.jpg">
+            <p>تذكير الأباة</p>
             <div class="btn-group">
-                <a href="pdfs/tzker-alobat.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/tzker-alobat.pdf" download class="btn down-btn">تحميل</a>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="images/haiat-alqolob.jpg"><p>حياة القلوب</p>
-            <div class="btn-group">
-                <a href="pdfs/h1.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/h1.pdf" download class="btn down-btn">تحميل</a>
+                <a href="pdfs/tzker-alobat.pdf" target="_blank" class="btn read-btn"><i class="fas fa-eye"></i> عرض</a>
+                <a href="pdfs/tzker-alobat.pdf" download class="btn down-btn"><i class="fas fa-download"></i> تحميل</a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="images/waqfat-tdaboria.jpg"><p>وقفات تدبرية</p>
+            <img src="images/haiat-alqolob.jpg">
+            <p>حياة القلوب</p>
             <div class="btn-group">
-                <a href="pdfs/h3.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/h3.pdf" download class="btn down-btn">تحميل</a>
+                <a href="pdfs/h1.pdf" target="_blank" class="btn read-btn"><i class="fas fa-eye"></i> عرض</a>
+                <a href="pdfs/h1.pdf" download class="btn down-btn"><i class="fas fa-download"></i> تحميل</a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="images/al-irshad.jpg"><p>الإرشاد إلى أسباب محبة الله</p>
+            <img src="images/al-ilmam-siyam.jpg">
+            <p>الإلمام بالصيام</p>
             <div class="btn-group">
-                <a href="pdfs/al-irshad.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/al-irshad.pdf.pdf" download class="btn down-btn">تحميل</a>
+                <a href="pdfs/al-ilmam-pahkam.al. siyam.pdf.pdf" target="_blank" class="btn read-btn"><i class="fas fa-eye"></i> عرض</a>
+                <a href="pdfs/al-ilmam-pahkam.al. siyam.pdf.pdf" download class="btn down-btn"><i class="fas fa-download"></i> تحميل</a>
             </div>
         </div>
-
-        <div class="book-card">
-            <img src="images/asaleeb-alquran.jpg"><p>أساليب القرآن</p>
-            <div class="btn-group">
-                <a href="pdfs/asaleeb-alquran.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/asaleeb-alquran.pdf" download class="btn down-btn">تحميل</a>
-            </div>
-        </div>
-
-        <div class="book-card">
-            <img src="images/fadhl-duaa.jpg"><p>فضل الدعاء</p>
-            <div class="btn-group">
-                <a href="pdfs/fadhl-duaa.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/fadhl-duaa.pdf.pdf" download class="btn down-btn">تحميل</a>
-            </div>
-        </div>
-
-        <div class="book-card">
-            <img src="images/tamam-al-minah.jpg"><p>تمام المنة</p>
-            <div class="btn-group">
-                <a href="pdfs/tamam-al-minah.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/tamam-al-minah.pdf.pdf" download class="btn down-btn">تحميل</a>
-            </div>
-        </div>
-
-        <div class="book-card">
-            <img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"><p>الاعتبار بطرائف الأخبار</p>
-            <div class="btn-group">
-                <a href="pdfs/al-eatbaar-ptraef-alakbaar.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/al-eatbaar-ptraef-alakbaar.pdf.pdf" download class="btn down-btn">تحميل</a>
-            </div>
-        </div>
-
-        <div class="book-card">
-            <img src="images/kabar-al-ahad.jpg.jpg"><p>خبر الآحاد</p>
-            <div class="btn-group">
-                <a href="pdfs/kabar-al-ahad.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/kabar-al-ahad.pdf.pdf" download class="btn down-btn">تحميل</a>
-            </div>
-        </div>
-
-        <div class="book-card">
-            <img src="images/wageb-al-muslmeen.jpg"><p>واجب المسلمين</p>
-            <div class="btn-group">
-                <a href="pdfs/wageb-al-muslmeen.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/wageb-al-muslmeen.pdf.pdf" download class="btn down-btn">تحميل</a>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="images/al-ilmam-siyam.jpg"><p>الإلمام بالصيام</p>
-            <div class="btn-group">
-                <a href="pdfs/al-ilmam-pahkam.al. siyam.pdf.pdf" target="_blank" class="btn read-btn">عرض</a>
-                <a href="pdfs/al-ilmam-pahkam.al. siyam.pdf.pdf" download class="btn down-btn">تحميل</a>
-            </div>
-        </div>
-
     </div>
 </div>
-
-<script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.body.insertAdjacentHTML('afterbegin', data);
-      });
-</script>
 
 </body>
 </html>
