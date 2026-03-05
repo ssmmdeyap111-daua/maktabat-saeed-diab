@@ -4,9 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دروس العقيدة - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --light-blue: #e3effb;
+            --dark-blue: #2c5d87;
+            --gold: #b59410;
+            --bg-body: #f8fafc;
+        }
+
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: var(--bg-body); color: #333; }
+
+        /* الهيدر */
+        .site-header { background: var(--light-blue); padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        .site-header h1 { font-size: 2.3rem; color: var(--dark-blue); margin: 0; font-weight: 900; }
+
+        /* شريط التنقل */
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn-3d { 
+            padding: 10px 25px; color: var(--dark-blue); text-decoration: none; font-weight: bold; 
+            border-radius: 8px; background: #fff; border: 1px solid #ddd; transition: 0.3s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .btn-3d:hover { background: var(--dark-blue); color: white; border-color: var(--dark-blue); }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        /* التنسيق الجديد للأكورديون */
+        .accordion-item {
+            background: white; border-radius: 12px; margin-bottom: 20px;
+            border: 1px solid #e2e8f0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 22px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            background: #fff; transition: 0.3s; border-right: 6px solid var(--gold);
+        }
+        .accordion-header:hover { background: #f0f7ff; }
+        .accordion-header span { font-weight: 900; color: var(--dark-blue); font-size: 1.3rem; display: flex; align-items: center; gap: 12px; }
+        .accordion-header i.fa-chevron-down { transition: 0.3s; color: #cbd5e1; }
+
+        .accordion-content { display: none; padding: 20px; background: #fafbfc; border-top: 1px solid #eee; }
+        .active .accordion-content { display: block; }
+        .active .accordion-header { background: var(--light-blue); }
+        .active .accordion-header i.fa-chevron-down { transform: rotate(180deg); color: var(--dark-blue); }
+
+        /* تنسيق قائمة الدروس الصوتية */
+        .lessons-list { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        
+        .lesson-card {
+            background: white; padding: 15px 20px; border-radius: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+            border: 1px solid #edf2f7; transition: 0.2s;
+        }
+        .lesson-card:hover { border-color: var(--gold); background: #fffdf5; }
+        .lesson-card span { font-weight: bold; color: #475569; font-size: 1.1rem; }
+
+        audio { height: 35px; width: 250px; }
+
+        footer { text-align: center; padding: 60px 20px; color: #94a3b8; font-weight: bold; }
+
+        /* توافق الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            .lesson-card { flex-direction: column; gap: 10px; text-align: center; }
+            audio { width: 100%; }
+            .site-header h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,8 +81,8 @@
 </header>
 
 <div class="nav-bar">
-    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> الفهرس</a>
     <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="lessons.html" class="btn-3d"><i class="fas fa-arrow-right"></i> فهرس الدروس</a>
 </div>
 
 <div class="container">
@@ -55,6 +121,10 @@
 
 <script>
     function toggleAccordion(header) {
+        // غلق أي أكورديون آخر مفتوح
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            if (item !== header.parentElement) item.classList.remove('active');
+        });
         header.parentElement.classList.toggle('active');
     }
 
@@ -64,22 +134,24 @@
         for (let i = 1; i <= count; i++) {
             html += `
             <div class="lesson-card">
-                <span>درس ${i}</span>
+                <span><i class="far fa-play-circle" style="color:var(--gold); margin-left:8px;"></i> الدرس ${i}</span>
                 <audio controls preload="none">
                     <source src="audio/${prefix}-${i}.mp3" type="audio/mpeg">
+                    متصفحك لا يدعم تشغيل الملفات الصوتية.
                 </audio>
             </div>`;
         }
         container.innerHTML = html;
     }
 
+    // توليد الدروس عند تحميل الصفحة
     generate('tahawiya-list', 'tahawiya', 21);
     generate('wasitiya-list', 'wastya', 26);
     generate('tawheed-list', 'tawheed', 23);
 </script>
 
-<footer style="text-align: center; padding: 40px; color: #888;">
-    جميع الحقوق محفوظة &copy; 2026
+<footer>
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
 </footer>
 
 </body>
