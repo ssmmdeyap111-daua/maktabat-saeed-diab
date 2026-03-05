@@ -1,174 +1,168 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المقالات العلمية - الشيخ سعيد مصطفى دياب</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root {
-    --light-blue: #eef5ff;
-    --main-blue: #add8e6;
-    --dark-blue: #2c5d87;
-    --accent-blue: #87ceeb;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات العلمية - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --light-blue: #e3effb; /* اللون الأزرق الفاتح الموحد */
+            --dark-blue: #2c5d87;
+            --accent-blue: #87ceeb;
+        }
 
-body {
-    margin: 0; padding: 0;
-    font-family: 'Cairo', sans-serif;
-    background: linear-gradient(to bottom, var(--light-blue), #d0e4ff);
-    min-height: 100vh;
-    padding-bottom: 60px;
-}
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
 
-/* الهيدر الموحد */
-.site-header { 
-    text-align: center; padding: 50px 20px; 
-    background: linear-gradient(to right, #add8e6, #e0f2f7); 
-    border-bottom: 4px solid #ffffff;
-}
-.sheikh-title { font-size: 2.2rem; color: var(--dark-blue); margin: 0; font-weight: 900; }
+        /* الهيدر الموحد الواسع */
+        .site-header { 
+            background: var(--light-blue); 
+            padding: 60px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--dark-blue); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .sheikh-title { font-size: 2.5rem; color: var(--dark-blue); margin: 0; font-weight: 900; }
+        .sub-title { color: var(--dark-blue); margin-top: 10px; font-size: 1.2rem; opacity: 0.8; }
 
-/* شريط التنقل العلوي 3D */
-.nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.2); }
-.nav-link { 
-    padding: 10px 18px; background: var(--accent-blue); color: white; 
-    text-decoration: none; border-radius: 10px; font-weight: bold;
-    box-shadow: 0 4px 0 #5f9ea0; transition: 0.2s;
-}
-.nav-link:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #5f9ea0; }
-.active-nav { background: var(--dark-blue); box-shadow: 0 4px 0 #1a3a55; }
+        /* شريط التنقل */
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .nav-link { 
+            padding: 10px 20px; background: #f1f5f9; color: var(--dark-blue); 
+            text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s;
+        }
+        .nav-link:hover { background: var(--dark-blue); color: white; }
+        .active-nav { background: var(--dark-blue); color: white; }
 
-/* شريط الآية الشفاف */
-.quran-strip {
-    background: rgba(44, 93, 135, 0.75);
-    color: white; padding: 15px; text-align: center;
-    font-size: 1.3rem; font-weight: bold; margin: 20px 0;
-    backdrop-filter: blur(8px);
-}
+        /* شريط الآية */
+        .quran-strip {
+            background: var(--dark-blue);
+            color: white; padding: 20px; text-align: center;
+            font-size: 1.5rem; font-weight: bold; margin: 0;
+        }
 
-/* Accordion */
-.accordion-item {
-    background: white;
-    border-radius: 15px;
-    margin: 20px auto;
-    max-width: 900px;
-    overflow: hidden;
-    border: 1px solid #eee;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-.accordion-header {
-    padding: 20px; cursor: pointer; display: flex;
-    justify-content: space-between; align-items: center;
-    font-weight: 900; color: var(--dark-blue); font-size: 1.3rem;
-    background: #fff;
-    transition: 0.3s;
-}
-.accordion-header:hover { background: #f0faff; }
-.accordion-header i { transition: 0.3s; }
-.accordion-content {
-    max-height: 0; overflow: hidden; transition: max-height 0.5s ease;
-    padding: 0 20px; background: #f9fbfd;
-}
-.accordion-content p { 
-    margin: 15px 0; line-height: 1.9; color: #4b5563; font-size: 17px;
-}
-.active .accordion-content { max-height: 3000px; padding-bottom: 20px; }
-.active .accordion-header i { transform: rotate(180deg); }
+        /* تنسيق المقالات Accordion */
+        .articles-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        
+        .accordion-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
 
-/* أيقونة العودة الدائرية 3D */
-.back-fixed {
-    position: fixed; bottom: 30px; left: 30px;
-    width: 65px; height: 65px;
-    background: linear-gradient(145deg, #add8e6, #87ceeb);
-    color: var(--dark-blue); text-decoration: none;
-    border-radius: 50%; display: flex; justify-content: center; align-items: center;
-    font-size: 28px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    border: 2px solid #ffffff; transition: 0.3s; z-index: 1000;
-}
-.back-fixed:hover { transform: scale(1.1) rotate(10deg); }
+        .accordion-header {
+            padding: 25px; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center;
+            font-weight: 900; color: var(--dark-blue); font-size: 1.3rem;
+            transition: 0.3s;
+        }
+        .accordion-header:hover { background: #f8fafc; }
 
-.footer {
-    text-align: center; padding: 40px; font-weight: bold;
-    color: var(--dark-blue); border-top: 1px solid rgba(0,0,0,0.05);
-}
+        /* إصلاح مشكلة ظهور المقال كاملاً */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); /* حركة سلسة */
+            background: #ffffff;
+            border-top: 0 solid #eee;
+        }
 
-/* Responsive */
-@media (max-width: 600px) {
-    .back-fixed { width: 50px; height: 50px; font-size: 22px; bottom: 20px; left: 20px; }
-}
-</style>
+        .content-inner { padding: 30px; line-height: 2; color: #334155; font-size: 1.15rem; text-align: justify; }
+
+        /* الحالة النشطة */
+        .accordion-item.active .accordion-content {
+            max-height: 10000px; /* رقم كبير جداً لضمان ظهور أي طول للمقال */
+            border-top: 1px solid #eee;
+        }
+        .accordion-item.active .accordion-header { background: var(--light-blue); }
+        .accordion-item.active .accordion-header i { transform: rotate(180deg); color: var(--dark-blue); }
+
+        .back-fixed {
+            position: fixed; bottom: 30px; left: 30px;
+            width: 60px; height: 60px; background: var(--dark-blue);
+            color: white; text-decoration: none; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000;
+        }
+
+        .footer { text-align: center; padding: 40px; color: #64748b; }
+    </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1 class="sheikh-title">الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
+    <h1 class="sheikh-title">المكتبة المقالية</h1>
+    <p class="sub-title">مقالات وبحوث فضيلة الشيخ سعيد مصطفى دياب</p>
 </header>
 
 <div class="nav-bar">
     <a href="index.html" class="nav-link">الرئيسية</a>
     <a href="books.html" class="nav-link">الكتب</a>
-    <a href="lessons.html" class="nav-link">الدروس</a>
-    <a href="khutbah.html" class="nav-link">الخطب</a>
+    <a href="tafseer.html" class="nav-link">التفسير</a>
     <a href="articles.html" class="nav-link active-nav">المقالات</a>
 </div>
 
 <div class="quran-strip">
-    ﴿ ن والقلم وما يسطرون ﴾
+    ﴿ ن وَالْقَلَمِ وَمَا يَسْطُرُونَ ﴾
 </div>
 
-<!-- Accordion للمقالات -->
-<div class="accordion-item">
-    <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span>المقال الأول: مَعْنَى تَدَبُّرِ الْقُرْآنِ</span>
-        <i class="fas fa-chevron-down"></i>
+<div class="articles-container">
+    
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-feather-alt"></i> المقال الأول: مَعْنَى تَدَبُّرِ الْقُرْآنِ</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="content-inner">
+                مَعْنَى تَدَبُّرِ الْقُرْآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى، فتقرأه بقلب حاضر، وتتفكر في أوامره ونواهيه...
+                <br><br>
+                (هنا تضع نص المقال كاملاً مهما كان طوله، وسيظهر بالكامل الآن بفضل التعديل الجديد).
+            </div>
+        </div>
     </div>
-    <div class="accordion-content">
-        <p>مَعْنَى تَدَبُّرِ الْقُرْآنِ هو: أن تعلم أنك مخاطب بكلام الله تعالى... (المقال الكامل هنا)</p>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-feather-alt"></i> المقال الثاني: فَوَائِدِ تَدَبُّرِ الْقُرْآنِ</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div class="content-inner">
+                فوائد تدبر القرآن عظيمة، منها زيادة الإيمان، وطمأنينة القلب، والهداية للحق...
+                <br><br>
+                (ضع النص الكامل هنا).
+            </div>
+        </div>
     </div>
+
 </div>
 
-<div class="accordion-item">
-    <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span>المقال الثاني: فَوَائِدِ تَدَبُّرِ الْقُرْآنِ</span>
-        <i class="fas fa-chevron-down"></i>
-    </div>
-    <div class="accordion-content">
-        <p>فوائد تدبر القرآن عظيمة... (المقال الكامل هنا)</p>
-    </div>
-</div>
-
-<div class="accordion-item">
-    <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span>المقال الثالث: الفرق بين التفسير والتدبر</span>
-        <i class="fas fa-chevron-down"></i>
-    </div>
-    <div class="accordion-content">
-        <p>التفسير لغة واصطلاحًا... والتدبر لغة واصطلاحًا... (المقال الكامل هنا)</p>
-    </div>
-</div>
-
-<div class="accordion-item">
-    <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span>المقال الرابع: رَمَضَانُ شَهْرُ الْقُرْآنِ</span>
-        <i class="fas fa-chevron-down"></i>
-    </div>
-    <div class="accordion-content">
-        <p>نُزُولُ الْقُرْآنِ في رمضان... (المقال الكامل هنا)</p>
-    </div>
-</div>
-
-<a href="index.html" class="back-fixed" title="الرئيسية">🏠</a>
+<a href="index.html" class="back-fixed">🏠</a>
 
 <div class="footer">
     جميع الحقوق محفوظة للشيخ سعيد مصطفى دياب &copy; 2026
 </div>
 
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script>
 function toggleAccordion(header) {
     const item = header.parentElement;
+    
+    // لإغلاق المقالات الأخرى عند فتح مقال جديد (اختياري)
+    document.querySelectorAll('.accordion-item').forEach(otherItem => {
+        if (otherItem !== item) otherItem.classList.remove('active');
+    });
+
     item.classList.toggle('active');
 }
 </script>
