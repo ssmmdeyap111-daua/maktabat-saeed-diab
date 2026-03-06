@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفسير سورة النساء - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --dark-blue: #2c5d87; --gold: #b59410; --light-bg: #f8fafc; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-bg); direction: rtl; }
+        .site-header { background: #e3effb; padding: 40px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        .site-header h1 { margin: 0; color: var(--dark-blue); font-size: 2.2rem; font-weight: 900; }
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn-link { padding: 10px 20px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: var(--dark-blue); font-weight: bold; transition: 0.3s; }
+        .btn-link:hover { background: var(--dark-blue); color: white; }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
+        .lesson-card { 
+            background: white; padding: 15px 20px; border-radius: 10px; margin-bottom: 12px;
+            display: flex; justify-content: space-between; align-items: center; border: 1px solid #eee;
+        }
+        .audio-group { display: flex; align-items: center; gap: 15px; }
+        audio { height: 35px; width: 250px; }
+        .dl-icon { color: #2ecc71; font-size: 1.3rem; text-decoration: none; transition: 0.2s; }
+        .dl-icon:hover { color: var(--dark-blue); transform: translateY(-2px); }
+        footer { text-align: center; padding: 40px; color: #888; }
+        @media (max-width: 600px) { .lesson-card { flex-direction: column; gap: 10px; } audio { width: 100%; } }
+    </style>
+</head>
+<body>
 
+<header class="site-header">
+    <h1>تفسير سورة النساء</h1>
+</header>
+
+<div class="nav-bar">
+    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="lessons.html" class="btn-link"><i class="fas fa-list-ul"></i> الفهرس</a>
+</div>
+
+<div class="container" id="nisa-list">
+    </div>
+
+<script>
+    // الإعدادات التي أكدت عليها حضرتك
+    const totalLessons = 53; 
+    const prefix = "al-nesaa"; // تأكد أن الملفات في المجلد بهذا الاسم: al-nesaa-1.MP3
+
+    function generate() {
+        const container = document.getElementById('nisa-list');
+        let html = '';
+        for (let i = 1; i <= totalLessons; i++) {
+            // الامتداد MP3 كبير كما طلبت
+            const fileUrl = `audio/${prefix}-${i}.MP3`;
+            html += `
+            <div class="lesson-card">
+                <span><i class="fas fa-book-open" style="color:var(--gold); margin-left:8px;"></i> الدرس ${i}</span>
+                <div class="audio-group">
+                    <audio controls preload="none">
+                        <source src="${fileUrl}" type="audio/mpeg">
+                        متصفحك لا يدعم الصوت.
+                    </audio>
+                    <a href="${fileUrl}" download class="dl-icon" title="تحميل الدرس">
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>`;
+        }
+        container.innerHTML = html;
+    }
+    
+    // تشغيل الدالة عند تحميل الصفحة
+    window.onload = generate;
+</script>
+
+<footer>
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
+</footer>
+</body>
+</html>
