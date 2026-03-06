@@ -8,61 +8,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --dark-blue: #2c5d87; --gold: #b59410; --light-bg: #f8fafc; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-bg); direction: rtl; }
-        .site-header { background: #e3effb; padding: 35px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-bg); direction: rtl; overflow-x: hidden; }
+        
+        .site-header { background: #e3effb; padding: 30px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
         .site-header h1 { margin: 0; color: var(--dark-blue); font-size: 1.8rem; font-weight: 900; }
-        .nav-bar { display: flex; justify-content: center; gap: 12px; padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .btn-link { padding: 8px 15px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: var(--dark-blue); font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
-        .btn-link:hover { background: var(--dark-blue); color: white; }
 
-        .books-grid { 
-            max-width: 1200px; margin: 30px auto; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
-            gap: 20px; padding: 0 15px;
+        .nav-bar { display: flex; justify-content: center; gap: 12px; padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn-link { padding: 8px 15px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: var(--dark-blue); font-weight: bold; font-size: 0.9rem; }
+
+        /* حاوية الشريط المتحرك */
+        .slider-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 40px;
         }
+
+        .books-slider { 
+            display: flex;
+            gap: 20px;
+            overflow-x: auto; /* يسمح بالتمرير الأفقي */
+            scroll-behavior: smooth; /* حركة ناعمة */
+            padding: 20px 5px;
+            scrollbar-width: none; /* إخفاء شريط التمرير الافتراضي */
+        }
+        .books-slider::-webkit-scrollbar { display: none; }
 
         .book-card { 
-            background: white; border-radius: 10px; border: 1px solid #e2e8f0; 
-            padding: 10px; text-align: center; transition: 0.3s;
+            flex: 0 0 180px; /* عرض ثابت لكل كتاب داخل الشريط */
+            background: white; border-radius: 12px; border: 1px solid #e2e8f0; 
+            padding: 12px; text-align: center; transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             display: flex; flex-direction: column; justify-content: space-between;
         }
-        .book-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
+        .book-card:hover { transform: translateY(-5px); border-color: var(--gold); }
 
         .book-img { 
-            width: 100%; height: 210px; background: #eee; 
-            border-radius: 6px; object-fit: cover; margin-bottom: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%; height: 240px; background: #eee; 
+            border-radius: 8px; object-fit: cover; margin-bottom: 10px;
         }
 
         .book-title { 
             font-weight: 700; color: var(--dark-blue); font-size: 0.85rem; 
-            margin-bottom: 12px; line-height: 1.4; min-height: 40px;
+            margin-bottom: 12px; line-height: 1.4; height: 40px;
             display: flex; align-items: center; justify-content: center;
         }
 
         .btn-dl { 
-            display: flex; align-items: center; justify-content: center; gap: 6px;
             background: var(--gold); color: white; text-decoration: none; 
             padding: 8px; border-radius: 5px; font-size: 0.8rem; font-weight: bold;
         }
-        .btn-dl:hover { background: var(--dark-blue); }
+
+        /* أزرار التنقل (يمين ويسار) */
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: var(--dark-blue); color: white; border: none;
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+            z-index: 10; opacity: 0.7; transition: 0.3s;
+        }
+        .nav-btn:hover { opacity: 1; background: var(--gold); }
+        .prev { right: 0; }
+        .next { left: 0; }
+
         footer { text-align: center; padding: 40px; color: #888; }
     </style>
 </head>
 <body>
 
 <header class="site-header"><h1>المؤلفات والكتب العلمية</h1></header>
+
 <div class="nav-bar">
-    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
-    <a href="lessons.html" class="btn-link"><i class="fas fa-arrow-right"></i> الفهرس</a>
+    <a href="index.html" class="btn-link">الرئيسية</a>
+    <a href="lessons.html" class="btn-link">الفهرس</a>
 </div>
 
-<div class="books-grid" id="books-container">
-    </div>
+<div class="slider-wrapper">
+    <button class="nav-btn prev" onclick="scrollSlider(200)"><i class="fas fa-chevron-right"></i></button>
+    
+    <div class="books-slider" id="books-container">
+        </div>
+
+    <button class="nav-btn next" onclick="scrollSlider(-200)"><i class="fas fa-chevron-left"></i></button>
+</div>
 
 <script>
-    // تم استخراج الأسماء الحقيقية من الروابط التي أرسلتها
     const books = [
         { name: "الأربعون في الأمثال", img: "al-arbon-veal-amthal.jpg.jpg", pdf: "al-arbon-veal-amthal.pdf" },
         { name: "الاعتبار بطرائف الأخبار", img: "al-eatbaar-ptraef-alakbaar.jpg.jpg", pdf: "al-eatbaar-ptraef-alakbaar.pdf" },
@@ -89,14 +118,16 @@
     books.forEach(book => {
         container.innerHTML += `
             <div class="book-card">
-                <img src="images/${book.img}" class="book-img" onerror="this.src='https://via.placeholder.com/160x210?text=غلاف+الكتاب'">
+                <img src="images/${book.img}" class="book-img" onerror="this.src='https://via.placeholder.com/180x240?text=غلاف+الكتاب'">
                 <div class="book-title">${book.name}</div>
-                <a href="pdf/${book.pdf}" class="btn-dl" download>
-                    <i class="fas fa-file-pdf"></i> تحميل PDF
-                </a>
+                <a href="pdf/${book.pdf}" class="btn-dl" download>تحميل PDF</a>
             </div>
         `;
     });
+
+    function scrollSlider(amount) {
+        container.scrollBy({ left: amount, behavior: 'smooth' });
+    }
 </script>
 
 <footer>جميع الحقوق محفوظة &copy; 2026</footer>
