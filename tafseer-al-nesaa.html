@@ -37,22 +37,26 @@
 <div class="container" id="nisa-list"></div>
 
 <script>
-    // غير الرقم 100 هنا إلى العدد الحقيقي للدروس لديك
-    const totalLessons = 100; 
+    // الإعدادات المعتمدة التي ذكرتها
+    const totalLessons = 53; 
+    const prefix = "al-nesaa";
 
     function generate() {
         const container = document.getElementById('nisa-list');
         let html = '';
         for (let i = 1; i <= totalLessons; i++) {
-            const fileUrl = `audio/al-nesaa-${i}.mp3`;
+            // ملاحظة: تم تعديل الامتداد إلى MP3 كبير كما طلبت
+            const fileUrl = `audio/${prefix}-${i}.MP3`;
             html += `
             <div class="lesson-card">
-                <span>الدرس ${i}</span>
+                <span><i class="fas fa-book-open" style="color:var(--gold); margin-left:8px;"></i> الدرس ${i}</span>
                 <div class="audio-group">
                     <audio controls preload="none">
                         <source src="${fileUrl}" type="audio/mpeg">
                     </audio>
-                    <a href="${fileUrl}" download class="dl-icon"><i class="fas fa-download"></i></a>
+                    <a href="${fileUrl}" download class="dl-icon" title="تحميل الدرس">
+                        <i class="fas fa-download"></i>
+                    </a>
                 </div>
             </div>`;
         }
@@ -60,5 +64,9 @@
     }
     generate();
 </script>
+
+<footer>
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
+</footer>
 </body>
 </html>
