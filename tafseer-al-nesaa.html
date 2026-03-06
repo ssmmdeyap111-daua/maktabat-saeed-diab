@@ -39,63 +39,26 @@
 <div class="pagination" id="pagination"></div>
 
 <script>
-    /* --- الإعدادات (عدلها لكل سورة) --- */
-    const seriesTitle = "تفسير سورة النساء"; // اسم السورة
-    const seriesPrefix = "al-nesaa";           // البريفكس (fatiha, bakara, imran)
-    const totalLessons = 53;                  // عدد الدروس (2, 75, 52..)
-    /* ---------------------------------- */
-
-    document.getElementById('page-title').innerText = seriesTitle;
-    const lessonsPerPage = 12;
-    let currentPage = 1;
-
-    function renderLessons(page) {
-        const list = document.getElementById('lesson-list');
-        list.innerHTML = "";
-        let start = (page - 1) * lessonsPerPage + 1;
-        let end = Math.min(start + lessonsPerPage - 1, totalLessons);
-
-        for (let i = start; i <= end; i++) {
-            const fileName = `audio/${seriesPrefix}-${i}.mp3`;
-            const row = document.createElement('div');
-            row.className = 'lesson-row';
-            row.innerHTML = `
-                <div class="lesson-info">
-                    <i class="fas fa-book-quran" style="color:#cbd5e1;"></i>
-                    الدرس رقم ${i}
-                </div>
-                <div class="audio-player">
-                    <audio controls preload="none">
-                        <source src="${fileName}" type="audio/mpeg">
-                    </audio>
-                </div>
-                <div class="actions">
-                    <a href="${fileName}" download><i class="fas fa-cloud-arrow-down"></i></a>
-                </div>`;
-            list.appendChild(row);
-        }
-        renderPagination();
+  // دالة التوليد مع التأكد من وجود الشرطة (-) بين الاسم والرقم
+function generate(id, prefix, count) {
+    const container = document.getElementById(id);
+    let html = '';
+    for (let i = 1; i <= count; i++) {
+        // سينتج: audio/al-nesaa-1.mp3 وهكذا حتى 50
+        const fileUrl = `audio/${prefix}-${i}.mp3`; 
+        html += `
+        <div class="lesson-card">
+            <span>الدرس ${i}</span>
+            <div class="audio-controls">
+                <audio controls preload="none">
+                    <source src="${fileUrl}" type="audio/mpeg">
+                </audio>
+                <a href="${fileUrl}" download class="download-btn"><i class="fas fa-download"></i></a>
+            </div>
+        </div>`;
     }
+    container.innerHTML = html;
+}
 
-    function renderPagination() {
-        const pag = document.getElementById('pagination');
-        pag.innerHTML = "";
-        const pages = Math.ceil(totalLessons / lessonsPerPage);
-        for (let i = 1; i <= pages; i++) {
-            const btn = document.createElement('button');
-            btn.innerText = i;
-            btn.className = (i === currentPage) ? "page-btn active" : "page-btn";
-            btn.onclick = function() {
-                currentPage = i;
-                renderLessons(i);
-                window.scrollTo(0, 0);
-            };
-            pag.appendChild(btn);
-        }
-    }
-
-    window.onload = () => renderLessons(1);
-</script>
-
-</body>
-</html>
+// استدعاء التوليد لـ 50 درساً (أو حسب العدد الفعلي عندك)
+generate('nisa-list', 'al-nesaa', 53); 
