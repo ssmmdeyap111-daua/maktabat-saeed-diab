@@ -6,130 +6,54 @@
     <title>مؤلفات الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
         :root { --dark-blue: #2c5d87; --gold: #b59410; --light-bg: #f8fafc; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: var(--light-bg); direction: rtl; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-bg); }
+        .site-header { background: #e3effb; padding: 30px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; background: white; }
+        .btn-link { padding: 8px 15px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: var(--dark-blue); font-weight: bold; font-size: 0.9rem; }
         
-        .site-header { background: #e3effb; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
-        .site-header h1 { margin: 0; color: var(--dark-blue); font-size: 2rem; font-weight: 900; }
-
-        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .btn-link { padding: 8px 18px; background: white; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: var(--dark-blue); font-weight: bold; transition: 0.3s; }
-        .btn-link:hover { background: var(--dark-blue); color: white; }
-
-        /* حاوية الكتب - عرض مكثف جداً لإظهار أكبر عدد */
+        /* شبكة عرض الكتب المكثفة */
         .books-grid { 
-            max-width: 1200px; 
-            margin: 30px auto; 
+            max-width: 1200px; margin: 30px auto; 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
-            gap: 20px; 
-            padding: 0 15px;
+            gap: 15px; padding: 0 15px; 
         }
-
         .book-card { 
-            background: white; 
-            border-radius: 10px; 
-            border: 1px solid #e2e8f0; 
-            padding: 10px; 
-            text-align: center; 
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: white; border-radius: 10px; border: 1px solid #e2e8f0; 
+            padding: 10px; text-align: center; transition: 0.3s;
         }
-        .book-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
-
-        .book-img { 
-            width: 100%; 
-            height: 220px; 
-            background: #eee; 
-            border-radius: 6px; 
-            object-fit: cover; 
-            margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .book-title { 
-            font-weight: 700; 
-            color: var(--dark-blue); 
-            font-size: 0.9rem; 
-            margin-bottom: 10px;
-            min-height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .download-book { 
-            display: block;
-            background: var(--gold); 
-            color: white; 
-            text-decoration: none; 
-            padding: 8px; 
-            border-radius: 5px; 
-            font-size: 0.8rem; 
-            font-weight: bold;
-        }
-        .download-book:hover { background: var(--dark-blue); }
-
-        footer { text-align: center; padding: 40px; color: #888; }
+        .book-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .book-img { width: 100%; height: 210px; border-radius: 5px; object-fit: cover; margin-bottom: 8px; background: #eee; }
+        .book-title { font-weight: 700; color: var(--dark-blue); font-size: 0.85rem; height: 35px; overflow: hidden; margin-bottom: 10px; }
+        .btn-dl { display: block; background: var(--gold); color: white; text-decoration: none; padding: 6px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<header class="site-header">
-    <h1>المؤلفات والكتب العلمية</h1>
-</header>
-
+<header class="site-header"><h1>المؤلفات والكتب</h1></header>
 <div class="nav-bar">
-    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
-    <a href="articles.html" class="btn-link"><i class="fas fa-file-alt"></i> المقالات</a>
+    <a href="index.html" class="btn-link">الرئيسية</a>
+    <a href="lessons.html" class="btn-link">الفهرس</a>
 </div>
 
-<div class="books-grid" id="books-container">
+<div class="books-grid">
+    <div class="book-card">
+        <img src="images/book1.jpg" class="book-img" onerror="this.src='https://via.placeholder.com/160x210?text=الغلاف'">
+        <div class="book-title">اكتب هنا اسم الكتاب 1</div>
+        <a href="pdf/book1.pdf" class="btn-dl" download>تحميل PDF</a>
     </div>
 
-<script>
-    // هذه هي البيانات التي كانت مفقودة، قمت بمحاولة استرجاع النمط الشائع لملفاتك
-    // إذا كانت أسماء الملفات مختلفة، يمكنك تعديلها في هذه المصفوفة
-    const booksData = [
-        { title: "منظومة ناسخ الحديث", img: "book1.jpg", file: "book1.pdf" },
-        { title: "شرح العقيدة الطحاوية", img: "book2.jpg", file: "book2.pdf" },
-        { title: "الفرائض والمواريث", img: "book3.jpg", file: "book3.pdf" },
-        { title: "كتاب التوحيد", img: "book4.jpg", file: "book4.pdf" },
-        { title: "رياض الصالحين", img: "book5.jpg", file: "book5.pdf" },
-        { title: "عمدة الأحكام", img: "book6.jpg", file: "book6.pdf" },
-        { title: "أصول التفسير", img: "book7.jpg", file: "book7.pdf" },
-        { title: "سنن أبي داود", img: "book8.jpg", file: "book8.pdf" },
-        { title: "صحيح البخاري", img: "book9.jpg", file: "book9.pdf" },
-        { title: "الواسطية", img: "book10.jpg", file: "book10.pdf" },
-        { title: "كتاب 11", img: "book11.jpg", file: "book11.pdf" },
-        { title: "كتاب 12", img: "book12.jpg", file: "book12.pdf" },
-        { title: "كتاب 13", img: "book13.jpg", file: "book13.pdf" },
-        { title: "كتاب 14", img: "book14.jpg", file: "book14.pdf" },
-        { title: "كتاب 15", img: "book15.jpg", file: "book15.pdf" }
-    ];
+    <div class="book-card">
+        <img src="images/book2.jpg" class="book-img" onerror="this.src='https://via.placeholder.com/160x210?text=الغلاف'">
+        <div class="book-title">اكتب هنا اسم الكتاب 2</div>
+        <a href="pdf/book2.pdf" class="btn-dl" download>تحميل PDF</a>
+    </div>
 
-    const container = document.getElementById('books-container');
-    
-    booksData.forEach(book => {
-        container.innerHTML += `
-            <div class="book-card">
-                <img src="images/${book.img}" class="book-img" onerror="this.src='https://via.placeholder.com/160x220?text=Book+Cover'">
-                <div class="book-title">${book.title}</div>
-                <a href="pdf/${book.file}" class="download-book" download>
-                    <i class="fas fa-download"></i> تحميل PDF
-                </a>
-            </div>
-        `;
-    });
-</script>
+    </div>
 
-<footer>
-    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
-</footer>
+<footer><p style="text-align:center; padding:30px; color:#888;">&copy; 2026 الشيخ سعيد مصطفى دياب</p></footer>
 
 </body>
 </html>
