@@ -3,136 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفسير القرآن الكريم - الشيخ سعيد مصطفى دياب</title>
+    <title>فهرس السلاسل العلمية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --primary: #2c5d87; 
-            --light-blue: #e3effb; 
-            --gold: #d4af37; 
-            --white: #ffffff; 
-        }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f8fafc; color: #333; }
+        :root { --dark-blue: #2c5d87; --gold: #b59410; --light-bg: #f8fafc; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-bg); direction: rtl; }
         
-        /* الشريط العلوي الواسع والموحد */
-        .site-header { 
-            background: var(--light-blue); 
-            padding: 60px 20px; 
-            text-align: center; 
-            border-bottom: 5px solid var(--primary); 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .site-header h1 { margin: 0; color: var(--primary); font-size: 2.5rem; font-weight: 900; }
-        .site-header p { color: var(--primary); margin-top: 10px; font-size: 1.2rem; opacity: 0.8; }
+        .site-header { background: #e3effb; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        .site-header h1 { margin: 0; color: var(--dark-blue); font-size: 2.5rem; font-weight: 900; }
 
-        .container { max-width: 95%; margin: 30px auto; padding: 20px; }
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn-link { padding: 10px 25px; border: 2px solid #ddd; border-radius: 10px; text-decoration: none; color: var(--dark-blue); font-weight: bold; transition: 0.3s; }
+        .btn-link:hover { background: var(--dark-blue); color: white; }
 
-        .back-nav { text-align: center; margin-bottom: 30px; }
-        .back-nav a { text-decoration: none; color: var(--primary); font-weight: bold; }
-
-        /* شبكة السور (أيقونات أصغر لتسع الجميع) */
+        /* تنسيق الشبكة لمنع تداخل الأيقونات */
         .series-grid { 
+            max-width: 1100px; margin: 40px auto; 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* تصغير العرض الأدنى */
-            gap: 15px; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 25px; padding: 0 20px;
         }
 
         .series-card { 
-            background: var(--white); 
-            padding: 20px 10px; 
-            border-radius: 12px; 
-            text-align: center; 
-            text-decoration: none; 
-            color: var(--primary); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
-            transition: 0.3s; 
-            border: 1px solid #eee; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background: white; border-radius: 15px; border: 1px solid #eee; 
+            padding: 30px 20px; text-align: center; text-decoration: none; 
+            transition: 0.3s; display: block; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
+        .series-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
 
-        .series-card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--gold); 
-            background: var(--light-blue);
-        }
+        .series-card i { font-size: 3rem; color: var(--gold); margin-bottom: 15px; display: block; }
+        .series-card h3 { margin: 10px 0; color: var(--dark-blue); font-size: 1.4rem; font-weight: 800; }
+        .series-card .count { background: #f0f4f8; color: var(--dark-blue); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
 
-        /* تصغير الأيقونة */
-        .series-card i { 
-            font-size: 2.2rem; 
-            color: var(--gold); 
-            margin-bottom: 12px; 
-        }
+        /* تنسيق خاص للبطاقات غير المكتملة (المائدة) */
+        .series-card.soon { opacity: 0.7; cursor: default; pointer-events: none; }
+        .series-card.soon i { color: #ccc; }
+        .series-card.soon .count { background: #eee; color: #888; }
 
-        .series-card h3 { 
-            margin: 0; 
-            font-size: 1.1rem; 
-            font-weight: 700; 
-        }
-
-        .count { 
-            background: #f0f4f8; 
-            padding: 2px 10px; 
-            border-radius: 50px; 
-            font-size: 0.75rem; 
-            margin-top: 8px; 
-            color: #64748b;
-        }
+        footer { text-align: center; padding: 60px; color: #888; }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1><i class="fas fa-quran"></i> تفسير القرآن الكريم</h1>
-    <p>تدبر آيات الذكر الحكيم بصوت فضيلة الشيخ</p>
+    <h1>فهرس تفسير القرآن الكريم</h1>
 </header>
 
-<div class="container">
-    <div class="back-nav">
-        <a href="index.html"><i class="fas fa-home"></i> العودة للرئيسية</a>
+<div class="nav-bar">
+    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="books.html" class="btn-link"><i class="fas fa-book"></i> المؤلفات</a>
+</div>
+
+<div class="series-grid">
+    
+    <a href="tafseer-imran.html" class="series-card">
+        <i class="fas fa-quran"></i>
+        <h3>سورة آل عمران</h3>
+        <span class="count">52 درس</span>
+    </a>
+
+    <a href="tafseer-al-nesa.html" class="series-card">
+        <i class="fas fa-quran"></i>
+        <h3>سورة النساء</h3>
+        <span class="count">53 درس</span>
+    </a>
+
+    <div class="series-card soon">
+        <i class="fas fa-clock"></i>
+        <h3>سورة المائدة</h3>
+        <span class="count">قريباً إن شاء الله</span>
     </div>
 
-    <div class="series-grid">
-        <a href="tafseer-fatiha.html" class="series-card">
-            <i class="fas fa-book-open"></i>
-            <h3>سورة الفاتحة</h3>
-            <span class="count">2 درس</span>
-        </a>
+    <a href="tafseer-al-anaam.html" class="series-card">
+        <i class="fas fa-quran"></i>
+        <h3>سورة الأنعام</h3>
+        <span class="count">40 درس</span>
+    </a>
 
-        <a href="tafseer-baqara.html" class="series-card">
-            <i class="fas fa-quran"></i>
-            <h3>سورة البقرة</h3>
-            <span class="count">75 درس</span>
-        </a>
-
-        <a href="tafseer-imran.html" class="series-card">
-            <i class="fas fa-quran"></i>
-            <h3>سورة آل عمران</h3>
-            <span class="count">52 درس</span>
-        </a>
-
-      <a href="tafseer-al-nesa.html" class="series-card">
-    <i class="fas fa-quran"></i>
-    <h3>سورة النساء</h3>
-    <span class="count">53 درس</span>
-</a>
-
-        <a href="tafseer-maida.html" class="series-card">
-            <i class="fas fa-quran"></i>
-            <h3>سورة المائدة</h3>
-            <span class="count">34 درس</span>
-        </a>
-
-      <a href="tafseer-al-anaam.html" class="series-card">
-    <i class="fas fa-quran"></i>
-    <h3>سورة الأنعام</h3>
-    <span class="count">40 درس</span>
-</a> 
-
-        </div>
 </div>
+
+<footer>
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
+</footer>
 
 </body>
 </html>
