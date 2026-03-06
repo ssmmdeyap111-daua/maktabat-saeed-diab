@@ -9,50 +9,102 @@
     <style>
         :root { --dark-blue: #2c5d87; --gold: #b59410; --light-bg: #f8fafc; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-bg); direction: rtl; }
+        
+        /* الهيدر */
         .site-header { background: #e3effb; padding: 40px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
         .site-header h1 { margin: 0; color: var(--dark-blue); font-size: 2.2rem; font-weight: 900; }
+
+        /* شريط التنقل */
         .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .btn-link { padding: 10px 20px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: var(--dark-blue); font-weight: bold; transition: 0.3s; }
+        .btn-link:hover { background: var(--dark-blue); color: white; }
+
+        /* حاوية الدروس */
         .container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
-        .lesson-card { background: white; padding: 15px 20px; border-radius: 10px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #eee; }
+        .lesson-card { 
+            background: white; padding: 15px 20px; border-radius: 10px; margin-bottom: 12px;
+            display: flex; justify-content: space-between; align-items: center; border: 1px solid #eee;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        
+        .lesson-info { display: flex; align-items: center; gap: 10px; color: var(--dark-blue); font-weight: 700; }
+        .audio-group { display: flex; align-items: center; gap: 15px; }
+        
         audio { height: 35px; width: 250px; }
-        .dl-icon { color: #2ecc71; font-size: 1.3rem; text-decoration: none; }
-        footer { text-align: center; padding: 40px; color: #888; }
+        
+        .dl-icon { 
+            color: #2ecc71; font-size: 1.3rem; text-decoration: none; 
+            transition: 0.2s; padding: 5px;
+        }
+        .dl-icon:hover { color: var(--dark-blue); transform: translateY(-2px); }
+
+        footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
+
+        @media (max-width: 600px) {
+            .lesson-card { flex-direction: column; text-align: center; gap: 15px; }
+            audio { width: 100%; }
+        }
     </style>
 </head>
 <body>
 
-<header class="site-header"><h1>تفسير سورة الأنعام</h1></header>
+<header class="site-header">
+    <h1>تفسير سورة الأنعام</h1>
+</header>
+
 <div class="nav-bar">
-    <a href="index.html" class="btn-link">الرئيسية</a>
-    <a href="tafseer.html" class="btn-link">الفهرس</a>
+    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="tafseer.html" class="btn-link"><i class="fas fa-list-ul"></i> الفهرس</a>
 </div>
 
-<div class="container" id="anaam-list"></div>
+<div class="container" id="anaam-list">
+    </div>
 
 <script>
-    const totalLessons = 40; 
-    const prefix = "al-anaam"; // تأكد أن الملفات في المجلد مثل: al-anaam-1.MP3
+    /**
+     * إعدادات أسماء الملفات - راجعها إذا استمر الـ 404
+     */
+    const settings = {
+        total: 40,             // عدد الدروس
+        prefix: "al-anaam",    // بداية اسم الملف (تأكد هل هو al-anaam أم anaam فقط)
+        extension: "mp3"       // الامتداد (mp3 صغير كما أكدت حضرتك)
+    };
 
-    function generate() {
+    function generateLessons() {
         const container = document.getElementById('anaam-list');
         let html = '';
-        for (let i = 1; i <= totalLessons; i++) {
-            const fileUrl = `audio/${prefix}-${i}.MP3`; 
+
+        for (let i = 1; i <= settings.total; i++) {
+            // المسار: audio/al-anaam-1.mp3
+            const fileUrl = `audio/${settings.prefix}-${i}.${settings.extension}`;
+            
             html += `
             <div class="lesson-card">
-                <span><i class="fas fa-book-open" style="color:var(--gold); margin-left:8px;"></i> الدرس ${i}</span>
+                <div class="lesson-info">
+                    <i class="fas fa-book-open" style="color:var(--gold);"></i>
+                    <span>الدرس ${i}</span>
+                </div>
                 <div class="audio-group">
                     <audio controls preload="none">
                         <source src="${fileUrl}" type="audio/mpeg">
+                        متصفحك لا يدعم مشغل الصوت.
                     </audio>
-                    <a href="${fileUrl}" download class="dl-icon"><i class="fas fa-download"></i></a>
+                    <a href="${fileUrl}" download class="dl-icon" title="تحميل الدرس">
+                        <i class="fas fa-download"></i>
+                    </a>
                 </div>
             </div>`;
         }
         container.innerHTML = html;
     }
-    window.onload = generate;
+
+    // تنفيذ الدالة عند التحميل
+    window.onload = generateLessons;
 </script>
+
+<footer>
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
+</footer>
+
 </body>
 </html>
