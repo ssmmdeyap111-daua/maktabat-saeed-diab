@@ -10,55 +10,51 @@
         :root { --dark-blue: #2c5d87; --gold: #b59410; --light-bg: #f8fafc; --success-green: #27ae60; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-bg); direction: rtl; }
         
-        .site-header { background: #e3effb; padding: 50px 20px; text-align: center; border-bottom: 6px solid var(--dark-blue); }
+        .site-header { background: #e3effb; padding: 40px 20px; text-align: center; border-bottom: 6px solid var(--dark-blue); }
         .site-header h1 { margin: 0; color: var(--dark-blue); font-size: 2.5rem; font-weight: 900; }
 
-        .nav-bar { display: flex; justify-content: center; gap: 20px; padding: 20px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .btn-link { padding: 10px 25px; border: 1px solid #ddd; border-radius: 10px; text-decoration: none; color: var(--dark-blue); font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn-link { padding: 8px 20px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: var(--dark-blue); font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
         .btn-link:hover { background: var(--dark-blue); color: white; }
 
-        .slider-wrapper { position: relative; max-width: 95%; margin: 40px auto; padding: 0 60px; }
+        .slider-wrapper { position: relative; max-width: 95%; margin: 30px auto; padding: 0 50px; }
 
         .books-slider { 
-            display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth;
-            padding: 20px 5px; scrollbar-width: none; -ms-overflow-style: none;
+            display: flex; gap: 15px; overflow-x: auto; scroll-behavior: smooth;
+            padding: 20px 5px; scrollbar-width: none;
         }
         .books-slider::-webkit-scrollbar { display: none; }
 
         .book-card { 
-            flex: 0 0 180px; background: white; border-radius: 12px; border: 1px solid #e2e8f0; 
-            padding: 15px; text-align: center; transition: 0.3s;
+            flex: 0 0 170px; background: white; border-radius: 12px; border: 1px solid #e2e8f0; 
+            padding: 12px; text-align: center; transition: 0.3s;
             display: flex; flex-direction: column; box-shadow: 0 4px 6px rgba(0,0,0,0.03);
         }
-        .book-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
+        .book-card:hover { transform: translateY(-5px); border-color: var(--gold); }
 
         .book-img { 
-            width: 100%; height: 250px; object-fit: contain; 
-            background-color: #fff; margin-bottom: 12px;
-            border-radius: 4px; border: 1px solid #f0f0f0;
+            width: 100%; height: 230px; object-fit: contain; 
+            background-color: #fff; margin-bottom: 10px; border-radius: 4px;
         }
 
         .book-title { 
-            font-weight: 700; color: var(--dark-blue); font-size: 0.95rem; 
-            margin-bottom: 15px; line-height: 1.4; height: 45px;
-            display: flex; align-items: center; justify-content: center; overflow: hidden;
+            font-weight: 700; color: var(--dark-blue); font-size: 0.9rem; 
+            margin-bottom: 12px; height: 40px; display: flex; align-items: center; justify-content: center;
         }
 
-        .actions { display: flex; flex-direction: column; gap: 8px; }
+        .actions { display: flex; flex-direction: column; gap: 5px; }
         
-        .btn-read { background: var(--dark-blue); color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
-        .btn-dl { background: var(--success-green); color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
+        .btn-read { background: var(--dark-blue); color: white; text-decoration: none; padding: 6px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
+        .btn-dl { background: var(--success-green); color: white; text-decoration: none; padding: 6px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
 
         .nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: var(--dark-blue); color: white; border: none;
-            width: 45px; height: 45px; border-radius: 50%; cursor: pointer;
-            z-index: 10; font-size: 1.2rem; transition: 0.3s;
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10;
         }
-        .prev { right: 5px; }
-        .next { left: 5px; }
+        .prev { right: 5px; } .next { left: 5px; }
 
-        footer { text-align: center; padding: 40px; color: #888; font-weight: bold; }
+        footer { text-align: center; padding: 30px; color: #888; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -79,7 +75,7 @@
 </div>
 
 <script>
-    // تم تعديل الامتدادات هنا لتطابق ملفاتك .jpg.jpg
+    // مصفوفة الكتب مع تصحيح الامتدادات
     const books = [
         { name: "الأربعون في الأمثال", img: "al-arbon-veal-amthal.jpg.jpg", pdf: "al-arbon-veal-amthal.pdf" },
         { name: "الاعتبار بطرائف الأخبار", img: "al-eatbaar-ptraef-alakbaar.jpg.jpg", pdf: "al-eatbaar-ptraef-alakbaar.pdf" },
@@ -105,16 +101,17 @@
     const container = document.getElementById('books-container');
     
     books.forEach(book => {
-        const pdfPath = `pdf/${book.pdf}`;
-        const imgPath = `images/${book.img}`;
+        // المسارات - تأكد أن المجلدات بنفس هذه الأسماء وبجانب ملف الـ html
+        const pdfPath = "pdf/" + book.pdf;
+        const imgPath = "images/" + book.img;
         
         container.innerHTML += `
             <div class="book-card">
-                <img src="${imgPath}" class="book-img" onerror="this.src='https://via.placeholder.com/150x250?text=غلاف+الكتاب'">
+                <img src="${imgPath}" class="book-img" onerror="this.src='https://via.placeholder.com/150x230?text=خطأ+في+الصورة'">
                 <div class="book-title">${book.name}</div>
                 <div class="actions">
-                    <a href="${pdfPath}" target="_blank" class="btn-read">قراءة الآن</a>
-                    <a href="${pdfPath}" download class="btn-dl"><i class="fas fa-download"></i> تحميل PDF</a>
+                    <a href="${pdfPath}" target="_blank" class="btn-read">فتح للقراءة</a>
+                    <a href="${pdfPath}" download="${book.pdf}" class="btn-dl">تحميل مباشر</a>
                 </div>
             </div>
         `;
