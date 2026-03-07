@@ -1,39 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فهرس تفسير القرآن - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --dark-blue: #2c5d87; --gold: #b59410; --light-bg: #f8fafc; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-bg); direction: rtl; }
+        
+        /* الهيدر */
+        .site-header { background: #e3effb; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        .site-header h1 { margin: 0; color: var(--dark-blue); font-size: 2.2rem; font-weight: 900; }
+
+        /* شريط التنقل */
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn-link { padding: 10px 20px; border: 2px solid #ddd; border-radius: 10px; text-decoration: none; color: var(--dark-blue); font-weight: bold; transition: 0.3s; }
+        .btn-link:hover { background: var(--dark-blue); color: white; }
+
+        /* شبكة السور */
+        .series-grid { 
+            max-width: 1100px; margin: 40px auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 20px; padding: 0 20px;
+        }
+
+        .series-card { 
+            background: white; border-radius: 12px; border: 1px solid #eee; 
+            padding: 25px 15px; text-align: center; text-decoration: none; 
+            transition: 0.3s; display: block; box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .series-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+
+        .series-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 12px; display: block; }
+        .series-card h3 { margin: 10px 0; color: var(--dark-blue); font-size: 1.3rem; font-weight: 800; }
+        .series-card .count { background: #f0f4f8; color: var(--dark-blue); padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold; }
+
+        footer { text-align: center; padding: 50px; color: #888; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <h1>فهرس تفسير القرآن الكريم</h1>
+</header>
+
+<div class="nav-bar">
+    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="books.html" class="btn-link"><i class="fas fa-book"></i> المؤلفات والكتب</a>
+</div>
+
 <div class="series-grid">
     
     <a href="tafseer-fatiha.html" class="series-card">
         <i class="fas fa-quran"></i>
         <h3>سورة الفاتحة</h3>
-        <span class="count">2 دروس</span>
+        <span class="count">درسان</span>
     </a>
 
     <a href="tafseer-baqara.html" class="series-card">
         <i class="fas fa-quran"></i>
         <h3>سورة البقرة</h3>
-        <span class="count">75 درس</span>
+        <span class="count">75 درساً</span>
     </a>
 
     <a href="tafseer-imran.html" class="series-card">
         <i class="fas fa-quran"></i>
         <h3>سورة آل عمران</h3>
-        <span class="count">52 درس</span>
+        <span class="count">52 درساً</span>
     </a>
 
     <a href="tafseer-al-nesaa.html" class="series-card">
         <i class="fas fa-quran"></i>
         <h3>سورة النساء</h3>
-        <span class="count">53 درس</span>
+        <span class="count">53 درساً</span>
     </a>
 
     <a href="tafseer-al-maeda.html" class="series-card">
         <i class="fas fa-quran"></i>
         <h3>سورة المائدة</h3>
-        <span class="count">34 درس</span>
+        <span class="count">34 درساً</span>
     </a>
 
     <a href="tafseer-al-anaam.html" class="series-card">
         <i class="fas fa-quran"></i>
         <h3>سورة الأنعام</h3>
-        <span class="count">40 درس</span>
+        <span class="count">40 درساً</span>
     </a>
 
 </div>
+
+<footer>
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
+</footer>
+
+</body>
+</html>
