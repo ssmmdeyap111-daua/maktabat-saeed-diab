@@ -3,36 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فهرس الدروس - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>الفهرس العام - الشيخ سعيد مصطفى دياب</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        :root { --light-sky: #eef5ff; --dark-blue: #2c5d87; --accent-blue: #87ceeb; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); }
-        .site-header { text-align: center; padding: 40px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid white; }
-        .site-header h1 { margin: 0; font-family: 'Reem Kufi', sans-serif; color: var(--dark-blue); font-size: 2.2rem; }
-        .categories-container { max-width: 1100px; margin: 40px auto; padding: 0 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .category-btn { display: flex; align-items: center; justify-content: center; background: white; color: var(--dark-blue); text-decoration: none; padding: 20px 30px; border-radius: 8px; font-weight: bold; font-size: 1.2rem; min-width: 220px; box-shadow: 0 4px 0 var(--accent-blue); transition: 0.2s; border: 2px solid #d0e4ff; text-align: center; }
-        .category-btn:hover { background: #f0faff; transform: translateY(-2px); box-shadow: 0 6px 0 var(--accent-blue); }
-        .back-home { display: inline-block; margin-top: 30px; padding: 10px 40px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; }
+        :root { 
+            --dark-blue: #2c5d87; 
+            --gold: #b59410; 
+            --white-glass: rgba(255, 255, 255, 0.88); 
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Cairo', sans-serif; 
+            direction: rtl; 
+            min-height: 100vh;
+            /* استخدام الصورة الجديدة كخلفية للفهرس العام */
+            background: url('images/image_0.png') no-repeat center center fixed; 
+            background-size: cover;
+        }
+
+        /* الهيدر الشفاف */
+        .site-header { 
+            background: rgba(44, 93, 135, 0.9); 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--gold); 
+            backdrop-filter: blur(10px);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .site-header h1 { margin: 0; font-size: 2.5rem; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+
+        /* شريط التنقل */
+        .nav-bar { 
+            display: flex; justify-content: center; gap: 15px; padding: 15px; 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .btn-link { 
+            padding: 10px 25px; border: 2px solid var(--dark-blue); border-radius: 12px; 
+            text-decoration: none; color: var(--dark-blue); font-weight: bold; 
+            background: white; transition: 0.3s; display: flex; align-items: center; gap: 8px;
+        }
+        .btn-link:hover { background: var(--dark-blue); color: white; }
+
+        /* شبكة الأقسام */
+        .main-grid { 
+            max-width: 1200px; 
+            margin: 50px auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            padding: 0 20px;
+        }
+
+        /* بطاقة القسم الشفافة */
+        .category-card { 
+            background: var(--white-glass); 
+            border-radius: 20px; 
+            padding: 40px 20px; 
+            text-align: center; 
+            text-decoration: none; 
+            transition: 0.4s; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .category-card:hover { 
+            transform: translateY(-12px); 
+            background: rgba(255, 255, 255, 1); 
+            border-color: var(--gold); 
+        }
+
+        .category-card i { 
+            font-size: 3.5rem; 
+            color: var(--dark-blue); 
+            margin-bottom: 20px; 
+            transition: 0.3s;
+        }
+        .category-card:hover i { color: var(--gold); transform: scale(1.1); }
+
+        .category-card h3 { 
+            margin: 10px 0; 
+            color: var(--dark-blue); 
+            font-size: 1.6rem; 
+            font-weight: 800; 
+        }
+        
+        .category-card p { 
+            color: #555; 
+            font-size: 1rem; 
+            line-height: 1.6; 
+            margin-top: 5px; 
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            color: #fff; 
+            font-weight: bold; 
+            text-shadow: 2px 2px 4px #000; 
+            background: rgba(0,0,0,0.5); 
+            margin-top: 50px; 
+            backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 600px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-<header class="site-header"><h1>فهرس السلاسل والدروس العلمية</h1></header>
 
-<div class="categories-container">
-    <a href="aqidah.html" class="category-btn">العقيدة والتوحيد</a>
-    <a href="hadith.html" class="category-btn">شروح الحديث الشريف</a>
-    <a href="faraid.html" class="category-btn">علم الفرائض والمواريث</a>
-    <a href="seerah.html" class="category-btn">السيرة النبوية</a>
-    <a href="tafseer.html" class="category-btn">تفسير القرآن الكريم</a>
-    <a href="quran_sciences.html" class="category-btn">علوم القرآن الكريم</a>
-    <a href="raqaaeq.html" class="category-btn">الرقائق والزهد</a>
-    <a href="fiqh.html" class="category-btn">الفقه الإسلامي</a>
+<header class="site-header">
+    <h1>الفهرس العام للمواد العلمية</h1>
+    <p>بصوت الشيخ سعيد مصطفى دياب</p>
+</header>
+
+<div class="nav-bar">
+    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="books.html" class="btn-link"><i class="fas fa-book"></i> المؤلفات والكتب</a>
 </div>
 
-<div style="text-align: center; margin-bottom: 50px;">
-    <a href="index.html" class="back-home">العودة للرئيسية</a>
+<div class="main-grid">
+    <a href="tafseer.html" class="category-card">
+        <i class="fas fa-quran"></i>
+        <h3>تفسير القرآن</h3>
+        <p>فهرس شامل لسور القرآن الكريم المسجلة بصوت الشيخ</p>
+    </a>
+
+    <a href="seerah.html" class="category-card">
+        <i class="fas fa-mosque"></i>
+        <h3>السيرة النبوية</h3>
+        <p>دروس في سيرة المصطفى صلى الله عليه وسلم</p>
+    </a>
+
+    <a href="aqeedah.html" class="category-card">
+        <i class="fas fa-shield-halved"></i>
+        <h3>العقيدة الإسلامية</h3>
+        <p>شروحات وكتب في أصول العقيدة والتوحيد</p>
+    </a>
 </div>
+
+<footer>
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
+</footer>
+
 </body>
 </html>
