@@ -4,116 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفسير سورة الأعراف - الشيخ سعيد مصطفى دياب</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        :root { --primary: #2c5d87; --bg: #f8fafc; --white: #ffffff; }
+        :root { 
+            --dark-blue: #2c5d87; 
+            --gold: #b59410; 
+            --success-green: #27ae60; 
+            --card-transparent: rgba(255, 255, 255, 0.92); 
+        }
+
+        /* تنسيق الخلفية باستخدام صورة المكتبة الجديدة */
         body { 
             margin: 0; 
             font-family: 'Cairo', sans-serif; 
-            background: #f8fafc url('images/library-bg.jpg') no-repeat center center fixed; 
+            direction: rtl; 
+            min-height: 100vh;
+            /* استدعاء صورة المكتبة الجديدة من مجلد images */
+            background-image: url('images/image_0.png'); 
             background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; /* الخلفية ثابتة والمحتوى يتحرك فوقها */
+            background-repeat: no-repeat;
         }
+        
+        /* الهيدر المتناسق */
         .site-header { 
-            background: rgba(255, 255, 255, 0.95); 
-            padding: 20px; 
-            text-align: center; 
-            border-bottom: 3px solid var(--primary); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-            backdrop-filter: blur(5px);
+            background: rgba(44, 93, 135, 0.9); /* شفافية زرقاء أنيقة */
+            padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); 
+            backdrop-filter: blur(10px); color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .container { width: 95%; max-width: 1400px; margin: 20px auto; min-height: 500px; }
-        .lesson-row { 
-            display: flex; align-items: center; 
-            background: rgba(255, 255, 255, 0.95); 
-            margin-bottom: 8px; padding: 12px 25px; 
-            border-radius: 10px; border: 1px solid #e2e8f0; 
-            transition: 0.3s ease; 
+        .site-header h1 { margin: 0; font-size: 2.3rem; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+
+        /* شريط التنقل المتناسق */
+        .nav-bar { 
+            display: flex; justify-content: center; gap: 15px; padding: 15px; 
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(5px);
+            border-bottom: 1px solid #ddd;
         }
-        .lesson-row:hover { background: #ffffff; border-right: 8px solid var(--primary); transform: scale(1.005); }
-        .lesson-info { flex: 2; font-weight: 700; font-size: 1.1rem; color: var(--primary); display: flex; align-items: center; gap: 15px; }
-        .audio-player { flex: 4; display: flex; justify-content: center; }
-        audio { width: 95%; height: 35px; }
-        .actions { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
-        .actions a { color: #10b981; font-size: 1.4rem; text-decoration: none; }
-        .pagination { display: flex; justify-content: center; margin: 40px 0; gap: 8px; direction: ltr; flex-wrap: wrap; }
-        .page-btn { padding: 8px 16px; background: var(--white); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; color: var(--primary); }
-        .page-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+
+        .btn-link { 
+            padding: 10px 25px; border: 2px solid var(--dark-blue); border-radius: 12px; 
+            text-decoration: none; color: var(--dark-blue); font-weight: bold; 
+            background: white; transition: 0.3s; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn-link:hover { background: var(--dark-blue); color: white; }
+        .btn-link i { color: var(--gold); font-size: 1.1rem; }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        /* مشغل الصوت الرئيسي بتأثير الزجاج */
+        .audio-player-card { 
+            background: var(--card-transparent); border-radius: 15px; padding: 25px; 
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            backdrop-filter: blur(8px); margin-bottom: 30px; border: 2px solid var(--gold);
+        }
+        .audio-player-card h2 { color: var(--dark-blue); margin-bottom: 15px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+        audio { width: 100%; height: 45px; }
+
+        /* حاوية الدروس بتأثير الزجاج */
+        .lessons-container { 
+            background: rgba(255, 255, 255, 0.7); /* شفافية أكبر للقائمة */
+            border-radius: 15px; padding: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); backdrop-filter: blur(5px);
+            margin-bottom: 50px;
+        }
+
+        /* بطاقة الدرس المتناسقة */
+        .lesson-card { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 20px; border-bottom: 1px solid rgba(0,0,0,0.1); transition: 0.3s;
+            cursor: pointer; color: #333;
+        }
+        .lesson-card:last-child { border-bottom: none; }
+        .lesson-card:hover { background: rgba(44, 93, 135, 0.1); }
+        .lesson-card.active { border-right: 6px solid var(--gold); background: rgba(181, 148, 16, 0.15); }
+
+        .lesson-info { display: flex; align-items: center; gap: 15px; }
+        .lesson-index { 
+            background: var(--dark-blue); color: white; width: 35px; height: 35px; 
+            display: flex; align-items: center; justify-content: center; border-radius: 50%; 
+            font-weight: bold; font-size: 0.9rem;
+        }
+        .lesson-title { color: var(--dark-blue); font-weight: 700; font-size: 1.05rem; }
+
+        .btn-play-list { color: var(--gold); font-size: 1.3rem; }
+
+        footer { text-align: center; padding: 40px; color: #fff; font-weight: bold; text-shadow: 2px 2px 4px #000; background: rgba(0,0,0,0.4); margin-top: 50px; backdrop-filter: blur(5px); }
+
+        @media (max-width: 600px) {
+            .lesson-card { flex-direction: column; text-align: center; gap: 15px; }
+            .lesson-info { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
-        <a href="tafseer.html" style="text-decoration:none; color:var(--primary); font-weight:bold; display:flex; align-items:center; gap:8px;">
-            <i class="fas fa-chevron-right"></i> عودة للفهرس
-        </a>
-        <h2 id="page-title" style="margin:0; color:var(--primary);">تفسير سورة الأعراف</h2>
-        <div style="width:100px;"></div>
-    </div>
+    <h1>تفسير سورة الأعراف</h1>
+    <p>فضيلة الشيخ سعيد مصطفى دياب</p>
 </header>
 
-<div class="container" id="lesson-list"></div>
-<div class="pagination" id="pagination"></div>
+<div class="nav-bar">
+    <a href="tafseer.html" class="btn-link"><i class="fas fa-arrow-right"></i> العودة للفهرس</a>
+    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
+</div>
+
+<div class="container">
+    <div class="audio-player-card">
+        <h2 id="player-title">الدرس الأول</h2>
+        <audio id="main-audio" controls>
+            <source id="audio-source" src="al-aaraf-1.mp3" type="audio/mpeg">
+            متصفحك لا يدعم مشغل الصوت.
+        </audio>
+    </div>
+
+    <div class="lessons-container" id="lessons-list">
+        </div>
+</div>
 
 <script>
-    const seriesPrefix = "al-aaraf"; 
-    const totalLessons = 41; 
-    const lessonsPerPage = 12;
-    let currentPage = 1;
+    const totalLessons = 11;
+    const lessonsList = document.getElementById('lessons-list');
+    const mainAudio = document.getElementById('main-audio');
+    const audioSource = document.getElementById('audio-source');
+    const playerTitle = document.getElementById('player-title');
 
-    function renderLessons(page) {
-        const list = document.getElementById('lesson-list');
-        list.innerHTML = "";
-        let start = (page - 1) * lessonsPerPage + 1;
-        let end = Math.min(start + lessonsPerPage - 1, totalLessons);
+    for (let i = 1; i <= totalLessons; i++) {
+        const lessonFile = `al-aaraf-${i}.mp3`;
+        const card = document.createElement('div');
+        card.className = 'lesson-card';
+        if(i === 1) card.classList.add('active');
 
-        for (let i = start; i <= end; i++) {
-            // جربنا مسار مباشر بدون مجلد
-            const fileName = `${seriesPrefix}-${i}.mp3`; 
-            const row = document.createElement('div');
-            row.className = 'lesson-row';
-            row.innerHTML = `
-                <div class="lesson-info">
-                    <i class="fas fa-quran" style="color:#b59410;"></i>
-                    الدرس رقم ${i}
-                </div>
-                <div class="audio-player">
-                    <audio controls preload="none">
-                        <source src="${fileName}" type="audio/mpeg">
-                        <source src="audio/${fileName}" type="audio/mpeg"> </audio>
-                </div>
-                <div class="actions">
-                    <a href="${fileName}" download><i class="fas fa-cloud-arrow-down"></i></a>
-                </div>`;
-            list.appendChild(row);
-        }
-        renderPagination();
+        card.innerHTML = `
+            <div class="lesson-info">
+                <div class="lesson-index">${i}</div>
+                <div class="lesson-title">الدرس رقم ${i} من سورة الأعراف</div>
+            </div>
+            <i class="fas fa-play-circle btn-play-list"></i>
+        `;
+
+        card.onclick = function() {
+            // تحديث الملف وتشغيله
+            audioSource.src = lessonFile;
+            mainAudio.load();
+            mainAudio.play();
+            
+            // تحديث العنوان العلوي
+            playerTitle.innerText = `الدرس رقم ${i}`;
+            
+            // تحديث تأثير الاختيار (Active)
+            document.querySelectorAll('.lesson-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            
+            // تمرير الصفحة للأعلى بسلاسة لرؤية المشغل
+            window.scrollTo({ top: 150, behavior: 'smooth' });
+        };
+
+        lessonsList.appendChild(card);
     }
-
-    function renderPagination() {
-        const pag = document.getElementById('pagination');
-        pag.innerHTML = "";
-        const pages = Math.ceil(totalLessons / lessonsPerPage);
-        for (let i = 1; i <= pages; i++) {
-            const btn = document.createElement('button');
-            btn.innerText = i;
-            btn.className = (i === currentPage) ? "page-btn active" : "page-btn";
-            btn.onclick = function() {
-                currentPage = i;
-                renderLessons(i);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            };
-            pag.appendChild(btn);
-        }
-    }
-
-    window.onload = () => renderLessons(1);
 </script>
 
-<footer style="text-align: center; color: white; padding: 40px; text-shadow: 1px 1px 5px black; background: rgba(0,0,0,0.3); margin-top: 20px;">
+<footer>
     جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
 </footer>
-
 </body>
 </html>
