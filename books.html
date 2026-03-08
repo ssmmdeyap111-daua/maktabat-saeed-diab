@@ -1,164 +1,48 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤلفات الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        :root { 
-            --dark-blue: #2c5d87; 
-            --gold: #b59410; 
-            --success-green: #27ae60; 
-        }
-
-        /* تنسيق الخلفية القوي */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        body { 
-            font-family: 'Cairo', sans-serif; 
-            direction: rtl;
-            /* استدعاء الصورة مباشرة من المجلد الرئيسي */
-            background-image: url('library-bg.jpg') !important; 
-            background-color: #2c5d87; /* لون احتياطي في حال اختفت الصورة */
-            background-size: cover !important;
-            background-position: center center !important;
-            background-attachment: fixed !important;
-            background-repeat: no-repeat !important;
-        }
-        
-        /* الهيدر الشفاف */
-        .site-header { 
-            background: rgba(44, 93, 135, 0.85); 
-            padding: 40px 20px; 
-            text-align: center; 
-            border-bottom: 6px solid var(--gold); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        .site-header h1 { margin: 0; color: white; font-size: 2.5rem; font-weight: 900; }
-
-        /* شريط التنقل */
-        .nav-bar { 
-            display: flex; justify-content: center; gap: 15px; padding: 15px; 
-            background: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(5px);
-        }
-
-        .btn-link { 
-            padding: 8px 25px; border: 2px solid var(--dark-blue); border-radius: 10px; 
-            text-decoration: none; color: var(--dark-blue); font-weight: bold; 
-            background: white; transition: 0.3s; display: flex; align-items: center; gap: 8px;
-        }
-        .btn-link i { color: var(--gold); }
-        .btn-link:hover { background: var(--dark-blue); color: white; }
-
-        /* حاوية الكتب */
-        .slider-wrapper { position: relative; max-width: 95%; margin: 40px auto; padding: 0 50px; }
-
-        .books-slider { 
-            display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth;
-            padding: 20px 5px; scrollbar-width: none;
-        }
-        .books-slider::-webkit-scrollbar { display: none; }
-
-        /* بطاقة الكتاب الشفافة */
-        .book-card { 
-            flex: 0 0 180px; 
-            background: rgba(255, 255, 255, 0.9); 
-            border-radius: 12px; 
-            padding: 15px; 
-            text-align: center; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.4);
-            transition: 0.3s;
-        }
-        .book-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 1); }
-
-        .book-img { width: 100%; height: 240px; object-fit: contain; background: #fff; border-radius: 4px; margin-bottom: 10px; }
-
-        .book-title { font-weight: 700; color: var(--dark-blue); font-size: 0.95rem; margin-bottom: 12px; height: 45px; display: flex; align-items: center; justify-content: center; line-height: 1.3; }
-
-        .actions { display: flex; flex-direction: column; gap: 8px; }
-        .btn-read { background: var(--dark-blue); color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
-        .btn-dl { background: var(--success-green); color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
-
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--dark-blue); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 1.2rem; }
-        .nav-btn:hover { background: var(--gold); }
-        .prev { right: 5px; } .next { left: 5px; }
-
-        footer { text-align: center; padding: 40px; color: #fff; font-weight: bold; text-shadow: 2px 2px 4px #000; background: rgba(0,0,0,0.4); margin-top: 50px; }
-    </style>
-</head>
-<body>
-
-<header class="site-header">
-    <h1>المؤلفات والكتب العلمية</h1>
-</header>
-
-<div class="nav-bar">
-    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
-    <a href="lessons.html" class="btn-link"><i class="fas fa-list-ul"></i> فهرس الدروس</a>
-</div>
-
-<div class="slider-wrapper">
-    <button class="nav-btn prev" onclick="scrollSlider(300)"><i class="fas fa-chevron-right"></i></button>
-    <div class="books-slider" id="books-container"></div>
-    <button class="nav-btn next" onclick="scrollSlider(-300)"><i class="fas fa-chevron-left"></i></button>
-</div>
-
-<script>
-    const books = [
-        { name: "الأربعون في الأمثال", img: "al-arbon-veal-amthal.jpg.jpg", pdf: "al-arbon-veal-amthal.pdf" },
-        { name: "الاعتبار بطرائف الأخبار", img: "al-eatbaar-ptraef-alakbaar.jpg.jpg", pdf: "al-eatbaar-ptraef-alakbaar.pdf" },
-        { name: "الإلمام بالصيام", img: "al-ilmam-siyam.jpg.jpg", pdf: "al-ilmam-siyam.pdf" },
-        { name: "الإرشاد", img: "al-irshad.jpg", pdf: "al-irshad.pdf" },
-        { name: "اللآلئ والدرر", img: "allaalea-wa-aldorr.jpg.jpg", pdf: "allaalea-wa-aldorr.pdf" },
-        { name: "تدبر", img: "tadabor.jpg", pdf: "tadabor.pdf" },
-        { name: "أساليب القرآن", img: "asaleeb-alquran.jpg", pdf: "asaleeb-alquran.pdf" },
-        { name: "فضل الدعاء", img: "fadhl-duaa.jpg", pdf: "fadhl-duaa.pdf" },
-        { name: "إتحاف أهل الرسوخ", img: "ithaf-ahl-alrusoukh.jpg.jpg", pdf: "ithaf-ahl-alrusoukh.pdf" },
-        { name: "خبر الآحاد", img: "kabar-al-ahad.jpg.jpg", pdf: "kabar-al-ahad.pdf" },
-        { name: "كشف النقاب", img: "kashf-alnqab.jpg.jpg", pdf: "kashf-alnqab.pdf" },
-        { name: "قطر الربا", img: "katar-al-reba.jpg.jpg", pdf: "katar-al-reba.pdf" },
-        { name: "وقفات تدبرية", img: "waqfat-tdaboria.jpg", pdf: "waqfat-tdaboria.pdf" },
-        { name: "معالم التربية", img: "malm-al-trbia.jpg", pdf: "malm-al-trbia.pdf" },
-        { name: "تذكير الأبات", img: "tzker-alobat.jpg", pdf: "tzker-alobat.pdf" },
-        { name: "أنوار", img: "anwar.jpeg", pdf: "anwar.pdf" },
-        { name: "واجب المسلمين", img: "wageb-al-muslmeen.jpg", pdf: "wageb-al-muslmeen.pdf" },
-        { name: "السلسبيل", img: "al-slsapel.jpg.jpg", pdf: "al-slsapel.pdf" },
-        { name: "شمائل الرسول", img: "shmael-al-rasool.jpg.jpg", pdf: "shmael-al-rasool.pdf" }
-    ];
-
-    const container = document.getElementById('books-container');
-    books.forEach(book => {
-        container.innerHTML += `
-            <div class="book-card">
-                <img src="images/${book.img}" class="book-img" onerror="this.src='https://via.placeholder.com/150x240?text=غلاف+الكتاب'">
-                <div class="book-title">${book.name}</div>
-                <div class="actions">
-                    <a href="pdf/${book.pdf}" target="_blank" class="btn-read">فتح للقراءة</a>
-                    <a href="pdf/${book.pdf}" download class="btn-dl"><i class="fas fa-download"></i> تحميل</a>
-                </div>
-            </div>
-        `;
-    });
-
-    function scrollSlider(amount) {
-        container.scrollBy({ left: amount, behavior: 'smooth' });
+<style>
+    :root { 
+        --dark-blue: #2c5d87; 
+        --gold: #b59410; 
+        --success-green: #27ae60; 
     }
-</script>
 
-<footer>
-    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
-</footer>
-</body>
-</html>
+    body { 
+        margin: 0; 
+        padding: 0;
+        font-family: 'Cairo', sans-serif; 
+        direction: rtl;
+        min-height: 100vh;
+        
+        /* محاولة تشغيل الخلفية بأكثر من امتداد محتمل */
+        background-image: url('library-bg.jpg'); 
+        
+        /* إذا لم يجد الصورة، سيستخدم هذا اللون كخلفية */
+        background-color: var(--dark-blue); 
+        
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    /* لإصهار المحتوى فوق الخلفية بشكل واضح */
+    .site-header { 
+        background: rgba(44, 93, 135, 0.8); 
+        padding: 40px 20px; 
+        text-align: center; 
+        border-bottom: 5px solid var(--gold); 
+        backdrop-filter: blur(8px);
+        color: white;
+    }
+    
+    .book-card { 
+        flex: 0 0 180px; 
+        background: rgba(255, 255, 255, 0.92); /* شفافية بيضاء أنيقة */
+        border-radius: 12px; 
+        padding: 15px; 
+        text-align: center; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        backdrop-filter: blur(5px);
+        transition: 0.3s;
+    }
+    /* ... بقية التنسيقات السابقة ... */
+</style>
