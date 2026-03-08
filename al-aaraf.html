@@ -57,8 +57,6 @@
 <div class="pagination" id="pagination"></div>
 
 <script>
-    /* الإعدادات */
-    const seriesTitle = "تفسير سورة الأعراف"; 
     const seriesPrefix = "al-aaraf"; 
     const totalLessons = 41; 
     const lessonsPerPage = 12;
@@ -71,7 +69,7 @@
         let end = Math.min(start + lessonsPerPage - 1, totalLessons);
 
         for (let i = start; i <= end; i++) {
-            // الامتداد مكتوب بـ mp3 صغيرة وموجودة في المجلد الرئيسي
+            // جربنا مسار مباشر بدون مجلد
             const fileName = `${seriesPrefix}-${i}.mp3`; 
             const row = document.createElement('div');
             row.className = 'lesson-row';
@@ -83,7 +81,7 @@
                 <div class="audio-player">
                     <audio controls preload="none">
                         <source src="${fileName}" type="audio/mpeg">
-                    </audio>
+                        <source src="audio/${fileName}" type="audio/mpeg"> </audio>
                 </div>
                 <div class="actions">
                     <a href="${fileName}" download><i class="fas fa-cloud-arrow-down"></i></a>
@@ -113,10 +111,8 @@
     window.onload = () => renderLessons(1);
 </script>
 
-<footer>
-    <p style="text-align: center; color: var(--white); padding: 20px; font-weight: bold; text-shadow: 1px 1px 4px #000;">
-        جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
-    </p>
+<footer style="text-align: center; color: white; padding: 40px; text-shadow: 1px 1px 5px black; background: rgba(0,0,0,0.3); margin-top: 20px;">
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
 </footer>
 
 </body>
