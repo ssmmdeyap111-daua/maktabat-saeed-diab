@@ -5,73 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مؤلفات الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root { 
             --dark-blue: #2c5d87; 
             --gold: #b59410; 
             --success-green: #27ae60; 
-            --card-transparent: rgba(255, 255, 255, 0.88); 
+            --card-transparent: rgba(255, 255, 255, 0.9); 
         }
 
         body { 
             margin: 0; 
             font-family: 'Cairo', sans-serif; 
             direction: rtl;
-            /* استدعاء الصورة من نفس المجلد */
-            background-image: url('library-bg.jpg'); 
+            /* التأكد من مسار الخلفية - يجب أن تكون الصورة بجانب هذا الملف */
+            background: #f4f4f4 url('library-bg.jpg') no-repeat center center fixed; 
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
         }
         
         .site-header { 
-            background: rgba(227, 239, 251, 0.9); 
+            background: rgba(44, 93, 135, 0.85); 
             padding: 40px 20px; 
             text-align: center; 
-            border-bottom: 6px solid var(--dark-blue); 
-            backdrop-filter: blur(5px);
+            border-bottom: 6px solid var(--gold); 
+            backdrop-filter: blur(10px);
         }
+        .site-header h1 { margin: 0; color: white; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
 
         .nav-bar { 
             display: flex; justify-content: center; gap: 15px; padding: 15px; 
             background: rgba(255, 255, 255, 0.8); 
             backdrop-filter: blur(5px);
+            border-bottom: 1px solid #ddd;
         }
 
-        .btn-link { padding: 8px 20px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: var(--dark-blue); font-weight: bold; background: white; }
+        .btn-link { 
+            padding: 8px 20px; border: 1px solid var(--dark-blue); border-radius: 8px; 
+            text-decoration: none; color: var(--dark-blue); font-weight: bold; 
+            background: white; transition: 0.3s; display: flex; align-items: center; gap: 8px;
+        }
+        .btn-link:hover { background: var(--dark-blue); color: white; }
 
-        .slider-wrapper { position: relative; max-width: 95%; margin: 30px auto; padding: 0 50px; }
+        .slider-wrapper { position: relative; max-width: 95%; margin: 40px auto; padding: 0 50px; }
 
         .books-slider { 
-            display: flex; gap: 15px; overflow-x: auto; scroll-behavior: smooth;
+            display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth;
             padding: 20px 5px; scrollbar-width: none;
         }
         .books-slider::-webkit-scrollbar { display: none; }
 
         .book-card { 
-            flex: 0 0 170px; 
+            flex: 0 0 180px; 
             background: var(--card-transparent); 
             border-radius: 12px; 
             padding: 15px; 
             text-align: center; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
-        .book-img { width: 100%; height: 230px; object-fit: contain; background: #fff; border-radius: 4px; margin-bottom: 10px; }
+        .book-img { width: 100%; height: 240px; object-fit: contain; background: #fff; border-radius: 4px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
         .book-title { font-weight: 700; color: var(--dark-blue); font-size: 0.9rem; margin-bottom: 12px; height: 40px; display: flex; align-items: center; justify-content: center; }
 
-        .actions { display: flex; flex-direction: column; gap: 5px; }
-        .btn-read { background: var(--dark-blue); color: white; text-decoration: none; padding: 6px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
-        .btn-dl { background: var(--success-green); color: white; text-decoration: none; padding: 6px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
+        .actions { display: flex; flex-direction: column; gap: 8px; }
+        .btn-read { background: var(--dark-blue); color: white; text-decoration: none; padding: 8px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
+        .btn-dl { background: var(--success-green); color: white; text-decoration: none; padding: 8px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
 
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--dark-blue); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--dark-blue); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 10; opacity: 0.8; }
+        .nav-btn:hover { opacity: 1; background: var(--gold); }
         .prev { right: 5px; } .next { left: 5px; }
 
-        footer { text-align: center; padding: 40px; color: #fff; font-weight: bold; text-shadow: 1px 1px 3px #000; }
+        footer { text-align: center; padding: 40px; color: #fff; font-weight: bold; text-shadow: 2px 2px 4px #000; background: rgba(0,0,0,0.3); margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -92,6 +98,7 @@
 </div>
 
 <script>
+    // بيانات الكتب - تأكد أن الصور في مجلد images والكتب في مجلد pdf
     const books = [
         { name: "الأربعون في الأمثال", img: "al-arbon-veal-amthal.jpg.jpg", pdf: "al-arbon-veal-amthal.pdf" },
         { name: "الاعتبار بطرائف الأخبار", img: "al-eatbaar-ptraef-alakbaar.jpg.jpg", pdf: "al-eatbaar-ptraef-alakbaar.pdf" },
@@ -116,18 +123,16 @@
 
     const container = document.getElementById('books-container');
     books.forEach(book => {
-        // تنبيه: هنا افترضنا أن الكتب والصور مازالت في مجلداتها
-        // إذا وضعت صور الكتب أيضاً في نفس المجلد، احذف كلمة images/
         const pdfPath = "pdf/" + book.pdf;
         const imgPath = "images/" + book.img;
         
         container.innerHTML += `
             <div class="book-card">
-                <img src="${imgPath}" class="book-img" onerror="this.src='https://via.placeholder.com/150x230?text=خطأ+في+الصورة'">
+                <img src="${imgPath}" class="book-img" onerror="this.src='https://via.placeholder.com/150x240?text=خطأ+بالصورة'">
                 <div class="book-title">${book.name}</div>
                 <div class="actions">
                     <a href="${pdfPath}" target="_blank" class="btn-read">فتح للقراءة</a>
-                    <a href="${pdfPath}" download="${book.pdf}" class="btn-dl">تحميل مباشر</a>
+                    <a href="${pdfPath}" download class="btn-dl"><i class="fas fa-download"></i> تحميل PDF</a>
                 </div>
             </div>
         `;
