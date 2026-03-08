@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفسير سورة الأعراف - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { 
+            --dark-blue: #2c5d87; 
+            --gold: #b59410; 
+            --card-bg: rgba(255, 255, 255, 0.9); 
+        }
 
+        body { 
+            margin: 0; font-family: 'Cairo', sans-serif; direction: rtl; 
+            background: #2c5d87 url('images/library-bg.jpg') no-repeat center center fixed; 
+            background-size: cover;
+        }
+
+        .header-section { 
+            background: rgba(44, 93, 135, 0.85); 
+            padding: 30px; text-align: center; border-bottom: 5px solid var(--gold); 
+            backdrop-filter: blur(10px); color: white;
+        }
+
+        .nav-bar { 
+            display: flex; justify-content: center; gap: 15px; padding: 15px; 
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px);
+        }
+
+        .btn-link { 
+            padding: 8px 20px; border: 1px solid var(--dark-blue); border-radius: 8px; 
+            text-decoration: none; color: var(--dark-blue); font-weight: bold; background: white;
+        }
+
+        .main-container { max-width: 800px; margin: 30px auto; padding: 20px; }
+
+        /* مشغل الصوت */
+        .audio-player-card { 
+            background: var(--card-bg); border-radius: 15px; padding: 25px; 
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+            backdrop-filter: blur(5px); margin-bottom: 30px; border: 1px solid var(--gold);
+        }
+        
+        .audio-player-card h2 { color: var(--dark-blue); margin-top: 0; }
+        
+        audio { width: 100%; margin-top: 15px; }
+
+        /* قائمة الدروس */
+        .lessons-list { 
+            background: var(--card-bg); border-radius: 15px; padding: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); backdrop-filter: blur(5px);
+        }
+
+        .lesson-item { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px; border-bottom: 1px solid #eee; transition: 0.3s;
+            text-decoration: none; color: #333;
+        }
+        
+        .lesson-item:last-child { border-bottom: none; }
+        .lesson-item:hover { background: rgba(181, 148, 16, 0.1); transform: scale(1.01); }
+        
+        .lesson-info { display: flex; align-items: center; gap: 15px; }
+        .lesson-number { 
+            background: var(--dark-blue); color: white; width: 35px; height: 35px; 
+            display: flex; align-items: center; justify-content: center; border-radius: 50%; 
+            font-weight: bold; font-size: 0.9rem;
+        }
+
+        .play-icon { color: var(--gold); font-size: 1.2rem; }
+
+        footer { text-align: center; padding: 40px; color: #fff; font-weight: bold; text-shadow: 1px 1px 3px #000; }
+    </style>
+</head>
+<body>
+
+<header class="header-section">
+    <h1>تفسير سورة الأعراف</h1>
+    <p>بصوت الشيخ سعيد مصطفى دياب</p>
+</header>
+
+<div class="nav-bar">
+    <a href="tafseer.html" class="btn-link"><i class="fas fa-arrow-right"></i> العودة للفهرس</a>
+    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
+</div>
+
+<div class="main-container">
+    <div class="audio-player-card">
+        <h2><i class="fas fa-headphones"></i> الدرس الأول</h2>
+        <p>تفسير الآيات الأولى من سورة الأعراف</p>
+        <audio controls>
+            <source src="al-aaraf-1.mp3" type="audio/mpeg">
+            متصفحك لا يدعم مشغل الصوت.
+        </audio>
+    </div>
+
+    <div class="lessons-list">
+        <a href="#" class="lesson-item">
+            <div class="lesson-info">
+                <div class="lesson-number">1</div>
+                <span>الدرس الأول: مقدمة السورة</span>
+            </div>
+            <i class="fas fa-play-circle play-icon"></i>
+        </a>
+
+        <a href="#" class="lesson-item">
+            <div class="lesson-info">
+                <div class="lesson-number">2</div>
+                <span>الدرس الثاني: قصة آدم عليه السلام</span>
+            </div>
+            <i class="fas fa-play-circle play-icon"></i>
+        </a>
+
+        </div>
+</div>
+
+<footer>
+    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
+</footer>
+
+</body>
+</html>
