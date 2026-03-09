@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرقائق والزهد - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary: #2c5d87; --gold: #b59410; --white: rgba(255, 255, 255, 0.95); }
+        body { 
+            margin: 0; font-family: 'Cairo', sans-serif; 
+            background: #2c5d87 url('images/library-bg.jpg') no-repeat center center fixed; 
+            background-size: cover;
+        }
+        .site-header { 
+            background: rgba(255, 255, 255, 0.95); padding: 25px; text-align: center; 
+            border-bottom: 4px solid var(--primary); backdrop-filter: blur(5px);
+        }
+        .nav-bar { 
+            display: flex; justify-content: center; padding: 15px; 
+            background: rgba(255, 255, 255, 0.85); border-bottom: 1px solid #ddd;
+        }
+        .btn-back { 
+            padding: 8px 20px; border: 1px solid var(--primary); border-radius: 8px; 
+            text-decoration: none; color: var(--primary); font-weight: bold; background: white; transition: 0.3s;
+        }
+        .btn-back:hover { background: var(--primary); color: white; }
 
+        .series-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 25px; padding: 40px; max-width: 1200px; margin: 0 auto; 
+        }
+        
+        .series-card { 
+            background: var(--white); padding: 30px; border-radius: 20px; text-align: center; 
+            text-decoration: none; color: var(--primary); transition: 0.4s; 
+            border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .series-card:hover { transform: translateY(-10px); border-color: var(--gold); background: white; }
+        
+        .series-card i { font-size: 3.5rem; margin-bottom: 20px; display: block; }
+        .series-card h3 { margin: 0; font-size: 1.5rem; font-weight: 900; }
+        
+        .count { 
+            background: #f0f4f8; padding: 5px 15px; border-radius: 50px; 
+            font-size: 0.85rem; margin-top: 15px; display: inline-block; 
+            color: #555; font-weight: bold; border: 1px solid #ddd;
+        }
+
+        footer { text-align: center; padding: 40px; color: white; text-shadow: 2px 2px 4px black; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <h1 style="margin:0; color:var(--primary);">قسم الرقائق والزهد</h1>
+</header>
+
+<div class="nav-bar">
+    <a href="lessons.html" class="btn-back"><i class="fas fa-arrow-right"></i> العودة للفهرس العام</a>
+</div>
+
+<div class="series-grid">
+    <a href="raq_azkar.html" class="series-card">
+        <i class="fas fa-pray" style="color: #3498db;"></i>
+        <h3>أنوار الأذكار</h3>
+        <span class="count">30 درساً</span>
+    </a>
+
+    <a href="raq_mahba.html" class="series-card">
+        <i class="fas fa-heart" style="color: #e74c3c;"></i>
+        <h3>أسباب محبة الله</h3>
+        <span class="count">30 درساً</span>
+    </a>
+
+    <a href="raq_mkarem.html" class="series-card">
+        <i class="fas fa-star" style="color: #f1c40f;"></i>
+        <h3>مكارم الأخلاق</h3>
+        <span class="count">40 درساً</span>
+    </a>
+
+    <a href="raq_ganah.html" class="series-card">
+        <i class="fas fa-cloud-sun" style="color: #2ecc71;"></i>
+        <h3>وصف الجنة ونعيمها</h3>
+        <span class="count">15 درساً</span>
+    </a>
+</div>
+
+<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+</body>
+</html>
