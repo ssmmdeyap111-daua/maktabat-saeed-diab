@@ -4,177 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فهرس التفسير - الشيخ سعيد مصطفى دياب</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <style>
-        :root { 
-            --dark-blue: #2c5d87; 
-            --gold: #b59410; 
-            --white-glass: rgba(255, 255, 255, 0.9); 
-        }
-
+        :root { --primary: #2c5d87; --gold: #b59410; --white: rgba(255, 255, 255, 0.92); }
         body { 
-            margin: 0; 
-            font-family: 'Cairo', sans-serif; 
-            direction: rtl; 
-            min-height: 100vh;
-            /* استخدام الصورة الجديدة كخلفية لصفحة التفسير */
-            background: url('images/image_0.png') no-repeat center center fixed; 
+            margin: 0; font-family: 'Cairo', sans-serif; 
+            background: #2c5d87 url('images/library-bg.jpg') no-repeat center center fixed; 
             background-size: cover;
         }
-
-        /* الهيدر المتناسق */
         .site-header { 
-            background: rgba(44, 93, 135, 0.9); 
-            padding: 40px 20px; 
-            text-align: center; 
-            border-bottom: 5px solid var(--gold); 
-            backdrop-filter: blur(10px);
-            color: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.95); padding: 25px; text-align: center; 
+            border-bottom: 4px solid var(--primary); backdrop-filter: blur(5px);
         }
-        .site-header h1 { margin: 0; font-size: 2.5rem; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-
-        /* شريط التنقل */
         .nav-bar { 
             display: flex; justify-content: center; gap: 15px; padding: 15px; 
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); border-bottom: 1px solid #ddd;
         }
         .btn-link { 
-            padding: 10px 25px; border: 2px solid var(--dark-blue); border-radius: 12px; 
-            text-decoration: none; color: var(--dark-blue); font-weight: bold; 
-            background: white; transition: 0.3s; display: flex; align-items: center; gap: 8px;
+            padding: 8px 15px; border: 1px solid var(--primary); border-radius: 8px; 
+            text-decoration: none; color: var(--primary); font-weight: bold; background: white; transition: 0.3s;
         }
-        .btn-link:hover { background: var(--dark-blue); color: white; }
-
-        /* شبكة السور */
-        .series-grid { 
-            max-width: 1200px; 
-            margin: 40px auto; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-            gap: 20px; 
-            padding: 0 20px;
+        .container { 
+            max-width: 1200px; margin: 40px auto; display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; padding: 0 20px; 
         }
-
-        /* بطاقة السورة الشفافة */
-        .series-card { 
-            background: var(--white-glass); 
-            border-radius: 15px; 
-            padding: 25px 15px; 
-            text-align: center; 
-            text-decoration: none; 
-            transition: 0.3s; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.4);
+        .surah-card { 
+            background: var(--white); padding: 30px 15px; border-radius: 15px; text-align: center; 
+            text-decoration: none; border: 1px solid #e2e8f0; transition: 0.3s; backdrop-filter: blur(10px);
+            display: flex; flex-direction: column; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
-        .series-card:hover { 
-            transform: translateY(-8px); 
-            background: rgba(255, 255, 255, 1); 
-            border-color: var(--gold); 
-            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-        }
-
-        .series-card i { 
-            font-size: 2.5rem; 
-            color: var(--gold); 
-            margin-bottom: 15px; 
-        }
-
-        .series-card h3 { 
-            margin: 5px 0; 
-            color: var(--dark-blue); 
-            font-size: 1.3rem; 
-            font-weight: 800; 
-        }
-        
-        .series-card .count { 
-            background: var(--dark-blue); 
-            color: white; 
-            padding: 5px 15px; 
-            border-radius: 20px; 
-            font-size: 0.85rem; 
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            color: #fff; 
-            font-weight: bold; 
-            text-shadow: 2px 2px 4px #000; 
-            background: rgba(0,0,0,0.5); 
-            margin-top: 50px; 
-        }
-
-        @media (max-width: 600px) {
-            .series-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        }
+        .surah-card:hover { transform: translateY(-5px); border-color: var(--gold); background: #fff; }
+        .surah-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
+        .surah-card h3 { margin: 0; color: var(--primary); font-size: 1.3rem; font-weight: 800; }
+        footer { text-align: center; padding: 40px; color: white; text-shadow: 2px 2px 4px black; font-weight: bold; }
     </style>
 </head>
 <body>
-
 <header class="site-header">
-    <h1>فهرس تفسير القرآن الكريم</h1>
-    <p>بصوت الشيخ سعيد مصطفى دياب</p>
+    <h1 style="margin:0; color:var(--primary);">فهرس تفسير القرآن الكريم</h1>
 </header>
-
 <div class="nav-bar">
-    <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
-    <a href="lessons.html" class="btn-link"><i class="fas fa-list-ul"></i> الفهرس العام</a>
+    <a href="index.html" class="btn-link">الرئيسية</a>
+    <a href="lessons.html" class="btn-link">الفهرس العام</a>
 </div>
-
-<div class="series-grid">
-    <a href="tafseer-fatiha.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة الفاتحة</h3>
-        <span class="count">درسان</span>
-    </a>
-    <a href="tafseer-baqara.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة البقرة</h3>
-        <span class="count">75 درساً</span>
-    </a>
-    <a href="tafseer-imran.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة آل عمران</h3>
-        <span class="count">52 درساً</span>
-    </a>
-    <a href="tafseer-al-nesa.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة النساء</h3>
-        <span class="count">53 درساً</span>
-    </a>
-    <a href="tafseer-maeda.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة المائدة</h3>
-        <span class="count">34 درساً</span>
-    </a>
-    <a href="tafseer-anaam.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة الأنعام</h3>
-        <span class="count">40 درساً</span>
-    </a>
-    <a href="al-aaraf.html" class="series-card">
-        <i class="fas fa-quran"></i>
-        <h3>سورة الأعراف</h3>
-        <span class="count">41 درساً</span>
-    </a>
+<div class="container">
+    <a href="tafseer-fatiha.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة الفاتحة</h3></a>
+    <a href="tafseer-baqara.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة البقرة</h3></a>
+    <a href="tafseer-imran.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة آل عمران</h3></a>
+    <a href="tafseer-al-nesa.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة النساء</h3></a>
+    <a href="tafseer-maeda.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة المائدة</h3></a>
+    <a href="tafseer-anaam.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة الأنعام</h3></a>
+    <a href="al-aaraf.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة الأعراف</h3></a>
 </div>
-
-<footer>
-    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
-</footer>
-
+<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 </body>
 </html>
