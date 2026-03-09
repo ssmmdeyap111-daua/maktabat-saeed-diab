@@ -7,12 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --bg: #f8fafc; --white: #ffffff; }
+        :root { --primary: #2c5d87; --gold: #b59410; --white: #ffffff; }
         
         body { 
             margin: 0; 
             font-family: 'Cairo', sans-serif; 
-            /* تم تثبيت المسار على اسم الصورة التي وضعتها أنت */
+            /* تم تصحيح اسم الصورة هنا إلى library-bg.jpg */
             background: #2c5d87 url('images/library-bg.jpg') no-repeat center center fixed; 
             background-size: cover;
         }
@@ -20,8 +20,8 @@
         .site-header { 
             background: rgba(255, 255, 255, 0.95); 
             padding: 20px; text-align: center; 
-            border-bottom: 3px solid var(--primary); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            border-bottom: 4px solid var(--primary); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
             backdrop-filter: blur(5px);
         }
 
@@ -29,25 +29,32 @@
 
         .lesson-row { 
             display: flex; align-items: center; 
-            background: rgba(255, 255, 255, 0.9); 
+            background: rgba(255, 255, 255, 0.92); 
             margin-bottom: 8px; padding: 15px 30px; 
-            border-radius: 10px; border: 1px solid #e2e8f0; 
+            border-radius: 12px; border: 1px solid #e2e8f0; 
             transition: 0.3s ease; 
             backdrop-filter: blur(5px);
         }
-        .lesson-row:hover { background: #ffffff; border-right: 6px solid var(--primary); transform: scale(1.002); }
+        .lesson-row:hover { background: #ffffff; border-right: 8px solid var(--gold); transform: scale(1.002); }
 
         .lesson-info { flex: 2; font-weight: 700; font-size: 1.2rem; color: #334155; display: flex; align-items: center; gap: 15px; }
         .audio-player { flex: 4; display: flex; justify-content: center; }
         audio { width: 95%; height: 40px; }
         .actions { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
-        .actions a { color: #10b981; font-size: 1.4rem; text-decoration: none; }
+        .actions a { color: #10b981; font-size: 1.5rem; text-decoration: none; transition: 0.3s; }
+        .actions a:hover { color: var(--primary); }
 
         .pagination { display: flex; justify-content: center; margin: 40px 0; gap: 10px; direction: ltr; }
-        .page-btn { padding: 10px 20px; background: var(--white); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; color: var(--primary); }
+        .page-btn { padding: 10px 20px; background: var(--white); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; color: var(--primary); transition: 0.3s; }
         .page-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+        .page-btn:hover:not(.active) { background: #e2e8f0; }
         
-        footer { text-align: center; padding: 30px; color: white; text-shadow: 1px 1px 3px black; font-weight: bold; }
+        footer { text-align: center; padding: 40px; color: white; text-shadow: 2px 2px 5px black; font-weight: bold; }
+        
+        @media (max-width: 768px) {
+            .lesson-row { flex-direction: column; padding: 20px; gap: 15px; }
+            .actions { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -66,12 +73,12 @@
 <div class="pagination" id="pagination"></div>
 
 <script>
-    /* الإعدادات الخاصة بسورة الأعراف */
+    /* --- إعدادات سورة الأعراف --- */
     const seriesTitle = "تفسير سورة الأعراف";
     const seriesPrefix = "al-aaraf"; 
-    const totalLessons = 41; // عدد الدروس الكلي
-    const lessonsPerPage = 12; // عدد الدروس في كل صفحة
-    /* ---------------------------------- */
+    const totalLessons = 41; 
+    const lessonsPerPage = 12; 
+    /* -------------------------- */
 
     document.getElementById('page-title').innerText = seriesTitle;
     let currentPage = 1;
@@ -88,7 +95,7 @@
             row.className = 'lesson-row';
             row.innerHTML = `
                 <div class="lesson-info">
-                    <i class="fas fa-book-quran" style="color:#b59410;"></i>
+                    <i class="fas fa-book-quran" style="color:var(--gold);"></i>
                     الدرس رقم ${i}
                 </div>
                 <div class="audio-player">
@@ -97,7 +104,7 @@
                     </audio>
                 </div>
                 <div class="actions">
-                    <a href="${fileName}" download><i class="fas fa-cloud-arrow-down"></i></a>
+                    <a href="${fileName}" download title="تحميل الدرس"><i class="fas fa-cloud-arrow-down"></i></a>
                 </div>`;
             list.appendChild(row);
         }
@@ -115,7 +122,7 @@
             btn.onclick = function() {
                 currentPage = i;
                 renderLessons(i);
-                window.scrollTo(0, 0);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             };
             pag.appendChild(btn);
         }
