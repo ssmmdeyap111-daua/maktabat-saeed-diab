@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --gold: #b59410; --white: rgba(255, 255, 255, 0.95); }
+        :root { --primary: #2c5d87; --gold: #b59410; --white: rgba(255, 255, 255, 0.92); }
         body { 
             margin: 0; font-family: 'Cairo', sans-serif; 
             background: #2c5d87 url('images/library-bg.jpg') no-repeat center center fixed; 
@@ -27,18 +27,18 @@
         }
         .btn-link:hover { background: var(--primary); color: white; }
         .container { 
-            max-width: 1200px; margin: 50px auto; display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 20px; 
+            max-width: 1300px; margin: 50px auto; display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; 
         }
         .cat-card { 
-            background: var(--white); padding: 40px 25px; border-radius: 15px; text-align: center; 
+            background: var(--white); padding: 35px 20px; border-radius: 15px; text-align: center; 
             text-decoration: none; border: 1px solid #e2e8f0; transition: 0.4s ease; backdrop-filter: blur(10px);
             display: flex; flex-direction: column; align-items: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        .cat-card:hover { transform: translateY(-10px); border-right: 8px solid var(--gold); background: #ffffff; }
-        .cat-card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; }
+        .cat-card:hover { transform: translateY(-10px); border-right: 6px solid var(--gold); background: #ffffff; }
+        .cat-card i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
         .cat-card:hover i { color: var(--gold); }
-        .cat-card h3 { margin: 10px 0; color: var(--primary); font-size: 1.6rem; font-weight: 800; }
+        .cat-card h3 { margin: 10px 0; color: var(--primary); font-size: 1.4rem; font-weight: 800; }
         footer { text-align: center; padding: 50px; color: white; text-shadow: 2px 2px 4px black; font-weight: bold; }
     </style>
 </head>
@@ -50,20 +50,49 @@
     <a href="index.html" class="btn-link"><i class="fas fa-home"></i> الرئيسية</a>
     <a href="books.html" class="btn-link"><i class="fas fa-book"></i> المؤلفات والكتب</a>
 </div>
+
 <div class="container">
     <a href="tafseer.html" class="cat-card">
         <i class="fas fa-quran"></i>
-        <h3>تفسير القرآن الكريم</h3>
+        <h3>تفسير القرآن</h3>
     </a>
+
     <a href="seerah.html" class="cat-card">
         <i class="fas fa-mosque"></i>
         <h3>السيرة النبوية</h3>
     </a>
+
     <a href="aqeedah.html" class="cat-card">
         <i class="fas fa-shield-halved"></i>
-        <h3>العقيدة الإسلامية</h3>
+        <h3>العقيدة</h3>
+    </a>
+
+    <a href="fiqh.html" class="cat-card">
+        <i class="fas fa-gavel"></i>
+        <h3>الفقه الإسلامي</h3>
+    </a>
+
+    <a href="hadith.html" class="cat-card">
+        <i class="fas fa-scroll"></i>
+        <h3>الحديث الشريف</h3>
+    </a>
+
+    <a href="raqaeq.html" class="cat-card">
+        <i class="fas fa-heart"></i>
+        <h3>الرقائق والزهد</h3>
+    </a>
+
+    <a href="lectures.html" class="cat-card">
+        <i class="fas fa-microphone-lines"></i>
+        <h3>محاضرات عامة</h3>
+    </a>
+
+    <a href="courses.html" class="cat-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>دروس منهجية</h3>
     </a>
 </div>
+
 <footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 </body>
 </html>
