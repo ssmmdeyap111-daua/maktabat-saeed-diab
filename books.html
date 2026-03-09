@@ -3,100 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المؤلفات والكتب - الشيخ سعيد مصطفى دياب</title>
+    <title>مؤلفات الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
-        :root { --primary: #2c5d87; --gold: #b59410; }
+        :root { --gold: #b59410; }
         body { 
             margin: 0; font-family: 'Cairo', sans-serif; 
-            /* خلفية المكتبة ثابتة */
             background: url('images/library-bg.jpg') no-repeat center center fixed; 
             background-size: cover;
+            overflow-x: hidden;
         }
 
         .site-header { 
-            background: rgba(255, 255, 255, 0.9); padding: 20px; text-align: center; 
-            border-bottom: 3px solid var(--primary); backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.1); padding: 15px; text-align: center; 
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .site-header h1 { color: white; margin: 0; font-size: 1.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+        /* شريط الكتب الشفاف تماماً */
+        .books-slider-container {
+            padding: 60px 0;
+            margin-top: 50px;
         }
 
-        /* شريط الكتب الشفاف */
-        .books-section {
-            background: rgba(255, 255, 255, 0.15); /* شفافية لإظهار الخلفية */
-            backdrop-filter: blur(8px); /* تأثير ضبابي فخم */
-            padding: 50px 0;
-            margin: 50px 0;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
+        .swiper { width: 90%; padding: 20px 0 60px 0; }
 
-        .swiper { width: 95%; padding-bottom: 50px; }
-
-        .book-item {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: 0.3s;
+        /* تنسيق الكتاب (بدون خلفية بيضاء) */
+        .book-card {
             display: flex;
             flex-direction: column;
-            height: 100%;
-        }
-
-        .book-item:hover { transform: translateY(-10px); }
-
-        /* ضبط حجم الغلاف ليكون كاملاً ومتناسقاً */
-        .book-cover {
-            width: 100%;
-            height: 250px; /* حجم موحد */
-            background: #eee;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 5px;
+            transition: 0.4s ease;
+            cursor: pointer;
         }
 
-        .book-cover img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* يضمن عدم قص أي جزء من الكتاب */
-        }
-
-        /* أزرار التحميل والقراءة */
-        .book-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border-top: 1px solid #eee;
-        }
-
-        .action-btn {
-            padding: 10px 5px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-align: center;
+        .book-card img {
+            width: 160px; /* حجم الكتاب */
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 5px 15px 25px rgba(0,0,0,0.5); /* ظل ليعطي عمق للكتاب */
             transition: 0.3s;
         }
 
-        .btn-read { color: var(--primary); background: #f9f9f9; border-left: 1px solid #eee; }
-        .btn-down { color: white; background: var(--gold); }
-        .action-btn:hover { filter: brightness(0.9); }
+        .book-card:hover img {
+            transform: scale(1.1) translateY(-10px);
+            box-shadow: 5px 20px 35px rgba(0,0,0,0.7);
+        }
+
+        /* أزرار شفافة تظهر عند الحوم فوق الكتاب */
+        .book-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            opacity: 0.8;
+        }
+
+        .book-links a {
+            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: 0.3s;
+        }
+
+        .book-links a:hover { background: var(--gold); border-color: var(--gold); }
 
         .swiper-button-next, .swiper-button-prev { color: white; }
-        footer { text-align: center; color: white; padding: 20px; text-shadow: 1px 1px 3px black; }
+        .swiper-pagination-bullet { background: white !important; }
+        
+        footer { text-align: center; color: white; padding: 30px; text-shadow: 1px 1px 3px black; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <h1 style="margin:0; color:var(--primary);">مؤلفات فضيلة الشيخ سعيد مصطفى دياب</h1>
+    <h1>مؤلفات فضيلة الشيخ سعيد مصطفى دياب</h1>
 </header>
 
-<div class="books-section">
+<div class="books-slider-container">
     <div class="swiper mySwiper">
-        <div class="swiper-wrapper" id="books-container">
+        <div class="swiper-wrapper" id="books-list">
             </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -109,9 +101,8 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    // قائمة الكتب مع روابطها
-    // ملاحظة: استبدل رابط الـ PDF بالرابط الحقيقي لكي يعمل التحميل
-    const books = [
+    // قائمة الـ 19 كتاباً (يرجى التأكد من أسماء الصور والملفات)
+    const booksData = [
         { title: "أنوار الأذكار", img: "images/anwar.jpeg", pdf: "files/anwar.pdf" },
         { title: "تذكير الأباة", img: "images/tzker-alobat.jpg", pdf: "files/tzker.pdf" },
         { title: "خطر الربا", img: "images/katar-al-reba.jpg.jpg", pdf: "files/riba.pdf" },
@@ -119,21 +110,31 @@
         { title: "معالم التربية", img: "images/malm-al-trbia.jpg", pdf: "files/trbia.pdf" },
         { title: "وقفات تدبرية", img: "images/waqfat-tdaboria.jpg", pdf: "files/waqfat.pdf" },
         { title: "كشف النقاب", img: "images/kashf-alnqab.jpg.jpg", pdf: "files/kashf.pdf" },
-        { title: "خبر الآحاد", img: "images/kabar-al-ahad.jpg.jpg", pdf: "files/ahad.pdf" }
+        { title: "خبر الآحاد", img: "images/kabar-al-ahad.jpg.jpg", pdf: "files/ahad.pdf" },
+        // أضف هنا باقي الـ 19 كتاباً بنفس الطريقة...
+        { title: "كتاب 9", img: "images/book9.jpg", pdf: "files/book9.pdf" },
+        { title: "كتاب 10", img: "images/book10.jpg", pdf: "files/book10.pdf" },
+        { title: "كتاب 11", img: "images/book11.jpg", pdf: "files/book11.pdf" },
+        { title: "كتاب 12", img: "images/book12.jpg", pdf: "files/book12.pdf" },
+        { title: "كتاب 13", img: "images/book13.jpg", pdf: "files/book13.pdf" },
+        { title: "كتاب 14", img: "images/book14.jpg", pdf: "files/book14.pdf" },
+        { title: "كتاب 15", img: "images/book15.jpg", pdf: "files/book15.pdf" },
+        { title: "كتاب 16", img: "images/book16.jpg", pdf: "files/book16.pdf" },
+        { title: "كتاب 17", img: "images/book17.jpg", pdf: "files/book17.pdf" },
+        { title: "كتاب 18", img: "images/book18.jpg", pdf: "files/book18.pdf" },
+        { title: "كتاب 19", img: "images/book19.jpg", pdf: "files/book19.pdf" }
     ];
 
-    const container = document.getElementById('books-container');
+    const booksList = document.getElementById('books-list');
 
-    books.forEach(book => {
-        container.innerHTML += `
+    booksData.forEach(book => {
+        booksList.innerHTML += `
             <div class="swiper-slide">
-                <div class="book-item">
-                    <div class="book-cover">
-                        <img src="${book.img}" alt="${book.title}">
-                    </div>
-                    <div class="book-actions">
-                        <a href="${book.pdf}" target="_blank" class="action-btn btn-read">قراءة</a>
-                        <a href="${book.pdf}" download class="action-btn btn-down"><i class="fas fa-download"></i> تحميل</a>
+                <div class="book-card">
+                    <img src="${book.img}" alt="${book.title}">
+                    <div class="book-links">
+                        <a href="${book.pdf}" target="_blank">قراءة</a>
+                        <a href="${book.pdf}" download>تحميل</a>
                     </div>
                 </div>
             </div>`;
@@ -141,11 +142,15 @@
 
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 2,
-        spaceBetween: 20,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
         navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        pagination: { el: ".swiper-pagination", clickable: true },
         breakpoints: {
             768: { slidesPerView: 4 },
-            1200: { slidesPerView: 7 } // عرض 7 كتب كما في الصورة
+            1024: { slidesPerView: 6 },
+            1400: { slidesPerView: 8 } 
         }
     });
 </script>
