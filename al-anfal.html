@@ -8,52 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root { --primary: #2c5d87; --gold: #27ae60; --bg: #f4f7f9; }
-        body { 
-            margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; 
-        }
-        .site-header { 
-            background: white; padding: 20px; text-align: center; border-bottom: 3px solid var(--primary); 
-        }
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; }
+        .site-header { background: white; padding: 20px; text-align: center; border-bottom: 3px solid var(--primary); }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 15px; min-height: 600px; }
         
-        /* تنسيق بطاقة الدرس الواحد */
+        /* تنسيق البطاقة */
         .lesson-card {
-            background: white; border-radius: 10px; padding: 10px 20px;
+            background: white; border-radius: 8px; padding: 12px 20px;
             display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 12px; border: 1px solid #e0e6ed;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            margin-bottom: 10px; border: 1px solid #e0e6ed; box-shadow: 0 2px 4px rgba(0,0,0,0.03);
         }
-        
-        .lesson-info { display: flex; align-items: center; gap: 10px; order: 3; width: 150px; justify-content: flex-end; }
-        .lesson-info h3 { margin: 0; font-size: 0.95rem; color: var(--primary); }
-        .lesson-info i { color: #ccc; font-size: 0.8rem; }
+        .lesson-info { display: flex; align-items: center; gap: 10px; width: 160px; justify-content: flex-end; }
+        .lesson-info h3 { margin: 0; font-size: 0.95rem; color: var(--primary); font-weight: 700; }
+        .lesson-info i { color: #bdc3c7; font-size: 0.9rem; }
+        .audio-wrapper { flex-grow: 1; display: flex; justify-content: center; }
+        audio { width: 95%; height: 35px; }
+        .download-wrapper { width: 50px; text-align: left; }
+        .btn-down { color: var(--gold); font-size: 1.3rem; transition: 0.3s; text-decoration: none; }
 
-        .audio-wrapper { flex-grow: 1; display: flex; justify-content: center; order: 2; }
-        audio { width: 90%; height: 35px; }
+        /* التحكم في ظهور الصفحات */
+        .page-content { display: none; }
+        .page-content.active { display: block; }
 
-        .download-wrapper { order: 1; width: 50px; }
-        .btn-down { 
-            color: var(--gold); font-size: 1.2rem; transition: 0.3s; 
-            display: inline-block; padding: 5px;
+        /* الترقيم */
+        .pagination { display: flex; justify-content: center; gap: 8px; margin: 30px 0; }
+        .page-btn { 
+            width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; 
+            border: 1px solid #ddd; border-radius: 4px; cursor: pointer;
+            color: var(--primary); background: white; font-weight: bold; transition: 0.3s;
         }
-        .btn-down:hover { transform: scale(1.1); }
+        .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-        /* أرقام الصفحات */
-        .pagination { 
-            display: flex; justify-content: center; gap: 8px; margin-top: 30px; padding-bottom: 40px;
-        }
-        .page-num { 
-            width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;
-            border: 1px solid #ddd; border-radius: 4px; text-decoration: none; color: var(--primary);
-            background: white; font-weight: bold; font-size: 0.9rem;
-        }
-        .page-num.active { background: var(--primary); color: white; border-color: var(--primary); }
-        .page-num:hover:not(.active) { background: #f0f4f8; }
-
-        @media (max-width: 768px) {
-            .lesson-card { flex-direction: column; gap: 15px; text-align: center; }
-            .lesson-info, .audio-wrapper, .download-wrapper { width: 100%; order: unset; justify-content: center; }
-        }
+        @media (max-width: 768px) { .lesson-card { flex-direction: column; gap: 10px; } .lesson-info, .audio-wrapper, .download-wrapper { width: 100%; justify-content: center; text-align: center; } }
     </style>
 </head>
 <body>
@@ -63,31 +49,52 @@
 </header>
 
 <div class="container">
-    <div id="lessons-container">
-        <div class="lesson-card">
-            <div class="lesson-info"><h3>الدرس رقم 1</h3><i class="fas fa-file-audio"></i></div>
-            <div class="audio-wrapper"><audio controls preload="none"><source src="audio/al-anfal-1.mp3" type="audio/mpeg"></audio></div>
-            <div class="download-wrapper"><a href="audio/al-anfal-1.mp3" download class="btn-down"><i class="fas fa-cloud-download-alt"></i></a></div>
+    <div id="page1" class="page-content active">
         </div>
 
-        <div class="lesson-card">
-            <div class="lesson-info"><h3>الدرس رقم 2</h3><i class="fas fa-file-audio"></i></div>
-            <div class="audio-wrapper"><audio controls preload="none"><source src="audio/al-anfal-2.mp3" type="audio/mpeg"></audio></div>
-            <div class="download-wrapper"><a href="audio/al-anfal-2.mp3" download class="btn-down"><i class="fas fa-cloud-download-alt"></i></a></div>
+    <div id="page2" class="page-content">
         </div>
-
-        <div class="lesson-card">
-            <div class="lesson-info"><h3>الدرس رقم 12</h3><i class="fas fa-file-audio"></i></div>
-            <div class="audio-wrapper"><audio controls preload="none"><source src="audio/al-anfal-12.mp3" type="audio/mpeg"></audio></div>
-            <div class="download-wrapper"><a href="audio/al-anfal-12.mp3" download class="btn-down"><i class="fas fa-cloud-download-alt"></i></a></div>
-        </div>
-    </div>
 
     <div class="pagination">
-        <a href="al-anfal-p2.html" class="page-num">2</a>
-        <a href="#" class="page-num active">1</a>
+        <div class="page-btn" onclick="showPage(2)" id="btn2">2</div>
+        <div class="page-btn active" onclick="showPage(1)" id="btn1">1</div>
     </div>
 </div>
+
+<script>
+    // توليد الدروس يدوياً برمجياً داخل الكود الواحد لضمان السرعة
+    function generateLessons() {
+        const p1 = document.getElementById('page1');
+        const p2 = document.getElementById('page2');
+
+        for (let i = 1; i <= 16; i++) {
+            const html = `
+            <div class="lesson-card">
+                <div class="lesson-info"><h3>الدرس رقم ${i}</h3><i class="fas fa-file-audio"></i></div>
+                <div class="audio-wrapper"><audio controls preload="none"><source src="audio/al-anfal-${i}.mp3" type="audio/mpeg"></audio></div>
+                <div class="download-wrapper"><a href="audio/al-anfal-${i}.mp3" download class="btn-down"><i class="fas fa-cloud-download-alt"></i></a></div>
+            </div>`;
+            
+            if (i <= 12) p1.innerHTML += html;
+            else p2.innerHTML += html;
+        }
+    }
+
+    // وظيفة التبديل بين الصفحات
+    function showPage(num) {
+        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+        
+        document.getElementById('page' + num).classList.add('active');
+        document.getElementById('btn' + num).classList.add('active');
+        
+        // العودة لأعلى الصفحة عند التبديل
+        window.scrollTo(0, 0);
+    }
+
+    // تشغيل التوليد عند فتح الصفحة
+    generateLessons();
+</script>
 
 <footer style="text-align:center; padding: 20px; font-size: 0.8rem; color: #888;">
     جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
