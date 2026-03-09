@@ -25,23 +25,27 @@
             padding: 5px 15px; border: 1px solid var(--primary); border-radius: 8px; 
             text-decoration: none; color: var(--primary); font-weight: bold; background: white; font-size: 0.9rem;
         }
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
         
         .lessons-table-card {
-            background: var(--white); border-radius: 15px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: var(--white); border-radius: 12px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 30px;
         }
-        .table-header { background: var(--primary); color: white; padding: 15px; text-align: center; font-size: 1.3rem; }
+        .table-header { background: var(--primary); color: white; padding: 15px; text-align: center; font-size: 1.2rem; }
         
         table { width: 100%; border-collapse: collapse; background: white; }
         th { background: #f8fafc; color: var(--primary); padding: 12px; border-bottom: 2px solid #eee; font-size: 0.9rem; }
-        td { padding: 10px; border-bottom: 1px solid #eee; text-align: center; }
+        td { padding: 8px; border-bottom: 1px solid #eee; text-align: center; }
         tr:hover { background: #f9f9f9; }
 
-        .audio-player { width: 180px; height: 30px; }
-        
+        .audio-player { width: 170px; height: 30px; }
         .btn-download { color: var(--gold); text-decoration: none; font-size: 1.1rem; }
-        .lesson-name { text-align: right; font-weight: bold; color: #333; padding-right: 20px; font-size: 0.95rem; }
+        .lesson-name { text-align: right; font-weight: bold; color: #333; padding-right: 20px; font-size: 0.9rem; }
+
+        /* تنسيق أرقام الصفحات */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+        .page-link { background: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; color: var(--primary); font-weight: bold; border: 1px solid var(--primary); }
+        .page-link.active { background: var(--primary); color: white; }
 
         footer { text-align: center; padding: 30px; color: white; text-shadow: 1px 1px 3px black; }
     </style>
@@ -49,7 +53,7 @@
 <body>
 
 <header class="site-header">
-    <h1 style="margin:0; color:var(--primary); font-size: 1.8rem;">تفسير سورة الأنفال</h1>
+    <h1 style="margin:0; color:var(--primary); font-size: 1.6rem;">تفسير سورة الأنفال</h1>
 </header>
 
 <div class="nav-bar">
@@ -60,96 +64,44 @@
 
 <div class="container">
     <div class="lessons-table-card">
-        <div class="table-header"><i class="fas fa-list-ol"></i> قائمة الدروس المرفوعة</div>
+        <div class="table-header"><i class="fas fa-list-ol"></i> جدول الدروس (1 - 12)</div>
         <table>
             <thead>
                 <tr>
-                    <th>اسم الدرس</th>
-                    <th>استماع</th>
-                    <th>تحميل</th>
+                    <th width="40%">اسم الدرس</th>
+                    <th width="45%">استماع</th>
+                    <th width="15%">تحميل</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="table-body">
                 <tr>
                     <td class="lesson-name">تفسير سورة الأنفال - الدرس 1</td>
                     <td><audio controls class="audio-player"><source src="audio/al-anfal-1.mp3" type="audio/mpeg"></audio></td>
                     <td><a href="audio/al-anfal-1.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
                 </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 2</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-2.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-2.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 3</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-3.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-3.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 4</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-4.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-4.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 5</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-5.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-5.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 6</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-6.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-6.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 7</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-7.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-7.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 8</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-8.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-8.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 9</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-9.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-9.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 10</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-10.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-10.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 11</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-11.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-11.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 12</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-12.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-12.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 13</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-13.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-13.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 14</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-14.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-14.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 15</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-15.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-15.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="lesson-name">تفسير سورة الأنفال - الدرس 16</td>
-                    <td><audio controls class="audio-player"><source src="audio/al-anfal-16.mp3" type="audio/mpeg"></audio></td>
-                    <td><a href="audio/al-anfal-16.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
-                </tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 2</td><td><audio controls class="audio-player"><source src="audio/al-anfal-2.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-2.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 3</td><td><audio controls class="audio-player"><source src="audio/al-anfal-3.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-3.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 4</td><td><audio controls class="audio-player"><source src="audio/al-anfal-4.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-4.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 5</td><td><audio controls class="audio-player"><source src="audio/al-anfal-5.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-5.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 6</td><td><audio controls class="audio-player"><source src="audio/al-anfal-6.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-6.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 7</td><td><audio controls class="audio-player"><source src="audio/al-anfal-7.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-7.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 8</td><td><audio controls class="audio-player"><source src="audio/al-anfal-8.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-8.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 9</td><td><audio controls class="audio-player"><source src="audio/al-anfal-9.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-9.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 10</td><td><audio controls class="audio-player"><source src="audio/al-anfal-10.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-10.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 11</td><td><audio controls class="audio-player"><source src="audio/al-anfal-11.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-11.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 12</td><td><audio controls class="audio-player"><source src="audio/al-anfal-12.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-12.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="lessons-table-card">
+        <div class="table-header">تكملة الدروس (13 - 16)</div>
+        <table>
+            <tbody>
+                <tr><td width="40%" class="lesson-name">تفسير سورة الأنفال - الدرس 13</td><td width="45%"><audio controls class="audio-player"><source src="audio/al-anfal-13.mp3" type="audio/mpeg"></audio></td><td width="15%"><a href="audio/al-anfal-13.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 14</td><td><audio controls class="audio-player"><source src="audio/al-anfal-14.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-14.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 15</td><td><audio controls class="audio-player"><source src="audio/al-anfal-15.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-15.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
+                <tr><td class="lesson-name">تفسير سورة الأنفال - الدرس 16</td><td><audio controls class="audio-player"><source src="audio/al-anfal-16.mp3" type="audio/mpeg"></audio></td><td><a href="audio/al-anfal-16.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
             </tbody>
         </table>
     </div>
