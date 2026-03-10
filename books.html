@@ -3,67 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤلفات الشيخ سعيد مصطفى دياب</title>
+    <title>المكتبة الإسلامية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
-        :root { --gold: #b59410; --primary: #2c5d87; }
+        :root { --dark-blue: #2c5d87; --gold: #b59410; --bg-card: rgba(255, 255, 255, 0.95); }
+        
         body { 
-            margin: 0; font-family: 'Cairo', sans-serif; 
+            margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
             background: url('library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover; overflow-x: hidden;
+            background-size: cover;
         }
 
-        /* تكبير الأيقونات العلوية */
+        /* تثبيت الهيدر (شريط التنقل) لضمان عدم اختفائه */
         .main-nav {
-            background: rgba(255, 255, 255, 0.95);
-            display: flex; justify-content: center; gap: 40px;
-            padding: 20px; border-bottom: 4px solid var(--primary);
-            backdrop-filter: blur(10px);
+            background: white;
+            display: flex; justify-content: center; gap: 30px;
+            padding: 15px; border-bottom: 4px solid var(--dark-blue);
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .nav-item {
-            text-decoration: none; color: var(--primary);
-            font-weight: 900; font-size: 1.1rem; /* تكبير النص */
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
-            transition: 0.3s;
+            text-decoration: none; color: var(--dark-blue);
+            font-weight: 900; font-size: 1rem;
+            display: flex; flex-direction: column; align-items: center; gap: 5px;
         }
-        .nav-item i { font-size: 2.2rem; color: var(--gold); } /* تكبير الأيقونة */
-        .nav-item:hover { transform: translateY(-5px); color: var(--gold); }
+        .nav-item i { font-size: 1.8rem; color: var(--gold); }
 
-        /* منطقة شريط الكتب */
-        .slider-container { padding: 60px 0; width: 100%; }
-        .swiper { width: 95%; padding-bottom: 50px; }
+        /* العنوان الرئيسي */
+        .section-title {
+            text-align: center; margin: 30px 0;
+        }
+        .section-title h1 {
+            background: var(--dark-blue); color: white;
+            display: inline-block; padding: 10px 40px;
+            border-radius: 50px; font-size: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* شبكة الكتب - تقليل الفواصل */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px; /* تقليل الفواصل بين الكتب */
+            max-width: 1200px; margin: 0 auto; padding: 20px;
+        }
 
         .book-card {
-            display: flex; flex-direction: column; align-items: center;
-            transition: 0.4s ease;
+            background: var(--bg-card); border-radius: 12px;
+            overflow: hidden; text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: 0.3s; border: 1px solid #ddd;
         }
-        /* حجم الكتاب وتأثير الظل */
-        .book-card img {
-            width: 180px; /* حجم مناسب للغلاف */
-            height: 260px;
-            object-fit: fill;
-            border-radius: 4px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .book-card:hover { transform: scale(1.08); }
+        .book-card:hover { transform: translateY(-10px); }
 
-        /* أزرار التحميل والقراءة تحت الكتاب مباشرة */
-        .book-btns {
-            margin-top: 15px; display: flex; gap: 4px; width: 180px; justify-content: center;
+        .book-img {
+            width: 100%; height: 280px; object-fit: fill; /* ملء الصورة بالكامل */
+            border-bottom: 2px solid var(--gold);
+            display: block; /* ضمان ظهور العنصر */
         }
-        .btn-action {
-            background: #333; color: white;
-            text-decoration: none; font-size: 0.85rem; font-weight: bold;
-            padding: 6px 15px; border-radius: 4px;
-            flex: 1; text-align: center; transition: 0.3s;
-        }
-        .btn-action:hover { background: var(--gold); }
 
-        .swiper-button-next, .swiper-button-prev { color: white; background: rgba(0,0,0,0.3); padding: 30px; border-radius: 50%; }
+        .book-info { padding: 15px; }
+        .book-info h3 { font-size: 1.1rem; color: var(--dark-blue); margin: 0 0 15px 0; height: 50px; overflow: hidden; }
+
+        .book-btns { display: flex; border-top: 1px solid #eee; }
+        .btn {
+            flex: 1; padding: 12px; text-decoration: none; font-weight: bold; font-size: 0.9rem;
+            transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+        .btn-read { background: #f8f9fa; color: var(--dark-blue); }
+        .btn-download { background: var(--gold); color: white; }
+        .btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .main-nav { gap: 15px; }
+            .nav-item { font-size: 0.8rem; }
+            .books-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -73,68 +88,41 @@
     <a href="lessons.html" class="nav-item"><i class="fas fa-microphone"></i>الدروس</a>
     <a href="khotab.html" class="nav-item"><i class="fas fa-mosque"></i>الخطب</a>
     <a href="articles.html" class="nav-item"><i class="fas fa-pen-nib"></i>المقالات</a>
-    <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب والمؤلفات</a>
+    <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب</a>
 </nav>
 
-<div class="slider-container">
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper" id="books-list">
-            </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
+<div class="section-title">
+    <h1>المكتبة الإسلامية</h1>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    // قائمة الكتب مطابقة تماماً لأسماء ملفاتك التي أرسلتها
-    const books = [
-        { title: "أنوار الأذكار", img: "anwar.jpeg", pdf: "anwar.pdf" },
-        { title: "تذكير الأباة", img: "tzker-alobat.jpg", pdf: "tazkirat-al-abaha.pdf.pdf" },
-        { title: "خطر الربا", img: "katar-al-reba.jpg.jpg", pdf: "katar-al-reba.pdf.pdf" },
-        { title: "فضل الدعاء", img: "fadhl-duaa.jpg.jpg", pdf: "fadhl-duaa.pdf.pdf" },
-        { title: "معالم التربية", img: "malm-al-trbia.jpg", pdf: "h1.pdf" },
-        { title: "وقفات تدبرية", img: "waqfat-tdaboria.jpg", pdf: "ar-alqasas.pdf" },
-        { title: "كشف النقاب", img: "kashf-alnqab.jpg.jpg", pdf: "al-irshad.pdf.pdf" },
-        { title: "خبر الآحاد", img: "kabar-al-ahad.jpg.jpg", pdf: "kabar-al-ahad.pdf.pdf" },
-        { title: "واجب المسلمين", img: "wageb-al-muslmeen.jpg", pdf: "wageb-al-muslmeen.pdf.pdf" },
-        { title: "الإلمام بأحكام الصيام", img: "al-ilmam-siyam.jpg.jpg", pdf: "al-ilmam-pahkam.al. siyam.pdf.pdf" },
-        { title: "الاعتبار بطرائف الأخبار", img: "al-eatbaar-ptraef-alakbaar.jpg.jpg", pdf: "al-eatbaar-ptraef-alakbaar.pdf.pdf" },
-        { title: "تمام المنة", img: "tamam-al-minah.jpg.jpg", pdf: "tamam-al-minah.pdf.pdf" },
-        { title: "اللآلئ والدرر", img: "allaalea-wa-aldorr.jpg.jpg", pdf: "allaalea-wa-aldorr.pdf.pdf" },
-        { title: "حياة القلوب", img: "haiat-alqolob.jpg.jpg", pdf: "haiat-alqolob.pdf" },
-        { title: "السلاسل", img: "al-slsapel.jpg.jpg", pdf: "alslsapel.pdf" },
-        { title: "شمائل الرسول", img: "shmael-al-rasool.jpg.jpg", pdf: "shmael-al-rasool.pdf.pdf" },
-        { title: "الأربعون", img: "arbauon.jpg", pdf: "h2.pdf" },
-        { title: "العقود الفضية", img: "al-uqud-al-fadheya.jpg", pdf: "h3.pdf" },
-        { title: "أمثال القرآن", img: "al-arbon-veal-amthal.jpg.jpg", pdf: "al-irshad.pdf.pdf" }
-    ];
+<div class="books-grid">
+    <div class="book-card">
+        <img src="images/book1.jpg" alt="اسم الكتاب" class="book-img">
+        <div class="book-info">
+            <h3>فضل الدعاء وآدابه</h3>
+            <div class="book-btns">
+                <a href="pdf/book1.pdf" class="btn btn-read"><i class="fas fa-eye"></i> قراءة</a>
+                <a href="pdf/book1.pdf" download class="btn btn-download"><i class="fas fa-download"></i> تحميل</a>
+            </div>
+        </div>
+    </div>
 
-    const container = document.getElementById('books-list');
-    books.forEach(b => {
-        container.innerHTML += `
-            <div class="swiper-slide">
-                <div class="book-card">
-                    <img src="${b.img}" alt="${b.title}" onerror="this.src='https://via.placeholder.com/180x260?text=Image+Missing'">
-                    <div class="book-btns">
-                        <a href="${b.pdf}" target="_blank" class="btn-action">قراءة</a>
-                        <a href="${b.pdf}" download class="btn-action">تحميل</a>
-                    </div>
-                </div>
-            </div>`;
-    });
+    <div class="book-card">
+        <img src="images/book2.jpg" alt="اسم الكتاب" class="book-img">
+        <div class="book-info">
+            <h3>معالم التربية في السنة</h3>
+            <div class="book-btns">
+                <a href="pdf/book2.pdf" class="btn btn-read"><i class="fas fa-eye"></i> قراءة</a>
+                <a href="pdf/book2.pdf" download class="btn btn-download"><i class="fas fa-download"></i> تحميل</a>
+            </div>
+        </div>
+    </div>
+    
+    </div>
 
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 2,
-        spaceBetween: 10, // فواصل صغيرة جداً
-        loop: true,
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-        breakpoints: {
-            768: { slidesPerView: 4, spaceBetween: 15 },
-            1024: { slidesPerView: 6, spaceBetween: 10 },
-            1400: { slidesPerView: 7, spaceBetween: 10 }
-        }
-    });
-</script>
+<footer>
+    <p style="text-align: center; color: white; padding: 20px; font-weight: bold;">جميع الحقوق محفوظة &copy; 2026</p>
+</footer>
+
 </body>
 </html>
