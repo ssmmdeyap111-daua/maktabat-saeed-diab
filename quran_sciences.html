@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>علوم القرآن - الشيخ سعيد مصطفى دياب</title>
+    <title>علوم القرآن والتفسير - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -12,50 +12,71 @@
         body { 
             margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
             background: url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover;
+            background-size: cover; color: #333; 
         }
 
-        /* شريط التنقل العلوي الثابت */
+        /* شريط التنقل العلوي المثبت */
         .main-nav {
-            background: white; display: flex; justify-content: center; gap: 40px;
-            padding: 15px 0; border-bottom: 4px solid var(--dark-blue);
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            display: flex; justify-content: center; gap: 40px;
+            padding: 15px; border-bottom: 4px solid var(--dark-blue);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .nav-item {
-            text-decoration: none; color: var(--dark-blue); font-weight: 900;
+            text-decoration: none; color: var(--dark-blue);
+            font-weight: 900; font-size: 1rem;
             display: flex; flex-direction: column; align-items: center; gap: 5px;
+            transition: 0.3s;
         }
-        .nav-item i { font-size: 2rem; color: var(--gold); }
+        .nav-item i { font-size: 1.8rem; color: var(--gold); }
+        .nav-item:hover { transform: translateY(-3px); color: var(--gold); }
 
-        .header-box { margin-top: 130px; text-align: center; margin-bottom: 30px; }
-        .header-box h1 {
-            background: var(--dark-blue); color: white; display: inline-block;
-            padding: 12px 50px; border-radius: 50px; font-size: 2rem;
+        .site-header { padding: 40px 20px; text-align: center; margin-top: 100px; }
+        .site-header h1 { 
+            font-size: 2.3rem; color: white; margin: 0; font-weight: 900; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: rgba(44, 93, 135, 0.8); display: inline-block; padding: 10px 40px; border-radius: 50px;
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 100px; }
+        .container { max-width: 1100px; margin: 20px auto; padding: 0 20px 50px; }
 
-        .accordion-item { background: rgba(255, 255, 255, 0.95); border-radius: 12px; margin-bottom: 20px; border: 1px solid #ddd; overflow: hidden; }
-        .accordion-header { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 8px solid var(--gold); background: #fff; }
+        .accordion-item { background: rgba(255, 255, 255, 0.95); border-radius: 12px; margin-bottom: 25px; border: 1px solid #e2e8f0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+        .accordion-header { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 8px solid var(--gold); background: #fff; transition: 0.3s; }
+        .accordion-header:hover { background: #f8fbff; }
         .accordion-header span { font-weight: 900; color: var(--dark-blue); font-size: 1.2rem; display: flex; align-items: center; gap: 15px; }
         
-        .accordion-content { display: none; padding: 15px; background: #fff; border-top: 1px solid #eee; }
+        .accordion-content { display: none; padding: 20px; background: #fff; border-top: 1px solid #eee; }
         .active .accordion-content { display: block; }
         .active .accordion-header { background: var(--light-blue); }
 
         .lesson-row { 
             background: white; border: 1px solid #edf2f7; border-radius: 10px; 
-            padding: 10px 15px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 20px; margin-bottom: 10px; display: flex; 
+            align-items: center; justify-content: space-between;
         }
-        .lesson-right { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
+        .lesson-right { display: flex; align-items: center; gap: 12px; flex: 1; justify-content: flex-end; }
+        .lesson-name { color: var(--dark-blue); font-weight: 700; font-size: 1rem; }
+        
         .audio-player { flex: 2; display: flex; justify-content: center; }
-        audio { height: 30px; width: 100%; }
-        .btn-download { color: var(--green-dl); font-size: 1.3rem; }
+        audio { height: 35px; width: 100%; max-width: 400px; }
+
+        .download-side { flex: 0.5; display: flex; justify-content: flex-start; }
+        .btn-download { color: var(--green-dl); font-size: 1.5rem; text-decoration: none; transition: 0.3s; }
+        .btn-download:hover { transform: scale(1.1); }
+
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 20px; padding: 10px; }
+        .page-num { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-weight: bold; color: var(--dark-blue); background: white; }
+        .page-num.active { background: var(--dark-blue); color: white; border-color: var(--dark-blue); }
+
+        footer { text-align: center; color: white; padding: 40px; text-shadow: 1px 1px 3px black; font-weight: bold; }
 
         @media (max-width: 768px) {
-            .main-nav { gap: 15px; }
+            .main-nav { gap: 15px; padding: 10px; }
             .nav-item i { font-size: 1.5rem; }
-            .lesson-row { flex-direction: column; gap: 10px; }
+            .nav-item { font-size: 0.75rem; }
+            .lesson-row { flex-direction: column; gap: 15px; text-align: center; }
+            .audio-player { width: 100%; }
         }
     </style>
 </head>
@@ -69,34 +90,64 @@
     <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب</a>
 </nav>
 
-<div class="header-box">
-    <h1>علوم القرآن الكريم</h1>
-</div>
+<header class="site-header">
+    <h1>علوم القرآن والتفسير</h1>
+</header>
 
 <div class="container">
-    <div class="accordion-item" id="item-itqan">
-        <div class="accordion-header" onclick="toggleAccordion('itqan')">
-            <span><i class="fas fa-book-quran"></i> شرح كتاب الإتقان في علوم القرآن (12 درساً)</span>
+    <div class="accordion-item" id="item-baqara">
+        <div class="accordion-header" onclick="toggleAccordion('baqara')">
+            <span><i class="fas fa-quran"></i> تفسير سورة البقرة (45 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="accordion-content" id="itqan-list">
-            </div>
+        <div class="accordion-content">
+            <div id="baqara-list"></div>
+            <div class="pagination" id="baqara-pagination"></div>
+        </div>
     </div>
 
-    <div class="accordion-item" id="item-tajweed">
-        <div class="accordion-header" onclick="toggleAccordion('tajweed')">
-            <span><i class="fas fa-microphone-alt"></i> دروس في قواعد التجويد (10 دروس)</span>
+    <div class="accordion-item" id="item-imran">
+        <div class="accordion-header" onclick="toggleAccordion('imran')">
+            <span><i class="fas fa-book-open"></i> تفسير سورة آل عمران (30 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="accordion-content" id="tajweed-list"></div>
+        <div class="accordion-content">
+            <div id="imran-list"></div>
+            <div class="pagination" id="imran-pagination"></div>
+        </div>
+    </div>
+
+    <div class="accordion-item" id="item-qasas">
+        <div class="accordion-header" onclick="toggleAccordion('qasas')">
+            <span><i class="fas fa-history"></i> تفسير سورة القصص (12 درساً)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div id="qasas-list"></div>
+            <div class="pagination" id="qasas-pagination"></div>
+        </div>
+    </div>
+
+    <div class="accordion-item" id="item-osol">
+        <div class="accordion-header" onclick="toggleAccordion('osol')">
+            <span><i class="fas fa-microscope"></i> دروس في أصول التفسير (8 دروس)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            <div id="osol-list"></div>
+            <div class="pagination" id="osol-pagination"></div>
+        </div>
     </div>
 </div>
 
 <script>
     const seriesData = {
-        itqan: { prefix: 'quran-itqan', count: 12 },
-        tajweed: { prefix: 'quran-tajweed', count: 10 }
+        baqara: { prefix: 'quran-baqara', count: 45, currentPage: 1 },
+        imran: { prefix: 'quran-imran', count: 30, currentPage: 1 },
+        qasas: { prefix: 'quran-qasas', count: 12, currentPage: 1 },
+        osol: { prefix: 'quran-osol', count: 8, currentPage: 1 }
     };
+    const lessonsPerPage = 10;
 
     function toggleAccordion(key) {
         const item = document.getElementById('item-' + key);
@@ -110,26 +161,37 @@
 
     function renderLessons(key) {
         const data = seriesData[key];
-        const container = document.getElementById(key + '-list');
-        if (container.innerHTML !== "") return; // لمنع التكرار
+        const listContainer = document.getElementById(key + '-list');
+        const pagContainer = document.getElementById(key + '-pagination');
+        listContainer.innerHTML = "";
+        const start = (data.currentPage - 1) * lessonsPerPage;
+        const end = Math.min(start + lessonsPerPage, data.count);
 
-        for (let i = 1; i <= data.count; i++) {
+        for (let i = start + 1; i <= end; i++) {
             const fileUrl = `audio/${data.prefix}-${i}.mp3`;
-            container.innerHTML += `
+            listContainer.innerHTML += `
                 <div class="lesson-row">
-                    <a href="${fileUrl}" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a>
+                    <div class="download-side"><a href="${fileUrl}" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></div>
                     <div class="audio-player"><audio controls preload="none"><source src="${fileUrl}" type="audio/mpeg"></audio></div>
-                    <div class="lesson-right"><span class="lesson-name">الدرس ${i}</span><i class="fas fa-headphones" style="color:var(--dark-blue)"></i></div>
+                    <div class="lesson-right"><span class="lesson-name">الدرس ${i}</span><i class="fas fa-microphone-lines" style="color:#2c5d87"></i></div>
                 </div>`;
         }
-    }
 
-    window.onload = () => toggleAccordion('itqan');
+        pagContainer.innerHTML = "";
+        const pageCount = Math.ceil(data.count / lessonsPerPage);
+        if (pageCount > 1) {
+            for (let p = 1; p <= pageCount; p++) {
+                const btn = document.createElement('div');
+                btn.className = `page-num ${p === data.currentPage ? 'active' : ''}`;
+                btn.innerText = p;
+                btn.onclick = (e) => { e.stopPropagation(); data.currentPage = p; renderLessons(key); };
+                pagContainer.appendChild(btn);
+            }
+        }
+    }
+    window.onload = () => toggleAccordion('baqara');
 </script>
 
-<footer>
-    <p style="text-align: center; color: white; padding: 20px;">جميع الحقوق محفوظة &copy; 2026</p>
-</footer>
-
+<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 </body>
 </html>
