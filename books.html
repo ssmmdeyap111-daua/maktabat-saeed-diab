@@ -9,132 +9,116 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
-        :root { --gold: #b59410; }
+        :root { --gold: #b59410; --primary: #2c5d87; }
         body { 
             margin: 0; font-family: 'Cairo', sans-serif; 
-            background: url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover;
-            overflow-x: hidden;
+            background: url('library-bg.jpg') no-repeat center center fixed; 
+            background-size: cover; overflow-x: hidden;
         }
 
-        .site-header { 
-            background: rgba(255, 255, 255, 0.1); padding: 15px; text-align: center; 
-            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.2);
+        /* القائمة العلوية بالأيقونات */
+        .main-nav {
+            background: rgba(255, 255, 255, 0.9);
+            display: flex; justify-content: center; gap: 20px;
+            padding: 15px; border-bottom: 3px solid var(--primary);
+            backdrop-filter: blur(10px);
         }
-        .site-header h1 { color: white; margin: 0; font-size: 1.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-
-        /* شريط الكتب الشفاف تماماً */
-        .books-slider-container {
-            padding: 60px 0;
-            margin-top: 50px;
-        }
-
-        .swiper { width: 90%; padding: 20px 0 60px 0; }
-
-        /* تنسيق الكتاب (بدون خلفية بيضاء) */
-        .book-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: 0.4s ease;
-            cursor: pointer;
-        }
-
-        .book-card img {
-            width: 160px; /* حجم الكتاب */
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 5px 15px 25px rgba(0,0,0,0.5); /* ظل ليعطي عمق للكتاب */
+        .nav-item {
+            text-decoration: none; color: var(--primary);
+            font-weight: bold; font-size: 0.9rem;
+            display: flex; flex-direction: column; align-items: center; gap: 5px;
             transition: 0.3s;
         }
+        .nav-item i { font-size: 1.5rem; color: var(--gold); }
+        .nav-item:hover { transform: translateY(-3px); color: var(--gold); }
 
-        .book-card:hover img {
-            transform: scale(1.1) translateY(-10px);
-            box-shadow: 5px 20px 35px rgba(0,0,0,0.7);
-        }
-
-        /* أزرار شفافة تظهر عند الحوم فوق الكتاب */
-        .book-links {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-            opacity: 0.8;
-        }
-
-        .book-links a {
-            color: white;
-            background: rgba(0,0,0,0.6);
-            padding: 5px 12px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.75rem;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: 0.3s;
-        }
-
-        .book-links a:hover { background: var(--gold); border-color: var(--gold); }
-
-        .swiper-button-next, .swiper-button-prev { color: white; }
-        .swiper-pagination-bullet { background: white !important; }
+        .slider-section { padding: 40px 0; margin-top: 20px; }
         
-        footer { text-align: center; color: white; padding: 30px; text-shadow: 1px 1px 3px black; font-weight: bold; }
+        .swiper { width: 98%; padding-bottom: 50px; }
+
+        /* تنسيق الكتاب العائم */
+        .book-card {
+            display: flex; flex-direction: column; align-items: center;
+            transition: 0.4s;
+        }
+        .book-card img {
+            width: 150px; /* حجم الكتاب */
+            height: 210px;
+            object-fit: cover;
+            border-radius: 3px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6); /* ظل الكتاب */
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .book-card:hover { transform: scale(1.05); }
+
+        /* أزرار التحميل والقراءة (صغيرة وشفافة) */
+        .book-btns {
+            margin-top: 10px; display: flex; gap: 5px;
+        }
+        .btn-action {
+            background: rgba(0,0,0,0.7); color: white;
+            text-decoration: none; font-size: 0.7rem;
+            padding: 4px 10px; border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;
+        }
+        .btn-action:hover { background: var(--gold); }
+
+        .swiper-button-next, .swiper-button-prev { color: white; transform: scale(0.7); }
     </style>
 </head>
 <body>
 
-<header class="site-header">
-    <h1>مؤلفات فضيلة الشيخ سعيد مصطفى دياب</h1>
-</header>
+<nav class="main-nav">
+    <a href="index.html" class="nav-item"><i class="fas fa-home"></i>الرئيسية</a>
+    <a href="lessons.html" class="nav-item"><i class="fas fa-microphone"></i>الدروس</a>
+    <a href="khotab.html" class="nav-item"><i class="fas fa-mosque"></i>الخطب</a>
+    <a href="articles.html" class="nav-item"><i class="fas fa-pen-nib"></i>المقالات</a>
+    <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب</a>
+</nav>
 
-<div class="books-slider-container">
+<div class="slider-section">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper" id="books-list">
             </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
     </div>
 </div>
 
-<footer>جميع الحقوق محفوظة &copy; 2026</footer>
-
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
-    // قائمة الـ 19 كتاباً (يرجى التأكد من أسماء الصور والملفات)
-    const booksData = [
-        { title: "أنوار الأذكار", img: "images/anwar.jpeg", pdf: "files/anwar.pdf" },
-        { title: "تذكير الأباة", img: "images/tzker-alobat.jpg", pdf: "files/tzker.pdf" },
-        { title: "خطر الربا", img: "images/katar-al-reba.jpg.jpg", pdf: "files/riba.pdf" },
-        { title: "فضل الدعاء", img: "images/fadhl-duaa.jpg", pdf: "files/duaa.pdf" },
-        { title: "معالم التربية", img: "images/malm-al-trbia.jpg", pdf: "files/trbia.pdf" },
-        { title: "وقفات تدبرية", img: "images/waqfat-tdaboria.jpg", pdf: "files/waqfat.pdf" },
-        { title: "كشف النقاب", img: "images/kashf-alnqab.jpg.jpg", pdf: "files/kashf.pdf" },
-        { title: "خبر الآحاد", img: "images/kabar-al-ahad.jpg.jpg", pdf: "files/ahad.pdf" },
-        // أضف هنا باقي الـ 19 كتاباً بنفس الطريقة...
-        { title: "كتاب 9", img: "images/book9.jpg", pdf: "files/book9.pdf" },
-        { title: "كتاب 10", img: "images/book10.jpg", pdf: "files/book10.pdf" },
-        { title: "كتاب 11", img: "images/book11.jpg", pdf: "files/book11.pdf" },
-        { title: "كتاب 12", img: "images/book12.jpg", pdf: "files/book12.pdf" },
-        { title: "كتاب 13", img: "images/book13.jpg", pdf: "files/book13.pdf" },
-        { title: "كتاب 14", img: "images/book14.jpg", pdf: "files/book14.pdf" },
-        { title: "كتاب 15", img: "images/book15.jpg", pdf: "files/book15.pdf" },
-        { title: "كتاب 16", img: "images/book16.jpg", pdf: "files/book16.pdf" },
-        { title: "كتاب 17", img: "images/book17.jpg", pdf: "files/book17.pdf" },
-        { title: "كتاب 18", img: "images/book18.jpg", pdf: "files/book18.pdf" },
-        { title: "كتاب 19", img: "images/book19.jpg", pdf: "files/book19.pdf" }
+    // تم ضبط الأسماء بناءً على قائمة الملفات التي أرفقتها بدقة
+    const books = [
+        { title: "أنوار الأذكار", img: "anwar.jpeg", pdf: "anwar.pdf" },
+        { title: "تذكير الأباة", img: "tzker-alobat.jpg", pdf: "tazkirat-al-abaha.pdf.pdf" },
+        { title: "خطر الربا", img: "katar-al-reba.jpg.jpg", pdf: "katar-al-reba.pdf.pdf" },
+        { title: "فضل الدعاء", img: "fadhl-duaa.jpg.jpg", pdf: "fadhl-duaa.pdf.pdf" },
+        { title: "معالم التربية", img: "malm-al-trbia.jpg", pdf: "h1.pdf" },
+        { title: "وقفات تدبرية", img: "waqfat-tdaboria.jpg", pdf: "ar-alqasas.pdf" },
+        { title: "كشف النقاب", img: "kashf-alnqab.jpg.jpg", pdf: "al-irshad.pdf.pdf" },
+        { title: "خبر الآحاد", img: "kabar-al-ahad.jpg.jpg", pdf: "kabar-al-ahad.pdf.pdf" },
+        { title: "واجب المسلمين", img: "wageb-al-muslmeen.jpg", pdf: "wageb-al-muslmeen.pdf.pdf" },
+        { title: "الإلمام بأحكام الصيام", img: "al-ilmam-siyam.jpg.jpg", pdf: "al-ilmam-pahkam.al. siyam.pdf.pdf" },
+        { title: "الاعتبار بطرائف الأخبار", img: "al-eatbaar-ptraef-alakbaar.jpg.jpg", pdf: "al-eatbaar-ptraef-alakbaar.pdf.pdf" },
+        { title: "تمام المنة", img: "tamam-al-minah.jpg.jpg", pdf: "tamam-al-minah.pdf.pdf" },
+        { title: "اللآلئ والدرر", img: "allaalea-wa-aldorr.jpg.jpg", pdf: "allaalea-wa-aldorr.pdf.pdf" },
+        { title: "حياة القلوب", img: "haiat-alqolob.jpg.jpg", pdf: "haiat-alqolob.pdf" },
+        { title: "السلاسل", img: "al-slsapel.jpg.jpg", pdf: "alslsapel.pdf" },
+        { title: "شمائل الرسول", img: "shmael-al-rasool.jpg.jpg", pdf: "shmael-al-rasool.pdf.pdf" },
+        { title: "الأربعون", img: "arbauon.jpg", pdf: "h2.pdf" },
+        { title: "العقود الفضية", img: "al-uqud-al-fadheya.jpg", pdf: "h3.pdf" },
+        { title: "أمثال القرآن", img: "al-arbon-veal-amthal.jpg.jpg", pdf: "al-irshad.pdf.pdf" }
     ];
 
-    const booksList = document.getElementById('books-list');
-
-    booksData.forEach(book => {
-        booksList.innerHTML += `
+    const container = document.getElementById('books-list');
+    books.forEach(b => {
+        container.innerHTML += `
             <div class="swiper-slide">
                 <div class="book-card">
-                    <img src="${book.img}" alt="${book.title}">
-                    <div class="book-links">
-                        <a href="${book.pdf}" target="_blank">قراءة</a>
-                        <a href="${book.pdf}" download>تحميل</a>
+                    <img src="${b.img}" alt="${b.title}">
+                    <div class="book-btns">
+                        <a href="${b.pdf}" target="_blank" class="btn-action">قراءة</a>
+                        <a href="${b.pdf}" download class="btn-action">تحميل</a>
                     </div>
                 </div>
             </div>`;
@@ -142,15 +126,13 @@
 
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 2,
-        spaceBetween: 30,
+        spaceBetween: 5, // فواصل صغيرة جداً كما طلبت
         loop: true,
-        autoplay: { delay: 3000, disableOnInteraction: false },
         navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-        pagination: { el: ".swiper-pagination", clickable: true },
         breakpoints: {
-            768: { slidesPerView: 4 },
-            1024: { slidesPerView: 6 },
-            1400: { slidesPerView: 8 } 
+            768: { slidesPerView: 5 },
+            1024: { slidesPerView: 7 },
+            1400: { slidesPerView: 9 }
         }
     });
 </script>
