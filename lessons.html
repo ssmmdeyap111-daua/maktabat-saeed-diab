@@ -6,69 +6,95 @@
     <title>الفهرس العام للمواد العلمية - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        :root { --gold: #b59410; --primary: #2c5d87; --bg-overlay: rgba(255, 255, 255, 0.1); }
+        :root { --dark-blue: #2c5d87; --gold: #b59410; --card-bg: #ffffff; }
         
         body { 
-            margin: 0; font-family: 'Cairo', sans-serif; 
-            background: url('library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover; overflow-x: hidden;
+            margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
+            /* إضافة خلفية المكتبة */
+            background: url('images/library-bg.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            min-height: 100vh;
         }
 
-        /* شريط التنقل العلوي الموحد */
+        /* القائمة العلوية وتكبير الأيقونات */
         .main-nav {
-            background: rgba(255, 255, 255, 0.95);
-            display: flex; justify-content: center; gap: 30px;
-            padding: 12px; border-bottom: 3px solid var(--primary);
-            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            display: flex; justify-content: center; gap: 50px; /* زيادة الفراغ */
+            padding: 20px; border-bottom: 4px solid var(--dark-blue);
+            position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .nav-item {
-            text-decoration: none; color: var(--primary);
-            font-weight: bold; font-size: 0.85rem;
-            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            text-decoration: none; color: var(--dark-blue);
+            font-weight: 900; font-size: 1.1rem;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
             transition: 0.3s;
         }
-        .nav-item i { font-size: 1.3rem; color: var(--gold); }
-        .nav-item:hover { transform: translateY(-2px); color: var(--gold); }
+        /* تكبير الأيقونات الخمسة */
+        .nav-item i { font-size: 2.5rem; color: var(--gold); } 
+        .nav-item:hover { transform: translateY(-5px); color: var(--gold); }
 
-        .header-title {
-            text-align: center; margin: 40px 0 20px 0;
-        }
-        .header-title h1 { 
-            color: white; font-size: 1.8rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-            background: rgba(44, 93, 135, 0.7); display: inline-block; padding: 10px 40px; border-radius: 50px;
+        /* العنوان الرئيسي بشكل كبسولة */
+        .site-header { padding: 60px 20px 40px; text-align: center; }
+        .site-header h1 { 
+            font-size: 2.2rem; color: white; margin: 0; font-weight: 900; 
+            background: #6c8eb0; /* لون أزرق رمادي فاتح مثل الصورة */
+            display: inline-block; padding: 15px 60px; border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
-        /* شبكة الأيقونات الثمانية (تصميم مستطيل وأصغر) */
-        .index-grid {
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+
+        /* شبكة الأقسام بنفس ترتيب الصورة */
+        .lessons-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 أعمدة في السطر */
-            gap: 15px; max-width: 1000px; margin: 0 auto; padding: 20px;
+            grid-template-columns: repeat(4, 1fr); /* 4 أعمدة كما في الصورة */
+            gap: 20px;
         }
 
-        .cat-card {
-            background: rgba(255, 255, 255, 0.9);
-            text-decoration: none; color: var(--primary);
-            height: 80px; /* طول مستطيل صغير */
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px 10px;
+            text-align: center;
+            text-decoration: none;
+            border-bottom: 5px solid var(--gold); /* الشريط الذهبي السفلي */
+            transition: 0.3s;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
             display: flex; align-items: center; justify-content: center;
-            border-radius: 8px; border-bottom: 4px solid var(--gold);
-            transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            min-height: 80px;
         }
 
-        .cat-card h3 { 
-            margin: 0; font-size: 1.1rem; font-weight: 700; 
+        .category-card h3 { 
+            margin: 0; color: var(--dark-blue); 
+            font-size: 1.3rem; font-weight: 800; 
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background: #fdfdfd;
         }
 
-        .cat-card:hover { 
-            transform: translateY(-5px); background: white; border-bottom-color: var(--primary);
+        footer { 
+            text-align: center; color: #666; padding: 20px; 
+            font-weight: bold; font-size: 0.9rem;
+            background: rgba(255,255,255,0.8);
+            margin-top: 40px;
         }
 
-        /* للموبايل */
-        @media (max-width: 768px) {
-            .index-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; }
-            .main-nav { gap: 15px; }
-            .nav-item { font-size: 0.75rem; }
-            .header-title h1 { font-size: 1.4rem; }
+        /* للتجاوب مع الجوال */
+        @media (max-width: 992px) {
+            .lessons-grid { grid-template-columns: repeat(2, 1fr); }
+            .main-nav { gap: 20px; }
+            .nav-item i { font-size: 2rem; }
+        }
+        @media (max-width: 480px) {
+            .lessons-grid { grid-template-columns: 1fr; }
+            .site-header h1 { font-size: 1.5rem; padding: 10px 30px; }
         }
     </style>
 </head>
@@ -82,25 +108,27 @@
     <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب والمؤلفات</a>
 </nav>
 
-<div class="header-title">
+<header class="site-header">
     <h1>الفهرس العام للمواد العلمية</h1>
+</header>
+
+<div class="container">
+    <div class="lessons-grid">
+        
+        <a href="tafseer.html" class="category-card"><h3>تفسير القرآن</h3></a>
+        <a href="quran_sciences.html" class="category-card"><h3>علوم القرآن</h3></a>
+        <a href="hadith.html" class="category-card"><h3>شروح الحديث</h3></a>
+        <a href="seerah.html" class="category-card"><h3>السيرة النبوية</h3></a>
+
+        <a href="aqida.html" class="category-card"><h3>العقيدة</h3></a>
+        <a href="fiqh.html" class="category-card"><h3>الفقه الإسلامي</h3></a>
+        <a href="raqaeq.html" class="category-card"><h3>الرقائق والزهد</h3></a>
+        <a href="lectures.html" class="category-card"><h3>محاضرات عامة</h3></a>
+
+    </div>
 </div>
 
-<div class="index-grid">
-    <a href="tafseer.html" class="cat-card"><h3>تفسير القرآن</h3></a>
-    <a href="uloom-quran.html" class="cat-card"><h3>علوم القرآن</h3></a>
-    <a href="shrooh-hadith.html" class="cat-card"><h3>شروح الحديث</h3></a>
-    <a href="seerah.html" class="cat-card"><h3>السيرة النبوية</h3></a>
-    
-    <a href="aqida.html" class="cat-card"><h3>العقيدة</h3></a>
-    <a href="fiqh.html" class="cat-card"><h3>الفقه الإسلامي</h3></a>
-    <a href="raqaeq.html" class="cat-card"><h3>الرقائق والزهد</h3></a>
-    <a href="mohadarat.html" class="cat-card"><h3>محاضرات عامة</h3></a>
-</div>
-
-<footer style="text-align:center; color: white; margin-top: 50px; padding: 20px; text-shadow: 1px 1px 2px black;">
-    جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
-</footer>
+<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
 </body>
 </html>
