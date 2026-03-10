@@ -5,133 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفسير سورة الأعراف - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --gold: #b59410; --white: #ffffff; }
+        :root { --primary: #2c5d87; --gold: #27ae60; --bg: #f4f7f9; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; }
+        .site-header { background: white; padding: 20px; text-align: center; border-bottom: 3px solid var(--primary); }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 15px; min-height: 600px; }
         
-        body { 
-            margin: 0; 
-            font-family: 'Cairo', sans-serif; 
-            /* تم تصحيح اسم الصورة هنا إلى library-bg.jpg */
-            background: #2c5d87 url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover;
+        .lesson-card {
+            background: white; border-radius: 8px; padding: 12px 20px;
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 10px; border: 1px solid #e0e6ed; box-shadow: 0 2px 4px rgba(0,0,0,0.03);
         }
+        .lesson-info { display: flex; align-items: center; gap: 10px; width: 160px; justify-content: flex-end; }
+        .lesson-info h3 { margin: 0; font-size: 0.95rem; color: var(--primary); font-weight: 700; }
+        .lesson-info i { color: #bdc3c7; font-size: 0.9rem; }
+        .audio-wrapper { flex-grow: 1; display: flex; justify-content: center; }
+        audio { width: 95%; height: 35px; }
+        .download-wrapper { width: 50px; text-align: left; }
+        .btn-down { color: var(--gold); font-size: 1.3rem; text-decoration: none; }
 
-        .site-header { 
-            background: rgba(255, 255, 255, 0.95); 
-            padding: 20px; text-align: center; 
-            border-bottom: 4px solid var(--primary); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
-            backdrop-filter: blur(5px);
+        /* التحكم في الصفحات */
+        .page-content { display: none; }
+        .page-content.active { display: block; }
+
+        /* الترقيم السفلي */
+        .pagination { display: flex; justify-content: center; gap: 8px; margin: 30px 0; flex-wrap: wrap; }
+        .page-btn { 
+            width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; 
+            border: 1px solid #ddd; border-radius: 4px; cursor: pointer;
+            color: var(--primary); background: white; font-weight: bold;
         }
+        .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-        .container { width: 98%; max-width: 1600px; margin: 20px auto; }
-
-        .lesson-row { 
-            display: flex; align-items: center; 
-            background: rgba(255, 255, 255, 0.92); 
-            margin-bottom: 8px; padding: 15px 30px; 
-            border-radius: 12px; border: 1px solid #e2e8f0; 
-            transition: 0.3s ease; 
-            backdrop-filter: blur(5px);
-        }
-        .lesson-row:hover { background: #ffffff; border-right: 8px solid var(--gold); transform: scale(1.002); }
-
-        .lesson-info { flex: 2; font-weight: 700; font-size: 1.2rem; color: #334155; display: flex; align-items: center; gap: 15px; }
-        .audio-player { flex: 4; display: flex; justify-content: center; }
-        audio { width: 95%; height: 40px; }
-        .actions { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
-        .actions a { color: #10b981; font-size: 1.5rem; text-decoration: none; transition: 0.3s; }
-        .actions a:hover { color: var(--primary); }
-
-        .pagination { display: flex; justify-content: center; margin: 40px 0; gap: 10px; direction: ltr; }
-        .page-btn { padding: 10px 20px; background: var(--white); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; color: var(--primary); transition: 0.3s; }
-        .page-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
-        .page-btn:hover:not(.active) { background: #e2e8f0; }
-        
-        footer { text-align: center; padding: 40px; color: white; text-shadow: 2px 2px 5px black; font-weight: bold; }
-        
-        @media (max-width: 768px) {
-            .lesson-row { flex-direction: column; padding: 20px; gap: 15px; }
-            .actions { justify-content: center; }
-        }
+        @media (max-width: 768px) { .lesson-card { flex-direction: column; gap: 10px; } .lesson-info, .audio-wrapper, .download-wrapper { width: 100%; justify-content: center; text-align: center; } }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
-        <a href="tafseer.html" style="text-decoration:none; color:var(--primary); font-weight:bold; display:flex; align-items:center; gap:8px;">
-            <i class="fas fa-chevron-right"></i> عودة لقسم التفسير
-        </a>
-        <h2 id="page-title" style="margin:0; color:var(--primary);">تفسير سورة الأعراف</h2>
-        <div style="width:100px;"></div>
-    </div>
+    <h2 style="margin:0; color:var(--primary);">تفسير سورة الأعراف</h2>
 </header>
 
-<div class="container" id="lesson-list"></div>
-<div class="pagination" id="pagination"></div>
+<div class="container">
+    <div id="pages-container"></div>
+
+    <div class="pagination" id="pagination-controls"></div>
+</div>
 
 <script>
-    /* --- إعدادات سورة الأعراف --- */
-    const seriesTitle = "تفسير سورة الأعراف";
-    const seriesPrefix = "al-aaraf"; 
-    const totalLessons = 41; 
-    const lessonsPerPage = 12; 
-    /* -------------------------- */
+    const totalLessons = 41;
+    const lessonsPerPage = 12;
+    const totalPages = Math.ceil(totalLessons / lessonsPerPage);
 
-    document.getElementById('page-title').innerText = seriesTitle;
-    let currentPage = 1;
+    function init() {
+        const pagesContainer = document.getElementById('pages-container');
+        const paginationControls = document.getElementById('pagination-controls');
 
-    function renderLessons(page) {
-        const list = document.getElementById('lesson-list');
-        list.innerHTML = "";
-        let start = (page - 1) * lessonsPerPage + 1;
-        let end = Math.min(start + lessonsPerPage - 1, totalLessons);
+        for (let p = 1; p <= totalPages; p++) {
+            // إنشاء حاوية الصفحة
+            const pageDiv = document.createElement('div');
+            pageDiv.id = `page${p}`;
+            pageDiv.className = `page-content ${p === 1 ? 'active' : ''}`;
+            
+            // إضافة الدروس لكل صفحة
+            let start = (p - 1) * lessonsPerPage + 1;
+            let end = Math.min(p * lessonsPerPage, totalLessons);
 
-        for (let i = start; i <= end; i++) {
-            const fileName = `${seriesPrefix}-${i}.mp3`;
-            const row = document.createElement('div');
-            row.className = 'lesson-row';
-            row.innerHTML = `
-                <div class="lesson-info">
-                    <i class="fas fa-book-quran" style="color:var(--gold);"></i>
-                    الدرس رقم ${i}
-                </div>
-                <div class="audio-player">
-                    <audio controls preload="none">
-                        <source src="${fileName}" type="audio/mpeg">
-                    </audio>
-                </div>
-                <div class="actions">
-                    <a href="${fileName}" download title="تحميل الدرس"><i class="fas fa-cloud-arrow-down"></i></a>
+            for (let i = start; i <= end; i++) {
+                pageDiv.innerHTML += `
+                <div class="lesson-card">
+                    <div class="lesson-info"><h3>الدرس رقم ${i}</h3><i class="fas fa-file-audio"></i></div>
+                    <div class="audio-wrapper"><audio controls preload="none"><source src="audio/al-aaraf-${i}.mp3" type="audio/mpeg"></audio></div>
+                    <div class="download-wrapper"><a href="audio/al-aaraf-${i}.mp3" download class="btn-down"><i class="fas fa-cloud-download-alt"></i></a></div>
                 </div>`;
-            list.appendChild(row);
-        }
-        renderPagination();
-    }
+            }
+            pagesContainer.appendChild(pageDiv);
 
-    function renderPagination() {
-        const pag = document.getElementById('pagination');
-        pag.innerHTML = "";
-        const pages = Math.ceil(totalLessons / lessonsPerPage);
-        for (let i = 1; i <= pages; i++) {
-            const btn = document.createElement('button');
-            btn.innerText = i;
-            btn.className = (i === currentPage) ? "page-btn active" : "page-btn";
-            btn.onclick = function() {
-                currentPage = i;
-                renderLessons(i);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            };
-            pag.appendChild(btn);
+            // إنشاء أزرار الترقيم (من اليسار لليمين 4 3 2 1)
+            const btn = document.createElement('div');
+            btn.id = `btn${p}`;
+            btn.className = `page-btn ${p === 1 ? 'active' : ''}`;
+            btn.innerText = p;
+            btn.onclick = () => showPage(p);
+            paginationControls.prepend(btn); // استخدام prepend لترتيب الأرقام بشكل صحيح في الاتجاه العربي
         }
     }
 
-    window.onload = () => renderLessons(1);
+    function showPage(num) {
+        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('page' + num).classList.add('active');
+        document.getElementById('btn' + num).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    init();
 </script>
 
-<footer>
+<footer style="text-align:center; padding: 20px; font-size: 0.8rem; color: #888;">
     جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026
 </footer>
 
