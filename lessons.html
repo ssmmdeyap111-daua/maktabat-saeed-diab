@@ -12,12 +12,13 @@
         
         body { 
             margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
+            /* خلفية المكتبة */
             background: url('images/library-bg.jpg') no-repeat center center fixed; 
             background-size: cover;
             min-height: 100vh;
         }
 
-        /* القائمة العلوية المكبرة */
+        /* القائمة العلوية المكبرة (الأيقونات الخمسة) */
         .main-nav {
             background: rgba(255, 255, 255, 0.98);
             display: flex; justify-content: center; gap: 45px;
@@ -31,9 +32,10 @@
             display: flex; flex-direction: column; align-items: center; gap: 8px;
             transition: 0.3s;
         }
-        .nav-item i { font-size: 2.6rem; color: var(--gold); } /* أيقونات كبيرة */
+        .nav-item i { font-size: 2.6rem; color: var(--gold); } /* تكبير الأيقونات */
         .nav-item:hover { transform: translateY(-5px); color: var(--gold); }
 
+        /* العنوان الرئيسي */
         .site-header { padding: 60px 20px 40px; text-align: center; }
         .site-header h1 { 
             font-size: 2.2rem; color: white; margin: 0; font-weight: 900; 
@@ -45,6 +47,7 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
 
+        /* شبكة الأقسام (4 في كل صف) */
         .lessons-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -72,6 +75,7 @@
         .category-card:hover {
             transform: translateY(-5px);
             background: #fdfdfd;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         footer { 
@@ -79,6 +83,7 @@
             font-weight: bold; text-shadow: 1px 1px 3px black;
         }
 
+        /* استجابة الشاشات الصغيرة */
         @media (max-width: 992px) {
             .lessons-grid { grid-template-columns: repeat(2, 1fr); }
             .main-nav { gap: 20px; }
@@ -86,6 +91,7 @@
         }
         @media (max-width: 480px) {
             .lessons-grid { grid-template-columns: 1fr; }
+            .site-header h1 { font-size: 1.5rem; padding: 10px 30px; }
         }
     </style>
 </head>
@@ -106,13 +112,12 @@
 <div class="container">
     <div class="lessons-grid">
         
-        <a href="tafseer.html" class="category-card"><h3>تفسير القرآن</h3></a>
+        <a href="tauba.html" class="category-card"><h3>تفسير القرآن</h3></a>
         <a href="quran_sciences.html" class="category-card"><h3>علوم القرآن</h3></a>
         <a href="hadith.html" class="category-card"><h3>شروح الحديث</h3></a>
         <a href="seerah.html" class="category-card"><h3>السيرة النبوية</h3></a>
 
         <a href="aqidah.html" class="category-card"><h3>العقيدة</h3></a>
-        
         <a href="fiqh.html" class="category-card"><h3>الفقه الإسلامي</h3></a>
         <a href="raqaeq.html" class="category-card"><h3>الرقائق والزهد</h3></a>
         <a href="lectures.html" class="category-card"><h3>محاضرات عامة</h3></a>
