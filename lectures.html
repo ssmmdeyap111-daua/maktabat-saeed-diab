@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاضرات عامة - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary: #2c5d87; --gold: #b59410; --white: rgba(255, 255, 255, 0.98); }
+        body { 
+            margin: 0; font-family: 'Cairo', sans-serif; 
+            background: url('images/library-bg.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+        }
+        .main-nav { 
+            background: white; padding: 15px; display: flex; justify-content: center; gap: 20px;
+            border-bottom: 4px solid var(--primary);
+        }
+        .nav-link { text-decoration: none; color: var(--primary); font-weight: bold; padding: 5px 15px; border: 1px solid var(--primary); border-radius: 8px; }
+        
+        .site-header { padding: 40px; text-align: center; }
+        .site-header h1 { 
+            color: white; background: #6c8eb0; display: inline-block; 
+            padding: 15px 50px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
 
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        /* تنسيق بطاقة الدرس الصوتي */
+        .lesson-card {
+            background: var(--white); margin-bottom: 20px; padding: 20px;
+            border-radius: 15px; border-right: 8px solid var(--gold);
+            display: flex; flex-direction: column; gap: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .lesson-info { display: flex; align-items: center; gap: 15px; }
+        .lesson-info i { font-size: 2rem; color: var(--primary); }
+        .lesson-info h3 { margin: 0; color: var(--primary); font-size: 1.4rem; }
+        
+        audio { width: 100%; border-radius: 10px; }
+
+        footer { text-align: center; padding: 40px; color: white; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<nav class="main-nav">
+    <a href="index.html" class="nav-link">الرئيسية</a>
+    <a href="lessons.html" class="nav-link">الفهرس العام</a>
+</nav>
+
+<header class="site-header">
+    <h1>محاضرات عامة</h1>
+</header>
+
+<div class="container">
+
+    <div class="lesson-card">
+        <div class="lesson-info">
+            <i class="fas fa-microphone-lines"></i>
+            <h3>فضل ليلة القدر</h3>
+        </div>
+        <audio controls>
+            <source src="audio/lilt-al-qadr.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
+    </div>
+
+    <div class="lesson-card">
+        <div class="lesson-info">
+            <i class="fas fa-microphone-lines"></i>
+            <h3>الاجتهاد في العشر الأواخر من رمضان</h3>
+        </div>
+        <audio controls>
+            <source src="audio/egthad.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
+    </div>
+
+</div>
+
+<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+</body>
+</html>
