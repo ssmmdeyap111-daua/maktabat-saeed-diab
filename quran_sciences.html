@@ -15,7 +15,6 @@
             background-size: cover;
         }
 
-        /* القائمة العلوية المكبرة الموحدة */
         .main-nav {
             background: rgba(255, 255, 255, 0.98);
             display: flex; justify-content: center; gap: 45px;
@@ -40,7 +39,7 @@
 
         .accordion-item { background: rgba(255, 255, 255, 0.95); border-radius: 12px; margin-bottom: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .accordion-header { padding: 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 8px solid var(--gold); transition: 0.3s; }
-        .accordion-header span { font-weight: 900; color: var(--dark-blue); font-size: 1.25rem; display: flex; align-items: center; gap: 12px; }
+        .accordion-header span { font-weight: 900; color: var(--dark-blue); font-size: 1.3rem; display: flex; align-items: center; gap: 12px; }
         .accordion-content { display: none; padding: 20px; background: #fff; border-top: 1px solid #eee; }
         .active .accordion-content { display: block; }
         .active .accordion-header { background: var(--light-blue); }
@@ -54,7 +53,8 @@
         .lesson-name { color: var(--dark-blue); font-weight: 700; }
         .audio-player { flex: 2; display: flex; justify-content: center; }
         audio { height: 35px; width: 95%; }
-        .btn-download { color: #27ae60; font-size: 1.4rem; text-decoration: none; }
+        .btn-download { color: #27ae60; font-size: 1.4rem; text-decoration: none; transition: 0.3s; }
+        .btn-download:hover { transform: scale(1.1); }
 
         footer { text-align: center; color: white; padding: 30px; font-weight: bold; text-shadow: 1px 1px 2px black; }
     </style>
@@ -77,41 +77,57 @@
     
     <div class="accordion-item" id="item-nasikh">
         <div class="accordion-header" onclick="toggleAccordion('nasikh')">
-            <span><i class="fas fa-sync-alt"></i> دروس الناسخ والمنسوخ</span>
+            <span><i class="fas fa-sync-alt"></i> الناسخ والمنسوخ (10 دروس)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="accordion-content" id="nasikh-list">
-            <div class="lesson-row">
-                <div class="download-side"><a href="audio/nasikh-1.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></div>
-                <div class="audio-player"><audio controls preload="none"><source src="audio/nasikh-1.mp3" type="audio/mpeg"></audio></div>
-                <div class="lesson-right"><span class="lesson-name">الناسخ والمنسوخ - الدرس 1</span><i class="fas fa-file-audio" style="color:#2c5d87"></i></div>
-            </div>
-            </div>
+        <div class="accordion-content" id="nasikh-list"></div>
     </div>
 
     <div class="accordion-item" id="item-osol">
         <div class="accordion-header" onclick="toggleAccordion('osol')">
-            <span><i class="fas fa-book-open"></i> شرح مقدمة في أصول التفسير</span>
+            <span><i class="fas fa-book-open"></i> شرح مقدمة في أصول التفسير (27 درساً)</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="accordion-content" id="osol-list">
-            <div class="lesson-row">
-                <div class="download-side"><a href="audio/osol-1.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></div>
-                <div class="audio-player"><audio controls preload="none"><source src="audio/osol-1.mp3" type="audio/mpeg"></audio></div>
-                <div class="lesson-right"><span class="lesson-name">أصول التفسير - الدرس 1</span><i class="fas fa-file-audio" style="color:#2c5d87"></i></div>
-            </div>
-        </div>
+        <div class="accordion-content" id="osol-list"></div>
     </div>
 
 </div>
 
 <script>
+    // بيانات السلاسل
+    const seriesData = {
+        nasikh: { prefix: 'nasekh', count: 10, title: 'الناسخ والمنسوخ' },
+        osol: { prefix: 'osol-altfser', count: 27, title: 'أصول التفسير' }
+    };
+
     function toggleAccordion(key) {
         const item = document.getElementById('item-' + key);
         const isActive = item.classList.contains('active');
         document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-        if (!isActive) { item.classList.add('active'); }
+        if (!isActive) {
+            item.classList.add('active');
+            renderLessons(key);
+        }
     }
+
+    function renderLessons(key) {
+        const data = seriesData[key];
+        const container = document.getElementById(key + '-list');
+        if (container.innerHTML !== "") return; // لا تكرر الإضافة إذا كانت موجودة
+
+        for (let i = 1; i <= data.count; i++) {
+            const fileName = `audio/${data.prefix}-${i}.mp3`;
+            container.innerHTML += `
+                <div class="lesson-row">
+                    <div class="download-side"><a href="${fileName}" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></div>
+                    <div class="audio-player"><audio controls preload="none"><source src="${fileName}" type="audio/mpeg"></audio></div>
+                    <div class="lesson-right"><span class="lesson-name">${data.title} - الدرس ${i}</span><i class="fas fa-microphone-lines" style="color:#2c5d87"></i></div>
+                </div>`;
+        }
+    }
+
+    // فتح السلسلة الأولى تلقائياً عند التحميل
+    window.onload = () => toggleAccordion('nasikh');
 </script>
 
 <footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
