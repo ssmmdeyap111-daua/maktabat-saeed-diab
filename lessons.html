@@ -6,67 +6,25 @@
     <title>الفهرس العام - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <style>
-        :root { --dark-blue: #2c5d87; --gold: #b59410; --card-bg: rgba(255, 255, 255, 0.95); }
-        
-        body { 
-            margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
-            background: url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover;
-            min-height: 100vh;
-        }
-
-        .main-nav {
-            background: rgba(255, 255, 255, 0.98);
-            display: flex; justify-content: center; gap: 45px;
-            padding: 20px 10px; border-bottom: 4px solid var(--dark-blue);
-            position: sticky; top: 0; z-index: 1000;
-        }
-        .nav-item {
-            text-decoration: none; color: var(--dark-blue);
-            font-weight: 900; font-size: 1.1rem;
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
-        }
-        .nav-item i { font-size: 2.6rem; color: var(--gold); }
-
+        :root { --dark-blue: #2c5d87; --gold: #b59410; --card-bg: rgba(255, 255, 255, 0.98); }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: url('images/library-bg.jpg') no-repeat center center fixed; background-size: cover; }
+        .main-nav { background: rgba(255, 255, 255, 0.98); display: flex; justify-content: center; gap: 40px; padding: 15px; border-bottom: 4px solid var(--dark-blue); position: sticky; top: 0; z-index: 1000; }
+        .nav-item { text-decoration: none; color: var(--dark-blue); font-weight: 900; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .nav-item i { font-size: 2.2rem; color: var(--gold); }
         .site-header { padding: 40px 20px; text-align: center; }
-        .site-header h1 { 
-            font-size: 2.2rem; color: white; margin: 0; font-weight: 900; 
-            background: #6c8eb0; display: inline-block; padding: 15px 60px; border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
-
-        .section-title {
-            color: white; background: var(--gold); padding: 10px 30px;
-            border-radius: 10px; display: inline-block; margin-bottom: 25px;
-            font-weight: 900; font-size: 1.5rem; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .lessons-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 50px;
-        }
-
-        .category-card {
-            background: var(--card-bg); border-radius: 12px; padding: 20px 10px;
-            text-align: center; text-decoration: none; border-bottom: 5px solid var(--gold);
-            transition: 0.3s; box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            min-height: 110px; gap: 10px;
-        }
-
-        .category-card i { font-size: 2.5rem; color: var(--gold); }
-        .category-card h3 { margin: 0; color: var(--dark-blue); font-size: 1.2rem; font-weight: 800; }
+        .site-header h1 { font-size: 2.2rem; color: white; background: #6c8eb0; display: inline-block; padding: 12px 50px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .container { max-width: 1100px; margin: 0 auto; padding-bottom: 60px; }
+        .lessons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .category-card { background: var(--card-bg); border-radius: 12px; padding: 30px 10px; text-align: center; text-decoration: none; border-bottom: 5px solid var(--gold); transition: 0.3s; box-shadow: 0 6px 12px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .category-card i { font-size: 3rem; color: var(--gold); }
+        .category-card h3 { margin: 0; color: var(--dark-blue); font-size: 1.4rem; font-weight: 800; }
         .category-card:hover { transform: translateY(-5px); background: #fff; }
-
+        footer { text-align: center; color: white; padding: 30px; font-weight: bold; text-shadow: 1px 1px 3px black; }
         @media (max-width: 992px) { .lessons-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .lessons-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-
 <nav class="main-nav">
     <a href="index.html" class="nav-item"><i class="fas fa-home"></i>الرئيسية</a>
     <a href="lessons.html" class="nav-item"><i class="fas fa-microphone"></i>الدروس</a>
@@ -75,27 +33,11 @@
     <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب</a>
 </nav>
 
-<header class="site-header">
-    <h1>الفهرس العام للمواد العلمية</h1>
-</header>
+<header class="site-header"><h1>الفهرس العام للمواد العلمية</h1></header>
 
 <div class="container">
-    
-    <div style="text-align: right;"><span class="section-title">تفسير القرآن الكريم</span></div>
     <div class="lessons-grid">
-        <a href="tafseer-fatiha.html" class="category-card"><i class="fas fa-book"></i><h3>سورة الفاتحة</h3></a>
-        <a href="tafseer-baqara.html" class="category-card"><i class="fas fa-book"></i><h3>سورة البقرة</h3></a>
-        <a href="tafseer-imran.html" class="category-card"><i class="fas fa-book"></i><h3>سورة آل عمران</h3></a>
-        <a href="tafseer-al-nesa.html" class="category-card"><i class="fas fa-book"></i><h3>سورة النساء</h3></a>
-        <a href="tafseer-maeda.html" class="category-card"><i class="fas fa-book"></i><h3>سورة المائدة</h3></a>
-        <a href="tafseer-anaam.html" class="category-card"><i class="fas fa-book"></i><h3>سورة الأنعام</h3></a>
-        <a href="al-aaraf.html" class="category-card"><i class="fas fa-book"></i><h3>سورة الأعراف</h3></a>
-        <a href="al-anfal.html" class="category-card"><i class="fas fa-book"></i><h3>سورة الأنفال</h3></a>
-        <a href="tauba.html" class="category-card"><i class="fas fa-book"></i><h3>سورة التوبة</h3></a>
-    </div>
-
-    <div style="text-align: right;"><span class="section-title">باقي العلوم الشرعية</span></div>
-    <div class="lessons-grid">
+        <a href="tafseer_index.html" class="category-card"><i class="fas fa-book"></i><h3>تفسير القرآن</h3></a>
         <a href="quran_sciences.html" class="category-card"><i class="fas fa-book-open-reader"></i><h3>علوم القرآن</h3></a>
         <a href="hadith.html" class="category-card"><i class="fas fa-scroll"></i><h3>شروح الحديث</h3></a>
         <a href="seerah.html" class="category-card"><i class="fas fa-kaaba"></i><h3>السيرة النبوية</h3></a>
@@ -104,10 +46,7 @@
         <a href="raqaeq.html" class="category-card"><i class="fas fa-heart"></i><h3>الرقائق والزهد</h3></a>
         <a href="lectures.html" class="category-card"><i class="fas fa-users-viewfinder"></i><h3>محاضرات عامة</h3></a>
     </div>
-
 </div>
-
 <footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
-
 </body>
 </html>
