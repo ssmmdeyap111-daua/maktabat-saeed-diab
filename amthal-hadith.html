@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,39 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root { --primary: #2c5d87; --gold: #b59410; --white: rgba(255, 255, 255, 0.98); }
-        body { 
-            margin: 0; font-family: 'Cairo', sans-serif; 
-            background: url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover; 
-        }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: url('images/library-bg.jpg') no-repeat center center fixed; background-size: cover; }
         .main-nav { background: white; padding: 15px; display: flex; justify-content: center; gap: 20px; border-bottom: 4px solid var(--primary); position: sticky; top: 0; z-index: 1000; }
         .nav-link { text-decoration: none; color: var(--primary); font-weight: bold; padding: 5px 15px; border: 1px solid var(--primary); border-radius: 8px; transition: 0.3s; }
         .nav-link:hover { background: var(--primary); color: white; }
-        
         .site-header { padding: 40px; text-align: center; }
-        .site-header h1 { 
-            color: white; background: #6c8eb0; display: inline-block; 
-            padding: 15px 50px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            font-size: 2rem;
-        }
-
+        .site-header h1 { color: white; background: #6c8eb0; display: inline-block; padding: 15px 50px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); font-size: 2rem; }
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
-        
-        .lesson-card {
-            background: var(--white); margin-bottom: 20px; padding: 20px;
-            border-radius: 15px; border-right: 8px solid var(--gold);
-            display: flex; flex-direction: column; gap: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
+        .lesson-card { background: var(--white); margin-bottom: 20px; padding: 20px; border-radius: 15px; border-right: 8px solid var(--gold); display: flex; flex-direction: column; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
         .lesson-card:hover { transform: scale(1.01); }
-        
         .lesson-info { display: flex; align-items: center; gap: 15px; }
         .lesson-info i { font-size: 1.8rem; color: var(--gold); }
         .lesson-info h3 { margin: 0; color: var(--primary); font-size: 1.25rem; font-weight: 800; }
-        
         audio { width: 100%; border-radius: 30px; height: 40px; }
-
         footer { text-align: center; padding: 40px; color: white; font-weight: bold; text-shadow: 1px 1px 3px black; }
     </style>
 </head>
@@ -54,74 +33,78 @@
 </nav>
 
 <header class="site-header">
-    <h1>سلسلة شرح أمثال الحديث النبوي</h1>
+    <h1>سلسلة شرح أمثال الحديث النبوي كاملة</h1>
 </header>
 
 <div class="container">
-
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 1: مثل الجليس الصالح وجليس السوء</h3></div><audio controls><source src="audio/amthal-al-hadeth-1.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 2: مثل المنافق</h3></div><audio controls><source src="audio/amthal-al-hadeth-2.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 3: النذير العريان</h3></div><audio controls><source src="audio/amthal-al-hadeth-3.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 4: مثل صاحب القرآن</h3></div><audio controls><source src="audio/amthal-al-hadeth-4.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 5: مثلي ومثل الأنبياء</h3></div><audio controls><source src="audio/amthal-al-hadeth-5.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 6: مثل المؤمن كمثل الخامة من الزرع</h3></div><audio controls><source src="audio/amthal-al-hadeth-6.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 7: مثل المؤمنين في توادهم وتراحمهم</h3></div><audio controls><source src="audio/amthal-al-hadeth-7.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 8: شجرة هي مثل المؤمن</h3></div><audio controls><source src="audio/amthal-al-hadeth-8.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 9: مثل البخيل والمنفق</h3></div><audio controls><source src="audio/amthal-al-hadeth-9.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 10: مثل القائم في حدود الله والواقع فيها - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-10.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 11: مثل القائم في حدود الله والواقع فيها - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-11.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 12: مثل المسلمين واليهود والنصارى</h3></div><audio controls><source src="audio/amthal-al-hadeth-12.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 13: مثل ما بعثني الله به من الهدى والعلم كمثل غيث</h3></div><audio controls><source src="audio/amthal-al-hadeth-13.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 14: مثل المهجر يوم الجمعة</h3></div><audio controls><source src="audio/amthal-al-hadeth-14.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 15: كمثل رجل استوقد نارا</h3></div><audio controls><source src="audio/amthal-al-hadeth-15.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 16: مثل الصلوات الخمس</h3></div><audio controls><source src="audio/amthal-al-hadeth-16.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 17: مثل العائد في هبته</h3></div><audio controls><source src="audio/amthal-al-hadeth-17.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 18: مثل الماهر بالقرآن</h3></div><audio controls><source src="audio/amthal-al-hadeth-18.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 19: مثل الدنيا</h3></div><audio controls><source src="audio/amthal-al-hadeth-19.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 20: مثلي ومثل الدنيا</h3></div><audio controls><source src="audio/amthal-al-hadeth-20.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 21: مثل الذي يذكر ربه والذي لا يذكره</h3></div><audio controls><source src="audio/amthal-al-hadeth-21.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 22: مثل محقرات الذنوب - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-22.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 23: مثل محقرات الذنوب - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-23.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 24: مثل محقرات الذنوب - 3</h3></div><audio controls><source src="audio/amthal-al-hadeth-24.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 25: مثل أمتى كالمطر</h3></div><audio controls><source src="audio/amthal-al-hadeth-25.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 26: إنما مثلكم في الأمم - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-26.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 27: إنما مثلكم في الأمم - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-27.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 28: مثل علم لا ينتفع به - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-28.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 29: مثل علم لا ينتفع به - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-29.mp3" type="audio/mpeg"></audio></div>
-    
-    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 30: مثل علم لا ينتفع به - 3</h3></div><audio controls><source src="audio/amthal-al-hadeth-30.mp3" type="audio/mpeg"></audio></div>
-
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 31: مثل الذي يصلي وهو مكتوف</h3></div><audio controls><source src="audio/amthal-al-hadeth-31.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 32: إن الله أمرني بخمس - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-32.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 33: إن الله أمرني بخمس - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-33.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 34: إن الله أمرني بخمس - 3</h3></div><audio controls><source src="audio/amthal-al-hadeth-34.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 35: إن الله أمرني بخمس - 4</h3></div><audio controls><source src="audio/amthal-al-hadeth-35.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 36: إن الله أمرني بخمس - 5</h3></div><audio controls><source src="audio/amthal-al-hadeth-36.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 37: إن الله أمرني بخمس - 6</h3></div><audio controls><source src="audio/amthal-al-hadeth-37.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 38: إن الله أمرني بخمس - 7</h3></div><audio controls><source src="audio/amthal-al-hadeth-38.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 39: إن الله أمرني بخمس - 8</h3></div><audio controls><source src="audio/amthal-al-hadeth-39.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 40: إن الله أمرني بخمس - 9</h3></div><audio controls><source src="audio/amthal-al-hadeth-40.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 41: إن الله أمرني بخمس - 10</h3></div><audio controls><source src="audio/amthal-al-hadeth-41.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 42: إن الله أمرني بخمس - 11</h3></div><audio controls><source src="audio/amthal-al-hadeth-42.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 43: مثل شيطان لقي شيطانة</h3></div><audio controls><source src="audio/amthal-al-hadeth-43.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 44: يحشر المتكبرون كأمثال الذر - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-44.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 45: يحشر المتكبرون كأمثال الذر - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-45.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 46: يحشر المتكبرون كأمثال الذر - 3</h3></div><audio controls><source src="audio/amthal-al-hadeth-46.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 47: شرح أمثال الحديث (مثل المجاهد)</h3></div><audio controls><source src="audio/amthal-al-hadeth-47.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 48: مثل ذئبين جائعين - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-48.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 49: مثل ذئبين جائعين - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-49.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 50: مثل ذئبين جائعين - 3</h3></div><audio controls><source src="audio/amthal-al-hadeth-50.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 51: مثل الذي يعمل السيئات ثم يعمل الحسنات</h3></div><audio controls><source src="audio/amthal-al-hadeth-51.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 52: مثل المؤمن كمثل القطعة من الذهب</h3></div><audio controls><source src="audio/amthal-al-hadeth-52.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 53: الناس كإبل مائة لا تجد فيها راحلة</h3></div><audio controls><source src="audio/amthal-al-hadeth-53.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 54: المتشبع بما لم يعط</h3></div><audio controls><source src="audio/amthal-al-hadeth-54.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 55: مثل الذي يعين قومه على الباطل</h3></div><audio controls><source src="audio/amthal-al-hadeth-55.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 56: مثل المرأة كالضلع - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-56.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 57: مثل المرأة كالضلع - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-57.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 58: مثل الإسلام والحدود والمحارم</h3></div><audio controls><source src="audio/amthal-al-hadeth-58.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 59: مثل الإنفاق في سبيل الله</h3></div><audio controls><source src="audio/amthal-al-hadeth-59.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 60: مثل الذي يعمل السيئات - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-60.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 61: مثل القرآن لمن تعلمه - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-61.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 62: مثل القرآن لمن تعلمه - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-62.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 63: مثل المال لمن أخذه بغير حقه</h3></div><audio controls><source src="audio/amthal-al-hadeth-63.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 64: مثل خلق ابن آدم</h3></div><audio controls><source src="audio/amthal-al-hadeth-64.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 65: الشيطان ذئب الإنسان - 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-65.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 66: الشيطان ذئب الإنسان - 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-66.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 67: إن لصاحبكم هذا مثلا</h3></div><audio controls><source src="audio/amthal-al-hadeth-67.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 68: ما ذئبان جائعان 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-68.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 69: الشيطان ذئب الإنسان 1 (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-69.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 70: الشيطان ذئب الإنسان 2 (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-70.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 71: مثل المرأة كمثل الضلع 1 (تكرار للشرح)</h3></div><audio controls><source src="audio/amthal-al-hadeth-71.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 72: مثل المرأة كمثل الضلع 2 (تكرار للشرح)</h3></div><audio controls><source src="audio/amthal-al-hadeth-72.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 73: إن لصاحبكم مثلا (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-73.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 74: تجدون الناس كإبل مائة (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-74.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 75: حال المتكبرين يوم القيامة</h3></div><audio controls><source src="audio/amthal-al-hadeth-75.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 76: كمثل الذي يأكل ولا يشبع</h3></div><audio controls><source src="audio/amthal-al-hadeth-76.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 77: مثل الإسلام والحدود والمحارم (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-77.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 78: مثل الإنسان والأمل والأجل</h3></div><audio controls><source src="audio/amthal-al-hadeth-78.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 79: مثل الإنفاق في سبيل الله (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-79.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 80: مثل الذي يعين قومه على غير الحق</h3></div><audio controls><source src="audio/amthal-al-hadeth-80.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 81: مثل المؤمن كمثل النحلة</h3></div><audio controls><source src="audio/amthal-al-hadeth-81.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 82: مثل أمتى كالمطر (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-82.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 83: مثل خلق الإنسان (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-83.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 84: مثلكم في الأمم (تكملة)</h3></div><audio controls><source src="audio/amthal-al-hadeth-84.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 85: مثل علم لا ينتفع به 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-85.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 86: مثل علم لا ينتفع به 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-86.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 87: مثل علم لا ينتفع به 3</h3></div><audio controls><source src="audio/amthal-al-hadeth-87.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 88: مثل الذي يعمل السيئات 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-88.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 89: مثل القرآن لمن قام به 1</h3></div><audio controls><source src="audio/amthal-al-hadeth-89.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 90: مثل القرآن لمن قام به 2</h3></div><audio controls><source src="audio/amthal-al-hadeth-90.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 91: مثل الباقيات الصالحات</h3></div><audio controls><source src="audio/amthal-al-hadeth-91.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 92: لا يلدغ المؤمن من جحر مرتين</h3></div><audio controls><source src="audio/amthal-al-hadeth-92.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 93: إنما الأعمال بالنيات</h3></div><audio controls><source src="audio/amthal-al-hadeth-93.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 94: مثل الإسلام والقرآن والحق</h3></div><audio controls><source src="audio/amthal-al-hadeth-94.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 95: اليد العليا خير من اليد السفلى</h3></div><audio controls><source src="audio/amthal-al-hadeth-95.mp3" type="audio/mpeg"></audio></div>
+    <div class="lesson-card"><div class="lesson-info"><i class="fas fa-play-circle"></i><h3>الدرس 96: إن الدين يسر</h3></div><audio controls><source src="audio/amthal-al-hadeth-96.mp3" type="audio/mpeg"></audio></div>
 </div>
 
-<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
-
+<footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 </body>
 </html>
