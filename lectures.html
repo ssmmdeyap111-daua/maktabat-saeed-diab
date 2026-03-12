@@ -12,10 +12,11 @@
             margin: 0; font-family: 'Cairo', sans-serif; 
             background: url('images/library-bg.jpg') no-repeat center center fixed; 
             background-size: cover; 
+            min-height: 100vh;
         }
         .main-nav { 
             background: white; padding: 15px; display: flex; justify-content: center; gap: 20px;
-            border-bottom: 4px solid var(--primary);
+            border-bottom: 4px solid var(--primary); position: sticky; top: 0; z-index: 1000;
         }
         .nav-link { text-decoration: none; color: var(--primary); font-weight: bold; padding: 5px 15px; border: 1px solid var(--primary); border-radius: 8px; }
         
@@ -25,22 +26,24 @@
             padding: 15px 50px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 60px; }
         
-        /* تنسيق بطاقة الدرس الصوتي */
         .lesson-card {
-            background: var(--white); margin-bottom: 20px; padding: 20px;
+            background: var(--white); margin-bottom: 25px; padding: 25px;
             border-radius: 15px; border-right: 8px solid var(--gold);
             display: flex; flex-direction: column; gap: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
-        .lesson-info { display: flex; align-items: center; gap: 15px; }
-        .lesson-info i { font-size: 2rem; color: var(--primary); }
-        .lesson-info h3 { margin: 0; color: var(--primary); font-size: 1.4rem; }
+        .lesson-card:hover { transform: scale(1.01); }
         
-        audio { width: 100%; border-radius: 10px; }
+        .lesson-info { display: flex; align-items: center; gap: 15px; }
+        .lesson-info i { font-size: 2.2rem; color: var(--gold); }
+        .lesson-info h3 { margin: 0; color: var(--primary); font-size: 1.5rem; font-weight: 800; }
+        
+        audio { width: 100%; border-radius: 30px; height: 45px; }
 
-        footer { text-align: center; padding: 40px; color: white; font-weight: bold; }
+        footer { text-align: center; padding: 40px; color: white; font-weight: bold; text-shadow: 1px 1px 3px black; }
     </style>
 </head>
 <body>
@@ -55,6 +58,28 @@
 </header>
 
 <div class="container">
+
+    <div class="lesson-card">
+        <div class="lesson-info">
+            <i class="fas fa-moon"></i>
+            <h3>فضل الصيام</h3>
+        </div>
+        <audio controls>
+            <source src="audio/fdl-alsiam-1.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
+    </div>
+
+    <div class="lesson-card">
+        <div class="lesson-info">
+            <i class="fas fa-star-and-crescent"></i>
+            <h3>آداب الصيام</h3>
+        </div>
+        <audio controls>
+            <source src="audio/adab-alsiam.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
+    </div>
 
     <div class="lesson-card">
         <div class="lesson-info">
