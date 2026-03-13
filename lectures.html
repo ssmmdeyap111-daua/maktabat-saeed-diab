@@ -6,50 +6,46 @@
     <title>محاضرات عامة - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        :root { --primary: #2c5d87; --gold: #b59410; --white: rgba(255, 255, 255, 0.98); }
-        body { 
-            margin: 0; font-family: 'Cairo', sans-serif; 
-            background: url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover; min-height: 100vh;
-        }
-        .main-nav { 
-            background: white; padding: 15px; display: flex; justify-content: center; gap: 20px;
-            border-bottom: 4px solid var(--primary); position: sticky; top: 0; z-index: 1000;
-        }
-        .nav-link { text-decoration: none; color: var(--primary); font-weight: bold; padding: 5px 15px; border: 1px solid var(--primary); border-radius: 8px; }
-        
-        .site-header { padding: 40px; text-align: center; }
-        .site-header h1 { 
-            color: white; background: #6c8eb0; display: inline-block; 
-            padding: 15px 50px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
+        :root { --light-blue: #e3effb; --dark-blue: #2c5d87; --gold: #b59410; --green-dl: #27ae60; }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: url('images/library-bg.jpg') no-repeat center center fixed; background-size: cover; color: #333; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 60px; }
-        
-        .lesson-card {
-            background: var(--white); margin-bottom: 25px; padding: 25px;
-            border-radius: 15px; border-right: 8px solid var(--gold);
-            display: flex; flex-direction: column; gap: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-        .lesson-card:hover { transform: scale(1.01); }
-        
-        .lesson-info { display: flex; align-items: center; gap: 15px; }
-        .lesson-info i { font-size: 2.2rem; color: var(--gold); }
-        .lesson-info h3 { margin: 0; color: var(--primary); font-size: 1.5rem; font-weight: 800; }
-        
-        audio { width: 100%; border-radius: 30px; height: 45px; }
+        .main-nav { background: rgba(255, 255, 255, 0.98); display: flex; justify-content: center; gap: 40px; padding: 15px; border-bottom: 4px solid var(--dark-blue); position: fixed; top: 0; left: 0; right: 0; z-index: 9999; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-item { text-decoration: none; color: var(--dark-blue); font-weight: 900; display: flex; flex-direction: column; align-items: center; gap: 5px; transition: 0.3s; }
+        .nav-item i { font-size: 1.8rem; color: var(--gold); }
 
-        footer { text-align: center; padding: 40px; color: white; font-weight: bold; text-shadow: 1px 1px 3px black; }
+        .site-header { padding: 40px 20px; text-align: center; margin-top: 100px; }
+        .site-header h1 { font-size: 2.3rem; color: white; background: rgba(44, 93, 135, 0.8); display: inline-block; padding: 10px 40px; border-radius: 50px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+        .container { max-width: 1100px; margin: 20px auto; padding: 0 20px 50px; }
+
+        .accordion-item { background: rgba(255, 255, 255, 0.95); border-radius: 12px; margin-bottom: 25px; border: 1px solid #e2e8f0; overflow: hidden; }
+        .accordion-header { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 8px solid var(--gold); background: #fff; transition: 0.3s; }
+        .accordion-header span { font-weight: 900; color: var(--dark-blue); font-size: 1.2rem; display: flex; align-items: center; gap: 15px; }
+        
+        .accordion-content { display: block; padding: 20px; background: #fff; border-top: 1px solid #eee; }
+
+        .lesson-row { background: white; border: 1px solid #edf2f7; border-radius: 10px; padding: 12px 20px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .lesson-right { display: flex; align-items: center; gap: 12px; flex: 1; justify-content: flex-end; }
+        .lesson-name { color: var(--dark-blue); font-weight: 700; }
+        
+        .audio-player { flex: 2; display: flex; justify-content: center; }
+        audio { height: 35px; width: 100%; max-width: 400px; }
+
+        .download-side { flex: 0.5; display: flex; justify-content: flex-start; }
+        .btn-download { color: var(--green-dl); font-size: 1.5rem; text-decoration: none; }
+
+        footer { text-align: center; color: white; padding: 40px; font-weight: bold; }
+
+        @media (max-width: 768px) { .lesson-row { flex-direction: column; gap: 15px; } .audio-player { width: 100%; } }
     </style>
 </head>
 <body>
 
 <nav class="main-nav">
-    <a href="index.html" class="nav-link">الرئيسية</a>
-    <a href="lessons.html" class="nav-link">الفهرس العام</a>
+    <a href="index.html" class="nav-item"><i class="fas fa-home"></i>الرئيسية</a>
+    <a href="lessons.html" class="nav-item"><i class="fas fa-microphone"></i>الدروس</a>
 </nav>
 
 <header class="site-header">
@@ -57,49 +53,26 @@
 </header>
 
 <div class="container">
-
-    <div class="lesson-card">
-        <div class="lesson-info">
-            <i class="fas fa-mosque"></i>
-            <h3>من صور الاجتهاد في العشر الأواخر من رمضان</h3>
+    <div class="accordion-item">
+        <div class="accordion-header">
+            <span><i class="fas fa-microphone-alt"></i> قائمة المحاضرات المتاحة</span>
         </div>
-        <audio controls>
-            <source src="audio/al-ashr-1.mp3" type="audio/mpeg">
-            متصفحك لا يدعم تشغيل الصوت.
-        </audio>
-    </div>
+        <div class="accordion-content">
+            
+            <div class="lesson-row">
+                <div class="download-side"><a href="audio/al-ashr-1.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></div>
+                <div class="audio-player"><audio controls preload="none"><source src="audio/al-ashr-1.mp3" type="audio/mpeg"></audio></div>
+                <div class="lesson-right"><span class="lesson-name">من صور الاجتهاد في العشر الأواخر</span><i class="fas fa-headphones" style="color:#2c5d87"></i></div>
+            </div>
 
-    <div class="lesson-card">
-        <div class="lesson-info">
-            <i class="fas fa-moon"></i>
-            <h3>فضل الصيام 2</h3>
+            <div class="lesson-row">
+                <div class="download-side"><a href="audio/fdl-alsiam-2.MP3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></div>
+                <div class="audio-player"><audio controls preload="none"><source src="audio/fdl-alsiam-2.MP3" type="audio/mpeg"></audio></div>
+                <div class="lesson-right"><span class="lesson-name">فضل الصيام 2</span><i class="fas fa-headphones" style="color:#2c5d87"></i></div>
+            </div>
+
         </div>
-        <audio controls>
-            <source src="audio/fdl-alsiam-2.MP3" type="audio/mpeg">
-            متصفحك لا يدعم تشغيل الصوت.
-        </audio>
     </div>
-
-    <div class="lesson-card">
-        <div class="lesson-info">
-            <i class="fas fa-moon"></i>
-            <h3>فضل الصيام 1</h3>
-        </div>
-        <audio controls>
-            <source src="audio/fdl-alsiam-1.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="lesson-card">
-        <div class="lesson-info">
-            <i class="fas fa-star-and-crescent"></i>
-            <h3>آداب الصيام</h3>
-        </div>
-        <audio controls>
-            <source src="audio/adab-alsiam.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
 </div>
 
 <footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
