@@ -49,10 +49,10 @@
             border: 1px solid #ddd; border-top: none; border-radius: 0 0 5px 5px;
         }
 
-        /* --- تعديل ارتفاع العنوان الرئيسي هنا --- */
+        /* العنوان المرتفع */
         .site-header { 
             text-align: center; 
-            padding: 40px 20px 30px; /* تم تقليل الـ 120px إلى 40px ليرتفع العنوان */
+            padding: 40px 20px 30px; 
             background: var(--header-bg); 
             position: relative; 
             border-bottom: 4px solid #fff; 
@@ -62,7 +62,7 @@
             font-family: 'Reem Kufi', sans-serif; 
             font-size: 3rem; 
             color: var(--dark-blue); 
-            margin-top: 50px; /* موازنة المسافة مع شريط المواقيت العلوي */
+            margin-top: 50px; 
             margin-bottom: 20px; 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
         }
@@ -99,6 +99,15 @@
         .book-img { width: 140px; height: 200px; object-fit: cover; border-radius: 10px; border: 3px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .arrow { font-size: 35px; color: var(--dark-blue); cursor: pointer; }
 
+        /* أيقونات التواصل */
+        .social-container { text-align: center; padding: 30px 20px; }
+        .social-link {
+            display: inline-flex; width: 55px; height: 55px; margin: 0 12px; background: white;
+            border-radius: 50%; justify-content: center; align-items: center; text-decoration: none;
+            font-size: 1.8rem; box-shadow: 0 5px 0 var(--accent-blue); transition: 0.2s;
+        }
+        .social-link:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--accent-blue); }
+
         .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 20px; font-weight: bold; border-top: 4px solid #fff; }
 
         @media (max-width: 950px) {
@@ -115,7 +124,6 @@
             <i class="fas fa-calendar-alt" style="color: var(--gold-color);"></i>
             <span id="full-date-display">جاري التحميل...</span>
         </div>
-
         <div class="oval-box-prayer">
             <i class="fas fa-mosque" style="color: var(--gold-color);"></i>
             <div class="prayer-table" id="prayer-table-display">جاري التحميل...</div>
@@ -124,7 +132,6 @@
 
     <header class="site-header">
         <h1>الموقع الرسمي للشيخ سعيد مصطفى دياب</h1>
-        
         <div class="search-container">
             <form action="search-results.html" method="GET">
                 <input type="text" class="search-box" name="q" placeholder="ابحث عن درس، خطبة، أو كتاب...">
@@ -176,6 +183,13 @@
         </div>
     </div>
 
+    <div class="social-container">
+        <h3 style="color: var(--dark-blue);">تواصل معنا عبر القنوات الرسمية:</h3>
+        <a href="https://www.facebook.com/profile.php?id=100063517406253" class="social-link fb" target="_blank" style="color: #1877f2;"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://t.me/haiatelqloop3" class="social-link tg" target="_blank" style="color: #0088cc;"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://www.youtube.com/@user-vv1pw4qj6u" class="social-link yt" target="_blank" style="color: #ff0000;"><i class="fab fa-youtube"></i></a>
+    </div>
+
     <div class="footer-rights">
         جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
     </div>
@@ -199,13 +213,7 @@
                 const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
                 const data = await response.json();
                 const t = data.data.timings;
-                const prayers = [
-                    { name: "الفجر", time: t.Fajr },
-                    { name: "الظهر", time: t.Dhuhr },
-                    { name: "العصر", time: t.Asr },
-                    { name: "المغرب", time: t.Maghrib },
-                    { name: "العشاء", time: t.Isha }
-                ];
+                const prayers = [{name:"الفجر",time:t.Fajr},{name:"الظهر",time:t.Dhuhr},{name:"العصر",time:t.Asr},{name:"المغرب",time:t.Maghrib},{name:"العشاء",time:t.Isha}];
                 let html = '';
                 prayers.forEach(p => {
                     html += `<div class="prayer-column"><div class="prayer-name">${p.name}</div><div class="prayer-time">${p.time}</div></div>`;
@@ -213,7 +221,6 @@
                 document.getElementById('prayer-table-display').innerHTML = html;
             } catch (e) { document.getElementById('prayer-table-display').innerText = "خطأ في الاتصال"; }
         }
-
         updateLiveDate();
         getPrayerTimes();
     </script>
