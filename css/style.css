@@ -18,11 +18,13 @@ a {
 }
 
 /* ====== الهيدر ====== */
-.site-header {
-    text-align: center;
-    padding: 40px;
-    background: linear-gradient(to right, #add8e6, #e0f2f7);
-    border-bottom: 5px solid white;
+.site-header { 
+    text-align: center; 
+    /* قمنا بتقليل الرقم الأول من 120px إلى 70px ليرتفع العنوان للأعلى */
+    padding: 70px 20px 40px; 
+    background: var(--header-bg); 
+    position: relative; 
+    border-bottom: 4px solid #fff; 
 }
 
 .site-header h1 {
