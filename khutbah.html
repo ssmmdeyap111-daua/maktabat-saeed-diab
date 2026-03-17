@@ -9,19 +9,15 @@
     
     <style>
         :root { 
-            --light-sky: #eef5ff; 
-            --accent-blue: #87ceeb; 
-            --dark-blue: #2c5d87;
-            --gold-color: #d4af37;
-            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
+            --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
+            --gold-color: #d4af37; --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
         }
 
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); color: #333; min-height: 100vh; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); min-height: 100vh; }
         
         /* الهيدر والمواقيت */
         .top-info-bar { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; position: absolute; width: 100%; box-sizing: border-box; z-index: 1000; }
         .oval-box { background: white; padding: 6px 20px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid var(--accent-blue); color: var(--dark-blue); font-weight: bold; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
-        .oval-box-prayer { background: rgba(255, 255, 255, 0.95); padding: 6px 12px; border-radius: 20px; border: 2px solid var(--accent-blue); display: flex; align-items: center; gap: 10px; }
         .prayer-table { display: flex; gap: 5px; }
         .prayer-column { display: flex; flex-direction: column; align-items: center; width: 55px; }
         .prayer-name { background: var(--dark-blue); color: white; width: 100%; text-align: center; font-size: 0.7rem; border-radius: 8px 8px 0 0; }
@@ -34,44 +30,36 @@
         .nav-link-3d { padding: 10px 18px; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 12px; font-weight: bold; min-width: 100px; text-align: center; box-shadow: 0 5px 0 var(--dark-blue); display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
 
-        /* القائمة المريحة للخطب */
+        /* الحاوية */
         .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        
-        .khutbah-section-title { color: var(--dark-blue); border-right: 5px solid var(--gold-color); padding-right: 15px; margin: 30px 0 20px; font-weight: 900; }
+        .section-title { color: var(--dark-blue); border-right: 6px solid var(--gold-color); padding-right: 15px; margin: 40px 0 20px; font-weight: 900; display: flex; align-items: center; gap: 10px; }
 
+        /* تنسيق الخطبة (يمين - يسار) */
         .khutbah-item {
-            background: white; border-radius: 15px; padding: 18px 25px; margin-bottom: 12px;
+            background: white; border-radius: 15px; padding: 20px 30px; margin-bottom: 15px;
             display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-right: 4px solid var(--accent-blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 4px solid var(--accent-blue);
             transition: 0.3s;
         }
-        .khutbah-item:hover { transform: scale(1.01); background: #fdfdfd; border-right-color: var(--gold-color); }
+        .khutbah-item:hover { transform: scale(1.01); border-right-color: var(--gold-color); }
 
-        .khutbah-title { flex: 1; text-align: right; }
-        .khutbah-title h3 { margin: 0; color: var(--dark-blue); font-size: 1.15rem; font-weight: 800; }
-        .khutbah-title span { font-size: 0.8rem; color: #999; }
-
-        .khutbah-actions { display: flex; align-items: center; gap: 15px; flex: 1; justify-content: flex-end; }
-        audio { height: 32px; width: 200px; }
+        .khutbah-info { flex: 1; text-align: right; }
+        .khutbah-info h3 { margin: 0; color: var(--dark-blue); font-size: 1.25rem; font-weight: 800; }
         
-        .download-btn {
-            color: var(--gold-color); font-size: 1.3rem; text-decoration: none; transition: 0.3s;
-        }
-        .download-btn:hover { color: var(--dark-blue); transform: translateY(-2px); }
+        .khutbah-controls { display: flex; align-items: center; gap: 20px; flex: 1; justify-content: flex-end; }
+        audio { height: 35px; width: 220px; }
+        .download-btn { color: var(--gold-color); font-size: 1.5rem; transition: 0.3s; }
+        .download-btn:hover { color: var(--dark-blue); transform: translateY(-3px); }
 
-        /* الترقيم السفلي */
-        .pagination { display: flex; justify-content: center; gap: 8px; margin: 40px 0; }
-        .page-num { 
-            width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;
-            background: white; color: var(--dark-blue); border-radius: 8px; text-decoration: none;
-            font-weight: bold; border: 1px solid var(--accent-blue); transition: 0.3s;
-        }
-        .page-num.active { background: var(--dark-blue); color: white; }
+        /* الترقيم */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin: 50px 0; }
+        .page-num { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; color: var(--dark-blue); border-radius: 10px; text-decoration: none; font-weight: bold; border: 1px solid var(--accent-blue); }
+        .page-num.active { background: var(--dark-blue); color: white; border-color: var(--dark-blue); }
 
         @media (max-width: 768px) {
-            .khutbah-item { flex-direction: column; gap: 10px; }
-            .khutbah-actions { justify-content: center; width: 100%; }
-            audio { width: 100%; }
+            .khutbah-item { flex-direction: column; gap: 15px; text-align: center; }
+            .khutbah-info { text-align: center; }
+            .khutbah-controls { justify-content: center; width: 100%; }
         }
     </style>
 </head>
@@ -79,7 +67,7 @@
 
     <div class="top-info-bar">
         <div class="oval-box"><i class="fas fa-calendar-alt"></i><span id="full-date-display">...</span></div>
-        <div class="oval-box-prayer"><div class="prayer-table" id="prayer-table-display">...</div></div>
+        <div class="oval-box" style="padding: 5px 10px;"><div class="prayer-table" id="prayer-table-display">...</div></div>
     </div>
 
     <header class="site-header"><h1>الخطب المنبرية</h1></header>
@@ -94,39 +82,39 @@
 
     <div class="container">
         
-        <h2 class="khutbah-section-title">خطب رمضان</h2>
-        <div class="khutbah-item">
-            <div class="khutbah-title">
-                <h3>فضل الاجتهاد في العشر الأواخر من رمضان</h3>
-                <span><i class="far fa-file-audio"></i> رمضان 1445هـ</span>
-            </div>
-            <div class="khutbah-actions">
-                <audio controls src="audio/egthad.mp3"></audio>
-                <a href="audio/egthad.mp3" download class="download-btn"><i class="fas fa-download"></i></a>
-            </div>
-        </div>
-
-        <h2 class="khutbah-section-title">سلسلة علامات الساعة (35 خطبة)</h2>
+        <h2 class="section-title"><i class="fas fa-moon"></i> خطب شهر رمضان المبارك</h2>
         
         <div class="khutbah-item">
-            <div class="khutbah-title">
-                <h3>علامات الساعة - الدرس 01</h3>
-                <span><i class="far fa-file-audio"></i> سلسلة كاملة</span>
-            </div>
-            <div class="khutbah-actions">
-                <audio controls src="audio/alamat-20.mp3"></audio>
-                <a href="audio/alamat-20.mp3" download class="download-btn"><i class="fas fa-download"></i></a>
+            <div class="khutbah-info"><h3>كيف نستقبل شهر رمضان؟</h3></div>
+            <div class="khutbah-controls">
+                <audio controls preload="none"><source src="audio/ramadan.mp3" type="audio/mpeg"></audio>
+                <a href="audio/ramadan.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
             </div>
         </div>
 
         <div class="khutbah-item">
-            <div class="khutbah-title">
-                <h3>علامات الساعة - الدرس 02</h3>
-                <span><i class="far fa-file-audio"></i> سلسلة كاملة</span>
+            <div class="khutbah-info"><h3>رمضان شهر القرآن</h3></div>
+            <div class="khutbah-controls">
+                <audio controls preload="none"><source src="audio/shahr-alqoran.mp3" type="audio/mpeg"></audio>
+                <a href="audio/shahr-alqoran.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
             </div>
-            <div class="khutbah-actions">
-                <audio controls src="audio/alamat-20.mp3"></audio>
-                <a href="audio/alamat-20.mp3" download class="download-btn"><i class="fas fa-download"></i></a>
+        </div>
+
+        <div class="khutbah-item">
+            <div class="khutbah-info"><h3>فضل الاجتهاد في العشر الأواخر من رمضان</h3></div>
+            <div class="khutbah-controls">
+                <audio controls preload="none"><source src="audio/egthad.mp3" type="audio/mpeg"></audio>
+                <a href="audio/egthad.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
+            </div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa- hourglass-half"></i> سلسلة علامات الساعة (35 خطبة)</h2>
+        
+        <div class="khutbah-item">
+            <div class="khutbah-info"><h3>علامات الساعة - الدرس 01</h3></div>
+            <div class="khutbah-controls">
+                <audio controls preload="none"><source src="audio/alamat-20.mp3" type="audio/mpeg"></audio>
+                <a href="audio/alamat-20.mp3" download class="download-btn"><i class="fas fa-file-download"></i></a>
             </div>
         </div>
         
