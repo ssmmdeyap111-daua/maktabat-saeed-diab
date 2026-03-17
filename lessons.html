@@ -4,49 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الفهرس العام - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&family=Cairo:wght@400;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        :root { --dark-blue: #2c5d87; --gold: #b59410; --card-bg: rgba(255, 255, 255, 0.98); }
-        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: url('images/library-bg.jpg') no-repeat center center fixed; background-size: cover; }
-        .main-nav { background: rgba(255, 255, 255, 0.98); display: flex; justify-content: center; gap: 40px; padding: 15px; border-bottom: 4px solid var(--dark-blue); position: sticky; top: 0; z-index: 1000; }
-        .nav-item { text-decoration: none; color: var(--dark-blue); font-weight: 900; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-        .nav-item i { font-size: 2.2rem; color: var(--gold); }
-        .site-header { padding: 40px 20px; text-align: center; }
-        .site-header h1 { font-size: 2.2rem; color: white; background: #6c8eb0; display: inline-block; padding: 12px 50px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .container { max-width: 1100px; margin: 0 auto; padding-bottom: 60px; }
+        :root { 
+            --light-sky: #eef5ff; 
+            --accent-blue: #87ceeb; 
+            --dark-blue: #2c5d87;
+            --gold-color: #d4af37;
+            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
+        }
+
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); color: #333; min-height: 100vh; }
+        
+        /* الهيدر العلوي الموحد */
+        .top-info-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 30px; position: absolute; width: 100%; box-sizing: border-box; z-index: 1000;
+        }
+        .oval-box { background: white; padding: 6px 20px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid var(--accent-blue); color: var(--dark-blue); font-weight: bold; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .oval-box-prayer { background: rgba(255, 255, 255, 0.95); padding: 6px 12px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 2px solid var(--accent-blue); display: flex; align-items: center; gap: 10px; }
+        .prayer-table { display: flex; gap: 5px; direction: rtl; }
+        .prayer-column { display: flex; flex-direction: column; align-items: center; width: 58px; }
+        .prayer-name { background: var(--dark-blue); color: white; width: 100%; text-align: center; padding: 1px 0; font-size: 0.7rem; border-radius: 10px 10px 0 0; }
+        .prayer-time { background: white; color: var(--dark-blue); width: 100%; text-align: center; padding: 2px 0; font-size: 0.8rem; font-weight: 900; border: 1px solid #ddd; border-top: none; border-radius: 0 0 5px 5px; }
+
+        /* العنوان المرتفع */
+        .site-header { text-align: center; padding: 45px 20px 25px; background: var(--header-bg); position: relative; border-bottom: 4px solid #fff; }
+        .site-header h1 { font-family: 'Reem Kufi', sans-serif; font-size: 2.2rem; color: var(--dark-blue); margin-top: 55px; margin-bottom: 5px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+
+        /* شريط التنقل المطور */
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; }
+        .nav-link-3d { 
+            padding: 10px 18px; background: var(--accent-blue); color: white; text-decoration: none; 
+            border-radius: 12px; font-weight: bold; min-width: 100px; text-align: center;
+            box-shadow: 0 5px 0 var(--dark-blue); transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 5px;
+        }
+        .nav-link-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--dark-blue); }
+        .nav-link-3d i { font-size: 1.5rem; }
+        .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
+
+        /* شبكة التصنيفات */
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
         .lessons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .category-card { background: var(--card-bg); border-radius: 12px; padding: 30px 10px; text-align: center; text-decoration: none; border-bottom: 5px solid var(--gold); transition: 0.3s; box-shadow: 0 6px 12px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .category-card i { font-size: 3rem; color: var(--gold); }
-        .category-card h3 { margin: 0; color: var(--dark-blue); font-size: 1.4rem; font-weight: 800; }
-        .category-card:hover { transform: translateY(-5px); background: #fff; }
-        footer { text-align: center; color: white; padding: 30px; font-weight: bold; text-shadow: 1px 1px 3px black; }
+        
+        .category-card { 
+            background: white; border-radius: 20px; padding: 30px 15px; text-align: center; 
+            text-decoration: none; transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+            display: flex; flex-direction: column; align-items: center; gap: 15px;
+            border: 1px solid #eef2f6; border-bottom: 6px solid var(--gold-color);
+        }
+        .category-card i { font-size: 2.8rem; color: var(--dark-blue); transition: 0.3s; }
+        .category-card h3 { margin: 0; color: var(--dark-blue); font-size: 1.25rem; font-weight: 800; }
+        .category-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+        .category-card:hover i { color: var(--gold-color); transform: scale(1.1); }
+
+        .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; border-top: 4px solid #fff; margin-top: 50px; }
+
         @media (max-width: 992px) { .lessons-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { 
+            .lessons-grid { grid-template-columns: 1fr; }
+            .top-info-bar { position: static; flex-direction: column; gap: 10px; }
+            .site-header h1 { margin-top: 10px; font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
-<nav class="main-nav">
-    <a href="index.html" class="nav-item"><i class="fas fa-home"></i>الرئيسية</a>
-    <a href="lessons.html" class="nav-item"><i class="fas fa-microphone"></i>الدروس</a>
-    <a href="khotab.html" class="nav-item"><i class="fas fa-mosque"></i>الخطب</a>
-    <a href="articles.html" class="nav-item"><i class="fas fa-pen-nib"></i>المقالات</a>
-    <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب</a>
-</nav>
 
-<header class="site-header"><h1>الفهرس العام للمواد العلمية</h1></header>
-
-<div class="container">
-    <div class="lessons-grid">
-        <a href="tafseer_index.html" class="category-card"><i class="fas fa-book"></i><h3>تفسير القرآن</h3></a>
-        <a href="quran_sciences.html" class="category-card"><i class="fas fa-book-open-reader"></i><h3>علوم القرآن</h3></a>
-        <a href="hadith.html" class="category-card"><i class="fas fa-scroll"></i><h3>شروح الحديث</h3></a>
-        <a href="seerah.html" class="category-card"><i class="fas fa-kaaba"></i><h3>السيرة النبوية</h3></a>
-        <a href="aqidah.html" class="category-card"><i class="fas fa-mosque"></i><h3>العقيدة</h3></a>
-        <a href="fiqh.html" class="category-card"><i class="fas fa-gavel"></i><h3>الفقه الإسلامي</h3></a>
-        <a href="raqaeq.html" class="category-card"><i class="fas fa-heart"></i><h3>الرقائق والزهد</h3></a>
-        <a href="lectures.html" class="category-card"><i class="fas fa-users-viewfinder"></i><h3>محاضرات عامة</h3></a>
+    <div class="top-info-bar">
+        <div class="oval-box">
+            <i class="fas fa-calendar-alt" style="color: var(--gold-color);"></i>
+            <span id="full-date-display">جاري التحميل...</span>
+        </div>
+        <div class="oval-box-prayer">
+            <i class="fas fa-mosque" style="color: var(--gold-color);"></i>
+            <div class="prayer-table" id="prayer-table-display">...</div>
+        </div>
     </div>
-</div>
-<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <header class="site-header">
+        <h1>الفهرس العام للمواد العلمية</h1>
+    </header>
+
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-link-3d"><i class="fas fa-home"></i>الرئيسية</a>
+        <a href="lessons.html" class="nav-link-3d active-link"><i class="fas fa-microphone"></i>الدروس</a>
+        <a href="khutbah.html" class="nav-link-3d"><i class="fas fa-mosque"></i>الخطب</a>
+        <a href="articles.html" class="nav-link-3d"><i class="fas fa-pen-nib"></i>المقالات</a>
+        <a href="books.html" class="nav-link-3d"><i class="fas fa-book-open"></i>الكتب</a>
+    </nav>
+
+    <div class="container">
+        <div class="lessons-grid">
+            <a href="tafseer_index.html" class="category-card"><i class="fas fa-book"></i><h3>تفسير القرآن</h3></a>
+            <a href="quran_sciences.html" class="category-card"><i class="fas fa-book-open-reader"></i><h3>علوم القرآن</h3></a>
+            <a href="hadith.html" class="category-card"><i class="fas fa-scroll"></i><h3>شروح الحديث</h3></a>
+            <a href="seerah.html" class="category-card"><i class="fas fa-kaaba"></i><h3>السيرة النبوية</h3></a>
+            <a href="aqidah.html" class="category-card"><i class="fas fa-shield-halved"></i><h3>العقيدة</h3></a>
+            <a href="fiqh.html" class="category-card"><i class="fas fa-gavel"></i><h3>الفقه الإسلامي</h3></a>
+            <a href="raqaeq.html" class="category-card"><i class="fas fa-heart"></i><h3>الرقائق والزهد</h3></a>
+            <a href="lectures.html" class="category-card"><i class="fas fa-ear-listen"></i><h3>محاضرات عامة</h3></a>
+        </div>
+    </div>
+
+    <div class="footer-rights">
+        جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026
+    </div>
+
+    <script>
+        function updateLiveDate() {
+            const today = new Date();
+            const gregOptions = { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' };
+            let gregDate = today.toLocaleDateString('ar-EG', gregOptions);
+            const hijriOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+            let hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', hijriOptions).format(today);
+            document.getElementById('full-date-display').innerText = hijriDate + " هـ - " + gregDate + "م";
+        }
+
+        async function getPrayerTimes() {
+            try {
+                const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
+                const data = await response.json();
+                const t = data.data.timings;
+                const prayers = [{name:"الفجر",time:t.Fajr},{name:"الظهر",time:t.Dhuhr},{name:"العصر",time:t.Asr},{name:"المغرب",time:t.Maghrib},{name:"العشاء",time:t.Isha}];
+                let html = '';
+                prayers.forEach(p => {
+                    html += `<div class="prayer-column"><div class="prayer-name">${p.name}</div><div class="prayer-time">${p.time}</div></div>`;
+                });
+                document.getElementById('prayer-table-display').innerHTML = html;
+            } catch (e) { document.getElementById('prayer-table-display').innerText = "خطأ"; }
+        }
+        updateLiveDate();
+        getPrayerTimes();
+    </script>
 </body>
 </html>
