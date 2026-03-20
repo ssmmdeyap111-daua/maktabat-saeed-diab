@@ -19,7 +19,7 @@
 
         body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); color: #333; min-height: 100vh; overflow-x: hidden; }
         
-        /* الهيدر العلوي الموحد */
+        /* التاريخ والمواقيت العلوي */
         .top-info-bar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 10px 30px; position: absolute; width: 100%; box-sizing: border-box; z-index: 1000;
@@ -31,9 +31,15 @@
         .prayer-name { background: var(--dark-blue); color: white; width: 100%; text-align: center; padding: 1px 0; font-size: 0.7rem; border-radius: 10px 10px 0 0; }
         .prayer-time { background: white; color: var(--dark-blue); width: 100%; text-align: center; padding: 2px 0; font-size: 0.8rem; font-weight: 900; border: 1px solid #ddd; border-top: none; border-radius: 0 0 5px 5px; }
 
-        /* العنوان المرتفع */
-        .site-header { text-align: center; padding: 45px 20px 25px; background: var(--header-bg); position: relative; border-bottom: 4px solid #fff; }
-        .site-header h1 { font-family: 'Reem Kufi', sans-serif; font-size: 2.2rem; color: var(--dark-blue); margin-top: 55px; margin-bottom: 5px; }
+        /* الهيدر بالمخطوطة */
+        .site-header { text-align: center; padding: 60px 20px 30px; background: var(--header-bg); border-bottom: 4px solid #fff; }
+        .site-logo {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            margin-top: 40px;
+            mix-blend-mode: multiply;
+        }
 
         /* شريط التنقل */
         .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; }
@@ -42,21 +48,22 @@
             border-radius: 12px; font-weight: bold; min-width: 100px; text-align: center;
             box-shadow: 0 5px 0 var(--dark-blue); transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 5px;
         }
-        .nav-link-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--dark-blue); }
+        .nav-link-3d:hover { transform: translateY(-2px); background: #9cdfff; }
         .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
 
-        /* تنسيق السلايدر والمكتبة */
+        /* تنسيق السلايدر */
         .swiper { width: 95%; max-width: 1200px; padding: 40px 0 60px; }
         
         .book-card {
             background: white; border-radius: 20px; overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #eef2f6;
             height: 100%; display: flex; flex-direction: column; transition: 0.4s;
+            border-bottom: 6px solid var(--gold-color);
         }
-        .book-card:hover { transform: translateY(-10px); }
+        .book-card:hover { transform: translateY(-10px); border-bottom-color: var(--dark-blue); }
 
-        .book-img-wrapper { width: 100%; height: 380px; background: #f9f9f9; overflow: hidden; border-bottom: 3px solid var(--gold-color); }
-        .book-img-wrapper img { width: 100%; height: 100%; object-fit: fill; transition: 0.5s; }
+        .book-img-wrapper { width: 100%; height: 380px; background: #f9f9f9; overflow: hidden; }
+        .book-img-wrapper img { width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: 0.5s; }
         .book-card:hover img { transform: scale(1.05); }
 
         .book-details { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
@@ -75,14 +82,14 @@
 
         /* أزرار Swiper */
         .swiper-button-next, .swiper-button-prev { color: var(--dark-blue) !important; background: white; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .swiper-button-next:after, .swiper-button-prev:after { font-size: 1.2rem; font-weight: bold; }
         .swiper-pagination-bullet-active { background: var(--gold-color) !important; width: 25px; border-radius: 5px; }
 
         .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; border-top: 4px solid #fff; margin-top: 50px; }
 
+        @media (max-width: 992px) { .site-logo { max-width: 350px; } }
         @media (max-width: 600px) { 
-            .top-info-bar { position: static; flex-direction: column; gap: 10px; }
-            .site-header h1 { margin-top: 10px; font-size: 1.8rem; }
+            .top-info-bar { position: static; flex-direction: column; gap: 10px; padding-top: 20px; }
+            .site-logo { max-width: 280px; margin-top: 10px; }
             .book-img-wrapper { height: 320px; }
         }
     </style>
@@ -95,7 +102,7 @@
     </div>
 
     <header class="site-header">
-        <h1>مؤلفات الشيخ سعيد مصطفى دياب</h1>
+        <img src="images/logo.png" alt="المخطوطة الشريفة - الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="nav-bar">
@@ -107,8 +114,7 @@
     </nav>
 
     <div class="swiper mySwiper">
-        <div class="swiper-wrapper" id="books-wrapper">
-            </div>
+        <div class="swiper-wrapper" id="books-wrapper"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
