@@ -7,38 +7,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --gold: #b59410; --white: rgba(255, 255, 255, 0.95); }
+        :root { 
+            --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
+            --gold-color: #d4af37; --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
+        }
         
         body { 
             margin: 0; font-family: 'Cairo', sans-serif; 
-            background: url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover;
+            background: linear-gradient(to bottom, var(--light-sky), #d0e4ff);
+            min-height: 100vh;
         }
 
-        /* القائمة العلوية المكبرة الموحدة */
-        .main-nav {
-            background: rgba(255, 255, 255, 0.98);
-            display: flex; justify-content: center; gap: 45px;
-            padding: 20px 10px; border-bottom: 4px solid var(--primary);
-            position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .nav-item {
-            text-decoration: none; color: var(--primary);
-            font-weight: 900; font-size: 1.1rem;
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
-            transition: 0.3s;
-        }
-        .nav-item i { font-size: 2.6rem; color: var(--gold); }
-        .nav-item:hover { transform: translateY(-5px); color: var(--gold); }
-
-        .site-header { padding: 50px 20px 30px; text-align: center; }
-        .site-header h1 { 
-            font-size: 2.2rem; color: white; margin: 0; font-weight: 900; 
-            background: #6c8eb0; display: inline-block; padding: 15px 60px; border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        /* الهيدر الموحد بالمخطوطة */
+        .site-header { text-align: center; padding: 60px 20px 30px; background: var(--header-bg); border-bottom: 4px solid #fff; }
+        .site-logo {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            mix-blend-mode: multiply;
         }
 
+        /* شريط التنقل الموحد */
+        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.3); }
+        .nav-link-3d { 
+            padding: 10px 18px; background: var(--accent-blue); color: white; text-decoration: none; 
+            border-radius: 12px; font-weight: bold; min-width: 100px; text-align: center;
+            box-shadow: 0 5px 0 var(--dark-blue); transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 5px;
+        }
+        .nav-link-3d:hover { transform: translateY(-2px); background: #9cdfff; }
+        .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
+
+        /* عنوان القسم */
+        .section-title {
+            text-align: center; color: var(--dark-blue); font-weight: 900;
+            font-size: 2rem; margin: 40px 0 20px; position: relative;
+        }
+        .section-title::after {
+            content: ""; display: block; width: 80px; height: 4px; background: var(--gold-color);
+            margin: 10px auto; border-radius: 2px;
+        }
+
+        /* شبكة السور */
         .container { 
             max-width: 1200px; margin: 20px auto 60px; 
             display: grid; grid-template-columns: repeat(4, 1fr); 
@@ -46,49 +56,55 @@
         }
 
         .surah-card { 
-            background: var(--white); padding: 25px 15px; border-radius: 12px; text-align: center; 
-            text-decoration: none; border-bottom: 5px solid var(--gold); transition: 0.3s;
+            background: white; padding: 30px 15px; border-radius: 20px; text-align: center; 
+            text-decoration: none; border-bottom: 6px solid var(--gold-color); transition: 0.3s;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            min-height: 120px; gap: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            min-height: 140px; gap: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.06);
         }
-        .surah-card:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        /* أيقونة الكتاب الذهبية */
-        .surah-card i { font-size: 3rem; color: var(--gold); }
-        .surah-card h3 { margin: 0; color: var(--primary); font-size: 1.35rem; font-weight: 800; }
+        .surah-card i { font-size: 2.8rem; color: var(--dark-blue); transition: 0.3s; }
+        .surah-card h3 { margin: 0; color: var(--dark-blue); font-size: 1.3rem; font-weight: 800; }
+        
+        .surah-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1); 
+            border-bottom-color: var(--dark-blue);
+        }
+        .surah-card:hover i { color: var(--gold-color); transform: scale(1.1); }
 
-        footer { text-align: center; padding: 40px; color: white; text-shadow: 1px 1px 3px black; font-weight: bold; }
+        footer { text-align: center; padding: 40px; color: var(--dark-blue); font-weight: bold; }
 
-        @media (max-width: 992px) { .container { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .container { grid-template-columns: 1fr; } }
+        @media (max-width: 992px) { .container { grid-template-columns: repeat(2, 1fr); } .site-logo { max-width: 350px; } }
+        @media (max-width: 480px) { .container { grid-template-columns: 1fr; } .site-logo { max-width: 280px; } }
     </style>
 </head>
 <body>
 
-<nav class="main-nav">
-    <a href="index.html" class="nav-item"><i class="fas fa-home"></i>الرئيسية</a>
-    <a href="lessons.html" class="nav-item"><i class="fas fa-microphone"></i>الدروس</a>
-    <a href="khotab.html" class="nav-item"><i class="fas fa-mosque"></i>الخطب</a>
-    <a href="articles.html" class="nav-item"><i class="fas fa-pen-nib"></i>المقالات</a>
-    <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب</a>
-</nav>
+    <header class="site-header">
+        <img src="images/logo.png" alt="المخطوطة الشريفة - الشيخ سعيد مصطفى دياب" class="site-logo">
+    </header>
 
-<header class="site-header">
-    <h1>فهرس تفسير القرآن الكريم</h1>
-</header>
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-link-3d"><i class="fas fa-home"></i>الرئيسية</a>
+        <a href="lessons.html" class="nav-link-3d active-link"><i class="fas fa-microphone"></i>الدروس</a>
+        <a href="khutbah.html" class="nav-link-3d"><i class="fas fa-mosque"></i>الخطب</a>
+        <a href="articles.html" class="nav-link-3d"><i class="fas fa-pen-nib"></i>المقالات</a>
+        <a href="books.html" class="nav-link-3d"><i class="fas fa-book-open"></i>الكتب</a>
+    </nav>
 
-<div class="container">
-    <a href="tafseer-fatiha.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة الفاتحة</h3></a>
-    <a href="tafseer-baqara.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة البقرة</h3></a>
-    <a href="tafseer-imran.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة آل عمران</h3></a>
-    <a href="tafseer-al-nesa.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة النساء</h3></a>
-    <a href="tafseer-maeda.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة المائدة</h3></a>
-    <a href="tafseer-anaam.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة الأنعام</h3></a>
-    <a href="al-aaraf.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة الأعراف</h3></a>
-    <a href="al-anfal.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة الأنفال</h3></a>
-    
-    <a href="tauba.html" class="surah-card"><i class="fas fa-book"></i><h3>سورة التوبة</h3></a>
-</div>
+    <h2 class="section-title">فهرس تفسير القرآن الكريم</h2>
 
-<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+    <div class="container">
+        <a href="tafseer-fatiha.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة الفاتحة</h3></a>
+        <a href="tafseer-baqara.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة البقرة</h3></a>
+        <a href="tafseer-imran.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة آل عمران</h3></a>
+        <a href="tafseer-al-nesa.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة النساء</h3></a>
+        <a href="tafseer-maeda.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة المائدة</h3></a>
+        <a href="tafseer-anaam.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة الأنعام</h3></a>
+        <a href="al-aaraf.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة الأعراف</h3></a>
+        <a href="al-anfal.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة الأنفال</h3></a>
+        <a href="tauba.html" class="surah-card"><i class="fas fa-quran"></i><h3>سورة التوبة</h3></a>
+    </div>
+
+    <footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 </body>
 </html>
