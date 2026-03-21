@@ -10,11 +10,8 @@
     
     <style>
         :root { 
-            --light-sky: #eef5ff; 
-            --accent-blue: #87ceeb; 
-            --dark-blue: #2c5d87;
-            --gold-color: #d4af37;
-            --prayer-green: #e8f5e9; /* لون الصلاة الأخضر الفاتح */
+            --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
+            --gold-color: #d4af37; --prayer-green: #e8f5e9; 
             --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
         }
 
@@ -27,71 +24,68 @@
             background: rgba(255,255,255,0.9); border-bottom: 2px solid var(--accent-blue);
         }
         .oval-box { 
-            background: white; padding: 10px 30px; border-radius: 50px; 
+            background: white; padding: 10px 25px; border-radius: 50px; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 2px solid var(--accent-blue); 
-            color: var(--dark-blue); font-weight: 900; font-size: 1.2rem;
+            color: var(--dark-blue); font-weight: 900; font-size: 1.15rem;
             display: flex; align-items: center; gap: 10px; 
         }
         
-        .prayer-table { display: flex; gap: 6px; }
-        .prayer-column { display: flex; flex-direction: column; align-items: center; width: 70px; }
-        .prayer-name { background: #4caf50; color: white; width: 100%; text-align: center; font-size: 0.85rem; border-radius: 8px 8px 0 0; padding: 3px 0; }
-        .prayer-time { background: var(--prayer-green); color: #2e7d32; width: 100%; text-align: center; font-size: 1.1rem; font-weight: 900; border: 1.5px solid #c8e6c9; border-radius: 0 0 8px 8px; }
+        .prayer-table { display: flex; gap: 5px; }
+        .prayer-column { display: flex; flex-direction: column; align-items: center; width: 68px; }
+        .prayer-name { background: #4caf50; color: white; width: 100%; text-align: center; font-size: 0.8rem; border-radius: 8px 8px 0 0; padding: 2px 0; }
+        .prayer-time { background: var(--prayer-green); color: #2e7d32; width: 100%; text-align: center; font-size: 1rem; font-weight: 900; border: 1.5px solid #c8e6c9; border-radius: 0 0 8px 8px; }
 
-        /* الهيدر المصغر */
-        .site-header { text-align: center; padding: 25px; background: var(--header-bg); border-bottom: 4px solid #fff; }
-        .site-logo { max-width: 720px; width: 100%; height: auto; mix-blend-mode: multiply; }
+        /* الهيدر */
+        .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 4px solid #fff; }
+        .site-logo { max-width: 650px; width: 100%; height: auto; mix-blend-mode: multiply; }
 
         /* شريط الآية */
-        .quran-container { padding: 20px; }
+        .quran-container { padding: 15px; }
         .quran-strip { 
-            background: transparent; color: var(--dark-blue); padding: 18px 0; overflow: hidden; white-space: nowrap; 
-            border: 3px solid var(--gold-color); border-radius: 60px; max-width: 96%; margin: 0 auto;
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+            background: transparent; color: var(--dark-blue); padding: 15px 0; overflow: hidden; white-space: nowrap; 
+            border: 3px solid var(--gold-color); border-radius: 60px; max-width: 95%; margin: 0 auto;
         }
-        .quran-scroll { display: inline-block; animation: scroll-text 50s linear infinite; font-family: 'Amiri', serif; font-size: 1.8rem; font-weight: bold; }
+        .quran-scroll { display: inline-block; animation: scroll-text 45s linear infinite; font-family: 'Amiri', serif; font-size: 1.6rem; font-weight: bold; }
         @keyframes scroll-text { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
 
-        /* خانة البحث المتطورة */
-        .search-wrapper { position: relative; width: 95%; max-width: 850px; margin: 25px auto; }
+        /* البحث */
+        .search-wrapper { position: relative; width: 90%; max-width: 750px; margin: 20px auto; }
         .search-box { 
-            width: 100%; padding: 15px 55px 15px 25px; border-radius: 50px; border: 2.5px solid var(--accent-blue); 
-            outline: none; font-size: 1.2rem; font-family: 'Cairo'; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+            width: 100%; padding: 12px 50px 12px 20px; border-radius: 50px; border: 2px solid var(--accent-blue); 
+            outline: none; font-size: 1.1rem; font-family: 'Cairo';
         }
-        .search-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: var(--dark-blue); font-size: 1.3rem; cursor: pointer; }
+        .search-icon { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--dark-blue); cursor: pointer; }
 
-        /* أيقونات 3D */
-        .nav-bar { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
+        /* الأزرار 3D */
+        .nav-bar { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
         .nav-link-3d { 
-            padding: 12px 30px; background: var(--accent-blue); color: white; text-decoration: none; 
-            border-radius: 15px; font-weight: 900; box-shadow: 0 6px 0 var(--dark-blue); transition: 0.2s; 
-            display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 130px;
+            padding: 10px 25px; background: var(--accent-blue); color: white; text-decoration: none; 
+            border-radius: 12px; font-weight: 900; box-shadow: 0 5px 0 var(--dark-blue); transition: 0.2s; 
+            display: flex; flex-direction: column; align-items: center; min-width: 110px;
         }
-        .nav-link-3d:hover { transform: translateY(-3px); box-shadow: 0 8px 0 var(--dark-blue); background: #9cdfff; }
-        .active-link { background: var(--gold-color); box-shadow: 0 6px 0 #b38f2d; }
+        .nav-link-3d:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--dark-blue); background: #9cdfff; }
+        .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
 
-        /* شريط الكتب */
-        .books-section { position: relative; max-width: 100%; margin: 40px 0; padding: 0 50px; }
-        .swiper-slide { transition: 0.3s; padding: 5px; }
-        .swiper-slide:hover { transform: scale(1.1); }
-        .swiper-slide img { width: 100%; height: 190px; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
+        /* شريط الكتب (تكبير الصور وتقليل الفواصل) */
+        .books-section { position: relative; max-width: 100%; margin: 30px 0; padding: 0 40px; }
+        .swiper-slide { transition: 0.3s; padding: 2px; } /* تقليل الحشو */
+        .swiper-slide img { 
+            width: 100%; 
+            height: 230px; /* تكبير ارتفاع الكتب */
+            object-fit: contain; 
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15)); 
+        }
 
-        /* التواصل الاجتماعي بألوان رسمية */
-        .social-links { display: flex; justify-content: center; gap: 35px; margin: 40px 0; }
-        .social-links a { font-size: 3rem; transition: 0.3s; }
-        .social-links a:hover { transform: translateY(-5px) scale(1.1); }
-        
+        /* التواصل الاجتماعي الملونة */
+        .social-links { display: flex; justify-content: center; gap: 25px; margin: 40px 0; }
+        .social-links a { font-size: 2.8rem; transition: 0.3s; }
+        .social-links a:hover { transform: scale(1.1); }
         .fa-youtube { color: #FF0000; }
-        .fa-whatsapp { color: #25D366; }
+        .fa-whatsapp-square { color: #25D366; }
         .fa-telegram { color: #0088cc; }
-        .fa-facebook { color: #1877F2; background: white; border-radius: 8px; }
+        .fa-facebook-square { color: #1877F2; background: #fff; border-radius: 10px; }
 
-        footer { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 30px; font-weight: bold; border-top: 4px solid #fff; }
-
-        @media (max-width: 768px) {
-            .top-info-bar { flex-direction: column; gap: 15px; }
-            .site-logo { max-width: 90%; }
-        }
+        footer { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -99,7 +93,7 @@
     <div class="top-info-bar">
         <div class="oval-box">
             <i class="fas fa-calendar-alt" style="color: var(--gold-color);"></i> 
-            <span id="full-date">جارٍ التحميل...</span>
+            <span id="hijri-date-display"></span>
         </div>
         <div class="prayer-table" id="prayer-times"></div>
     </div>
@@ -116,8 +110,8 @@
 
     <div class="nav-section" style="text-align: center;">
         <div class="search-wrapper">
-            <input type="text" id="siteSearch" class="search-box" placeholder="ابحث في الدروس، الكتب، والمقالات...">
-            <i class="fas fa-search search-icon" onclick="startSearch()"></i>
+            <input type="text" id="siteSearch" class="search-box" placeholder="ابحث في الموقع...">
+            <i class="fas fa-search search-icon" onclick="alert('جاري البحث...')"></i>
         </div>
         
         <nav class="nav-bar">
@@ -150,64 +144,47 @@
                 <div class="swiper-slide"><a href="books.html"><img src="images/shmael-al-rasool.jpg.jpg"></a></div>
                 <div class="swiper-slide"><a href="books.html"><img src="images/arbauon.jpg"></a></div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
     </div>
 
     <div class="social-links">
-        <a href="#" title="يوتيوب"><i class="fab fa-youtube"></i></a>
-        <a href="#" title="واتساب"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" title="تليجرام"><i class="fab fa-telegram"></i></a>
-        <a href="#" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.youtube.com/@saeedDiabb_" target="_blank" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/97455703316" target="_blank" title="واتساب"><i class="fab fa-whatsapp-square"></i></a>
+        <a href="https://t.me/haiatelqloop3" target="_blank" title="تليجرام"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.facebook.com/said.deyap" target="_blank" title="فيسبوك"><i class="fab fa-facebook-square"></i></a>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // إعداد سلايدر الكتب (9 كتب في الشاشة الكبيرة مع تقليل الفجوات)
+        // إعداد التاريخ الهجري المحدث تلقائياً
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', options).format(new Date());
+        document.getElementById('hijri-date-display').innerText = hijriDate + " هـ";
+
+        // سلايدر الكتب (9 كتب، فواصل صغيرة جداً)
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3,
-            spaceBetween: 8,
+            spaceBetween: 5, /* فواصل صغيرة جداً */
             loop: true,
-            autoplay: { delay: 3500 },
-            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-            breakpoints: {
-                1024: { slidesPerView: 9, spaceBetween: 5 }
-            }
+            autoplay: { delay: 3000 },
+            breakpoints: { 1024: { slidesPerView: 9 } }
         });
 
-        // تفعيل البحث
-        function startSearch() {
-            const query = document.getElementById('siteSearch').value;
-            if(query) alert('جاري البحث عن: ' + query);
-        }
-        document.getElementById('siteSearch').addEventListener('keypress', (e) => {
-            if(e.key === 'Enter') startSearch();
-        });
-
-        // التاريخ الهجري المحدث
-        const hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(new Date());
-        document.getElementById('full-date').innerText = hijriDate + " هـ";
-
-        // جلب مواقيت الصلاة (تم تلوينها بالأخضر الفاتح)
+        // مواقيت الصلاة (الدوحة حسب الرقم المذكور)
         async function getPrayers() {
             try {
-                const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Cairo&country=Egypt&method=5');
+                const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
                 const data = await res.json();
                 const t = data.data.timings;
-                const prayers = [
-                    {n:"الفجر", t:t.Fajr}, {n:"الظهر", t:t.Dhuhr}, {n:"العصر", t:t.Asr}, 
-                    {n:"المغرب", t:t.Maghrib}, {n:"العشاء", t:t.Isha}
-                ];
+                const prayers = [{n:"الفجر",t:t.Fajr},{n:"الظهر",t:t.Dhuhr},{n:"العصر",t:t.Asr},{n:"المغرب",t:t.Maghrib},{n:"العشاء",t:t.Isha}];
                 document.getElementById('prayer-times').innerHTML = prayers.map(p => `
                     <div class="prayer-column">
                         <div class="prayer-name">${p.n}</div>
                         <div class="prayer-time">${p.t}</div>
-                    </div>
-                `).join('');
-            } catch { document.getElementById('prayer-times').innerText = "خطأ في الاتصال"; }
+                    </div>`).join('');
+            } catch { document.getElementById('prayer-times').innerText = "خطأ"; }
         }
         getPrayers();
     </script>
