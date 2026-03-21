@@ -21,7 +21,7 @@
             min-height: 100vh;
         }
 
-        /* الهيدر: المخطوطة هي العنوان الوحيد */
+        /* الهيدر: يعتمد المخطوطة كعنوان رئيسي */
         .site-header { 
             text-align: center; 
             padding: 50px 20px; 
@@ -33,14 +33,13 @@
         }
 
         .site-logo {
-            max-width: 750px; /* تكبير المخطوطة لتكون هي العنوان */
+            max-width: 750px; /* حجم المخطوطة ليكون بارزاً كعنوان */
             width: 100%;
             height: auto;
-            mix-blend-mode: multiply; /* لجعل خلفية الصورة شفافة ومندمجة */
-            transition: transform 0.3s ease;
+            mix-blend-mode: multiply; /* لجعل خلفية الصورة مندمجة مع الموقع */
         }
 
-        /* شريط التنقل الموحد */
+        /* شريط التنقل */
         .nav-bar { 
             display: flex; 
             justify-content: center; 
@@ -66,31 +65,14 @@
             align-items: center; 
             gap: 5px;
         }
-
         .nav-link-3d:hover { transform: translateY(-2px); background: #9cdfff; }
         .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
 
-        /* عنوان القسم الفرعي */
-        .section-info {
-            text-align: center;
-            margin: 40px 0 20px;
-        }
+        .section-info { text-align: center; margin: 40px 0 20px; }
+        .section-title { color: var(--dark-blue); font-weight: 900; font-size: 2.2rem; margin: 0; }
+        .section-subtitle { color: #555; font-weight: bold; margin-top: 5px; display: block; }
 
-        .section-title {
-            color: var(--dark-blue);
-            font-weight: 900;
-            font-size: 2.2rem;
-            margin: 0;
-        }
-
-        .section-subtitle {
-            color: #555;
-            font-weight: bold;
-            margin-top: 5px;
-            display: block;
-        }
-
-        /* شبكة السلاسل والدروس */
+        /* شبكة البطاقات */
         .series-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -108,7 +90,6 @@
             text-decoration: none; 
             color: var(--dark-blue); 
             transition: 0.4s; 
-            border: 1px solid #eef2f6; 
             border-bottom: 6px solid var(--gold-color);
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             display: flex; 
@@ -116,39 +97,14 @@
             align-items: center; 
             gap: 15px;
         }
+        .series-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-bottom-color: var(--dark-blue); }
+        .series-card i { font-size: 3.8rem; }
+        .count { background: var(--light-sky); padding: 6px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; color: var(--dark-blue); border: 1px solid var(--accent-blue); }
 
-        .series-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            border-bottom-color: var(--dark-blue); 
-        }
-        
-        .series-card i { font-size: 3.8rem; transition: 0.3s; }
-        .series-card h3 { margin: 0; font-size: 1.6rem; font-weight: 800; }
-        
-        .count { 
-            background: var(--light-sky); 
-            padding: 6px 20px; 
-            border-radius: 50px; 
-            font-size: 0.9rem; 
-            color: var(--dark-blue); 
-            font-weight: bold; 
-            border: 1px solid var(--accent-blue);
-        }
+        footer { text-align: center; padding: 40px; color: var(--dark-blue); font-weight: bold; border-top: 4px solid #fff; background: var(--header-bg); }
 
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            color: var(--dark-blue); 
-            font-weight: bold; 
-            border-top: 4px solid #fff; 
-            background: var(--header-bg); 
-        }
-
-        /* تحسين العرض على الجوال */
         @media (max-width: 768px) {
             .site-logo { max-width: 90%; }
-            .series-grid { grid-template-columns: 1fr; padding: 15px; }
             .section-title { font-size: 1.8rem; }
         }
     </style>
@@ -156,7 +112,7 @@
 <body>
 
     <header class="site-header">
-        <img src="images/logo.png" alt="مخطوطة الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png.jpg" alt="مخطوطة الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="nav-bar">
@@ -178,19 +134,16 @@
             <h3>أنوار الأذكار</h3>
             <span class="count">30 درساً</span>
         </a>
-
         <a href="raq_mahba.html" class="series-card">
             <i class="fas fa-heart" style="color: #e74c3c;"></i>
             <h3>أسباب محبة الله</h3>
             <span class="count">30 درساً</span>
         </a>
-
         <a href="raq_mkarem.html" class="series-card">
             <i class="fas fa-star" style="color: #f1c40f;"></i>
             <h3>مكارم الأخلاق</h3>
             <span class="count">40 درساً</span>
         </a>
-
         <a href="raq_ganah.html" class="series-card">
             <i class="fas fa-cloud-sun" style="color: #2ecc71;"></i>
             <h3>وصف الجنة ونعيمها</h3>
