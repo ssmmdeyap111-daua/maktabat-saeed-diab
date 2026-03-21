@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مؤلفات الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&family=Cairo:wght@400;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
@@ -19,7 +19,7 @@
 
         body { margin: 0; font-family: 'Cairo', sans-serif; background: linear-gradient(to bottom, var(--light-sky), #d0e4ff); color: #333; min-height: 100vh; overflow-x: hidden; }
         
-        /* التاريخ والمواقيت العلوي */
+        /* شريط المعلومات العلوي */
         .top-info-bar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 10px 30px; position: absolute; width: 100%; box-sizing: border-box; z-index: 1000;
@@ -31,13 +31,12 @@
         .prayer-name { background: var(--dark-blue); color: white; width: 100%; text-align: center; padding: 1px 0; font-size: 0.7rem; border-radius: 10px 10px 0 0; }
         .prayer-time { background: white; color: var(--dark-blue); width: 100%; text-align: center; padding: 2px 0; font-size: 0.8rem; font-weight: 900; border: 1px solid #ddd; border-top: none; border-radius: 0 0 5px 5px; }
 
-        /* الهيدر بالمخطوطة */
-        .site-header { text-align: center; padding: 60px 20px 30px; background: var(--header-bg); border-bottom: 4px solid #fff; }
+        /* الهيدر بالمخطوطة الجديدة */
+        .site-header { text-align: center; padding: 80px 20px 30px; background: var(--header-bg); border-bottom: 4px solid #fff; }
         .site-logo {
-            max-width: 500px;
+            max-width: 650px; /* تم تكبير حجم المخطوطة قليلاً */
             width: 100%;
             height: auto;
-            margin-top: 40px;
             mix-blend-mode: multiply;
         }
 
@@ -51,8 +50,9 @@
         .nav-link-3d:hover { transform: translateY(-2px); background: #9cdfff; }
         .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
 
-        /* تنسيق السلايدر */
-        .swiper { width: 95%; max-width: 1200px; padding: 40px 0 60px; }
+        /* توسيع منطقة السلايدر */
+        .swiper-container-wrapper { width: 98%; max-width: 1600px; margin: 0 auto; padding: 20px 0; }
+        .swiper { width: 100%; padding: 40px 0 80px; }
         
         .book-card {
             background: white; border-radius: 20px; overflow: hidden;
@@ -60,37 +60,39 @@
             height: 100%; display: flex; flex-direction: column; transition: 0.4s;
             border-bottom: 6px solid var(--gold-color);
         }
-        .book-card:hover { transform: translateY(-10px); border-bottom-color: var(--dark-blue); }
+        .book-card:hover { transform: translateY(-12px); border-bottom-color: var(--dark-blue); }
 
-        .book-img-wrapper { width: 100%; height: 380px; background: #f9f9f9; overflow: hidden; }
-        .book-img-wrapper img { width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: 0.5s; }
-        .book-card:hover img { transform: scale(1.05); }
+        .book-img-wrapper { width: 100%; height: 420px; background: #fdfdfd; overflow: hidden; position: relative; }
+        .book-img-wrapper img { width: 100%; height: 100%; object-fit: contain; padding: 15px; transition: 0.5s; }
+        
+        .book-details { padding: 25px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .book-details h3 { font-size: 1.3rem; color: var(--dark-blue); margin: 0 0 20px; min-height: 55px; font-weight: 900; line-height: 1.5; font-family: 'Amiri', serif; }
 
-        .book-details { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .book-details h3 { font-size: 1.2rem; color: var(--dark-blue); margin: 0 0 15px; min-height: 45px; font-weight: 800; line-height: 1.4; }
-
-        .btn-group { display: flex; gap: 10px; }
+        .btn-group { display: flex; gap: 12px; }
         .action-btn {
-            flex: 1; padding: 12px; text-decoration: none; font-weight: bold;
-            border-radius: 12px; font-size: 0.95rem; text-align: center; transition: 0.3s;
+            flex: 1; padding: 14px; text-decoration: none; font-weight: bold;
+            border-radius: 12px; font-size: 1rem; text-align: center; transition: 0.3s;
             display: flex; align-items: center; justify-content: center; gap: 8px;
         }
-        .btn-read { background: var(--light-sky); color: var(--dark-blue); border: 1px solid var(--accent-blue); }
+        .btn-read { background: var(--light-sky); color: var(--dark-blue); border: 2px solid var(--accent-blue); }
         .btn-read:hover { background: var(--accent-blue); color: white; }
         .btn-down { background: var(--dark-blue); color: white; }
         .btn-down:hover { background: var(--gold-color); }
 
-        /* أزرار Swiper */
-        .swiper-button-next, .swiper-button-prev { color: var(--dark-blue) !important; background: white; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .swiper-pagination-bullet-active { background: var(--gold-color) !important; width: 25px; border-radius: 5px; }
+        /* أزرار Swiper المحسنة */
+        .swiper-button-next, .swiper-button-prev { color: var(--dark-blue) !important; background: white; width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .swiper-button-next:after, .swiper-button-prev:after { font-size: 24px; font-weight: bold; }
+        .swiper-pagination-bullet { width: 12px; height: 12px; transition: 0.3s; }
+        .swiper-pagination-bullet-active { background: var(--gold-color) !important; width: 35px; border-radius: 6px; }
 
-        .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; border-top: 4px solid #fff; margin-top: 50px; }
+        .footer-rights { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 30px; font-weight: bold; border-top: 4px solid #fff; margin-top: 50px; }
 
-        @media (max-width: 992px) { .site-logo { max-width: 350px; } }
+        @media (max-width: 1200px) { .book-img-wrapper { height: 350px; } }
         @media (max-width: 600px) { 
-            .top-info-bar { position: static; flex-direction: column; gap: 10px; padding-top: 20px; }
-            .site-logo { max-width: 280px; margin-top: 10px; }
+            .top-info-bar { position: static; flex-direction: column; gap: 10px; padding: 20px 10px; }
+            .site-logo { max-width: 90%; }
             .book-img-wrapper { height: 320px; }
+            .swiper-button-next, .swiper-button-prev { display: none; } /* إخفاء الأسهم في الجوال لزيادة المساحة */
         }
     </style>
 </head>
@@ -102,7 +104,7 @@
     </div>
 
     <header class="site-header">
-        <img src="images/logo.png" alt="المخطوطة الشريفة - الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png.jpg" alt="مخطوطة الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="nav-bar">
@@ -113,17 +115,20 @@
         <a href="articles.html" class="nav-link-3d"><i class="fas fa-pen-nib"></i>المقالات</a>
     </nav>
 
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper" id="books-wrapper"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+    <div class="swiper-container-wrapper">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="books-wrapper"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
     </div>
 
     <div class="footer-rights">جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // قائمة الكتب الـ 19 كاملة
         const myBooks = [
             { title: "أنوار الأذكار", img: "images/anwar.jpeg", pdf: "anwar.pdf" },
             { title: "تذكير الأباة", img: "images/tzker-alobat.jpg", pdf: "tazkirat-al-abaha.pdf.pdf" },
@@ -152,7 +157,7 @@
                 <div class="swiper-slide">
                     <div class="book-card">
                         <div class="book-img-wrapper">
-                            <img src="${b.img}" alt="${b.title}">
+                            <img src="${b.img}" alt="${b.title}" loading="lazy">
                         </div>
                         <div class="book-details">
                             <h3>${b.title}</h3>
@@ -166,26 +171,27 @@
             `;
         });
 
+        // إعدادات السلايدر الموسع
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 25,
             loop: true,
-            autoplay: { delay: 4000, disableOnInteraction: false },
+            centeredSlides: false,
+            autoplay: { delay: 4500, disableOnInteraction: false },
             pagination: { el: ".swiper-pagination", clickable: true },
             navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
             breakpoints: {
                 640: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
+                1400: { slidesPerView: 4 } // عرض 4 كتب في الشاشات الكبيرة جداً
             }
         });
 
         function updateLiveDate() {
             const today = new Date();
-            const gregOptions = { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' };
-            let gregDate = today.toLocaleDateString('ar-EG', gregOptions);
-            const hijriOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-            let hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', hijriOptions).format(today);
-            document.getElementById('full-date-display').innerText = hijriDate + " هـ - " + gregDate + "م";
+            const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { day: 'numeric', month: 'long', year: 'numeric' }).format(today);
+            const greg = today.toLocaleDateString('ar-EG', { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' });
+            document.getElementById('full-date-display').innerText = hijri + " هـ - " + greg + "م";
         }
 
         async function getPrayerTimes() {
@@ -194,13 +200,14 @@
                 const data = await response.json();
                 const t = data.data.timings;
                 const prayers = [{name:"الفجر",time:t.Fajr},{name:"الظهر",time:t.Dhuhr},{name:"العصر",time:t.Asr},{name:"المغرب",time:t.Maghrib},{name:"العشاء",time:t.Isha}];
-                let html = '';
-                prayers.forEach(p => {
-                    html += `<div class="prayer-column"><div class="prayer-name">${p.name}</div><div class="prayer-time">${p.time}</div></div>`;
-                });
-                document.getElementById('prayer-table-display').innerHTML = html;
+                document.getElementById('prayer-table-display').innerHTML = prayers.map(p => `
+                    <div class="prayer-column">
+                        <div class="prayer-name">${p.name}</div>
+                        <div class="prayer-time">${p.time}</div>
+                    </div>`).join('');
             } catch (e) { document.getElementById('prayer-table-display').innerText = "خطأ"; }
         }
+
         updateLiveDate();
         getPrayerTimes();
     </script>
