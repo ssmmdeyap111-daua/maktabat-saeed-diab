@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصوتيات - الشيخ سعيد مصطفى دياب</title>
+    <title>أقسام الصوتيات - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -12,86 +12,70 @@
             --gold-color: #d4af37; --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
         }
 
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: #fdfdfd; min-height: 100vh; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; min-height: 100vh; }
 
         /* الهيدر */
-        .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 4px solid #fff; }
+        .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 5px solid #fff; }
         .site-logo { max-width: 650px; width: 100%; height: auto; mix-blend-mode: multiply; }
 
-        /* شريط التنقل العلوي (تم تكبيره وإضافة المقالات) */
+        /* شريط التنقل العلوي الرئيسي */
         .nav-bar { 
-            display: flex; justify-content: center; gap: 20px; padding: 25px; 
+            display: flex; justify-content: center; gap: 12px; padding: 25px; 
             flex-wrap: wrap; background: rgba(255,255,255,0.4); 
         }
-        .nav-link-3d { 
-            padding: 15px 25px; background: var(--accent-blue); color: white; text-decoration: none; 
-            border-radius: 15px; font-weight: 900; font-size: 1.2rem; min-width: 130px; text-align: center;
-            box-shadow: 0 6px 0 var(--dark-blue); transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px;
+        
+        /* القالب الموحد للأزرار 3D */
+        .btn-3d-style { 
+            flex: 1; min-width: 160px; padding: 15px 20px; border-radius: 15px; 
+            font-weight: 900; font-size: 1.3rem; text-decoration: none; color: white;
+            text-align: center; transition: 0.2s; display: flex; align-items: center; 
+            justify-content: center; gap: 10px;
+            box-shadow: 0 8px 0 var(--dark-blue); border: 2px solid rgba(255,255,255,0.2);
         }
-        .nav-link-3d:hover { transform: translateY(-3px); box-shadow: 0 8px 0 var(--dark-blue); }
-        .active-link { background: var(--gold-color); box-shadow: 0 6px 0 #b38f2d; }
+        .btn-3d-style:hover { transform: translateY(-3px); box-shadow: 0 10px 0 var(--dark-blue); }
+        .btn-3d-style:active { transform: translateY(3px); box-shadow: 0 4px 0 var(--dark-blue); }
+
+        .btn-blue { background: linear-gradient(to bottom, #87ceeb, #5a9bd5); }
+        .btn-gold { background: linear-gradient(to bottom, #d4af37, #b38f2d); box-shadow: 0 8px 0 #8c6d1a; }
 
         /* عنوان الصفحة */
-        .page-info { text-align: center; padding: 30px; }
-        .page-title { color: var(--dark-blue); font-size: 2.2rem; font-weight: 900; }
+        .page-info { text-align: center; padding: 40px 20px; }
+        .page-title { color: var(--dark-blue); font-size: 2.5rem; font-weight: 900; border-bottom: 3px solid var(--gold-color); display: inline-block; padding-bottom: 10px; }
 
-        /* حاوية أقسام الصوتيات (مستطيلة وفي صف واحد) */
-        .categories-container {
-            display: flex; justify-content: center; gap: 12px; padding: 20px;
-            overflow-x: auto; /* للتمرير في الجوال */
-            max-width: 100%; margin-bottom: 60px;
-            white-space: nowrap;
+        /* شبكة أقسام الصوتيات (مطابقة تماماً للأزرار العلوية) */
+        .categories-grid {
+            display: flex; justify-content: center; gap: 15px; padding: 20px;
+            flex-wrap: wrap; max-width: 1200px; margin: 0 auto 80px;
         }
-
-        .category-card-rect { 
-            flex: 0 0 auto;
-            width: 200px; height: 80px; /* مستطيل بدون أيقونات */
-            background: white; border: 2px solid var(--accent-blue);
-            border-radius: 12px; text-align: center; text-decoration: none; 
-            color: var(--dark-blue); transition: 0.3s; 
-            display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        
-        .category-card-rect:hover { 
-            background: var(--dark-blue); color: white; 
-            transform: translateY(-5px); border-color: var(--dark-blue);
-        }
-
-        .category-card-rect h3 { margin: 0; font-size: 1.1rem; font-weight: 800; }
 
         footer { text-align: center; padding: 30px; color: var(--dark-blue); font-weight: bold; background: var(--header-bg); border-top: 4px solid #fff; }
-
-        /* إخفاء شريط التمرير الجمالي */
-        .categories-container::-webkit-scrollbar { height: 5px; }
-        .categories-container::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <img src="images/logo.png.jpg" alt="مخطوطة الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="nav-bar">
-        <a href="index.html" class="nav-link-3d"><i class="fas fa-home"></i> الرئيسية</a>
-        <a href="lessons.html" class="nav-link-3d active-link"><i class="fas fa-microphone"></i> الصوتيات</a>
-        <a href="khutbah.html" class="nav-link-3d"><i class="fas fa-bullhorn"></i> الخطب</a>
-        <a href="books.html" class="nav-link-3d"><i class="fas fa-book"></i> الكتب</a>
-        <a href="articles.html" class="nav-link-3d"><i class="fas fa-pen-nib"></i> المقالات</a>
+        <a href="index.html" class="btn-3d-style btn-blue"><i class="fas fa-home"></i> الرئيسية</a>
+        <a href="lessons.html" class="btn-3d-style btn-gold"><i class="fas fa-microphone"></i> الصوتيات</a>
+        <a href="khutbah.html" class="btn-3d-style btn-blue"><i class="fas fa-mosque"></i> الخطب</a>
+        <a href="books.html" class="btn-3d-style btn-blue"><i class="fas fa-book"></i> الكتب</a>
+        <a href="articles.html" class="btn-3d-style btn-blue"><i class="fas fa-pen-nib"></i> المقالات</a>
     </nav>
 
     <div class="page-info">
         <h2 class="page-title">أقسام الصوتيات</h2>
     </div>
 
-    <div class="categories-container">
-        <a href="tafsir.html" class="category-card-rect"><h3>تفسير القرآن</h3></a>
-        <a href="hadith.html" class="category-card-rect"><h3>شروح الحديث</h3></a>
-        <a href="aqida.html" class="category-card-rect"><h3>العقيدة والتوحيد</h3></a>
-        <a href="raqaeq.html" class="category-card-rect"><h3>الرقائق والزهد</h3></a>
-        <a href="seerah.html" class="category-card-rect"><h3>السيرة النبوية</h3></a>
-        <a href="fiqh.html" class="category-card-rect"><h3>الفقه وأصوله</h3></a>
+    <div class="categories-grid">
+        <a href="tafseer.html" class="btn-3d-style btn-blue">تفسير القرآن</a>
+        <a href="hadith.html" class="btn-3d-style btn-blue">شروح الحديث</a>
+        <a href="aqidah.html" class="btn-3d-style btn-blue">العقيدة والتوحيد</a>
+        <a href="raqaeq.html" class="btn-3d-style btn-blue">الرقائق والزهد</a>
+        <a href="seerah.html" class="btn-3d-style btn-blue">السيرة النبوية</a>
+        <a href="fiqh.html" class="btn-3d-style btn-blue">الفقه وأصوله</a>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
