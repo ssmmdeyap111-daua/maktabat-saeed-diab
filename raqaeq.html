@@ -21,74 +21,142 @@
             min-height: 100vh;
         }
 
-        /* الهيدر الموحد بالمخطوطة */
-        .site-header { text-align: center; padding: 60px 20px 30px; background: var(--header-bg); border-bottom: 4px solid #fff; }
-        .site-logo {
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-            margin-top: 20px;
-            mix-blend-mode: multiply;
+        /* الهيدر: المخطوطة هي العنوان الوحيد */
+        .site-header { 
+            text-align: center; 
+            padding: 50px 20px; 
+            background: var(--header-bg); 
+            border-bottom: 4px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* شريط التنقل */
-        .nav-bar { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.3); }
-        .nav-link-3d { 
-            padding: 10px 18px; background: var(--accent-blue); color: white; text-decoration: none; 
-            border-radius: 12px; font-weight: bold; min-width: 100px; text-align: center;
-            box-shadow: 0 5px 0 var(--dark-blue); transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 5px;
+        .site-logo {
+            max-width: 750px; /* تكبير المخطوطة لتكون هي العنوان */
+            width: 100%;
+            height: auto;
+            mix-blend-mode: multiply; /* لجعل خلفية الصورة شفافة ومندمجة */
+            transition: transform 0.3s ease;
         }
+
+        /* شريط التنقل الموحد */
+        .nav-bar { 
+            display: flex; 
+            justify-content: center; 
+            gap: 15px; 
+            padding: 20px; 
+            flex-wrap: wrap; 
+            background: rgba(255,255,255,0.3); 
+        }
+
+        .nav-link-3d { 
+            padding: 10px 18px; 
+            background: var(--accent-blue); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 12px; 
+            font-weight: bold; 
+            min-width: 100px; 
+            text-align: center;
+            box-shadow: 0 5px 0 var(--dark-blue); 
+            transition: 0.2s; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 5px;
+        }
+
         .nav-link-3d:hover { transform: translateY(-2px); background: #9cdfff; }
         .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
 
-        /* عنوان القسم */
-        .section-title {
-            text-align: center; color: var(--dark-blue); font-weight: 900;
-            font-size: 2rem; margin: 40px 0 10px;
+        /* عنوان القسم الفرعي */
+        .section-info {
+            text-align: center;
+            margin: 40px 0 20px;
         }
-        .section-subtitle { text-align: center; color: #555; margin-bottom: 30px; font-weight: bold; }
 
-        /* شبكة السلاسل */
+        .section-title {
+            color: var(--dark-blue);
+            font-weight: 900;
+            font-size: 2.2rem;
+            margin: 0;
+        }
+
+        .section-subtitle {
+            color: #555;
+            font-weight: bold;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* شبكة السلاسل والدروس */
         .series-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-            gap: 25px; padding: 20px; max-width: 1200px; margin: 0 auto 60px; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            padding: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto 60px; 
         }
         
         .series-card { 
-            background: white; padding: 35px 20px; border-radius: 20px; text-align: center; 
-            text-decoration: none; color: var(--dark-blue); transition: 0.4s; 
-            border: 1px solid #eef2f6; border-bottom: 6px solid var(--gold-color);
+            background: white; 
+            padding: 40px 20px; 
+            border-radius: 25px; 
+            text-align: center; 
+            text-decoration: none; 
+            color: var(--dark-blue); 
+            transition: 0.4s; 
+            border: 1px solid #eef2f6; 
+            border-bottom: 6px solid var(--gold-color);
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            display: flex; flex-direction: column; align-items: center; gap: 15px;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 15px;
         }
+
         .series-card:hover { 
             transform: translateY(-10px); 
             box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
             border-bottom-color: var(--dark-blue); 
         }
         
-        .series-card i { font-size: 3.5rem; transition: 0.3s; }
-        .series-card h3 { margin: 0; font-size: 1.5rem; font-weight: 800; }
+        .series-card i { font-size: 3.8rem; transition: 0.3s; }
+        .series-card h3 { margin: 0; font-size: 1.6rem; font-weight: 800; }
         
         .count { 
-            background: var(--light-sky); padding: 6px 20px; border-radius: 50px; 
-            font-size: 0.9rem; color: var(--dark-blue); font-weight: bold; 
+            background: var(--light-sky); 
+            padding: 6px 20px; 
+            border-radius: 50px; 
+            font-size: 0.9rem; 
+            color: var(--dark-blue); 
+            font-weight: bold; 
             border: 1px solid var(--accent-blue);
         }
 
-        footer { text-align: center; padding: 40px; color: var(--dark-blue); font-weight: bold; border-top: 4px solid #fff; background: var(--header-bg); }
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            color: var(--dark-blue); 
+            font-weight: bold; 
+            border-top: 4px solid #fff; 
+            background: var(--header-bg); 
+        }
 
-        @media (max-width: 992px) { .site-logo { max-width: 350px; } }
-        @media (max-width: 600px) { 
-            .site-logo { max-width: 280px; }
+        /* تحسين العرض على الجوال */
+        @media (max-width: 768px) {
+            .site-logo { max-width: 90%; }
             .series-grid { grid-template-columns: 1fr; padding: 15px; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <img src="images/logo.png" alt="المخطوطة الشريفة - الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png" alt="مخطوطة الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="nav-bar">
@@ -99,8 +167,10 @@
         <a href="books.html" class="nav-link-3d"><i class="fas fa-book-open"></i>الكتب</a>
     </nav>
 
-    <h2 class="section-title">قسم الرقائق والزهد</h2>
-    <p class="section-subtitle">دروس وسلاسل إيمانية لتهذيب النفوس</p>
+    <div class="section-info">
+        <h2 class="section-title">قسم الرقائق والزهد</h2>
+        <span class="section-subtitle">سلاسل دروس إيمانية تلامس القلوب</span>
+    </div>
 
     <div class="series-grid">
         <a href="raq_azkar.html" class="series-card">
@@ -129,5 +199,6 @@
     </div>
 
     <footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
 </body>
 </html>
