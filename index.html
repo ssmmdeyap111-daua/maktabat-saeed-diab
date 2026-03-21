@@ -13,175 +13,167 @@
             --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
             --gold-color: #d4af37; --prayer-green: #e8f5e9; 
             --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
-            --beige-bg: #f5f5dc; /* لون البيج المطلوب */
+            --beige-bg: #fdfae7; 
         }
 
         body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; color: #333; min-height: 100vh; overflow-x: hidden; }
 
-        /* شريط المعلومات العلوي (تحديث اللون للبيج) */
+        /* شريط المعلومات العلوي */
         .top-info-bar {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 40px; width: 100%; box-sizing: border-box; 
-            background: var(--beige-bg); border-bottom: 2px solid var(--accent-blue);
+            padding: 15px 40px; background: var(--beige-bg); border-bottom: 2px solid var(--accent-blue);
         }
-        .oval-box { 
-            background: white; padding: 10px 25px; border-radius: 50px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 2px solid var(--accent-blue); 
-            color: var(--dark-blue); font-weight: 900; font-size: 1.1rem;
-            display: flex; align-items: center; gap: 10px; 
+        .date-box { 
+            background: white; padding: 12px 30px; border-radius: 50px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 2px solid var(--gold-color); 
+            color: #444; font-weight: 900; font-size: 1.2rem;
         }
         
-        .prayer-table { display: flex; gap: 5px; }
-        .prayer-column { display: flex; flex-direction: column; align-items: center; width: 68px; }
-        .prayer-name { background: #4caf50; color: white; width: 100%; text-align: center; font-size: 0.8rem; border-radius: 8px 8px 0 0; padding: 2px 0; }
-        .prayer-time { background: var(--prayer-green); color: #2e7d32; width: 100%; text-align: center; font-size: 1rem; font-weight: 900; border: 1.5px solid #c8e6c9; border-radius: 0 0 8px 8px; }
+        .prayer-table { display: flex; gap: 8px; }
+        .prayer-column { display: flex; flex-direction: column; align-items: center; width: 75px; }
+        .prayer-name { background: #3e7d3e; color: white; width: 100%; text-align: center; font-size: 0.9rem; border-radius: 8px 8px 0 0; padding: 4px 0; font-weight: bold;}
+        .prayer-time { background: var(--prayer-green); color: #1b5e20; width: 100%; text-align: center; font-size: 1.1rem; font-weight: 900; border: 1px solid #c8e6c9; border-radius: 0 0 8px 8px; padding: 2px 0; }
 
         /* الهيدر */
-        .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 4px solid #fff; }
-        .site-logo { max-width: 850px; width: 100%; height: auto; mix-blend-mode: multiply; }
+        .site-header { text-align: center; padding: 30px 20px; background: var(--header-bg); border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 700px; width: 100%; height: auto; mix-blend-mode: multiply; }
 
-        /* شريط الآية */
-        .quran-container { padding: 15px; }
-        .quran-strip { 
-            background: transparent; color: var(--dark-blue); padding: 15px 0; overflow: hidden; white-space: nowrap; 
-            border: 3px solid var(--gold-color); border-radius: 60px; max-width: 95%; margin: 0 auto;
+        /* قسم الآية الذهبية */
+        .gold-verse-section { text-align: center; padding: 40px 20px; background: white; }
+        .gold-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            color: #333;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 1200px;
         }
-        .quran-scroll { display: inline-block; animation: scroll-text 45s linear infinite; font-family: 'Amiri', serif; font-size: 1.8rem; font-weight: bold; }
-        @keyframes scroll-text { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+        .gold-title span { color: var(--gold-color); font-weight: 900; }
 
-        /* البحث */
-        .search-wrapper { position: relative; width: 90%; max-width: 750px; margin: 20px auto; }
+        /* البحث الفخم */
+        .search-container { max-width: 800px; margin: 0 auto 40px; position: relative; }
         .search-box { 
-            width: 100%; padding: 12px 50px 12px 20px; border-radius: 50px; border: 2px solid var(--accent-blue); 
-            outline: none; font-size: 1.1rem; font-family: 'Cairo';
+            width: 100%; padding: 18px 30px 18px 60px; border-radius: 60px; 
+            border: 3px solid var(--gold-color); outline: none; font-size: 1.3rem;
+            font-family: 'Cairo'; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
-        .search-icon { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--dark-blue); cursor: pointer; }
+        .search-btn { position: absolute; left: 25px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: var(--gold-color); border: none; background: none; cursor: pointer; }
 
-        /* الأزرار 3D */
-        .nav-bar { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
-        .nav-link-3d { 
-            padding: 10px 25px; background: var(--accent-blue); color: white; text-decoration: none; 
-            border-radius: 12px; font-weight: 900; box-shadow: 0 5px 0 var(--dark-blue); transition: 0.2s; 
-            display: flex; flex-direction: column; align-items: center; min-width: 110px;
+        /* الأزرار الرئيسية العملاقة (3D) */
+        .main-nav-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px; max-width: 1300px; margin: 0 auto; }
+        .btn-3d { 
+            flex: 1; min-width: 200px; padding: 25px; text-decoration: none; color: white;
+            border-radius: 20px; font-weight: 900; font-size: 1.6rem; text-align: center;
+            transition: 0.3s; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 0 var(--dark-blue); border: 2px solid rgba(255,255,255,0.2);
         }
-        .nav-link-3d:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--dark-blue); background: #9cdfff; }
-        .active-link { background: var(--gold-color); box-shadow: 0 5px 0 #b38f2d; }
+        .btn-3d:hover { transform: translateY(-5px); box-shadow: 0 15px 0 var(--dark-blue); filter: brightness(1.1); }
+        .btn-3d:active { transform: translateY(5px); box-shadow: 0 2px 0 var(--dark-blue); }
 
-        /* شريط الكتب (تكبير الصور وتقليل الفواصل) */
-        .books-section { position: relative; max-width: 100%; margin: 30px 0; padding: 0 40px; }
-        .swiper-slide { transition: 0.3s; padding: 0px; } 
-        .swiper-slide img { 
-            width: 100%; 
-            height: 300px; /* تكبير الكتب لزيادة الوضوح */
-            object-fit: contain; 
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15)); 
-        }
+        /* ألوان الأزرار */
+        .btn-home { background: linear-gradient(to bottom, #d4af37, #b38f2d); box-shadow: 0 10px 0 #8c6d1a; }
+        .btn-audio { background: linear-gradient(to bottom, #87ceeb, #2c5d87); }
+        .btn-khutbah { background: linear-gradient(to bottom, #5a9bd5, #1e4d7b); }
+        .btn-books { background: linear-gradient(to bottom, #3a7caf, #143254); }
+        .btn-articles { background: linear-gradient(to bottom, #2c5d87, #0d1f35); }
 
-        /* التواصل الاجتماعي الملونة */
-        .social-links { display: flex; justify-content: center; gap: 25px; margin: 40px 0; }
-        .social-links a { font-size: 2.8rem; transition: 0.3s; }
-        .social-links a:hover { transform: scale(1.1); }
-        .fa-youtube { color: #FF0000; }
-        .fa-whatsapp-square { color: #25D366; }
-        .fa-telegram { color: #0088cc; }
-        .fa-facebook-square { color: #1877F2; background: #fff; border-radius: 10px; }
+        /* سلايدر الكتب */
+        .books-slider-section { background: #f9f9f9; padding: 50px 0; border-top: 2px solid #eee; border-bottom: 2px solid #eee; margin: 40px 0; }
+        .swiper-slide img { width: 100%; height: 350px; object-fit: contain; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); transition: 0.4s; }
+        .swiper-slide:hover img { transform: scale(1.05); }
 
-        footer { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 25px; font-weight: bold; }
+        /* التواصل الاجتماعي */
+        .social-links { display: flex; justify-content: center; gap: 30px; margin: 50px 0; }
+        .social-links a { font-size: 3.5rem; transition: 0.3s; }
+        .fa-youtube { color: #FF0000; } .fa-whatsapp-square { color: #25D366; }
+        .fa-telegram { color: #0088cc; } .fa-facebook-square { color: #1877F2; }
+
+        footer { background: var(--header-bg); color: var(--dark-blue); text-align: center; padding: 30px; font-weight: bold; font-size: 1.1rem; border-top: 5px solid var(--gold-color); }
     </style>
 </head>
 <body>
 
     <div class="top-info-bar">
-        <div class="oval-box">
-            <i class="fas fa-calendar-alt" style="color: var(--gold-color);"></i> 
+        <div class="date-box">
+            <i class="fas fa-calendar-alt" style="color: var(--gold-color); margin-left: 10px;"></i> 
             <span id="full-date-display"></span>
         </div>
         <div class="prayer-table" id="prayer-times"></div>
     </div>
 
     <header class="site-header">
-        <img src="images/logo.png.jpg" alt="الشعار" class="site-logo">
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
-    <div class="quran-container">
-        <div class="quran-strip">
-            <div class="quran-scroll">قال الله تعالى: ﴿قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ﴾. سورة يوسف</div>
-        </div>
+    <div class="gold-verse-section">
+        <h2 class="gold-title">
+            قال الله تعالى: ﴿<span>قُلْ ‌هذِهِ ‌سَبِيلِي أَدْعُوا إِلَى اللَّهِ عَلى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي وَسُبْحانَ اللَّهِ وَما أَنَا مِنَ الْمُشْرِكِينَ</span>﴾. سورة يوسف
+        </h2>
     </div>
 
-    <div class="nav-section" style="text-align: center;">
-        <div class="search-wrapper">
-            <input type="text" id="siteSearch" class="search-box" placeholder="ابحث في الموقع...">
-            <i class="fas fa-search search-icon" onclick="alert('جاري البحث...')"></i>
-        </div>
-        
-        <nav class="nav-bar">
-            <a href="index.html" class="nav-link-3d active-link"><i class="fas fa-home"></i>الرئيسية</a>
-            <a href="lessons.html" class="nav-link-3d"><i class="fas fa-microphone"></i>الدروس</a>
-            <a href="khutbah.html" class="nav-link-3d"><i class="fas fa-mosque"></i>الخطب</a>
-            <a href="articles.html" class="nav-link-3d"><i class="fas fa-pen-nib"></i>المقالات</a>
-            <a href="books.html" class="nav-link-3d"><i class="fas fa-book"></i>الكتب</a>
-        </nav>
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="ابحث في الدروس، الكتب، والمقالات...">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
     </div>
 
-    <div class="books-section">
+    <nav class="main-nav-grid">
+        <a href="index.html" class="btn-3d btn-home">الرئيسية</a>
+        <a href="lessons.html" class="btn-3d btn-audio">الصوتيات</a>
+        <a href="khutbah.html" class="btn-3d btn-khutbah">الخطب</a>
+        <a href="books.html" class="btn-3d btn-books">الكتب</a>
+        <a href="articles.html" class="btn-3d btn-articles">المقالات</a>
+    </nav>
+
+  <div class="books-slider-section">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><a href="books.html"><img src="images/anwar.jpeg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/tzker-alobat.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/katar-al-reba.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/fadhl-duaa.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/malm-al-trbia.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/waqfat-tdaboria.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/kashf-alnqab.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/kabar-al-ahad.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/wageb-al-muslmeen.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/al-ilmam-siyam.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/tamam-al-minah.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/allaalea-wa-aldorr.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/haiat-alqolob.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/al-slsapel.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/shmael-al-rasool.jpg.jpg"></a></div>
-                <div class="swiper-slide"><a href="books.html"><img src="images/arbauon.jpg"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/anwar.jpeg" alt="أنوار"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/tzker-alobat.jpg" alt="تذكرة العباد"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/katar-al-reba.jpg.jpg" alt="خطر الربا"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/fadhl-duaa.jpg.jpg" alt="فضل الدعاء"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/malm-al-trbia.jpg" alt="معالم التربية"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/waqfat-tdaboria.jpg" alt="وقفات تدبرية"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/kashf-alnqab.jpg.jpg" alt="كشف النقاب"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/kabar-al-ahad.jpg.jpg" alt="خبر الآحاد"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/wageb-al-muslmeen.jpg" alt="واجب المسلمين"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/al-ilmam-siyam.jpg.jpg" alt="الإلمام بالصيام"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/al-eatbaar-ptraef-alakbaar.jpg.jpg" alt="الاعتبار"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/tamam-al-minah.jpg.jpg" alt="تمام المنة"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/allaalea-wa-aldorr.jpg.jpg" alt="اللآلئ والدرر"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/haiat-alqolob.jpg" alt="حياة القلوب"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/al-slsapel.jpg.jpg" alt="السلسبيل"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/shmael-al-rasool.jpg.jpg" alt="شمائل الرسول"></a></div>
+                <div class="swiper-slide"><a href="books.html"><img src="images/arbauon.jpg" alt="الأربعون"></a></div>
             </div>
         </div>
-    </div>
+    </div> 
 
     <div class="social-links">
-        <a href="https://www.youtube.com/@saeedDiabb_" target="_blank" title="يوتيوب"><i class="fab fa-youtube"></i></a>
-        <a href="https://wa.me/97455703316" target="_blank" title="واتساب"><i class="fab fa-whatsapp-square"></i></a>
-        <a href="https://t.me/haiatelqloop3" target="_blank" title="تليجرام"><i class="fab fa-telegram"></i></a>
-        <a href="https://www.facebook.com/said.deyap" target="_blank" title="فيسبوك"><i class="fab fa-facebook-square"></i></a>
+        <a href="https://www.youtube.com/@saeedDiabb_" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/97455703316" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+        <a href="https://t.me/haiatelqloop3" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.facebook.com/said.deyap" target="_blank"><i class="fab fa-facebook-square"></i></a>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // دالة عرض التاريخ الكامل (اليوم + هجري + ميلادي)
         function updateFullDate() {
             const now = new Date();
             const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
             const dayName = days[now.getDay()];
-            
             const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now);
             const gregorian = new Intl.DateTimeFormat('ar-EG', {day:'numeric', month:'long', year:'numeric'}).format(now);
-            
             document.getElementById('full-date-display').innerText = `${dayName} | ${hijri} هـ | ${gregorian} م`;
         }
         updateFullDate();
 
-        // سلايدر الكتب
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
-            spaceBetween: 2, /* فواصل شبه معدومة */
-            loop: true,
-            autoplay: { delay: 3000 },
-            breakpoints: { 1024: { slidesPerView: 9 } }
+            slidesPerView: 2, spaceBetween: 30, loop: true, autoplay: { delay: 2500 },
+            breakpoints: { 768: { slidesPerView: 4 }, 1024: { slidesPerView: 7 } }
         });
 
-        // مواقيت الصلاة
         async function getPrayers() {
             try {
                 const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
