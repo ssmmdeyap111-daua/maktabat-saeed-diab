@@ -13,20 +13,21 @@
             --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
             --gold-color: #d4af37; --prayer-green: #e8f5e9; 
             --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
+            --beige-bg: #f5f5dc; /* لون البيج المطلوب */
         }
 
         body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; color: #333; min-height: 100vh; overflow-x: hidden; }
 
-        /* شريط المعلومات العلوي */
+        /* شريط المعلومات العلوي (تحديث اللون للبيج) */
         .top-info-bar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 40px; width: 100%; box-sizing: border-box; 
-            background: rgba(255,255,255,0.9); border-bottom: 2px solid var(--accent-blue);
+            background: var(--beige-bg); border-bottom: 2px solid var(--accent-blue);
         }
         .oval-box { 
             background: white; padding: 10px 25px; border-radius: 50px; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 2px solid var(--accent-blue); 
-            color: var(--dark-blue); font-weight: 900; font-size: 1.15rem;
+            color: var(--dark-blue); font-weight: 900; font-size: 1.1rem;
             display: flex; align-items: center; gap: 10px; 
         }
         
@@ -68,10 +69,10 @@
 
         /* شريط الكتب (تكبير الصور وتقليل الفواصل) */
         .books-section { position: relative; max-width: 100%; margin: 30px 0; padding: 0 40px; }
-        .swiper-slide { transition: 0.3s; padding: 2px; } /* تقليل الحشو */
+        .swiper-slide { transition: 0.3s; padding: 0px; } 
         .swiper-slide img { 
             width: 100%; 
-            height: 270px; /* تكبير ارتفاع الكتب */
+            height: 300px; /* تكبير الكتب لزيادة الوضوح */
             object-fit: contain; 
             filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15)); 
         }
@@ -93,7 +94,7 @@
     <div class="top-info-bar">
         <div class="oval-box">
             <i class="fas fa-calendar-alt" style="color: var(--gold-color);"></i> 
-            <span id="hijri-date-display"></span>
+            <span id="full-date-display"></span>
         </div>
         <div class="prayer-table" id="prayer-times"></div>
     </div>
@@ -158,21 +159,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // إعداد التاريخ الهجري المحدث تلقائياً
-        const options = { day: 'numeric', month: 'long', year: 'numeric' };
-        const hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', options).format(new Date());
-        document.getElementById('hijri-date-display').innerText = hijriDate + " هـ";
+        // دالة عرض التاريخ الكامل (اليوم + هجري + ميلادي)
+        function updateFullDate() {
+            const now = new Date();
+            const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+            const dayName = days[now.getDay()];
+            
+            const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now);
+            const gregorian = new Intl.DateTimeFormat('ar-EG', {day:'numeric', month:'long', year:'numeric'}).format(now);
+            
+            document.getElementById('full-date-display').innerText = `${dayName} | ${hijri} هـ | ${gregorian} م`;
+        }
+        updateFullDate();
 
-        // سلايدر الكتب (9 كتب، فواصل صغيرة جداً)
+        // سلايدر الكتب
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3,
-            spaceBetween: 5, /* فواصل صغيرة جداً */
+            spaceBetween: 2, /* فواصل شبه معدومة */
             loop: true,
             autoplay: { delay: 3000 },
             breakpoints: { 1024: { slidesPerView: 9 } }
         });
 
-        // مواقيت الصلاة (الدوحة حسب الرقم المذكور)
+        // مواقيت الصلاة
         async function getPrayers() {
             try {
                 const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
@@ -184,7 +193,7 @@
                         <div class="prayer-name">${p.n}</div>
                         <div class="prayer-time">${p.t}</div>
                     </div>`).join('');
-            } catch { document.getElementById('prayer-times').innerText = "خطأ"; }
+            } catch { document.getElementById('prayer-times').innerText = "خطأ في الاتصال"; }
         }
         getPrayers();
     </script>
