@@ -66,13 +66,11 @@
 
 <script>
     /* --- قسم الإعدادات (فقط قم بتعديل هذا الجزء لكل سورة) --- */
-    const config = {
-        title: "تفسير سورة البقرة", // 1. اسم السورة
-        prefix: "baqara",           // 2. اسم الملف الصوتي (بدون رقم)
-        total: 75,                 // 3. عدد الدروس
-        perPage: 12                // 4. عدد المقاطع في الصفحة
-    };
-    /* ------------------------------------------------------- */
+  /* --- إعدادات سورة البقرة --- */
+    const seriesTitle = "تفسير سورة البقرة"; 
+    const seriesPrefix = "baqara";          
+    const totalLessons = 75; 
+    /* -------------------------- */
 
     document.getElementById('page-title').innerText = config.title;
     let currentPage = 1;
