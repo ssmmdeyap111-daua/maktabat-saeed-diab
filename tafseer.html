@@ -3,166 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فهرس تفسير القرآن - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <title>فهرس تفسير القرآن الكريم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --primary: #2c5d87; --gold: #b59410; --bg: #f4f7f9; --white: #ffffff; 
-            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7);
-        }
+        :root { --primary: #2c5d87; --gold: #b59410; --bg: #f4f7f9; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); text-align: center; }
+        
+        /* هيدر بسيط وواضح */
+        .site-header { background: #e3effb; padding: 30px; border-bottom: 4px solid var(--primary); }
+        .site-header h1 { margin: 0; color: var(--primary); font-size: 2rem; }
 
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; }
+        /* شريط التنقل */
+        .nav-bar { padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .btn-home { text-decoration: none; color: var(--primary); font-weight: bold; border: 1px solid var(--primary); padding: 5px 20px; border-radius: 5px; }
 
-        /* الهيدر */
-        .site-header { background: var(--header-bg); padding: 20px; text-align: center; border-bottom: 4px solid var(--primary); }
-        .site-logo { max-width: 400px; width: 100%; height: auto; mix-blend-mode: multiply; }
-
-        /* شريط التنقل العلوي - أيقونات صغيرة */
-        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 12px; background: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .btn-small { 
-            padding: 6px 15px; border: 1px solid #ddd; border-radius: 6px; 
-            text-decoration: none; color: var(--primary); font-weight: bold; 
-            font-size: 0.9rem; transition: 0.3s; display: flex; align-items: center; gap: 5px;
-        }
-        .btn-small:hover { background: var(--primary); color: white; }
-
-        /* حاوية الفهرس */
-        .container { max-width: 1100px; margin: 30px auto 60px; padding: 0 20px; }
-        .section-title { color: var(--primary); font-size: 1.8rem; text-align: center; margin-bottom: 25px; font-weight: 900; }
-
-        /* شبكة السور - أيقونات صغيرة ومنظمة */
+        /* حاوية الأيقونات */
         .surah-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
-            gap: 12px; 
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+            gap: 15px; max-width: 1200px; margin: 20px auto; padding: 20px;
         }
-        
-        .surah-card { 
-            background: white; border-radius: 10px; padding: 15px; text-align: center;
-            border: 1px solid #ddd; transition: 0.3s; text-decoration: none;
-            display: flex; flex-direction: column; align-items: center; gap: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-        }
-        .surah-card:hover { border-color: var(--gold); transform: translateY(-3px); background: #fdfdfd; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        
-        .surah-card i { font-size: 1.4rem; color: var(--gold); }
-        .surah-card h3 { font-family: 'Amiri', serif; font-size: 1.4rem; color: var(--primary); margin: 0; }
-        .surah-card span { font-size: 0.8rem; color: #777; font-weight: bold; }
 
-        footer { text-align: center; padding: 25px; color: #555; background: #e0f2f7; border-top: 3px solid #fff; font-weight: bold; }
+        /* كرت السورة (تصميم صغير ومركز) */
+        .surah-card { 
+            background: white; border: 1px solid #ddd; border-radius: 12px; 
+            padding: 15px; text-decoration: none; transition: 0.3s;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+        }
+        .surah-card:hover { border-color: var(--gold); background: #fffdf5; transform: translateY(-3px); }
+        .surah-card i { color: var(--gold); font-size: 1.5rem; }
+        .surah-card h3 { margin: 0; font-size: 1.2rem; color: var(--primary); }
+        .surah-card span { font-size: 0.8rem; color: #666; font-weight: bold; }
+
+        footer { padding: 20px; color: #777; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
-    </header>
+<header class="site-header">
+    <h1>فهرس تفسير القرآن الكريم</h1>
+</header>
 
-    <nav class="nav-bar">
-        <a href="index.html" class="btn-small"><i class="fas fa-home"></i> الرئيسية</a>
-        <a href="lessons.html" class="btn-small"><i class="fas fa-microphone"></i> الصوتيات</a>
-    </nav>
+<nav class="nav-bar">
+    <a href="index.html" class="btn-home">العودة للرئيسية</a>
+</nav>
 
-    <div class="container">
-        <h1 class="section-title">فهرس تفسير القرآن الكريم</h1>
+<div class="surah-grid">
+    <a href="fatiha.html" class="surah-card"><i class="fas fa-quran"></i><h3>الفاتحة</h3><span>2 درس</span></a>
+    <a href="baqarah.html" class="surah-card"><i class="fas fa-quran"></i><h3>البقرة</h3><span>75 درس</span></a>
+    <a href="imran.html" class="surah-card"><i class="fas fa-quran"></i><h3>آل عمران</h3><span>52 درس</span></a>
+    <a href="nisa.html" class="surah-card"><i class="fas fa-quran"></i><h3>النساء</h3><span>53 درس</span></a>
+    <a href="maidah.html" class="surah-card"><i class="fas fa-quran"></i><h3>المائدة</h3><span>34 درس</span></a>
+    <a href="anaam.html" class="surah-card"><i class="fas fa-quran"></i><h3>الأنعام</h3><span>36 درس</span></a>
+    <a href="araf.html" class="surah-card"><i class="fas fa-quran"></i><h3>الأعراف</h3><span>41 درس</span></a>
+    <a href="tawbah.html" class="surah-card"><i class="fas fa-quran"></i><h3>التوبة</h3><span>33 درس</span></a>
+    <a href="yones.html" class="surah-card"><i class="fas fa-quran"></i><h3>يونس</h3><span>23 درس</span></a>
+    <a href="hood.html" class="surah-card"><i class="fas fa-quran"></i><h3>هود</h3><span>22 درس</span></a>
+    <a href="yousuf.html" class="surah-card"><i class="fas fa-quran"></i><h3>يوسف</h3><span>17 درس</span></a>
+    <a href="raad.html" class="surah-card"><i class="fas fa-quran"></i><h3>الرعد</h3><span>11 درس</span></a>
+    <a href="ibrahim.html" class="surah-card"><i class="fas fa-quran"></i><h3>إبراهيم</h3><span>10 درس</span></a>
+    <a href="hijr.html" class="surah-card"><i class="fas fa-quran"></i><h3>الحجر</h3><span>10 درس</span></a>
+    <a href="nahl.html" class="surah-card"><i class="fas fa-quran"></i><h3>النحل</h3><span>40 درس</span></a>
 
-        <div class="surah-grid">
-            
-            <a href="fatiha.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة الفاتحة</h3>
-                <span>2 درس</span>
-            </a>
+</div>
 
-            <a href="baqarah.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة البقرة</h3>
-                <span>75 درس</span>
-            </a>
-
-            <a href="imran.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة آل عمران</h3>
-                <span>52 درس</span>
-            </a>
-
-            <a href="nisa.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة النساء</h3>
-                <span>53 درس</span>
-            </a>
-
-            <a href="maidah.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة المائدة</h3>
-                <span>34 درس</span>
-            </a>
-
-            <a href="anaam.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة الأنعام</h3>
-                <span>36 درس</span>
-            </a>
-
-            <a href="araf.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة الأعراف</h3>
-                <span>41 درس</span>
-            </a>
-
-            <a href="tawbah.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة التوبة</h3>
-                <span>33 درس</span>
-            </a>
-
-            <a href="yones.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة يونس</h3>
-                <span>23 درس</span>
-            </a>
-
-            <a href="hood.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة هود</h3>
-                <span>22 درس</span>
-            </a>
-
-            <a href="yousuf.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة يوسف</h3>
-                <span>17 درس</span>
-            </a>
-
-            <a href="raad.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة الرعد</h3>
-                <span>11 درس</span>
-            </a>
-
-            <a href="hijr.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة الحجر</h3>
-                <span>10 درس</span>
-            </a>
-
-            <a href="ibrahim.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة إبراهيم</h3>
-                <span>10 درس</span>
-            </a>
-
-            <a href="nahl.html" class="surah-card">
-                <i class="fas fa-quran"></i>
-                <h3>سورة النحل</h3>
-                <span>40 درس</span>
-            </a>
-
-        </div>
-    </div>
-
-    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
+<footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
 
 </body>
 </html>
