@@ -3,65 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفسير القرآن الكريم - الشيخ سعيد مصطفى دياب</title>
+    <title>تفسير سورة البقرة - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --bg: #f8fafc; --white: #ffffff; }
+        :root { --primary: #2c5d87; --bg: #f4f7f9; --white: #ffffff; --gold: #b59410; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); }
-        .site-header { background: var(--white); padding: 20px; text-align: center; border-bottom: 3px solid var(--primary); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .container { width: 98%; max-width: 1600px; margin: 20px auto; }
-        .lesson-row { display: flex; align-items: center; background: var(--white); margin-bottom: 8px; padding: 15px 30px; border-radius: 10px; border: 1px solid #e2e8f0; transition: 0.3s ease; }
-        .lesson-row:hover { background: #f1f5f9; border-right: 6px solid var(--primary); transform: scale(1.002); }
-        .lesson-info { flex: 2; font-weight: 700; font-size: 1.2rem; color: #334155; display: flex; align-items: center; gap: 15px; }
-        .audio-player { flex: 4; display: flex; justify-content: center; }
-        audio { width: 95%; height: 40px; }
-        .actions { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
-        .actions a { color: #10b981; font-size: 1.4rem; text-decoration: none; }
-        .pagination { display: flex; justify-content: center; margin: 40px 0; gap: 10px; direction: ltr; }
-        .page-btn { padding: 10px 20px; background: var(--white); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; color: var(--primary); }
+        
+        .site-header { background: linear-gradient(to right, #add8e6, #e0f2f7); padding: 20px; text-align: center; border-bottom: 4px solid var(--primary); }
+        .site-header h1 { margin: 0; color: var(--primary); font-size: 1.8rem; font-weight: 900; }
+
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 12px; background: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn-link { padding: 6px 15px; border: 1px solid #ddd; border-radius: 6px; text-decoration: none; color: var(--primary); font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .btn-link:hover { background: var(--primary); color: white; }
+
+        .container { width: 95%; max-width: 1200px; margin: 20px auto; }
+        
+        /* تنسيق المقطع الصوتي المستطيل */
+        .lesson-row { 
+            display: flex; align-items: center; background: var(--white); 
+            margin-bottom: 6px; padding: 10px 20px; border-radius: 8px; 
+            border: 1px solid #e2e8f0; transition: 0.2s; 
+        }
+        .lesson-row:hover { border-right: 5px solid var(--gold); background: #fdfdfd; }
+
+        /* الاسم جهة اليمين */
+        .lesson-info { flex: 1; display: flex; align-items: center; gap: 10px; font-weight: 700; color: #334155; font-size: 1rem; }
+        .lesson-info i { color: var(--gold); font-size: 1rem; } /* تصغير الأيقونة */
+
+        /* المشغل في المنتصف */
+        .audio-player { flex: 2; display: flex; justify-content: center; }
+        audio { width: 90%; height: 32px; }
+
+        /* التحميل جهة اليسار */
+        .actions { flex: 1; display: flex; justify-content: flex-end; }
+        .btn-download { color: #27ae60; font-size: 1.3rem; text-decoration: none; transition: 0.3s; }
+        .btn-download:hover { color: var(--primary); }
+
+        /* الترقيم من الأسفل */
+        .pagination { display: flex; justify-content: center; margin: 30px 0 50px; gap: 8px; direction: ltr; }
+        .page-btn { 
+            min-width: 35px; height: 35px; padding: 5px; background: var(--white); 
+            border: 1px solid #ddd; border-radius: 5px; cursor: pointer; 
+            font-weight: bold; color: var(--primary); transition: 0.3s;
+        }
         .page-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
-        <a href="tafseer.html" style="text-decoration:none; color:var(--primary); font-weight:bold; display:flex; align-items:center; gap:8px;">
-            <i class="fas fa-chevron-right"></i> عودة لقسم التفسير
-        </a>
-        <h2 id="page-title" style="margin:0; color:var(--primary);">تفسير سورة...</h2>
-        <div style="width:100px;"></div>
-    </div>
+    <h1 id="page-title">تفسير سورة...</h1>
 </header>
+
+<div class="nav-bar">
+    <a href="index.html" class="btn-link">الرئيسية</a>
+    <a href="tafseer.html" class="btn-link" style="border-color: var(--gold); color: var(--gold);">فهرس التفسير</a>
+</div>
 
 <div class="container" id="lesson-list"></div>
 <div class="pagination" id="pagination"></div>
 
 <script>
-    /* --- الإعدادات (عدلها لكل سورة) --- */
-    const seriesTitle = "تفسير سورة البقرة"; // اسم السورة
-    const seriesPrefix = "bakara";           // البريفكس (fatiha, bakara, imran)
-    const totalLessons = 75;                  // عدد الدروس (2, 75, 52..)
-    /* ---------------------------------- */
+    /* --- قسم الإعدادات (فقط قم بتعديل هذا الجزء لكل سورة) --- */
+    const config = {
+        title: "تفسير سورة البقرة", // 1. اسم السورة
+        prefix: "bakara",           // 2. اسم الملف الصوتي (بدون رقم)
+        total: 75,                 // 3. عدد الدروس
+        perPage: 12                // 4. عدد المقاطع في الصفحة
+    };
+    /* ------------------------------------------------------- */
 
-    document.getElementById('page-title').innerText = seriesTitle;
-    const lessonsPerPage = 12;
+    document.getElementById('page-title').innerText = config.title;
     let currentPage = 1;
 
-    function renderLessons(page) {
+    function render(page) {
         const list = document.getElementById('lesson-list');
         list.innerHTML = "";
-        let start = (page - 1) * lessonsPerPage + 1;
-        let end = Math.min(start + lessonsPerPage - 1, totalLessons);
+        let start = (page - 1) * config.perPage + 1;
+        let end = Math.min(start + config.perPage - 1, config.total);
 
         for (let i = start; i <= end; i++) {
-            const fileName = `audio/${seriesPrefix}-${i}.mp3`;
+            const fileName = `audio/${config.prefix}-${i}.mp3`;
             const row = document.createElement('div');
             row.className = 'lesson-row';
             row.innerHTML = `
                 <div class="lesson-info">
-                    <i class="fas fa-book-quran" style="color:#cbd5e1;"></i>
+                    <i class="fas fa-book-open"></i>
                     الدرس رقم ${i}
                 </div>
                 <div class="audio-player">
@@ -70,7 +98,9 @@
                     </audio>
                 </div>
                 <div class="actions">
-                    <a href="${fileName}" download><i class="fas fa-cloud-arrow-down"></i></a>
+                    <a href="${fileName}" download class="btn-download" title="تحميل">
+                        <i class="fas fa-cloud-arrow-down"></i>
+                    </a>
                 </div>`;
             list.appendChild(row);
         }
@@ -80,21 +110,21 @@
     function renderPagination() {
         const pag = document.getElementById('pagination');
         pag.innerHTML = "";
-        const pages = Math.ceil(totalLessons / lessonsPerPage);
+        const pages = Math.ceil(config.total / config.perPage);
         for (let i = 1; i <= pages; i++) {
             const btn = document.createElement('button');
             btn.innerText = i;
             btn.className = (i === currentPage) ? "page-btn active" : "page-btn";
             btn.onclick = function() {
                 currentPage = i;
-                renderLessons(i);
+                render(i);
                 window.scrollTo(0, 0);
             };
             pag.appendChild(btn);
         }
     }
 
-    window.onload = () => renderLessons(1);
+    window.onload = () => render(1);
 </script>
 
 </body>
