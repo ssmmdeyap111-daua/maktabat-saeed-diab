@@ -3,29 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فهرس تفسير القرآن الكريم</title>
+    <title>فهرس التفسير - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root { --primary: #2c5d87; --gold: #b59410; --bg: #f4f7f9; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); text-align: center; }
-        
-        /* هيدر بسيط وواضح */
-        .site-header { background: #e3effb; padding: 30px; border-bottom: 4px solid var(--primary); }
-        .site-header h1 { margin: 0; color: var(--primary); font-size: 2rem; }
-
-        /* شريط التنقل */
+        .site-header { background: linear-gradient(to right, #add8e6, #e0f2f7); padding: 25px; border-bottom: 4px solid var(--primary); }
+        .site-header h1 { margin: 0; color: var(--primary); font-size: 1.8rem; }
         .nav-bar { padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .btn-home { text-decoration: none; color: var(--primary); font-weight: bold; border: 1px solid var(--primary); padding: 5px 20px; border-radius: 5px; }
-
-        /* حاوية الأيقونات */
+        .btn-home { text-decoration: none; color: var(--primary); font-weight: bold; border: 1px solid var(--primary); padding: 6px 20px; border-radius: 8px; font-size: 0.9rem; }
+        
         .surah-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
-            gap: 15px; max-width: 1200px; margin: 20px auto; padding: 20px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+            gap: 15px; max-width: 1100px; margin: 20px auto; padding: 20px;
         }
 
-        /* كرت السورة (تصميم صغير ومركز) */
         .surah-card { 
             background: white; border: 1px solid #ddd; border-radius: 12px; 
             padding: 15px; text-decoration: none; transition: 0.3s;
@@ -33,10 +26,9 @@
         }
         .surah-card:hover { border-color: var(--gold); background: #fffdf5; transform: translateY(-3px); }
         .surah-card i { color: var(--gold); font-size: 1.5rem; }
-        .surah-card h3 { margin: 0; font-size: 1.2rem; color: var(--primary); }
-        .surah-card span { font-size: 0.8rem; color: #666; font-weight: bold; }
-
-        footer { padding: 20px; color: #777; font-size: 0.9rem; }
+        .surah-card h3 { margin: 0; font-size: 1.1rem; color: var(--primary); }
+        .surah-card span { font-size: 0.8rem; color: #777; font-weight: bold; }
+        footer { padding: 30px; color: #777; font-size: 0.9rem; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -46,29 +38,30 @@
 </header>
 
 <nav class="nav-bar">
-    <a href="index.html" class="btn-home">العودة للرئيسية</a>
+    <a href="lessons.html" class="btn-home">العودة للأقسام</a>
 </nav>
 
 <div class="surah-grid">
-    <a href="fatiha.html" class="surah-card"><i class="fas fa-quran"></i><h3>الفاتحة</h3><span>2 درس</span></a>
-    <a href="baqara.html" class="surah-card"><i class="fas fa-quran"></i><h3>البقرة</h3><span>75 درس</span></a>
-    <a href="imran.html" class="surah-card"><i class="fas fa-quran"></i><h3>آل عمران</h3><span>52 درس</span></a>
-    <a href="nisa.html" class="surah-card"><i class="fas fa-quran"></i><h3>النساء</h3><span>53 درس</span></a>
-    <a href="maidah.html" class="surah-card"><i class="fas fa-quran"></i><h3>المائدة</h3><span>34 درس</span></a>
-    <a href="anaam.html" class="surah-card"><i class="fas fa-quran"></i><h3>الأنعام</h3><span>36 درس</span></a>
+    <a href="tafseer-fatiha.html" class="surah-card"><i class="fas fa-quran"></i><h3>الفاتحة</h3><span>2 درس</span></a>
+    <a href="tafseer-baqara.html" class="surah-card"><i class="fas fa-quran"></i><h3>البقرة</h3><span>75 درس</span></a>
+    <a href="tafseer-imran.html" class="surah-card"><i class="fas fa-quran"></i><h3>آل عمران</h3><span>52 درس</span></a>
+    <a href="tafseer-al-nesa.html" class="surah-card"><i class="fas fa-quran"></i><h3>النساء</h3><span>53 درس</span></a>
+    <a href="tafseer-maeda.html" class="surah-card"><i class="fas fa-quran"></i><h3>المائدة</h3><span>34 درس</span></a>
+    <a href="tafseer-anaam.html" class="surah-card"><i class="fas fa-quran"></i><h3>الأنعام</h3><span>36 درس</span></a>
     <a href="araf.html" class="surah-card"><i class="fas fa-quran"></i><h3>الأعراف</h3><span>41 درس</span></a>
-    <a href="tawbah.html" class="surah-card"><i class="fas fa-quran"></i><h3>التوبة</h3><span>33 درس</span></a>
+    <a href="tauba.html" class="surah-card"><i class="fas fa-quran"></i><h3>التوبة</h3><span>33 درس</span></a>
     <a href="yones.html" class="surah-card"><i class="fas fa-quran"></i><h3>يونس</h3><span>23 درس</span></a>
     <a href="hood.html" class="surah-card"><i class="fas fa-quran"></i><h3>هود</h3><span>22 درس</span></a>
-    <a href="yousuf.html" class="surah-card"><i class="fas fa-quran"></i><h3>يوسف</h3><span>17 درس</span></a>
-    <a href="raad.html" class="surah-card"><i class="fas fa-quran"></i><h3>الرعد</h3><span>11 درس</span></a>
-    <a href="ibrahim.html" class="surah-card"><i class="fas fa-quran"></i><h3>إبراهيم</h3><span>10 درس</span></a>
-    <a href="hijr.html" class="surah-card"><i class="fas fa-quran"></i><h3>الحجر</h3><span>10 درس</span></a>
-    <a href="nahl.html" class="surah-card"><i class="fas fa-quran"></i><h3>النحل</h3><span>40 درس</span></a>
+    <a href="tafseer-yusef.html" class="surah-card"><i class="fas fa-quran"></i><h3>يوسف</h3><span>17 درس</span></a>
+    <a href="tafseer-rad.html" class="surah-card"><i class="fas fa-quran"></i><h3>الرعد</h3><span>11 درس</span></a>
+    
+    <a href="tafseer-ibrahim.html" class="surah-card"><i class="fas fa-quran"></i><h3>إبراهيم</h3><span>10 درس</span></a>
+    <a href="tafseer-hijr.html" class="surah-card"><i class="fas fa-quran"></i><h3>الحجر</h3><span>10 درس</span></a>
+    <a href="tafseer-nahl.html" class="surah-card"><i class="fas fa-quran"></i><h3>النحل</h3><span>40 درس</span></a>
 
 </div>
 
-<footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
+<footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
 </body>
 </html>
