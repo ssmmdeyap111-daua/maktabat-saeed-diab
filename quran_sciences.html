@@ -3,133 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>علوم القرآن - الشيخ سعيد مصطفى دياب</title>
+    <title>شرح أصول التفسير - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <style>
-        :root { --light-blue: #e3effb; --dark-blue: #2c5d87; --gold: #b59410; }
-        body { 
-            margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
-            background: url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover;
+        :root { 
+            --blue: #2c5d87; 
+            --3d-green: #2ecc71; 
+            --dark-green: #27ae60;
+            --gold: #d4af37; 
+            --bg: #f4f7f9; 
         }
 
-        .main-nav {
-            background: rgba(255, 255, 255, 0.98);
-            display: flex; justify-content: center; gap: 45px;
-            padding: 20px 10px; border-bottom: 4px solid var(--dark-blue);
-            position: sticky; top: 0; z-index: 1000;
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; }
+
+        /* الهيدر */
+        .site-header { text-align: center; padding: 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid #fff; }
+        .site-logo { max-width: 450px; width: 100%; height: auto; mix-blend-mode: multiply; }
+
+        /* شريط التنقل */
+        .main-nav { display: flex; justify-content: center; gap: 10px; padding: 15px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .nav-item { 
+            padding: 8px 20px; background: var(--3d-green); color: white; text-decoration: none; 
+            border-radius: 10px; font-weight: bold; font-size: 0.9rem; 
+            box-shadow: 0 4px 0 var(--dark-green); transition: 0.2s; 
         }
-        .nav-item {
-            text-decoration: none; color: var(--dark-blue);
-            font-weight: 900; font-size: 1.1rem;
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
+        .nav-item:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--dark-green); }
+
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px 50px; }
+        .page-title { 
+            text-align: center; color: var(--blue); font-weight: 900; 
+            margin-bottom: 35px; font-size: 2.2rem; position: relative;
+            padding-bottom: 15px;
         }
-        .nav-item i { font-size: 2.6rem; color: var(--gold); }
-
-        .site-header { padding: 50px 20px; text-align: center; }
-        .site-header h1 { 
-            font-size: 2.2rem; color: white; margin: 0; font-weight: 900; 
-            background: #6c8eb0; display: inline-block; padding: 15px 60px; border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        .page-title::after {
+            content: ""; display: block; width: 120px; height: 4px; 
+            background: var(--gold); margin: 10px auto; border-radius: 2px;
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
-
-        .accordion-item { background: rgba(255, 255, 255, 0.95); border-radius: 12px; margin-bottom: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .accordion-header { padding: 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 8px solid var(--gold); transition: 0.3s; }
-        .accordion-header span { font-weight: 900; color: var(--dark-blue); font-size: 1.3rem; display: flex; align-items: center; gap: 12px; }
-        .accordion-content { display: none; padding: 20px; background: #fff; border-top: 1px solid #eee; }
-        .active .accordion-content { display: block; }
-        .active .accordion-header { background: var(--light-blue); }
-
+        /* صفوف الدروس */
         .lesson-row { 
-            background: white; border: 1px solid #edf2f7; border-radius: 10px; 
-            padding: 12px 20px; margin-bottom: 10px; display: flex; 
-            align-items: center; justify-content: space-between;
+            background: white; border-radius: 12px; padding: 15px 20px; 
+            margin-bottom: 10px; display: flex; align-items: center; 
+            justify-content: space-between; gap: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #eee;
         }
-        .lesson-right { display: flex; align-items: center; gap: 12px; flex: 1; justify-content: flex-end; }
-        .lesson-name { color: var(--dark-blue); font-weight: 700; }
-        .audio-player { flex: 2; display: flex; justify-content: center; }
-        audio { height: 35px; width: 95%; }
-        .btn-download { color: #27ae60; font-size: 1.4rem; text-decoration: none; transition: 0.3s; }
-        .btn-download:hover { transform: scale(1.1); }
+        .lesson-right { 
+            flex: 1; font-weight: 800; color: var(--blue); font-size: 1.1rem;
+            display: flex; align-items: center; gap: 10px;
+        }
+        /* أيقونة خاصة لعلوم القرآن */
+        .lesson-right::before {
+            content: "\f5da"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            color: var(--gold); font-size: 1.1rem;
+        }
 
-        footer { text-align: center; color: white; padding: 30px; font-weight: bold; text-shadow: 1px 1px 2px black; }
+        .audio-player { flex: 2; display: flex; justify-content: center; }
+        audio { width: 95%; height: 35px; }
+
+        .download-left { flex: 0.2; text-align: left; }
+        .btn-download { color: var(--dark-green); font-size: 1.6rem; transition: 0.3s; }
+        .btn-download:hover { transform: scale(1.2); color: var(--blue); }
+
+        /* الترقيم */
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 30px; flex-wrap: wrap; }
+        .page-num { 
+            min-width: 40px; height: 40px; border: 1px solid #ddd; 
+            display: flex; align-items: center; justify-content: center; 
+            cursor: pointer; border-radius: 8px; background: white; 
+            font-weight: bold; color: var(--blue);
+        }
+        .page-num.active { background: var(--blue); color: white; border-color: var(--blue); }
+
+        footer { text-align: center; padding: 40px; background: white; color: var(--blue); font-weight: bold; border-top: 2px solid #eee; }
+
+        @media (max-width: 768px) {
+            .lesson-row { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
-<nav class="main-nav">
-    <a href="index.html" class="nav-item"><i class="fas fa-home"></i>الرئيسية</a>
-    <a href="lessons.html" class="nav-item"><i class="fas fa-microphone"></i>الدروس</a>
-    <a href="khotab.html" class="nav-item"><i class="fas fa-mosque"></i>الخطب</a>
-    <a href="articles.html" class="nav-item"><i class="fas fa-pen-nib"></i>المقالات</a>
-    <a href="books.html" class="nav-item"><i class="fas fa-book-open"></i>الكتب</a>
-</nav>
-
 <header class="site-header">
-    <h1>علوم القرآن</h1>
+    <img src="images/logo.png" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
 </header>
 
+<nav class="main-nav">
+    <a href="index.html" class="nav-item">الرئيسية</a>
+    <a href="lessons.html" class="nav-item">الأقسام الرئيسية</a>
+</nav>
+
 <div class="container">
-    
-    <div class="accordion-item" id="item-nasikh">
-        <div class="accordion-header" onclick="toggleAccordion('nasikh')">
-            <span><i class="fas fa-sync-alt"></i> الناسخ والمنسوخ (10 دروس)</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content" id="nasikh-list"></div>
-    </div>
-
-    <div class="accordion-item" id="item-osol">
-        <div class="accordion-header" onclick="toggleAccordion('osol')">
-            <span><i class="fas fa-book-open"></i> شرح مقدمة في أصول التفسير (27 درساً)</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content" id="osol-list"></div>
-    </div>
-
+    <h1 class="page-title">شرح أصول التفسير</h1>
+    <div id="list"></div>
+    <div class="pagination" id="pag"></div>
 </div>
 
+<footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
 <script>
-    // بيانات السلاسل
-    const seriesData = {
-        nasikh: { prefix: 'nasekh', count: 10, title: 'الناسخ والمنسوخ' },
-        osol: { prefix: 'osol-altfser', count: 27, title: 'أصول التفسير' }
+    const settings = {
+        prefix: "osol-altfser", // تم ضبطه ليتناسب مع osol-altfser-27.mp3
+        total: 27,
+        perPage: 10
     };
 
-    function toggleAccordion(key) {
-        const item = document.getElementById('item-' + key);
-        const isActive = item.classList.contains('active');
-        document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-        if (!isActive) {
-            item.classList.add('active');
-            renderLessons(key);
-        }
-    }
+    let current = 1;
 
-    function renderLessons(key) {
-        const data = seriesData[key];
-        const container = document.getElementById(key + '-list');
-        if (container.innerHTML !== "") return; // لا تكرر الإضافة إذا كانت موجودة
+    function draw(page) {
+        const listDiv = document.getElementById('list');
+        listDiv.innerHTML = "";
+        
+        const start = (page - 1) * settings.perPage + 1;
+        const end = Math.min(page * settings.perPage, settings.total);
 
-        for (let i = 1; i <= data.count; i++) {
-            const fileName = `audio/${data.prefix}-${i}.mp3`;
-            container.innerHTML += `
+        for (let i = start; i <= end; i++) {
+            const url = `audio/${settings.prefix}-${i}.mp3`;
+            listDiv.innerHTML += `
                 <div class="lesson-row">
-                    <div class="download-side"><a href="${fileName}" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></div>
-                    <div class="audio-player"><audio controls preload="none"><source src="${fileName}" type="audio/mpeg"></audio></div>
-                    <div class="lesson-right"><span class="lesson-name">${data.title} - الدرس ${i}</span><i class="fas fa-microphone-lines" style="color:#2c5d87"></i></div>
+                    <div class="lesson-right">الدرس ${i}</div>
+                    <div class="audio-player">
+                        <audio controls preload="none"><source src="${url}" type="audio/mpeg"></audio>
+                    </div>
+                    <div class="download-left">
+                        <a href="${url}" download class="btn-download" title="تحميل الملف">
+                            <i class="fas fa-cloud-arrow-down"></i>
+                        </a>
+                    </div>
                 </div>`;
         }
+        drawPager();
     }
 
-    // فتح السلسلة الأولى تلقائياً عند التحميل
-    window.onload = () => toggleAccordion('nasikh');
+    function drawPager() {
+        const pagDiv = document.getElementById('pag');
+        pagDiv.innerHTML = "";
+        const pages = Math.ceil(settings.total / settings.perPage);
+
+        for (let i = 1; i <= pages; i++) {
+            const btn = document.createElement('div');
+            btn.className = `page-num ${i === current ? 'active' : ''}`;
+            btn.innerText = i;
+            btn.onclick = () => { 
+                current = i; 
+                draw(i); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            };
+            pagDiv.appendChild(btn);
+        }
+    }
+
+    window.onload = () => draw(1);
 </script>
 
-<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 </body>
 </html>
