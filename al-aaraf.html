@@ -7,72 +7,90 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --blue: #2c5d87; --3d-green: #2ecc71; --dark-green: #27ae60; --gold: #d4af37; --bg: #f4f7f9; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; }
-        .site-header { text-align: center; padding: 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid #fff; }
-        .site-logo { max-width: 450px; width: 100%; height: auto; mix-blend-mode: multiply; }
-        .main-nav { display: flex; justify-content: center; gap: 10px; padding: 15px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .nav-item { padding: 8px 20px; background: var(--3d-green); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; box-shadow: 0 4px 0 var(--dark-green); transition: 0.2s; }
+        :root { --blue: #2c5d87; --gold: #d4af37; --bg: #f4f7f9; }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; }
+        .site-header { text-align: center; padding: 15px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid #fff; }
+        .site-logo { max-width: 400px; width: 100%; height: auto; mix-blend-mode: multiply; }
+        .main-nav { display: flex; justify-content: center; gap: 8px; padding: 12px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .nav-item { padding: 8px 15px; background: #87ceeb; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.85rem; box-shadow: 0 4px 0 var(--blue); }
         .container { max-width: 900px; margin: 30px auto; padding: 0 20px 50px; }
-        .page-title { text-align: center; color: var(--blue); font-weight: 900; margin-bottom: 35px; font-size: 2.2rem; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 10px; width: 100%; }
-        .lesson-row { background: white; border-radius: 12px; padding: 15px 20px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #eee; }
-        .lesson-right { flex: 1; font-weight: 800; color: var(--blue); }
+        .page-title { text-align: center; color: var(--blue); font-weight: 900; margin-bottom: 25px; font-size: 1.8rem; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        .lesson-row { background: white; border: 1px solid #edf2f7; border-radius: 8px; padding: 12px 15px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+        .lesson-right { flex: 1; font-weight: 700; color: var(--blue); }
         .audio-player { flex: 2; display: flex; justify-content: center; }
-        audio { width: 95%; height: 35px; }
-        .download-left { flex: 0.2; text-align: left; }
-        .btn-download { color: var(--dark-green); font-size: 1.6rem; }
-        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 30px; }
-        .page-num { min-width: 40px; height: 40px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 8px; background: white; font-weight: bold; }
-        .page-num.active { background: var(--blue); color: white; }
+        audio { width: 90%; height: 30px; }
+        .download-left { flex: 0.3; text-align: left; }
+        .btn-download { color: #27ae60; font-size: 1.3rem; text-decoration: none; }
+        .pagination { display: flex; justify-content: center; gap: 5px; margin-top: 25px; }
+        .page-num { width: 35px; height: 35px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 5px; background: white; }
+        .page-num.active { background: var(--blue); color: white; border-color: var(--blue); }
     </style>
 </head>
 <body>
-    <header class="site-header"><img src="images/logo.png" alt="الشيخ سعيد مصطفى دياب" class="site-logo"></header>
-    <nav class="main-nav">
-        <a href="index.html" class="nav-item">الرئيسية</a>
-        <a href="tafseer.html" class="nav-item">فهرس التفسير</a>
-    </nav>
-    <div class="container">
-        <h1 class="page-title">تفسير سورة الأعراف</h1>
-        <div id="list"></div>
-        <div class="pagination" id="pag"></div>
-    </div>
-    <script>
-        const settings = {
-            prefix: "al-aaraf", // تم تعديله ليناسب al-aaraf-21.mp3
-            total: 41, 
-            perPage: 12
-        };
-        let current = 1;
-        function draw(page) {
-            const listDiv = document.getElementById('list');
-            listDiv.innerHTML = "";
-            const start = (page - 1) * settings.perPage + 1;
-            const end = Math.min(page * settings.perPage, settings.total);
-            for (let i = start; i <= end; i++) {
-                const url = `audio/${settings.prefix}-${i}.mp3`;
-                listDiv.innerHTML += `
-                    <div class="lesson-row">
-                        <div class="lesson-right">الدرس ${i}</div>
-                        <div class="audio-player"><audio controls preload="none"><source src="${url}" type="audio/mpeg"></audio></div>
-                        <div class="download-left"><a href="${url}" download class="btn-download"><i class="fas fa-cloud-arrow-down"></i></a></div>
-                    </div>`;
-            }
-            drawPager();
+
+<header class="site-header">
+    <img src="images/logo.png" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+</header>
+
+<nav class="main-nav">
+    <a href="index.html" class="nav-item">الرئيسية</a>
+    <a href="tafseer.html" class="nav-item">فهرس التفسير</a>
+</nav>
+
+<div class="container">
+    <h1 class="page-title">تفسير سورة الأعراف</h1>
+    <div id="list"></div>
+    <div class="pagination" id="pag"></div>
+</div>
+
+<script>
+    const settings = {
+        prefix: "al-aaraf", // ليتطابق مع al-aaraf-21.mp3
+        total: 41,
+        perPage: 12
+    };
+
+    let current = 1;
+
+    function draw(page) {
+        const listDiv = document.getElementById('list');
+        listDiv.innerHTML = "";
+        const start = (page - 1) * settings.perPage + 1;
+        const end = Math.min(page * settings.perPage, settings.total);
+
+        for (let i = start; i <= end; i++) {
+            const url = `audio/${settings.prefix}-${i}.mp3`;
+            listDiv.innerHTML += `
+                <div class="lesson-row">
+                    <div class="lesson-right">الدرس ${i}</div>
+                    <div class="audio-player">
+                        <audio controls preload="none"><source src="${url}" type="audio/mpeg"></audio>
+                    </div>
+                    <div class="download-left">
+                        <a href="${url}" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a>
+                    </div>
+                </div>`;
         }
-        function drawPager() {
-            const pagDiv = document.getElementById('pag');
-            pagDiv.innerHTML = "";
-            const pages = Math.ceil(settings.total / settings.perPage);
-            for (let i = 1; i <= pages; i++) {
-                const btn = document.createElement('div');
-                btn.className = `page-num ${i === current ? 'active' : ''}`;
-                btn.innerText = i;
-                btn.onclick = () => { current = i; draw(i); window.scrollTo({ top: 0, behavior: 'smooth' }); };
-                pagDiv.appendChild(btn);
-            }
+        drawPager();
+    }
+
+    function drawPager() {
+        const pagDiv = document.getElementById('pag');
+        pagDiv.innerHTML = "";
+        const pages = Math.ceil(settings.total / settings.perPage);
+        for (let i = 1; i <= pages; i++) {
+            const btn = document.createElement('div');
+            btn.className = `page-num ${i === current ? 'active' : ''}`;
+            btn.innerText = i;
+            btn.onclick = () => { 
+                current = i; 
+                draw(i); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            };
+            pagDiv.appendChild(btn);
         }
-        window.onload = () => draw(1);
-    </script>
+    }
+    window.onload = () => draw(1);
+</script>
 </body>
 </html>
