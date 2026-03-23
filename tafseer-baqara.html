@@ -7,143 +7,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { 
-            --light-sky: #f4f7f9; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
-            --gold-color: #d4af37; --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
-        }
-
-        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); color: #333; }
-
-        /* الهيدر الموحد */
-        .site-header { text-align: center; padding: 15px; background: var(--header-bg); border-bottom: 4px solid #fff; }
-        .site-logo { max-width: 450px; width: 100%; height: auto; mix-blend-mode: multiply; }
-
-        /* شريط التنقل العلوي - أيقونات صغيرة */
-        .main-nav { display: flex; justify-content: center; gap: 8px; padding: 12px; background: #fff; flex-wrap: wrap; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .nav-item-small {
-            padding: 8px 15px; background: var(--accent-blue); color: white; text-decoration: none;
-            border-radius: 8px; font-weight: bold; font-size: 0.85rem;
-            box-shadow: 0 4px 0 var(--dark-blue); transition: 0.2s; display: flex; align-items: center; gap: 6px;
-        }
-        .nav-item-small:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--dark-blue); background: #5a9bd5; }
-
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px 50px; }
-        .page-title { text-align: center; color: var(--dark-blue); font-weight: 900; margin-bottom: 25px; font-size: 1.8rem; border-bottom: 2px solid var(--gold-color); display: inline-block; padding-bottom: 10px; width: 100%; }
-
-        /* تنسيق دروس سورة البقرة */
-        .lesson-row { 
-            background: white; border: 1px solid #edf2f7; border-radius: 8px; 
-            padding: 10px 15px; margin-bottom: 8px; display: flex; 
-            align-items: center; justify-content: space-between; gap: 10px;
-            transition: 0.3s;
-        }
-        .lesson-row:hover { border-color: var(--accent-blue); background: #fcfdfe; }
-        
-        .lesson-right { flex: 1.2; display: flex; align-items: center; gap: 8px; color: var(--dark-blue); font-weight: 700; font-size: 0.95rem; text-align: right; }
+        :root { --blue: #2c5d87; --gold: #d4af37; --bg: #f4f7f9; }
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; }
+        .site-header { text-align: center; padding: 15px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid #fff; }
+        .site-logo { max-width: 400px; width: 100%; height: auto; mix-blend-mode: multiply; }
+        .main-nav { display: flex; justify-content: center; gap: 8px; padding: 12px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .nav-item { padding: 8px 15px; background: #87ceeb; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.85rem; box-shadow: 0 4px 0 var(--blue); }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px 50px; }
+        .page-title { text-align: center; color: var(--blue); font-weight: 900; margin-bottom: 25px; font-size: 1.8rem; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        .lesson-row { background: white; border: 1px solid #edf2f7; border-radius: 8px; padding: 12px 15px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+        .lesson-right { flex: 1; font-weight: 700; color: var(--blue); }
         .audio-player { flex: 2; display: flex; justify-content: center; }
-        audio { width: 95%; height: 32px; }
-        .download-left { flex: 0.5; text-align: left; }
-        .btn-download { color: #27ae60; font-size: 1.4rem; text-decoration: none; transition: 0.3s; }
-        .btn-download:hover { color: var(--dark-blue); transform: scale(1.1); }
-
-        /* الترقيم */
-        .pagination { display: flex; justify-content: center; gap: 5px; margin-top: 30px; padding: 10px; flex-wrap: wrap; }
-        .page-num { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 5px; cursor: pointer; font-weight: bold; background: #fff; border: 1px solid #ddd; color: var(--dark-blue); font-size: 0.9rem; transition: 0.2s; }
-        .page-num:hover { border-color: var(--dark-blue); }
-        .page-num.active { background: var(--dark-blue); color: white; border-color: var(--dark-blue); }
-
-        footer { text-align: center; padding: 30px; background: #e0f2f7; color: var(--dark-blue); font-weight: bold; margin-top: 50px; }
-
-        @media (max-width: 768px) {
-            .lesson-row { flex-direction: column; text-align: center; }
-            .lesson-right { justify-content: center; }
-            .download-left { text-align: center; }
-        }
+        audio { width: 90%; height: 30px; }
+        .download-left { flex: 0.3; text-align: left; }
+        .btn-download { color: #27ae60; font-size: 1.3rem; text-decoration: none; }
+        .pagination { display: flex; justify-content: center; gap: 5px; margin-top: 25px; }
+        .page-num { width: 35px; height: 35px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 5px; background: white; }
+        .page-num.active { background: var(--blue); color: white; border-color: var(--blue); }
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+    <img src="images/logo.png" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
 </header>
 
 <nav class="main-nav">
-    <a href="index.html" class="nav-item-small"><i class="fas fa-home"></i> الرئيسية</a>
-    <a href="tafseer.html" class="nav-item-small"><i class="fas fa-list-ul"></i> فهرس السور</a>
-    <a href="lessons.html" class="nav-item-small"><i class="fas fa-microphone"></i> الصوتيات</a>
+    <a href="index.html" class="nav-item">الرئيسية</a>
+    <a href="tafseer.html" class="nav-item">فهرس التفسير</a>
 </nav>
 
 <div class="container">
-    <h1 class="page-title" id="main-title">تفسير سورة البقرة</h1>
-    
-    <div id="lessons-container"></div>
-
-    <div class="pagination" id="pagination-container"></div>
+    <h1 class="page-title">تفسير سورة البقرة</h1>
+    <div id="list"></div>
+    <div class="pagination" id="pag"></div>
 </div>
 
-<footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
-
 <script>
-    /* --- إعدادات سورة البقرة المصححة --- */
-    const config = {
-        title: "تفسير سورة البقرة",
-        prefix: "bakara",   // تم التعديل ليتناسب مع ملفات الصوت bakara-1.mp3
+    const settings = {
+        prefix: "bakara", // تم التأكد من الاسم bakara ليتطابق مع ملفاتك
         total: 75,
         perPage: 12
     };
 
-    let currentPage = 1;
+    let current = 1;
 
-    function renderLessons(page) {
-        const container = document.getElementById('lessons-container');
-        container.innerHTML = "";
+    function draw(page) {
+        const listDiv = document.getElementById('list');
+        listDiv.innerHTML = "";
         
-        const start = (page - 1) * config.perPage + 1;
-        const end = Math.min(page * config.perPage, config.total);
+        const start = (page - 1) * settings.perPage + 1;
+        const end = Math.min(page * settings.perPage, settings.total);
 
         for (let i = start; i <= end; i++) {
-            const fileUrl = `audio/${config.prefix}-${i}.mp3`;
-            container.innerHTML += `
+            const url = `audio/${settings.prefix}-${i}.mp3`;
+            listDiv.innerHTML += `
                 <div class="lesson-row">
-                    <div class="lesson-right">
-                        <i class="fas fa-headphones" style="font-size:0.8rem; color:#ccc;"></i>
-                        <span>الدرس رقم ${i}</span>
-                    </div>
+                    <div class="lesson-right">الدرس ${i}</div>
                     <div class="audio-player">
-                        <audio controls preload="none">
-                            <source src="${fileUrl}" type="audio/mpeg">
-                        </audio>
+                        <audio controls preload="none"><source src="${url}" type="audio/mpeg"></audio>
                     </div>
                     <div class="download-left">
-                        <a href="${fileUrl}" download class="btn-download" title="تحميل الدرس">
-                            <i class="fas fa-cloud-arrow-down"></i>
-                        </a>
+                        <a href="${url}" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a>
                     </div>
                 </div>`;
         }
-        renderPagination();
+        drawPager();
     }
 
-    function renderPagination() {
-        const container = document.getElementById('pagination-container');
-        container.innerHTML = "";
-        const totalPages = Math.ceil(config.total / config.perPage);
+    function drawPager() {
+        const pagDiv = document.getElementById('pag');
+        pagDiv.innerHTML = "";
+        const pages = Math.ceil(settings.total / settings.perPage);
 
-        for (let i = 1; i <= totalPages; i++) {
+        for (let i = 1; i <= pages; i++) {
             const btn = document.createElement('div');
-            btn.className = `page-num ${i === currentPage ? 'active' : ''}`;
+            btn.className = `page-num ${i === current ? 'active' : ''}`;
             btn.innerText = i;
-            btn.onclick = () => {
-                currentPage = i;
-                renderLessons(i);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            btn.onclick = () => { 
+                current = i; 
+                draw(i); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
             };
-            container.appendChild(btn);
+            pagDiv.appendChild(btn);
         }
     }
 
-    // التشغيل عند تحميل الصفحة
-    window.onload = () => renderLessons(1);
+    // التشغيل التلقائي عند التحميل
+    window.onload = () => draw(1);
 </script>
 
 </body>
