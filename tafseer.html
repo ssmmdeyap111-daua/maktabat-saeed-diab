@@ -7,28 +7,75 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --gold: #b59410; --bg: #f4f7f9; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); text-align: center; }
-        .site-header { background: linear-gradient(to right, #add8e6, #e0f2f7); padding: 25px; border-bottom: 4px solid var(--primary); }
-        .site-header h1 { margin: 0; color: var(--primary); font-size: 1.8rem; }
-        .nav-bar { padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .btn-home { text-decoration: none; color: var(--primary); font-weight: bold; border: 1px solid var(--primary); padding: 6px 20px; border-radius: 8px; font-size: 0.9rem; }
-        
-        .surah-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
-            gap: 15px; max-width: 1100px; margin: 20px auto; padding: 20px;
+        :root { 
+            --primary: #2c5d87; 
+            --3d-green: #2ecc71;
+            --dark-green: #27ae60;
+            --bg: #f4f7f9; 
         }
 
-        .surah-card { 
-            background: white; border: 1px solid #ddd; border-radius: 12px; 
-            padding: 15px; text-decoration: none; transition: 0.3s;
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); text-align: center; color: #333; }
+
+        /* الهيدر */
+        .site-header { 
+            background: linear-gradient(to right, #add8e6, #e0f2f7); 
+            padding: 30px 20px; 
+            border-bottom: 4px solid #fff; 
         }
-        .surah-card:hover { border-color: var(--gold); background: #fffdf5; transform: translateY(-3px); }
-        .surah-card i { color: var(--gold); font-size: 1.5rem; }
-        .surah-card h3 { margin: 0; font-size: 1.1rem; color: var(--primary); }
-        .surah-card span { font-size: 0.8rem; color: #777; font-weight: bold; }
-        footer { padding: 30px; color: #777; font-size: 0.9rem; font-weight: bold; }
+        .site-header h1 { margin: 0; color: var(--primary); font-size: 2rem; font-weight: 900; }
+
+        /* شريط التنقل */
+        .nav-bar { padding: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .btn-home { 
+            text-decoration: none; color: var(--primary); font-weight: bold; 
+            border: 2px solid var(--primary); padding: 8px 25px; border-radius: 10px; 
+            font-size: 0.9rem; transition: 0.3s;
+        }
+        .btn-home:hover { background: var(--primary); color: white; }
+
+        /* شبكة السور بنمط المستطيلات الخضراء 3D */
+        .surah-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+            gap: 15px; 
+            max-width: 1100px; 
+            margin: 20px auto; 
+            padding: 20px;
+        }
+
+        .surah-item-3d { 
+            background: var(--3d-green); 
+            color: white; 
+            text-decoration: none; 
+            padding: 18px 10px; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            font-size: 1.1rem;
+            box-shadow: 0 6px 0 var(--dark-green); /* تأثير العمق 3D */
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+
+        .surah-item-3d:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 0 var(--dark-green);
+            background: #2abf69;
+        }
+
+        .surah-item-3d:active {
+            transform: translateY(3px); 
+            box-shadow: 0 2px 0 var(--dark-green);
+        }
+
+        footer { padding: 40px; color: var(--primary); font-weight: bold; background: white; margin-top: 50px; border-top: 1px solid #eee; }
+
+        @media (max-width: 768px) {
+            .surah-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; padding: 10px; }
+            .site-header h1 { font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -38,29 +85,28 @@
 </header>
 
 <nav class="nav-bar">
-    <a href="lessons.html" class="btn-home">العودة للأقسام</a>
+    <a href="lessons.html" class="btn-home"><i class="fas fa-arrow-right"></i> العودة للأقسام</a>
 </nav>
 
 <div class="surah-grid">
-    <a href="tafseer-fatiha.html" class="surah-card"><i class="fas fa-quran"></i><h3>الفاتحة</h3><span>2 درس</span></a>
-    <a href="tafseer-baqara.html" class="surah-card"><i class="fas fa-quran"></i><h3>البقرة</h3><span>75 درس</span></a>
-    <a href="tafseer-imran.html" class="surah-card"><i class="fas fa-quran"></i><h3>آل عمران</h3><span>52 درس</span></a>
-    <a href="tafseer-al-nesa.html" class="surah-card"><i class="fas fa-quran"></i><h3>النساء</h3><span>53 درس</span></a>
-    <a href="tafseer-maeda.html" class="surah-card"><i class="fas fa-quran"></i><h3>المائدة</h3><span>34 درس</span></a>
-    <a href="tafseer-anaam.html" class="surah-card"><i class="fas fa-quran"></i><h3>الأنعام</h3><span>36 درس</span></a>
-    <a href="araf.html" class="surah-card"><i class="fas fa-quran"></i><h3>الأعراف</h3><span>41 درس</span></a>
-    <a href="tauba.html" class="surah-card"><i class="fas fa-quran"></i><h3>التوبة</h3><span>33 درس</span></a>
-    <a href="yones.html" class="surah-card"><i class="fas fa-quran"></i><h3>يونس</h3><span>23 درس</span></a>
-    <a href="hood.html" class="surah-card"><i class="fas fa-quran"></i><h3>هود</h3><span>22 درس</span></a>
-    <a href="tafseer-yusef.html" class="surah-card"><i class="fas fa-quran"></i><h3>يوسف</h3><span>17 درس</span></a>
-    <a href="tafseer-rad.html" class="surah-card"><i class="fas fa-quran"></i><h3>الرعد</h3><span>11 درس</span></a>
-    <a href="tafseer-ibrahim.html" class="surah-card"><i class="fas fa-quran"></i><h3>إبراهيم</h3><span>10 درس</span></a>
-    <a href="tafseer-hijr.html" class="surah-card"><i class="fas fa-quran"></i><h3>الحجر</h3><span>10 درس</span></a>
-    <a href="tafseer-nahl.html" class="surah-card"><i class="fas fa-quran"></i><h3>النحل</h3><span>40 درس</span></a>
-
+    <a href="tafseer-fatiha.html" class="surah-item-3d">الفاتحة</a>
+    <a href="tafseer-baqara.html" class="surah-item-3d">البقرة</a>
+    <a href="tafseer-imran.html" class="surah-item-3d">آل عمران</a>
+    <a href="tafseer-al-nesa.html" class="surah-item-3d">النساء</a>
+    <a href="tafseer-maeda.html" class="surah-item-3d">المائدة</a>
+    <a href="tafseer-anaam.html" class="surah-item-3d">الأنعام</a>
+    <a href="araf.html" class="surah-item-3d">الأعراف</a>
+    <a href="tauba.html" class="surah-item-3d">التوبة</a>
+    <a href="yones.html" class="surah-item-3d">يونس</a>
+    <a href="hood.html" class="surah-item-3d">هود</a>
+    <a href="tafseer-yusef.html" class="surah-item-3d">يوسف</a>
+    <a href="tafseer-rad.html" class="surah-item-3d">الرعد</a>
+    <a href="tafseer-ibrahim.html" class="surah-item-3d">إبراهيم</a>
+    <a href="tafseer-hijr.html" class="surah-item-3d">الحجر</a>
+    <a href="tafseer-nahl.html" class="surah-item-3d">النحل</a>
 </div>
 
-<footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+<footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
 </body>
 </html>
