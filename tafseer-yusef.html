@@ -1,1 +1,188 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفسير سورة يوسف - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { 
+            --primary: #2c5d87; 
+            --accent: #87ceeb; 
+            --gold: #d4af37; 
+            --bg: #f4f7f9; 
+            --prayer-bg: #fdfae7;
+            --dark-green: #1b5e20; 
+            --light-green: #27ae60;
+        }
+
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); color: #333; }
+
+        /* شريط التاريخ والمواقيت */
+        .top-bar { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 10px 30px; background: var(--prayer-bg); border-bottom: 2px solid var(--accent); 
+        }
+        .date-info { font-weight: 700; color: var(--primary); font-size: 0.9rem; }
+        .prayer-times { display: flex; gap: 8px; }
+        .prayer-item { background: white; border: 1px solid #ddd; padding: 5px 12px; border-radius: 8px; text-align: center; min-width: 65px; }
+        .prayer-name { display: block; font-size: 0.75rem; color: #666; font-weight: bold; }
+        .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.9rem; }
+
+        /* الهيدر واللوجو */
+        .site-header { text-align: center; padding: 25px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 4px solid #fff; }
+        .site-logo { max-width: 480px; width: 100%; height: auto; mix-blend-mode: multiply; }
+
+        /* شريط التنقل بالأيقونات */
+        .main-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 15px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .nav-link { 
+            text-decoration: none; padding: 8px 18px; border-radius: 10px; font-weight: 700; color: white; 
+            display: flex; align-items: center; gap: 8px; background: var(--primary); transition: 0.3s;
+            box-shadow: 0 4px 0 #1a3d5a;
+        }
+        .nav-link:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+        /* حاوية الدروس */
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px 60px; }
+        .page-title { text-align: center; color: var(--primary); font-weight: 900; font-size: 2.2rem; margin-bottom: 40px; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 5px; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; }
+        
+        /* تنسيق قائمة الدروس */
+        .lesson-row { 
+            background: white; border-radius: 12px; padding: 15px 25px; margin-bottom: 10px; 
+            display: flex; align-items: center; justify-content: space-between; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.03); border: 1px solid #eee;
+        }
+        .lesson-name { flex: 1; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 12px; text-align: right; }
+        .lesson-name i { color: var(--dark-green); font-size: 1.2rem; }
+
+        .audio-player { flex: 2; display: flex; justify-content: center; }
+        audio { width: 90%; height: 35px; }
+
+        .download-area { flex: 0.3; text-align: left; }
+        .btn-download { color: var(--dark-green); font-size: 1.7rem; text-decoration: none; transition: 0.3s; }
+        .btn-download:hover { color: var(--gold); transform: scale(1.1); }
+
+        /* الترقيم */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; }
+        .page-num { 
+            width: 45px; height: 45px; border: 1px solid #ddd; display: flex; align-items: center; 
+            justify-content: center; cursor: pointer; border-radius: 10px; background: white; 
+            font-weight: bold; color: var(--primary); transition: 0.3s;
+        }
+        .page-num.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        footer { text-align: center; padding: 40px; background: #e0f2f7; color: var(--primary); font-weight: bold; border-top: 2px solid white; }
+
+        @media (max-width: 768px) {
+            .lesson-row { flex-direction: column; gap: 15px; text-align: center; }
+            .lesson-name { justify-content: center; }
+            .download-area { text-align: center; }
+            .top-bar { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="date-info" id="current-date">جاري تحميل التاريخ...</div>
+        <div class="prayer-times" id="prayer-api"></div>
+    </div>
+
+    <header class="site-header">
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+    </header>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a>
+        <a href="tafseer.html" class="nav-link"><i class="fas fa-list-ul"></i> فهرس التفسير</a>
+        <a href="lessons.html" class="nav-link"><i class="fas fa-volume-up"></i> الصوتيات</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">تفسير سورة يوسف</h1>
+        <div id="lesson-list"></div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <script>
+        function updateDate() {
+            const now = new Date();
+            const optionsH = { day: 'numeric', month: 'long', year: 'numeric', calendar: 'islamic-umalqura' };
+            const optionsM = { day: 'numeric', month: 'long', year: 'numeric' };
+            const h = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', optionsH).format(now);
+            const m = new Intl.DateTimeFormat('ar-EG', optionsM).format(now);
+            document.getElementById('current-date').innerText = `${h} هـ | ${m} م`;
+        }
+
+        async function getPrayers() {
+            try {
+                const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
+                const data = await res.json();
+                const t = data.data.timings;
+                const prayers = [
+                    {n: "الفجر", v: t.Fajr}, {n: "الظهر", v: t.Dhuhr}, 
+                    {n: "العصر", v: t.Asr}, {n: "المغرب", v: t.Maghrib}, {n: "العشاء", v: t.Isha}
+                ];
+                document.getElementById('prayer-api').innerHTML = prayers.map(p => `
+                    <div class="prayer-item">
+                        <span class="prayer-name">${p.n}</span>
+                        <span class="prayer-time">${p.v}</span>
+                    </div>
+                `).join('');
+            } catch (e) { console.log("Error loading prayers"); }
+        }
+
+        const settings = {
+            total: 17, // إجمالي دروس سورة يوسف
+            perPage: 12,
+            prefix: "yusef" // ليتطابق مع yusef-1.mp3
+        };
+
+        let current = 1;
+
+        function drawLessons(page) {
+            const list = document.getElementById('lesson-list');
+            list.innerHTML = "";
+            const start = (page - 1) * settings.perPage + 1;
+            const end = Math.min(page * settings.perPage, settings.total);
+
+            for (let i = start; i <= end; i++) {
+                const url = `audio/${settings.prefix}-${i}.mp3`;
+                list.innerHTML += `
+                    <div class="lesson-row">
+                        <div class="lesson-name"><i class="fas fa-quran"></i> الدرس ${i}</div>
+                        <div class="audio-player">
+                            <audio controls preload="none"><source src="${url}" type="audio/mpeg"></audio>
+                        </div>
+                        <div class="download-area">
+                            <a href="${url}" download class="btn-download" title="تحميل"><i class="fas fa-circle-down"></i></a>
+                        </div>
+                    </div>`;
+            }
+            drawPager();
+        }
+
+        function drawPager() {
+            const pag = document.getElementById('pagination');
+            pag.innerHTML = "";
+            const pages = Math.ceil(settings.total / settings.perPage);
+            if (pages <= 1) return;
+            for (let i = 1; i <= pages; i++) {
+                const btn = document.createElement('div');
+                btn.className = `page-num ${i === current ? 'active' : ''}`;
+                btn.innerText = i;
+                btn.onclick = () => { current = i; drawLessons(i); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                pag.appendChild(btn);
+            }
+        }
+
+        updateDate();
+        getPrayers();
+        drawLessons(1);
+    </script>
+</body>
+</html>
