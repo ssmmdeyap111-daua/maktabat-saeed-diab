@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فهرس التفسير - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
@@ -16,23 +17,21 @@
 
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
         
-        /* شبكة السور ثلاثية الأبعاد المزدحمة لتعرض كل السور */
         .surah-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-            gap: 20px; padding: 20px 0; 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+            gap: 25px; padding: 20px 0; 
         }
 
         .surah-item-3d {
-            background: #fff; border: 1px solid #ddd; border-radius: 12px;
-            padding: 20px 10px; text-decoration: none; color: var(--primary);
-            font-weight: 800; font-size: 1.25rem; position: relative;
-            box-shadow: 0 6px 0 #cbd5e0, 0 10px 15px rgba(0,0,0,0.1);
+            background: #fff; border: 1px solid #ddd; border-radius: 15px;
+            padding: 25px 15px; text-decoration: none; color: var(--primary);
+            font-weight: 900; font-size: 1.4rem; position: relative;
+            box-shadow: 0 8px 0 #cbd5e0, 0 15px 20px rgba(0,0,0,0.1);
             transition: all 0.2s ease; display: block;
         }
 
-        .surah-item-3d:hover { transform: translateY(2px); box-shadow: 0 4px 0 #cbd5e0, 0 8px 12px rgba(0,0,0,0.1); background: #f0f9ff; }
-        .surah-item-3d:active { transform: translateY(6px); box-shadow: none; }
+        .surah-item-3d:hover { transform: translateY(3px); box-shadow: 0 5px 0 #cbd5e0; background: #f0f9ff; }
+        .surah-item-3d:active { transform: translateY(8px); box-shadow: none; }
 
         footer { text-align: center; padding: 40px; background: #e0f2f7; color: var(--primary); font-weight: bold; border-top: 2px solid white; margin-top: 50px; }
     </style>
@@ -49,7 +48,7 @@
     </header>
 
     <div class="container">
-        <h1 style="color: var(--primary); font-weight: 900; margin-bottom: 30px;">فهرس تفسير القرآن الكريم</h1>
+        <h1 style="color: var(--primary); font-weight: 900; margin-bottom: 40px;">فهرس تفسير القرآن الكريم</h1>
         
         <div class="surah-grid">
             <a href="fatiha.html" class="surah-item-3d">الفاتحة</a>
@@ -81,20 +80,8 @@
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // دالة التاريخ والمواقيت الموحدة
-        function updateAll() {
-            const now = new Date();
-            document.getElementById('current-date').innerText = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now) + " هـ";
-            
-            fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4')
-                .then(res => res.json())
-                .then(data => {
-                    const t = data.data.timings;
-                    const p = [{n:"الفجر",v:t.Fajr},{n:"الظهر",v:t.Dhuhr},{n:"العصر",v:t.Asr},{n:"المغرب",v:t.Maghrib},{n:"العشاء",v:t.Isha}];
-                    document.getElementById('prayer-api').innerHTML = p.map(x => `<span style="margin:0 5px; font-size:0.8rem;"><b>${x.n}:</b> ${x.v}</span>`).join('');
-                }).catch(e => console.log("error"));
-        }
-        updateAll();
+        const now = new Date();
+        document.getElementById('current-date').innerText = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now) + " هـ";
     </script>
 </body>
 </html>
