@@ -19,7 +19,7 @@
         .site-header { text-align: center; padding: 15px; background: var(--header-bg); border-bottom: 5px solid #fff; }
         .site-logo { max-width: 450px; width: 100%; height: auto; mix-blend-mode: multiply; }
 
-        /* شريط التنقل - أيقونات صغيرة ومتناسقة */
+        /* شريط التنقل */
         .nav-bar { display: flex; justify-content: center; gap: 8px; padding: 15px; flex-wrap: wrap; background: #fff; }
         .btn-small { 
             min-width: 120px; padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; 
@@ -35,7 +35,7 @@
         .section-box { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
         .section-title { color: var(--dark-blue); font-size: 1.8rem; border-right: 6px solid var(--gold-color); padding-right: 12px; margin-bottom: 25px; text-align: center; }
 
-        /* جدول الخطب - متسع ومنظم */
+        /* جدول الخطب */
         .khutbah-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 1.1rem; }
         .khutbah-table th { background: #f8f9fa; color: var(--dark-blue); padding: 15px; border-bottom: 2px solid #eee; text-align: center; }
         .khutbah-table td { padding: 15px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: bold; }
@@ -45,7 +45,7 @@
         .btn-download { color: var(--dark-blue); font-size: 1.4rem; transition: 0.3s; }
         .btn-download:hover { color: var(--gold-color); }
 
-        /* أزرار التنقل بين الصفحات */
+        /* أزرار التنقل */
         .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 30px; }
         .page-link { padding: 8px 16px; border: 1px solid var(--accent-blue); border-radius: 5px; text-decoration: none; color: var(--dark-blue); font-weight: bold; transition: 0.3s; }
         .page-link.active { background: var(--dark-blue); color: white; border-color: var(--dark-blue); }
@@ -71,7 +71,7 @@
     <div class="content-container">
         
         <div class="section-box">
-            <h2 class="section-title">خطب شهر رمضان وفضل الصيام</h2>
+            <h2 class="section-title">خطب إيمانية ومنوعة</h2>
             <table class="khutbah-table">
                 <thead>
                     <tr>
@@ -82,12 +82,15 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td style="color: var(--gold-color);">خطبة العبودية</td>
+                        <td><audio controls class="audio-player"><source src="audio/al-obodeya.mp3" type="audio/mpeg"></audio></td>
+                        <td><a href="audio/al-obodeya.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></td>
+                    </tr>
+                    <tr>
                         <td>ما أعده الله لك في رمضان</td>
                         <td><audio controls class="audio-player"><source src="audio/ramadan.mp3" type="audio/mpeg"></audio></td>
                         <td><a href="audio/ramadan.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></td>
                     </tr>
-                    <tr>
-                    
                 </tbody>
             </table>
         </div>
@@ -103,12 +106,10 @@
                         <th width="10%">تحميل</th>
                     </tr>
                 </thead>
-                <tbody id="alamat-list">
-                    </tbody>
+                <tbody id="alamat-list"></tbody>
             </table>
             
-            <div class="pagination" id="pagination-controls">
-                </div>
+            <div class="pagination" id="pagination-controls"></div>
         </div>
 
     </div>
@@ -147,17 +148,16 @@
 
             for (let i = 1; i <= totalPages; i++) {
                 const activeClass = (i === currentPage) ? "active" : "";
-                controls.innerHTML += `<a href="#" class="page-link ${activeClass}" onclick="changePage(${i})">${i}</a>`;
+                controls.innerHTML += `<a href="#" class="page-link ${activeClass}" onclick="changePage(event, ${i})">${i}</a>`;
             }
         }
 
-        function changePage(i) {
+        function changePage(event, i) {
+            event.preventDefault(); // منع الصفحة من القفز للأعلى عند الضغط
             currentPage = i;
             displayAlamat(i);
-            window.scrollTo(0, 500); // للعودة لأعلى الجدول عند تغيير الصفحة
         }
 
-        // تشغيل الصفحة الأولى عند التحميل
         displayAlamat(1);
     </script>
 </body>
