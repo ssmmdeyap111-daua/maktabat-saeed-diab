@@ -7,91 +7,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { 
-            --primary: #2c5d87; 
-            --gold: #cd950c; 
-            --bg: #f4f7f9; 
-        }
+        :root { --primary: #2c5d87; --gold: #cd950c; --bg: #f4f7f9; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); text-align: center; }
         
-        /* الهيدر العلوي */
-        .site-header { padding: 20px; background: #fff; border-bottom: 1px solid #eee; }
-        .site-logo { max-width: 350px; width: 100%; mix-blend-mode: multiply; }
+        .site-header { padding: 20px; background: #fff; }
+        .site-logo { max-width: 380px; width: 100%; mix-blend-mode: multiply; }
 
-        /* شريط التنقل الذهبي بالأيقونات */
+        /* شريط التنقل مع أيقونة الخطب */
         .nav-bar { 
-            display: flex; justify-content: center; gap: 10px; padding: 15px; 
+            display: flex; justify-content: center; gap: 8px; padding: 15px; 
             flex-wrap: wrap; background: #f8f9fa; border-bottom: 5px solid var(--gold);
         }
         .btn-nav { 
-            min-width: 120px; padding: 10px 15px; border-radius: 8px; font-weight: 700; 
+            min-width: 110px; padding: 10px 12px; border-radius: 8px; font-weight: 700; 
             text-decoration: none; color: white; background: var(--gold);
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            transition: 0.3s; box-shadow: 0 4px 0 #9e7309; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            transition: 0.3s; box-shadow: 0 4px 0 #9e7309; font-size: 0.85rem;
         }
         .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #9e7309; }
 
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         
-        /* بطاقة المحتوى */
-        .tafseer-card { 
-            background: white; border-radius: 25px; padding: 40px; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #eee;
-        }
-
-        /* تكبير العنوان بشكل بارز جداً */
-        .surah-title { 
+        /* تكبير العنوان الرئيسي جداً */
+        .main-surah-title { 
             color: var(--primary); 
             font-weight: 900; 
-            font-size: 3.5rem; /* حجم كبير جداً */
-            margin-bottom: 5px; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+            font-size: 5rem; /* حجم ضخم جداً */
+            margin: 20px 0 10px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
         }
-        .surah-subtitle { 
-            color: var(--gold); 
-            font-size: 1.5rem; 
-            font-weight: 700; 
-            margin-bottom: 40px; 
-            display: block;
-        }
+        .sub-header { color: var(--gold); font-size: 1.8rem; font-weight: bold; margin-bottom: 40px; }
 
-        /* مشغل الصوت */
-        .audio-section {
-            background: #fdfaf0;
-            padding: 30px;
-            border-radius: 20px;
-            border: 2px solid #f1e3c4;
-            margin-bottom: 30px;
+        /* قائمة الدروس */
+        .lessons-list { 
+            display: grid; grid-template-columns: repeat(1, 1fr); 
+            gap: 15px; margin-bottom: 30px; 
         }
-        .audio-title { 
-            font-weight: 900; 
-            color: var(--primary); 
-            margin-bottom: 15px; 
-            font-size: 1.3rem; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 10px; 
+        .lesson-item {
+            background: white; padding: 20px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-right: 8px solid var(--gold);
+            transition: 0.3s; text-decoration: none;
         }
-        audio { width: 100%; filter: sepia(20%) saturate(70%) grayscale(10%) contrast(90%); }
+        .lesson-item:hover { transform: scale(1.02); background: #fffdf5; }
+        .lesson-info { display: flex; align-items: center; gap: 20px; color: var(--primary); font-weight: 800; font-size: 1.2rem; }
+        .play-icon { color: var(--gold); font-size: 1.5rem; }
 
-        /* زر العودة للفهرس العام */
-        .back-to-index {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 30px;
-            padding: 12px 25px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
+        /* الترقيم */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin: 40px 0; }
+        .page-btn { 
+            padding: 10px 20px; background: #fff; border: 2px solid var(--primary); 
+            color: var(--primary); cursor: pointer; border-radius: 8px; font-weight: bold;
         }
-        .back-to-index:hover { background: var(--gold); transform: scale(1.05); }
+        .page-btn.active { background: var(--primary); color: #fff; }
 
-        footer { padding: 30px; margin-top: 50px; color: var(--primary); font-weight: bold; }
+        .back-link { 
+            display: inline-block; margin-top: 20px; color: var(--primary); 
+            text-decoration: none; font-weight: bold; font-size: 1.1rem;
+        }
+        footer { padding: 40px; margin-top: 60px; color: var(--primary); font-weight: bold; background: #eef5f8; }
     </style>
 </head>
 <body>
@@ -103,33 +77,77 @@
     <nav class="nav-bar">
         <a href="index.html" class="btn-nav"><i class="fas fa-home"></i> الرئيسية</a>
         <a href="lessons.html" class="btn-nav"><i class="fas fa-microphone"></i> الدروس</a>
-        <a href="books.html" class="btn-nav"><i class="fas fa-book"></i> الكتب</a>
+        <a href="khutbah.html" class="btn-nav"><i class="fas fa-bullhorn"></i> الخطب</a> <a href="books.html" class="btn-nav"><i class="fas fa-book"></i> الكتب</a>
         <a href="articles.html" class="btn-nav"><i class="fas fa-pen-nib"></i> المقالات</a>
     </nav>
 
     <div class="container">
-        <div class="tafseer-card">
-            <h1 class="surah-title">سورة النحل</h1>
-            <span class="surah-subtitle">سلسلة دروس التفسير</span>
+        <h1 class="main-surah-title">سورة النحل</h1>
+        <div class="sub-header">سلسلة دروس التفسير (30 درساً)</div>
 
-            <div class="audio-section">
-                <div class="audio-title">
-                    <i class="fas fa-play-circle" style="color: var(--gold);"></i>
-                    الدرس الأول: من الآية 1 إلى الآية 20
-                </div>
-                <audio controls>
-                    <source src="alnahl-6.mp3" type="audio/mpeg">
-                    متصفحك لا يدعم تشغيل الصوت.
-                </audio>
+        <div id="lessons-container" class="lessons-list">
             </div>
 
-            <a href="tafseer.html" class="back-to-index">
-                <i class="fas fa-th-list"></i> العودة لفهرس التفسير العام
-            </a>
-        </div>
+        <div class="pagination" id="pagination"></div>
+
+        <a href="tafseer.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة لفهرس السور العام</a>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
+    <script>
+        // مصفوفة الدروس (أضفت الـ 6 دروس والدروس المتبقية كمثال)
+        const lessons = [];
+        for (let i = 1; i <= 30; i++) {
+            lessons.push({
+                id: i,
+                title: `تفسير سورة النحل - الدرس رقم (${i})`,
+                file: i <= 6 ? `alnahl-${i}.mp3` : `#` // الـ 6 دروس الأولى فعالة
+            });
+        }
+
+        const lessonsPerPage = 12;
+        let currentPage = 1;
+
+        function displayLessons(page) {
+            const container = document.getElementById('lessons-container');
+            container.innerHTML = "";
+            const start = (page - 1) * lessonsPerPage;
+            const end = start + lessonsPerPage;
+            const currentSet = lessons.slice(start, end);
+
+            currentSet.forEach(L => {
+                container.innerHTML += `
+                    <div class="lesson-item">
+                        <div class="lesson-info">
+                            <i class="fas fa-file-audio play-icon"></i>
+                            <span>${L.title}</span>
+                        </div>
+                        <audio controls style="height: 35px;">
+                            <source src="${L.file}" type="audio/mpeg">
+                        </audio>
+                    </div>
+                `;
+            });
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const nav = document.getElementById('pagination');
+            nav.innerHTML = "";
+            const totalPages = Math.ceil(lessons.length / lessonsPerPage);
+            for (let i = 1; i <= totalPages; i++) {
+                nav.innerHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+            }
+        }
+
+        function goToPage(p) {
+            currentPage = p;
+            displayLessons(p);
+            window.scrollTo({ top: 400, behavior: 'smooth' });
+        }
+
+        displayLessons(1);
+    </script>
 </body>
 </html>
