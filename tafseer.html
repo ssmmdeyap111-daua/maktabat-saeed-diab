@@ -3,39 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الفهرس الشامل - الشيخ سعيد مصطفى دياب</title>
+    <title>فهرس التفسير الشامل - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --accent: #87ceeb; --gold: #d4af37; --bg: #f4f7f9; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); text-align: center; }
-        .site-header { padding: 25px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid #fff; }
-        .site-logo { max-width: 450px; width: 100%; mix-blend-mode: multiply; }
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        :root { --primary: #2c5d87; --accent: #add8e6; --gold: #d4af37; --bg: #f4f7f9; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); text-align: center; color: #333; }
         
-        .page-section { margin-bottom: 50px; padding: 25px; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .section-title { color: var(--gold); font-weight: 900; font-size: 1.8rem; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .site-header { padding: 20px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 400px; width: 100%; mix-blend-mode: multiply; }
+        
+        /* شريط المعلومات والتوقيت */
+        .info-bar { 
+            background: var(--primary); color: white; padding: 12px; 
+            display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;
+            font-size: 0.95rem; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
+        .container { max-width: 1300px; margin: 20px auto 60px; padding: 0 20px; }
+        
+        /* مواقيت الصلاة */
+        .prayer-times { 
+            display: flex; justify-content: center; gap: 15px; margin: 20px 0; 
+            padding: 15px; background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+        }
+        .prayer-item { padding: 5px 15px; border-left: 1px solid #eee; font-size: 0.9rem; color: var(--primary); font-weight: 900; }
+        .prayer-item:last-child { border: none; }
+        .prayer-item span { color: var(--gold); display: block; font-size: 1.1rem; margin-top: 5px; }
+
+        /* الشبكة المستهدفة: 7 أعمدة */
         .surah-grid { 
             display: grid; 
-            grid-template-columns: repeat(6, 1fr); 
-            gap: 15px; 
+            grid-template-columns: repeat(7, 1fr); 
+            gap: 12px; 
+            margin: 30px 0;
         }
 
         .surah-item-3d {
-            background: #fff; border: 1px solid #ddd; border-radius: 12px;
-            padding: 18px 2px; text-decoration: none; color: var(--primary);
-            font-weight: 800; font-size: 1.1rem;
-            box-shadow: 0 6px 0 #cbd5e0, 0 10px 15px rgba(0,0,0,0.05);
+            background: #fff; border: 1px solid #ddd; border-radius: 10px;
+            padding: 20px 2px; text-decoration: none; color: var(--primary);
+            font-weight: 800; font-size: 1.05rem;
+            box-shadow: 0 5px 0 #cbd5e0, 0 8px 12px rgba(0,0,0,0.05);
             transition: all 0.2s ease; display: block;
         }
+        .surah-item-3d:hover { transform: translateY(2px); box-shadow: 0 3px 0 #cbd5e0; background: #f0f9ff; color: var(--gold); border-color: var(--gold); }
 
-        .surah-item-3d:hover { transform: translateY(2px); box-shadow: 0 4px 0 #cbd5e0; background: #f0f9ff; color: var(--gold); }
-        .surah-item-3d:active { transform: translateY(6px); box-shadow: none; }
+        /* الترقيم */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; }
+        .page-btn { 
+            padding: 10px 20px; background: #fff; border: 2px solid var(--primary); 
+            color: var(--primary); cursor: pointer; border-radius: 8px; font-weight: bold; transition: 0.3s;
+        }
+        .page-btn.active { background: var(--primary); color: #fff; transform: scale(1.1); }
+        .page-btn:hover:not(.active) { background: var(--accent); }
 
-        @media (max-width: 1000px) { .surah-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 600px) { .surah-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1100px) { .surah-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 700px) { .surah-grid { grid-template-columns: repeat(2, 1fr); } }
         
-        footer { padding: 30px; color: var(--primary); font-weight: bold; border-top: 1px solid #ddd; margin-top: 50px; }
+        footer { padding: 30px; background: #e0f2f7; color: var(--primary); font-weight: bold; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -44,155 +70,109 @@
         <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
+    <div class="info-bar">
+        <div id="hijri-date"><i class="fas fa-moon"></i> جاري تحميل التاريخ...</div>
+        <div id="gregorian-date"><i class="far fa-calendar-alt"></i> </div>
+    </div>
+
     <div class="container">
-        <h1 style="color: var(--primary); font-weight: 900; margin-bottom: 40px;">فهرس تفسير القرآن الكريم</h1>
-
-        <div class="page-section">
-            <div class="section-title">من الفاتحة إلى النور</div>
-            <div class="surah-grid">
-                <a href="tafseer-fatiha.html" class="surah-item-3d">الفاتحة</a>
-                <a href="tafseer-baqara.html" class="surah-item-3d">البقرة</a>
-                <a href="tafseer-imran.html" class="surah-item-3d">آل عمران</a>
-                <a href="tafseer-al-nesa.html" class="surah-item-3d">النساء</a>
-                <a href="tafseer-maeda.html" class="surah-item-3d">المائدة</a>
-                <a href="tafseer-anaam.html" class="surah-item-3d">الأنعام</a>
-                <a href="tafseer-al-aaraf.html" class="surah-item-3d">الأعراف</a>
-                <a href="al-anfal.html" class="surah-item-3d">الأنفال</a>
-                <a href="tauba.html" class="surah-item-3d">التوبة</a>
-                <a href="yones.html" class="surah-item-3d">يونس</a>
-                <a href="tafseer-hood.html" class="surah-item-3d">هود</a>
-                <a href="tafseer-yusef.html" class="surah-item-3d">يوسف</a>
-                <a href="tafseer-rad.html" class="surah-item-3d">الرعد</a>
-                <a href="tafseer-ebrahem.html" class="surah-item-3d">إبراهيم</a>
-                <a href="tafseer-al-hegr.html" class="surah-item-3d">الحجر</a>
-                <a href="tafseer-nahl.html" class="surah-item-3d">النحل</a>
-                <a href="tafseer-israa.html" class="surah-item-3d">الإسراء</a>
-                <a href="tafseer-kahf.html" class="surah-item-3d">الكهف</a>
-                <a href="tafseer-maryam.html" class="surah-item-3d">مريم</a>
-                <a href="tafseer-taha.html" class="surah-item-3d">طه</a>
-                <a href="tafseer-anbiya.html" class="surah-item-3d">الأنبياء</a>
-                <a href="tafseer-hajj.html" class="surah-item-3d">الحج</a>
-                <a href="tafseer-moamenon.html" class="surah-item-3d">المؤمنون</a>
-                <a href="tafseer-noor.html" class="surah-item-3d">النور</a>
-            </div>
+        <div class="prayer-times" id="prayers">
+            <div class="prayer-item">الفجر <span id="fajr">--:--</span></div>
+            <div class="prayer-item">الشروق <span id="sunrise">--:--</span></div>
+            <div class="prayer-item">الظهر <span id="dhuhr">--:--</span></div>
+            <div class="prayer-item">العصر <span id="asr">--:--</span></div>
+            <div class="prayer-item">المغرب <span id="maghrib">--:--</span></div>
+            <div class="prayer-item">العشاء <span id="isha">--:--</span></div>
         </div>
 
-        <div class="page-section">
-            <div class="section-title">من الفرقان إلى الفتح</div>
-            <div class="surah-grid">
-                <a href="tafseer-forqan.html" class="surah-item-3d">الفرقان</a>
-                <a href="tafseer-shoaraa.html" class="surah-item-3d">الشعراء</a>
-                <a href="tafseer-naml.html" class="surah-item-3d">النمل</a>
-                <a href="tafseer-qasas.html" class="surah-item-3d">القصص</a>
-                <a href="tafseer-ankabot.html" class="surah-item-3d">العنكبوت</a>
-                <a href="tafseer-room.html" class="surah-item-3d">الروم</a>
-                <a href="tafseer-loqman.html" class="surah-item-3d">لقمان</a>
-                <a href="tafseer-sajda.html" class="surah-item-3d">السجدة</a>
-                <a href="tafseer-ahzab.html" class="surah-item-3d">الأحزاب</a>
-                <a href="tafseer-saba.html" class="surah-item-3d">سبأ</a>
-                <a href="tafseer-fater.html" class="surah-item-3d">فاطر</a>
-                <a href="tafseer-yaseen.html" class="surah-item-3d">يس</a>
-                <a href="tafseer-saffat.html" class="surah-item-3d">الصافات</a>
-                <a href="tafseer-sad.html" class="surah-item-3d">ص</a>
-                <a href="tafseer-zomar.html" class="surah-item-3d">الزمر</a>
-                <a href="tafseer-ghafer.html" class="surah-item-3d">غافر</a>
-                <a href="tafseer-fusselat.html" class="surah-item-3d">فصلت</a>
-                <a href="tafseer-shora.html" class="surah-item-3d">الشورى</a>
-                <a href="tafseer-zokhrof.html" class="surah-item-3d">الزخرف</a>
-                <a href="tafseer-dokhan.html" class="surah-item-3d">الدخان</a>
-                <a href="tafseer-jathiya.html" class="surah-item-3d">الجاثية</a>
-                <a href="tafseer-ahqaf.html" class="surah-item-3d">الأحقاف</a>
-                <a href="tafseer-mohammad.html" class="surah-item-3d">محمد</a>
-                <a href="tafseer-fath.html" class="surah-item-3d">الفتح</a>
-            </div>
-        </div>
+        <h1 style="color: var(--primary); font-weight: 900; margin-bottom: 10px;">فهرس دروس التفسير</h1>
+        <p style="color: #666; margin-bottom: 30px;">تفسير القرآن الكريم لفضيلة الشيخ سعيد مصطفى دياب</p>
 
-        <div class="page-section">
-            <div class="section-title">من الحجرات إلى المرسلات</div>
-            <div class="surah-grid">
-                <a href="tafseer-hojorat.html" class="surah-item-3d">الحجرات</a>
-                <a href="tafseer-qaf.html" class="surah-item-3d">ق</a>
-                <a href="tafseer-dhariyat.html" class="surah-item-3d">الذاريات</a>
-                <a href="tafseer-toor.html" class="surah-item-3d">الطور</a>
-                <a href="tafseer-najm.html" class="surah-item-3d">النجم</a>
-                <a href="tafseer-qamar.html" class="surah-item-3d">القمر</a>
-                <a href="tafseer-rahman.html" class="surah-item-3d">الرحمن</a>
-                <a href="tafseer-waqia.html" class="surah-item-3d">الواقعة</a>
-                <a href="tafseer-hadeed.html" class="surah-item-3d">الحديد</a>
-                <a href="tafseer-mojadila.html" class="surah-item-3d">المجادلة</a>
-                <a href="tafseer-hashr.html" class="surah-item-3d">الحشر</a>
-                <a href="tafseer-momtahina.html" class="surah-item-3d">الممتحنة</a>
-                <a href="tafseer-saff.html" class="surah-item-3d">الصف</a>
-                <a href="tafseer-jomuah.html" class="surah-item-3d">الجمعة</a>
-                <a href="tafseer-monafiqon.html" class="surah-item-3d">المنافقون</a>
-                <a href="tafseer-taghabon.html" class="surah-item-3d">التغابن</a>
-                <a href="tafseer-talaq.html" class="surah-item-3d">الطلاق</a>
-                <a href="tafseer-tahreem.html" class="surah-item-3d">التحريم</a>
-                <a href="tafseer-molk.html" class="surah-item-3d">الملك</a>
-                <a href="tafseer-qalam.html" class="surah-item-3d">القلم</a>
-                <a href="tafseer-haqqa.html" class="surah-item-3d">الحاقة</a>
-                <a href="tafseer-maarij.html" class="surah-item-3d">المعارج</a>
-                <a href="tafseer-nooh.html" class="surah-item-3d">نوح</a>
-                <a href="tafseer-jinn.html" class="surah-item-3d">الجن</a>
-            </div>
-        </div>
+        <div id="surah-container" class="surah-grid"></div>
 
-        <div class="page-section">
-            <div class="section-title">من المزمل إلى الناس</div>
-            <div class="surah-grid">
-                <a href="tafseer-mozammil.html" class="surah-item-3d">المزمل</a>
-                <a href="tafseer-modatthir.html" class="surah-item-3d">المدثر</a>
-                <a href="tafseer-qiyama.html" class="surah-item-3d">القيامة</a>
-                <a href="tafseer-insan.html" class="surah-item-3d">الإنسان</a>
-                <a href="tafseer-morselat.html" class="surah-item-3d">المرسلات</a>
-                <a href="tafseer-nabaa.html" class="surah-item-3d">النبأ</a>
-                <a href="tafseer-naziat.html" class="surah-item-3d">النازعات</a>
-                <a href="tafseer-abasa.html" class="surah-item-3d">عبس</a>
-                <a href="tafseer-takweer.html" class="surah-item-3d">التكوير</a>
-                <a href="tafseer-infitar.html" class="surah-item-3d">الانفطار</a>
-                <a href="tafseer-motaffefin.html" class="surah-item-3d">المطففين</a>
-                <a href="tafseer-inshiqaq.html" class="surah-item-3d">الانشقاق</a>
-                <a href="tafseer-boroj.html" class="surah-item-3d">البروج</a>
-                <a href="tafseer-tariq.html" class="surah-item-3d">الطارق</a>
-                <a href="tafseer-aala.html" class="surah-item-3d">الأعلى</a>
-                <a href="tafseer-ghashiya.html" class="surah-item-3d">الغاشية</a>
-                <a href="tafseer-fajr.html" class="surah-item-3d">الفجر</a>
-                <a href="tafseer-balad.html" class="surah-item-3d">البلد</a>
-                <a href="tafseer-shams.html" class="surah-item-3d">الشمس</a>
-                <a href="tafseer-layl.html" class="surah-item-3d">الليل</a>
-                <a href="tafseer-doha.html" class="surah-item-3d">الضحى</a>
-                <a href="tafseer-sharh.html" class="surah-item-3d">الشرح</a>
-                <a href="tafseer-teen.html" class="surah-item-3d">التين</a>
-                <a href="tafseer-alaq.html" class="surah-item-3d">العلق</a>
-            </div>
-        </div>
-
-        <div class="page-section">
-            <div class="section-title">خواتيم السور</div>
-            <div class="surah-grid">
-                <a href="tafseer-qadr.html" class="surah-item-3d">القدر</a>
-                <a href="tafseer-bayyina.html" class="surah-item-3d">البينة</a>
-                <a href="tafseer-zalzala.html" class="surah-item-3d">الزلزلة</a>
-                <a href="tafseer-adiyat.html" class="surah-item-3d">العاديات</a>
-                <a href="tafseer-qaria.html" class="surah-item-3d">القارعة</a>
-                <a href="tafseer-takathor.html" class="surah-item-3d">التكاثر</a>
-                <a href="tafseer-asr.html" class="surah-item-3d">العصر</a>
-                <a href="tafseer-homaza.html" class="surah-item-3d">الهمزة</a>
-                <a href="tafseer-feel.html" class="surah-item-3d">الفيل</a>
-                <a href="tafseer-qoraish.html" class="surah-item-3d">قريش</a>
-                <a href="tafseer-maoon.html" class="surah-item-3d">الماعون</a>
-                <a href="tafseer-kawthar.html" class="surah-item-3d">الكوثر</a>
-                <a href="tafseer-kaferon.html" class="surah-item-3d">الكافرون</a>
-                <a href="tafseer-nasr.html" class="surah-item-3d">النصر</a>
-                <a href="tafseer-masad.html" class="surah-item-3d">المسد</a>
-                <a href="tafseer-ikhlas.html" class="surah-item-3d">الإخلاص</a>
-                <a href="tafseer-falaq.html" class="surah-item-3d">الفلق</a>
-                <a href="tafseer-nas.html" class="surah-item-3d">الناس</a>
-            </div>
-        </div>
-
+        <div class="pagination" id="pagination"></div>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <script>
+        // مصفوفة كافة سور القرآن الـ 114 بالروابط الصحيحة
+        const allSurahs = [
+            {n:"الفاتحة", u:"tafseer-fatiha.html"}, {n:"البقرة", u:"tafseer-baqara.html"}, {n:"آل عمران", u:"tafseer-imran.html"}, {n:"النساء", u:"tafseer-al-nesa.html"}, {n:"المائدة", u:"tafseer-maeda.html"}, {n:"الأنعام", u:"tafseer-anaam.html"}, {n:"الأعراف", u:"tafseer-al-aaraf.html"},
+            {n:"الأنفال", u:"al-anfal.html"}, {n:"التوبة", u:"tauba.html"}, {n:"يونس", u:"yones.html"}, {n:"هود", u:"tafseer-hood.html"}, {n:"يوسف", u:"tafseer-yusef.html"}, {n:"الرعد", u:"tafseer-rad.html"}, {n:"إبراهيم", u:"tafseer-ebrahem.html"},
+            {n:"الحجر", u:"tafseer-al-hegr.html"}, {n:"النحل", u:"tafseer-nahl.html"}, {n:"الإسراء", u:"tafseer-israa.html"}, {n:"الكهف", u:"tafseer-kahf.html"}, {n:"مريم", u:"tafseer-maryam.html"}, {n:"طه", u:"tafseer-taha.html"}, {n:"الأنبياء", u:"tafseer-anbiya.html"},
+            {n:"الحج", u:"tafseer-hajj.html"}, {n:"المؤمنون", u:"tafseer-moamenon.html"}, {n:"النور", u:"tafseer-noor.html"}, {n:"الفرقان", u:"tafseer-forqan.html"}, {n:"الشعراء", u:"tafseer-shoaraa.html"}, {n:"النمل", u:"tafseer-naml.html"}, {n:"القصص", u:"tafseer-qasas.html"},
+            {n:"العنكبوت", u:"tafseer-ankabot.html"}, {n:"الروم", u:"tafseer-room.html"}, {n:"لقمان", u:"tafseer-loqman.html"}, {n:"السجدة", u:"tafseer-sajda.html"}, {n:"الأحزاب", u:"tafseer-ahzab.html"}, {n:"سبأ", u:"tafseer-saba.html"}, {n:"فاطر", u:"tafseer-fater.html"},
+            {n:"يس", u:"tafseer-yaseen.html"}, {n:"الصافات", u:"tafseer-saffat.html"}, {n:"ص", u:"tafseer-sad.html"}, {n:"الزمر", u:"tafseer-zomar.html"}, {n:"غافر", u:"tafseer-ghafer.html"}, {n:"فصلت", u:"tafseer-fusselat.html"}, {n:"الشورى", u:"tafseer-shora.html"},
+            {n:"الزخرف", u:"tafseer-zokhrof.html"}, {n:"الدخان", u:"tafseer-dokhan.html"}, {n:"الجاثية", u:"tafseer-jathiya.html"}, {n:"الأحقاف", u:"tafseer-ahqaf.html"}, {n:"محمد", u:"tafseer-mohammad.html"}, {n:"الفتح", u:"tafseer-fath.html"}, {n:"الحجرات", u:"tafseer-hojorat.html"},
+            {n:"ق", u:"tafseer-qaf.html"}, {n:"الذاريات", u:"tafseer-dhariyat.html"}, {n:"الطور", u:"tafseer-toor.html"}, {n:"النجم", u:"tafseer-najm.html"}, {n:"القمر", u:"tafseer-qamar.html"}, {n:"الرحمن", u:"tafseer-rahman.html"}, {n:"الواقعة", u:"tafseer-waqia.html"},
+            {n:"الحديد", u:"tafseer-hadeed.html"}, {n:"المجادلة", u:"tafseer-mojadila.html"}, {n:"الحشر", u:"tafseer-hashr.html"}, {n:"الممتحنة", u:"tafseer-momtahina.html"}, {n:"الصف", u:"tafseer-saff.html"}, {n:"الجمعة", u:"tafseer-jomuah.html"}, {n:"المنافقون", u:"tafseer-monafiqon.html"},
+            {n:"التغابن", u:"tafseer-taghabon.html"}, {n:"الطلاق", u:"tafseer-talaq.html"}, {n:"التحريم", u:"tafseer-tahreem.html"}, {n:"الملك", u:"tafseer-molk.html"}, {n:"القلم", u:"tafseer-qalam.html"}, {n:"الحاقة", u:"tafseer-haqqa.html"}, {n:"المعارج", u:"tafseer-maarij.html"},
+            {n:"نوح", u:"tafseer-nooh.html"}, {n:"الجن", u:"tafseer-jinn.html"}, {n:"المزمل", u:"tafseer-mozammil.html"}, {n:"المدثر", u:"tafseer-modatthir.html"}, {n:"القيامة", u:"tafseer-qiyama.html"}, {n:"الإنسان", u:"tafseer-insan.html"}, {n:"المرسلات", u:"tafseer-morselat.html"},
+            {n:"النبأ", u:"tafseer-nabaa.html"}, {n:"النازعات", u:"tafseer-naziat.html"}, {n:"عبس", u:"tafseer-abasa.html"}, {n:"التكوير", u:"tafseer-takweer.html"}, {n:"الانفطار", u:"tafseer-infitar.html"}, {n:"المطففين", u:"tafseer-motaffefin.html"}, {n:"الانشقاق", u:"tafseer-inshiqaq.html"},
+            {n:"البروج", u:"tafseer-boroj.html"}, {n:"الطارق", u:"tafseer-tariq.html"}, {n:"الأعلى", u:"tafseer-aala.html"}, {n:"الغاشية", u:"tafseer-ghashiya.html"}, {n:"الفجر", u:"tafseer-fajr.html"}, {n:"البلد", u:"tafseer-balad.html"}, {n:"الشمس", u:"tafseer-shams.html"},
+            {n:"الليل", u:"tafseer-layl.html"}, {n:"الضحى", u:"tafseer-doha.html"}, {n:"الشرح", u:"tafseer-sharh.html"}, {n:"التين", u:"tafseer-teen.html"}, {n:"العلق", u:"tafseer-alaq.html"}, {n:"القدر", u:"tafseer-qadr.html"}, {n:"البينة", u:"tafseer-bayyina.html"},
+            {n:"الزلزلة", u:"tafseer-zalzala.html"}, {n:"العاديات", u:"tafseer-adiyat.html"}, {n:"القارعة", u:"tafseer-qaria.html"}, {n:"التكاثر", u:"tafseer-takathor.html"}, {n:"العصر", u:"tafseer-asr.html"}, {n:"الهمزة", u:"tafseer-homaza.html"}, {n:"الفيل", u:"tafseer-feel.html"},
+            {n:"قريش", u:"tafseer-qoraish.html"}, {n:"الماعون", u:"tafseer-maoon.html"}, {n:"الكوثر", u:"tafseer-kawthar.html"}, {n:"الكافرون", u:"tafseer-kaferon.html"}, {n:"النصر", u:"tafseer-nasr.html"}, {n:"المسد", u:"tafseer-masad.html"}, {n:"الإخلاص", u:"tafseer-ikhlas.html"}, {n:"الفلق", u:"tafseer-falaq.html"}, {n:"الناس", u:"tafseer-nas.html"}
+        ];
+
+        const surahsPerPage = 28; // 7 أعمدة × 4 صفوف
+        let currentPage = 1;
+
+        function displaySurahs(page) {
+            const container = document.getElementById('surah-container');
+            container.innerHTML = "";
+            const start = (page - 1) * surahsPerPage;
+            const end = start + surahsPerPage;
+            const currentSet = allSurahs.slice(start, end);
+
+            currentSet.forEach(s => {
+                container.innerHTML += `<a href="${s.u}" class="surah-item-3d">${s.n}</a>`;
+            });
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const nav = document.getElementById('pagination');
+            nav.innerHTML = "";
+            const totalPages = Math.ceil(allSurahs.length / surahsPerPage);
+
+            for (let i = 1; i <= totalPages; i++) {
+                nav.innerHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+            }
+        }
+
+        function goToPage(p) {
+            currentPage = p;
+            displaySurahs(p);
+            window.scrollTo({ top: 200, behavior: 'smooth' });
+        }
+
+        async function updateInfo() {
+            // التاريخ الميلادي
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('gregorian-date').innerHTML += now.toLocaleDateString('ar-EG', options);
+
+            try {
+                // جلب المواقيت والتاريخ الهجري (تلقائياً حسب IP الزائر ليكون دقيقاً لكل شخص)
+                const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Cairo&country=Egypt&method=5');
+                const data = await res.json();
+                const d = data.data;
+                
+                document.getElementById('hijri-date').innerHTML = `<i class="fas fa-moon"></i> ${d.date.hijri.day} ${d.date.hijri.month.ar} ${d.date.hijri.year} هـ`;
+                
+                document.getElementById('fajr').innerText = d.timings.Fajr;
+                document.getElementById('sunrise').innerText = d.timings.Sunrise;
+                document.getElementById('dhuhr').innerText = d.timings.Dhuhr;
+                document.getElementById('asr').innerText = d.timings.Asr;
+                document.getElementById('maghrib').innerText = d.timings.Maghrib;
+                document.getElementById('isha').innerText = d.timings.Isha;
+            } catch (e) { document.getElementById('hijri-date').innerText = "حدث خطأ في جلب البيانات"; }
+        }
+
+        updateInfo();
+        displaySurahs(1);
+    </script>
 </body>
 </html>
