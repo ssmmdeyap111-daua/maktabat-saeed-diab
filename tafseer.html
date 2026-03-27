@@ -8,35 +8,29 @@
     <style>
         :root { --primary: #2c5d87; --accent: #87ceeb; --gold: #d4af37; --bg: #f4f7f9; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); text-align: center; }
-        
         .site-header { padding: 25px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid #fff; }
         .site-logo { max-width: 450px; width: 100%; mix-blend-mode: multiply; }
-
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
         
-        .page-section { margin-bottom: 60px; padding: 20px; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* تقسيم المجموعات (24 سورة في كل مجموعة) */
+        .page-section { margin-bottom: 50px; padding: 20px; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .section-title { color: var(--gold); font-weight: 900; font-size: 1.8rem; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
-        /* شبكة السور: 6 أعمدة */
         .surah-grid { 
             display: grid; 
             grid-template-columns: repeat(6, 1fr); 
-            gap: 20px; 
+            gap: 15px; 
         }
 
         .surah-item-3d {
             background: #fff; border: 1px solid #ddd; border-radius: 12px;
-            padding: 22px 5px; text-decoration: none; color: var(--primary);
-            font-weight: 800; font-size: 1.15rem;
+            padding: 20px 2px; text-decoration: none; color: var(--primary);
+            font-weight: 800; font-size: 1.1rem;
             box-shadow: 0 6px 0 #cbd5e0, 0 10px 15px rgba(0,0,0,0.05);
             transition: all 0.2s ease; display: block;
         }
-
         .surah-item-3d:hover { transform: translateY(2px); box-shadow: 0 4px 0 #cbd5e0; background: #f0f9ff; color: var(--gold); }
-        .surah-item-3d:active { transform: translateY(6px); box-shadow: none; }
-
-        footer { padding: 40px; color: var(--primary); font-weight: bold; }
-
+        
         @media (max-width: 1000px) { .surah-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 600px) { .surah-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
@@ -50,18 +44,67 @@
     <div class="container">
         <h1 style="color: var(--primary); font-weight: 900; margin-bottom: 40px;">فهرس تفسير القرآن الكريم</h1>
 
-<div class="surah-grid">
-    <a href="./al-aaraf.html" class="surah-item-3d">الأعراف</a>
-    <a href="./ebrahem.html" class="surah-item-3d">إبراهيم</a>
-    <a href="./al-hegr.html" class="surah-item-3d">الحجر</a>
-    
-    <a href="./fatiha.html" class="surah-item-3d">الفاتحة</a>
-    <a href="./baqara.html" class="surah-item-3d">البقرة</a>
-    <a href="./yousef.html" class="surah-item-3d">يوسف</a>
-</div>
-      
+        <div class="page-section">
+            <div class="section-title">الجزء الأول</div>
+            <div class="surah-grid">
+                <a href="./fatiha.html" class="surah-item-3d">الفاتحة</a>
+                <a href="./baqara.html" class="surah-item-3d">البقرة</a>
+                <a href="./imran.html" class="surah-item-3d">آل عمران</a>
+                <a href="./al-nesa.html" class="surah-item-3d">النساء</a>
+                <a href="./maeda.html" class="surah-item-3d">المائدة</a>
+                <a href="./anaam.html" class="surah-item-3d">الأنعام</a>
+                <a href="./al-aaraf.html" class="surah-item-3d">الأعراف</a> <a href="./al-anfal.html" class="surah-item-3d">الأنفال</a>
+                <a href="./tauba.html" class="surah-item-3d">التوبة</a>
+                <a href="./younes.html" class="surah-item-3d">يونس</a>
+                <a href="./hood.html" class="surah-item-3d">هود</a>
+                <a href="./yousef.html" class="surah-item-3d">يوسف</a>
+                <a href="./rad.html" class="surah-item-3d">الرعد</a>
+                <a href="./ebrahem.html" class="surah-item-3d">إبراهيم</a>
+                <a href="./al-hegr.html" class="surah-item-3d">الحجر</a>
+                <a href="./nahl.html" class="surah-item-3d">النحل</a>
+                <a href="./israa.html" class="surah-item-3d">الإسراء</a>
+                <a href="./kahf.html" class="surah-item-3d">الكهف</a>
+                <a href="./maryam.html" class="surah-item-3d">مريم</a>
+                <a href="./taha.html" class="surah-item-3d">طه</a>
+                <a href="./anbiya.html" class="surah-item-3d">الأنبياء</a>
+                <a href="./hajj.html" class="surah-item-3d">الحج</a>
+                <a href="./moamenon.html" class="surah-item-3d">المؤمنون</a>
+                <a href="./noor.html" class="surah-item-3d">النور</a>
+            </div>
+        </div>
+
+        <div class="page-section">
+            <div class="section-title">الجزء الثاني</div>
+            <div class="surah-grid">
+                <a href="./forqan.html" class="surah-item-3d">الفرقان</a>
+                <a href="./shoaraa.html" class="surah-item-3d">الشعراء</a>
+                <a href="./naml.html" class="surah-item-3d">النمل</a>
+                <a href="./qasas.html" class="surah-item-3d">القصص</a>
+                <a href="./ankabot.html" class="surah-item-3d">العنكبوت</a>
+                <a href="./room.html" class="surah-item-3d">الروم</a>
+                <a href="./loqman.html" class="surah-item-3d">لقمان</a>
+                <a href="./sajda.html" class="surah-item-3d">السجدة</a>
+                <a href="./ahzab.html" class="surah-item-3d">الأحزاب</a>
+                <a href="./saba.html" class="surah-item-3d">سبأ</a>
+                <a href="./fater.html" class="surah-item-3d">فاطر</a>
+                <a href="./yaseen.html" class="surah-item-3d">يس</a>
+                <a href="./saffat.html" class="surah-item-3d">الصافات</a>
+                <a href="./sad.html" class="surah-item-3d">ص</a>
+                <a href="./zomar.html" class="surah-item-3d">الزمر</a>
+                <a href="./ghafer.html" class="surah-item-3d">غافر</a>
+                <a href="./fusselat.html" class="surah-item-3d">فصلت</a>
+                <a href="./shora.html" class="surah-item-3d">الشورى</a>
+                <a href="./zokhrof.html" class="surah-item-3d">الزخرف</a>
+                <a href="./dokhan.html" class="surah-item-3d">الدخان</a>
+                <a href="./jathiya.html" class="surah-item-3d">الجاثية</a>
+                <a href="./ahqaf.html" class="surah-item-3d">الأحقاف</a>
+                <a href="./mohammad.html" class="surah-item-3d">محمد</a>
+                <a href="./fath.html" class="surah-item-3d">الفتح</a>
+            </div>
+        </div>
+
+        </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
-
 </body>
 </html>
