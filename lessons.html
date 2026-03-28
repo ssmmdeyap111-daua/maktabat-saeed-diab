@@ -43,7 +43,8 @@
         .rect-card h3 { margin: 0; font-size: 1.2rem; color: var(--primary); font-weight: 800; }
         .rect-card:hover { border-color: var(--gold); background: #fffdf5; transform: scale(1.03); box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
 
-        /* تمييز قسم علوم القرآن بلون ذهبي بسيط عند التحويم */
+        /* تمييز الأقسام الخاصة */
+        .radio-sci:hover { border-right-color: var(--gold); }
         .quran-sci:hover { border-right-color: var(--gold); }
 
         footer { text-align: center; padding: 35px; background: #e0f2f7; color: var(--primary); font-weight: bold; margin-top: 80px; border-top: 2px solid var(--white); }
@@ -69,6 +70,7 @@
     <nav class="nav-buttons">
         <a href="index.html" class="btn-nav btn-blue"><i class="fas fa-home"></i> الرئيسية</a>
         <a href="books.html" class="btn-nav btn-gold"><i class="fas fa-book-open"></i> الكتب</a>
+        <a href="radio.html" class="btn-nav btn-blue"><i class="fas fa-broadcast-tower"></i> برامج إذاعية</a>
         <a href="khutab.html" class="btn-nav btn-blue"><i class="fas fa-microphone"></i> الخطب</a>
         <a href="articles.html" class="btn-nav btn-blue"><i class="fas fa-pen-nib"></i> المقالات</a>
     </nav>
@@ -80,6 +82,8 @@
             <a href="tafseer.html" class="rect-card"><h3>تفسير القرآن الكريم</h3></a>
             
             <a href="quran_sciences.html" class="rect-card quran-sci"><h3>علوم القرآن (أصول التفسير)</h3></a>
+
+            <a href="radio_programs.html" class="rect-card radio-sci"><h3>برامج علمية إذاعية</h3></a>
             
             <a href="hadith.html" class="rect-card"><h3>شروح الحديث الشريف</h3></a>
             <a href="aqidah.html" class="rect-card"><h3>العقيدة والتوحيد</h3></a>
@@ -97,7 +101,7 @@
         const now = new Date();
         dateDisplay.innerText = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}).format(now) + " هـ";
 
-        // مواقيت الصلاة
+        // مواقيت الصلاة بتوقيت قطر
         async function getPrayers() {
             try {
                 const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
