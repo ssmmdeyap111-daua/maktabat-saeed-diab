@@ -187,3 +187,19 @@ footer {
     font-size: 0.95rem;
 }
 background-image: url('library-bg.jpg'); /* الصورة بجانب ملف html مباشرة */
+.site-header { 
+    text-align: center; 
+    padding: 20px; 
+    background: linear-gradient(to right, #add8e6, #e0f2f7); 
+    border-bottom: 4px solid #fff; 
+}
+
+.site-logo { 
+    max-width: 450px; /* يمكنك زيادة الحجم إلى 600px إذا أردت اللوجو أكبر */
+    width: 100%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+    /* لإزالة الخلفية البيضاء إذا كانت الصورة PNG شفافة */
+    mix-blend-mode: multiply; 
+}
