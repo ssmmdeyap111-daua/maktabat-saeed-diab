@@ -25,18 +25,16 @@
         .prayer-name { display: block; font-size: 0.65rem; color: #666; font-weight: bold; }
         .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.8rem; }
 
-        /* الهيدر واللوجو المصلح */
+        /* الهيدر واللوجو الشفاف */
         .site-header { 
-            text-align: center; 
-            padding: 20px 0; 
+            text-align: center; padding: 20px 0; 
             background-color: var(--accent-light-blue); 
             border-bottom: 4px solid #fff; 
         }
         .site-logo { 
-            max-width: 420px; 
-            width: 90%; 
-            height: auto; 
+            max-width: 420px; width: 90%; height: auto; 
             display: inline-block;
+            mix-blend-mode: multiply; /* لجعل الخلفية شفافة */
         }
 
         /* شريط التنقل الأفقي */
@@ -62,7 +60,6 @@
         .accordion-header span { font-weight: 800; color: var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
         .accordion-content { display: none; padding: 15px; background: #fcfdfe; border-top: 1px solid #eee; }
         .active .accordion-content { display: block; }
-        .active .accordion-header { background: #f0f8ff; border-right-color: var(--primary); }
 
         /* الدروس */
         .lesson-row { padding: 12px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
@@ -70,6 +67,15 @@
         .audio-part { flex: 4; }
         audio { width: 100%; height: 35px; }
         .btn-download { color: var(--dark-green); font-size: 1.6rem; text-decoration: none; }
+
+        /* نظام الصفحات */
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 15px; padding: 10px; }
+        .page-btn { 
+            width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; 
+            border-radius: 5px; cursor: pointer; border: 1px solid var(--primary); 
+            font-weight: bold; color: var(--primary); transition: 0.3s;
+        }
+        .page-btn.active { background: var(--primary); color: white; }
 
         footer { text-align: center; padding: 30px; background: #e0f2f7; color: var(--primary); font-weight: bold; }
 
@@ -104,7 +110,10 @@
                 <span><i class="fas fa-book-quran"></i> شرح مقدمة أصول التفسير (27 درساً)</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content" id="osol-list"></div>
+            <div class="accordion-content">
+                <div id="osol-list"></div>
+                <div class="pagination" id="osol-pagination"></div>
+            </div>
         </div>
 
         <div class="accordion-item" id="item-nasekh">
@@ -112,13 +121,21 @@
                 <span><i class="fas fa-scroll"></i> شرح منظومة المنسوخ للسيوطي (10 دروس)</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content" id="nasekh-list"></div>
+            <div class="accordion-content">
+                <div id="nasekh-list"></div>
+                <div class="pagination" id="nasekh-pagination"></div>
+            </div>
         </div>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
+        const lessonsData = {
+            osol: { prefix: 'osol-altfser', count: 27, perPage: 10, currentPage: 1 },
+            nasekh: { prefix: 'nasekh', count: 10, perPage: 10, currentPage: 1 }
+        };
+
         function updateDate() {
             const now = new Date();
             const h = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now);
@@ -140,24 +157,50 @@
         function toggleAccordion(key) {
             const item = document.getElementById('item-' + key);
             item.classList.toggle('active');
-            if(key === 'osol') renderLessons('osol-list', 'osol-altfser', 27);
-            if(key === 'nasekh') renderLessons('nasekh-list', 'nasekh', 10);
+            renderLessons(key);
         }
 
-        function renderLessons(elementId, prefix, count) {
-            const container = document.getElementById(elementId);
-            if (container.innerHTML !== "") return;
-            for (let i = 1; i <= count; i++) {
-                container.innerHTML += `
+        function renderLessons(key) {
+            const data = lessonsData[key];
+            const listContainer = document.getElementById(key + '-list');
+            const paginationContainer = document.getElementById(key + '-pagination');
+            
+            listContainer.innerHTML = "";
+            const start = (data.currentPage - 1) * data.perPage + 1;
+            const end = Math.min(data.currentPage * data.perPage, data.count);
+
+            for (let i = start; i <= end; i++) {
+                listContainer.innerHTML += `
                     <div class="lesson-row">
                         <div class="lesson-right">الدرس (${i})</div>
-                        <div class="audio-part"><audio controls preload="none"><source src="audio/${prefix}-${i}.mp3" type="audio/mpeg"></audio></div>
-                        <div><a href="audio/${prefix}-${i}.mp3" download class="btn-download"><i class="fas fa-circle-down"></i></a></div>
+                        <div class="audio-part"><audio controls preload="none"><source src="audio/${data.prefix}-${i}.mp3" type="audio/mpeg"></audio></div>
+                        <div><a href="audio/${data.prefix}-${i}.mp3" download class="btn-download"><i class="fas fa-circle-down"></i></a></div>
                     </div>`;
+            }
+
+            // إنشاء أزرار الصفحات
+            const totalPages = Math.ceil(data.count / data.perPage);
+            paginationContainer.innerHTML = "";
+            if (totalPages > 1) {
+                for (let p = 1; p <= totalPages; p++) {
+                    const btn = document.createElement('div');
+                    btn.className = `page-btn ${p === data.currentPage ? 'active' : ''}`;
+                    btn.innerText = p;
+                    btn.onclick = (e) => {
+                        e.stopPropagation();
+                        data.currentPage = p;
+                        renderLessons(key);
+                    };
+                    paginationContainer.appendChild(btn);
+                }
             }
         }
 
-        window.onload = () => { updateDate(); getPrayers(); toggleAccordion('osol'); };
+        window.onload = () => { 
+            updateDate(); 
+            getPrayers(); 
+            toggleAccordion('osol'); // فتح السلسلة الأولى تلقائياً
+        };
     </script>
 </body>
 </html>
