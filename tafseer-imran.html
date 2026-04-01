@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root { 
-            --primary: #2c5d87; --accent-blue: #87ceeb; --gold: #d4af37; 
-            --prayer-bg: #fdfae7; --dark-green: #1b5e20;
-            --header-gradient: linear-gradient(to right, #add8e6, #e0f2f7);
+            --primary: #2c5d87; 
+            --accent-blue: #add8e6; /* تم تعديل اللون ليتطابق مع باقي الصفحات */
+            --gold: #d4af37; 
+            --prayer-bg: #fdfae7; 
+            --dark-green: #1b5e20;
         }
 
         body { 
@@ -30,19 +32,21 @@
         .prayer-name { display: block; font-size: 0.7rem; color: #666; font-weight: bold; }
         .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.85rem; }
 
-        /* الهيدر واللوجو الشفاف */
+        /* الهيدر واللوجو المصلح */
         .site-header { 
             text-align: center; padding: 20px 0; 
-            background-color: var(--accent-light-blue); 
+            background-color: var(--accent-blue); 
             border-bottom: 4px solid #fff; 
         }
         .site-logo { 
-            max-width: 600px; width: 100%; height: auto; 
+            max-width: 450px; /* حجم مناسب للوجو */
+            width: 90%; 
+            height: auto; 
             display: inline-block;
-            mix-blend-mode: multiply; /* لإزالة الخلفية البيضاء للوجو */
+            mix-blend-mode: multiply; /* لجعل الخلفية البيضاء شفافة */
         }
       
-        /* شريط التنقل الأفقي المصلح */
+        /* شريط التنقل */
         .main-nav { 
             display: flex; justify-content: center; align-items: center;
             gap: 12px; padding: 12px; background: rgba(255, 255, 255, 0.95); 
@@ -56,15 +60,13 @@
         .nav-link:hover { transform: translateY(-3px); filter: brightness(1.2); }
         .nav-gold { background: var(--gold); }
 
-        /* الحاوية */
-        .container { max-width: 1350px; margin: 30px auto; padding: 0 20px 60px; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px 60px; }
         .page-title { 
             text-align: center; color: white; font-weight: 900; font-size: 2.2rem; 
             margin-bottom: 35px; background: rgba(44, 93, 135, 0.85); 
             display: block; padding: 15px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* صندوق الدروس المطور */
         .main-box { background: rgba(255, 255, 255, 0.98); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid #ddd; }
         .box-header { padding: 25px 35px; background: #fff; border-right: 12px solid var(--gold); border-bottom: 2px solid #eee; display: flex; align-items: center; gap: 20px; }
         .box-header span { font-weight: 900; color: var(--primary); font-size: 1.6rem; }
@@ -76,13 +78,11 @@
         .lesson-row:hover { background: #f8fbff; border-right: 6px solid var(--primary); }
         .lesson-right { flex: 1.5; display: flex; align-items: center; gap: 15px; color: var(--primary); font-weight: 800; font-size: 1.15rem; }
         
-        /* مساحة الصوت الواسعة */
         .audio-part { flex: 4; display: flex; justify-content: center; }
         audio { width: 100%; max-width: 800px; height: 42px; }
 
         .download-side { flex: 0.3; text-align: left; }
         .btn-download { color: var(--dark-green); font-size: 1.9rem; text-decoration: none; transition: 0.3s; }
-        .btn-download:hover { transform: scale(1.2); color: var(--gold); }
 
         .pagination { display: flex; justify-content: center; gap: 8px; padding: 30px; background: #fff; flex-wrap: wrap; }
         .page-btn { padding: 10px 18px; border: 1px solid #ddd; background: white; cursor: pointer; border-radius: 8px; font-weight: bold; color: var(--primary); transition: 0.3s; }
@@ -104,12 +104,12 @@
     </div>
 
     <header class="site-header">
-        <img src="images/logo.png" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="main-nav">
         <a href="index.html" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a>
-        <a href="tafseer.html" class="nav-link nav-gold"><i class="fas fa-book-open"></i> فهرس التفسير</a>
+        <a href="tafseer.html" class="nav-link nav-gold"><i class="fas fa-book-open"></i> دروس التفسير</a>
         <a href="khutab.html" class="nav-link"><i class="fas fa-microphone-lines"></i> الخطب</a>
         <a href="lessons.html" class="nav-link"><i class="fas fa-volume-high"></i> الصوتيات</a>
         <a href="books.html" class="nav-link"><i class="fas fa-book"></i> الكتب</a>
@@ -125,8 +125,7 @@
                 <span id="page-title-text">قائمة المحاضرات</span>
             </div>
 
-            <div id="lessons-area">
-                </div>
+            <div id="lessons-area"></div>
             <div class="pagination" id="pagination-btns"></div>
         </div>
     </div>
@@ -134,7 +133,6 @@
     <footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // إعدادات الدروس
         const totalLessons = 52;
         const perPage = 10;
         let current = 1;
@@ -198,9 +196,11 @@
             }
         }
 
-        updateDate();
-        getPrayers();
-        render(1); // تشغيل توليد الدروس فور تحميل الصفحة
+        window.onload = () => {
+            updateDate();
+            getPrayers();
+            render(1);
+        };
     </script>
 </body>
 </html>
