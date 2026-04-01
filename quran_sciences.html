@@ -9,7 +9,7 @@
     <style>
         :root { 
             --primary: #2c5d87; 
-            --accent-light-blue: #add8e6; 
+            --accent-light-blue: #add8e6; /* اللون الأزرق الفاتح المطلوب */
             --gold: #d4af37; 
             --prayer-bg: #fdfae7; 
             --dark-green: #1b5e20;
@@ -32,16 +32,22 @@
         .prayer-name { display: block; font-size: 0.7rem; color: #666; font-weight: bold; }
         .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.85rem; }
 
-        /* الهيدر باللون الأزرق الفاتح */
+        /* الهيدر المصلح - اللون الأزرق الفاتح */
         .site-header { 
             text-align: center; 
             padding: 25px 0; 
             background-color: var(--accent-light-blue); 
             border-bottom: 3px solid #fff; 
         }
-        .site-logo { max-width: 450px; width: 90%; height: auto; display: inline-block; mix-blend-mode: multiply; }
+        .site-logo { 
+            max-width: 450px; 
+            width: 90%; 
+            height: auto; 
+            display: inline-block; 
+            mix-blend-mode: multiply; 
+        }
 
-        /* شريط التنقل الأفقي الموحد */
+        /* شريط التنقل الأفقي */
         .main-nav { 
             display: flex; justify-content: center; align-items: center;
             gap: 12px; padding: 12px; background: rgba(255, 255, 255, 0.95); 
@@ -64,27 +70,23 @@
 
         /* نظام الأكورديون للسلاسل */
         .accordion-item { background: rgba(255, 255, 255, 0.98); border-radius: 15px; margin-bottom: 20px; border: 1px solid #ddd; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .accordion-header { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 10px solid var(--gold); transition: 0.3s; background: #fff; }
+        .accordion-header { padding: 22px 28px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 10px solid var(--gold); transition: 0.3s; background: #fff; }
         .accordion-header span { font-weight: 800; color: var(--primary); font-size: 1.3rem; display: flex; align-items: center; gap: 12px; }
-        .accordion-content { display: none; padding: 15px; background: #fcfdfe; border-top: 1px solid #eee; }
+        .accordion-content { display: none; padding: 20px; background: #fcfdfe; border-top: 1px solid #eee; }
         .active .accordion-content { display: block; }
         .active .accordion-header { background: #f0f8ff; border-right-color: var(--primary); }
 
-        /* تنسيق الدروس والمشغل الواسع */
-        .lesson-row { 
-            padding: 15px 25px; border-bottom: 1px solid #f0f0f0; display: flex; 
-            align-items: center; justify-content: space-between; gap: 20px; 
-        }
-        .lesson-row:hover { background: #f8fbff; border-right: 5px solid var(--primary); }
+        /* تنسيق الدروس والمشغل */
+        .lesson-row { padding: 15px 25px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
         .lesson-right { flex: 1.5; display: flex; align-items: center; gap: 12px; color: var(--primary); font-weight: 700; }
         .audio-part { flex: 4; display: flex; justify-content: center; }
         audio { width: 100%; max-width: 750px; height: 38px; }
         .download-side { flex: 0.3; text-align: left; }
         .btn-download { color: var(--dark-green); font-size: 1.8rem; text-decoration: none; }
 
-        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 20px; padding: 10px; }
-        .page-num { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; font-weight: bold; background: #fff; border: 1px solid #ddd; color: var(--primary); }
-        .page-num.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+        .page-num { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; font-weight: bold; background: #fff; border: 1px solid #ddd; }
+        .page-num.active { background: var(--primary); color: white; }
 
         footer { text-align: center; padding: 40px; color: white; font-weight: bold; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
 
@@ -211,7 +213,7 @@
         window.addEventListener('load', () => {
             updateDate();
             getPrayers();
-            toggleAccordion('osol'); // فتح السلسلة الأولى تلقائياً
+            toggleAccordion('osol');
         });
     </script>
 </body>
