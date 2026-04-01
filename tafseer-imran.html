@@ -30,10 +30,18 @@
         .prayer-name { display: block; font-size: 0.7rem; color: #666; font-weight: bold; }
         .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.85rem; }
 
-        /* الهيدر واللوجو */
-        .site-header { text-align: center; padding: 20px 0; background: var(--header-gradient); border-bottom: 3px solid #fff; }
-        .site-logo { max-width: 450px; width: 90%; height: auto; mix-blend-mode: multiply; display: inline-block; }
-
+        /* الهيدر واللوجو الشفاف */
+        .site-header { 
+            text-align: center; padding: 20px 0; 
+            background-color: var(--accent-light-blue); 
+            border-bottom: 4px solid #fff; 
+        }
+        .site-logo { 
+            max-width: 600px; width: 100%; height: auto; 
+            display: inline-block;
+            mix-blend-mode: multiply; /* لإزالة الخلفية البيضاء للوجو */
+        }
+      
         /* شريط التنقل الأفقي المصلح */
         .main-nav { 
             display: flex; justify-content: center; align-items: center;
