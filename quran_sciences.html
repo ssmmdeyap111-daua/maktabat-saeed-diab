@@ -9,7 +9,7 @@
     <style>
         :root { 
             --primary: #2c5d87; 
-            --accent-light-blue: #add8e6; /* اللون الأزرق الفاتح المطلوب */
+            --accent-light-blue: #add8e6; /* اللون الأزرق الفاتح */
             --gold: #d4af37; 
             --prayer-bg: #fdfae7; 
             --dark-green: #1b5e20;
@@ -18,7 +18,7 @@
         body { 
             margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
             background: url('images/library-bg.jpg') no-repeat center center fixed; 
-            background-size: cover; color: #333; 
+            background-size: cover; 
         }
 
         /* شريط المعلومات العلوي */
@@ -26,71 +26,66 @@
             display: flex; justify-content: space-between; align-items: center; 
             padding: 8px 30px; background: var(--prayer-bg); border-bottom: 2px solid var(--accent-light-blue); 
         }
-        .date-info { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
-        .prayer-times { display: flex; gap: 10px; }
-        .prayer-item { background: white; border: 1px solid #ddd; padding: 4px 10px; border-radius: 6px; text-align: center; }
-        .prayer-name { display: block; font-size: 0.7rem; color: #666; font-weight: bold; }
-        .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.85rem; }
+        .date-info { font-weight: 700; color: var(--primary); font-size: 0.9rem; }
+        .prayer-times { display: flex; gap: 8px; }
+        .prayer-item { background: white; border: 1px solid #ddd; padding: 4px 8px; border-radius: 6px; text-align: center; }
+        .prayer-name { display: block; font-size: 0.65rem; color: #666; font-weight: bold; }
+        .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.8rem; }
 
-        /* الهيدر المصلح - اللون الأزرق الفاتح */
+        /* الهيدر واللوجو */
         .site-header { 
             text-align: center; 
-            padding: 25px 0; 
+            padding: 20px 0; 
             background-color: var(--accent-light-blue); 
-            border-bottom: 3px solid #fff; 
+            border-bottom: 4px solid #fff; 
         }
         .site-logo { 
-            max-width: 450px; 
-            width: 90%; 
+            max-width: 400px; 
+            width: 85%; 
             height: auto; 
-            display: inline-block; 
-            mix-blend-mode: multiply; 
+            display: inline-block;
+            mix-blend-mode: multiply; /* لدمج اللوجو مع الخلفية الزرقاء */
         }
 
         /* شريط التنقل الأفقي */
         .main-nav { 
             display: flex; justify-content: center; align-items: center;
             gap: 12px; padding: 12px; background: rgba(255, 255, 255, 0.95); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); flex-wrap: nowrap; overflow-x: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            flex-wrap: nowrap; /* يضمن بقاءها أفقية */
+            overflow-x: auto; 
         }
         .nav-link { 
-            text-decoration: none; padding: 8px 18px; border-radius: 8px; 
+            text-decoration: none; padding: 8px 16px; border-radius: 8px; 
             font-weight: 700; color: white; display: flex; align-items: center; 
-            gap: 8px; background: var(--primary); transition: 0.3s; font-size: 0.9rem; white-space: nowrap;
+            gap: 6px; background: var(--primary); transition: 0.3s; font-size: 0.85rem; white-space: nowrap;
         }
-        .nav-link:hover { transform: translateY(-3px); filter: brightness(1.2); }
+        .nav-link:hover { transform: translateY(-2px); filter: brightness(1.1); }
         .nav-gold { background: var(--gold); }
 
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px 60px; }
         .page-title { 
-            text-align: center; color: white; font-weight: 900; font-size: 2.2rem; 
-            margin-bottom: 35px; background: rgba(44, 93, 135, 0.85); 
-            display: block; padding: 15px; border-radius: 15px; 
+            text-align: center; color: white; font-weight: 900; font-size: 2rem; 
+            margin-bottom: 30px; background: rgba(44, 93, 135, 0.85); 
+            padding: 15px; border-radius: 15px; 
         }
 
-        /* نظام الأكورديون للسلاسل */
-        .accordion-item { background: rgba(255, 255, 255, 0.98); border-radius: 15px; margin-bottom: 20px; border: 1px solid #ddd; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .accordion-header { padding: 22px 28px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 10px solid var(--gold); transition: 0.3s; background: #fff; }
-        .accordion-header span { font-weight: 800; color: var(--primary); font-size: 1.3rem; display: flex; align-items: center; gap: 12px; }
-        .accordion-content { display: none; padding: 20px; background: #fcfdfe; border-top: 1px solid #eee; }
+        /* تنسيق الأكورديون والدروس */
+        .accordion-item { background: rgba(255, 255, 255, 0.98); border-radius: 15px; margin-bottom: 20px; border: 1px solid #ddd; overflow: hidden; }
+        .accordion-header { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-right: 10px solid var(--gold); background: #fff; }
+        .accordion-header span { font-weight: 800; color: var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .accordion-content { display: none; padding: 15px; background: #fcfdfe; border-top: 1px solid #eee; }
         .active .accordion-content { display: block; }
-        .active .accordion-header { background: #f0f8ff; border-right-color: var(--primary); }
+        
+        .lesson-row { padding: 12px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+        .lesson-right { flex: 1.5; font-weight: 700; color: var(--primary); }
+        .audio-part { flex: 4; }
+        audio { width: 100%; height: 35px; }
+        .btn-download { color: var(--dark-green); font-size: 1.6rem; }
 
-        /* تنسيق الدروس والمشغل */
-        .lesson-row { padding: 15px 25px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-        .lesson-right { flex: 1.5; display: flex; align-items: center; gap: 12px; color: var(--primary); font-weight: 700; }
-        .audio-part { flex: 4; display: flex; justify-content: center; }
-        audio { width: 100%; max-width: 750px; height: 38px; }
-        .download-side { flex: 0.3; text-align: left; }
-        .btn-download { color: var(--dark-green); font-size: 1.8rem; text-decoration: none; }
+        footer { text-align: center; padding: 30px; color: white; font-weight: bold; text-shadow: 1px 1px 4px #000; }
 
-        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
-        .page-num { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; font-weight: bold; background: #fff; border: 1px solid #ddd; }
-        .page-num.active { background: var(--primary); color: white; }
-
-        footer { text-align: center; padding: 40px; color: white; font-weight: bold; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
-
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .lesson-row { flex-direction: column; text-align: center; }
             .main-nav { flex-wrap: wrap; }
         }
@@ -99,12 +94,12 @@
 <body>
 
     <div class="top-bar">
-        <div class="date-info" id="current-date"></div>
+        <div class="date-info" id="current-date">جاري التحميل...</div>
         <div class="prayer-times" id="prayer-api"></div>
     </div>
 
     <header class="site-header">
-        <img src="images/logo.png" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png" alt="فضيلة الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="main-nav">
@@ -121,28 +116,22 @@
 
         <div class="accordion-item" id="item-osol">
             <div class="accordion-header" onclick="toggleAccordion('osol')">
-                <span><i class="fas fa-book-quran"></i> شرح مقدمة في أصول التفسير (27 درساً)</span>
+                <span><i class="fas fa-book-quran"></i> أصول التفسير (27 درساً)</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content">
-                <div id="osol-list"></div>
-                <div class="pagination" id="osol-pagination"></div>
-            </div>
+            <div class="accordion-content" id="osol-list"></div>
         </div>
 
         <div class="accordion-item" id="item-nasekh">
             <div class="accordion-header" onclick="toggleAccordion('nasekh')">
-                <span><i class="fas fa-scroll"></i> شرح منظومة المنسوخ للسيوطي (10 دروس)</span>
+                <span><i class="fas fa-scroll"></i> منظومة المنسوخ (10 دروس)</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content">
-                <div id="nasekh-list"></div>
-                <div class="pagination" id="nasekh-pagination"></div>
-            </div>
+            <div class="accordion-content" id="nasekh-list"></div>
         </div>
     </div>
 
-    <footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+    <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
         function updateDate() {
@@ -163,58 +152,27 @@
             } catch (e) {}
         }
 
-        const seriesData = {
-            osol: { prefix: 'osol-altfser', count: 27, currentPage: 1 },
-            nasekh: { prefix: 'nasekh', count: 10, currentPage: 1 }
-        };
-        const perPage = 10;
-
         function toggleAccordion(key) {
             const item = document.getElementById('item-' + key);
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-            if (!isActive) {
-                item.classList.add('active');
-                renderSeries(key);
-            }
+            item.classList.toggle('active');
+            if(key === 'osol') renderLessons('osol-list', 'osol-altfser', 27);
+            if(key === 'nasekh') renderLessons('nasekh-list', 'nasekh', 10);
         }
 
-        function renderSeries(key) {
-            const data = seriesData[key];
-            const list = document.getElementById(key + '-list');
-            const pag = document.getElementById(key + '-pagination');
-            list.innerHTML = "";
-            const start = (data.currentPage - 1) * perPage + 1;
-            const end = Math.min(data.currentPage * perPage, data.count);
-
-            for (let i = start; i <= end; i++) {
-                const url = `audio/${data.prefix}-${i}.mp3`;
-                list.innerHTML += `
+        function renderLessons(elementId, prefix, count) {
+            const container = document.getElementById(elementId);
+            if (container.innerHTML !== "") return;
+            for (let i = 1; i <= count; i++) {
+                container.innerHTML += `
                     <div class="lesson-row">
-                        <div class="lesson-right"><i class="fas fa-play-circle" style="color:var(--gold)"></i><span>الدرس (${i})</span></div>
-                        <div class="audio-part"><audio controls preload="none"><source src="${url}" type="audio/mpeg"></audio></div>
-                        <div class="download-side"><a href="${url}" download class="btn-download"><i class="fas fa-circle-down"></i></a></div>
+                        <div class="lesson-right">الدرس (${i})</div>
+                        <div class="audio-part"><audio controls preload="none"><source src="audio/${prefix}-${i}.mp3" type="audio/mpeg"></audio></div>
+                        <div><a href="audio/${prefix}-${i}.mp3" download class="btn-download"><i class="fas fa-circle-down"></i></a></div>
                     </div>`;
             }
-
-            pag.innerHTML = "";
-            const totalPages = Math.ceil(data.count / perPage);
-            if (totalPages > 1) {
-                for (let p = 1; p <= totalPages; p++) {
-                    const btn = document.createElement('div');
-                    btn.className = `page-num ${p === data.currentPage ? 'active' : ''}`;
-                    btn.innerText = p;
-                    btn.onclick = (e) => { e.stopPropagation(); data.currentPage = p; renderSeries(key); };
-                    pag.appendChild(btn);
-                }
-            }
         }
 
-        window.addEventListener('load', () => {
-            updateDate();
-            getPrayers();
-            toggleAccordion('osol');
-        });
+        window.onload = () => { updateDate(); getPrayers(); toggleAccordion('osol'); };
     </script>
 </body>
 </html>
