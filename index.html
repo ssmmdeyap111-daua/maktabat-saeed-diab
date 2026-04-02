@@ -34,8 +34,22 @@
         .prayer-name { background: #3e7d3e; color: white; width: 100%; text-align: center; font-size: 0.8rem; border-radius: 8px 8px 0 0; padding: 3px 0; }
         .prayer-time { background: var(--prayer-green); color: #1b5e20; width: 100%; text-align: center; font-size: 1rem; font-weight: 900; border: 1px solid #c8e6c9; border-radius: 0 0 8px 8px; }
 
-        .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 5px solid #fff; }
+        /* الهيدر مع عداد الزوار */
+        .site-header { 
+            text-align: center; padding: 20px; background: var(--header-bg); 
+            border-bottom: 5px solid #fff; position: relative;
+        }
         .site-logo { max-width: 950px; width: 100%; height: auto; mix-blend-mode: multiply; }
+        
+        /* عداد الزوار أقصى الشمال أسفل الهيدر */
+        .visitor-counter {
+            position: absolute; left: 20px; bottom: 10px;
+            background: rgba(255, 255, 255, 0.7); padding: 5px 15px;
+            border-radius: 20px; border: 1px solid var(--accent-blue);
+            font-size: 0.85rem; color: var(--dark-blue); font-weight: bold;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .visitor-counter i { color: var(--gold-color); }
 
         /* شريط الآية المتحرك */
         .quran-container { padding: 15px; }
@@ -50,11 +64,12 @@
         .search-wrapper { position: relative; width: 90%; max-width: 700px; margin: 0 auto 30px; }
         .search-box { 
             width: 100%; padding: 12px 50px 12px 20px; border-radius: 50px; border: 2px solid var(--accent-blue); 
-            outline: none; font-size: 1.1rem; font-family: 'Cairo';
+            outline: none; font-size: 1.1rem; font-family: 'Cairo'; transition: 0.3s;
         }
-        .search-icon { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--dark-blue); cursor: pointer; }
+        .search-box:focus { border-color: var(--gold-color); box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        .search-icon { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--dark-blue); }
 
-        /* الأزرار في صف واحد */
+        /* الأزرار */
         .nav-bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; max-width: 1300px; margin: 0 auto; }
         .nav-link-3d { 
             flex: 1; min-width: 150px; padding: 15px 20px; border-radius: 15px; 
@@ -79,6 +94,11 @@
         .fa-telegram { color: #0088cc; } .fa-facebook-square { color: #1877F2; }
 
         footer { text-align: center; padding: 25px; color: var(--dark-blue); font-weight: bold; background: var(--header-bg); border-top: 4px solid #fff; }
+
+        @media (max-width: 768px) {
+            .top-info-bar { flex-direction: column; gap: 15px; }
+            .visitor-counter { position: static; margin-top: 10px; display: inline-flex; }
+        }
     </style>
 </head>
 <body>
@@ -88,7 +108,14 @@
         <div class="prayer-table" id="prayer-times"></div>
     </div>
 
-    <header class="site-header"> <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo"> </header>
+    <header class="site-header"> 
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo"> 
+        <div class="visitor-counter">
+            <i class="fas fa-users"></i>
+            <span>عدد الزوار:</span>
+            <span id="v-count">1,245,890</span>
+        </div>
+    </header>
 
     <div class="quran-container">
         <div class="quran-strip">
@@ -98,10 +125,10 @@
 
     <div class="nav-section">
         <div class="search-wrapper">
-            <input type="text" class="search-box" placeholder="ابحث في الموقع...">
+            <input type="text" id="site-search" class="search-box" placeholder="ابحث عن (دروس، كتب، خطب، مقالات)..." onkeyup="filterSite()">
             <i class="fas fa-search search-icon"></i>
         </div>
-        <nav class="nav-bar">
+        <nav class="nav-bar" id="main-nav-bar">
             <a href="index.html" class="nav-link-3d btn-home">الرئيسية</a>
             <a href="lessons.html" class="nav-link-3d btn-audio">الصوتيات</a>
             <a href="khutbah.html" class="nav-link-3d btn-khutbah">الخطب</a>
@@ -145,6 +172,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // تحديث التاريخ
         function updateFullDate() {
             const now = new Date();
             const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
@@ -152,11 +180,13 @@
         }
         updateFullDate();
 
+        // تفعيل السلايدر
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3, spaceBetween: 10, loop: true, autoplay: { delay: 3000 },
             breakpoints: { 768: { slidesPerView: 5 }, 1200: { slidesPerView: 9 } }
         });
 
+        // جلب مواقيت الصلاة
         async function getPrayers() {
             try {
                 const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
@@ -167,6 +197,29 @@
             } catch { document.getElementById('prayer-times').innerText = "خطأ"; }
         }
         getPrayers();
+
+        // وظيفة البحث الذكي للأقسام
+        function filterSite() {
+            let input = document.getElementById('site-search').value.toLowerCase();
+            let buttons = document.querySelectorAll('.nav-link-3d');
+            
+            buttons.forEach(btn => {
+                let text = btn.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    btn.style.display = "flex";
+                } else {
+                    btn.style.display = "none";
+                }
+            });
+        }
+
+        // عداد زوار وهمي يتحرك عند التحميل (لأغراض العرض)
+        function incrementVisitors() {
+            let countElement = document.getElementById('v-count');
+            let currentCount = 1245890;
+            countElement.innerText = (currentCount + Math.floor(Math.random() * 10)).toLocaleString();
+        }
+        setTimeout(incrementVisitors, 1000);
     </script>
 </body>
 </html>
