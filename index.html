@@ -34,22 +34,28 @@
         .prayer-name { background: #3e7d3e; color: white; width: 100%; text-align: center; font-size: 0.8rem; border-radius: 8px 8px 0 0; padding: 3px 0; }
         .prayer-time { background: var(--prayer-green); color: #1b5e20; width: 100%; text-align: center; font-size: 1rem; font-weight: 900; border: 1px solid #c8e6c9; border-radius: 0 0 8px 8px; }
 
-        /* الهيدر مع عداد الزوار */
+        /* الهيدر */
         .site-header { 
             text-align: center; padding: 20px; background: var(--header-bg); 
             border-bottom: 5px solid #fff; position: relative;
         }
         .site-logo { max-width: 950px; width: 100%; height: auto; mix-blend-mode: multiply; }
-        
-        /* عداد الزوار أقصى الشمال أسفل الهيدر */
-        .visitor-counter {
+
+        /* عداد الزوار المطور 3D */
+        .visitor-counter-3d {
             position: absolute; left: 20px; bottom: 10px;
-            background: rgba(255, 255, 255, 0.7); padding: 5px 15px;
-            border-radius: 20px; border: 1px solid var(--accent-blue);
-            font-size: 0.85rem; color: var(--dark-blue); font-weight: bold;
-            display: flex; align-items: center; gap: 8px;
+            display: flex; align-items: center; gap: 10px;
         }
-        .visitor-counter i { color: var(--gold-color); }
+        .visitor-label { font-weight: 900; color: var(--dark-blue); font-size: 1rem; }
+        .counter-wrapper { display: flex; gap: 3px; direction: ltr; }
+        .digit-box {
+            background: linear-gradient(180deg, #87ceeb 0%, #2c5d87 100%);
+            color: white; width: 22px; height: 32px; display: flex;
+            align-items: center; justify-content: center; border-radius: 4px;
+            font-family: 'monospace', sans-serif; font-weight: bold; font-size: 1.25rem;
+            box-shadow: inset 0 2px 2px rgba(255,255,255,0.4), 0 3px 5px rgba(0,0,0,0.3);
+            border: 1px solid #1a3d5a; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
 
         /* شريط الآية المتحرك */
         .quran-container { padding: 15px; }
@@ -97,7 +103,7 @@
 
         @media (max-width: 768px) {
             .top-info-bar { flex-direction: column; gap: 15px; }
-            .visitor-counter { position: static; margin-top: 10px; display: inline-flex; }
+            .visitor-counter-3d { position: static; margin-top: 10px; justify-content: center; }
         }
     </style>
 </head>
@@ -110,10 +116,10 @@
 
     <header class="site-header"> 
         <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo"> 
-        <div class="visitor-counter">
-            <i class="fas fa-users"></i>
-            <span>عدد الزوار:</span>
-            <span id="v-count">1,245,890</span>
+        <div class="visitor-counter-3d">
+            <span class="visitor-label">الزوار</span>
+            <div class="counter-wrapper" id="counter-3d-display">
+                </div>
         </div>
     </header>
 
@@ -180,6 +186,23 @@
         }
         updateFullDate();
 
+        // وظيفة عداد الزوار 3D
+        function set3DCounter(number) {
+            const container = document.getElementById('counter-3d-display');
+            const digits = number.toString().split('');
+            container.innerHTML = digits.map(d => `<div class="digit-box">${d}</div>`).join('');
+        }
+        
+        // العدد الفعلي (مثال)
+        let visitorCount = 113175882; 
+        set3DCounter(visitorCount);
+
+        // محاكاة زيادة بسيطة عند التفاعل
+        setInterval(() => {
+            visitorCount += Math.floor(Math.random() * 2);
+            set3DCounter(visitorCount);
+        }, 10000);
+
         // تفعيل السلايدر
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3, spaceBetween: 10, loop: true, autoplay: { delay: 3000 },
@@ -198,28 +221,15 @@
         }
         getPrayers();
 
-        // وظيفة البحث الذكي للأقسام
+        // وظيفة البحث
         function filterSite() {
             let input = document.getElementById('site-search').value.toLowerCase();
             let buttons = document.querySelectorAll('.nav-link-3d');
-            
             buttons.forEach(btn => {
                 let text = btn.innerText.toLowerCase();
-                if (text.includes(input)) {
-                    btn.style.display = "flex";
-                } else {
-                    btn.style.display = "none";
-                }
+                btn.style.display = text.includes(input) ? "flex" : "none";
             });
         }
-
-        // عداد زوار وهمي يتحرك عند التحميل (لأغراض العرض)
-        function incrementVisitors() {
-            let countElement = document.getElementById('v-count');
-            let currentCount = 1245890;
-            countElement.innerText = (currentCount + Math.floor(Math.random() * 10)).toLocaleString();
-        }
-        setTimeout(incrementVisitors, 1000);
     </script>
 </body>
 </html>
