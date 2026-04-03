@@ -41,22 +41,6 @@
         }
         .site-logo { max-width: 950px; width: 100%; height: auto; mix-blend-mode: multiply; }
 
-        /* عداد الزوار المطور 3D */
-        .visitor-counter-3d {
-            position: absolute; left: 20px; bottom: 10px;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .visitor-label { font-weight: 900; color: var(--dark-blue); font-size: 1rem; }
-        .counter-wrapper { display: flex; gap: 3px; direction: ltr; }
-        .digit-box {
-            background: linear-gradient(180deg, #87ceeb 0%, #2c5d87 100%);
-            color: white; width: 22px; height: 32px; display: flex;
-            align-items: center; justify-content: center; border-radius: 4px;
-            font-family: 'monospace', sans-serif; font-weight: bold; font-size: 1.25rem;
-            box-shadow: inset 0 2px 2px rgba(255,255,255,0.4), 0 3px 5px rgba(0,0,0,0.3);
-            border: 1px solid #1a3d5a; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
         /* شريط الآية المتحرك */
         .quran-container { padding: 15px; }
         .quran-strip { 
@@ -103,7 +87,6 @@
 
         @media (max-width: 768px) {
             .top-info-bar { flex-direction: column; gap: 15px; }
-            .visitor-counter-3d { position: static; margin-top: 10px; justify-content: center; }
         }
     </style>
 </head>
@@ -116,11 +99,6 @@
 
     <header class="site-header"> 
         <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo"> 
-        <div class="visitor-counter-3d">
-            <span class="visitor-label">الزوار</span>
-            <div class="counter-wrapper" id="counter-3d-display">
-                </div>
-        </div>
     </header>
 
     <div class="quran-container">
@@ -185,23 +163,6 @@
             document.getElementById('full-date-display').innerText = `${days[now.getDay()]} | ${new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now)} هـ | ${new Intl.DateTimeFormat('ar-EG', {day:'numeric', month:'long', year:'numeric'}).format(now)} م`;
         }
         updateFullDate();
-
-        // وظيفة عداد الزوار 3D
-        function set3DCounter(number) {
-            const container = document.getElementById('counter-3d-display');
-            const digits = number.toString().split('');
-            container.innerHTML = digits.map(d => `<div class="digit-box">${d}</div>`).join('');
-        }
-        
-        // العدد الفعلي (مثال)
-        let visitorCount = 113175882; 
-        set3DCounter(visitorCount);
-
-        // محاكاة زيادة بسيطة عند التفاعل
-        setInterval(() => {
-            visitorCount += Math.floor(Math.random() * 2);
-            set3DCounter(visitorCount);
-        }, 10000);
 
         // تفعيل السلايدر
         var swiper = new Swiper(".mySwiper", {
