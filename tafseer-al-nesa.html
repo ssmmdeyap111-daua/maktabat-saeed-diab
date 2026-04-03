@@ -63,7 +63,6 @@
         .lesson-row:hover { background: #f8fbff; border-right: 6px solid var(--primary); }
         .lesson-right { flex: 1.2; display: flex; align-items: center; gap: 15px; color: var(--primary); font-weight: 800; font-size: 1.15rem; }
         
-        /* توسيع مساحة مشغل الصوت */
         .audio-part { flex: 3.5; display: flex; justify-content: center; }
         audio { width: 100%; max-width: 850px; height: 42px; }
 
@@ -123,32 +122,41 @@
         const config = {
             suraName: "تفسير سورة النساء",
             prefix: "al-nesaa",
-            extension: "MP3", // الحروف الكبيرة كما في طلبك
+            extension: "MP3",
             totalLessons: 53,
             lessonsPerPage: 10
         };
 
         let currentPage = 1;
 
+        // تحديث التاريخ الهجري والميلادي
         function updateDate() {
-            const now = new Date();
-            const h = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now);
-            const m = new Intl.DateTimeFormat('ar-EG', {day:'numeric', month:'long', year:'numeric'}).format(now);
-            document.getElementById('current-date').innerText = `${h} هـ | ${m} م`;
+            try {
+                const now = new Date();
+                const h = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now);
+                const m = new Intl.DateTimeFormat('ar-EG', {day:'numeric', month:'long', year:'numeric'}).format(now);
+                document.getElementById('current-date').innerText = `${h} هـ | ${m} م`;
+            } catch (e) { console.error("خطأ في التاريخ"); }
         }
 
+        // جلب مواقيت الصلاة من الـ API
         async function getPrayers() {
             try {
                 const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
                 const data = await res.json();
                 const t = data.data.timings;
-                const prayers = [{n:"الفجر", v:t.Fajr}, {n:"الظهر", v:t.Dhuhr}, {n:"العصر", v:t.Asr}, {n:"المغرب", v:t.Maghrib}, {n:"العشاء", v:t.Isha}];
+                const prayers = [
+                    {n:"الفجر", v:t.Fajr}, {n:"الظهر", v:t.Dhuhr}, {n:"العصر", v:t.Asr}, {n:"المغرب", v:t.Maghrib}, {n:"العشاء", v:t.Isha}
+                ];
                 document.getElementById('prayer-api').innerHTML = prayers.map(p => `
                     <div class="prayer-item"><span class="prayer-name">${p.n}</span><span class="prayer-time">${p.v}</span></div>
                 `).join('');
-            } catch (e) { }
+            } catch (e) { 
+                document.getElementById('prayer-api').innerText = "خطأ في الاتصال";
+            }
         }
 
+        // عرض الدروس في الصفحة
         function displayLessons(page) {
             const listElement = document.getElementById('lessons-list');
             listElement.innerHTML = "";
@@ -178,6 +186,7 @@
             setupPagination();
         }
 
+        // إعداد أرقام الصفحات
         function setupPagination() {
             const pageCount = Math.ceil(config.totalLessons / config.lessonsPerPage);
             const paginationElement = document.getElementById('pagination');
@@ -187,14 +196,21 @@
                 btn.innerText = i;
                 btn.classList.add('page-btn');
                 if (i === currentPage) btn.classList.add('active');
-                btn.onclick = () => { currentPage = i; displayLessons(i); window.scrollTo({top: 400, behavior: 'smooth'}); };
+                btn.onclick = () => { 
+                    currentPage = i; 
+                    displayLessons(i); 
+                    window.scrollTo({top: 400, behavior: 'smooth'}); 
+                };
                 paginationElement.appendChild(btn);
             }
         }
 
-        updateDate();
-        getPrayers();
-        displayLessons(1);
+        // هذا الأمر ضروري لتشغيل كل الوظائف عند فتح الصفحة
+        window.onload = function() {
+            updateDate();
+            getPrayers();
+            displayLessons(1);
+        };
     </script>
 </body>
 </html>
