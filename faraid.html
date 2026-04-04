@@ -142,20 +142,22 @@
             } catch (e) { }
         }
 
-        function renderLessons() {
+    function renderLessons() {
             const list = document.getElementById('lessons-list');
             for (let i = 1; i <= 11; i++) {
+                // قمنا بوضع الاحتمالين للأرقام والأسماء لضمان التشغيل
                 list.innerHTML += `
                     <div class="lesson-row">
                         <div class="lesson-right"><i class="fas fa-play-circle"></i> شرح الرحبية - الدرس ${i}</div>
                         <div class="audio-part">
                             <audio controls preload="none">
+                                <source src="audio/faraid-${i}.mp3" type="audio/mpeg">
                                 <source src="audio/farayed-${i}.mp3" type="audio/mpeg">
-                                <source src="audio/farayed-${i}.MP3" type="audio/mpeg">
+                                <source src="audio/faraid-${i}.MP3" type="audio/mpeg">
                             </audio>
                         </div>
                         <div class="download-side">
-                            <a href="audio/farayed-${i}.mp3" download class="btn-download">
+                            <a href="audio/faraid-${i}.mp3" download class="btn-download">
                                 <i class="fas fa-circle-down"></i>
                             </a>
                         </div>
