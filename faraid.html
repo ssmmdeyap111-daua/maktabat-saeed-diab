@@ -11,11 +11,13 @@
             --primary: #2c5d87; --accent-blue: #87ceeb; --gold: #d4af37; 
             --prayer-bg: #fdfae7; --dark-green: #1b5e20;
             --header-gradient: linear-gradient(to right, #add8e6, #e0f2f7);
+            --btn-shadow: #5da0bc;
         }
 
         body { 
             margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
-            background: url('images/library-bg.jpg') no-repeat center center fixed; 
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+                        url('images/library-bg.jpg') no-repeat center center fixed; 
             background-size: cover; 
         }
 
@@ -24,69 +26,64 @@
             display: flex; justify-content: space-between; align-items: center; 
             padding: 8px 30px; background: var(--prayer-bg); border-bottom: 2px solid var(--accent-blue); 
         }
-        .date-info { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
+        .date-info { font-weight: 700; color: var(--primary); font-size: 1rem; }
         .prayer-times { display: flex; gap: 10px; }
-        .prayer-item { background: white; border: 1px solid #ddd; padding: 4px 10px; border-radius: 6px; text-align: center; }
-        .prayer-name { display: block; font-size: 0.7rem; color: #666; font-weight: bold; }
-        .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.85rem; }
+        .prayer-item { background: white; border: 1px solid #ddd; padding: 5px 12px; border-radius: 8px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .prayer-name { display: block; font-size: 0.75rem; color: #666; font-weight: bold; }
+        .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.95rem; }
 
         /* الهيدر واللوجو */
-        .site-header { text-align: center; padding: 20px 0; background: var(--header-gradient); border-bottom: 3px solid #fff; }
-        .site-logo { max-width: 450px; width: 90%; height: auto; mix-blend-mode: multiply; display: inline-block; }
+        .site-header { text-align: center; padding: 25px 0; background: var(--header-gradient); border-bottom: 4px solid #fff; }
+        .site-logo { max-width: 550px; width: 90%; height: auto; mix-blend-mode: multiply; display: inline-block; }
 
-        /* الحل الجذري لتنسيق الأيقونات الأفقي */
+        /* أزرار التنقل الرئيسية - تصميم 3D مثل الرئيسية */
         .main-nav { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center;
-            gap: 10px; 
-            padding: 10px; 
-            background: rgba(255, 255, 255, 0.95); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            flex-wrap: nowrap; /* يمنع النزول لسطر جديد نهائياً */
-            overflow-x: auto; /* يسمح بالتمرير إذا كانت الشاشة صغيرة جداً */
+            display: flex; justify-content: center; align-items: center; gap: 15px; 
+            padding: 20px; background: rgba(255, 255, 255, 0.9); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); flex-wrap: wrap;
         }
         .nav-link { 
-            text-decoration: none; 
-            padding: 8px 15px; 
-            border-radius: 8px; 
-            font-weight: 700; 
-            color: white; 
-            display: flex; 
-            align-items: center; 
-            gap: 6px; 
-            background: var(--primary); 
-            font-size: 0.85rem;
-            white-space: nowrap; /* يمنع انقسام النص */
-            min-width: fit-content;
+            text-decoration: none; padding: 12px 25px; border-radius: 12px; 
+            font-weight: 800; color: var(--primary); background: white;
+            display: flex; align-items: center; gap: 10px; 
+            font-size: 1.1rem; box-shadow: 0 5px 0 var(--btn-shadow);
+            transition: all 0.1s;
         }
-        .nav-link:hover { background: var(--accent-blue); color: var(--primary); }
-        .nav-active { background: var(--gold); }
+        .nav-link i { font-size: 1.3rem; }
+        .nav-link:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--btn-shadow); }
+        .nav-active { background: var(--gold) !important; color: white !important; box-shadow: 0 5px 0 #b38f2d !important; }
 
         /* حاوية المحتوى */
-        .container { max-width: 1300px; margin: 30px auto; padding: 0 20px 60px; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px 60px; }
         .page-title { 
-            text-align: center; color: white; font-weight: 900; font-size: 2.2rem; 
-            margin-bottom: 35px; background: rgba(44, 93, 135, 0.85); 
-            padding: 15px; border-radius: 15px; 
+            text-align: center; color: white; font-weight: 900; font-size: 2.5rem; 
+            margin-bottom: 40px; background: var(--primary); 
+            padding: 20px; border-radius: 20px; box-shadow: 0 10px 0 #1a3a55;
         }
 
-        .main-box { background: rgba(255, 255, 255, 0.98); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .box-header { padding: 25px 35px; background: #fff; border-right: 12px solid var(--gold); border-bottom: 2px solid #eee; display: flex; align-items: center; gap: 20px; }
-        .box-header span { font-weight: 900; color: var(--primary); font-size: 1.6rem; }
+        .main-box { background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 1px solid #eee; }
+        .box-header { padding: 30px 40px; background: #fcfcfc; border-right: 15px solid var(--gold); border-bottom: 2px solid #f0f0f0; display: flex; align-items: center; gap: 25px; }
+        .box-header span { font-weight: 900; color: var(--primary); font-size: 1.8rem; }
 
-        .lesson-row { padding: 15px 30px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-        .lesson-right { flex: 1.5; display: flex; align-items: center; gap: 12px; color: var(--primary); font-weight: 800; }
+        .lesson-row { padding: 20px 40px; border-bottom: 1px solid #f5f5f5; display: flex; align-items: center; justify-content: space-between; gap: 30px; transition: 0.3s; }
+        .lesson-row:hover { background: #f9fbfd; }
+        
+        .lesson-right { flex: 2; display: flex; align-items: center; gap: 15px; color: var(--primary); font-weight: 800; font-size: 1.2rem; }
+        .lesson-right i { color: var(--gold); font-size: 1.4rem; }
+        
         .audio-part { flex: 4; display: flex; justify-content: center; }
-        audio { width: 100%; max-width: 800px; height: 40px; }
-        .download-side { flex: 0.3; text-align: left; }
-        .btn-download { color: var(--dark-green); font-size: 1.8rem; }
+        audio { width: 100%; height: 45px; }
+        
+        .download-side { flex: 0.5; text-align: left; }
+        .btn-download { color: #27ae60; font-size: 2.2rem; transition: 0.2s; }
+        .btn-download:hover { color: var(--gold); transform: scale(1.1); }
 
-        footer { text-align: center; padding: 40px; color: white; font-weight: bold; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
+        footer { text-align: center; padding: 50px; color: var(--primary); font-weight: 900; font-size: 1.1rem; }
 
-        @media (max-width: 768px) {
-            .main-nav { flex-wrap: wrap; justify-content: center; }
-            .lesson-row { flex-direction: column; text-align: center; }
+        @media (max-width: 992px) {
+            .lesson-row { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .lesson-right { justify-content: center; }
+            .nav-link { padding: 10px 15px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -98,7 +95,7 @@
     </div>
 
     <header class="site-header">
-        <img src="images/logo.png" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png" onerror="this.src='images/logo.png.jpg'" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="main-nav">
@@ -115,13 +112,15 @@
 
         <div class="main-box">
             <div class="box-header">
-                <i class="fas fa-scale-balanced" style="color: var(--gold); font-size: 2rem;"></i>
+                <i class="fas fa-scale-balanced" style="color: var(--gold); font-size: 2.5rem;"></i>
                 <span>شرح متن الرحبية (11 درساً)</span>
             </div>
 
             <div id="lessons-list"></div>
         </div>
     </div>
+
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
         function updateDate() {
@@ -148,9 +147,18 @@
             for (let i = 1; i <= 11; i++) {
                 list.innerHTML += `
                     <div class="lesson-row">
-                        <div class="lesson-right"><i class="fas fa-book-open-reader"></i> شرح الرحبية - درس ${i}</div>
-                        <div class="audio-part"><audio controls preload="none"><source src="audio/farayed-${i}.mp3" type="audio/mpeg"></audio></div>
-                        <div class="download-side"><a href="audio/farayed-${i}.mp3" download class="btn-download"><i class="fas fa-circle-down"></i></a></div>
+                        <div class="lesson-right"><i class="fas fa-play-circle"></i> شرح الرحبية - الدرس ${i}</div>
+                        <div class="audio-part">
+                            <audio controls preload="none">
+                                <source src="audio/farayed-${i}.mp3" type="audio/mpeg">
+                                <source src="audio/farayed-${i}.MP3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                        <div class="download-side">
+                            <a href="audio/farayed-${i}.mp3" download class="btn-download">
+                                <i class="fas fa-circle-down"></i>
+                            </a>
+                        </div>
                     </div>`;
             }
         }
