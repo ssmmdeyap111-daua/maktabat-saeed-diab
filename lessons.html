@@ -9,18 +9,19 @@
     <style>
         :root { 
             --primary: #2c5d87; 
-            --accent-blue: #add8e6; 
+            --accent-blue: #add8e6; /* الأزرق الفاتح */
             --gold: #d4af37; 
             --prayer-bg: #fdfae7; 
             --dark-green: #1b5e20;
             --white: #ffffff;
-            /* ألوان الأيقونات المجسمة */
-            --color-1: #b38f2d; /* ذهبي */
-            --color-2: #87ceeb; /* سماوي */
-            --color-3: #5a9bd5; /* أزرق متوسط */
-            --color-4: #2c5d87; /* أزرق داكن */
-            --color-5: #3e7d3e; /* أخضر */
-            --color-6: #7d3e7d; /* بنفسجي */
+            --btn-shadow: #8ecae6;
+            /* ألوان الأقسام */
+            --color-1: #b38f2d; 
+            --color-2: #87ceeb; 
+            --color-3: #5a9bd5; 
+            --color-4: #2c5d87; 
+            --color-5: #3e7d3e; 
+            --color-6: #7d3e7d; 
         }
 
         body { 
@@ -33,47 +34,50 @@
             display: flex; justify-content: space-between; align-items: center; 
             padding: 8px 30px; background: var(--prayer-bg); border-bottom: 2px solid var(--accent-blue); 
         }
-        .date-info { font-weight: 700; color: var(--primary); font-size: 0.9rem; }
-        .prayer-times { display: flex; gap: 8px; }
-        .prayer-item { background: white; border: 1px solid #ddd; padding: 4px 8px; border-radius: 6px; text-align: center; }
-        .prayer-name { display: block; font-size: 0.65rem; color: #666; font-weight: bold; }
-        .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.8rem; }
+        .date-info { font-weight: 700; color: var(--primary); font-size: 1rem; }
+        .prayer-times { display: flex; gap: 10px; }
+        .prayer-item { background: white; border: 1px solid #ddd; padding: 5px 12px; border-radius: 8px; text-align: center; }
+        .prayer-name { display: block; font-size: 0.7rem; color: #666; font-weight: bold; }
+        .prayer-time { font-weight: 900; color: var(--dark-green); font-size: 0.9rem; }
 
         /* الهيدر */
         .site-header { 
-            text-align: center; padding: 20px 0; 
-            background-color: var(--accent-blue); 
+            text-align: center; padding: 25px 0; 
+            background: linear-gradient(to right, #add8e6, #e0f2f7); 
             border-bottom: 4px solid var(--white); 
         }
         .site-logo { 
-            max-width: 600px; width: 100%; height: auto; 
-            display: inline-block;
-            mix-blend-mode: multiply;
+            max-width: 550px; width: 95%; height: auto; 
+            display: inline-block; mix-blend-mode: multiply;
         }
 
-        /* شريط التنقل */
+        /* شريط التنقل - أيقونات كبيرة زرقاء فاتحة 3D */
         .main-nav { 
-            display: flex; justify-content: center; align-items: center; gap: 10px; padding: 12px; 
-            background: rgba(255, 255, 255, 0.95); box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-            flex-wrap: nowrap; overflow-x: auto; 
+            display: flex; justify-content: center; align-items: center; gap: 15px; padding: 20px; 
+            background: rgba(255, 255, 255, 0.95); box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            flex-wrap: wrap; 
         }
         .nav-link { 
-            text-decoration: none; padding: 8px 15px; border-radius: 8px; font-weight: 700; color: white; 
-            display: flex; align-items: center; gap: 6px; background: var(--primary); transition: 0.3s; 
-            font-size: 0.85rem; white-space: nowrap;
+            text-decoration: none; padding: 12px 25px; border-radius: 12px; font-weight: 800; 
+            color: var(--primary); background: var(--accent-blue); 
+            display: flex; align-items: center; gap: 10px; 
+            font-size: 1.1rem; box-shadow: 0 5px 0 var(--btn-shadow);
+            transition: all 0.1s;
         }
-        .nav-link:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .nav-link i { font-size: 1.3rem; }
+        .nav-link:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--btn-shadow); }
+        .nav-active { background: var(--gold) !important; color: white !important; box-shadow: 0 5px 0 #b38f2d !important; }
 
-        /* شبكة الأقسام (الأيقونات المجسمة) */
+        /* شبكة الأقسام (بدون رسومات) */
         .sections-container { max-width: 1100px; margin: 40px auto; padding: 0 20px 60px; }
         .section-title-main { 
             text-align: center; color: var(--primary); font-weight: 900; 
-            margin-bottom: 45px; font-size: 2rem; 
+            margin-bottom: 45px; font-size: 2.2rem; 
             position: relative; padding-bottom: 15px;
         }
         .section-title-main::after {
             content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 100px; height: 4px; background: var(--gold); border-radius: 2px;
+            width: 100px; height: 5px; background: var(--gold); border-radius: 3px;
         }
         
         .sections-grid { 
@@ -83,13 +87,13 @@
         }
 
         .rect-card { 
-            padding: 25px 20px; text-decoration: none; text-align: center; 
+            padding: 40px 20px; text-decoration: none; text-align: center; 
             transition: 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center;
             border-radius: 15px; color: white; font-weight: 900;
             border: 2px solid rgba(255,255,255,0.2);
         }
 
-        /* توزيع الألوان والظلال المجسمة */
+        /* توزيع الألوان والظلال المجسمة للأقسام */
         .tafseer { background: var(--color-4); box-shadow: 0 8px 0 #1a3a55; }
         .sciences { background: var(--color-3); box-shadow: 0 8px 0 #3a6a95; }
         .radio { background: var(--color-5); box-shadow: 0 8px 0 #2a5a2a; }
@@ -99,26 +103,16 @@
         .raqaeq { background: var(--color-5); box-shadow: 0 8px 0 #2a5a2a; }
         .faraid { background: var(--color-6); box-shadow: 0 8px 0 #5a2a5a; }
 
-        .rect-card i { font-size: 2.5rem; margin-bottom: 15px; }
-        .rect-card h3 { margin: 0; font-size: 1.25rem; font-weight: 900; }
-        
-        /* لون أيقونة العقيدة ليتناسب مع النص الداكن */
-        .aqidah i, .aqidah h3 { color: var(--primary); }
+        .rect-card h3 { margin: 0; font-size: 1.5rem; font-weight: 900; }
+        .aqidah h3 { color: var(--primary); }
 
-        .rect-card:hover { 
-            transform: translateY(-4px);
-            filter: brightness(1.1);
-        }
+        .rect-card:hover { transform: translateY(-4px); filter: brightness(1.1); }
+        .rect-card:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
 
-        .rect-card:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 rgba(0,0,0,0.2);
-        }
-
-        footer { text-align: center; padding: 30px; background: #e0f2f7; color: var(--primary); font-weight: bold; margin-top: 50px; }
+        footer { text-align: center; padding: 40px; background: #e0f2f7; color: var(--primary); font-weight: 900; margin-top: 50px; }
 
         @media (max-width: 768px) {
-            .top-bar { flex-direction: column; gap: 10px; text-align: center; }
+            .nav-link { padding: 10px 15px; font-size: 0.95rem; width: 45%; justify-content: center; }
             .sections-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -131,14 +125,14 @@
     </div>
 
     <header class="site-header">
-        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png" onerror="this.src='images/logo.png.jpg'" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
 
     <nav class="main-nav">
         <a href="index.html" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a>
         <a href="tafseer.html" class="nav-link"><i class="fas fa-book-open"></i> دروس التفسير</a>
         <a href="khutab.html" class="nav-link"><i class="fas fa-microphone-lines"></i> الخطب</a>
-        <a href="lessons.html" class="nav-link" style="background: var(--gold)"><i class="fas fa-volume-high"></i> الصوتيات</a>
+        <a href="lessons.html" class="nav-link nav-active"><i class="fas fa-volume-high"></i> الصوتيات</a>
         <a href="books.html" class="nav-link"><i class="fas fa-book"></i> الكتب</a>
         <a href="articles.html" class="nav-link"><i class="fas fa-pen-nib"></i> المقالات</a>
     </nav>
@@ -147,38 +141,14 @@
         <h2 class="section-title-main">المكتبة الصوتية</h2>
         
         <div class="sections-grid">
-            <a href="tafseer.html" class="rect-card tafseer">
-                <i class="fas fa-book-quran"></i>
-                <h3>تفسير القرآن الكريم</h3>
-            </a>
-            <a href="quran_sciences.html" class="rect-card sciences">
-                <i class="fas fa-scroll"></i>
-                <h3>علوم القرآن</h3>
-            </a>
-            <a href="radio_programs.html" class="rect-card radio">
-                <i class="fas fa-radio"></i>
-                <h3>برامج إذاعية</h3>
-            </a>
-            <a href="hadith.html" class="rect-card hadith">
-                <i class="fas fa-mosque"></i>
-                <h3>شروح الحديث</h3>
-            </a>
-            <a href="aqidah.html" class="rect-card aqidah">
-                <i class="fas fa-heart"></i>
-                <h3>العقيدة والتوحيد</h3>
-            </a>
-            <a href="fiqh.html" class="rect-card fiqh">
-                <i class="fas fa-gavel"></i>
-                <h3>الفقه وأصوله</h3>
-            </a>
-            <a href="raqaeq.html" class="rect-card raqaeq">
-                <i class="fas fa-feather"></i>
-                <h3>الرقائق والآداب</h3>
-            </a>
-            <a href="faraid.html" class="rect-card faraid">
-                <i class="fas fa-calculator"></i>
-                <h3>علم الفرائض</h3>
-            </a>
+            <a href="tafseer.html" class="rect-card tafseer"><h3>تفسير القرآن الكريم</h3></a>
+            <a href="quran_sciences.html" class="rect-card sciences"><h3>علوم القرآن</h3></a>
+            <a href="radio_programs.html" class="rect-card radio"><h3>برامج إذاعية</h3></a>
+            <a href="hadith.html" class="rect-card hadith"><h3>شروح الحديث</h3></a>
+            <a href="aqidah.html" class="rect-card aqidah"><h3>العقيدة والتوحيد</h3></a>
+            <a href="fiqh.html" class="rect-card fiqh"><h3>الفقه وأصوله</h3></a>
+            <a href="raqaeq.html" class="rect-card raqaeq"><h3>الرقائق والآداب</h3></a>
+            <a href="faraid.html" class="rect-card faraid"><h3>علم الفرائض</h3></a>
         </div>
     </div>
 
