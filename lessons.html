@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المكتبة الصوتية - الشيخ سعيد مصطفى دياب</title>
+    <title>المكتبة الصوتية الشاملة - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <style>
         :root { 
             --light-sky: #add8e6; --accent-blue: #5a9bd5; --dark-blue: #2c5d87;
@@ -29,26 +28,37 @@
         .btn-blue { background: linear-gradient(to bottom, #87ceeb, #5a9bd5); }
         .btn-gold { background: linear-gradient(to bottom, #d4af37, #b38f2d); box-shadow: 0 4px 0 #8c6d1a; }
 
-        /* أزرار الأقسام - متوسطة وبدون رسومات */
-        .categories-container { max-width: 1200px; margin: 20px auto; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        .cat-btn {
-            background: var(--light-sky); color: var(--dark-blue); padding: 12px 25px; border-radius: 8px;
-            cursor: pointer; font-weight: 800; font-size: 1.1rem; border: none;
-            box-shadow: 0 4px 0 var(--accent-blue); transition: 0.2s;
+        /* أزرار الأقسام الثمانية - مستطيلة متوسطة أزرق فاتح بدون رسومات */
+        .categories-container { 
+            max-width: 1200px; margin: 20px auto; padding: 0 20px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; 
         }
+        .cat-btn {
+            background: var(--light-sky); color: var(--dark-blue); padding: 15px 10px; border-radius: 10px;
+            cursor: pointer; font-weight: 800; font-size: 1rem; border: none;
+            box-shadow: 0 4px 0 var(--accent-blue); transition: 0.2s; text-align: center;
+            display: flex; align-items: center; justify-content: center; min-height: 60px;
+        }
+        .cat-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
         .cat-btn.active { background: var(--gold-color); color: white; box-shadow: 0 4px 0 #8c6d1a; }
 
-        /* الجدول */
-        .content-container { max-width: 1200px; margin: 10px auto 60px; padding: 0 20px; }
-        .section-box { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .lesson-table { width: 100%; border-collapse: collapse; }
-        .lesson-table th { background: #f8f9fa; color: var(--dark-blue); padding: 15px; border-bottom: 2px solid #eee; }
-        .lesson-table td { padding: 15px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: bold; }
-        
-        .audio-player { width: 280px; height: 35px; }
-        .btn-download { color: var(--dark-blue); font-size: 1.4rem; }
+        /* البحث والحاوية */
+        .search-box { max-width: 600px; margin: 0 auto 20px; padding: 0 20px; }
+        .search-input { width: 100%; padding: 12px; border-radius: 25px; border: 2px solid var(--light-sky); outline: none; font-family: 'Cairo'; }
 
-        footer { text-align: center; padding: 25px; background: #e0f2f7; font-weight: bold; margin-top: 20px; }
+        .content-container { max-width: 1200px; margin: 0 auto 60px; padding: 0 20px; }
+        .section-box { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        .lesson-table { width: 100%; border-collapse: collapse; }
+        .lesson-table th { background: #f8f9fa; color: var(--dark-blue); padding: 15px; border-bottom: 2px solid #eee; position: sticky; top: 0; }
+        .lesson-table td { padding: 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: bold; }
+        
+        .audio-player { width: 250px; height: 30px; }
+        .btn-download { color: var(--dark-blue); font-size: 1.3rem; }
+
+        footer { text-align: center; padding: 25px; background: #e0f2f7; font-weight: bold; margin-top: 30px; }
+        
+        @media (max-width: 768px) { .audio-player { width: 140px; } .cat-btn { font-size: 0.85rem; } }
     </style>
 </head>
 <body>
@@ -67,12 +77,18 @@
 
     <div class="categories-container">
         <button class="cat-btn active" onclick="filterCat('all', this)">الكل</button>
-        <button class="cat-btn" onclick="filterCat('tafseer', this)">دروس التفسير</button>
+        <button class="cat-btn" onclick="filterCat('tafseer', this)">تفسير القرآن</button>
+        <button class="cat-btn" onclick="filterCat('quran_sci', this)">علوم القرآن</button>
         <button class="cat-btn" onclick="filterCat('hadith', this)">شروح الحديث</button>
         <button class="cat-btn" onclick="filterCat('aqidah', this)">العقيدة</button>
-        <button class="cat-btn" onclick="filterCat('fiqh', this)">الفقه</button>
-        <button class="cat-btn" onclick="filterCat('seerah', this)">السيرة</button>
+        <button class="cat-btn" onclick="filterCat('fiqh', this)">الفقه وأصوله</button>
+        <button class="cat-btn" onclick="filterCat('seerah', this)">السيرة النبوية</button>
         <button class="cat-btn" onclick="filterCat('faraid', this)">شرح الرحبية</button>
+        <button class="cat-btn" onclick="filterCat('radio', this)">برامج إذاعية</button>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن اسم الدرس..." onkeyup="searchLessons()">
     </div>
 
     <div class="content-container">
@@ -80,39 +96,13 @@
             <table class="lesson-table">
                 <thead>
                     <tr>
-                        <th width="40%">عنوان الدرس</th>
-                        <th width="45%">الاستماع</th>
+                        <th width="45%">اسم الدرس / السلسلة</th>
+                        <th width="40%">الاستماع</th>
                         <th width="15%">تحميل</th>
                     </tr>
                 </thead>
-                <tbody id="lessons-body">
-                    <script>
-                        for(let i=1; i<=11; i++){
-                            document.write(`
-                                <tr data-category="faraid">
-                                    <td style="color:var(--gold-color)">شرح الرحبية - الدرس ${i}</td>
-                                    <td><audio controls class="audio-player"><source src="audio/faraid-${i}.mp3" type="audio/mpeg"></audio></td>
-                                    <td><a href="audio/faraid-${i}.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></td>
-                                </tr>
-                            `);
-                        }
-                    </script>
-                    <tr data-category="tafseer">
-                        <td>تفسير سورة الفاتحة</td>
-                        <td><audio controls class="audio-player"><source src="audio/tafseer-1.mp3" type="audio/mpeg"></audio></td>
-                        <td><a href="audio/tafseer-1.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></td>
-                    </tr>
-                    <tr data-category="fiqh">
-                        <td>شرح كتاب الطهارة</td>
-                        <td><audio controls class="audio-player"><source src="audio/fiqh-1.mp3" type="audio/mpeg"></audio></td>
-                        <td><a href="audio/fiqh-1.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></td>
-                    </tr>
-                    <tr data-category="aqidah">
-                        <td>شرح الأصول الثلاثة</td>
-                        <td><audio controls class="audio-player"><source src="audio/aqidah-1.mp3" type="audio/mpeg"></audio></td>
-                        <td><a href="audio/aqidah-1.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></td>
-                    </tr>
-                </tbody>
+                <tbody id="lessons-list">
+                    </tbody>
             </table>
         </div>
     </div>
@@ -120,18 +110,59 @@
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
+        // مصفوفة البيانات الكاملة كما كانت
+        const lessonsData = [
+            // التفسير
+            { title: "تفسير سورة الفاتحة", cat: "tafseer", file: "tafseer-1" },
+            { title: "تفسير سورة البقرة", cat: "tafseer", file: "tafseer-2" },
+            // علوم القرآن
+            { title: "شرح أصول التفسير", cat: "quran_sci", file: "osol-tafseer" },
+            { title: "شرح منظومة الناسخ والمنسوخ", cat: "quran_sci", file: "nasikh" },
+            // العقيدة
+            { title: "شرح العقيدة الطحاوية", cat: "aqidah", file: "tahawiya" },
+            { title: "شرح العقيدة الواسطية", cat: "aqidah", file: "wasitiya" },
+            { title: "شرح كتاب التوحيد", cat: "aqidah", file: "tawheed" },
+            // الفقه
+            { title: "شرح كتاب بداية العابد", cat: "fiqh", file: "bedaya" },
+            { title: "شرح أخصر المختصرات", cat: "fiqh", file: "akhtar" },
+            // السيرة
+            { title: "السيرة النبوية - دروس منوعة", cat: "seerah", file: "seerah-1" },
+            // برامج إذاعية
+            { title: "الرفيق إلى البيت العتيق", cat: "radio", file: "rafeeq" }
+        ];
+
+        // إضافة دروس الرحبية تلقائياً (11 درس)
+        for(let i=1; i<=11; i++) {
+            lessonsData.push({ title: `شرح الرحبية - الدرس ${i}`, cat: "faraid", file: `faraid-${i}` });
+        }
+
+        const listElement = document.getElementById('lessons-list');
+
+        function renderLessons(data) {
+            listElement.innerHTML = data.map(l => `
+                <tr data-category="${l.cat}">
+                    <td style="color:var(--dark-blue)">${l.title}</td>
+                    <td><audio controls class="audio-player" preload="none"><source src="audio/${l.file}.mp3" type="audio/mpeg"></audio></td>
+                    <td><a href="audio/${l.file}.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></td>
+                </tr>
+            `).join('');
+        }
+
         function filterCat(category, btn) {
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            const rows = document.querySelectorAll('#lessons-body tr');
-            rows.forEach(row => {
-                if (category === 'all' || row.getAttribute('data-category') === category) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
+            const filtered = category === 'all' ? lessonsData : lessonsData.filter(l => l.cat === category);
+            renderLessons(filtered);
         }
+
+        function searchLessons() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = lessonsData.filter(l => l.title.toLowerCase().includes(query));
+            renderLessons(filtered);
+        }
+
+        // التشغيل الأول
+        renderLessons(lessonsData);
     </script>
 </body>
 </html>
