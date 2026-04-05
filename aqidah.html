@@ -3,99 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>العقيدة والتوحيد - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    <title>دروس العقيدة - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { 
-            --light-sky: #add8e6; --dark-blue: #2c5d87; --accent-blue: #5a9bd5; 
-            --gold-color: #c5a03d; 
+        :root { --primary: #2c5d87; --accent-blue: #add8e6; --gold: #d4af37; --bg: #fdfae7; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; }
+
+        /* الهيدر واللوجو */
+        .site-header { text-align: center; padding: 20px; background: var(--accent-blue); border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 500px; width: 100%; mix-blend-mode: multiply; }
+
+        /* التنقل 3D */
+        .main-nav { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; }
+        .nav-btn-3d { 
+            padding: 12px 25px; border-radius: 12px; font-weight: 900; text-decoration: none; color: white; 
+            background: var(--primary); box-shadow: 0 6px 0 #1a3a54; transition: 0.2s; min-width: 140px; text-align: center;
         }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f4f7f9; color: #333; }
+        .btn-gold { background: var(--gold); box-shadow: 0 6px 0 #8c6d1a; }
 
-        /* الهيدر */
-        .site-header { text-align: center; padding: 15px; background: linear-gradient(to right, #add8e6, #e0f2f7); border-bottom: 5px solid #fff; }
-        .site-logo { max-width: 350px; width: 100%; height: auto; mix-blend-mode: multiply; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .page-title { text-align: center; color: var(--primary); font-weight: 900; font-size: 2rem; margin-bottom: 40px; }
 
-        /* شريط العودة */
-        .top-nav { background: #fff; padding: 15px; border-bottom: 1px solid #eee; text-align: center; }
-        .back-link { 
-            text-decoration: none; color: var(--dark-blue); font-weight: bold; 
-            display: inline-flex; align-items: center; gap: 8px; 
-            padding: 8px 20px; border: 2px solid var(--light-sky); border-radius: 25px;
-            transition: 0.2s;
-        }
-        .back-link:hover { background: var(--light-sky); }
+        /* الأكورديون (نظام القوائم المنسدلة) */
+        .accordion-item { background: white; border-radius: 15px; margin-bottom: 15px; border: 2px solid var(--accent-blue); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .accordion-header { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; border-right: 10px solid var(--gold); }
+        .accordion-header span { font-weight: 900; color: var(--primary); font-size: 1.25rem; }
+        .accordion-content { display: none; padding: 15px; background: #fcfdfe; border-top: 2px solid var(--accent-blue); }
+        .active .accordion-content { display: block; }
+        .active .accordion-header { background: #eef7fb; }
 
-        /* حاوية المحتوى */
-        .content-container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .section-box { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        
-        .series-title { 
-            color: var(--dark-blue); font-size: 1.5rem; margin-bottom: 20px; 
-            border-right: 5px solid var(--gold-color); padding-right: 15px;
-        }
+        /* صفوف الدروس */
+        .lesson-row { padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+        .lesson-name { font-weight: 700; color: var(--primary); flex: 2; }
+        audio { height: 35px; flex: 4; }
+        .btn-dl { color: #1b5e20; font-size: 1.5rem; text-decoration: none; }
 
-        /* الجدول الكلاسيكي */
-        .lesson-table { width: 100%; border-collapse: collapse; }
-        .lesson-table th { background: #f8f9fa; color: var(--dark-blue); padding: 15px; border-bottom: 2px solid var(--light-sky); text-align: center; }
-        .lesson-table td { padding: 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: bold; }
-        .lesson-table tr:hover { background: #fcfcfc; }
-
-        .audio-player { width: 260px; height: 35px; }
-        .btn-download { color: var(--dark-blue); font-size: 1.4rem; }
-
-        footer { text-align: center; padding: 25px; background: #e0f2f7; font-weight: bold; margin-top: 50px; }
-
-        @media (max-width: 768px) { .audio-player { width: 150px; } }
+        footer { text-align: center; padding: 25px; background: var(--accent-blue); color: var(--primary); font-weight: bold; margin-top: 50px; }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+        <img src="images/logo.png.jpg" class="site-logo">
     </header>
 
-    <div class="top-nav">
-        <a href="lessons.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة لصفحة الدروس الرئيسية</a>
+    <nav class="main-nav">
+        <a href="index.html" class="nav-btn-3d">الرئيسية</a>
+        <a href="tafseer_index.html" class="nav-btn-3d">التفسير</a>
+        <a href="lessons.html" class="nav-btn-3d btn-gold">الصوتيات</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">دروس العقيدة والتوحيد</h1>
+
+        <div class="accordion-item" id="sec-aqeda1">
+            <div class="accordion-header" onclick="toggleSec('aqeda1')">
+                <span><i class="fas fa-scroll"></i> شرح العقيدة الواسطية</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content" id="list-aqeda1"></div>
+        </div>
+
+        <div class="accordion-item" id="sec-aqeda2">
+            <div class="accordion-header" onclick="toggleSec('aqeda2')">
+                <span><i class="fas fa-book-quran"></i> شرح لمعة الاعتقاد</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content" id="list-aqeda2"></div>
+        </div>
     </div>
 
-    <div class="content-container">
+    <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
-        <div class="section-box">
-            <h2 class="series-title">شرح العقيدة الطحاوية</h2>
-            <table class="lesson-table">
-                <thead>
-                    <tr><th width="40%">عنوان الدرس</th><th width="45%">الاستماع</th><th width="15%">تحميل</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>الدرس الأول</td><td><audio controls class="audio-player"><source src="audio/aqidah/tahawiya-1.mp3"></audio></td><td><a href="audio/aqidah/tahawiya-1.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
-                    <tr><td>الدرس الثاني</td><td><audio controls class="audio-player"><source src="audio/aqidah/tahawiya-2.mp3"></audio></td><td><a href="audio/aqidah/tahawiya-2.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td></tr>
-                </tbody>
-            </table>
-        </div>
+    <script>
+        // ضبط الإعدادات لتعمل الدروس تلقائياً
+        const config = {
+            aqeda1: { prefix: "aqidah-wasitya", count: 20 }, // عدل الأسماء والعدد كما كان عندك
+            aqeda2: { prefix: "aqidah-loma", count: 10 }
+        };
 
-        <div class="section-box">
-            <h2 class="series-title">شرح العقيدة الواسطية</h2>
-            <table class="lesson-table">
-                <tbody>
-                    <tr><td width="40%">الدرس الأول</td><td width="45%"><audio controls class="audio-player"><source src="audio/aqidah/wasitiya-1.mp3"></audio></td><td width="15%"><a href="#" class="btn-download"><i class="fas fa-download"></i></a></td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="section-box">
-            <h2 class="series-title">شرح كتاب التوحيد</h2>
-            <table class="lesson-table">
-                <tbody>
-                    <tr><td width="40%">الدرس الأول</td><td width="45%"><audio controls class="audio-player"><source src="audio/aqidah/tawheed-1.mp3"></audio></td><td width="15%"><a href="#" class="btn-download"><i class="fas fa-download"></i></a></td></tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-
-    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
-
+        function toggleSec(id) {
+            const item = document.getElementById('sec-' + id);
+            item.classList.toggle('active');
+            const list = document.getElementById('list-' + id);
+            
+            if (list.innerHTML === "") {
+                for (let i = 1; i <= config[id].count; i++) {
+                    list.innerHTML += `
+                    <div class="lesson-row">
+                        <div class="lesson-name">الدرس رقم (${i})</div>
+                        <audio controls preload="none"><source src="audio/${config[id].prefix}-${i}.mp3"></audio>
+                        <a href="audio/${config[id].prefix}-${i}.mp3" download class="btn-dl"><i class="fas fa-download"></i></a>
+                    </div>`;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
