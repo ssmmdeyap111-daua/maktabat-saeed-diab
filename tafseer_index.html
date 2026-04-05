@@ -4,41 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فهرس تفسير القرآن - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --dark-blue: #2c5d87; --gold: #b59410; --card-bg: rgba(255, 255, 255, 0.95); }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: url('images/library-bg.jpg') no-repeat center center fixed; background-size: cover; }
-        .main-nav { background: rgba(255, 255, 255, 0.98); display: flex; justify-content: center; gap: 30px; padding: 15px; border-bottom: 4px solid var(--dark-blue); }
-        .nav-item { text-decoration: none; color: var(--dark-blue); font-weight: 700; background: white; padding: 5px 20px; border-radius: 8px; border: 1px solid var(--dark-blue); }
-        .site-header { padding: 40px 20px; text-align: center; }
-        .site-header h1 { font-size: 2rem; color: var(--dark-blue); background: rgba(255,255,255,0.9); display: inline-block; padding: 10px 40px; border-radius: 10px; border-right: 8px solid var(--gold); }
-        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 20px 60px; }
-        .surah-card { background: var(--card-bg); padding: 25px 10px; border-radius: 15px; text-align: center; text-decoration: none; border-bottom: 5px solid var(--gold); transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .surah-card i { font-size: 2.5rem; color: var(--gold); }
-        .surah-card h3 { margin: 0; color: var(--dark-blue); font-size: 1.3rem; font-weight: 800; }
-        .surah-card:hover { transform: translateY(-5px); background: #fff; }
-        footer { text-align: center; padding: 30px; color: white; font-weight: bold; text-shadow: 1px 1px 3px black; }
-        @media (max-width: 992px) { .container { grid-template-columns: repeat(2, 1fr); } }
+        :root { --dark-blue: #2c5d87; --light-blue: #add8e6; --gold: #d4af37; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f4f7f9; text-align: center; }
+        
+        .header-tafseer { background: linear-gradient(to right, #add8e6, #e0f2f7); padding: 30px; border-bottom: 5px solid #fff; }
+        .back-btn { padding: 10px 20px; background: var(--dark-blue); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+
+        .surah-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .surah-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
+            gap: 15px; 
+        }
+        
+        /* أيقونات السور الصغيرة */
+        .surah-card { 
+            background: white; border: 2px solid var(--light-blue); padding: 15px 5px; 
+            border-radius: 12px; text-decoration: none; color: var(--dark-blue); 
+            font-weight: bold; font-size: 1rem; transition: 0.3s;
+            box-shadow: 0 4px 0 var(--light-blue);
+        }
+        .surah-card:hover { background: var(--gold); color: white; border-color: var(--gold); transform: translateY(-3px); }
+        .surah-num { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; }
+        .surah-card:hover .surah-num { color: white; }
+
+        footer { padding: 25px; background: #e0f2f7; font-weight: bold; margin-top: 50px; }
     </style>
 </head>
 <body>
-<nav class="main-nav">
-    <a href="index.html" class="nav-item">الرئيسية</a>
-    <a href="lessons.html" class="nav-item">الفهرس العام</a>
-</nav>
-<header class="site-header"><h1>فهرس تفسير القرآن الكريم</h1></header>
-<div class="container">
-    <a href="tafseer-fatiha.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة الفاتحة</h3></a>
-    <a href="tafseer-baqara.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة البقرة</h3></a>
-    <a href="tafseer-imran.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة آل عمران</h3></a>
-    <a href="tafseer-al-nesa.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة النساء</h3></a>
-    <a href="tafseer-maeda.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة المائدة</h3></a>
-    <a href="tafseer-anaam.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة الأنعام</h3></a>
-    <a href="al-aaraf.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة الأعراف</h3></a>
-    <a href="al-anfal.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة الأنفال</h3></a>
-    <a href="tauba.html" class="surah-card"><i class="fas fa-book-open"></i><h3>سورة التوبة</h3></a>
-</div>
-<footer>جميع الحقوق محفوظة لفضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <div class="header-tafseer">
+        <a href="lessons.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة لقسم الدروس</a>
+        <center><img src="images/logo.png.jpg" style="max-width:350px; mix-blend-mode: multiply;"></center>
+        <h2 style="color: var(--dark-blue); margin-top: 20px;">فهرس تفسير سور القرآن الكريم</h2>
+    </div>
+
+    <div class="surah-container">
+        <div class="surah-grid">
+            <a href="surah_fateha.html" class="surah-card"><span class="surah-num">١</span>الفاتحة</a>
+            <a href="surah_baqarah.html" class="surah-card"><span class="surah-num">٢</span>البقرة</a>
+            <a href="surah_imran.html" class="surah-card"><span class="surah-num">٣</span>آل عمران</a>
+            <a href="surah_nisa.html" class="surah-card"><span class="surah-num">٤</span>النساء</a>
+            <a href="surah_maedah.html" class="surah-card"><span class="surah-num">٥</span>المائدة</a>
+            <a href="surah_anaam.html" class="surah-card"><span class="surah-num">٦</span>الأنعام</a>
+            <a href="surah_araaf.html" class="surah-card"><span class="surah-num">٧</span>الأعراف</a>
+            <a href="surah_anfal.html" class="surah-card"><span class="surah-num">٨</span>الأنفال</a>
+            <a href="surah_tawbah.html" class="surah-card"><span class="surah-num">٩</span>التوبة</a>
+            <a href="surah_yunus.html" class="surah-card"><span class="surah-num">١٠</span>يونس</a>
+            <a href="surah_houd.html" class="surah-card"><span class="surah-num">١١</span>هود</a>
+            <a href="surah_yusuf.html" class="surah-card"><span class="surah-num">١٢</span>يوسف</a>
+            <a href="surah_raad.html" class="surah-card"><span class="surah-num">١٣</span>الرعد</a>
+            <a href="surah_ibrahim.html" class="surah-card"><span class="surah-num">١٤</span>إبراهيم</a>
+            <a href="surah_hijr.html" class="surah-card"><span class="surah-num">١٥</span>الحجر</a>
+            <a href="surah_nahl.html" class="surah-card"><span class="surah-num">١٦</span>النحل</a>
+            </div>
+    </div>
+
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 </body>
 </html>
