@@ -3,133 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدروس العلمية - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>المكتبة الصوتية - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root { 
-            --dark-blue: #2c5d87; --light-blue: #add8e6; --gold: #c5a03d;
-        }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f4f7f9; }
-
-        /* شريط المعلومات العلوي */
-        .top-bar { 
-            background: var(--dark-blue); color: white; padding: 10px 20px; 
-            display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;
+            --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
+            --gold-color: #d4af37; --prayer-green: #e8f5e9; 
+            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
+            --beige-bg: #fdfae7; 
         }
 
-        /* الهيدر واللوجو - معالج ليكون شفافاً */
-        .site-header { text-align: center; padding: 30px; background: #e0f2f7; }
-        .site-logo { 
-            max-width: 400px; width: 100%; height: auto; 
-            mix-blend-mode: multiply; /* لجعل الخلفية البيضاء للوجو شفافة */
-        }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; color: #333; }
 
-        /* شريط التنقل الرئيسي - التفسير مستقل هنا */
-        .main-nav { 
-            display: flex; justify-content: center; gap: 10px; padding: 15px; 
-            background: #fff; border-bottom: 2px solid var(--light-blue); flex-wrap: wrap;
+        /* شريط المعلومات العلوي (نفس الصفحة الرئيسية) */
+        .top-info-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; background: var(--beige-bg); border-bottom: 2px solid var(--accent-blue);
         }
-        .nav-item { 
-            background: var(--dark-blue); color: white; padding: 10px 20px; 
-            border-radius: 8px; text-decoration: none; font-weight: bold; 
-            display: flex; align-items: center; gap: 8px; transition: 0.3s;
+        .date-box { 
+            background: white; padding: 10px 25px; border-radius: 50px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 2px solid var(--gold-color); 
+            color: #444; font-weight: 900; font-size: 1.1rem;
         }
-        .nav-item:hover { background: var(--gold); }
-        .nav-item.active { background: var(--gold); }
-        .nav-item.special { background: #1a3a54; } /* لون مميز للتفسير */
+        .prayer-table { display: flex; gap: 5px; }
+        .prayer-column { display: flex; flex-direction: column; align-items: center; width: 70px; }
+        .prayer-name { background: #3e7d3e; color: white; width: 100%; text-align: center; font-size: 0.8rem; border-radius: 8px 8px 0 0; padding: 3px 0; }
+        .prayer-time { background: var(--prayer-green); color: #1b5e20; width: 100%; text-align: center; font-size: 1rem; font-weight: 900; border: 1px solid #c8e6c9; border-radius: 0 0 8px 8px; }
 
-        /* شبكة الأيقونات العلمية - صفين */
-        .content-container { max-width: 1100px; margin: 50px auto; padding: 0 20px; text-align: center; }
-        .section-title { color: var(--dark-blue); margin-bottom: 40px; font-size: 2rem; position: relative; display: inline-block; }
-        .section-title::after { content: ''; display: block; width: 60%; height: 4px; background: var(--gold); margin: 10px auto; }
+        /* الهيدر واللوجو الشفاف */
+        .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 950px; width: 100%; height: auto; mix-blend-mode: multiply; }
 
-        .icon-grid { 
+        /* شريط التنقل الرئيسي (التفسير مستقل هنا) */
+        .nav-section { text-align: center; padding: 20px 0; }
+        .nav-bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; max-width: 1300px; margin: 0 auto; }
+        
+        .nav-link-3d { 
+            flex: 1; min-width: 150px; padding: 15px 20px; border-radius: 15px; 
+            font-weight: 900; font-size: 1.3rem; text-decoration: none; color: white;
+            text-align: center; transition: 0.2s; 
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 0 var(--dark-blue); border: 2px solid rgba(255,255,255,0.2);
+        }
+        .btn-home { background: linear-gradient(to bottom, #d4af37, #b38f2d); box-shadow: 0 8px 0 #8c6d1a; }
+        .btn-tafseer { background: #1a3a54; box-shadow: 0 8px 0 #0a1a27; } /* لون مميز للتفسير */
+        .btn-audio { background: #87ceeb; }
+        .btn-khutbah { background: #5a9bd5; }
+        .btn-books { background: #2c5d87; }
+        .btn-articles { background: #3e7d3e; }
+
+        /* شبكة الدروس العلمية (7 أزرار في صفين) */
+        .lessons-grid-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .grid-title { 
+            color: var(--dark-blue); font-weight: 900; font-size: 2rem; 
+            margin-bottom: 30px; border-bottom: 3px solid var(--gold-color); 
+            display: inline-block; padding-bottom: 5px;
+        }
+        .lessons-grid { 
             display: grid; 
-            grid-template-columns: repeat(4, 1fr); /* 4 أعمدة لضمان صفين لـ 7 أو 8 أيقونات */
-            gap: 25px; 
+            grid-template-columns: repeat(4, 1fr); /* 4 في كل صف */
+            gap: 20px; 
         }
 
-        /* تصميم الأيقونات الملونة المستوحى من صورتك */
-        .icon-card { 
-            padding: 35px 15px; border-radius: 15px; text-decoration: none; color: white;
-            font-weight: 900; font-size: 1.3rem; transition: 0.3s;
-            display: flex; flex-direction: column; align-items: center; gap: 15px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        /* تنسيق الأزرار العلمية (مطابق تماماً لـ nav-link-3d) */
+        .lesson-btn { 
+            padding: 25px 15px; border-radius: 15px; font-weight: 900; font-size: 1.4rem; 
+            text-decoration: none; color: white; text-align: center; transition: 0.3s;
+            box-shadow: 0 8px 0 var(--dark-blue); border: 2px solid rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
         }
-        .icon-card i { font-size: 2.5rem; }
-        .icon-card:hover { transform: translateY(-8px); filter: brightness(1.1); }
+        .lesson-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+        .lesson-btn:active { transform: translateY(4px); box-shadow: 0 4px 0 var(--dark-blue); }
 
-        /* الألوان بناءً على الصورة المرفقة */
-        .color-hadith { background-color: #b08d32; } /* شروح الحديث */
-        .color-radio  { background-color: #3e7e44; } /* برامج إذاعية */
-        .color-quran  { background-color: #64a7e4; } /* علوم القرآن */
-        .color-fiqh   { background-color: #2c5d87; } /* الفقه وأصوله */
-        .color-aqidah { background-color: #8ed1e9; color: #2c5d87 !important; } /* العقيدة */
-        .color-faraid { background-color: #84477d; } /* علم الفرائض */
-        .color-seerah { background-color: #4a8c52; } /* السيرة النبوية */
+        /* ألوان الأزرار كما في الصورة والصفحة الرئيسية */
+        .c-hadith { background: #b08d32; box-shadow: 0 8px 0 #7a6122; }
+        .c-quran { background: #87ceeb; }
+        .c-aqidah { background: #5a9bd5; }
+        .c-fiqh { background: #2c5d87; }
+        .c-seerah { background: #3e7d3e; box-shadow: 0 8px 0 #2a552a; }
+        .c-faraid { background: #84477d; box-shadow: 0 8px 0 #5a3055; }
+        .c-radio { background: #4a8c52; box-shadow: 0 8px 0 #325f38; }
 
-        footer { text-align: center; padding: 30px; background: #e0f2f7; font-weight: bold; margin-top: 60px; }
+        footer { text-align: center; padding: 25px; color: var(--dark-blue); font-weight: bold; background: var(--header-bg); border-top: 4px solid #fff; margin-top: 50px; }
 
-        @media (max-width: 992px) { .icon-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 992px) { .lessons-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div>الأحد 17 شوال 1447 هـ</div>
-        <div>الفجر: 04:12 | الظهر: 11:58 | العصر: 03:32 | المغرب: 06:15 | العشاء: 07:45</div>
+    <div class="top-info-bar">
+        <div class="date-box"> <i class="fas fa-calendar-alt" style="color: var(--gold-color); margin-left: 10px;"></i> <span id="full-date-display"></span> </div>
+        <div class="prayer-table" id="prayer-times"></div>
     </div>
 
-    <header class="site-header">
-        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+    <header class="site-header"> 
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo"> 
     </header>
 
-    <nav class="main-nav">
-        <a href="index.html" class="nav-item"><i class="fas fa-home"></i> الرئيسية</a>
-        <a href="tafseer_index.html" class="nav-item special"><i class="fas fa-book-quran"></i> دروس التفسير</a>
-        <a href="lessons.html" class="nav-item active"><i class="fas fa-microphone-alt"></i> الصوتيات</a>
-        <a href="khutbah.html" class="nav-item"><i class="fas fa-mosque"></i> الخطب</a>
-        <a href="books.html" class="nav-item"><i class="fas fa-book"></i> الكتب</a>
-        <a href="articles.html" class="nav-item"><i class="fas fa-feather-alt"></i> المقالات</a>
-    </nav>
+    <div class="nav-section">
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-link-3d btn-home">الرئيسية</a>
+            <a href="tafseer_index.html" class="nav-link-3d btn-tafseer">دروس التفسير</a>
+            <a href="lessons.html" class="nav-link-3d btn-audio">الصوتيات</a>
+            <a href="khutbah.html" class="nav-link-3d btn-khutbah">الخطب</a>
+            <a href="books.html" class="nav-link-3d btn-books">الكتب</a>
+            <a href="articles.html" class="nav-link-3d btn-articles">المقالات</a>
+        </nav>
+    </div>
 
-    <div class="content-container">
-        <h2 class="section-title">المكتبة الصوتية</h2>
-
-        <div class="icon-grid">
-            <a href="hadith.html" class="icon-card color-hadith">
-                <i class="fas fa-mosque"></i>
-                <span>شروح الحديث</span>
-            </a>
-            <a href="quran_sci.html" class="icon-card color-quran">
-                <i class="fas fa-scroll"></i>
-                <span>علوم القرآن</span>
-            </a>
-            <a href="aqidah.html" class="icon-card color-aqidah">
-                <i class="fas fa-heart"></i>
-                <span>العقيدة والتوحيد</span>
-            </a>
-            <a href="fiqh.html" class="icon-card color-fiqh">
-                <i class="fas fa-gavel"></i>
-                <span>الفقه وأصوله</span>
-            </a>
-            <a href="seerah.html" class="icon-card color-seerah">
-                <i class="fas fa-feather"></i>
-                <span>السيرة النبوية</span>
-            </a>
-            <a href="faraid.html" class="icon-card color-faraid">
-                <i class="fas fa-calculator"></i>
-                <span>شرح الرحبية</span>
-            </a>
-            <a href="radio.html" class="icon-card color-radio">
-                <i class="fas fa-radio"></i>
-                <span>برامج إذاعية</span>
-            </a>
+    <div class="lessons-grid-container">
+        <center><h2 class="grid-title">الدروس العلمية المتنوعة</h2></center>
+        
+        <div class="lessons-grid">
+            <a href="hadith.html" class="lesson-btn c-hadith">شروح الحديث</a>
+            <a href="quran_sci.html" class="lesson-btn c-quran">علوم القرآن</a>
+            <a href="aqidah.html" class="lesson-btn c-aqidah">العقيدة والتوحيد</a>
+            <a href="fiqh.html" class="lesson-btn c-fiqh">الفقه وأصوله</a>
+            <a href="seerah.html" class="lesson-btn c-seerah">السيرة النبوية</a>
+            <a href="faraid.html" class="lesson-btn c-faraid">شرح الرحبية</a>
+            <a href="radio.html" class="lesson-btn c-radio">برامج إذاعية</a>
         </div>
     </div>
 
-    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
 
+    <script>
+        // كود التاريخ والمواقيت (من صفحتك الرئيسية لضمان العمل)
+        function updateFullDate() {
+            const now = new Date();
+            const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+            document.getElementById('full-date-display').innerText = `${days[now.getDay()]} | ${new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now)} هـ | ${new Intl.DateTimeFormat('ar-EG', {day:'numeric', month:'long', year:'numeric'}).format(now)} م`;
+        }
+        updateFullDate();
+
+        async function getPrayers() {
+            try {
+                const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
+                const data = await res.json();
+                const t = data.data.timings;
+                const prayers = [{n:"الفجر",t:t.Fajr},{n:"الظهر",t:t.Dhuhr},{n:"العصر",t:t.Asr},{n:"المغرب",t:t.Maghrib},{n:"العشاء",t:t.Isha}];
+                document.getElementById('prayer-times').innerHTML = prayers.map(p => `<div class="prayer-column"><div class="prayer-name">${p.n}</div><div class="prayer-time">${p.t}</div></div>`).join('');
+            } catch { document.getElementById('prayer-times').innerText = "خطأ في الاتصال"; }
+        }
+        getPrayers();
+    </script>
 </body>
 </html>
