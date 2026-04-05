@@ -21,25 +21,23 @@
 
         /* الهيدر واللوجو الشفاف */
         .site-header { text-align: center; padding: 20px; background: var(--header-bg); }
-        .site-logo { 
-            max-width: 400px; width: 100%; height: auto; 
-            mix-blend-mode: multiply; /* هذا السطر يجعل الخلفية البيضاء للصور شفافة */
-        }
+        .site-logo { max-width: 400px; width: 100%; height: auto; mix-blend-mode: multiply; }
 
-        /* شريط التنقل الرئيسي */
+        /* شريط التنقل الرئيسي (تم إضافة التفسير هنا) */
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; background: #fff; border-bottom: 2px solid var(--light-sky); }
         .btn-nav { 
-            min-width: 110px; padding: 10px 15px; border-radius: 8px; font-weight: 700; 
-            text-decoration: none; color: white; text-align: center; box-shadow: 0 4px 0 var(--dark-blue); 
+            min-width: 100px; padding: 10px 15px; border-radius: 8px; font-weight: 700; 
+            text-decoration: none; color: white; text-align: center; box-shadow: 0 4px 0 var(--dark-blue); font-size: 0.9rem;
         }
         .btn-blue { background: linear-gradient(to bottom, #87ceeb, #5a9bd5); }
         .btn-gold { background: linear-gradient(to bottom, #d4af37, #b38f2d); box-shadow: 0 4px 0 #8c6d1a; }
+        .btn-special { background: linear-gradient(to bottom, #2c5d87, #1a3a54); box-shadow: 0 4px 0 #0d1f2d; }
 
-        /* الأيقونات الثمانية (صفين - 4 في كل صف) */
+        /* الأيقونات المتبقية (7 أيقونات) */
         .sections-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         .sections-grid { 
             display: grid; 
-            grid-template-columns: repeat(4, 1fr); /* 4 أعمدة لضمان وجود صفين فقط */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
             gap: 20px; 
         }
         .main-card { 
@@ -53,18 +51,17 @@
 
         footer { text-align: center; padding: 25px; background: #e0f2f7; font-weight: bold; margin-top: 50px; }
 
-        /* للتوافق مع الجوال */
         @media (max-width: 768px) {
-            .sections-grid { grid-template-columns: repeat(2, 1fr); } /* في الجوال تصبح 2 في كل صف */
+            .sections-grid { grid-template-columns: repeat(2, 1fr); }
             .top-info-bar { flex-direction: column; align-items: center; gap: 5px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-info-bar" id="info-bar">
-        <span id="hijri-date">التاريخ الهجري ...</span>
-        <span id="prayer-times">الفجر: --:-- | الظهر: --:-- | العصر: --:-- | المغرب: --:-- | العشاء: --:--</span>
+    <div class="top-info-bar">
+        <span>الأحد 17 شوال 1447 هـ</span>
+        <span>الفجر: 04:12 | الظهر: 11:58 | العصر: 03:32 | المغرب: 06:15 | العشاء: 07:45</span>
     </div>
 
     <header class="site-header">
@@ -73,7 +70,8 @@
 
     <nav class="nav-bar">
         <a href="index.html" class="btn-nav btn-blue">الرئيسية</a>
-        <a href="lessons.html" class="btn-nav btn-gold">الصوتيات</a>
+        <a href="tafseer_index.html" class="btn-nav btn-special">تفسير القرآن</a>
+        <a href="lessons.html" class="btn-nav btn-gold">الدروس العلمية</a>
         <a href="khutbah.html" class="btn-nav btn-blue">الخطب</a>
         <a href="books.html" class="btn-nav btn-blue">الكتب</a>
         <a href="articles.html" class="btn-nav btn-blue">المقالات</a>
@@ -81,7 +79,6 @@
 
     <div class="sections-container">
         <div class="sections-grid">
-            <a href="tafseer_index.html" class="main-card">تفسير القرآن الكريم</a>
             <a href="quran_sci.html" class="main-card">علوم القرآن</a>
             <a href="hadith.html" class="main-card">شروح الحديث</a>
             <a href="aqidah.html" class="main-card">العقيدة والتوحيد</a>
@@ -94,9 +91,5 @@
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
-    <script>
-        // كود بسيط لعرض تاريخ تقريبي (يمكن ربطه بـ API للمواقيت لاحقاً)
-        document.getElementById('hijri-date').innerText = "الأحد 17 شوال 1447 هـ";
-    </script>
 </body>
 </html>
