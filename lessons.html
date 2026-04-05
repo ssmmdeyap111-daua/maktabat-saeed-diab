@@ -2,36 +2,101 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المكتبة الصوتية - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --light-sky: #add8e6; --dark-blue: #2c5d87; --accent-blue: #5a9bd5; }
-        body { font-family: 'Cairo', sans-serif; background: #f4f7f9; margin: 0; text-align: center; }
-        .header { background: linear-gradient(to right, #add8e6, #e0f2f7); padding: 20px; border-bottom: 5px solid #fff; }
-        .sections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; padding: 20px; }
-        .rect-card { 
-            background: var(--light-sky); color: var(--dark-blue); padding: 40px 20px; 
-            text-decoration: none; border-radius: 15px; font-weight: 900; font-size: 1.4rem; 
-            box-shadow: 0 6px 0 var(--accent-blue); transition: 0.3s; display: block;
+        :root { 
+            --light-sky: #add8e6; --dark-blue: #2c5d87; --accent-blue: #5a9bd5; 
+            --gold-color: #c5a03d; --header-bg: #e0f2f7; 
         }
-        .rect-card:hover { transform: translateY(-5px); background: #bde4f0; }
-        footer { margin-top: 50px; padding: 20px; background: #e0f2f7; font-weight: bold; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f4f7f9; color: #333; }
+
+        /* شريط التاريخ والمواقيت */
+        .top-info-bar { 
+            background: var(--dark-blue); color: white; padding: 10px 0; 
+            display: flex; justify-content: center; gap: 20px; font-size: 0.9rem; font-weight: bold;
+        }
+
+        /* الهيدر واللوجو الشفاف */
+        .site-header { text-align: center; padding: 20px; background: var(--header-bg); }
+        .site-logo { 
+            max-width: 400px; width: 100%; height: auto; 
+            mix-blend-mode: multiply; /* هذا السطر يجعل الخلفية البيضاء للصور شفافة */
+        }
+
+        /* شريط التنقل الرئيسي */
+        .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; background: #fff; border-bottom: 2px solid var(--light-sky); }
+        .btn-nav { 
+            min-width: 110px; padding: 10px 15px; border-radius: 8px; font-weight: 700; 
+            text-decoration: none; color: white; text-align: center; box-shadow: 0 4px 0 var(--dark-blue); 
+        }
+        .btn-blue { background: linear-gradient(to bottom, #87ceeb, #5a9bd5); }
+        .btn-gold { background: linear-gradient(to bottom, #d4af37, #b38f2d); box-shadow: 0 4px 0 #8c6d1a; }
+
+        /* الأيقونات الثمانية (صفين - 4 في كل صف) */
+        .sections-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .sections-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); /* 4 أعمدة لضمان وجود صفين فقط */
+            gap: 20px; 
+        }
+        .main-card { 
+            background: var(--light-sky); color: var(--dark-blue); padding: 30px 10px; 
+            text-decoration: none; text-align: center; border-radius: 12px;
+            font-weight: 900; font-size: 1.2rem; box-shadow: 0 6px 0 var(--accent-blue);
+            transition: 0.3s; border: 1px solid rgba(255,255,255,0.4);
+            display: flex; align-items: center; justify-content: center; min-height: 80px;
+        }
+        .main-card:hover { transform: translateY(-5px); background: #bde4f0; }
+
+        footer { text-align: center; padding: 25px; background: #e0f2f7; font-weight: bold; margin-top: 50px; }
+
+        /* للتوافق مع الجوال */
+        @media (max-width: 768px) {
+            .sections-grid { grid-template-columns: repeat(2, 1fr); } /* في الجوال تصبح 2 في كل صف */
+            .top-info-bar { flex-direction: column; align-items: center; gap: 5px; }
+        }
     </style>
 </head>
 <body>
-    <div class="header"><img src="images/logo.png.jpg" style="max-width:400px;"></div>
-    
-    <div class="sections-grid">
-        <a href="tafseer.html" class="rect-card">تفسير القرآن الكريم</a>
-        <a href="quran_sci.html" class="rect-card">علوم القرآن</a>
-        <a href="hadith.html" class="rect-card">شروح الحديث</a>
-        <a href="aqidah.html" class="rect-card">العقيدة والتوحيد</a>
-        <a href="fiqh.html" class="rect-card">الفقه وأصوله</a>
-        <a href="seerah.html" class="rect-card">السيرة النبوية</a>
-        <a href="faraid.html" class="rect-card">شرح الرحبية</a>
-        <a href="radio.html" class="rect-card">برامج إذاعية</a>
+
+    <div class="top-info-bar" id="info-bar">
+        <span id="hijri-date">التاريخ الهجري ...</span>
+        <span id="prayer-times">الفجر: --:-- | الظهر: --:-- | العصر: --:-- | المغرب: --:-- | العشاء: --:--</span>
+    </div>
+
+    <header class="site-header">
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+    </header>
+
+    <nav class="nav-bar">
+        <a href="index.html" class="btn-nav btn-blue">الرئيسية</a>
+        <a href="lessons.html" class="btn-nav btn-gold">الصوتيات</a>
+        <a href="khutbah.html" class="btn-nav btn-blue">الخطب</a>
+        <a href="books.html" class="btn-nav btn-blue">الكتب</a>
+        <a href="articles.html" class="btn-nav btn-blue">المقالات</a>
+    </nav>
+
+    <div class="sections-container">
+        <div class="sections-grid">
+            <a href="tafseer_index.html" class="main-card">تفسير القرآن الكريم</a>
+            <a href="quran_sci.html" class="main-card">علوم القرآن</a>
+            <a href="hadith.html" class="main-card">شروح الحديث</a>
+            <a href="aqidah.html" class="main-card">العقيدة والتوحيد</a>
+            <a href="fiqh.html" class="main-card">الفقه وأصوله</a>
+            <a href="seerah.html" class="main-card">السيرة النبوية</a>
+            <a href="faraid.html" class="main-card">شرح الرحبية</a>
+            <a href="radio.html" class="main-card">برامج إذاعية</a>
+        </div>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <script>
+        // كود بسيط لعرض تاريخ تقريبي (يمكن ربطه بـ API للمواقيت لاحقاً)
+        document.getElementById('hijri-date').innerText = "الأحد 17 شوال 1447 هـ";
+    </script>
 </body>
 </html>
