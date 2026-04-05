@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فهرس التفسير 3D - الشيخ سعيد مصطفى دياب</title>
+    <title>فهرس التفسير - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -13,48 +13,39 @@
         }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; }
 
-        /* الهيدر */
         .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 5px solid #fff; }
         .site-logo { max-width: 400px; width: 100%; mix-blend-mode: multiply; }
 
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; text-align: center; }
-        
-        .page-title { color: var(--dark-blue); font-weight: 900; margin-bottom: 30px; font-size: 1.8rem; }
+        .page-title { color: var(--dark-blue); font-weight: 900; margin-bottom: 30px; font-size: 1.8rem; border-bottom: 2px solid var(--gold-color); display: inline-block; padding-bottom: 5px; }
 
         /* شبكة الأيقونات 3D الصغيرة */
         .surah-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
             gap: 20px; 
-            margin-bottom: 40px;
         }
 
-        /* تصميم الزر 3D مطابق للرئيسية ولكن بحجم أصغر */
+        /* زر 3D صغير */
         .btn-3d-surah {
-            background: #87ceeb; /* نفس لون زر الصوتيات */
-            color: white; padding: 15px 10px; border-radius: 12px;
+            background: #87ceeb; color: white; padding: 15px 10px; border-radius: 12px;
             font-weight: 900; font-size: 1.1rem; text-decoration: none;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             box-shadow: 0 6px 0 var(--dark-blue); 
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: 0.2s;
+            border: 1px solid rgba(255,255,255,0.2); transition: 0.2s;
         }
         .btn-3d-surah:hover { transform: translateY(-3px); filter: brightness(1.1); }
         .btn-3d-surah:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--dark-blue); }
         
-        .surah-num { font-size: 0.8rem; opacity: 0.9; margin-bottom: 5px; background: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 10px; }
+        .surah-num { font-size: 0.8rem; opacity: 0.9; margin-bottom: 5px; background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 10px; }
 
-        /* نظام الترقيم (Pagination) */
-        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; }
+        /* أرقام الصفحات */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 50px; }
         .page-link { 
-            padding: 10px 20px; background: #fff; border: 2px solid var(--accent-blue);
-            color: var(--dark-blue); text-decoration: none; border-radius: 10px; font-weight: bold; transition: 0.3s;
+            padding: 10px 18px; background: #fff; border: 2px solid var(--accent-blue);
+            color: var(--dark-blue); text-decoration: none; border-radius: 10px; font-weight: bold;
         }
         .page-link.active { background: var(--gold-color); border-color: var(--gold-color); color: white; box-shadow: 0 4px 0 #8c6d1a; }
-        .page-link:hover:not(.active) { background: var(--light-sky); }
-
-        .back-nav { margin-bottom: 20px; }
-        .btn-back { color: var(--gold-color); text-decoration: none; font-weight: bold; font-size: 1.1rem; }
 
         footer { text-align: center; padding: 25px; background: var(--header-bg); font-weight: bold; margin-top: 50px; }
     </style>
@@ -62,44 +53,41 @@
 <body>
 
     <header class="site-header">
-        <img src="images/logo.png.jpg" alt="الشيخ" class="site-logo">
+        <img src="images/logo.png.jpg" class="site-logo">
     </header>
 
     <div class="container">
-        <div class="back-nav">
-            <a href="lessons.html" class="btn-back"><i class="fas fa-arrow-right"></i> العودة لقائمة الدروس</a>
-        </div>
-
-        <h2 class="page-title">فهرس تفسير القرآن الكريم (1 - 30)</h2>
+        <div style="margin-bottom: 20px;"><a href="lessons.html" style="color: var(--dark-blue); font-weight: bold; text-decoration: none;"><i class="fas fa-arrow-right"></i> العودة لقسم الدروس</a></div>
+        
+        <h2 class="page-title">تفسير القرآن الكريم - الصفحة ١</h2>
 
         <div class="surah-grid">
-            <a href="surah_fateha.html" class="btn-3d-surah"><span class="surah-num">١</span>الفاتحة</a>
-            <a href="surah_baqarah.html" class="btn-3d-surah"><span class="surah-num">٢</span>البقرة</a>
-            <a href="surah_imran.html" class="btn-3d-surah"><span class="surah-num">٣</span>آل عمران</a>
-            <a href="surah_nisa.html" class="btn-3d-surah"><span class="surah-num">٤</span>النساء</a>
-            <a href="surah_maedah.html" class="btn-3d-surah"><span class="surah-num">٥</span>المائدة</a>
-            <a href="surah_anaam.html" class="btn-3d-surah"><span class="surah-num">٦</span>الأنعام</a>
-            <a href="surah_araaf.html" class="btn-3d-surah"><span class="surah-num">٧</span>الأعراف</a>
-            <a href="surah_anfal.html" class="btn-3d-surah"><span class="surah-num">٨</span>الأنفال</a>
-            <a href="surah_tawbah.html" class="btn-3d-surah"><span class="surah-num">٩</span>التوبة</a>
-            <a href="surah_yunus.html" class="btn-3d-surah"><span class="surah-num">١٠</span>يونس</a>
-            <a href="surah_houd.html" class="btn-3d-surah"><span class="surah-num">١١</span>هود</a>
-            <a href="surah_yusuf.html" class="btn-3d-surah"><span class="surah-num">١٢</span>يوسف</a>
-            <a href="surah_raad.html" class="btn-3d-surah"><span class="surah-num">١٣</span>الرعد</a>
-            <a href="surah_ibrahim.html" class="btn-3d-surah"><span class="surah-num">١٤</span>إبراهيم</a>
-            <a href="surah_hijr.html" class="btn-3d-surah"><span class="surah-num">١٥</span>الحجر</a>
-            <a href="surah_nahl.html" class="btn-3d-surah"><span class="surah-num">١٦</span>النحل</a>
+            <a href="tafseer-fateha.html" class="btn-3d-surah"><span class="surah-num">١</span>الفاتحة</a>
+            <a href="tafseer-baqara.html" class="btn-3d-surah"><span class="surah-num">٢</span>البقرة</a>
+            <a href="tafseer-imran.html" class="btn-3d-surah"><span class="surah-num">٣</span>آل عمران</a>
+            <a href="tafseer-nisa.html" class="btn-3d-surah"><span class="surah-num">٤</span>النساء</a>
+            <a href="tafseer-maedah.html" class="btn-3d-surah"><span class="surah-num">٥</span>المائدة</a>
+            <a href="tafseer-anaam.html" class="btn-3d-surah"><span class="surah-num">٦</span>الأنعام</a>
+            <a href="tafseer-araaf.html" class="btn-3d-surah"><span class="surah-num">٧</span>الأعراف</a>
+            <a href="tafseer-anfal.html" class="btn-3d-surah"><span class="surah-num">٨</span>الأنفال</a>
+            <a href="tafseer-tawbah.html" class="btn-3d-surah"><span class="surah-num">٩</span>التوبة</a>
+            <a href="tafseer-yunus.html" class="btn-3d-surah"><span class="surah-num">١٠</span>يونس</a>
+            <a href="tafseer-houd.html" class="btn-3d-surah"><span class="surah-num">١١</span>هود</a>
+            <a href="tafseer-yusuf.html" class="btn-3d-surah"><span class="surah-num">١٢</span>يوسف</a>
+            <a href="tafseer-raad.html" class="btn-3d-surah"><span class="surah-num">١٣</span>الرعد</a>
+            <a href="tafseer-ibrahim.html" class="btn-3d-surah"><span class="surah-num">١٤</span>إبراهيم</a>
+            <a href="tafseer-hijr.html" class="btn-3d-surah"><span class="surah-num">١٥</span>الحجر</a>
+            <a href="tafseer-nahl.html" class="btn-3d-surah"><span class="surah-num">١٦</span>النحل</a>
             </div>
 
         <div class="pagination">
             <a href="tafseer_index.html" class="page-link active">1</a>
-            <a href="tafseer_page2.html" class="page-link">2</a>
-            <a href="tafseer_page3.html" class="page-link">3</a>
-            <a href="tafseer_page4.html" class="page-link">4</a>
+            <a href="tafseer_index2.html" class="page-link">2</a>
+            <a href="tafseer_index3.html" class="page-link">3</a>
+            <a href="tafseer_index4.html" class="page-link">4</a>
         </div>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
-
 </body>
 </html>
