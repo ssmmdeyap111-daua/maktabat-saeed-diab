@@ -66,16 +66,25 @@
             </div>
             <div class="accordion-content" id="list-tawheed"></div>
         </div>
+
+        <div class="accordion-item" id="sec-gbreel">
+            <div class="accordion-header" onclick="toggleSec('gbreel')">
+                <span><i class="fas fa-person-praying"></i> شرح حديث جبريل</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content" id="list-gbreel"></div>
+        </div>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // التعديل هنا ليتناسب مع أسماء ملفاتك الفعلية
+        // تحديث الأعداد والأسماء حسب طلبك
         const config = {
-            wasitya: { prefix: "wastya", count: 9 }, // سيبحث عن wastya-1.mp3 إلى wastya-9.mp3
-            tahawiya: { prefix: "tahawiya", count: 14 }, // سيبحث عن tahawiya-1.mp3 إلى tahawiya-14.mp3
-            tawheed: { prefix: "tawheed", count: 13 }  // سيبحث عن tawheed-1.mp3 إلى tawheed-13.mp3
+            wasitya: { prefix: "wastya", count: 26 },
+            tahawiya: { prefix: "tahawiya", count: 21 },
+            tawheed: { prefix: "tawheed", count: 23 },
+            gbreel: { prefix: "gbreel", count: 13 }
         };
 
         function toggleSec(id) {
