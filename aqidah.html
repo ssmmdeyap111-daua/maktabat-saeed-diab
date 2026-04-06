@@ -10,22 +10,18 @@
         :root { --primary: #2c5d87; --accent-blue: #add8e6; --gold: #d4af37; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; }
 
-        /* الهيدر واللوجو */
         .site-header { text-align: center; padding: 20px; background: var(--accent-blue); border-bottom: 5px solid #fff; }
         .site-logo { max-width: 500px; width: 100%; mix-blend-mode: multiply; }
 
-        /* التنقل 3D */
         .main-nav { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; }
         .nav-btn-3d { 
             padding: 12px 25px; border-radius: 12px; font-weight: 900; text-decoration: none; color: white; 
             background: var(--primary); box-shadow: 0 6px 0 #1a3a54; transition: 0.2s; min-width: 140px; text-align: center;
         }
-        .btn-gold { background: var(--gold); box-shadow: 0 6px 0 #8c6d1a; }
 
         .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
         .page-title { text-align: center; color: var(--primary); font-weight: 900; font-size: 2rem; margin-bottom: 40px; }
 
-        /* الأكورديون */
         .accordion-item { background: white; border-radius: 15px; margin-bottom: 15px; border: 2px solid var(--accent-blue); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .accordion-header { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; border-right: 10px solid var(--gold); }
         .accordion-header span { font-weight: 900; color: var(--primary); font-size: 1.25rem; }
@@ -33,7 +29,6 @@
         .active .accordion-content { display: block; }
         .active .accordion-header { background: #eef7fb; }
 
-        /* صفوف الدروس */
         .lesson-row { padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
         .lesson-name { font-weight: 700; color: var(--primary); flex: 2; }
         audio { height: 35px; flex: 4; }
@@ -44,14 +39,11 @@
 </head>
 <body>
 
-    <header class="site-header">
-        <img src="images/logo.png.jpg" class="site-logo">
-    </header>
+    <header class="site-header"><img src="images/logo.png.jpg" class="site-logo"></header>
 
     <nav class="main-nav">
         <a href="index.html" class="nav-btn-3d">الرئيسية</a>
-        <a href="tafseer_index.html" class="nav-btn-3d">التفسير</a>
-        <a href="lessons.html" class="nav-btn-3d btn-gold">الصوتيات</a>
+        <a href="lessons.html" class="nav-btn-3d">الصوتيات</a>
     </nav>
 
     <div class="container">
@@ -85,10 +77,10 @@
     <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // إعدادات الدروس (الأسماء البرمجية للملفات وعدد الدروس)
+        // هنا يتم ضبط الأسماء لتطابق ملفات الصوت الفعلية
         const config = {
             wasitya: { prefix: "aqidah-wasitya", count: 20 },
-            tahawya: { prefix: "aqidah-tahawya", count: 15 }, // عدل العدد حسب المتوفر عندك
+            tahawya: { prefix: "aqidah-tahawya", count: 15 },
             tawheed: { prefix: "aqidah-tawheed", count: 25 }
         };
 
@@ -100,11 +92,13 @@
             if (list.innerHTML === "") {
                 let html = "";
                 for (let i = 1; i <= config[id].count; i++) {
+                    // سيتم البحث عن ملف مثل audio/aqidah-wasitya-1.mp3
+                    const filePath = `audio/${config[id].prefix}-${i}.mp3`;
                     html += `
                     <div class="lesson-row">
                         <div class="lesson-name">الدرس رقم (${i})</div>
-                        <audio controls preload="none"><source src="audio/${config[id].prefix}-${i}.mp3"></audio>
-                        <a href="audio/${config[id].prefix}-${i}.mp3" download class="btn-dl"><i class="fas fa-download"></i></a>
+                        <audio controls preload="none"><source src="${filePath}"></audio>
+                        <a href="${filePath}" download class="btn-dl"><i class="fas fa-download"></i></a>
                     </div>`;
                 }
                 list.innerHTML = html;
