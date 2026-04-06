@@ -9,31 +9,25 @@
     <style>
         :root { --primary: #2c5d87; --accent-blue: #add8e6; --gold: #d4af37; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; }
-
         .site-header { text-align: center; padding: 20px; background: var(--accent-blue); border-bottom: 5px solid #fff; }
         .site-logo { max-width: 500px; width: 100%; mix-blend-mode: multiply; }
-
         .main-nav { display: flex; justify-content: center; gap: 15px; padding: 20px; flex-wrap: wrap; }
         .nav-btn-3d { 
             padding: 12px 25px; border-radius: 12px; font-weight: 900; text-decoration: none; color: white; 
             background: var(--primary); box-shadow: 0 6px 0 #1a3a54; transition: 0.2s; min-width: 140px; text-align: center;
         }
-
         .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
         .page-title { text-align: center; color: var(--primary); font-weight: 900; font-size: 2rem; margin-bottom: 40px; }
-
         .accordion-item { background: white; border-radius: 15px; margin-bottom: 15px; border: 2px solid var(--accent-blue); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .accordion-header { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; border-right: 10px solid var(--gold); }
         .accordion-header span { font-weight: 900; color: var(--primary); font-size: 1.25rem; }
         .accordion-content { display: none; padding: 15px; background: #fcfdfe; border-top: 2px solid var(--accent-blue); }
         .active .accordion-content { display: block; }
         .active .accordion-header { background: #eef7fb; }
-
         .lesson-row { padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
         .lesson-name { font-weight: 700; color: var(--primary); flex: 2; }
         audio { height: 35px; flex: 4; }
         .btn-dl { color: #1b5e20; font-size: 1.5rem; text-decoration: none; }
-
         footer { text-align: center; padding: 25px; background: var(--accent-blue); color: var(--primary); font-weight: bold; margin-top: 50px; }
     </style>
 </head>
@@ -57,12 +51,12 @@
             <div class="accordion-content" id="list-wasitya"></div>
         </div>
 
-        <div class="accordion-item" id="sec-tahawya">
-            <div class="accordion-header" onclick="toggleSec('tahawya')">
+        <div class="accordion-item" id="sec-tahawiya">
+            <div class="accordion-header" onclick="toggleSec('tahawiya')">
                 <span><i class="fas fa-book"></i> شرح العقيدة الطحاوية</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content" id="list-tahawya"></div>
+            <div class="accordion-content" id="list-tahawiya"></div>
         </div>
 
         <div class="accordion-item" id="sec-tawheed">
@@ -77,11 +71,11 @@
     <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // هنا يتم ضبط الأسماء لتطابق ملفات الصوت الفعلية
+        // التعديل هنا ليتناسب مع أسماء ملفاتك الفعلية
         const config = {
-            wasitya: { prefix: "aqidah-wasitya", count: 20 },
-            tahawya: { prefix: "aqidah-tahawya", count: 15 },
-            tawheed: { prefix: "aqidah-tawheed", count: 25 }
+            wasitya: { prefix: "wastya", count: 9 }, // سيبحث عن wastya-1.mp3 إلى wastya-9.mp3
+            tahawiya: { prefix: "tahawiya", count: 14 }, // سيبحث عن tahawiya-1.mp3 إلى tahawiya-14.mp3
+            tawheed: { prefix: "tawheed", count: 13 }  // سيبحث عن tawheed-1.mp3 إلى tawheed-13.mp3
         };
 
         function toggleSec(id) {
@@ -92,7 +86,6 @@
             if (list.innerHTML === "") {
                 let html = "";
                 for (let i = 1; i <= config[id].count; i++) {
-                    // سيتم البحث عن ملف مثل audio/aqidah-wasitya-1.mp3
                     const filePath = `audio/${config[id].prefix}-${i}.mp3`;
                     html += `
                     <div class="lesson-row">
