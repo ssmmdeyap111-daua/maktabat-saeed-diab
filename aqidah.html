@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --accent-blue: #add8e6; --gold: #d4af37; --bg: #fdfae7; }
+        :root { --primary: #2c5d87; --accent-blue: #add8e6; --gold: #d4af37; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: #fff; }
 
         /* الهيدر واللوجو */
@@ -25,7 +25,7 @@
         .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
         .page-title { text-align: center; color: var(--primary); font-weight: 900; font-size: 2rem; margin-bottom: 40px; }
 
-        /* الأكورديون (نظام القوائم المنسدلة) */
+        /* الأكورديون */
         .accordion-item { background: white; border-radius: 15px; margin-bottom: 15px; border: 2px solid var(--accent-blue); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .accordion-header { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; border-right: 10px solid var(--gold); }
         .accordion-header span { font-weight: 900; color: var(--primary); font-size: 1.25rem; }
@@ -57,30 +57,39 @@
     <div class="container">
         <h1 class="page-title">دروس العقيدة والتوحيد</h1>
 
-        <div class="accordion-item" id="sec-aqeda1">
-            <div class="accordion-header" onclick="toggleSec('aqeda1')">
+        <div class="accordion-item" id="sec-wasitya">
+            <div class="accordion-header" onclick="toggleSec('wasitya')">
                 <span><i class="fas fa-scroll"></i> شرح العقيدة الواسطية</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content" id="list-aqeda1"></div>
+            <div class="accordion-content" id="list-wasitya"></div>
         </div>
 
-        <div class="accordion-item" id="sec-aqeda2">
-            <div class="accordion-header" onclick="toggleSec('aqeda2')">
-                <span><i class="fas fa-book-quran"></i> شرح لمعة الاعتقاد</span>
+        <div class="accordion-item" id="sec-tahawya">
+            <div class="accordion-header" onclick="toggleSec('tahawya')">
+                <span><i class="fas fa-book"></i> شرح العقيدة الطحاوية</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content" id="list-aqeda2"></div>
+            <div class="accordion-content" id="list-tahawya"></div>
+        </div>
+
+        <div class="accordion-item" id="sec-tawheed">
+            <div class="accordion-header" onclick="toggleSec('tawheed')">
+                <span><i class="fas fa-sun"></i> شرح كتاب التوحيد</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content" id="list-tawheed"></div>
         </div>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // ضبط الإعدادات لتعمل الدروس تلقائياً
+        // إعدادات الدروس (الأسماء البرمجية للملفات وعدد الدروس)
         const config = {
-            aqeda1: { prefix: "aqidah-wasitya", count: 20 }, // عدل الأسماء والعدد كما كان عندك
-            aqeda2: { prefix: "aqidah-loma", count: 10 }
+            wasitya: { prefix: "aqidah-wasitya", count: 20 },
+            tahawya: { prefix: "aqidah-tahawya", count: 15 }, // عدل العدد حسب المتوفر عندك
+            tawheed: { prefix: "aqidah-tawheed", count: 25 }
         };
 
         function toggleSec(id) {
@@ -89,14 +98,16 @@
             const list = document.getElementById('list-' + id);
             
             if (list.innerHTML === "") {
+                let html = "";
                 for (let i = 1; i <= config[id].count; i++) {
-                    list.innerHTML += `
+                    html += `
                     <div class="lesson-row">
                         <div class="lesson-name">الدرس رقم (${i})</div>
                         <audio controls preload="none"><source src="audio/${config[id].prefix}-${i}.mp3"></audio>
                         <a href="audio/${config[id].prefix}-${i}.mp3" download class="btn-dl"><i class="fas fa-download"></i></a>
                     </div>`;
                 }
+                list.innerHTML = html;
             }
         }
     </script>
