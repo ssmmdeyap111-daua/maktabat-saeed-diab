@@ -1,1 +1,88 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفسير سورة العلق - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary: #2c5d87; --accent: #add8e6; --gold: #d4af37; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f9fbfd; }
+
+        .site-header { text-align: center; padding: 20px; background: var(--accent); border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 450px; width: 100%; mix-blend-mode: multiply; }
+
+        .main-nav { display: flex; justify-content: center; gap: 15px; padding: 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .nav-btn-3d { 
+            padding: 10px 25px; border-radius: 12px; font-weight: 900; text-decoration: none; color: white; 
+            background: var(--primary); box-shadow: 0 5px 0 #1a3a54; transition: 0.2s;
+        }
+        .nav-btn-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 #1a3a54; }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        
+        /* بطاقة عرض الدرس */
+        .lesson-card {
+            background: white; border: 2px solid var(--accent); border-radius: 20px;
+            padding: 30px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .surah-title { color: var(--primary); font-weight: 900; font-size: 2rem; margin-bottom: 10px; }
+        .surah-info { color: #666; margin-bottom: 30px; font-weight: bold; }
+        
+        .audio-player-container { 
+            background: #f1f7f9; padding: 25px; border-radius: 15px; border: 1px dashed var(--primary);
+            margin: 20px 0;
+        }
+        audio { width: 100%; height: 50px; }
+
+        .download-box { margin-top: 25px; }
+        .btn-download {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #2e7d32; color: white; padding: 12px 30px;
+            border-radius: 50px; text-decoration: none; font-weight: 900;
+            box-shadow: 0 5px 0 #1b5e20; transition: 0.2s;
+        }
+        .btn-download:active { transform: translateY(3px); box-shadow: 0 2px 0 #1b5e20; }
+
+        footer { text-align: center; padding: 25px; background: var(--accent); color: var(--primary); font-weight: bold; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header"><img src="images/logo.png.jpg" class="site-logo"></header>
+    
+    <nav class="main-nav">
+        <a href="index.html" class="nav-btn-3d">الرئيسية</a>
+        <a href="tafseer_index.html" class="nav-btn-3d">فهرس التفسير</a>
+    </nav>
+
+    <div class="container">
+        <div class="lesson-card">
+            <i class="fas fa-book-open-reader" style="font-size: 3rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h1 class="surah-title">تفسير سورة العلق</h1>
+            <p class="surah-info">ضمن سلسلة "حياة القلوب في تفسير كلام علام الغيوب"</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <div class="audio-player-container">
+                <p style="font-weight: 900; color: var(--primary); margin-bottom: 15px;">الدرس الكامل (تفسير السورة)</p>
+                <audio controls>
+                    <source src="audio/alaq.mp3" type="audio/mpeg">
+                    متصفحك لا يدعم مشغل الصوت.
+                </audio>
+            </div>
+
+            <div class="download-box">
+                <a href="audio/alaq.mp3" download class="btn-download">
+                    <i class="fas fa-cloud-arrow-down"></i> تحميل الدرس (MP3)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+</body>
+</html>
