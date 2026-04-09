@@ -1,1 +1,109 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسباب محبة الله للعباد - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary: #2c5d87; --accent-blue: #add8e6; --gold: #d4af37; --sky-blue: #87CEEB; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f0f7fa; }
+
+        /* الهيدر والتنقل */
+        .site-header { text-align: center; padding: 20px; background: var(--accent-blue); border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 450px; width: 100%; mix-blend-mode: multiply; }
+        .main-nav { display: flex; justify-content: center; gap: 15px; padding: 20px; background: white; flex-wrap: wrap; }
+        .nav-btn-3d { 
+            padding: 10px 20px; border-radius: 12px; font-weight: 900; text-decoration: none; color: white; 
+            background: var(--primary); box-shadow: 0 5px 0 #1a3a54; transition: 0.2s;
+        }
+
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        
+        /* عنوان السلسلة */
+        .series-header { 
+            text-align: center; background: white; padding: 30px; border-radius: 20px; 
+            border-bottom: 5px solid var(--sky-blue); margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .series-title { color: var(--primary); font-weight: 900; font-size: 2rem; margin: 0; }
+        .back-link { display: inline-block; margin-top: 10px; color: var(--primary); text-decoration: none; font-weight: bold; }
+
+        /* تصميم صفوف الدروس */
+        .lesson-row { 
+            background: white; margin-bottom: 12px; padding: 15px 25px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: space-between; gap: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03); border-right: 8px solid var(--sky-blue);
+            transition: 0.3s;
+        }
+        .lesson-row:hover { transform: scale(1.01); background: #fdfdfd; }
+        
+        .lesson-info { flex: 1; display: flex; align-items: center; gap: 15px; }
+        .lesson-number { 
+            background: var(--sky-blue); color: white; width: 35px; height: 35px; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900;
+        }
+        .lesson-text { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+
+        audio { height: 35px; flex: 2; min-width: 200px; }
+        
+        .btn-download { 
+            color: #2e7d32; font-size: 1.6rem; text-decoration: none; transition: 0.2s;
+        }
+        .btn-download:hover { color: #1b5e20; }
+
+        footer { text-align: center; padding: 30px; background: var(--accent-blue); color: var(--primary); font-weight: bold; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header"><img src="images/logo.png.jpg" class="site-logo"></header>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-btn-3d">الرئيسية</a>
+        <a href="lessons.html" class="nav-btn-3d">الصوتيات</a>
+        <a href="raqaeq.html" class="nav-btn-3d" style="background:var(--gold); box-shadow: 0 5px 0 #8c6d1a;">قسم الرقائق</a>
+    </nav>
+
+    <div class="container">
+        <div class="series-header">
+            <h1 class="series-title">سلسلة أسباب محبة الله للعباد</h1>
+            <a href="raqaeq.html" class="back-link"><i class="fas fa-arrow-right"></i> عودة لقسم الرقائق</a>
+        </div>
+
+        <div id="lessons-list">
+            </div>
+    </div>
+
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <script>
+        const config = {
+            prefix: "mahba", // اسم الملف الصوتي al-alaq.mp3
+            totalLessons: 30 // العدد التقريبي بناءً على ترقيم الصفحات في صورتك
+        };
+
+        const listContainer = document.getElementById('lessons-list');
+        let html = "";
+
+        for (let i = 1; i <= config.totalLessons; i++) {
+            const fileName = `audio/${config.prefix}-${i}.mp3`;
+            html += `
+            <div class="lesson-row">
+                <div class="lesson-info">
+                    <div class="lesson-number">${i}</div>
+                    <div class="lesson-text">الدرس رقم (${i})</div>
+                </div>
+                <audio controls preload="none">
+                    <source src="${fileName}" type="audio/mpeg">
+                </audio>
+                <a href="${fileName}" download title="تحميل الدرس" class="btn-download">
+                    <i class="fas fa-circle-down"></i>
+                </a>
+            </div>`;
+        }
+        listContainer.innerHTML = html;
+    </script>
+</body>
+</html>
