@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* ====== 1. المتغيرات والتأسيس ====== */
+        /* ====== 1. المتغيرات والتأسيس (من كودك) ====== */
         :root {
             --light-sky: #eef5ff;
             --dark-blue: #2c5d87;
@@ -18,219 +18,139 @@
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
+            margin: 0; padding: 0; font-family: 'Cairo', sans-serif;
             background: linear-gradient(rgba(238, 245, 255, 0.9), rgba(238, 245, 255, 0.9)), 
                         url('library-bg.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
+            background-size: cover; color: #333;
         }
-
-        a { text-decoration: none; }
 
         /* ====== 2. الهيدر واللوجو ====== */
         .site-header { 
-            text-align: center; 
-            padding: 30px 20px;
-            background: var(--header-bg); 
-            position: relative; 
-            border-bottom: 4px solid var(--white); 
+            text-align: center; padding: 30px 20px;
+            background: var(--header-bg); border-bottom: 4px solid var(--white); 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-
-        .site-logo { 
-            max-width: 550px; 
-            width: 100%; 
-            height: auto; 
-            display: block;
-            margin: 0 auto;
-            mix-blend-mode: multiply;
-        }
+        .site-logo { max-width: 550px; width: 100%; mix-blend-mode: multiply; }
 
         /* ====== 3. أزرار التنقل 3D ====== */
-        .nav-bar {
-            display: flex;
-            justify-content: center;
-            padding: 25px;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
+        .nav-bar { display: flex; justify-content: center; padding: 25px; gap: 15px; flex-wrap: wrap; }
         .btn-3d {
-            padding: 12px 24px;
-            background: var(--white);
-            border-radius: 12px;
-            color: var(--dark-blue);
-            font-weight: 800;
-            box-shadow: 0 5px 0 var(--btn-shadow);
-            transition: all 0.1s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
+            padding: 12px 24px; background: var(--white); border-radius: 12px;
+            color: var(--dark-blue); font-weight: 800; box-shadow: 0 5px 0 var(--btn-shadow);
+            transition: all 0.1s ease; display: flex; align-items: center; gap: 10px; text-decoration: none;
         }
-
-        .btn-3d:hover {
-            transform: translateY(2px);
-            box-shadow: 0 3px 0 var(--btn-shadow);
-        }
-
-        .btn-3d:active {
-            transform: translateY(5px);
-            box-shadow: 0 0 0 var(--btn-shadow);
-        }
+        .btn-3d:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--btn-shadow); }
 
         /* ====== 4. الحاويات والأكورديون ====== */
-        .container {
-            max-width: 950px;
-            margin: 20px auto;
-            padding: 0 15px 60 Arabic;
-        }
-
+        .container { max-width: 950px; margin: 20px auto; padding: 0 15px 60px; }
         .accordion-item {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 15px;
-            margin-bottom: 18px;
-            overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+            background: rgba(255, 255, 255, 0.98); border-radius: 15px;
+            margin-bottom: 18px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.06);
             border: 1px solid #eef2f6;
         }
-
         .accordion-header {
-            padding: 22px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
-            font-weight: 900;
-            color: var(--dark-blue);
-            font-size: 1.35rem;
-            background: var(--white);
+            padding: 22px; cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; font-weight: 900; color: var(--dark-blue); font-size: 1.35rem;
         }
-
         .accordion-header:hover { background: #f0faff; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; background: #fcfdfe; }
+        .active .accordion-content { max-height: 5000px; padding: 15px; border-top: 1px solid #eee; }
 
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
-            background: #fcfdfe;
-        }
-
-        .active .accordion-content {
-            max-height: 5000px;
-            padding: 15px;
-            border-top: 1px solid #eee;
-        }
-
-        /* ====== 5. قائمة الدروس ====== */
+        /* ====== 5. قائمة الدروس (نظام الشبكة) ====== */
         .lessons-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 12px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px;
         }
-
         .lesson-card {
-            background: var(--white);
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #edf2f7;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
+            background: var(--white); padding: 12px; border-radius: 10px;
+            border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center;
         }
+        .lesson-name { font-weight: 700; color: var(--dark-blue); font-size: 0.9rem; }
+        audio { height: 30px; width: 140px; }
+        .download-btn { color: #27ae60; font-size: 1.3rem; }
 
-        .lesson-name { font-weight: 700; color: var(--dark-blue); font-size: 0.95rem; }
-
-        audio { height: 32px; width: 150px; }
-
-        .download-btn {
-            color: #27ae60;
-            font-size: 1.4rem;
-            transition: 0.3s;
-        }
-
-        .download-btn:hover { color: var(--gold); }
-
-        /* ====== 6. الفوتر ====== */
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            color: #666;
-            font-weight: bold;
-            margin-top: 40px;
-        }
+        footer { text-align: center; padding: 40px; color: #666; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <img src="images/logo.png.jpg" class="site-logo" alt="الشيخ سعيد مصطفى دياب">
+        <img src="images/logo.png.jpg" class="site-logo">
     </header>
 
     <nav class="nav-bar">
         <a href="index.html" class="btn-3d"><i class="fas fa-home"></i> الرئيسية</a>
-        <a href="lessons.html" class="btn-3d"><i class="fas fa-microphone"></i> الصوتيات</a>
+        <a href="raqaeq.html" class="btn-3d"><i class="fas fa-heart"></i> الرقائق والزهد</a>
     </nav>
 
     <div class="container">
         <div class="accordion-item" id="wasitya">
             <div class="accordion-header" onclick="toggleAccordion('wasitya')">
-                <span>شرح العقيدة الواسطية</span>
+                <span><i class="fas fa-book-open"></i> شرح العقيدة الواسطية (26 درساً)</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content">
-                <div class="lessons-list" id="list-wasitya"></div>
-            </div>
+            <div class="accordion-content"><div class="lessons-list" id="list-wasitya"></div></div>
         </div>
 
         <div class="accordion-item" id="tahawiya">
             <div class="accordion-header" onclick="toggleAccordion('tahawiya')">
-                <span>شرح العقيدة الطحاوية</span>
+                <span><i class="fas fa-book"></i> شرح العقيدة الطحاوية (21 درساً)</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="accordion-content">
-                <div class="lessons-list" id="list-tahawiya"></div>
+            <div class="accordion-content"><div class="lessons-list" id="list-tahawiya"></div></div>
+        </div>
+
+        <div class="accordion-item" id="tawheed">
+            <div class="accordion-header" onclick="toggleAccordion('tawheed')">
+                <span><i class="fas fa-sun"></i> شرح كتاب التوحيد (23 درساً)</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
+            <div class="accordion-content"><div class="lessons-list" id="list-tawheed"></div></div>
+        </div>
+
+        <div class="accordion-item" id="gbreel">
+            <div class="accordion-header" onclick="toggleAccordion('gbreel')">
+                <span><i class="fas fa-mosque"></i> شرح حديث جبريل (13 درساً)</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content"><div class="lessons-list" id="list-gbreel"></div></div>
         </div>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // برمجة الأكورديون
+        const config = {
+            wasitya: { prefix: "wastya", count: 26 },
+            tahawiya: { prefix: "tahawiya", count: 21 },
+            tawheed: { prefix: "tawheed", count: 23 },
+            gbreel: { prefix: "gbreel", count: 13 }
+        };
+
         function toggleAccordion(id) {
             const item = document.getElementById(id);
-            item.classList.toggle('active');
+            const isActive = item.classList.contains('active');
             
-            // إذا فتحنا القسم ولم تكن الدروس محملة، قم بتحميلها
-            const list = document.getElementById('list-' + id);
-            if (list.innerHTML === "") {
-                loadLessons(id);
+            // إغلاق أي قسم مفتوح آخر (اختياري)
+            document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+            
+            if (!isActive) {
+                item.classList.add('active');
+                const list = document.getElementById('list-' + id);
+                if (list.innerHTML === "") loadLessons(id);
             }
         }
 
-        // إعدادات الدروس (الاسم البرمجي، بادئة الملف، العدد)
-        const config = {
-            wasitya: { prefix: "wastya", count: 26 },
-            tahawiya: { prefix: "tahawiya", count: 21 }
-        };
-
         function loadLessons(id) {
             const list = document.getElementById('list-' + id);
-            let html = "";
             const data = config[id];
-
+            let html = "";
             for (let i = 1; i <= data.count; i++) {
                 const filePath = `audio/${data.prefix}-${i}.mp3`;
                 html += `
                 <div class="lesson-card">
                     <span class="lesson-name">الدرس ${i}</span>
                     <audio controls preload="none"><source src="${filePath}"></audio>
-                    <a href="${filePath}" download class="download-btn"><i class="fas fa-cloud-download-alt"></i></a>
+                    <a href="${filePath}" download class="download-btn"><i class="fas fa-arrow-circle-down"></i></a>
                 </div>`;
             }
             list.innerHTML = html;
