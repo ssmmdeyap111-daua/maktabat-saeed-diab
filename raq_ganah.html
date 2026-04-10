@@ -3,77 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دروس الرقائق - الشيخ سعيد مصطفى دياب</title>
+    <title>وصف الجنة ونعيمها - الشيخ سعيد مصطفى دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --bg: #f8fafc; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--bg); }
-        .site-header { background: white; padding: 20px; text-align: center; border-bottom: 3px solid var(--primary); }
-        .container { width: 98%; max-width: 1600px; margin: 20px auto; }
-        .lesson-row { display: flex; align-items: center; background: white; margin-bottom: 8px; padding: 15px 30px; border-radius: 10px; border: 1px solid #e2e8f0; }
-        .lesson-row:hover { background: #f1f5f9; border-right: 6px solid var(--primary); }
-        .lesson-info { flex: 2; font-weight: 700; font-size: 1.2rem; color: #334155; }
-        .audio-player { flex: 4; display: flex; justify-content: center; }
-        audio { width: 95%; height: 40px; }
-        .actions { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
-        .actions a { color: #10b981; font-size: 1.4rem; text-decoration: none; }
-        .pagination { display: flex; justify-content: center; margin: 30px; gap: 10px; direction: ltr; }
-        .page-btn { padding: 10px 20px; background: white; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .page-btn.active { background: var(--primary); color: white; }
+        :root { --primary: #2c5d87; --accent-blue: #add8e6; --sky-blue: #87CEEB; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f0f7fa; }
+
+        /* الهيدر */
+        .site-header { text-align: center; padding: 20px; background: var(--accent-blue); border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 450px; width: 100%; mix-blend-mode: multiply; }
+        
+        .main-nav { display: flex; justify-content: center; gap: 15px; padding: 20px; background: white; }
+        .nav-btn-3d { 
+            padding: 10px 25px; border-radius: 12px; font-weight: 900; text-decoration: none; color: white; 
+            background: var(--primary); box-shadow: 0 5px 0 #1a3a54;
+        }
+
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        
+        /* ترويسة السلسلة */
+        .series-header { 
+            text-align: center; background: white; padding: 30px; border-radius: 20px; 
+            border-bottom: 5px solid var(--sky-blue); margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .series-title { color: var(--primary); font-weight: 900; font-size: 2rem; margin: 0; }
+        .back-link { display: inline-block; margin-top: 10px; color: var(--primary); text-decoration: none; font-weight: bold; }
+
+        /* تنسيق صفوف الدروس */
+        .lesson-row { 
+            background: white; margin-bottom: 12px; padding: 15px 25px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: space-between; gap: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03); border-right: 8px solid var(--sky-blue);
+        }
+        
+        .lesson-info { flex: 1; display: flex; align-items: center; gap: 15px; }
+        .lesson-number { 
+            background: var(--sky-blue); color: white; width: 35px; height: 35px; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900;
+        }
+        .lesson-text { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+
+        audio { height: 35px; flex: 2; }
+        .btn-download { color: #2e7d32; font-size: 1.6rem; text-decoration: none; }
+
+        footer { text-align: center; padding: 30px; background: var(--accent-blue); color: var(--primary); font-weight: bold; margin-top: 60px; }
     </style>
 </head>
 <body>
-<header class="site-header">
-    <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
-        <a href="raqaaeq.html" style="text-decoration:none; color:var(--primary); font-weight:bold;"><i class="fas fa-chevron-right"></i> عودة لقسم الرقائق</a>
-        <h2 id="series-title" style="margin:0; color:var(--primary);">تحميل الدروس...</h2>
-        <div style="width:100px;"></div>
+
+    <header class="site-header"><img src="images/logo.png.jpg" class="site-logo"></header>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-btn-3d">الرئيسية</a>
+        <a href="raqaeq.html" class="nav-btn-3d" style="background:var(--sky-blue); box-shadow: 0 5px 0 #5f9ea0;">عودة للرقائق</a>
+    </nav>
+
+    <div class="container">
+        <div class="series-header">
+            <h1 class="series-title">سلسلة وصف الجنة ونعيمها</h1>
+            <a href="raqaeq.html" class="back-link"><i class="fas fa-arrow-right"></i> عودة لقسم الرقائق</a>
+        </div>
+
+        <div id="lessons-list">
+            </div>
     </div>
-</header>
-<div class="container" id="lesson-list"></div>
-<div class="pagination" id="pagination"></div>
 
-<script>
-    const count = 15;            
-    const prefix = "wasf-algana"; 
-    const ext = "MP3";           // حروف كبيرة
-    const title = "سلسلة وصف الجنة ونعيمها"; 
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
-    document.getElementById('series-title').innerText = title;
-    const perPage = 10;
-    let currentPage = 1;
+    <script>
+        const config = {
+            prefix: "ganah", 
+            totalLessons: 15 
+        };
 
-    function render(page) {
-        const list = document.getElementById('lesson-list');
-        list.innerHTML = "";
-        let start = (page - 1) * perPage + 1;
-        let end = Math.min(start + perPage - 1, count);
+        const listContainer = document.getElementById('lessons-list');
+        let html = "";
 
-        for (let i = start; i <= end; i++) {
-            // العودة للصيغة الأصلية بنقطة واحدة فقط
-            const fileName = `audio/${prefix}-${i}.${ext}`;
-            const row = document.createElement('div');
-            row.className = 'lesson-row';
-            row.innerHTML = `<div class="lesson-info">الدرس رقم ${i}</div>
-                <div class="audio-player"><audio controls preload="none"><source src="${fileName}"></audio></div>
-                <div class="actions"><a href="${fileName}" download><i class="fas fa-cloud-arrow-down"></i></a></div>`;
-            list.appendChild(row);
+        for (let i = 1; i <= config.totalLessons; i++) {
+            const fileName = `audio/${config.prefix}-${i}.mp3`;
+            html += `
+            <div class="lesson-row">
+                <div class="lesson-info">
+                    <div class="lesson-number">${i}</div>
+                    <div class="lesson-text">الدرس رقم (${i})</div>
+                </div>
+                <audio controls preload="none">
+                    <source src="${fileName}" type="audio/mpeg">
+                </audio>
+                <a href="${fileName}" download class="btn-download">
+                    <i class="fas fa-circle-down"></i>
+                </a>
+            </div>`;
         }
-        renderPagination();
-    }
-
-    function renderPagination() {
-        const pag = document.getElementById('pagination');
-        pag.innerHTML = "";
-        const pages = Math.ceil(count / perPage);
-        for (let i = 1; i <= pages; i++) {
-            const btn = document.createElement('button');
-            btn.innerText = i;
-            btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-            btn.onclick = () => { currentPage = i; render(i); window.scrollTo(0,0); };
-            pag.appendChild(btn);
-        }
-    }
-    render(1);
-</script>
+        listContainer.innerHTML = html;
+    </script>
+</body>
+</html>
