@@ -8,40 +8,78 @@
     <style>
         :root { --primary: #2c5d87; --sky: #87CEEB; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background: #f0f7fa; }
-        .site-header { text-align: center; padding: 20px; background: #add8e6; }
-        .site-logo { max-width: 400px; width: 100%; mix-blend-mode: multiply; }
-        .container { max-width: 900px; margin: 30px auto; padding: 20px; }
-        .lesson-row { background: white; margin-bottom: 10px; padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; border-right: 6px solid var(--sky); }
-        .pagination { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
-        .page-btn { padding: 8px 15px; border: 2px solid var(--sky); background: white; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .site-header { text-align: center; padding: 20px; background: #add8e6; border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 450px; width: 100%; mix-blend-mode: multiply; }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .lesson-row { 
+            background: white; margin-bottom: 12px; padding: 15px 25px; border-radius: 15px; 
+            display: flex; align-items: center; justify-content: space-between; gap: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03); border-right: 8px solid var(--sky);
+        }
+        .lesson-text { font-weight: 700; color: var(--primary); flex: 1; }
+        .pagination { display: flex; justify-content: center; gap: 10px; margin: 30px 0; }
+        .page-btn { padding: 10px 18px; background: white; border: 2px solid var(--sky); color: var(--primary); cursor: pointer; border-radius: 8px; font-weight: 900; }
         .page-btn.active { background: var(--sky); color: white; }
-        audio { height: 35px; }
-        .back-btn { display: block; width: fit-content; margin: 20px auto; padding: 10px 20px; background: var(--primary); color: white; border-radius: 8px; text-decoration: none; }
+        audio { height: 35px; width: 220px; }
+        .btn-download { color: #2e7d32; font-size: 1.6rem; text-decoration: none; }
+        footer { text-align: center; padding: 30px; background: #add8e6; color: var(--primary); font-weight: bold; margin-top: 60px; }
     </style>
 </head>
 <body>
+
     <header class="site-header"><img src="images/logo.png.jpg" class="site-logo"></header>
+
     <div class="container">
-        <h2 style="text-align:center; color:var(--primary)">سلسلة مكارم الأخلاق</h2>
-        <div id="lessons"></div>
+        <h2 style="text-align:center; color:var(--primary); margin-bottom:30px;">سلسلة مكارم الأخلاق</h2>
+        <div id="lessons-container"></div>
         <div class="pagination">
             <button class="page-btn active" onclick="showPage(1)">1</button>
             <button class="page-btn" onclick="showPage(2)">2</button>
             <button class="page-btn" onclick="showPage(3)">3</button>
             <button class="page-btn" onclick="showPage(4)">4</button>
         </div>
-        <a href="raqaeq.html" class="back-btn">عودة لقسم الرقائق</a>
+        <a href="raqaeq.html" style="display:block; width:fit-content; margin:20px auto; color:var(--primary); font-weight:bold; text-decoration:none;">عودة لقسم الرقائق</a>
     </div>
+
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
     <script>
-        function showPage(p) {
-            const cont = document.getElementById('lessons'); cont.innerHTML = "";
-            document.querySelectorAll('.page-btn').forEach((b,i)=> b.classList.toggle('active', i+1===p));
-            let start = (p-1)*10+1; let end = p*10;
-            for(let i=start; i<=end; i++){
-                let file = `audio/mkarem${i}.mp3`;
-                cont.innerHTML += `<div class="lesson-row"><span style="font-weight:bold">الدرس ${i}</span><audio controls preload="none"><source src="${file}"></audio><a href="${file}" download style="color:#27ae60; font-size:1.4rem"><i class="fas fa-circle-down"></i></a></div>`;
+        const totalLessons = 40;
+        const lessonsPerPage = 10;
+        
+        // تعديل الإعدادات لتناسب ملفك بالضبط: mkarem-5.MP3
+        const config = {
+            prefix: "mkarem-", 
+            extension: ".MP3" 
+        };
+
+        function showPage(pageNumber) {
+            const container = document.getElementById('lessons-container');
+            container.innerHTML = ""; 
+
+            document.querySelectorAll('.page-btn').forEach((btn, index) => {
+                btn.classList.toggle('active', index + 1 === pageNumber);
+            });
+
+            const start = (pageNumber - 1) * lessonsPerPage + 1;
+            const end = Math.min(pageNumber * lessonsPerPage, totalLessons);
+
+            for (let i = start; i <= end; i++) {
+                const fileName = `audio/${config.prefix}${i}${config.extension}`;
+                container.innerHTML += `
+                <div class="lesson-row">
+                    <span class="lesson-text">الدرس رقم (${i})</span>
+                    <audio controls preload="none">
+                        <source src="${fileName}" type="audio/mpeg">
+                    </audio>
+                    <a href="${fileName}" download class="btn-download">
+                        <i class="fas fa-circle-down"></i>
+                    </a>
+                </div>`;
             }
+            window.scrollTo(0, 300);
         }
+
         window.onload = () => showPage(1);
     </script>
 </body>
