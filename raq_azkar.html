@@ -2,43 +2,69 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أنوار الأذكار - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #2c5d87; --sky: #87CEEB; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f0f7fa; direction: rtl; }
-        .site-header { text-align: center; padding: 20px; background: #add8e6; }
-        .site-logo { max-width: 400px; width: 100%; mix-blend-mode: multiply; }
-        .container { max-width: 900px; margin: 30px auto; padding: 20px; }
+        :root { --primary: #2c5d87; --sky-blue: #87CEEB; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f0f7fa; }
+        .site-header { text-align: center; padding: 20px; background: #add8e6; border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 450px; width: 100%; mix-blend-mode: multiply; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .series-header { text-align: center; background: white; padding: 30px; border-radius: 20px; border-bottom: 5px solid var(--sky-blue); margin-bottom: 30px; }
+        .series-title { color: var(--primary); font-weight: 900; font-size: 2rem; margin: 0; }
         .lesson-row { 
-            background: white; margin-bottom: 10px; padding: 15px; border-radius: 12px;
-            display: flex; align-items: center; justify-content: space-between; gap: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-right: 6px solid var(--sky);
+            background: white; margin-bottom: 12px; padding: 15px 25px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: space-between; gap: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03); border-right: 8px solid var(--sky-blue);
         }
-        .lesson-text { font-weight: 700; color: var(--primary); flex: 1; }
-        audio { height: 35px; width: 200px; }
-        .download-btn { color: #27ae60; font-size: 1.5rem; text-decoration: none; }
-        .back-btn { display: block; width: fit-content; margin: 20px auto; padding: 10px 20px; background: var(--primary); color: white; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        .lesson-info { flex: 1; display: flex; align-items: center; gap: 15px; }
+        .lesson-number { background: var(--sky-blue); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; }
+        .lesson-text { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+        audio { height: 35px; flex: 2; }
+        .btn-download { color: #2e7d32; font-size: 1.6rem; text-decoration: none; }
+        footer { text-align: center; padding: 30px; background: #add8e6; color: var(--primary); font-weight: bold; margin-top: 60px; }
     </style>
 </head>
 <body>
+
     <header class="site-header"><img src="images/logo.png.jpg" class="site-logo"></header>
+
     <div class="container">
-        <h2 style="text-align:center; color:var(--primary)">سلسلة أنوار الأذكار</h2>
-        <div id="list"></div>
-        <a href="raqaeq.html" class="back-btn">عودة لقسم الرقائق</a>
+        <div class="series-header">
+            <h1 class="series-title">سلسلة أنوار الأذكار</h1>
+        </div>
+        <div id="lessons-list"></div>
     </div>
+
     <script>
-        const list = document.getElementById('list');
-        for (let i = 1; i <= 30; i++) {
-            const file = `audio/azkar${i}.mp3`;
-            list.innerHTML += `<div class="lesson-row">
-                <span class="lesson-text">الدرس رقم (${i})</span>
-                <audio controls preload="none"><source src="${file}" type="audio/mpeg"></audio>
-                <a href="${file}" download class="download-btn"><i class="fas fa-circle-down"></i></a>
+        // تم التعديل هنا ليتطابق مع اسم ملفك: al-azkar-1.mp3
+        const config = {
+            prefix: "al-azkar-", 
+            totalLessons: 30 
+        };
+
+        const listContainer = document.getElementById('lessons-list');
+        let html = "";
+
+        for (let i = 1; i <= config.totalLessons; i++) {
+            const fileName = `audio/${config.prefix}${i}.mp3`;
+            html += `
+            <div class="lesson-row">
+                <div class="lesson-info">
+                    <div class="lesson-number">${i}</div>
+                    <div class="lesson-text">الدرس رقم (${i})</div>
+                </div>
+                <audio controls preload="none">
+                    <source src="${fileName}" type="audio/mpeg">
+                </audio>
+                <a href="${fileName}" download class="btn-download">
+                    <i class="fas fa-circle-down"></i>
+                </a>
             </div>`;
         }
+        listContainer.innerHTML = html;
     </script>
 </body>
 </html>
