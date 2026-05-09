@@ -1,1 +1,84 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فهرس التفسير - التحديث الجديد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        /* تنسيق يفرض نفسه لتجاوز أي ملفات قديمة */
+        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #ffffff; text-align: center; }
+        .header-bg { background-color: #e0f2f7; padding: 25px; border-bottom: 3px solid #72bcd4; }
+        
+        /* القائمة الرئيسية - مطابقة تماماً لحجم أزرار الرئيسية في صورك */
+        .main-navigation { display: flex; justify-content: center; gap: 12px; padding: 20px; flex-wrap: wrap; }
+        .nav-item { 
+            text-decoration: none; color: white; padding: 15px 30px; border-radius: 12px; 
+            font-weight: 900; font-size: 1.1rem; min-width: 120px; box-shadow: 0 5px 0 rgba(0,0,0,0.1); 
+        }
+
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
+        .section-header { color: #2c5d87; font-size: 2rem; border-bottom: 4px solid #c59d31; display: inline-block; padding-bottom: 5px; margin-bottom: 40px; }
+
+        /* الأزرار المستطيلة - بدون أرقام تماماً وبحجم أزرار الرئيسية */
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .surah-card {
+            background-color: #72bcd4; /* اللون السماوي كأزرار الرئيسية */
+            color: white !important;
+            text-decoration: none !important;
+            padding: 18px 10px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 0 #2c5d87;
+            transition: 0.2s;
+            min-height: 50px;
+            border: none;
+        }
+        .surah-card:hover { background-color: #2c5d87; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <div class="header-bg">
+        <img src="images/logo.png.jpg" style="max-width: 350px; width: 90%;">
+    </div>
+
+    <nav class="main-navigation">
+        <a href="index.html" class="nav-item" style="background-color: #c59d31;">الرئيسية</a>
+        <a href="audio.html" class="nav-item" style="background-color: #87ceeb;">الصوتيات</a>
+        <a href="khutab.html" class="nav-item" style="background-color: #5b9bd5;">الخطب</a>
+        <a href="articles.html" class="nav-item" style="background-color: #4f814f;">المقالات</a>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-header">تفسير القرآن الكريم - الصفحة ١</h2>
+        
+        <div class="grid-layout">
+            <a href="tafseer-1.html" class="surah-card">الفاتحة</a>
+            <a href="tafseer-2.html" class="surah-card">البقرة</a>
+            <a href="tafseer-3.html" class="surah-card">آل عمران</a>
+            <a href="tafseer-4.html" class="surah-card">النساء</a>
+            <a href="tafseer-5.html" class="surah-card">المائدة</a>
+            <a href="tafseer-6.html" class="surah-card">الأنعام</a>
+            <a href="tafseer-7.html" class="surah-card">الأعراف</a>
+            <a href="tafseer-8.html" class="surah-card">الأنفال</a>
+            <a href="tafseer-9.html" class="surah-card">التوبة</a>
+            <a href="tafseer-10.html" class="surah-card">يونس</a>
+            <a href="tafseer-11.html" class="surah-card">هود</a>
+            <a href="tafseer-12.html" class="surah-card">يوسف</a>
+            <a href="tafseer-13.html" class="surah-card">الرعد</a>
+            <a href="tafseer-14.html" class="surah-card">إبراهيم</a>
+            <a href="tafseer-15.html" class="surah-card">الحجر</a>
+            <a href="tafseer-16.html" class="surah-card">النحل</a>
+            <a href="tafseer-17.html" class="surah-card">الإسراء</a>
+            <a href="tafseer-18.html" class="surah-card">الكهف</a>
+        </div>
+    </div>
+
+</body>
+</html>
