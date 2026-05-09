@@ -7,34 +7,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* كود يفرض التنسيق المستطيل ويخفي الأرقام نهائياً */
-        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #ffffff; text-align: center; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f9f9f9; text-align: center; }
         
-        /* شريط التاريخ والمواقيت */
-        .top-info { background: #333; color: white; padding: 10px; font-size: 0.9rem; display: flex; justify-content: center; gap: 20px; }
+        /* شريط المواقيت والتاريخ */
+        .top-bar { background: #333; color: white; padding: 12px; font-size: 0.95rem; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
 
-        /* الهيدر العلوي */
-        .site-header { background: #e0f2f7; padding: 20px; border-bottom: 4px solid #72bcd4; }
-        .site-header img { max-width: 350px; width: 90%; }
+        /* الهيدر الكبير - معالجة مشكلة المربع الأبيض */
+        .main-header { background-color: #e0f2f7; padding: 40px 0; border-bottom: 5px solid #72bcd4; }
+        .main-header img { max-width: 600px; width: 95%; height: auto; display: block; margin: auto; background: transparent; }
 
-        /* القائمة الرئيسية - مطابقة لحجم أزرار الرئيسية في صورك */
-        .main-nav { display: flex; justify-content: center; gap: 15px; padding: 25px; flex-wrap: wrap; }
-        .nav-link { 
-            text-decoration: none; color: white; padding: 15px 30px; border-radius: 12px; 
-            font-weight: 900; font-size: 1.1rem; min-width: 120px; box-shadow: 0 5px 0 rgba(0,0,0,0.1); 
-            display: flex; flex-direction: column; align-items: center; gap: 5px;
+        /* أزرار القائمة الرئيسية */
+        .nav-container { display: flex; justify-content: center; gap: 15px; padding: 30px; flex-wrap: wrap; background: white; }
+        .nav-btn { 
+            text-decoration: none; color: white; padding: 18px 35px; border-radius: 12px; 
+            font-weight: 900; font-size: 1.2rem; min-width: 140px; box-shadow: 0 6px 0 rgba(0,0,0,0.15); 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
         }
 
-        /* شبكة السور المستطيلة (بدون أرقام) */
-        .surah-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-            gap: 20px; padding: 20px; max-width: 1200px; margin: auto; 
-        }
-        .btn-rect {
-            background-color: #87ceeb !important; 
+        /* شبكة السور المستطيلة (نفس حجم الرئيسية) */
+        .content-area { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        
+        .surah-btn {
+            background-color: #72bcd4 !important; 
             color: white !important; 
             text-decoration: none !important;
-            height: 70px !important; 
+            height: 75px !important; 
             border-radius: 12px !important;
             font-weight: 900 !important;
             font-size: 1.5rem !important;
@@ -42,56 +40,73 @@
             align-items: center !important;
             justify-content: center !important;
             box-shadow: 0 6px 0 #2c5d87 !important;
-            border: none !important;
+            transition: 0.2s;
         }
-        .btn-rect:hover { background-color: #2c5d87 !important; transform: translateY(-3px); }
-        
-        /* إخفاء أي أرقام أو دوائر قديمة */
-        .btn-rect span, .btn-rect i, .btn-rect b { display: none !important; }
+        .surah-btn:hover { background-color: #2c5d87 !important; transform: translateY(-4px); }
+
+        /* أرقام الصفحات في الأسفل */
+        .pagination { display: flex; justify-content: center; gap: 12px; margin: 60px 0; }
+        .page-link { 
+            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+            border: 2px solid #72bcd4; text-decoration: none; color: #2c5d87;
+            border-radius: 10px; font-weight: bold; font-size: 1.3rem; background: white;
+        }
+        .page-link.active { background-color: #c59d31; color: white; border-color: #c59d31; box-shadow: 0 4px 0 #8c6d1a; }
+
+        footer { padding: 40px; background: #eee; border-top: 1px solid #ccc; font-weight: bold; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-    <div class="top-info">
+    <div class="top-bar">
         <span><i class="far fa-calendar-alt"></i> السبت، ٩ مايو ٢٠٢٦</span>
         <span><i class="fas fa-clock"></i> الفجر 3:40 | الظهر 11:55 | العصر 3:32 | المغرب 6:48 | العشاء 8:18</span>
     </div>
 
-    <header class="site-header">
-        <img src="images/logo.png.jpg" alt="الشيخ سعيد دياب">
+    <header class="main-header">
+        <img src="images/logo.png.jpg" alt="موقع الشيخ سعيد دياب الرسمي">
     </header>
 
-    <nav class="main-nav">
-        <a href="index.html" class="nav-link" style="background:#c59d31;"><i class="fas fa-home"></i>الرئيسية</a>
-        <a href="audio.html" class="nav-link" style="background:#87ceeb;"><i class="fas fa-volume-up"></i>الصوتيات</a>
-        <a href="khutab.html" class="nav-link" style="background:#5b9bd5;"><i class="fas fa-microphone"></i>الخطب</a>
-        <a href="articles.html" class="nav-link" style="background:#4f814f;"><i class="fas fa-file-alt"></i>المقالات</a>
+    <nav class="nav-container">
+        <a href="index.html" class="nav-btn" style="background:#c59d31;"><i class="fas fa-home"></i>الرئيسية</a>
+        <a href="audio.html" class="nav-btn" style="background:#87ceeb;"><i class="fas fa-volume-up"></i>الصوتيات</a>
+        <a href="khutab.html" class="nav-btn" style="background:#5b9bd5;"><i class="fas fa-microphone"></i>الخطب</a>
+        <a href="articles.html" class="nav-btn" style="background:#4f814f;"><i class="fas fa-file-alt"></i>المقالات</a>
     </nav>
 
-    <div style="margin: 40px auto; max-width: 1100px;">
-        <h2 style="color: #2c5d87; border-bottom: 4px solid #c59d31; display: inline-block; padding-bottom: 10px;">فهرس التفسير المصور</h2>
+    <div class="content-area">
+        <h2 style="color: #2c5d87; font-size: 2.2rem; border-bottom: 4px solid #c59d31; display: inline-block; padding-bottom: 10px; margin-bottom: 40px;">تفسير القرآن الكريم - الصفحة ١</h2>
         
         <div class="surah-grid">
-            <a href="tafseer-1.html" class="btn-rect">الفاتحة</a>
-            <a href="tafseer-2.html" class="btn-rect">البقرة</a>
-            <a href="tafseer-3.html" class="btn-rect">آل عمران</a>
-            <a href="tafseer-4.html" class="btn-rect">النساء</a>
-            <a href="tafseer-5.html" class="btn-rect">المائدة</a>
-            <a href="tafseer-6.html" class="btn-rect">الأنعام</a>
-            <a href="tafseer-7.html" class="btn-rect">الأعراف</a>
-            <a href="tafseer-8.html" class="btn-rect">الأنفال</a>
-            <a href="tafseer-9.html" class="btn-rect">التوبة</a>
-            <a href="tafseer-10.html" class="btn-rect">يونس</a>
-            <a href="tafseer-11.html" class="btn-rect">هود</a>
-            <a href="tafseer-12.html" class="btn-rect">يوسف</a>
-            <a href="tafseer-13.html" class="btn-rect">الرعد</a>
-            <a href="tafseer-14.html" class="btn-rect">إبراهيم</a>
-            <a href="tafseer-15.html" class="btn-rect">الحجر</a>
-            <a href="tafseer-16.html" class="btn-rect">النحل</a>
+            <a href="fatema.html" class="surah-btn">الفاتحة</a>
+            <a href="baqara.html" class="surah-btn">البقرة</a>
+            <a href="omran.html" class="surah-btn">آل عمران</a>
+            <a href="nesaa.html" class="surah-btn">النساء</a>
+            <a href="maeda.html" class="surah-btn">المائدة</a>
+            <a href="anaam.html" class="surah-btn">الأنعام</a>
+            <a href="araf.html" class="surah-btn">الأعراف</a>
+            <a href="anfal.html" class="surah-btn">الأنفال</a>
+            <a href="tauba.html" class="surah-btn">التوبة</a>
+            <a href="yones.html" class="surah-btn">يونس</a>
+            <a href="hod.html" class="surah-btn">هود</a>
+            <a href="yosef.html" class="surah-btn">يوسف</a>
+            <a href="raad.html" class="surah-btn">الرعد</a>
+            <a href="ibrahim.html" class="surah-btn">إبراهيم</a>
+            <a href="hejr.html" class="surah-btn">الحجر</a>
+            <a href="nahl.html" class="surah-btn">النحل</a>
+            <a href="israa.html" class="surah-btn">الإسراء</a>
+            <a href="kahf.html" class="surah-btn">الكهف</a>
+        </div>
+
+        <div class="pagination">
+            <a href="tafseer_index1.html" class="page-link active">1</a>
+            <a href="tafseer_index2.html" class="page-link">2</a>
+            <a href="tafseer_index3.html" class="page-link">3</a>
+            <a href="tafseer_index4.html" class="page-link">4</a>
         </div>
     </div>
 
-    <footer style="padding: 30px; background: #eee; font-weight: bold;">
+    <footer>
         جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026
     </footer>
 
