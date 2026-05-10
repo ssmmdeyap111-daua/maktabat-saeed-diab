@@ -4,35 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفسير القرآن الكريم - الشيخ سعيد دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
         
-        /* شريط المواقيت العلوي المنسق */
-        .top-info-bar { background: #333; color: #fff; padding: 10px 0; font-size: 0.9rem; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; border-bottom: 2px solid #c59d31; }
-        .top-info-bar span { display: flex; align-items: center; gap: 7px; }
+        /* شريط التاريخ والمواقيت المحدث */
+        .top-info-bar { 
+            background-color: #fdfae9; 
+            padding: 10px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            border-bottom: 1px solid #ddd;
+        }
 
-        /* الهيدر الكبير بدون أي مربعات بيضاء */
-        .site-header { background-color: #e0f2f7; padding: 40px 0; border-bottom: 5px solid #72bcd4; }
-        .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
+        .prayer-times { display: flex; gap: 8px; flex-wrap: wrap; }
+        .prayer-box { 
+            text-align: center; 
+            background: #4f814f; 
+            color: white; 
+            border-radius: 5px; 
+            padding: 4px 10px; 
+            font-size: 0.85rem; 
+            min-width: 60px;
+        }
+        .time-val { 
+            background: white; 
+            color: #4f814f; 
+            margin-top: 3px; 
+            border-radius: 3px; 
+            font-weight: bold; 
+        }
 
-        /* القائمة الرئيسية مع إصلاح الروابط */
+        .date-box { 
+            background: white; 
+            border: 1px solid #c59d31; 
+            border-radius: 25px; 
+            padding: 6px 20px; 
+            color: #333; 
+            font-weight: bold; 
+            font-size: 0.9rem; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* الهيدر الكبير المدمج */
+        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
+        .site-header img { max-width: 650px; width: 95%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
+
+        /* القائمة الرئيسية */
         .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
-        .nav-item { text-decoration: none; color: white; padding: 15px 30px; border-radius: 12px; font-weight: 900; font-size: 1.1rem; min-width: 125px; box-shadow: 0 5px 0 rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .nav-item { 
+            text-decoration: none; color: white; padding: 14px 25px; border-radius: 10px; 
+            font-weight: 900; font-size: 1.1rem; min-width: 120px; 
+            display: flex; align-items: center; justify-content: center; gap: 8px; 
+            transition: 0.3s;
+        }
+        .nav-item:hover { opacity: 0.9; transform: translateY(-2px); }
 
+        /* شبكة السور */
         .main-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 15px; }
-        .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
+        .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
         .btn-surah {
             background-color: #72bcd4 !important; color: white !important; text-decoration: none !important;
-            height: 75px; border-radius: 12px; font-weight: 900; font-size: 1.4rem;
+            height: 75px; border-radius: 12px; font-weight: 900; font-size: 1.3rem;
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 6px 0 #2c5d87; transition: 0.2s; border: none;
         }
         .btn-surah:hover { background-color: #2c5d87; transform: translateY(-3px); }
 
+        /* الترقيم */
         .pages-nav { display: flex; justify-content: center; gap: 10px; margin: 50px 0; }
-        .page-num { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border: 2px solid #72bcd4; text-decoration: none; color: #2c5d87; border-radius: 8px; font-weight: bold; font-size: 1.2rem; }
+        .page-num { 
+            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; 
+            border: 2px solid #72bcd4; text-decoration: none; color: #2c5d87; 
+            border-radius: 8px; font-weight: bold; font-size: 1.1rem; 
+        }
         .page-num.active { background: #c59d31; color: white; border-color: #c59d31; box-shadow: 0 4px 0 #8c6d1a; }
 
         footer { padding: 40px; background: #222; color: #bbb; margin-top: 60px; font-size: 0.9rem; }
@@ -41,8 +89,16 @@
 <body>
 
     <div class="top-info-bar">
-        <span><i class="far fa-calendar-alt"></i> الأحد، ١٠ مايو ٢٠٢٦</span>
-        <span><i class="fas fa-clock"></i> الفجر 3:40 | الظهر 11:55 | العصر 3:32 | المغرب 6:48 | العشاء 8:18</span>
+        <div class="prayer-times">
+            <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
+            <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
+            <div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
+            <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
+            <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
+        </div>
+        <div class="date-box">
+            الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م
+        </div>
     </div>
 
     <header class="site-header">
