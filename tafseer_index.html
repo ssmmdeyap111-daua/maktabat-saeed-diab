@@ -9,7 +9,7 @@
     <style>
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
         
-        /* شريط التاريخ والمواقيت المحدث */
+        /* شريط التاريخ والمواقيت المحدث ليطابق باقي الصفحات */
         .top-info-bar { 
             background-color: #fdfae9; 
             padding: 10px 20px; 
@@ -20,48 +20,46 @@
             border-bottom: 1px solid #ddd;
         }
 
-        .prayer-times { display: flex; gap: 8px; flex-wrap: wrap; }
+        .prayer-times { display: flex; gap: 5px; flex-wrap: wrap; }
         .prayer-box { 
             text-align: center; 
             background: #4f814f; 
             color: white; 
             border-radius: 5px; 
-            padding: 4px 10px; 
-            font-size: 0.85rem; 
-            min-width: 60px;
+            padding: 3px 8px; 
+            font-size: 0.8rem; 
+            min-width: 55px;
         }
         .time-val { 
             background: white; 
             color: #4f814f; 
-            margin-top: 3px; 
+            margin-top: 2px; 
             border-radius: 3px; 
-            font-weight: bold; 
+            font-weight: bold;
         }
 
         .date-box { 
             background: white; 
             border: 1px solid #c59d31; 
-            border-radius: 25px; 
-            padding: 6px 20px; 
+            border-radius: 20px; 
+            padding: 5px 20px; 
             color: #333; 
             font-weight: bold; 
-            font-size: 0.9rem; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
         }
 
         /* الهيدر الكبير المدمج */
-        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
+        .site-header { background-color: #e0f2f7; padding: 25px 0; border-bottom: 5px solid #72bcd4; }
         .site-header img { max-width: 650px; width: 95%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
 
         /* القائمة الرئيسية */
         .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
         .nav-item { 
-            text-decoration: none; color: white; padding: 14px 25px; border-radius: 10px; 
+            text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; 
             font-weight: 900; font-size: 1.1rem; min-width: 120px; 
             display: flex; align-items: center; justify-content: center; gap: 8px; 
-            transition: 0.3s;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.1);
         }
-        .nav-item:hover { opacity: 0.9; transform: translateY(-2px); }
 
         /* شبكة السور */
         .main-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 15px; }
@@ -79,7 +77,7 @@
         .page-num { 
             width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; 
             border: 2px solid #72bcd4; text-decoration: none; color: #2c5d87; 
-            border-radius: 8px; font-weight: bold; font-size: 1.1rem; 
+            border-radius: 8px; font-weight: bold;
         }
         .page-num.active { background: #c59d31; color: white; border-color: #c59d31; box-shadow: 0 4px 0 #8c6d1a; }
 
