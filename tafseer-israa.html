@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفسير سورة الإسراء - الشيخ سعيد دياب</title>
+    <title>تفسير سورة الإسراء - الدرس ١ - الشيخ سعيد دياب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
         
-        /* شريط المواقيت الموحد (المربعات الخضراء) */
+        /* شريط المواقيت الموحد */
         .top-info-bar { background-color: #fdfae9; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #ddd; }
         .prayer-times { display: flex; gap: 6px; flex-wrap: wrap; }
         .prayer-box { text-align: center; background: #4f814f; color: white; border-radius: 6px; padding: 4px 10px; font-size: 0.8rem; min-width: 60px; }
@@ -21,23 +20,29 @@
         .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
         .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
 
-        /* القائمة الرئيسية */
-        .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
-        .nav-item { text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; font-weight: 900; font-size: 1.1rem; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
-
-        .main-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 15px; }
+        .main-wrapper { max-width: 800px; margin: 50px auto; padding: 0 15px; }
         
-        /* شبكة دروس سورة الإسراء */
-        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
-        .btn-lesson {
-            background-color: #f1f9fb !important; color: #2c5d87 !important; text-decoration: none !important;
-            height: 60px; border-radius: 10px; font-weight: 700; font-size: 1.1rem;
-            display: flex; align-items: center; justify-content: center;
-            border: 2px solid #72bcd4; transition: 0.2s;
+        /* كرت الدرس الصوتي */
+        .audio-card {
+            background: white; border-radius: 20px; padding: 40px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e0f2f7;
         }
-        .btn-lesson:hover { background-color: #72bcd4 !important; color: white !important; transform: translateY(-3px); }
+        .lesson-badge { background: #c59d31; color: white; padding: 5px 20px; border-radius: 50px; font-weight: bold; margin-bottom: 20px; display: inline-block; }
+        .lesson-title { color: #2c5d87; font-weight: 900; font-size: 1.8rem; margin-bottom: 35px; }
+        
+        audio { width: 100%; max-width: 500px; height: 50px; margin-bottom: 30px; }
+        
+        .action-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn-action {
+            text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: bold;
+            display: flex; align-items: center; gap: 8px; transition: 0.3s;
+        }
+        .btn-download { background: #72bcd4; color: white; box-shadow: 0 4px 0 #2c5d87; }
+        .btn-download:hover { background: #2c5d87; transform: translateY(-2px); }
+        .btn-back { background: #f0f0f0; color: #666; border: 1px solid #ddd; }
+        .btn-back:hover { background: #ddd; }
 
-        footer { padding: 40px; background: #222; color: #bbb; margin-top: 60px; font-size: 0.9rem; }
+        footer { padding: 45px; background: #222; color: #bbb; margin-top: 80px; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -50,54 +55,31 @@
             <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
             <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
         </div>
-        <div class="date-box">الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م</div>
+        <div class="date-box">الأربعاء | ٢٦ ذو القعدة ١٤٤٧ هـ | ١٣ مايو ٢٠٢٦ م</div>
     </div>
 
     <header class="site-header">
         <img src="images/logo.png.jpg" alt="الشيخ سعيد دياب">
     </header>
 
-    <nav class="main-nav">
-        <a href="index.html" class="nav-item" style="background:#c59d31;"><i class="fas fa-home"></i>الرئيسية</a>
-        <a href="tafseer_index1.html" class="nav-item" style="background:#72bcd4;"><i class="fas fa-book-open"></i>فهرس التفسير</a>
-        <a href="audio.html" class="nav-item" style="background:#87ceeb;"><i class="fas fa-volume-up"></i>الصوتيات</a>
-        <a href="khutbah.html" class="nav-item" style="background:#5b9bd5;"><i class="fas fa-microphone"></i>الخطب</a>
-    </nav>
-
     <div class="main-wrapper">
-        <h2 style="color: #2c5d87; border-bottom: 4px solid #c59d31; display: inline-block; padding-bottom: 8px; margin-bottom: 35px; font-weight: 900;">تفسير سورة الإسراء (٣٠ درساً)</h2>
-        
-        <div class="lessons-grid">
-            <a href="israa-01.html" class="btn-lesson">الدرس ١</a>
-            <a href="israa-02.html" class="btn-lesson">الدرس ٢</a>
-            <a href="israa-03.html" class="btn-lesson">الدرس ٣</a>
-            <a href="israa-04.html" class="btn-lesson">الدرس ٤</a>
-            <a href="israa-05.html" class="btn-lesson">الدرس ٥</a>
-            <a href="israa-06.html" class="btn-lesson">الدرس ٦</a>
-            <a href="israa-07.html" class="btn-lesson">الدرس ٧</a>
-            <a href="israa-08.html" class="btn-lesson">الدرس ٨</a>
-            <a href="israa-09.html" class="btn-lesson">الدرس ٩</a>
-            <a href="israa-10.html" class="btn-lesson">الدرس ١٠</a>
-            <a href="israa-11.html" class="btn-lesson">الدرس ١١</a>
-            <a href="israa-12.html" class="btn-lesson">الدرس ١٢</a>
-            <a href="israa-13.html" class="btn-lesson">الدرس ١٣</a>
-            <a href="israa-14.html" class="btn-lesson">الدرس ١٤</a>
-            <a href="israa-15.html" class="btn-lesson">الدرس ١٥</a>
-            <a href="israa-16.html" class="btn-lesson">الدرس ١٦</a>
-            <a href="israa-17.html" class="btn-lesson">الدرس ١٧</a>
-            <a href="israa-18.html" class="btn-lesson">الدرس ١٨</a>
-            <a href="israa-19.html" class="btn-lesson">الدرس ١٩</a>
-            <a href="israa-20.html" class="btn-lesson">الدرس ٢٠</a>
-            <a href="israa-21.html" class="btn-lesson">الدرس ٢١</a>
-            <a href="israa-22.html" class="btn-lesson">الدرس ٢٢</a>
-            <a href="israa-23.html" class="btn-lesson">الدرس ٢٣</a>
-            <a href="israa-24.html" class="btn-lesson">الدرس ٢٤</a>
-            <a href="israa-25.html" class="btn-lesson">الدرس ٢٥</a>
-            <a href="israa-26.html" class="btn-lesson">الدرس ٢٦</a>
-            <a href="israa-27.html" class="btn-lesson">الدرس ٢٧</a>
-            <a href="israa-28.html" class="btn-lesson">الدرس ٢٨</a>
-            <a href="israa-29.html" class="btn-lesson">الدرس ٢٩</a>
-            <a href="israa-30.html" class="btn-lesson">الدرس ٣٠</a>
+        <div class="audio-card">
+            <div class="lesson-badge">تفسير سورة الإسراء</div>
+            <h1 class="lesson-title">الدرس الأول</h1>
+            
+            <audio controls>
+                <source src="audio/israa-1.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الملفات الصوتية.
+            </audio>
+
+            <div class="action-btns">
+                <a href="audio/israa-1.mp3" download class="btn-action btn-download">
+                    <i class="fas fa-download"></i> تحميل الدرس (MP3)
+                </a>
+                <a href="israa.html" class="btn-action btn-back">
+                    <i class="fas fa-arrow-right"></i> العودة لفهرس السورة
+                </a>
+            </div>
         </div>
     </div>
 
