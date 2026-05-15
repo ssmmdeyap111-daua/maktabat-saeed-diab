@@ -9,23 +9,23 @@
     <style>
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
         
-        /* ضبط شريط المعلومات العلوي */
+        /* شريط المعلومات العلوي - ضبط الاتجاهات بدقة */
         .top-info-bar { 
             background-color: #fdfae9; padding: 10px 30px; display: flex; 
             justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd;
         }
-        /* المواقيت في اليسار */
+        /* التاريخ جهة اليمين */
+        .date-box { 
+            background: white; border: 1px solid #c59d31; border-radius: 25px; 
+            padding: 7px 25px; color: #333; font-weight: bold; font-size: 0.9rem; order: 2;
+        }
+        /* المواقيت جهة اليسار */
         .prayer-times { display: flex; gap: 6px; order: 1; }
         .prayer-box { 
             text-align: center; background: #4f814f; color: white; border-radius: 6px; 
             padding: 4px 10px; font-size: 0.8rem; min-width: 60px;
         }
         .time-val { background: white; color: #4f814f; margin-top: 3px; border-radius: 4px; font-weight: bold; }
-        /* التاريخ في اليمين */
-        .date-box { 
-            background: white; border: 1px solid #c59d31; border-radius: 25px; 
-            padding: 7px 25px; color: #333; font-weight: bold; font-size: 0.9rem; order: 2;
-        }
 
         .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
         .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
@@ -48,7 +48,8 @@
         }
         .btn-lesson:hover { background-color: #72bcd4 !important; color: white !important; transform: translateY(-3px); }
 
-        footer { padding: 40px; background: #222; color: #bbb; margin-top: 60px; }
+        /* تذييل الصفحة باللون البيج الفاتح كما في طلبك الأخير */
+        footer { padding: 40px; background-color: #fdfae9; color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -56,11 +57,11 @@
     <div class="top-info-bar">
         <div class="date-box">الجمعة | ٢٨ ذو القعدة ١٤٤٧ هـ | ١٥ مايو ٢٠٢٦ م</div>
         <div class="prayer-times">
-            <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
-            <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
-            <div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
-            <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
-            <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
+            <div class="prayer-box"><div>الفجر</div><div class="time-val">03:40</div></div>
+            <div class="prayer-box"><div>الظهر</div><div class="time-val">11:55</div></div>
+            <div class="prayer-box"><div>العصر</div><div class="time-val">03:32</div></div>
+            <div class="prayer-box"><div>المغرب</div><div class="time-val">06:48</div></div>
+            <div class="prayer-box"><div>العشاء</div><div class="time-val">08:18</div></div>
         </div>
     </div>
 
@@ -70,7 +71,7 @@
 
     <nav class="main-nav">
         <a href="index.html" class="nav-item" style="background:#c59d31;"><i class="fas fa-home"></i>الرئيسية</a>
-        <a href="audio.html" class="nav-item" style="background:#72bcd4;"><i class="fas fa-volume-up"></i>الصوتيات</a>
+        <a href="audio.html" class="nav-item" style="background:#87ceeb;"><i class="fas fa-volume-up"></i>الصوتيات</a>
         <a href="khutbah.html" class="nav-item" style="background:#5b9bd5;"><i class="fas fa-microphone"></i>الخطب</a>
         <a href="articles.html" class="nav-item" style="background:#4f814f;"><i class="fas fa-file-alt"></i>المقالات</a>
     </nav>
@@ -82,17 +83,11 @@
             <a href="israa-01.html" class="btn-lesson">الدرس ١</a>
             <a href="israa-02.html" class="btn-lesson">الدرس ٢</a>
             <a href="israa-03.html" class="btn-lesson">الدرس ٣</a>
-            <a href="israa-04.html" class="btn-lesson">الدرس ٤</a>
-            <a href="israa-05.html" class="btn-lesson">الدرس ٥</a>
-            <a href="israa-06.html" class="btn-lesson">الدرس ٦</a>
-            <a href="israa-07.html" class="btn-lesson">الدرس ٧</a>
-            <a href="israa-08.html" class="btn-lesson">الدرس ٨</a>
-            <a href="israa-09.html" class="btn-lesson">الدرس ٩</a>
-            <a href="israa-10.html" class="btn-lesson">الدرس ١٠</a>
             <script>
                 const grid = document.querySelector('.lessons-grid');
-                for(let i=11; i<=30; i++) {
-                    grid.innerHTML += `<a href="israa-${i.toString().padStart(2, '0')}.html" class="btn-lesson">الدرس ${i}</a>`;
+                for(let i=4; i<=30; i++) {
+                    let num = i.toString().padStart(2, '0');
+                    grid.innerHTML += `<a href="israa-${num}.html" class="btn-lesson">الدرس ${i}</a>`;
                 }
             </script>
         </div>
