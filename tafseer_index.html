@@ -9,17 +9,16 @@
     <style>
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
         
-        /* شريط المواقيت المحدث (المربعات الخضراء) */
+        /* شريط المواقيت المحدث (التاريخ يمين والمواقيت يسار) */
         .top-info-bar { 
             background-color: #fdfae9; 
-            padding: 10px 20px; 
+            padding: 10px 30px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            flex-wrap: wrap; 
             border-bottom: 1px solid #ddd;
         }
-        .prayer-times { display: flex; gap: 6px; flex-wrap: wrap; }
+        .prayer-times { display: flex; gap: 6px; order: 1; }
         .prayer-box { 
             text-align: center; 
             background: #4f814f; 
@@ -40,10 +39,11 @@
             background: white; 
             border: 1px solid #c59d31; 
             border-radius: 25px; 
-            padding: 7px 20px; 
+            padding: 7px 25px; 
             color: #333; 
             font-weight: bold; 
             font-size: 0.9rem;
+            order: 2;
         }
 
         /* الهيدر المدمج */
@@ -59,7 +59,7 @@
             box-shadow: 0 4px 0 rgba(0,0,0,0.1);
         }
 
-        /* شبكة السور */
+        /* شبكة السور المخصصة لك بالتأثيرات الأصلية */
         .main-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 15px; }
         .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
         .btn-surah {
@@ -68,7 +68,7 @@
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 6px 0 #2c5d87; transition: 0.2s; border: none;
         }
-        .btn-surah:hover { background-color: #2c5d87; transform: translateY(-3px); }
+        .btn-surah:hover { background-color: #2c5d87; transform: translateY(-3px); box-shadow: 0 3px 0 #2c5d87; }
 
         /* الترقيم */
         .pages-nav { display: flex; justify-content: center; gap: 10px; margin: 50px 0; }
@@ -78,21 +78,20 @@
         }
         .page-num.active { background: #c59d31; color: white; border-color: #c59d31; box-shadow: 0 4px 0 #8c6d1a; }
 
-        footer { padding: 40px; background: #222; color: #bbb; margin-top: 60px; font-size: 0.9rem; }
+        /* الفوتر باللون البيج الفاتح المطلق */
+        footer { padding: 40px; background-color: #fdfae9; color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <div class="top-info-bar">
+        <div class="date-box">الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م</div>
         <div class="prayer-times">
             <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
             <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
             <div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
             <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
             <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
-        </div>
-        <div class="date-box">
-            الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م
         </div>
     </div>
 
