@@ -15,6 +15,13 @@
 
         body { margin: 0; font-family: 'Cairo', sans-serif; background: #f4f7f9; color: #333; }
 
+        /* شريط المواقيت والتاريخ الموحد */
+        .top-info-bar { background-color: #fdfae9; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #ddd; }
+        .prayer-times { display: flex; gap: 6px; flex-wrap: wrap; }
+        .prayer-box { text-align: center; background: #4f814f; color: white; border-radius: 6px; padding: 4px 10px; font-size: 0.8rem; min-width: 60px; }
+        .time-val { background: white; color: #4f814f; margin-top: 3px; border-radius: 4px; font-weight: bold; }
+        .date-box { background: white; border: 1px solid #c5a03d; border-radius: 25px; padding: 7px 20px; color: #333; font-weight: bold; font-size: 0.9rem; }
+
         /* الهيدر */
         .site-header { text-align: center; padding: 15px; background: var(--header-bg); border-bottom: 5px solid #fff; }
         .site-logo { max-width: 650px; width: 100%; height: auto; mix-blend-mode: multiply; }
@@ -56,6 +63,17 @@
 </head>
 <body>
 
+    <div class="top-info-bar">
+        <div class="prayer-times">
+            <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
+            <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
+            <div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
+            <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
+            <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
+        </div>
+        <div class="date-box" id="live-date">جاري تحميل التاريخ...</div>
+    </div>
+
     <header class="site-header">
         <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
     </header>
@@ -96,6 +114,34 @@
         </div>
 
         <div class="section-box">
+            <h2 class="section-title">سلسلة خطب: شرح حديث إن الله أمرني بخمس (11 خطبة)</h2>
+            <table class="khutbah-table">
+                <thead>
+                    <tr>
+                        <th width="10%">رقم</th>
+                        <th width="35%">عنوان الخطبة</th>
+                        <th width="45%">الاستماع</th>
+                        <th width="10%">تحميل</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <script>
+                        for (let i = 1; i <= 11; i++) {
+                            document.write(`
+                                <tr>
+                                    <td>${i}</td>
+                                    <td style="text-align:right;">شرح حديث إن الله أمرني بخمس - الخطبة ${i}</td>
+                                    <td><audio controls class="audio-player"><source src="audio/amrany-bekams-${i}.mp3" type="audio/mpeg"></audio></td>
+                                    <td><a href="audio/amrany-bekams-${i}.mp3" download class="btn-download"><i class="fas fa-download"></i></a></td>
+                                </tr>
+                            `);
+                        }
+                    </script>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-box">
             <h2 class="section-title">سلسلة علامات الساعة (50 خطبة)</h2>
             <table class="khutbah-table">
                 <thead>
@@ -117,6 +163,7 @@
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
 
     <script>
+        // سكربت تشغيل سلسلة علامات الساعة الـ 50 بنظام الصفحات
         const totalAlamat = 50;
         const perPage = 12;
         let currentPage = 1;
@@ -153,12 +200,22 @@
         }
 
         function changePage(event, i) {
-            event.preventDefault(); // منع الصفحة من القفز للأعلى عند الضغط
+            event.preventDefault(); 
             currentPage = i;
             displayAlamat(i);
         }
 
+        // تشغيل دالة علامات الساعة فور فتح الصفحة
         displayAlamat(1);
+
+        // دالة تحديث التاريخ الميلادي واليوم الحالي تلقائياً
+        function updateLiveDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', calendar: 'gregory' };
+            const today = new Date();
+            const formatter = new Intl.DateTimeFormat('ar-EG', options);
+            document.getElementById('live-date').innerText = formatter.format(today);
+        }
+        updateLiveDate();
     </script>
 </body>
 </html>
