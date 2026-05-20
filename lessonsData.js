@@ -1,6 +1,6 @@
 /**
  * المكتبة العلمية الشاملة - الشيخ سعيد مصطفى دياب
- * ملف البيانات الموحد (JS) لجميع الأقسام والدروس
+ * ملف البيانات الموحد (JS) لجميع الأقسام والدروس - نسخة محدثة ومطورة 3D
  */
 
 // 1. دروس العقيدة (شرح كتاب التوحيد)
@@ -124,19 +124,22 @@ function render() {
     displayAudioList(faraidLessons, 'faraid-list', 'faraid');
 }
 
-// دالة مساعدة لعرض قوائم الصوت
+// دالة مساعدة لعرض قوائم الصوت بتنسيق الأيقونات الجديد الأزرق الفاتح الـ 3D
 function displayAudioList(data, containerId, folder) {
     const container = document.getElementById(containerId);
     if (!container) return;
     container.innerHTML = data.map(lesson => `
         <div class="lesson-item">
             <div class="lesson-info">
-                <i class="fas fa-play-circle"></i>
+                <i class="fas fa-play-circle" style="color: #4dafff; text-shadow: 1px 1px 0px #2575fc, 2px 2px 3px rgba(0,0,0,0.15); font-size: 1.3rem;"></i>
                 <span class="lesson-title">${lesson.title}</span>
             </div>
             <audio controls preload="none">
                 <source src="audio/${folder}/${lesson.file}" type="audio/mpeg">
             </audio>
+            <a href="audio/${folder}/${lesson.file}" download class="btn-download-3d">
+                 <i class="fas fa-arrow-down"></i>
+            </a>
         </div>
     `).join('');
 }
