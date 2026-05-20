@@ -141,6 +141,41 @@ audio { height: 32px; width: 160px; }
 
 .download-btn:hover { color: var(--gold); }
 
+/* تنسيق زر التحميل المطور والجديد ثلاثي الأبعاد 3D */
+.btn-download-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(145deg, #60a5fa, #3b82f6); /* تدرج أزرق فاتح مريح */
+    color: white !important;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1rem;
+    /* تأثير البروز والظل ثلاثي الأبعاد */
+    box-shadow: 0 3px 0 #1d4ed8, 
+                0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    cursor: pointer;
+}
+
+/* حركة الضغط اللمسية لـ 3D */
+.btn-download-3d:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #1d4ed8, 
+                0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* تعديل مرونة صندوق الدرس ليتناسب مع الزر الجديد */
+.lesson-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
 /* ====== 6. الفوتر ====== */
 footer {
     text-align: center;
