@@ -6,12 +6,10 @@
 
 <title>علوم القرآن الكريم</title>
 
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
     --primary:#0f766e;
     --gold:#c8a44d;
@@ -166,7 +164,7 @@ body {
     gap: 10px;
 }
 
-/* كلاس مخصص لتلوين أيقونات العناوين بالأزرق الفاتح بنظام الـ 3D */
+/* تلوين أيقونات العناوين بالأزرق الفاتح بنظام الـ 3D */
 .accordion-header span i {
     color: #4dafff;
     text-shadow: 1px 1px 0px #2575fc, 2px 2px 3px rgba(0,0,0,0.15);
@@ -183,7 +181,7 @@ body {
     display: block;
 }
 
-/* تنسيق خاص لقصص القرآن */
+/* تنسيق خاص لقصص القرآن ليصبح رابطاً خارجياً */
 #item-qass .accordion-header {
     border-right: 10px solid #8b5cf6;
     background: linear-gradient(to left, #f3e8ff, #ffffff);
@@ -205,7 +203,6 @@ body {
     color: var(--primary);
 }
 
-/* تنسيق أيقونة التشغيل الصغيرة بجانب عنوان الدرس */
 .lesson-right i {
     color: #4dafff;
     margin-left: 8px;
@@ -281,37 +278,29 @@ footer {
 }
 
 @media (max-width:768px){
-
     .lesson-row{
         flex-direction: column;
         text-align: center;
     }
-
     .main-nav{
         flex-wrap: wrap;
     }
-
     .top-bar{
         flex-direction: column;
         gap: 10px;
     }
-
     .prayer-times{
         flex-wrap: wrap;
         justify-content: center;
     }
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="top-bar">
-    <div class="date-info" id="current-date">
-        جاري التحميل...
-    </div>
-
+    <div class="date-info" id="current-date">جاري التحميل...</div>
     <div class="prayer-times" id="prayer-api"></div>
 </div>
 
@@ -320,100 +309,56 @@ footer {
 </header>
 
 <nav class="main-nav">
-
-    <a href="index.html" class="nav-link">
-        <i class="fas fa-home"></i>
-        الرئيسية
-    </a>
-
-    <a href="tafseer.html" class="nav-link">
-        <i class="fas fa-book-open"></i>
-        التفسير
-    </a>
-
-    <a href="khutab.html" class="nav-link">
-        <i class="fas fa-microphone-lines"></i>
-        الخطب
-    </a>
-
-    <a href="lessons.html" class="nav-link nav-gold">
-        <i class="fas fa-volume-high"></i>
-        الصوتيات
-    </a>
-
-    <a href="books.html" class="nav-link">
-        <i class="fas fa-book"></i>
-        الكتب
-    </a>
-
-    <a href="articles.html" class="nav-link">
-        <i class="fas fa-pen-nib"></i>
-        المقالات
-    </a>
-
+    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="tafseer.html" class="nav-link"><i class="fas fa-book-open"></i> التفسير</a>
+    <a href="khutab.html" class="nav-link"><i class="fas fa-microphone-lines"></i> الخطب</a>
+    <a href="lessons.html" class="nav-link nav-gold"><i class="fas fa-volume-high"></i> الصوتيات</a>
+    <a href="books.html" class="nav-link"><i class="fas fa-book"></i> الكتب</a>
+    <a href="articles.html" class="nav-link"><i class="fas fa-pen-nib"></i> المقالات</a>
 </nav>
 
 <div class="container">
 
-    <h1 class="page-title">
-        علوم القرآن الكريم
-    </h1>
+    <h1 class="page-title">علوم القرآن الكريم</h1>
 
     <div class="accordion-item" id="item-osol">
-
         <div class="accordion-header" onclick="toggleAccordion('osol')">
-
             <span>
                 <i class="fas fa-book-quran"></i>
                 شرح مقدمة أصول التفسير (29 درساً)
             </span>
-
             <i class="fas fa-chevron-down"></i>
-
         </div>
-
         <div class="accordion-content">
-
             <div id="osol-list"></div>
-
             <div class="pagination" id="osol-pagination"></div>
-
         </div>
-
     </div>
 
-   <div class="accordion-item" id="item-qass">
-    <a href="qass-al-qoran.html" style="text-decoration: none; display: block;">
-        <div class="accordion-header">
-            <span>
-                <i class="fas fa-feather-pointed"></i>
-                سلسلة قصص القرآن (62 درساً)
-            </span>
-            <i class="fas fa-chevron-left"></i> </div>
-    </a>
-</div>
+    <div class="accordion-item" id="item-qass">
+        <a href="qass-al-qoran.html" style="text-decoration: none; display: block;">
+            <div class="accordion-header">
+                <span>
+                    <i class="fas fa-feather-pointed"></i>
+                    سلسلة قصص القرآن (62 درساً)
+                </span>
+                <i class="fas fa-chevron-left" style="color: #8b5cf6;"></i>
+            </div>
+        </a>
+    </div>
 
     <div class="accordion-item" id="item-nasekh">
-
         <div class="accordion-header" onclick="toggleAccordion('nasekh')">
-
             <span>
                 <i class="fas fa-scroll"></i>
                 شرح منظومة المنسوخ للسيوطي (10 دروس)
             </span>
-
             <i class="fas fa-chevron-down"></i>
-
         </div>
-
         <div class="accordion-content">
-
             <div id="nasekh-list"></div>
-
             <div class="pagination" id="nasekh-pagination"></div>
-
         </div>
-
     </div>
 
 </div>
@@ -423,215 +368,110 @@ footer {
 </footer>
 
 <script>
-
-// الـ count هنا هو المتحكم الفعلي في عدد الدروس التي تظهر بالصفحة
+// الكود الداخلي المعزول الذي يدير الصفحة دون تدخل خارجي
 const lessonsData = {
-
     osol: {
         prefix: 'osol-altfser',
-        count: 29, // 👈 قمت بزيادتها إلى 29 لتظهر الدروس الجديدة فوراً
+        count: 29,
         perPage: 10,
         currentPage: 1
     },
-
-    qass: {
-        prefix: 'qass-al-qoran',
-        count: 62,
-        perPage: 10,
-        currentPage: 1
-    },
-
     nasekh: {
         prefix: 'nasekh',
         count: 10,
         perPage: 10,
         currentPage: 1
     }
-
 };
 
 function updateDate(){
-
     const now = new Date();
-
-    const hijri =
-    new Intl.DateTimeFormat(
-        'ar-SA-u-ca-islamic-umalqura',
-        {
-            day:'numeric',
-            month:'long',
-            year:'numeric'
-        }
-    ).format(now);
-
-    const miladi =
-    new Intl.DateTimeFormat(
-        'ar-EG',
-        {
-            day:'numeric',
-            month:'long',
-            year:'numeric'
-        }
-    ).format(now);
-
-    document.getElementById('current-date').innerText =
-    `${hijri} هـ | ${miladi} م`;
-
+    const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {day:'numeric', month:'long', year:'numeric'}).format(now);
+    const miladi = new Intl.DateTimeFormat('ar-EG', {day:'numeric', month:'long', year:'numeric'}).format(now);
+    document.getElementById('current-date').innerText = `${hijri} هـ | ${miladi} م`;
 }
 
 async function getPrayers(){
-
     try{
-
-        const res =
-        await fetch(
-            'https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4'
-        );
-
+        const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
         const data = await res.json();
-
         const t = data.data.timings;
-
-        document.getElementById('prayer-api').innerHTML =
-
-        [
-            {n:"الفجر",v:t.Fajr},
-            {n:"الظهر",v:t.Dhuhr},
-            {n:"العصر",v:t.Asr},
-            {n:"المغرب",v:t.Maghrib},
-            {n:"العشاء",v:t.Isha}
-        ]
-
-        .map(p => `
+        document.getElementById('prayer-api').innerHTML = [
+            {n:"الفجر",v:t.Fajr}, {n:"الظهر",v:t.Dhuhr}, {n:"العصر",v:t.Asr}, {n:"المغرب",v:t.Maghrib}, {n:"العشاء",v:t.Isha}
+        ].map(p => `
             <div class="prayer-item">
                 <span class="prayer-name">${p.n}</span>
                 <span class="prayer-time">${p.v}</span>
             </div>
-        `)
-
-        .join('');
-
+        `).join('');
     } catch(e){}
-
 }
 
 function toggleAccordion(key){
-
-    const item =
-    document.getElementById('item-' + key);
-
-    item.classList.toggle('active');
-
-    renderLessons(key);
-
+    const item = document.getElementById('item-' + key);
+    if(item) {
+        item.classList.toggle('active');
+        renderLessons(key);
+    }
 }
 
 function renderLessons(key){
-
     const data = lessonsData[key];
+    if(!data) return;
 
-    const listContainer =
-    document.getElementById(key + '-list');
-
-    const paginationContainer =
-    document.getElementById(key + '-pagination');
+    const listContainer = document.getElementById(key + '-list');
+    const paginationContainer = document.getElementById(key + '-pagination');
 
     listContainer.innerHTML = "";
 
-    const start =
-    (data.currentPage - 1) * data.perPage + 1;
-
-    const end =
-    Math.min(
-        data.currentPage * data.perPage,
-        data.count
-    );
+    const start = (data.currentPage - 1) * data.perPage + 1;
+    const end = Math.min(data.currentPage * data.perPage, data.count);
 
     for(let i = start; i <= end; i++){
-
         listContainer.innerHTML += `
-
         <div class="lesson-row">
-
             <div class="lesson-right">
                 <i class="fas fa-play-circle"></i>
                 الدرس (${i})
             </div>
-
             <div class="audio-part">
-
                 <audio controls preload="none">
-
-                    <source
-                    src="audio/${data.prefix}-${i}.mp3"
-                    type="audio/mpeg">
-
+                    <source src="audio/${data.prefix}-${i}.mp3" type="audio/mpeg">
                 </audio>
-
             </div>
-
             <div>
-
-                <a
-                href="audio/${data.prefix}-${i}.mp3"
-                download
-                class="btn-download">
-
+                <a href="audio/${data.prefix}-${i}.mp3" download class="btn-download">
                     <i class="fas fa-arrow-down"></i>
-
                 </a>
-
             </div>
-
         </div>
-
         `;
     }
 
-    const totalPages =
-    Math.ceil(data.count / data.perPage);
-
+    const totalPages = Math.ceil(data.count / data.perPage);
     paginationContainer.innerHTML = "";
 
     if(totalPages > 1){
-
         for(let p = 1; p <= totalPages; p++){
-
-            const btn =
-            document.createElement('div');
-
-            btn.className =
-            `page-btn ${p === data.currentPage ? 'active' : ''}`;
-
+            const btn = document.createElement('div');
+            btn.className = `page-btn ${p === data.currentPage ? 'active' : ''}`;
             btn.innerText = p;
-
             btn.onclick = (e) => {
-
                 e.stopPropagation();
-
                 data.currentPage = p;
-
                 renderLessons(key);
-
             };
-
             paginationContainer.appendChild(btn);
-
         }
     }
 }
 
 window.onload = () => {
-
     updateDate();
-
     getPrayers();
-
-    /* فتح قصص القرآن تلقائياً */
-    toggleAccordion('qass');
-
+    // نفتح أول قسم تلقائياً عند الدخول
+    toggleAccordion('osol');
 };
-
 </script>
 
 </body>
