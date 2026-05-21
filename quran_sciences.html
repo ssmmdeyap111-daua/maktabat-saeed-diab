@@ -166,6 +166,12 @@ body {
     gap: 10px;
 }
 
+/* كلاس مخصص لتلوين أيقونات العناوين بالأزرق الفاتح بنظام الـ 3D */
+.accordion-header span i {
+    color: #4dafff;
+    text-shadow: 1px 1px 0px #2575fc, 2px 2px 3px rgba(0,0,0,0.15);
+}
+
 .accordion-content {
     display: none;
     padding: 15px;
@@ -199,6 +205,13 @@ body {
     color: var(--primary);
 }
 
+/* تنسيق أيقونة التشغيل الصغيرة بجانب عنوان الدرس */
+.lesson-right i {
+    color: #4dafff;
+    margin-left: 8px;
+    text-shadow: 1px 1px 0px #2575fc;
+}
+
 .audio-part {
     flex: 4;
 }
@@ -208,10 +221,27 @@ audio {
     height: 35px;
 }
 
+/* 🎨 التنسيق الجديد والبارز لزر التحميل الأزرق الفاتح ثلاثي الأبعاد 3D */
 .btn-download {
-    color: var(--dark-green);
-    font-size: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(145deg, #60a5fa, #3b82f6);
+    color: white !important;
+    border-radius: 50%;
     text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0 3px 0 #1d4ed8, 
+                0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-download:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #1d4ed8, 
+                0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* الصفحات */
@@ -329,14 +359,13 @@ footer {
         علوم القرآن الكريم
     </h1>
 
-    <!-- أصول التفسير -->
     <div class="accordion-item" id="item-osol">
 
         <div class="accordion-header" onclick="toggleAccordion('osol')">
 
             <span>
                 <i class="fas fa-book-quran"></i>
-                شرح مقدمة أصول التفسير (27 درساً)
+                شرح مقدمة أصول التفسير (29 درساً)
             </span>
 
             <i class="fas fa-chevron-down"></i>
@@ -353,7 +382,6 @@ footer {
 
     </div>
 
-    <!-- قصص القرآن -->
     <div class="accordion-item" id="item-qass">
 
         <div class="accordion-header" onclick="toggleAccordion('qass')">
@@ -377,7 +405,6 @@ footer {
 
     </div>
 
-    <!-- الناسخ والمنسوخ -->
     <div class="accordion-item" id="item-nasekh">
 
         <div class="accordion-header" onclick="toggleAccordion('nasekh')">
@@ -409,11 +436,12 @@ footer {
 
 <script>
 
+// الـ count هنا هو المتحكم الفعلي في عدد الدروس التي تظهر بالصفحة
 const lessonsData = {
 
     osol: {
         prefix: 'osol-altfser',
-        count: 27,
+        count: 29, // 👈 قمت بزيادتها إلى 29 لتظهر الدروس الجديدة فوراً
         perPage: 10,
         currentPage: 1
     },
@@ -538,6 +566,7 @@ function renderLessons(key){
         <div class="lesson-row">
 
             <div class="lesson-right">
+                <i class="fas fa-play-circle"></i>
                 الدرس (${i})
             </div>
 
@@ -560,7 +589,7 @@ function renderLessons(key){
                 download
                 class="btn-download">
 
-                    <i class="fas fa-circle-down"></i>
+                    <i class="fas fa-arrow-down"></i>
 
                 </a>
 
