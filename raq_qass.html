@@ -1,152 +1,426 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سلسلة قصص القرآن - الشيخ سعيد مصطفى دياب</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome الصحيح -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
-        
-        /* شريط المواقيت الموحد */
-        .top-info-bar { 
-            background-color: #fdfae9; padding: 10px 20px; display: flex; 
-            justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #ddd;
-        }
-        .prayer-times { display: flex; gap: 6px; flex-wrap: wrap; }
-        .prayer-box { 
-            text-align: center; background: #4f814f; color: white; border-radius: 6px; 
-            padding: 4px 10px; font-size: 0.8rem; min-width: 60px;
-        }
-        .time-val { background: white; color: #4f814f; margin-top: 3px; border-radius: 4px; font-weight: bold; }
-        .date-box { 
-            background: white; border: 1px solid #c59d31; border-radius: 25px; 
-            padding: 7px 20px; color: #333; font-weight: bold; font-size: 0.9rem;
+        body {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fcff;
+            text-align: center;
         }
 
-        /* الهيدر المدمج */
-        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
-        .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
-
-        /* القائمة الرئيسية */
-        .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
-        .nav-item { 
-            text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; 
-            font-weight: 900; font-size: 1.1rem; min-width: 130px; 
-            display: flex; align-items: center; justify-content: center; gap: 8px; 
-            box-shadow: 0 4px 0 rgba(0,0,0,0.15); transition: 0.2s;
+        /* شريط المواقيت */
+        .top-info-bar {
+            background-color: #fdfae9;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ddd;
         }
 
-        /* حاوية المحتوى والجدول */
-        .main-wrapper { max-width: 1000px; margin: 40px auto; padding: 0 15px; }
-        .content-box { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: right; }
-        
-        .lesson-row { padding: 15px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
-        .lesson-title { font-weight: 700; color: #2c5d87; font-size: 1.1rem; }
-        .audio-part { flex: 2; max-width: 400px; }
-        audio { width: 100%; height: 35px; }
-        .btn-download { color: #4f814f; font-size: 1.5rem; text-decoration: none; }
-        .btn-download:hover { color: #d4af37; }
-
-        /* نظام تصفح الصفحات */
-        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 30px; padding: 10px; }
-        .page-btn { 
-            width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; 
-            border-radius: 5px; cursor: pointer; border: 1px solid #2c5d87; 
-            font-weight: bold; color: #2c5d87; transition: 0.3s; background: white;
+        .prayer-times {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
         }
-        .page-btn.active { background: #2c5d87; color: white; }
 
-        footer { padding: 45px; background: #222; color: #bbb; margin-top: 60px; font-size: 0.95rem; text-align: center; }
+        .prayer-box {
+            text-align: center;
+            background: #4f814f;
+            color: white;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            min-width: 60px;
+        }
+
+        .time-val {
+            background: white;
+            color: #4f814f;
+            margin-top: 3px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .date-box {
+            background: white;
+            border: 1px solid #c59d31;
+            border-radius: 25px;
+            padding: 7px 20px;
+            color: #333;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* الهيدر */
+        .site-header {
+            background-color: #e0f2f7;
+            padding: 30px 0;
+            border-bottom: 5px solid #72bcd4;
+        }
+
+        .site-header img {
+            max-width: 600px;
+            width: 90%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            mix-blend-mode: multiply;
+        }
+
+        /* القائمة */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 25px;
+            flex-wrap: wrap;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            min-width: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+            transition: 0.2s;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-2px);
+        }
+
+        /* المحتوى */
+        .main-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: right;
+        }
+
+        .lesson-row {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .lesson-title {
+            font-weight: 700;
+            color: #2c5d87;
+            font-size: 1.1rem;
+            min-width: 220px;
+        }
+
+        .audio-part {
+            flex: 2;
+            max-width: 400px;
+        }
+
+        audio {
+            width: 100%;
+            height: 35px;
+        }
+
+        .btn-download {
+            color: #4f814f;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .btn-download:hover {
+            color: #d4af37;
+        }
+
+        /* التصفح */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 30px;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+
+        .page-btn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #2c5d87;
+            font-weight: bold;
+            color: #2c5d87;
+            transition: 0.3s;
+            background: white;
+        }
+
+        .page-btn.active {
+            background: #2c5d87;
+            color: white;
+        }
+
+        footer {
+            padding: 45px;
+            background: #222;
+            color: #bbb;
+            margin-top: 60px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        @media(max-width:768px){
+            .lesson-row{
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .lesson-title{
+                min-width: auto;
+            }
+
+            .audio-part{
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
 
+    <!-- شريط المواقيت -->
     <div class="top-info-bar">
+
         <div class="prayer-times">
-            <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
-            <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
-            <div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
-            <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
-            <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
+            <div class="prayer-box">
+                <div>الفجر</div>
+                <div class="time-val">03:26</div>
+            </div>
+
+            <div class="prayer-box">
+                <div>الظهر</div>
+                <div class="time-val">11:30</div>
+            </div>
+
+            <div class="prayer-box">
+                <div>العصر</div>
+                <div class="time-val">14:57</div>
+            </div>
+
+            <div class="prayer-box">
+                <div>المغرب</div>
+                <div class="time-val">18:09</div>
+            </div>
+
+            <div class="prayer-box">
+                <div>العشاء</div>
+                <div class="time-val">19:39</div>
+            </div>
         </div>
-        <div class="date-box">الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م</div>
+
+        <!-- التاريخ المحدث -->
+        <div class="date-box">
+            السبت | ٥ ذو الحجة ١٤٤٧ هـ | ٢٣ مايو ٢٠٢٦ م
+        </div>
+
     </div>
 
+    <!-- الهيدر -->
     <header class="site-header">
         <img src="images/logo.png.jpg" alt="الشيخ سعيد دياب">
     </header>
 
+    <!-- القائمة -->
     <nav class="main-nav">
-        <a href="index.html" class="nav-item" style="background:#c59d31;"><i class="fas fa-home"></i>الرئيسية</a>
-        <a href="tafseer_index1.html" class="nav-item" style="background:#72bcd4;"><i class="fas fa-book-open"></i>التفسير</a>
-        <a href="lessons.html" class="nav-item" style="background:#87ceeb;"><i class="fas fa-volume-up"></i>الصوتيات</a>
-        <a href="khutbah.html" class="nav-item" style="background:#5b9bd5;"><i class="fas fa-microphone"></i>الخطب</a>
-        <a href="articles.html" class="nav-item" style="background:#4f814f;"><i class="fas fa-file-alt"></i>المقالات</a>
+
+        <a href="index.html" class="nav-item" style="background:#c59d31;">
+            <i class="fas fa-home"></i>
+            الرئيسية
+        </a>
+
+        <a href="tafseer_index1.html" class="nav-item" style="background:#72bcd4;">
+            <i class="fas fa-book-open"></i>
+            التفسير
+        </a>
+
+        <a href="lessons.html" class="nav-item" style="background:#87ceeb;">
+            <i class="fas fa-volume-up"></i>
+            الصوتيات
+        </a>
+
+        <a href="khutbah.html" class="nav-item" style="background:#5b9bd5;">
+            <i class="fas fa-microphone"></i>
+            الخطب
+        </a>
+
+        <a href="articles.html" class="nav-item" style="background:#4f814f;">
+            <i class="fas fa-file-alt"></i>
+            المقالات
+        </a>
+
     </nav>
 
+    <!-- المحتوى -->
     <div class="main-wrapper">
-        <h2 style="color: #2c5d87; border-bottom: 4px solid #d4af37; display: inline-block; padding-bottom: 10px; margin-bottom: 40px; font-weight: 900;">
-            <i class="fas fa-book-quran" style="margin-left: 10px; color: #d4af37;"></i>سلسلة قصص القرآن (62 درساً)
+
+        <h2 style="color:#2c5d87;border-bottom:4px solid #d4af37;display:inline-block;padding-bottom:10px;margin-bottom:40px;font-weight:900;">
+
+            <i class="fas fa-book-open"
+               style="margin-left:10px;color:#d4af37;"></i>
+
+            سلسلة قصص القرآن (62 درساً)
+
         </h2>
-        
+
         <div class="content-box">
+
             <div id="lessons-list"></div>
+
             <div class="pagination" id="pagination-controls"></div>
+
         </div>
+
     </div>
 
-    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+    <!-- الفوتر -->
+    <footer>
+        جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026
+    </footer>
 
     <script>
-        // إعدادات السلسلة لقراءة مسار الملفات الصوتي الصحيح تلقائياً
-        const config = { prefix: 'qass-al-qoran-', count: 62, perPage: 10, currentPage: 1 };
+
+        const config = {
+            prefix: 'qass-al-qoran-',
+            count: 62,
+            perPage: 10,
+            currentPage: 1
+        };
 
         function renderLessons() {
-            const listContainer = document.getElementById('lessons-list');
-            const paginationContainer = document.getElementById('pagination-controls');
-            
+
+            const listContainer =
+                document.getElementById('lessons-list');
+
+            const paginationContainer =
+                document.getElementById('pagination-controls');
+
             listContainer.innerHTML = "";
-            const start = (config.currentPage - 1) * config.perPage + 1;
-            const end = Math.min(config.currentPage * config.perPage, config.count);
+
+            const start =
+                (config.currentPage - 1) * config.perPage + 1;
+
+            const end =
+                Math.min(
+                    config.currentPage * config.perPage,
+                    config.count
+                );
 
             for (let i = start; i <= end; i++) {
+
                 listContainer.innerHTML += `
+
                     <div class="lesson-row">
-                        <div class="lesson-title">سلسلة قصص القرآن - الدرس (${i})</div>
+
+                        <div class="lesson-title">
+                            سلسلة قصص القرآن - الدرس (${i})
+                        </div>
+
                         <div class="audio-part">
+
                             <audio controls preload="none">
-                                <source src="audio/${config.prefix}${i}.mp3" type="audio/mpeg">
+
+                                <source
+                                src="audio/${config.prefix}${i}.mp3"
+                                type="audio/mpeg">
+
                             </audio>
+
                         </div>
+
                         <div>
-                            <a href="audio/${config.prefix}${i}.mp3" download class="btn-download" title="تحميل الدرس">
-                                <i class="fas fa-circle-down"></i>
+
+                            <a href="audio/${config.prefix}${i}.mp3"
+                               download
+                               class="btn-download"
+                               title="تحميل الدرس">
+
+                               <i class="fas fa-circle-down"></i>
+
                             </a>
+
                         </div>
-                    </div>`;
+
+                    </div>
+
+                `;
             }
 
-            // توليد أزرار الصفحات
-            const totalPages = Math.ceil(config.count / config.perPage);
+            const totalPages =
+                Math.ceil(config.count / config.perPage);
+
             paginationContainer.innerHTML = "";
+
             for (let p = 1; p <= totalPages; p++) {
+
                 const btn = document.createElement('div');
-                btn.className = `page-btn ${p === config.currentPage ? 'active' : ''}`;
+
+                btn.className =
+                    `page-btn ${p === config.currentPage ? 'active' : ''}`;
+
                 btn.innerText = p;
+
                 btn.onclick = () => {
+
                     config.currentPage = p;
+
                     renderLessons();
-                    window.scrollTo({ top: 400, behavior: 'smooth' }); // صعود سلس لأعلى الجدول عند تغيير الصفحة
+
+                    window.scrollTo({
+                        top: 400,
+                        behavior: 'smooth'
+                    });
                 };
+
                 paginationContainer.appendChild(btn);
             }
         }
 
-        // تشغيل الدالة فور فتح الصفحة لظهور الدروس
         renderLessons();
+
     </script>
+
 </body>
 </html>
