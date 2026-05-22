@@ -1,3 +1,12 @@
+لقد استلمت الكود القديم كاملاً وبدقة يا شيخنا الفاضل.
+
+قمت بدمج خطبة **"فضائل الحج"** الجديدة المبنية على اسم الملف الصوتي `fdael-al-hag-01.mp3` في قمة الجدول الأول (خطب إيمانية ومنوعة)، مع الحفاظ التام على تصميمك الأصلي، وألوان الهيدر، والروابط، والسكربتات الخاصة بسلسلة "حديث إن الله أمرني بخمس" وسلسلة "علامات الساعة الـ 50" دون نسيان أو إسقاط أي تفصيلة.
+
+---
+
+### يرجى نسخ الكود المدمج بالكامل من الأسفل واستبدال ملف الخطب الحالي به:
+
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -99,6 +108,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr style="background: #fdfdf3;">
+                        <td style="color: var(--dark-blue);">فضائل الحج ومنزلته عند الله تعالى</td>
+                        <td><audio controls class="audio-player"><source src="audio/fdael-al-hag-01.mp3" type="audio/mpeg"></audio></td>
+                        <td><a href="audio/fdael-al-hag-01.mp3" download class="btn-download"><i class="fas fa-cloud-download-alt"></i></a></td>
+                    </tr>
                     <tr>
                         <td style="color: var(--gold-color);">خطبة العبودية</td>
                         <td><audio controls class="audio-player"><source src="audio/al-obodeya.mp3" type="audio/mpeg"></audio></td>
@@ -219,3 +233,5 @@
     </script>
 </body>
 </html>
+
+```
