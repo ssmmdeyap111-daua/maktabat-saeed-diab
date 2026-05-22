@@ -29,7 +29,7 @@
         .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
         .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
 
-        /* القائمة الرئيسية الموحدة مع صفحة التفسير */
+        /* القائمة الرئيسية الموحدة */
         .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
         .nav-item { 
             text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; 
@@ -39,17 +39,41 @@
         }
         .nav-item:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.1); }
 
-        /* شبكة الأقسام */
+        /* شبكة الأقسام والسلاسل */
         .main-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 15px; }
-        .section-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 20px; }
+        .section-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        
         .btn-series {
-            background-color: #72bcd4 !important; color: white !important; text-decoration: none !important;
+            background-color: #72bcd4; color: white; text-decoration: none;
             height: 80px; border-radius: 15px; font-weight: 900; font-size: 1.3rem;
             display: flex; align-items: center; justify-content: center; gap: 10px;
             box-shadow: 0 6px 0 #2c5d87; transition: 0.2s; border: none;
             cursor: pointer;
         }
         .btn-series:hover { background-color: #2c5d87; transform: translateY(-3px); }
+        .btn-series i { font-size: 1.4rem; } /* لإبراز الأيقونة بوضوح */
+
+        /* تصميم عرض الدروس (الأكورديون) */
+        .accordion-item { background: white; border-radius: 15px; margin-top: 20px; border: 1px solid #ddd; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: none; text-align: right; }
+        .accordion-header { padding: 20px 25px; background: #2c5d87; color: white; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-header span { font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .accordion-content { padding: 15px; background: #fcfdfe; }
+        
+        /* جدول عرض السلسلة */
+        .lesson-row { padding: 12px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+        .lesson-title-text { font-weight: 700; color: #2c5d87; font-size: 1.1rem; }
+        .audio-part { flex: 2; max-width: 400px; }
+        audio { width: 100%; height: 35px; }
+        .btn-download { color: #4f814f; font-size: 1.5rem; text-decoration: none; }
+
+        /* نظام تصفح الصفحات للسلسلة */
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 20px; padding: 10px; }
+        .page-btn { 
+            width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; 
+            border-radius: 5px; cursor: pointer; border: 1px solid #2c5d87; 
+            font-weight: bold; color: #2c5d87; transition: 0.3s; background: white;
+        }
+        .page-btn.active { background: #2c5d87; color: white; }
 
         footer { padding: 45px; background: #222; color: #bbb; margin-top: 60px; font-size: 0.95rem; }
     </style>
@@ -85,15 +109,80 @@
         <div class="section-grid">
             <a href="virtues.html" class="btn-series" style="background-color: #4f814f !important; box-shadow: 0 6px 0 #2e4d2e;"><i class="fas fa-star"></i>فضائل الأعمال</a>
             
-            <a href="qass_stories.html" class="btn-series" style="background-color: #d4af37 !important; box-shadow: 0 6px 0 #94741f;"><i class="fas fa-book-quran"></i>قصص القرآن</a>
+            <button class="btn-series" style="background-color: #d4af37 !important; box-shadow: 0 6px 0 #94741f;" onclick="showStoriesSection()">
+                <i class="fas fa-book-quran"></i>قصص القرآن
+            </button>
             
             <a href="raq_azkar.html" class="btn-series"><i class="fas fa-pray"></i>أنوار الأذكار</a>
             <a href="mahba.html" class="btn-series"><i class="fas fa-heart"></i>أسباب محبة الله</a>
             <a href="raq_mkarem.html" class="btn-series"><i class="fas fa-hands-holding"></i>مكارم الأخلاق</a>
             <a href="raq_ganah.html" class="btn-series"><i class="fas fa-cloud"></i>وصف الجنة ونعيمها</a>
         </div>
+
+        <div class="accordion-item" id="stories-panel">
+            <div class="accordion-header">
+                <span><i class="fas fa-book-quran"></i> دروس سلسلة قصص القرآن والرقائق (62 درساً)</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                <div id="lessons-list-container"></div>
+                <div class="pagination" id="pagination-controls-container"></div>
+            </div>
+        </div>
+
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <script>
+        // برمجة عرض الـ 62 درساً لقصص القرآن تلقائياً بنظام الصفحات
+        const config = { prefix: 'qass-al-qoran-', count: 62, perPage: 10, currentPage: 1 };
+
+        function showStoriesSection() {
+            const panel = document.getElementById('stories-panel');
+            panel.style.display = 'block'; // إظهار الصندوق
+            renderStoriesLessons();
+            panel.scrollIntoView({ behavior: 'smooth' }); // انتقال سلس للدروس
+        }
+
+        function renderStoriesLessons() {
+            const listContainer = document.getElementById('lessons-list-container');
+            const paginationContainer = document.getElementById('pagination-controls-container');
+            
+            listContainer.innerHTML = "";
+            const start = (config.currentPage - 1) * config.perPage + 1;
+            const end = Math.min(config.currentPage * config.perPage, config.count);
+
+            for (let i = start; i <= end; i++) {
+                listContainer.innerHTML += `
+                    <div class="lesson-row">
+                        <div class="lesson-title-text">سلسلة قصص القرآن - الدرس (${i})</div>
+                        <div class="audio-part">
+                            <audio controls preload="none">
+                                <source src="audio/${config.prefix}${i}.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                        <div>
+                            <a href="audio/${config.prefix}${i}.mp3" download class="btn-download">
+                                <i class="fas fa-circle-down"></i>
+                            </a>
+                        </div>
+                    </div>`;
+            }
+
+            const totalPages = Math.ceil(config.count / config.perPage);
+            paginationContainer.innerHTML = "";
+            for (let p = 1; p <= totalPages; p++) {
+                const btn = document.createElement('div');
+                btn.className = `page-btn ${p === config.currentPage ? 'active' : ''}`;
+                btn.innerText = p;
+                btn.onclick = () => {
+                    config.currentPage = p;
+                    renderStoriesLessons();
+                };
+                paginationContainer.appendChild(btn);
+            }
+        }
+    </script>
 </body>
 </html>
