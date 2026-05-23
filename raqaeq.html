@@ -1,101 +1,450 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الرقائق والزهد - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
-        
-        /* شريط المواقيت الموحد (المربعات الخضراء) */
-        .top-info-bar { 
-            background-color: #fdfae9; padding: 10px 20px; display: flex; 
-            justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #ddd;
-        }
-        .prayer-times { display: flex; gap: 6px; flex-wrap: wrap; }
-        .prayer-box { 
-            text-align: center; background: #4f814f; color: white; border-radius: 6px; 
-            padding: 4px 10px; font-size: 0.8rem; min-width: 60px;
-        }
-        .time-val { background: white; color: #4f814f; margin-top: 3px; border-radius: 4px; font-weight: bold; }
-        .date-box { 
-            background: white; border: 1px solid #c59d31; border-radius: 25px; 
-            padding: 7px 20px; color: #333; font-weight: bold; font-size: 0.9rem;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* الهيدر المدمج بدون صندوق أبيض */
-        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
-        .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
+<title>قسم الرقائق والزهد - الشيخ سعيد مصطفى دياب</title>
 
-        /* القائمة الرئيسية الموحدة */
-        .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
-        .nav-item { 
-            text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; 
-            font-weight: 900; font-size: 1.1rem; min-width: 130px; 
-            display: flex; align-items: center; justify-content: center; gap: 8px; 
-            box-shadow: 0 4px 0 rgba(0,0,0,0.15); transition: 0.2s;
-        }
-        .nav-item:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.1); }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
-        /* شبكة الأقسام */
-        .main-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 15px; }
-        .section-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 20px; }
-        .btn-series {
-            background-color: #72bcd4 !important; color: white !important; text-decoration: none !important;
-            height: 80px; border-radius: 15px; font-weight: 900; font-size: 1.3rem;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            box-shadow: 0 6px 0 #2c5d87; transition: 0.2s; border: none;
-        }
-        .btn-series:hover { background-color: #2c5d87; transform: translateY(-3px); }
+<style>
 
-        footer { padding: 45px; background: #222; color: #bbb; margin-top: 60px; font-size: 0.95rem; }
-    </style>
+:root{
+    --primary:#2d5f8b;
+    --gold:#c8a44d;
+    --green:#4f7f49;
+
+    --beige-light:#efe6d6;
+    --beige-dark:#d8c7a8;
+
+    --btn-blue:#6eb6d1;
+    --footer-dark:#1d1d1d;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-family:'Cairo',sans-serif;
+    background:#eef1f4;
+    color:#333;
+}
+
+/* الشريط العلوي */
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 25px;
+    background:var(--beige-light);
+    border-bottom:2px solid var(--beige-dark);
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.date-info{
+    font-size:0.95rem;
+    font-weight:700;
+    color:#555;
+}
+
+.prayer-times{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.prayer-item{
+    background:white;
+    padding:5px 10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+.prayer-name{
+    display:block;
+    font-size:0.7rem;
+    color:#777;
+    font-weight:bold;
+}
+
+.prayer-time{
+    font-weight:900;
+    color:#2d5f8b;
+    font-size:0.85rem;
+}
+
+/* الهيدر */
+
+.site-header{
+    text-align:center;
+    padding:20px 10px;
+    background:#dce7ea;
+}
+
+.site-logo{
+    max-width:600px;
+    width:100%;
+    height:auto;
+}
+
+/* القائمة */
+
+.main-nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    padding:18px;
+    background:var(--beige-light);
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    flex-wrap:wrap;
+}
+
+.nav-link{
+    text-decoration:none;
+    color:white;
+    padding:12px 30px;
+    border-radius:10px;
+    font-weight:800;
+    transition:0.3s;
+    font-size:1rem;
+    box-shadow:0 4px 0 rgba(0,0,0,0.2);
+}
+
+.nav-link:hover{
+    transform:translateY(-2px);
+}
+
+.btn-home{
+    background:#caa230;
+}
+
+.btn-tafseer{
+    background:#73b8d4;
+}
+
+.btn-audio{
+    background:#6eb6d1;
+}
+
+.btn-khutab{
+    background:#5b90cb;
+}
+
+.btn-articles{
+    background:#4f7f49;
+}
+
+/* المحتوى */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+    text-align:center;
+}
+
+.section-title{
+    color:#2d5f8b;
+    font-size:2rem;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.title-line{
+    width:170px;
+    height:4px;
+    background:#caa230;
+    margin:0 auto 40px;
+    border-radius:10px;
+}
+
+/* البطاقات */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+}
+
+.card-link{
+    text-decoration:none;
+}
+
+.card{
+    min-width:170px;
+    padding:18px 22px;
+    border-radius:14px;
+    color:white;
+    font-weight:800;
+    font-size:1.2rem;
+    transition:0.3s;
+    box-shadow:0 5px 0 rgba(0,0,0,0.25);
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card-blue{
+    background:#6eb6d1;
+}
+
+.card-gold{
+    background:#caa230;
+}
+
+.card-green{
+    background:#4f7f49;
+}
+
+/* الفوتر */
+
+footer{
+    background:#1f1f1f;
+    color:#ddd;
+    text-align:center;
+    padding:35px 15px;
+    font-weight:700;
+    margin-top:50px;
+}
+
+/* الجوال */
+
+@media(max-width:768px){
+
+    .main-nav{
+        gap:10px;
+    }
+
+    .nav-link{
+        width:100%;
+        text-align:center;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .top-bar{
+        justify-content:center;
+    }
+
+    .section-title{
+        font-size:1.6rem;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-    <div class="top-info-bar">
-        <div class="prayer-times">
-            <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
-            <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
-            <div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
-            <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
-            <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
-        </div>
-        <div class="date-box">الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م</div>
+<!-- الشريط العلوي -->
+
+<div class="top-bar">
+
+    <div class="date-info" id="current-date">
+        جاري التحميل...
     </div>
 
-    <header class="site-header">
-        <img src="images/logo.png.jpg" alt="الشيخ سعيد دياب">
-    </header>
+    <div class="prayer-times" id="prayer-api"></div>
 
-    <nav class="main-nav">
-        <a href="index.html" class="nav-item" style="background:#c59d31;"><i class="fas fa-home"></i>الرئيسية</a>
-        <a href="tafseer_index1.html" class="nav-item" style="background:#72bcd4;"><i class="fas fa-book-open"></i>التفسير</a>
-        <a href="lessons.html" class="nav-item" style="background:#87ceeb;"><i class="fas fa-volume-up"></i>الصوتيات</a>
-        <a href="khutbah.html" class="nav-item" style="background:#5b9bd5;"><i class="fas fa-microphone"></i>الخطب</a>
-        <a href="articles.html" class="nav-item" style="background:#4f814f;"><i class="fas fa-file-alt"></i>المقالات</a>
-    </nav>
+</div>
 
-    <div class="main-wrapper">
-        <h2 style="color: #2c5d87; border-bottom: 4px solid #c59d31; display: inline-block; padding-bottom: 10px; margin-bottom: 40px; font-weight: 900;">قسم الرقائق والزهد</h2>
-        
-        <div class="section-grid">
-            <a href="virtues.html" class="btn-series" style="background-color: #4f814f !important; box-shadow: 0 6px 0 #2e4d2e;"><i class="fas fa-star"></i>فضائل الأعمال</a>
-            
-          <a href="raq_qass.html" class="btn-series" style="background-color: #d4af37 !important; box-shadow: 0 6px 0 #94741f;">
-    <i class="fas fa-book-open"></i>
-    قصص القرآن
-</a>
-            
-            <a href="raq_azkar.html" class="btn-series"><i class="fas fa-pray"></i>أنوار الأذكار</a>
-            <a href="mahba.html" class="btn-series"><i class="fas fa-heart"></i>أسباب محبة الله</a>
-            <a href="raq_mkarem.html" class="btn-series"><i class="fas fa-hands-holding"></i>مكارم الأخلاق</a>
-            <a href="raq_ganah.html" class="btn-series"><i class="fas fa-cloud"></i>وصف الجنة ونعيمها</a>
-        </div>
+<!-- الهيدر -->
+
+<header class="site-header">
+
+    <img src="images/logo.png.jpg"
+         alt="الشيخ سعيد مصطفى دياب"
+         class="site-logo">
+
+</header>
+
+<!-- القائمة -->
+
+<nav class="main-nav">
+
+    <a href="index.html" class="nav-link btn-home">
+        الرئيسية
+    </a>
+
+    <a href="tafseer.html" class="nav-link btn-tafseer">
+        التفسير
+    </a>
+
+    <a href="lessons.html" class="nav-link btn-audio">
+        الصوتيات
+    </a>
+
+    <a href="khutab.html" class="nav-link btn-khutab">
+        الخطب
+    </a>
+
+    <a href="articles.html" class="nav-link btn-articles">
+        المقالات
+    </a>
+
+</nav>
+
+<!-- المحتوى -->
+
+<div class="container">
+
+    <h1 class="section-title">
+        قسم الرقائق والزهد
+    </h1>
+
+    <div class="title-line"></div>
+
+    <div class="cards">
+
+        <a href="fadael.html" class="card-link">
+            <div class="card card-green">
+                فضائل الأعمال
+            </div>
+        </a>
+
+        <a href="qass.html" class="card-link">
+            <div class="card card-gold">
+                قصص القرآن
+            </div>
+        </a>
+
+        <a href="azkar.html" class="card-link">
+            <div class="card card-blue">
+                أنوار الأذكار
+            </div>
+        </a>
+
+        <a href="mahaba.html" class="card-link">
+            <div class="card card-blue">
+                أسباب محبة الله
+            </div>
+        </a>
+
+        <a href="akhlaq.html" class="card-link">
+            <div class="card card-blue">
+                مكارم الأخلاق
+            </div>
+        </a>
+
+        <a href="jannah.html" class="card-link">
+            <div class="card card-blue">
+                وصف الجنة ونعيمها
+            </div>
+        </a>
+
     </div>
 
-    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+</div>
+
+<!-- الفوتر -->
+
+<footer>
+    جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب © 2026
+</footer>
+
+<script>
+
+/* التاريخ */
+
+function updateDate(){
+
+    const now = new Date();
+
+    const hijri = new Intl.DateTimeFormat(
+        'ar-SA-u-ca-islamic-umalqura',
+        {
+            weekday:'long',
+            day:'numeric',
+            month:'long',
+            year:'numeric'
+        }
+    ).format(now);
+
+    const miladi = new Intl.DateTimeFormat(
+        'ar-EG',
+        {
+            weekday:'long',
+            day:'numeric',
+            month:'long',
+            year:'numeric'
+        }
+    ).format(now);
+
+    document.getElementById('current-date').innerHTML =
+        `${hijri} هـ | ${miladi} م`;
+}
+
+/* مواقيت الصلاة */
+
+async function getPrayers(){
+
+    try{
+
+        const res = await fetch(
+            'https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4'
+        );
+
+        const data = await res.json();
+
+        const t = data.data.timings;
+
+        document.getElementById('prayer-api').innerHTML = `
+
+            <div class="prayer-item">
+                <span class="prayer-name">الفجر</span>
+                <span class="prayer-time">${t.Fajr}</span>
+            </div>
+
+            <div class="prayer-item">
+                <span class="prayer-name">الظهر</span>
+                <span class="prayer-time">${t.Dhuhr}</span>
+            </div>
+
+            <div class="prayer-item">
+                <span class="prayer-name">العصر</span>
+                <span class="prayer-time">${t.Asr}</span>
+            </div>
+
+            <div class="prayer-item">
+                <span class="prayer-name">المغرب</span>
+                <span class="prayer-time">${t.Maghrib}</span>
+            </div>
+
+            <div class="prayer-item">
+                <span class="prayer-name">العشاء</span>
+                <span class="prayer-time">${t.Isha}</span>
+            </div>
+
+        `;
+
+    }catch(e){
+
+        console.log("تعذر تحميل مواقيت الصلاة");
+    }
+}
+
+window.onload = () => {
+
+    updateDate();
+
+    getPrayers();
+};
+
+</script>
+
 </body>
 </html>
