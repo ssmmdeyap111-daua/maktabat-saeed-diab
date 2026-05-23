@@ -20,7 +20,6 @@
     --beige-dark:#d8c7a8;
 
     --btn-blue:#6eb6d1;
-    --footer-dark:#1d1d1d;
 }
 
 *{
@@ -85,14 +84,20 @@ body{
 
 .site-header{
     text-align:center;
-    padding:20px 10px;
+    padding:30px 10px;
     background:#dce7ea;
 }
 
+/* إزالة الخلفية البيضاء حول الشعار */
+
 .site-logo{
-    max-width:600px;
+    max-width:650px;
     width:100%;
     height:auto;
+    mix-blend-mode:multiply;
+    background:transparent;
+    display:inline-block;
+    filter:brightness(1.02) contrast(1.05);
 }
 
 /* القائمة */
@@ -211,12 +216,13 @@ body{
 /* الفوتر */
 
 footer{
-    background:#1f1f1f;
-    color:#ddd;
+    background:var(--beige-light);
+    color:#555;
     text-align:center;
     padding:35px 15px;
     font-weight:700;
     margin-top:50px;
+    border-top:2px solid var(--beige-dark);
 }
 
 /* الجوال */
