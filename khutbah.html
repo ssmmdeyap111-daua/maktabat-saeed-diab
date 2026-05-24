@@ -254,7 +254,10 @@
             <button class="btn-large btn-blue" onclick="showSection('alamat-section')">
                 <i class="fas fa-hourglass-half"></i> علامات الساعة
             </button>
-            <button class="btn-large btn-gold" onclick="showSection('doaa-section')">
+            <button class="btn-large btn-gold" onclick="showSection('yehya-section')">
+                <i class="fas fa-scroll"></i> وصية الله ليحيى
+            </button>
+            <button class="btn-large btn-blue" onclick="showSection('doaa-section')">
                 <i class="fas fa-hands-praying"></i> فضل الدعاء وآدابه
             </button>
             <button class="btn-large btn-blue" onclick="showSection('misc-section')">
@@ -319,6 +322,23 @@
         </div>
     </div>
 
+    <div class="section-box" id="yehya-section" style="display:none;">
+        <h2 class="section-title">سلسلة وصية الله ليحيى عليه السلام</h2>
+        <div class="table-responsive">
+            <table class="khutbah-table">
+                <thead>
+                    <tr>
+                        <th width="10%">رقم</th>
+                        <th width="35%">عنوان الخطبة</th>
+                        <th width="45%">الاستماع</th>
+                        <th width="10%">تحميل</th>
+                    </tr>
+                </thead>
+                <tbody id="yehya-list"></tbody>
+            </table>
+        </div>
+    </div>
+
     <div class="section-box" id="doaa-section" style="display:none;">
         <h2 class="section-title">سلسلة فضل الدعاء وآدابه</h2>
         <div class="table-responsive">
@@ -361,7 +381,7 @@
 <script>
 /* إظهار الأقسام وتبديلها بسلاسة */
 function showSection(sectionId){
-    const sections = ['misc-section', 'doaa-section', 'alamat-section'];
+    const sections = ['misc-section', 'yehya-section', 'doaa-section', 'alamat-section'];
     sections.forEach(id => {
         const section = document.getElementById(id);
         if(section) { section.style.display = 'none'; }
@@ -372,7 +392,34 @@ function showSection(sectionId){
         targetSection.style.display = 'block';
         if(sectionId === 'alamat-section') { displayAlamat(1); }
         if(sectionId === 'doaa-section') { renderDoaaSection(); }
+        if(sectionId === 'yehya-section') { renderYehyaSection(); }
     }
+}
+
+/* توليد دروس سلسلة وصية الله ليحيى تلقائياً (11 خطبة) */
+function renderYehyaSection() {
+    const yehyaList = document.getElementById('yehya-list');
+    if(!yehyaList || yehyaList.children.length > 0) return;
+    
+    let html = '';
+    for(let i = 1; i <= 11; i++) {
+        html += `
+            <tr>
+                <td>${i}</td>
+                <td>سلسلة وصية الله ليحيى عليه السلام - الخطبة ${i}</td>
+                <td>
+                    <audio controls class="audio-player" preload="none">
+                        <source src="audio/amrany-bekams-${i}.mp3" type="audio/mpeg">
+                    </audio>
+                </td>
+                <td>
+                    <a href="audio/amrany-bekams-${i}.mp3" download class="btn-download">
+                        <i class="fas fa-circle-down"></i>
+                    </a>
+                </td>
+            </tr>`;
+    }
+    yehyaList.innerHTML = html;
 }
 
 /* توليد دروس فضل الدعاء تلقائياً */
