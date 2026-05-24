@@ -77,34 +77,33 @@
             mix-blend-mode: multiply;
         }
 
-        /* القائمة وتصميم الأزرار الموحد الكبير */
+        /* القائمة وتصميم الأزرار الموحد الكبير والواضح جداً بدون أيقونات */
         .nav-bar {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 15px;
             padding: 25px;
             flex-wrap: wrap;
             background: #fff;
             border-bottom: 1px solid #eee;
         }
         
-        /* التصميم الموحد للأزرار الكبيرة */
+        /* التصميم الموحد المطور للأزرار الكبيرة والخط الواضح */
         .btn-large {
-            min-width: 170px;
-            padding: 14px 25px;
+            min-width: 190px;      /* زيادة العرض ليتناسب مع الخط الأكبر */
+            padding: 16px 30px;    /* زيادة المساحة الداخلية لتكبير الأزرار */
             border: none;
             border-radius: 12px;
-            font-weight: 900;
-            font-size: 1.1rem;
+            font-weight: 900;      /* خط عريض جداً ممتاز للوضوح */
+            font-size: 1.25rem;    /* تكبير حجم الخط */
             text-decoration: none;
             color: white;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
             cursor: pointer;
-            box-shadow: 0 4px 0 var(--dark-blue);
+            box-shadow: 0 5px 0 var(--dark-blue);
             transition: 0.2s;
         }
         
@@ -114,7 +113,7 @@
         
         .btn-gold {
             background: linear-gradient(to bottom, #d4af37, #b38f2d);
-            box-shadow: 0 4px 0 #8c6d1a;
+            box-shadow: 0 5px 0 #8c6d1a;
         }
 
         .btn-large:hover {
@@ -239,11 +238,11 @@
 </header>
 
 <nav class="nav-bar">
-    <a href="index.html" class="btn-large btn-blue"><i class="fas fa-home"></i>الرئيسية</a>
-    <a href="lessons.html" class="btn-large btn-blue"><i class="fas fa-microphone"></i>الصوتيات</a>
-    <a href="khutbah.html" class="btn-large btn-gold"><i class="fas fa-mosque"></i>الخطب</a>
-    <a href="books.html" class="btn-large btn-blue"><i class="fas fa-book"></i>الكتب</a>
-    <a href="articles.html" class="btn-large btn-blue"><i class="fas fa-pen-nib"></i>المقالات</a>
+    <a href="index.html" class="btn-large btn-blue">الرئيسية</a>
+    <a href="lessons.html" class="btn-large btn-blue">الصوتيات</a>
+    <a href="khutbah.html" class="btn-large btn-gold">الخطب</a>
+    <a href="books.html" class="btn-large btn-blue">الكتب</a>
+    <a href="articles.html" class="btn-large btn-blue">المقالات</a>
 </nav>
 
 <div class="content-container">
@@ -252,16 +251,16 @@
         <h2 class="section-title">أقسام الخطب</h2>
         <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
             <button class="btn-large btn-blue" onclick="showSection('alamat-section')">
-                <i class="fas fa-hourglass-half"></i> علامات الساعة
+                علامات الساعة
             </button>
             <button class="btn-large btn-gold" onclick="showSection('yehya-section')">
-                <i class="fas fa-scroll"></i> وصية الله ليحيى
+                وصية الله ليحيى
             </button>
             <button class="btn-large btn-blue" onclick="showSection('doaa-section')">
-                <i class="fas fa-hands-praying"></i> فضل الدعاء وآدابه
+                فضل الدعاء وآدابه
             </button>
             <button class="btn-large btn-blue" onclick="showSection('misc-section')">
-                <i class="fas fa-folder-open"></i> خطب منوعة
+                خطب منوعة
             </button>
         </div>
     </div>
