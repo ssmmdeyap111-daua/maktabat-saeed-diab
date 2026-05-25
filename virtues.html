@@ -20,9 +20,24 @@
         .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
         .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
 
-        /* القائمة الرئيسية */
-        .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
-        .nav-item { text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; font-weight: 900; font-size: 1.1rem; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
+        /* القائمة الرئيسية المحدثة - أزرار مكبرة وبدون أيقونات لخط أوضح */
+        .main-nav { display: flex; justify-content: center; gap: 15px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
+        .nav-item { 
+            text-decoration: none; 
+            color: white; 
+            padding: 16px 30px; 
+            border-radius: 12px; 
+            font-weight: 900; 
+            font-size: 1.25rem; 
+            min-width: 150px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 5px 0 rgba(0,0,0,0.15); 
+            transition: 0.2s;
+        }
+        .nav-item:hover { transform: translateY(-2px); }
+        .nav-item:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.1); }
 
         .main-wrapper { max-width: 1000px; margin: 40px auto; padding: 0 15px; }
         
@@ -37,7 +52,8 @@
         
         .download-btn {
             margin-top: 15px; text-decoration: none; background: #72bcd4; color: white;
-            padding: 8px 20px; border-radius: 8px; font-weight: bold; transition: 0.3s;
+            padding: 10px 24px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 8px;
         }
         .download-btn:hover { background: #2c5d87; }
 
@@ -62,18 +78,29 @@
     </header>
 
     <nav class="main-nav">
-        <a href="index.html" class="nav-item" style="background:#c59d31;"><i class="fas fa-home"></i>الرئيسية</a>
-        <a href="tafseer_index1.html" class="nav-item" style="background:#72bcd4;"><i class="fas fa-book-open"></i>التفسير</a>
-        <a href="audio.html" class="nav-item" style="background:#87ceeb;"><i class="fas fa-volume-up"></i>الصوتيات</a>
-        <a href="articles.html" class="nav-item" style="background:#4f814f;"><i class="fas fa-file-alt"></i>المقالات</a>
+        <a href="index.html" class="nav-item" style="background:#c59d31;">الرئيسية</a>
+        <a href="tafseer_index1.html" class="nav-item" style="background:#72bcd4;">التفسير</a>
+        <a href="audio.html" class="nav-item" style="background:#87ceeb;">الصوتيات</a>
+        <a href="articles.html" class="nav-item" style="background:#4f814f;">المقالات</a>
     </nav>
 
     <div class="main-wrapper">
         <h2 style="color: #2c5d87; border-bottom: 4px solid #c59d31; display: inline-block; padding-bottom: 8px; margin-bottom: 35px; font-weight: 900;">قسم الرقائق: فضائل الأعمال</h2>
         
         <div class="lesson-card">
+            <div class="lesson-title">فضل يوم عرفة</div>
+            <audio controls preload="none">
+                <source src="audio/fadl-arafa-1.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الملفات الصوتية.
+            </audio>
+            <a href="audio/fadl-arafa-1.mp3" download class="download-btn">
+                <i class="fas fa-download"></i> تحميل الدرس
+            </a>
+        </div>
+
+        <div class="lesson-card">
             <div class="lesson-title">فضل الحج ومنزلته عند الله تعالى</div>
-            <audio controls>
+            <audio controls preload="none">
                 <source src="audio/fadl-al-hag-1.mp3" type="audio/mpeg">
                 متصفحك لا يدعم تشغيل الملفات الصوتية.
             </audio>
@@ -84,7 +111,7 @@
 
         <div class="lesson-card">
             <div class="lesson-title">فضل العشر الأول من ذي الحجة</div>
-            <audio controls>
+            <audio controls preload="none">
                 <source src="audio/fadl-al-ashar.mp3" type="audio/mpeg">
                 متصفحك لا يدعم تشغيل الملفات الصوتية.
             </audio>
