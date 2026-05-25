@@ -1,1 +1,182 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فضل يوم عرفة - الشيخ سعيد مصطفى دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root { 
+            --light-sky: #eef5ff; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
+            --gold-color: #d4af37; --prayer-green: #e8f5e9; 
+            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
+            --beige-bg: #fdfae7; 
+        }
+
+        body { margin: 0; font-family: 'Cairo', sans-serif; background: #f0f4f8; color: #333; line-height: 1.8; }
+
+        /* الهيدر */
+        .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 5px solid #fff; }
+        .site-logo { max-width: 600px; width: 100%; height: auto; mix-blend-mode: multiply; }
+
+        /* شريط التنقل الموحد بدون أيقونات وبخط عريض جداً */
+        .nav-bar { display: flex; justify-content: center; gap: 12px; padding: 20px; flex-wrap: wrap; }
+        .btn-3d { 
+            flex: 1; min-width: 150px; padding: 15px 20px; border-radius: 15px; 
+            font-weight: 900; font-size: 1.3rem; text-decoration: none; color: white;
+            text-align: center; transition: 0.2s; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 0 var(--dark-blue); border: 2px solid rgba(255,255,255,0.2);
+        }
+        .btn-blue { background: linear-gradient(to bottom, #87ceeb, #5a9bd5); }
+        .btn-gold { background: linear-gradient(to bottom, #d4af37, #b38f2d); box-shadow: 0 8px 0 #8c6d1a; }
+
+        /* حاوية المقال الفردي */
+        .article-wrapper { max-width: 900px; margin: 40px auto 60px; padding: 0 20px; }
+        .article-card { background: white; padding: 50px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #e0e0e0; }
+        
+        .article-title { color: var(--dark-blue); font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 30px; border-bottom: 3px double var(--gold-color); padding-bottom: 15px; }
+        .sub-header { color: #856404; font-size: 1.8rem; font-weight: 900; margin-top: 35px; border-right: 6px solid var(--gold-color); padding-right: 15px; background: #fffcf0; padding: 10px 15px; border-radius: 0 10px 10px 0; }
+        
+        .hadith-box { background: #f8f9fa; padding: 25px; border-radius: 15px; border: 1px solid #dee2e6; margin: 25px 0; }
+        .hadith-text { font-family: 'Amiri', serif; font-size: 1.6rem; color: #2c3e50; line-height: 2; text-align: center; display: block; font-weight: bold; }
+        .hadith-ref { font-size: 1.1rem; color: #d4af37; font-weight: bold; margin-top: 15px; display: block; text-align: left; }
+
+        .text-content { font-size: 1.4rem; text-align: justify; color: #333; font-weight: 700; }
+        .intro-text { font-weight: bold; color: var(--dark-blue); font-size: 1.5rem; border-right: 4px solid var(--accent-blue); padding-right: 10px; margin-bottom: 20px; }
+
+        /* تنسيق الأبيات الشعرية */
+        .poem-box { margin: 25px auto; max-width: 600px; text-align: center; background: #fdfdfd; border: 1px solid #eee; padding: 20px; border-radius: 10px; }
+        .poem-line { display: flex; justify-content: space-between; font-size: 1.35rem; font-weight: 900; color: #333; margin-bottom: 15px; }
+        .poem-line:last-child { margin-bottom: 0; }
+
+        /* الهوامش المرجعية */
+        .footnotes { margin-top: 50px; padding-top: 20px; border-top: 2px solid #eee; text-align: right; font-size: 1.05rem; color: #666; font-weight: bold; }
+        .footnote-item { margin-bottom: 8px; }
+
+        /* زر العودة لصفحة المقالات الرئيسية */
+        .back-btn { display: inline-block; margin-top: 30px; text-decoration: none; background: var(--dark-blue); color: white; padding: 12px 30px; border-radius: 10px; font-weight: 900; font-size: 1.1rem; box-shadow: 0 4px 0 #1b3a57; }
+        .back-btn:hover { background: #1b3a57; }
+
+        footer { text-align: center; padding: 30px; color: var(--dark-blue); font-weight: bold; background: var(--header-bg); border-top: 4px solid #fff; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+    </header>
+
+    <nav class="nav-bar">
+        <a href="index.html" class="btn-3d btn-blue">الرئيسية</a>
+        <a href="lessons.html" class="btn-3d btn-blue">الصوتيات</a>
+        <a href="khutbah.html" class="btn-3d btn-blue">الخطب</a>
+        <a href="books.html" class="btn-3d btn-blue">الكتب</a>
+        <a href="articles.html" class="btn-3d btn-gold">المقالات</a>
+    </nav>
+
+    <div class="article-wrapper">
+        <article class="article-card">
+            <h1 class="article-title">فَضْلُ يَوْمِ عَرَفَةَ</h1>
+            
+            <div class="text-content">
+                <p class="intro-text">يَوْمُ عَرَفَةَ يَوْمٌ أَقْسَمَ اللَّهُ تَعَالَى بِهِ:</p>
+                <p>مِنْ فَضْلِ يَوْمِ عَرَفَةَ أَنَّ اللَّهَ تَعَالَى أَقْسَمَ بِهِ؛ قَالَ تَعَالَى:</p>
+                
+                <div class="hadith-box" style="border-right: 5px solid #3e7d3e;">
+                    <span class="hadith-text" style="color: #3e7d3e;">﴿وَالسَّمَاءِ ذَاتِ الْبُرُوجِ (1) وَالْيَوْمِ الْمَوْعُودِ (2) وَشَاهِدٍ وَمَشْهُودٍ﴾</span>
+                    <span class="hadith-ref" style="text-align: right; color: #3e7d3e;">سُورَةُ الْبُرُوجِ: الآية/ 1- 3</span>
+                </div>
+
+                <p>وَعَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:</p>
+                <div class="hadith-box">
+                    <span class="hadith-text">«اليَوْمُ الْمَوْعُودُ يَوْمُ القِيَامَةِ، وَاليَوْمُ الْمَشْهُودُ يَوْمُ عَرَفَةَ، وَالشَّاهِدُ يَوْمُ الجُمُعَةِ، وَمَا طَلَعَتِ الشَّمْسُ وَلاَ غَرَبَتْ عَلَى يَوْمٍ أَفْضَلَ مِنْهُ، فِيهِ سَاعَةٌ لاَ يُوَافِقُهَا عَبْدٌ مُؤْمِنٌ يَدْعُو اللَّهَ بِخَيْرٍ إِلاَّ اسْتَجَابَ اللَّهُ لَهُ، وَلاَ يَسْتَعِيذُ مِنْ شَيْءٍ إِلاَّ أَعَاذَهُ اللَّهُ مِنْهُ».</span>
+                    <span class="hadith-ref">رواه الترمذي</span>
+                </div>
+
+                <h2 class="sub-header">يَوْمُ عَرَفَةَ أَكْثَرُ يَوْمٍ يُعْتِقُ اللَّهُ فِيهِ مِنَ النَّارِ:</h2>
+                <p>عَنْ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا أَنَّ رَسُولُ اللهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:</p>
+                <div class="hadith-box">
+                    <span class="hadith-text">«مَا مِنْ يَوْمٍ أَكْثَرَ مِنْ أَنْ يُعْتِقَ اللهُ فِيهِ عَبْدًا مِنَ النَّارِ، مِنْ يَوْمِ عَرَفَةَ، وَإِنَّهُ لَيَدْنُو، ثُمَّ يُبَاهِي بِهِمِ الْمَلَائِكَةَ، فَيَقُولُ: مَا أَرَادَ هَؤُلَاءِ؟».</span>
+                    <span class="hadith-ref">رواه مسلم</span>
+                </div>
+
+                <h2 class="sub-header">يَوْمُ عَرَفَةَ يَوْمُ عِيدٍ لِلْمُسْلِمِينَ:</h2>
+                <p>عَنْ طَارِقِ بْنِ شِهَابٍ، قَالَ: قَالَ رَجُلٌ مِنَ اليَهُودِ لِعُمَرَ بْنِ الخَطَّابِ: يَا أَمِيرَ الْمُؤْمِنِينَ، لَوْ عَلَيْنَا أُنْزِلَتْ هَذِهِ الآيَةَ:</p>
+                <div class="hadith-box" style="border-right: 5px solid #3e7d3e;">
+                    <span class="hadith-text" style="color: #3e7d3e;">﴿اليَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتَْممْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الإِسْلاَمَ دِينًا﴾</span>
+                    <span class="hadith-ref" style="text-align: right; color: #3e7d3e;">لاَتَّخَذْنَا ذَلِكَ اليَوْمَ عِيدًا</span>
+                </div>
+                <p>فَقَالَ لَهُ عُمَرُ بْنُ الخَطَّابِ: «إِنِّي لأَعْلَمُ أَيَّ يَوْمٍ أُنْزِلَتْ هَذِهِ الآيَةُ، أُنْزِلَتْ يَوْمَ عَرَفَةَ فِي يَوْمِ جُمُعَةٍ». رواه مسلم</p>
+
+                <p>وَعَنْ عُقْبَةَ بْنِ عَامِرٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:</p>
+                <div class="hadith-box">
+                    <span class="hadith-text">«يَوْمُ عَرَفَةَ، وَيَوْمُ النَّحْرِ، وَأَيَّامُ التَّشْرِيقِ عِيدُنَا أَهْلَ الْإِسْلَامِ، وَهِيَ أَيَّامُ أَكْلٍ وَشُرْبٍ».</span>
+                    <span class="hadith-ref">رواه أبو داود والترمذي</span>
+                </div>
+
+                <h2 class="sub-header">خَيْرُ الدُّعَاءِ دُعَاءُ يَوْمِ عَرَفَةَ:</h2>
+                <p>عَنْ عَمْرِو بْنِ شُعَيْبٍ، عَنْ أَبِيهِ، عَنْ جَدِّهِ، أَنَّ النَّبِيَّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:</p>
+                <div class="hadith-box">
+                    <span class="hadith-text">«خَيْرُ الدُّعَاءِ دُعَاءُ يَوْمِ عَرَفَةَ، وَخَيْرُ مَا قُلْتُ أَنَا وَالنَّبِيُّونَ مِنْ قَبْلِي: لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ».</span>
+                    <span class="hadith-ref">رواه الترمذي</span>
+                </div>
+                <p>وَعَنْ أُسَامَةَ بْنِ زَيْدٍ قَالَ: «كُنْتُ رَدِيفَ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، بِعَرَفَاتٍ، فَرَفَعَ يَدَيْهِ يَدْعُو، فَمَالَتْ بِهِ نَاقَتُهُ، فَسَقَطَ خِطَامُهَا فَتَنَاوَلَ الْخِطَامَ بِإِحْدَى يَدَيْهِ، وَهُوَ رَافِعٌ يَدَهُ الْأُخْرَى». رواه النسائي بسند صحيح</p>
+
+                <h2 class="sub-header">مَا رُئِيَ الشَّيْطَانُ يَوْمًا أَغْيَظَ مِنْهُ فِي يَوْمِ عَرَفَةَ:</h2>
+                <p>عَنْ طَلْحَةَ بْنِ عُبَيْدِ اللَّهِ بْنِ كَرِيزٍ، أَنَّ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، قَالَ:</p>
+                <div class="hadith-box">
+                    <span class="hadith-text">«مَا رُئِيَ الشَّيْطَانُ يَوْمًا، هُوَ فِيهِ أَصْغَرُ وَلَا أَدْحَرُ وَلَا أَحْقَرُ وَلَا أَغْيَظُ، مِنْهُ فِي يَوْمِ عَرَفَةَ. وَمَا ذَاكَ إِلَّا لِمَا رَأَى مِنْ تَنَزُّلِ الرَّحْمَةِ، وَتَجَاوُزِ اللَّهِ عَنِ الذُّنُوبِ الْعِظَامِ، إِلَّا مَا أُرِيَ يَوْمَ بَدْرٍ». قِيلَ وَمَا رَأَى يَوْمَ بَدْرٍ يَا رَسُولَ اللَّهِ؟ قَالَ: «أَمَا إِنَّهُ قَدْ رَأَى جِبْرِيلَ يَزَعُ الْمَلَائِكَةَ».</span>
+                    <span class="hadith-ref">رواه مالك</span>
+                </div>
+
+                <p>عَنْ جَابِرٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:</p>
+                <div class="hadith-box">
+                    <span class="hadith-text">«مَا مِنْ أَيَّامٍ أَفْضَلَ عِنْدَ اللَّهِ مِنْ أَيَّامِ عَشْرِ ذِي الْحِجَّةِ» قَالَ: فَقَالَ رَجُلٌ: يَا رَسُولَ اللَّهِ، هِيَ أَفْضَلُ أَمْ عِدَّتُهُنَّ جِهَادًا فِي سَبِيلِ اللَّهِ فَقَالَ: "هِيَ أَفْضَلُ مِنْ عِدَّتِهِنَّ جِهَادًا فِي سَبِيلِ اللَّهِ، إِلَّا عَفِيرًا يُعَفِّرُ وَجْهَهُ فِي التُّرَابِ، وَمَا مِنْ يَوْمٍ أَفْضَلُ عِنْدَ اللَّهِ مِنْ يَوْمِ عَرَفَةَ، يَنْزِلُ اللَّهُ إِلَى السَّمَاءِ الدُّنْيَا فَيُبَاهِي بِأَهْلِ الْأَرْضِ أَهْلَ السَّمَاءِ، فَيَقُولُ: انْظُرُوا إِلَى عِبَادِي شُعْثًا غُبْرًا ضَاحِينَ جَاءُوا مِنْ كُلِّ فَجٍّ عَمِيقٍ لَمْ يَرَوْا رَحْمَتِي، وَلَمْ يَرَوْا عَذَابِي، فَلَمْ أَرَ يَوْمًا أَكْثَرَ عَتِيقًا مِنَ النَّارِ مِنْ يَوْمِ عَرَفَةَ".</span>
+                    <span class="hadith-ref">رواه أبو يعلى بسند رجاله ثقات</span>
+                </div>
+
+                <h2 class="sub-header">يَوْمُ عَرَفَةَ يَوْمُ الْمَغْفِرَةِ:</h2>
+                <p>عَنْ عَبَّاسِ بْنِ مِرْدَاسٍ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، دَعَا عَشِيَّةَ يَوْمِ عَرَفَةَ لِأُمَّتِهِ بِالْمَغْفِرَةِ وَالرَّحْمَةِ فَأَكْثَرَ الدُّعَاءَ، فَأَوْحَى اللَّهُ إِلَيْهِ: "إِنِّي قَدْ فَعَلْتُ إِلَّا ظُلْمَ بَعْضِهِمْ لِبَعْضٍ، وَأَمَّا ذُنُوبُهُمْ فِيمَا بَيْنِي وَبَيْنَهُمْ فَقَدْ غَفَرْتُهَا"، فَقَالَ: «يَا رَبِّ إِنَّكَ قَادِرٌ عَلَى أَنْ تُثِيبَ هَذَا الْمَظْلُومَ خَيْرًا مِنْ مَظْلَمَتِهِ وَتَغْفِرَ لِهَذَا الظَّالِمِ» فَلَمْ يُجِبْهُ تِلْكَ الْعَشِيَّةَ فَلَمَّا كَانَ غَدَاةَ الْمُزْدَلِفَةِ أَعَادَ الدُّعَاءَ، فَأَجَابَهُ اللَّهُ تَعَالَى «إِنِّي قَدْ غَفَرْتُ لَهُمْ» قَالَ: فَتَبَسَّمَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، فَقَالَ لَهُ بَعْضُ أَصْحَابِهِ: يَا رَسُولَ اللَّهِ، تَبَسَّمْتَ فِي سَاعَةٍ لَمْ تَكُنْ تَتَبَسَّمُ فِيهَا، قَالَ:</p>
+                <div class="hadith-box">
+                    <span class="hadith-text">«تَبَسَّمْتُ مِنْ عَدُوِّ اللَّهِ إِبْلِيسَ، إِنَّهُ لَمَّا عَلِمَ أَنَّ اللَّهَ تَعَالَى قَدِ اسْتَجَابَ لِي فِي أُمَّتِي أَهْوَى يَدْعُو بِالْوَيْلِ وَالثُّبُورِ وَيَحْثُو عَلَى رَأْسِهِ التُّرَابَ».</span>
+                    <span class="hadith-ref">رواه البيهقي في فضائل الأوقات</span>
+                </div>
+                <p>عَنْ أَبِي قَتَادَةَ الْأَنْصَارِيِّ رَضِيَ اللهُ عَنْهُ، أَنَّ رَسُولَ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ سُئِلَ عَنْ صَوْمِ يَوْمِ عَرَفَةَ؟ فَقَالَ: «يُكَفِّرُ السَّنَةَ الْمَاضِيَةَ وَالْبَاقِيَةَ». رواه مسلم</p>
+
+                <h2 class="sub-header">مِنْ أَحْوَالِ السَّلَفِ فِي يَوْمِ عَرَفَةَ:</h2>
+                <p>قال عبد الله بن المبارك: جئت إلى سفيان الثوري عشية عرفة وهو جاث على ركبتيه، وعيناه تهملان، فقلت: من أسوء هذا الجمع حالًا؟ قال: <strong>من ظن أن الله لا يغفر له.</strong></p>
+                <p>وقال الفضيل بن عياض وقد نظر إلى أهل الموقف وهم بين داع وباك: أرأيت لو أن هؤلاء جميعًا قاموا على باب ملك من ملوك الدنيا يسألونه دانقًا أكان يمنعهم قالوا لا، فقال: للمغفرة أهون على الله من الدانق على هذا الملك.</p>
+                <p>قال الحسين بن الحسن المروزي: سألت سفيان بن عيينة فقلت: يا أبا محمد، ما تفسير قول النبي صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: "كان من أكثر دعاء الأنبياء قبلي بعرفة: لا إله إلا الله وحده، لا شريك له, له الملك وله الحمد، يحيي ويميت وهو على كل شيء قدير".<sup>[1]</sup> وإنما هو ذكر وليس فيه من الدعاء شيء. فقال لي: أعرفت حديث مالك بن الحارث، يقول الله جل ثناؤه: "إذا شغل عبدي ثناؤه علىَّ عن مسألتي أعطيته أفضل ما أُعْطَى السائلون".<sup>[2]</sup> قلت: نعم، أنت حدثتنيه عن منصور عن مالك بن الحارث. قال: فهذا تفسير ذلك. ثم قال: أما علمت ما قال أمية بن أبي الصلت حين خرج إلى ابن جدعان يطلب نائله وفضله؟ قلت: لا أدري، قال: قال له:</p>
+
+                <div class="poem-box">
+                    <div class="poem-line">
+                        <span>أَأَذْكُرُ حَاجَتِي أَمْ قَدْ كَفَانِي</span>
+                        <span>حَيَاؤُكَ، إِنَّ شِيمَتَكَ الْحَيَاءُ</span>
+                    </div>
+                    <div class="poem-line">
+                        <span>إِذَا أَثْنَى عَلَيْكَ الْمَرْءُ يَوْمًا</span>
+                        <span>كَفَاهُ مِنْ تَعَرُّضِهِ الثَّنَاءُ</span>
+                    </div>
+                </div>
+
+                <p>ثم قال سفيان: فهذا مخلوق ينسب إلى الجود، قيل له: يكفينا من مسألتك أن نثني عليك ونسكت حتى تأتي على حاجتنا، فكيف بالخالق؟</p>
+
+                <div class="footnotes">
+                    <div class="footnote-item">[1] - الحديث رواه الترمذي- كتاب الدعوات، باب في دعاء يوم عرفة. رقم: 3585 وقال الألباني حديث حسن</div>
+                    <div class="footnote-item">[2] - الحديث رواه ابن أبي شيبة برقم: 29271، ورواه البزار والترمذي، وقال الألباني: ضعيف.</div>
+                </div>
+            </div>
+            
+            <center>
+                <a href="articles.html" class="back-btn">العودة لصفحة المقالات</a>
+            </center>
+        </article>
+    </div>
+
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+</body>
+</html>
