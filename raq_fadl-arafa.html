@@ -1,1 +1,137 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درس: فضل يوم عرفة - الشيخ سعيد دياب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
+        
+        /* شريط المواقيت الموحد */
+        .top-info-bar { 
+            background-color: #fdfae9; padding: 15px 40px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            flex-wrap: wrap; border-bottom: 2px solid #87ceeb; 
+        }
+        .prayer-times { display: flex; gap: 6px; flex-wrap: wrap; }
+        .prayer-box { 
+            text-align: center; background: #4f814f; color: white; 
+            border-radius: 6px; padding: 4px 10px; font-size: 0.8rem; min-width: 65px; 
+        }
+        .time-val { background: white; color: #4f814f; margin-top: 3px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+        .date-box { 
+            background: white; border: 2px solid #c59d31; border-radius: 25px; 
+            padding: 8px 25px; color: #333; font-weight: 900; font-size: 1rem; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* الهيدر المدمج */
+        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
+        .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
+
+        /* القائمة الرئيسية المحدثة بنصف الحجم المتناسق */
+        .main-nav { display: flex; justify-content: center; gap: 12px; padding: 20px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; max-width: 1000px; margin: 0 auto; }
+        .nav-item { 
+            text-decoration: none; 
+            color: white; 
+            padding: 15px 0; 
+            border-radius: 15px; 
+            font-weight: 900; 
+            font-size: 1.3rem; 
+            width: 160px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 8px 0 rgba(0,0,0,0.15); 
+            transition: 0.2s;
+        }
+        .nav-item:active { transform: translateY(4px); box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
+
+        .main-wrapper { max-width: 800px; margin: 40px auto; padding: 0 15px; }
+        
+        /* حاوية عرض الدرس الصوتي المخصصة */
+        .audio-player-card {
+            background: white; border-radius: 25px; padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e0f2f7;
+            margin-top: 20px;
+        }
+        .lesson-main-title { color: #2c5d87; font-weight: 900; font-size: 2.2rem; margin-bottom: 10px; }
+        .category-badge { display: inline-block; padding: 6px 15px; background: #e8f5e9; color: #2e7d32; font-weight: bold; border-radius: 50px; font-size: 0.9.rem; margin-bottom: 30px; }
+        
+        audio { width: 100%; max-width: 650px; height: 55px; margin: 20px auto; display: block; }
+        
+        .download-action-btn {
+            margin-top: 25px; text-decoration: none; background: linear-gradient(to bottom, #72bcd4, #509fb8); color: white;
+            padding: 14px 35px; border-radius: 12px; font-weight: 900; font-size: 1.2rem; transition: 0.2s;
+            display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 6px 0 #3a7d91;
+        }
+        .download-action-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #3a7d91; }
+
+        .back-btn { display: inline-flex; align-items: center; gap: 5px; margin-top: 30px; color: #72bcd4; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+        .back-btn:hover { color: #2c5d87; }
+
+        footer { padding: 30px; background: #e0f2f7; color: #2c5d87; font-weight: bold; border-top: 4px solid #fff; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <div class="top-info-bar">
+        <div class="prayer-times">
+            <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
+            <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
+            <div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
+            <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
+            <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
+        </div>
+        <div class="date-box" id="live-date">جاري تحميل التاريخ...</div>
+    </div>
+
+    <header class="site-header">
+        <img src="images/logo.png.jpg" alt="الشيخ سعيد دياب">
+    </header>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-item" style="background: linear-gradient(to bottom, #c59d31, #a38022); box-shadow: 0 8px 0 #7d6219;">الرئيسية</a>
+        <a href="tafseer_index1.html" class="nav-item" style="background: linear-gradient(to bottom, #72bcd4, #509fb8); box-shadow: 0 8px 0 #3a7d91;">التفسير</a>
+        <a href="audio.html" class="nav-item" style="background: linear-gradient(to bottom, #87ceeb, #5a9bd5); box-shadow: 0 8px 0 #2c5d87;">الصوتيات</a>
+        <a href="articles.html" class="nav-item" style="background: linear-gradient(to bottom, #4f814f, #3a633a); box-shadow: 0 8px 0 #284728;">المقالات</a>
+    </nav>
+
+    <div class="main-wrapper">
+        
+        <div class="audio-player-card">
+            <h1 class="lesson-main-title">فضل يوم عرفة</h1>
+            <span class="category-badge">قسم الرقائق: فضائل الأعمال</span>
+            
+            <audio controls preload="auto">
+                <source src="audio/fadl-arafa-1.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الملفات الصوتية.
+            </audio>
+            
+            <br>
+            <a href="audio/fadl-arafa-1.mp3" download class="download-action-btn">
+                <i class="fas fa-cloud-download-alt"></i> تحميل الدرس الصوتي المباشر
+            </a>
+            
+            <br>
+            <a href="virtues.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة إلى صفحة فضائل الأعمال</a>
+        </div>
+
+    </div>
+
+    <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <script>
+        function updateLiveDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', calendar: 'gregory' };
+            const today = new Date();
+            const formatter = new Intl.DateTimeFormat('ar-EG', options);
+            document.getElementById('live-date').innerText = formatter.format(today);
+        }
+        updateLiveDate();
+    </script>
+</body>
+</html>
