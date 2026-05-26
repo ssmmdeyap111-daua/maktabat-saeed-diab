@@ -57,7 +57,10 @@
             display: flex; flex-direction: column; align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e0f2f7;
         }
-        .lesson-title { color: #2c5d87; font-weight: 900; font-size: 1.5rem; margin-bottom: 15px; }
+        .lesson-title { color: #2c5d87; font-weight: 900; font-size: 1.5rem; margin-bottom: 15px; text-decoration: none; }
+        .lesson-link { text-decoration: none; color: #2c5d87; transition: 0.2s; }
+        .lesson-link:hover { color: #c59d31; }
+        
         audio { width: 100%; max-width: 600px; height: 50px; }
         
         .download-btn {
@@ -98,7 +101,9 @@
         <h2 style="color: #2c5d87; border-bottom: 4px solid #c59d31; display: inline-block; padding-bottom: 8px; margin-bottom: 35px; font-weight: 900;">قسم الرقائق: فضائل الأعمال</h2>
         
         <div class="lesson-card">
-            <div class="lesson-title">فضل يوم عرفة</div>
+            <div class="lesson-title">
+                <a href="raq_fadl-arafa.html" class="lesson-link">فضل يوم عرفة</a>
+            </div>
             <audio controls preload="none">
                 <source src="audio/fadl-arafa-1.mp3" type="audio/mpeg">
                 متصفحك لا يدعم تشغيل الملفات الصوتية.
