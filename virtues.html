@@ -9,35 +9,45 @@
     <style>
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
         
-        /* شريط المواقيت الموحد (المربعات الخضراء) */
-        .top-info-bar { background-color: #fdfae9; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #ddd; }
+        /* شريط المواقيت الموحد (المربعات الخضراء) المطور */
+        .top-info-bar { 
+            background-color: #fdfae9; padding: 15px 40px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            flex-wrap: wrap; border-bottom: 2px solid #87ceeb; 
+        }
         .prayer-times { display: flex; gap: 6px; flex-wrap: wrap; }
-        .prayer-box { text-align: center; background: #4f814f; color: white; border-radius: 6px; padding: 4px 10px; font-size: 0.8rem; min-width: 60px; }
-        .time-val { background: white; color: #4f814f; margin-top: 3px; border-radius: 4px; font-weight: bold; }
-        .date-box { background: white; border: 1px solid #c59d31; border-radius: 25px; padding: 7px 20px; color: #333; font-weight: bold; font-size: 0.9rem; }
+        .prayer-box { 
+            text-align: center; background: #4f814f; color: white; 
+            border-radius: 6px; padding: 4px 10px; font-size: 0.8rem; min-width: 65px; 
+        }
+        .time-val { background: white; color: #4f814f; margin-top: 3px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+        .date-box { 
+            background: white; border: 2px solid #c59d31; border-radius: 25px; 
+            padding: 8px 25px; color: #333; font-weight: 900; font-size: 1rem; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
 
         /* الهيدر المدمج */
         .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
         .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
 
-        /* القائمة الرئيسية المحدثة - أزرار مكبرة وبدون أيقونات لخط أوضح */
-        .main-nav { display: flex; justify-content: center; gap: 15px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
+        /* القائمة الرئيسية المحدثة - تم تصغير حجم العرض إلى النصف لتصبح متناسقة تماماً مع بقية الموقع */
+        .main-nav { display: flex; justify-content: center; gap: 12px; padding: 20px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; max-width: 1000px; margin: 0 auto; }
         .nav-item { 
             text-decoration: none; 
             color: white; 
-            padding: 16px 30px; 
-            border-radius: 12px; 
+            padding: 15px 0; 
+            border-radius: 15px; 
             font-weight: 900; 
-            font-size: 1.25rem; 
-            min-width: 150px; 
+            font-size: 1.3rem; 
+            width: 160px; /* نصف الحجم السابق للتناسق التام */
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            box-shadow: 0 5px 0 rgba(0,0,0,0.15); 
+            box-shadow: 0 8px 0 rgba(0,0,0,0.15); 
             transition: 0.2s;
         }
-        .nav-item:hover { transform: translateY(-2px); }
-        .nav-item:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.1); }
+        .nav-item:active { transform: translateY(4px); box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
 
         .main-wrapper { max-width: 1000px; margin: 40px auto; padding: 0 15px; }
         
@@ -57,7 +67,7 @@
         }
         .download-btn:hover { background: #2c5d87; }
 
-        footer { padding: 40px; background: #222; color: #bbb; margin-top: 60px; font-size: 0.9rem; }
+        footer { padding: 30px; background: #e0f2f7; color: #2c5d87; font-weight: bold; border-top: 4px solid #fff; margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -78,10 +88,10 @@
     </header>
 
     <nav class="main-nav">
-        <a href="index.html" class="nav-item" style="background:#c59d31;">الرئيسية</a>
-        <a href="tafseer_index1.html" class="nav-item" style="background:#72bcd4;">التفسير</a>
-        <a href="audio.html" class="nav-item" style="background:#87ceeb;">الصوتيات</a>
-        <a href="articles.html" class="nav-item" style="background:#4f814f;">المقالات</a>
+        <a href="index.html" class="nav-item" style="background: linear-gradient(to bottom, #c59d31, #a38022); box-shadow: 0 8px 0 #7d6219;">الرئيسية</a>
+        <a href="tafseer_index1.html" class="nav-item" style="background: linear-gradient(to bottom, #72bcd4, #509fb8); box-shadow: 0 8px 0 #3a7d91;">التفسير</a>
+        <a href="audio.html" class="nav-item" style="background: linear-gradient(to bottom, #87ceeb, #5a9bd5); box-shadow: 0 8px 0 #2c5d87;">الصوتيات</a>
+        <a href="articles.html" class="nav-item" style="background: linear-gradient(to bottom, #4f814f, #3a633a); box-shadow: 0 8px 0 #284728;">المقالات</a>
     </nav>
 
     <div class="main-wrapper">
@@ -110,7 +120,7 @@
         </div>
 
         <div class="lesson-card">
-            <div class="lesson-title">فضل العشر الأول من ذي الحجة</div>
+            <div class="lesson-title">فضل العَشر الأول من ذي الحجة</div>
             <audio controls preload="none">
                 <source src="audio/fadl-al-ashar.mp3" type="audio/mpeg">
                 متصفحك لا يدعم تشغيل الملفات الصوتية.
