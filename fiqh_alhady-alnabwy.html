@@ -1,90 +1,240 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سلسلة الهدي النبوي في العبادات - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root { 
-            --light-sky: #f4f7f9; --accent-blue: #87ceeb; --dark-blue: #2c5d87;
-            --gold-color: #d4af37; --header-bg: linear-gradient(to right, #add8e6, #e0f2f7); 
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سلسلة الهدي النبوي في العبادات</title>
 
-        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background: var(--light-sky); color: #333; }
-        
-        .site-header { text-align: center; padding: 20px; background: var(--header-bg); border-bottom: 4px solid #fff; }
-        .site-logo { max-width: 400px; width: 100%; mix-blend-mode: multiply; }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        
-        .back-btn-container { display: flex; justify-content: flex-end; margin-bottom: 20px; }
-        .back-btn {
-            padding: 12px 26px; background: var(--dark-blue); color: white; 
-            text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1rem;
-            transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
-            box-shadow: 0 4px 0 #183752;
-        }
-        .back-btn:hover { background: var(--gold-color); box-shadow: 0 4px 0 #8c6d1a; transform: translateY(-1px); }
+<style>
+:root{
+    --blue:#2c5d87;
+    --gold:#d4af37;
+    --bg:#f4f7f9;
+}
 
-        .series-title { color: var(--dark-blue); text-align: center; font-weight: 900; margin-bottom: 40px; font-size: 2rem; }
+body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:var(--bg);
+}
 
-        .lessons-list { display: flex; flex-direction: column; gap: 15px; }
-        .lesson-item {
-            background: white; padding: 15px 30px; border-radius: 15px;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03); border-right: 5px solid var(--gold-color);
-            border-left: 1px solid #eee; border-top: 1px solid #eee; border-bottom: 1px solid #eee;
-        }
-        .lesson-info h4 { margin: 0; color: var(--dark-blue); font-size: 1.1rem; font-weight: bold; }
-        
-        .audio-player { width: 100%; max-width: 350px; height: 40px; }
+/* ===== TOP BAR ===== */
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    background:#fff;
+    padding:10px;
+    border-bottom:2px solid #eee;
+    font-size:14px;
+}
 
-        @media (max-width: 600px) {
-            .lesson-item { flex-direction: column-reverse; text-align: center; gap: 15px; padding: 20px; }
-            .audio-player { max-width: 100%; }
-        }
-    </style>
+/* ===== NAV ===== */
+.nav{
+    background:var(--blue);
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:10px;
+}
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.1);
+}
+.nav a:hover{background:var(--gold);color:#000}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:20px;
+}
+header img{
+    max-width:280px;
+}
+
+/* SEARCH */
+.search-box{
+    text-align:center;
+    margin:10px;
+}
+.search-box input{
+    width:80%;
+    max-width:400px;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+/* TITLE */
+h1{
+    text-align:center;
+    color:var(--blue);
+    font-size:1.8rem;
+}
+
+/* LESSONS */
+.lesson{
+    background:#fff;
+    margin:10px auto;
+    max-width:900px;
+    padding:15px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-right:5px solid var(--gold);
+}
+
+.lesson audio{
+    width:250px;
+}
+
+/* BUTTONS */
+.ctrl{
+    display:flex;
+    gap:5px;
+}
+.ctrl button{
+    padding:6px 10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    .lesson{flex-direction:column;gap:10px}
+    .lesson audio{width:100%}
+}
+</style>
 </head>
+
 <body>
 
-<header class="site-header">
-   <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
-</header>
-
-<div class="container">
-    <div class="back-btn-container">
-        <a href="fiqh.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة لقسم الفقه</a>
-    </div>
-    
-    <h1 class="series-title">سلسلة الهدي النبوي في العبادات</h1>
-
-    <div id="lessons-container" class="lessons-list">
-        </div>
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div id="date"></div>
+    <div id="hijri"></div>
+    <div id="prayer">مواقيت الصلاة: جارٍ التحميل...</div>
 </div>
 
-<script>
-    const container = document.getElementById('lessons-container');
-    const totalLessons = 40;
+<!-- NAV -->
+<div class="nav">
+    <a href="index.html">الرئيسية</a>
+    <a href="tafsir.html">التفسير</a>
+    <a href="audio.html">الصوتيات</a>
+    <a href="khutab.html">الخطب</a>
+    <a href="articles.html">المقالات</a>
+</div>
 
-    for (let i = 1; i <= totalLessons; i++) {
-        const lessonDiv = document.createElement('div');
-        lessonDiv.className = 'lesson-item';
-        
-        lessonDiv.innerHTML = `
-            <audio controls class="audio-player" preload="none">
-               <source src="audio/alhady-alnabwy-${i}.mp3" type="audio/mpeg"> 
-                <source src="alhady-alnabwy-${i}.mp3" type="audio/mpeg">
-                متصفحك لا يدعم تشغيل الصوت.
+<header>
+    <img src="images/logo.png.jpg">
+</header>
+
+<h1>سلسلة الهدي النبوي في العبادات</h1>
+
+<div class="search-box">
+    <input type="text" id="search" placeholder="ابحث عن درس...">
+</div>
+
+<div id="count" style="text-align:center;margin:10px;"></div>
+
+<div id="lessons"></div>
+
+<script>
+
+// ===== DATA (أفضل من التخمين) =====
+const files = [
+    "alhady-alnabwy-1.mp3",
+    "alhady-alnabwy-2.mp3",
+    "alhady-alnabwy-3.mp3"
+];
+
+// ===== BUILD LESSONS =====
+const container = document.getElementById("lessons");
+
+function render(list){
+    container.innerHTML = "";
+
+    list.forEach((file,i)=>{
+
+        const div = document.createElement("div");
+        div.className = "lesson";
+
+        div.innerHTML = `
+            <audio controls preload="none">
+                <source src="audio/${file}" type="audio/mpeg">
             </audio>
-            <div class="lesson-info">
-                <h4>الدرس رقم ${i}</h4>
+
+            <div>
+                الدرس رقم ${i+1}
+            </div>
+
+            <div class="ctrl">
+                <button onclick="playPrev(${i})">⏮</button>
+                <button onclick="playNext(${i})">⏭</button>
             </div>
         `;
-        container.appendChild(lessonDiv);
+
+        container.appendChild(div);
+    });
+
+    document.getElementById("count").innerText =
+    "عدد الدروس المتاحة: " + list.length;
+}
+
+render(files);
+
+// ===== SEARCH =====
+document.getElementById("search").addEventListener("input",function(){
+    const val = this.value;
+    const filtered = files.filter((f,i)=>
+        ("الدرس رقم "+(i+1)).includes(val)
+    );
+    render(filtered);
+});
+
+// ===== NEXT / PREV =====
+function playNext(i){
+    const audios = document.querySelectorAll("audio");
+    if(audios[i+1]) audios[i+1].play();
+}
+function playPrev(i){
+    const audios = document.querySelectorAll("audio");
+    if(audios[i-1]) audios[i-1].play();
+}
+
+// ===== DATE =====
+document.getElementById("date").innerText =
+"ميلادي: " + new Date().toLocaleDateString('ar-EG');
+
+document.getElementById("hijri").innerText =
+"هجري: " + new Intl.DateTimeFormat('ar-SA-u-ca-islamic').format(new Date());
+
+
+// ===== PRAYER TIMES (API مجاني) =====
+fetch("https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=3")
+.then(r=>r.json())
+.then(data=>{
+    const t = data.data.timings;
+    document.getElementById("prayer").innerText =
+    "الفجر " + t.Fajr + " | الظهر " + t.Dhuhr + " | العصر " + t.Asr + " | المغرب " + t.Maghrib + " | العشاء " + t.Isha;
+});
+
+// ===== OPTIONAL: HIDE MISSING FILES =====
+document.addEventListener("error",function(e){
+    if(e.target.tagName==="SOURCE"){
+        e.target.parentElement.parentElement.style.display="none";
     }
+},true);
+
 </script>
 
 </body>
