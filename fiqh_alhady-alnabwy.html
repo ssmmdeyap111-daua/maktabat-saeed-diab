@@ -10,7 +10,7 @@
 
 <style>
 :root{
-    --blue:#2c5d87;
+    --blue:#1f4e79;
     --gold:#d4af37;
     --bg:#f4f7f9;
 }
@@ -26,10 +26,10 @@ body{
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
-    background:#fff;
     padding:10px;
+    background:#fff;
+    font-size:13px;
     border-bottom:2px solid #eee;
-    font-size:14px;
 }
 
 /* ===== NAV ===== */
@@ -41,30 +41,84 @@ body{
     gap:10px;
     padding:10px;
 }
+
 .nav a{
     color:#fff;
     text-decoration:none;
     padding:8px 14px;
     border-radius:8px;
     background:rgba(255,255,255,0.1);
+    transition:0.3s;
 }
-.nav a:hover{background:var(--gold);color:#000}
-
-/* HEADER */
-header{
-    text-align:center;
-    padding:20px;
-}
-header img{
-    max-width:280px;
+.nav a:hover{
+    background:var(--gold);
+    color:#000;
 }
 
-/* SEARCH */
-.search-box{
+/* ===== HERO HEADER (ANIMATED) ===== */
+.hero{
+    position:relative;
     text-align:center;
-    margin:10px;
+    padding:40px 20px;
+    overflow:hidden;
+    background:linear-gradient(-45deg,#1f4e79,#2c7da0,#144a6a,#1f4e79);
+    background-size:400% 400%;
+    animation:gradientMove 10s ease infinite;
+    color:white;
 }
-.search-box input{
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* glow effect */
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle,rgba(255,255,255,0.1),transparent);
+}
+
+/* logo */
+.hero img{
+    max-width:180px;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,0.4);
+    box-shadow:0 0 20px rgba(255,255,255,0.3);
+    position:relative;
+    z-index:2;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+
+/* title */
+.hero h1{
+    margin:10px 0 0;
+    font-size:1.6rem;
+    font-weight:900;
+    position:relative;
+    z-index:2;
+    animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== SEARCH ===== */
+.search{
+    text-align:center;
+    margin:15px;
+}
+
+.search input{
     width:80%;
     max-width:400px;
     padding:10px;
@@ -72,14 +126,7 @@ header img{
     border:1px solid #ccc;
 }
 
-/* TITLE */
-h1{
-    text-align:center;
-    color:var(--blue);
-    font-size:1.8rem;
-}
-
-/* LESSONS */
+/* ===== LESSONS ===== */
 .lesson{
     background:#fff;
     margin:10px auto;
@@ -96,11 +143,6 @@ h1{
     width:250px;
 }
 
-/* BUTTONS */
-.ctrl{
-    display:flex;
-    gap:5px;
-}
 .ctrl button{
     padding:6px 10px;
     border:none;
@@ -108,7 +150,7 @@ h1{
     cursor:pointer;
 }
 
-/* MOBILE */
+/* mobile */
 @media(max-width:600px){
     .lesson{flex-direction:column;gap:10px}
     .lesson audio{width:100%}
@@ -122,72 +164,67 @@ h1{
 <div class="top-bar">
     <div id="date"></div>
     <div id="hijri"></div>
-    <div id="prayer">مواقيت الصلاة: جارٍ التحميل...</div>
+    <div id="prayer">جاري تحميل مواقيت الصلاة...</div>
 </div>
 
 <!-- NAV -->
 <div class="nav">
-    <a href="index.html">الرئيسية</a>
-    <a href="tafsir.html">التفسير</a>
-    <a href="audio.html">الصوتيات</a>
-    <a href="khutab.html">الخطب</a>
-    <a href="articles.html">المقالات</a>
+    <a href="#">الرئيسية</a>
+    <a href="#">التفسير</a>
+    <a href="#">الصوتيات</a>
+    <a href="#">الخطب</a>
+    <a href="#">المقالات</a>
 </div>
 
-<header>
-    <img src="images/logo.png.jpg">
-</header>
+<!-- HERO HEADER -->
+<div class="hero">
+    <img src="images/logo.png.jpg" alt="logo">
+    <h1>سلسلة الهدي النبوي في العبادات</h1>
+</div>
 
-<h1>سلسلة الهدي النبوي في العبادات</h1>
-
-<div class="search-box">
+<!-- SEARCH -->
+<div class="search">
     <input type="text" id="search" placeholder="ابحث عن درس...">
 </div>
 
 <div id="count" style="text-align:center;margin:10px;"></div>
 
+<!-- LESSONS -->
 <div id="lessons"></div>
 
 <script>
 
-// ===== DATA (أفضل من التخمين) =====
+// ===== FILES =====
 const files = [
     "alhady-alnabwy-1.mp3",
     "alhady-alnabwy-2.mp3",
     "alhady-alnabwy-3.mp3"
 ];
 
-// ===== BUILD LESSONS =====
+// ===== RENDER =====
 const container = document.getElementById("lessons");
 
 function render(list){
     container.innerHTML = "";
 
     list.forEach((file,i)=>{
-
-        const div = document.createElement("div");
-        div.className = "lesson";
-
-        div.innerHTML = `
+        container.innerHTML += `
+        <div class="lesson">
             <audio controls preload="none">
                 <source src="audio/${file}" type="audio/mpeg">
             </audio>
 
-            <div>
-                الدرس رقم ${i+1}
-            </div>
+            <div>الدرس رقم ${i+1}</div>
 
             <div class="ctrl">
-                <button onclick="playPrev(${i})">⏮</button>
-                <button onclick="playNext(${i})">⏭</button>
+                <button onclick="next(${i})">⏭</button>
+                <button onclick="prev(${i})">⏮</button>
             </div>
-        `;
-
-        container.appendChild(div);
+        </div>`;
     });
 
     document.getElementById("count").innerText =
-    "عدد الدروس المتاحة: " + list.length;
+    "عدد الدروس: " + list.length;
 }
 
 render(files);
@@ -201,12 +238,13 @@ document.getElementById("search").addEventListener("input",function(){
     render(filtered);
 });
 
-// ===== NEXT / PREV =====
-function playNext(i){
+// ===== NEXT/PREV =====
+function next(i){
     const audios = document.querySelectorAll("audio");
     if(audios[i+1]) audios[i+1].play();
 }
-function playPrev(i){
+
+function prev(i){
     const audios = document.querySelectorAll("audio");
     if(audios[i-1]) audios[i-1].play();
 }
@@ -218,22 +256,14 @@ document.getElementById("date").innerText =
 document.getElementById("hijri").innerText =
 "هجري: " + new Intl.DateTimeFormat('ar-SA-u-ca-islamic').format(new Date());
 
-
-// ===== PRAYER TIMES (API مجاني) =====
+// ===== PRAYER TIMES =====
 fetch("https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=3")
 .then(r=>r.json())
 .then(data=>{
     const t = data.data.timings;
     document.getElementById("prayer").innerText =
-    "الفجر " + t.Fajr + " | الظهر " + t.Dhuhr + " | العصر " + t.Asr + " | المغرب " + t.Maghrib + " | العشاء " + t.Isha;
+    `الفجر ${t.Fajr} | الظهر ${t.Dhuhr} | العصر ${t.Asr} | المغرب ${t.Maghrib} | العشاء ${t.Isha}`;
 });
-
-// ===== OPTIONAL: HIDE MISSING FILES =====
-document.addEventListener("error",function(e){
-    if(e.target.tagName==="SOURCE"){
-        e.target.parentElement.parentElement.style.display="none";
-    }
-},true);
 
 </script>
 
