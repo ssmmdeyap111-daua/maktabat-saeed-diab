@@ -172,6 +172,10 @@
             font-weight: bold;
             vertical-align: middle;
         }
+        /* تمييز السطر الجديد للخطبة الأخيرة بلون مختلف قليلاً وجذاب */
+        .row-latest {
+            background-color: #fffdf2;
+        }
         .audio-player {
             width: 100%;
             max-width: 280px;
@@ -277,6 +281,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- الخطبة الجديدة المضافة وتم تمييزها بصرياً -->
+                    <tr class="row-latest">
+                        <td style="color:var(--dark-blue);">الميثاق الأول لحقوق الإنسان</td>
+                        <td>
+                            <audio controls class="audio-player" preload="none">
+                                <source src="audio/almethaq.mp3" type="audio/mpeg">
+                                <source src="almethaq.mp3" type="audio/mpeg">
+                            </audio>
+                        </td>
+                        <td>
+                            <a href="audio/almethaq.mp3" download class="btn-download">
+                                <i class="fas fa-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
                     <tr>
                         <td style="color:var(--dark-blue);">فضائل الحج ومنزلته عند الله تعالى</td>
                         <td>
