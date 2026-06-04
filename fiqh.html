@@ -75,7 +75,7 @@ body{
     font-size:0.85rem;
 }
 
-/* الهيدر المصحح */
+/* الهيدر */
 .site-header{
     text-align:center;
     padding:30px 10px;
@@ -92,13 +92,13 @@ body{
     filter:brightness(1.02) contrast(1.05);
 }
 
-/* القائمة الرئيسية الموحدة للموقع */
+/* القائمة الرئيسية - تكبير الأزرار والخطوط علوياً */
 .main-nav{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:12px;
-    padding:18px;
+    gap:16px; /* زيادة المسافة بين الأزرار */
+    padding:22px; /* زيادة مساحة الحشو المحيطة */
     background:var(--beige-light);
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
@@ -108,16 +108,17 @@ body{
 .nav-link{
     text-decoration:none;
     color:white;
-    padding:12px 30px;
-    border-radius:10px;
-    font-weight:800;
+    padding:15px 45px; /* تكبير حجم الأزرار بشكل ملحوظ */
+    border-radius:12px;
+    font-weight:900; /* خط أعرض وأسمك */
     transition:0.3s;
-    font-size:1rem;
-    box-shadow:0 4px 0 rgba(0,0,0,0.2);
+    font-size:1.25rem; /* تكبير حجم الخط داخل أزرار القائمة */
+    box-shadow:0 5px 0 rgba(0,0,0,0.2);
 }
 
 .nav-link:hover{
-    transform:translateY(-2px);
+    transform:translateY(-3px);
+    box-shadow:0 8px 0 rgba(0,0,0,0.15);
 }
 
 .btn-home{ background:#caa230; }
@@ -130,31 +131,31 @@ body{
 .container{
     max-width:1200px;
     margin:auto;
-    padding:50px 20px;
+    padding:60px 20px;
     text-align:center;
 }
 
 .section-title{
     color:var(--primary);
-    font-size:2rem;
+    font-size:2.4rem;
     font-weight:900;
     margin-bottom:10px;
 }
 
 .title-line{
-    width:170px;
-    height:4px;
+    width:200px;
+    height:5px;
     background:#caa230;
-    margin:0 auto 40px;
+    margin:0 auto 50px;
     border-radius:10px;
 }
 
-/* تصميم البطاقات المتناسق والمحسن */
+/* البطاقات الفقهية - تعديل التكبير والتوسيط */
 .cards{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:20px;
+    gap:25px; /* زيادة التباعد بين البطاقات الثلاث */
 }
 
 .card-link{
@@ -162,36 +163,28 @@ body{
 }
 
 .card{
-    min-width:220px;
-    padding:25px 20px;
-    border-radius:14px;
+    min-width:280px; /* زيادة العرض الأدنى للبطاقة */
+    padding:35px 30px; /* زيادة الحشو لتكبير الزر بالكامل */
+    border-radius:16px;
     color:white;
-    font-weight:800;
-    font-size:1.15rem;
+    font-weight:900; /* خط عريض جداً وثقيل */
+    font-size:1.45rem; /* تكبير حجم خط السلاسل بناءً على طلبك */
     transition:0.3s;
-    box-shadow:0 5px 0 rgba(0,0,0,0.2);
+    box-shadow:0 6px 0 rgba(0,0,0,0.2);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
+    text-align: center;
+    min-height: 120px; /* توحيد الارتفاع لتبدو متناسقة */
 }
 
 .card:hover{
-    transform:translateY(-4px);
-}
-
-.badge-count {
-    background: rgba(255, 255, 255, 0.25);
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
+    transform:translateY(-5px);
+    box-shadow:0 10px 0 rgba(0,0,0,0.15);
 }
 
 .card-blue{ background:#6eb6d1; }
 .card-gold{ background:#caa230; }
-.card-green{ background:#4f7f49; }
-.card-disabled{ background:#b1bec7; box-shadow:0 5px 0 rgba(0,0,0,0.1); cursor: not-allowed; }
 
 /* الفوتر */
 footer{
@@ -206,11 +199,11 @@ footer{
 
 /* الجوال */
 @media(max-width:768px){
-    .main-nav{ gap:10px; }
-    .nav-link{ width:100%; text-align:center; }
-    .card{ width:100%; }
+    .main-nav{ gap:12px; padding:15px; }
+    .nav-link{ width:100%; text-align:center; padding:12px 20px; font-size:1.1rem; }
+    .card{ width:100%; min-height: auto; padding:25px 20px; font-size:1.25rem; }
     .top-bar{ justify-content:center; }
-    .section-title{ font-size:1.6rem; }
+    .section-title{ font-size:1.8rem; }
 }
 </style>
 </head>
@@ -223,12 +216,12 @@ footer{
     <div class="prayer-times" id="prayer-api"></div>
 </div>
 
-<!-- الهيدر المصحح مع مسار الشعار الصحيح -->
+<!-- الهيدر الموحد -->
 <header class="site-header">
     <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
 </header>
 
-<!-- القائمة الرئيسية الموحدة -->
+<!-- القائمة الرئيسية المكبرة والمحدثة بالكامل -->
 <nav class="main-nav">
     <a href="index.html" class="nav-link btn-home">الرئيسية</a>
     <a href="tafseer.html" class="nav-link btn-tafseer">التفسير</a>
@@ -237,7 +230,7 @@ footer{
     <a href="articles.html" class="nav-link btn-articles">المقالات</a>
 </nav>
 
-<!-- المحتوى -->
+<!-- المحتوى وعرض البطاقات الثلاث المتبقية فقط بعد حذف "قريباً" وتصفية الأرقام -->
 <div class="container">
 
     <h1 class="section-title">قسم الفقه الإسلامي</h1>
@@ -245,35 +238,26 @@ footer{
 
     <div class="cards">
 
-        <!-- بطاقة بداية العابد -->
+        <!-- بطاقة بداية العابد (مكبرة وبدون أرقام) -->
         <a href="fiqh_bedayah.html" class="card-link">
             <div class="card card-blue">
                 <span>بداية العابد وكفاية الزاهد</span>
-                <span class="badge-count">24 درساً</span>
             </div>
         </a>
 
-        <!-- بطاقة شرح أخصر المختصرات -->
+        <!-- بطاقة شرح أخصر المختصرات (مكبرة وبدون أرقام) -->
         <a href="fiqh_akhtar.html" class="card-link">
             <div class="card card-gold">
                 <span>شرح أخصر المختصرات</span>
-                <span class="badge-count">26 درساً</span>
             </div>
         </a>
 
-        <!-- بطاقة الهدي النبوي المربوطة بالصفحة الذكية الجديدة -->
+        <!-- بطاقة الهدي النبوي في العبادات (مكبرة وبدون أرقام) -->
         <a href="fiqh_alhady-alnabwy.html" class="card-link">
             <div class="card card-blue">
                 <span>الهدي النبوي في العبادات</span>
-                <span class="badge-count">تلقائي من الصفحة</span>
             </div>
         </a>
-
-        <!-- بطاقة قريباً شروح فقهية أخرى -->
-        <div class="card card-disabled">
-            <span>قريباً شروح فقهية أخرى</span>
-            <span class="badge-count" style="background:rgba(0,0,0,0.15)">قيد التحضير</span>
-        </div>
 
     </div>
 
@@ -303,7 +287,7 @@ async function getPrayers(){
             <div class="prayer-item"><span class="prayer-name">العصر</span><span class="prayer-time">${t.Asr}</span></div>
             <div class="prayer-item"><span class="prayer-name">المغرب</span><span class="prayer-time">${t.Maghrib}</span></div>
             <div class="prayer-item"><span class="prayer-name">العشاء</span><span class="prayer-time">${t.Isha}</span></div>`;
-    }catch(e){ console.log("تعذر تحميل مواقيت الصلاة"); }
+    }catch(e) { console.log("تعذر تحميل مواقيت الصلاة"); }
 }
 
 window.onload = () => { updateDate(); getPrayers(); };
