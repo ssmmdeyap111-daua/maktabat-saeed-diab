@@ -1,1 +1,166 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سلسلة من مشاهد يوم القيامة - الشيخ سعيد مصطفى دياب</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+    --primary:#2d5f8b;
+    --gold:#c8a44d;
+    --beige-light:#efe6d6;
+    --beige-dark:#d8c7a8;
+}
+
+body{
+    margin:0; padding:0;
+    font-family:'Cairo',sans-serif;
+    background:#eef1f4; color:#333;
+}
+
+/* شريط المعلومات العلوي */
+.top-bar{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:10px 25px; background:var(--beige-light);
+    border-bottom:2px solid var(--beige-dark); flex-wrap:wrap; gap:10px;
+}
+.date-info{ font-size:0.95rem; font-weight:700; color:#555; }
+.prayer-times{ display:flex; gap:8px; flex-wrap:wrap; }
+.prayer-item{ background:white; padding:5px 10px; border-radius:8px; border:1px solid #ddd; text-align:center; }
+.prayer-name{ display:block; font-size:0.7rem; color:#777; font-weight:bold; }
+.prayer-time{ font-weight:900; color:var(--primary); font-size:0.85rem; }
+
+.site-header{ text-align:center; padding:30px 10px; background:#dce7ea; }
+.site-logo{ max-width:650px; width:100%; height:auto; mix-blend-mode:multiply; }
+
+/* القائمة الرئيسية */
+.main-nav{
+    display:flex; justify-content:center; align-items:center; gap:12px; padding:18px;
+    background:var(--beige-light); border-top:1px solid #ddd; border-bottom:1px solid #ddd; flex-wrap:wrap;
+}
+.nav-link{
+    text-decoration:none; color:white; padding:12px 25px; border-radius:10px;
+    font-weight:800; transition:0.3s; font-size:1rem; box-shadow:0 4px 0 rgba(0,0,0,0.15);
+}
+.btn-home{ background:#caa230; }
+.btn-audio{ background:#6eb6d1; }
+
+.container{ max-width:1100px; margin:auto; padding:40px 20px; text-align:center; }
+.section-title{ color:var(--primary); font-size:2.2rem; font-weight:900; margin-bottom:5px; }
+.series-info{ color:#666; font-weight:bold; margin-bottom:20px; }
+.title-line{ width:150px; height:5px; background:var(--gold); margin:0 auto 40px; border-radius:10px; }
+
+/* تصميم الجدول لـ 60 درساً */
+.table-responsive { 
+    overflow-x: auto; 
+    background: white; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    padding: 15px;
+}
+.lessons-table { width: 100%; border-collapse: collapse; }
+.lessons-table th { background: #f8f9fa; color: var(--primary); padding: 18px; border-bottom: 3px solid var(--gold); }
+.lessons-table td { padding: 15px; border-bottom: 1px solid #eee; font-weight: bold; }
+.lessons-table tr:hover { background-color: #fcfaff; }
+
+.audio-player { width: 100%; max-width: 250px; height: 35px; }
+.btn-download { color: var(--primary); font-size: 1.6rem; transition: 0.3s; }
+.btn-download:hover { color: var(--gold); transform: scale(1.1); }
+
+footer{ background:var(--beige-light); color:#555; text-align:center; padding:30px; font-weight:700; margin-top:50px; border-top:2px solid var(--beige-dark); }
+
+@media(max-width:768px){
+    .nav-link{ width:100%; }
+    .section-title{ font-size:1.7rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="date-info" id="current-date">جاري التحميل...</div>
+    <div class="prayer-times" id="prayer-api"></div>
+</div>
+
+<header class="site-header">
+    <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
+</header>
+
+<nav class="main-nav">
+    <a href="index.html" class="nav-link btn-home">الرئيسية</a>
+    <a href="lessons.html" class="nav-link btn-audio">العودة للرقائق</a>
+</nav>
+
+<div class="container">
+    <h1 class="section-title">سلسلة من مشاهد يوم القيامة</h1>
+    <p class="series-info">تحتوي هذه السلسلة على 60 درساً إيمانياً</p>
+    <div class="title-line"></div>
+
+    <div class="table-responsive">
+        <table class="lessons-table">
+            <thead>
+                <tr>
+                    <th>الرقم</th>
+                    <th>عنوان الدرس</th>
+                    <th>استماع</th>
+                    <th>تحميل</th>
+                </tr>
+            </thead>
+            <tbody id="lessons-body">
+                <!-- الدرس الأول كمثال -->
+                <tr>
+                    <td>1</td>
+                    <td style="text-align:right;">من مشاهد يوم القيامة - الدرس الأول</td>
+                    <td>
+                        <audio controls class="audio-player" preload="none">
+                            <source src="audio/mashahed-alqeyama-1.mp3" type="audio/mpeg">
+                        </audio>
+                    </td>
+                    <td>
+                        <a href="audio/mashahed-alqeyama-1.mp3" download class="btn-download">
+                            <i class="fas fa-file-audio"></i>
+                        </a>
+                    </td>
+                </tr>
+                <!-- سيتم إضافة باقي الدروس الـ 60 هنا بنفس التنسيق -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب © 2026</footer>
+
+<script>
+// كود التاريخ ومواقيت الصلاة (نفس الموجود في صفحاتك لضمان التوحيد)
+function updateDate(){
+    const now = new Date();
+    const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+    const miladi = new Intl.DateTimeFormat('ar-EG', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+    document.getElementById('current-date').innerHTML = `${hijri} هـ | ${miladi} م`;
+}
+
+async function getPrayers(){
+    try{
+        const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
+        const data = await res.json();
+        const t = data.data.timings;
+        document.getElementById('prayer-api').innerHTML = `
+            <div class="prayer-item"><span class="prayer-name">الفجر</span><span class="prayer-time">${t.Fajr}</span></div>
+            <div class="prayer-item"><span class="prayer-name">الظهر</span><span class="prayer-time">${t.Dhuhr}</span></div>
+            <div class="prayer-item"><span class="prayer-name">العصر</span><span class="prayer-time">${t.Asr}</span></div>
+            <div class="prayer-item"><span class="prayer-name">المغرب</span><span class="prayer-time">${t.Maghrib}</span></div>
+            <div class="prayer-item"><span class="prayer-name">العشاء</span><span class="prayer-time">${t.Isha}</span></div>`;
+    }catch(e){ console.log("تعذر تحميل المواقيت"); }
+}
+
+window.onload = () => { updateDate(); getPrayers(); };
+</script>
+
+</body>
+</html>
