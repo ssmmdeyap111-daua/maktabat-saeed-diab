@@ -74,7 +74,7 @@ body{
     font-size:0.85rem;
 }
 
-/* الهيدر المشترك والشعار المدمج */
+/* الهيدر الموحد لصفحات الموقع */
 .site-header{
     text-align:center;
     padding:30px 10px;
@@ -91,7 +91,7 @@ body{
     filter:brightness(1.02) contrast(1.05);
 }
 
-/* القائمة الرئيسية الموحدة */
+/* القائمة الرئيسية الملونة الموحدة */
 .main-nav{
     display:flex;
     justify-content:center;
@@ -125,7 +125,7 @@ body{
 .btn-khutab{ background:#5b90cb; }
 .btn-articles{ background:#4f7f49; }
 
-/* المحتوى */
+/* المحتوى وتنسيق العناوين */
 .container{
     max-width:1000px;
     margin:auto;
@@ -159,7 +159,7 @@ body{
     margin-bottom: 25px;
 }
 
-/* صندوق البحث */
+/* صندوق البحث المطور */
 .search-container{
     margin-bottom: 30px;
 }
@@ -184,7 +184,7 @@ body{
     box-shadow: 0 4px 15px rgba(45,95,139,0.15);
 }
 
-/* تنسيق الدروس المطور */
+/* تنسيق بطاقات تشغيل الصوتيات الحديث الموحد */
 .lesson-card{
     background:#fff;
     margin:15px auto;
@@ -211,7 +211,7 @@ body{
     height: 36px;
 }
 
-/* أزرار التحكم والتحميل */
+/* أزرار التحكم الحديثة بالصوتيات */
 .ctrl-actions {
     display: flex;
     align-items: center;
@@ -252,7 +252,7 @@ body{
     transform: scale(1.1);
 }
 
-/* الفوتر */
+/* الفوتر المشترك */
 footer{
     background:var(--beige-light);
     color:#555;
@@ -263,7 +263,7 @@ footer{
     border-top:2px solid var(--beige-dark);
 }
 
-/* الشاشات الصغيرة (الجوال) */
+/* استجابة الشاشات الصغيرة لجوال */
 @media(max-width:768px){
     .main-nav{ gap:10px; }
     .nav-link{ width:100%; text-align:center; }
@@ -284,12 +284,12 @@ footer{
     <div class="prayer-times" id="prayer-api"></div>
 </div>
 
-<!-- الهيدر الموحد -->
+<!-- الهيدر الموحد والشعار المشترك -->
 <header class="site-header">
     <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
 </header>
 
-<!-- القائمة الرئيسية الموحدة -->
+<!-- القائمة الملونة المطابقة للرقائق والفقه -->
 <nav class="main-nav">
     <a href="index.html" class="nav-link btn-home">الرئيسية</a>
     <a href="tafseer.html" class="nav-link btn-tafseer">التفسير</a>
@@ -298,7 +298,7 @@ footer{
     <a href="articles.html" class="nav-link btn-articles">المقالات</a>
 </nav>
 
-<!-- المحتوى -->
+<!-- محتوى الدروس -->
 <div class="container">
 
     <h1 class="section-title">سلسلة الهدي النبوي في العبادات</h1>
@@ -312,7 +312,7 @@ footer{
     <!-- عداد الدروس التلقائي -->
     <div class="series-info-box" id="count">جاري حساب الدروس...</div>
 
-    <!-- منطقة عرض الدروس الجيناميكية -->
+    <!-- مكان توليد بطاقات الدروس الموحدة -->
     <div id="lessons-container"></div>
 
 </div>
@@ -324,7 +324,7 @@ footer{
 
 <script>
 
-// ===== مصفوفة الملفات الصوتية (يمكنك زيادة الدروس هنا) =====
+// ===== مصفوفة الملفات الصوتية الخاصة بالسلسلة =====
 const files = [
     "alhady-alnabwy-1.mp3",
     "alhady-alnabwy-2.mp3",
@@ -333,7 +333,7 @@ const files = [
 
 const container = document.getElementById("lessons-container");
 
-// ===== دالة بناء وعرض الدروس التلقائية =====
+// ===== دالة العرض المتناسقة والذكية =====
 function renderLessons(list){
     container.innerHTML = "";
 
@@ -343,8 +343,7 @@ function renderLessons(list){
         return;
     }
 
-    list.forEach((file, index)=>{
-        // استخراج الرقم الحقيقي للملف من المصفوفة الأصلية لضمان صحة الترتيب عند البحث
+    list.forEach((file)=>{
         const realIndex = files.indexOf(file);
         
         container.innerHTML += `
@@ -375,10 +374,9 @@ function renderLessons(list){
     document.getElementById("count").innerText = "إجمالي عدد الدروس الحالية: " + list.length;
 }
 
-// تشغيل العرض الأول للمصفوفة
 renderLessons(files);
 
-// ===== محرك البحث التلقائي السلس =====
+// ===== آلية البحث الذكي والفلترة =====
 document.getElementById("search").addEventListener("input", function(){
     const query = this.value.trim();
     
@@ -391,16 +389,12 @@ document.getElementById("search").addEventListener("input", function(){
     renderLessons(filtered);
 });
 
-// ===== دوال التنقل الذكي (التالي والسابق) =====
+// ===== دوال تشغيل المقطع التالي والسابق بسلاسة دون تداخل =====
 function playNext(currentIndex){
     const allAudios = document.querySelectorAll(".lesson-card audio");
-    // إيقاف الملف الحالي أولاً
-    const currentAudio = allAudios[currentIndex];
-    if(currentAudio) currentAudio.pause();
+    if(allAudios[currentIndex]) allAudios[currentIndex].pause();
 
-    // تشغيل المقطع التالي إن وجد
     if(currentIndex + 1 < files.length) {
-        // ننتظر قليلاً لضمان التهيئة ثم التشغيل
         setTimeout(() => {
             const nextAudio = document.querySelectorAll(".lesson-card audio")[currentIndex + 1];
             if(nextAudio) {
@@ -413,10 +407,8 @@ function playNext(currentIndex){
 
 function playPrev(currentIndex){
     const allAudios = document.querySelectorAll(".lesson-card audio");
-    const currentAudio = allAudios[currentIndex];
-    if(currentAudio) currentAudio.pause();
+    if(allAudios[currentIndex]) allAudios[currentIndex].pause();
 
-    // تشغيل المقطع السابق إن وجد
     if(currentIndex - 1 >= 0) {
         setTimeout(() => {
             const prevAudio = document.querySelectorAll(".lesson-card audio")[currentIndex - 1];
@@ -428,24 +420,14 @@ function playPrev(currentIndex){
     }
 }
 
-// ===== ضبط التاريخ الهجري والميلادي الموحد للشيخ =====
+// ===== تهيئة التاريخ الهجري والميلادي والصلوات من الـ API =====
 function updateDate(){
     const now = new Date();
-
-    const hijri = new Intl.DateTimeFormat(
-        'ar-SA-u-ca-islamic-umalqura',
-        { weekday:'long', day:'numeric', month:'long', year:'numeric' }
-    ).format(now);
-
-    const miladi = new Intl.DateTimeFormat(
-        'ar-EG',
-        { weekday:'long', day:'numeric', month:'long', year:'numeric' }
-    ).format(now);
-
+    const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+    const miladi = new Intl.DateTimeFormat('ar-EG', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
     document.getElementById('current-date').innerHTML = `${hijri} هـ | ${miladi} م`;
 }
 
-// ===== جلب مواقيت الصلاة من الـ API الموحد للموقع =====
 async function getPrayers(){
     try{
         const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
@@ -464,12 +446,10 @@ async function getPrayers(){
     }
 }
 
-// تشغيل الدوال عند تحميل الصفحة
 window.onload = () => {
     updateDate();
     getPrayers();
 };
-
 </script>
 
 </body>
