@@ -97,8 +97,8 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:16px; /* زيادة المسافة بين الأزرار */
-    padding:22px; /* زيادة مساحة الحشو المحيطة */
+    gap:16px;
+    padding:22px;
     background:var(--beige-light);
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
@@ -108,11 +108,11 @@ body{
 .nav-link{
     text-decoration:none;
     color:white;
-    padding:15px 45px; /* تكبير حجم الأزرار بشكل ملحوظ */
+    padding:15px 45px;
     border-radius:12px;
-    font-weight:900; /* خط أعرض وأسمك */
+    font-weight:900;
     transition:0.3s;
-    font-size:1.25rem; /* تكبير حجم الخط داخل أزرار القائمة */
+    font-size:1.25rem;
     box-shadow:0 5px 0 rgba(0,0,0,0.2);
 }
 
@@ -155,7 +155,7 @@ body{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:25px; /* زيادة التباعد بين البطاقات الثلاث */
+    gap:25px;
 }
 
 .card-link{
@@ -163,19 +163,19 @@ body{
 }
 
 .card{
-    min-width:280px; /* زيادة العرض الأدنى للبطاقة */
-    padding:35px 30px; /* زيادة الحشو لتكبير الزر بالكامل */
+    min-width:280px;
+    padding:35px 30px;
     border-radius:16px;
     color:white;
-    font-weight:900; /* خط عريض جداً وثقيل */
-    font-size:1.45rem; /* تكبير حجم خط السلاسل بناءً على طلبك */
+    font-weight:900;
+    font-size:1.45rem;
     transition:0.3s;
     box-shadow:0 6px 0 rgba(0,0,0,0.2);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 120px; /* توحيد الارتفاع لتبدو متناسقة */
+    min-height: 120px;
 }
 
 .card:hover{
@@ -210,18 +210,15 @@ footer{
 
 <body>
 
-<!-- الشريط العلوي -->
 <div class="top-bar">
     <div class="date-info" id="current-date">جاري التحميل...</div>
     <div class="prayer-times" id="prayer-api"></div>
 </div>
 
-<!-- الهيدر الموحد -->
 <header class="site-header">
     <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
 </header>
 
-<!-- القائمة الرئيسية المكبرة والمحدثة بالكامل -->
 <nav class="main-nav">
     <a href="index.html" class="nav-link btn-home">الرئيسية</a>
     <a href="tafseer.html" class="nav-link btn-tafseer">التفسير</a>
@@ -230,7 +227,6 @@ footer{
     <a href="articles.html" class="nav-link btn-articles">المقالات</a>
 </nav>
 
-<!-- المحتوى وعرض البطاقات الثلاث المتبقية فقط بعد حذف "قريباً" وتصفية الأرقام -->
 <div class="container">
 
     <h1 class="section-title">قسم الفقه الإسلامي</h1>
@@ -238,21 +234,18 @@ footer{
 
     <div class="cards">
 
-        <!-- بطاقة بداية العابد (مكبرة وبدون أرقام) -->
-        <a href="fiqh_bedayah.html" class="card-link">
+        <a href="bedayah.html" class="card-link">
             <div class="card card-blue">
                 <span>بداية العابد وكفاية الزاهد</span>
             </div>
         </a>
 
-        <!-- بطاقة شرح أخصر المختصرات (مكبرة وبدون أرقام) -->
-        <a href="fiqh_akhtar.html" class="card-link">
+        <a href="akhtar.html" class="card-link">
             <div class="card card-gold">
                 <span>شرح أخصر المختصرات</span>
             </div>
         </a>
 
-        <!-- بطاقة الهدي النبوي في العبادات (مكبرة وبدون أرقام) -->
         <a href="fiqh_alhady-alnabwy.html" class="card-link">
             <div class="card card-blue">
                 <span>الهدي النبوي في العبادات</span>
@@ -263,7 +256,6 @@ footer{
 
 </div>
 
-<!-- الفوتر -->
 <footer>
     جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب © 2026
 </footer>
