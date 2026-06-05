@@ -91,13 +91,13 @@ body{
     filter:brightness(1.02) contrast(1.05);
 }
 
-/* القائمة الرئيسية الملونة الموحدة */
+/* القائمة الرئيسية الملونة الموحدة - تكبير الأزرار والخطوط علوياً */
 .main-nav{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:12px;
-    padding:18px;
+    gap:16px;
+    padding:22px;
     background:var(--beige-light);
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
@@ -107,16 +107,17 @@ body{
 .nav-link{
     text-decoration:none;
     color:white;
-    padding:12px 30px;
-    border-radius:10px;
-    font-weight:800;
+    padding:15px 45px;
+    border-radius:12px;
+    font-weight:900;
     transition:0.3s;
-    font-size:1rem;
-    box-shadow:0 4px 0 rgba(0,0,0,0.2);
+    font-size:1.25rem;
+    box-shadow:0 5px 0 rgba(0,0,0,0.2);
 }
 
 .nav-link:hover{
-    transform:translateY(-2px);
+    transform:translateY(-3px);
+    box-shadow:0 8px 0 rgba(0,0,0,0.15);
 }
 
 .btn-home{ background:#caa230; }
@@ -129,20 +130,20 @@ body{
 .container{
     max-width:1000px;
     margin:auto;
-    padding:40px 20px;
+    padding:60px 20px;
     text-align:center;
 }
 
 .section-title{
     color:var(--primary);
-    font-size:2rem;
+    font-size:2.4rem;
     font-weight:900;
     margin-bottom:10px;
 }
 
 .title-line{
-    width:170px;
-    height:4px;
+    width:200px;
+    height:5px;
     background:#caa230;
     margin:0 auto 30px;
     border-radius:10px;
@@ -151,12 +152,13 @@ body{
 .series-info-box {
     display: inline-block;
     background: white;
-    padding: 8px 20px;
+    padding: 8px 25px;
     border-radius: 30px;
     font-weight: bold;
     color: var(--primary);
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     margin-bottom: 25px;
+    font-size: 1.05rem;
 }
 
 /* صندوق البحث المطور */
@@ -167,12 +169,12 @@ body{
 .search-container input{
     width:100%;
     max-width:450px;
-    padding:12px 20px;
+    padding:14px 22px;
     border-radius:30px;
     border:2px solid var(--beige-dark);
     font-family: inherit;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.05rem;
     outline: none;
     transition: 0.3s;
     text-align: center;
@@ -184,11 +186,11 @@ body{
     box-shadow: 0 4px 15px rgba(45,95,139,0.15);
 }
 
-/* تنسيق بطاقات تشغيل الصوتيات الحديث الموحد */
+/* تنسيق بطاقات تشغيل الصوتيات الحديث الموحد - الحجم المكبر الجديد */
 .lesson-card{
     background:#fff;
-    margin:15px auto;
-    padding:15px 25px;
+    margin:18px auto;
+    padding:18px 28px;
     border-radius:14px;
     display:flex;
     justify-content:space-between;
@@ -200,15 +202,15 @@ body{
 
 .lesson-info {
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--primary);
-    min-width: 150px;
+    min-width: 160px;
     text-align: right;
 }
 
 .lesson-card audio{
-    width:280px;
-    height: 36px;
+    width:300px;
+    height: 38px;
 }
 
 /* أزرار التحكم الحديثة بالصوتيات */
@@ -222,8 +224,8 @@ body{
     background: #f0f4f8;
     color: var(--primary);
     border: none;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.1rem;
@@ -240,7 +242,7 @@ body{
 
 .btn-download-audio {
     color: #4f7f49;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-decoration: none;
     transition: 0.2s;
     display: flex;
@@ -263,33 +265,30 @@ footer{
     border-top:2px solid var(--beige-dark);
 }
 
-/* استجابة الشاشات الصغيرة لجوال */
+/* استجابة الشاشات الصغيرة للجوال */
 @media(max-width:768px){
-    .main-nav{ gap:10px; }
-    .nav-link{ width:100%; text-align:center; }
+    .main-nav{ gap:10px; padding:15px; }
+    .nav-link{ width:100%; text-align:center; padding:12px 20px; font-size:1.1rem; }
     .lesson-card{ flex-direction:column; text-align:center; padding:20px; gap:15px; }
     .lesson-info{ text-align:center; width: 100%; }
     .lesson-card audio{ width:100%; }
     .top-bar{ justify-content:center; }
-    .section-title{ font-size:1.6rem; }
+    .section-title{ font-size:1.8rem; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- الشريط العلوي الموحد -->
 <div class="top-bar">
     <div class="date-info" id="current-date">جاري التحميل...</div>
     <div class="prayer-times" id="prayer-api"></div>
 </div>
 
-<!-- الهيدر الموحد والشعار المشترك -->
 <header class="site-header">
     <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
 </header>
 
-<!-- القائمة الملونة المطابقة للرقائق والفقه -->
 <nav class="main-nav">
     <a href="index.html" class="nav-link btn-home">الرئيسية</a>
     <a href="tafseer.html" class="nav-link btn-tafseer">التفسير</a>
@@ -298,35 +297,28 @@ footer{
     <a href="articles.html" class="nav-link btn-articles">المقالات</a>
 </nav>
 
-<!-- محتوى الدروس -->
 <div class="container">
 
     <h1 class="section-title">سلسلة الهدي النبوي في العبادات</h1>
     <div class="title-line"></div>
 
-    <!-- صندوق البحث المطور -->
     <div class="search-container">
         <input type="text" id="search" placeholder="🔍 اكتب رقم الدرس أو ابحث هنا...">
     </div>
 
-    <!-- عداد الدروس التلقائي -->
     <div class="series-info-box" id="count">جاري حساب الدروس...</div>
 
-    <!-- مكان توليد بطاقات الدروس الموحدة -->
     <div id="lessons-container"></div>
 
 </div>
 
-<!-- الفوتر الموحد -->
 <footer>
     جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب © 2026
 </footer>
 
 <script>
 
-// ===== مصفوفة الملفات الصوتية الخاصة بالسلسلة =====
-const files = [
-  // ===== مصفوفة الملفات الصوتية الخاصة بالسلسلة (تحديث 5 دروس) =====
+// ===== مصفوفة الملفات الصوتية الخاصة بالسلسلة (تحديث 5 دروس كاملة وبدون أخطاء تكرار) =====
 const files = [
     "alhady-alnabwy-1.mp3",
     "alhady-alnabwy-2.mp3",
@@ -337,7 +329,7 @@ const files = [
 
 const container = document.getElementById("lessons-container");
 
-// ===== دالة العرض المتناسقة والذكية =====
+// ===== دالة العرض المتناسقة والذكية والمكبرة =====
 function renderLessons(list){
     container.innerHTML = "";
 
