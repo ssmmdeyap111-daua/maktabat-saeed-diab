@@ -1,454 +1,560 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الخطب المنبرية - الشيخ سعيد مصطفى دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --light-sky: #add8e6;
-            --accent-blue: #5a9bd5;
-            --dark-blue: #2c5d87;
-            --gold-color: #c5a03d;
-            --header-bg: linear-gradient(to right, #add8e6, #e0f2f7);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخطب المنوعة والحلقت - الشيخ سعيد مصطفى دياب</title>
 
-        body {
-            margin: 0;
-            font-family: 'Cairo', sans-serif;
-            background: #f4f7f9;
-            color: #333;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        /* شريط المواقيت */
-        .top-info-bar {
-            background-color: #fdfae9;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            border-bottom: 1px solid #ddd;
-        }
-        .prayer-times {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .prayer-box {
-            text-align: center;
-            background: #4f814f;
-            color: white;
-            border-radius: 6px;
-            padding: 4px 10px;
-            font-size: 0.8rem;
-            min-width: 60px;
-        }
-        .time-val {
-            background: white;
-            color: #4f814f;
-            margin-top: 3px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .date-box {
-            background: white;
-            border: 1px solid #c5a03d;
-            border-radius: 25px;
-            padding: 7px 20px;
-            color: #333;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
+<style>
+:root{
+    --primary:#2d5f8b;
+    --gold:#c8a44d;
+    --beige-light:#efe6d6;
+    --beige-dark:#d8c7a8;
+}
 
-        /* الهيدر */
-        .site-header {
-            text-align: center;
-            padding: 15px;
-            background: var(--header-bg);
-            border-bottom: 5px solid #fff;
-        }
-        .site-logo {
-            max-width: 650px;
-            width: 100%;
-            height: auto;
-            mix-blend-mode: multiply;
-        }
+*{
+    box-sizing:border-box;
+}
 
-        /* القائمة وتصميم الأزرار الموحد الكبير والواضح جداً بدون أيقونات */
-        .nav-bar {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 25px;
-            flex-wrap: wrap;
-            background: #fff;
-            border-bottom: 1px solid #eee;
-        }
-        
-        /* التصميم الموحد المطور للأزرار الكبيرة والخط الواضح */
-        .btn-large {
-            min-width: 190px;
-            padding: 16px 30px;
-            border: none;
-            border-radius: 12px;
-            font-weight: 900;
-            font-size: 1.25rem;
-            text-decoration: none;
-            color: white;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 0 var(--dark-blue);
-            transition: 0.2s;
-        }
-        
-        .btn-blue {
-            background: linear-gradient(to bottom, #87ceeb, #5a9bd5);
-        }
-        
-        .btn-gold {
-            background: linear-gradient(to bottom, #d4af37, #b38f2d);
-            box-shadow: 0 5px 0 #8c6d1a;
-        }
+body{
+    margin:0;
+    padding:0;
+    font-family:'Cairo',sans-serif;
+    background:#eef1f4;
+    color:#333;
+}
 
-        .btn-large:hover {
-            transform: translateY(-2px);
-        }
-        
-        .btn-large:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 rgba(0,0,0,0.1);
-        }
+/* الشريط العلوي المشترك المطور */
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 25px;
+    background:var(--beige-light);
+    border-bottom:2px solid var(--beige-dark);
+    flex-wrap:wrap;
+    gap:10px;
+}
 
-        /* المحتوى */
-        .content-container {
-            max-width: 1200px;
-            margin: 20px auto 60px;
-            padding: 0 20px;
-        }
-        .section-box {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-        .section-title {
-            color: var(--dark-blue);
-            font-size: 1.8rem;
-            border-right: 6px solid var(--gold-color);
-            padding-right: 12px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
+.date-info{
+    font-size:0.95rem;
+    font-weight:700;
+    color:#555;
+}
 
-        /* الجدول */
-        .table-responsive {
-            overflow-x: auto;
-            width: 100%;
-        }
-        .khutbah-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 1.1rem;
-        }
-        .khutbah-table th {
-            background: #f8f9fa;
-            color: var(--dark-blue);
-            padding: 15px;
-            border-bottom: 2px solid #eee;
-            text-align: center;
-        }
-        .khutbah-table td {
-            padding: 15px;
-            border-bottom: 1px solid #f0f0f0;
-            text-align: center;
-            font-weight: bold;
-            vertical-align: middle;
-        }
-        
-        /* تمييز السطر الجديد للخطبة المضافة */
-        .row-new {
-            background-color: #fffdf0; /* لون خلفية خفيف جداً للتمييز */
-        }
+.prayer-times{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
 
-        .audio-player {
-            width: 100%;
-            max-width: 280px;
-            height: 35px;
-        }
-        .btn-download {
-            color: var(--dark-blue);
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
-        .btn-download:hover {
-            color: var(--gold-color);
-        }
+.prayer-item{
+    background:white;
+    padding:5px 10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    text-align:center;
+}
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #555;
-            background: #e0f2f7;
-            border-top: 3px solid #fff;
-            font-weight: bold;
-        }
-    </style>
+.prayer-name{
+    display:block;
+    font-size:0.7rem;
+    color:#777;
+    font-weight:bold;
+}
+
+.prayer-time{
+    font-weight:900;
+    color:var(--primary);
+    font-size:0.85rem;
+}
+
+/* الهيدر الموحد */
+.site-header{
+    text-align:center;
+    padding:30px 10px;
+    background:#dce7ea;
+}
+
+.site-logo{
+    max-width:650px;
+    width:100%;
+    height:auto;
+    mix-blend-mode:multiply;
+    background:transparent;
+    display:inline-block;
+    filter:brightness(1.02) contrast(1.05);
+}
+
+/* القائمة الرئيسية المكبرة الموحدة */
+.main-nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
+    padding:22px;
+    background:var(--beige-light);
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    flex-wrap:wrap;
+}
+
+.nav-link{
+    text-decoration:none;
+    color:white;
+    padding:15px 45px;
+    border-radius:12px;
+    font-weight:900;
+    transition:0.3s;
+    font-size:1.25rem;
+    box-shadow:0 5px 0 rgba(0,0,0,0.2);
+}
+
+.nav-link:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 0 rgba(0,0,0,0.15);
+}
+
+.btn-home{ background:#caa230; }
+.btn-tafseer{ background:#73b8d4; }
+.btn-audio{ background:#6eb6d1; }
+.btn-khutab{ background:#5b90cb; }
+.btn-articles{ background:#4f7f49; }
+
+/* المحتوى وتنسيق العناوين */
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:60px 20px;
+    text-align:center;
+}
+
+.section-title{
+    color:var(--primary);
+    font-size:2.4rem;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.title-line{
+    width:200px;
+    height:5px;
+    background:#caa230;
+    margin:0 auto 30px;
+    border-radius:10px;
+}
+
+/* أزرار الفلترة السريعة المبسطة */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.tab-btn {
+    background: white;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.series-info-box {
+    display: inline-block;
+    background: white;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: var(--primary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+/* صندوق البحث المطور */
+.search-container{
+    margin-bottom: 20px;
+}
+
+.search-container input{
+    width:100%;
+    max-width:500px;
+    padding:14px 22px;
+    border-radius:30px;
+    border:2px solid var(--beige-dark);
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1.1rem;
+    outline: none;
+    transition: 0.3s;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.search-container input:focus{
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(45,95,139,0.15);
+}
+
+/* تنسيق بطاقات تشغيل الخطب المكبر والحديث */
+.khutbah-card{
+    background:#fff;
+    margin:15px auto;
+    padding:18px 28px;
+    border-radius:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-right:6px solid var(--gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    gap: 15px;
+}
+
+.khutbah-info {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--primary);
+    min-width: 280px;
+    text-align: right;
+}
+
+.khutbah-category {
+    font-size: 0.8rem;
+    background: #eef1f4;
+    color: #666;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.khutbah-card audio{
+    width:320px;
+    height: 38px;
+}
+
+/* أزرار التحميل المباشرة */
+.ctrl-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-download-audio {
+    color: #4f7f49;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.btn-download-audio:hover {
+    color: var(--gold);
+    transform: scale(1.1);
+}
+
+/* الترقيم المطور أسفل الصفحة */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    transition: 0.2s;
+}
+
+.page-btn.active, .page-btn:hover {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+
+/* الفوتر المشترك */
+footer{
+    background:var(--beige-light);
+    color:#555;
+    text-align:center;
+    padding:35px 15px;
+    font-weight:700;
+    margin-top:50px;
+    border-top:2px solid var(--beige-dark);
+}
+
+/* استجابة الجوال */
+@media(max-width:768px){
+    .main-nav{ gap:10px; padding:15px; }
+    .nav-link{ width:100%; text-align:center; padding:12px 20px; font-size:1.1rem; }
+    .khutbah-card{ flex-direction:column; text-align:center; padding:20px; gap:15px; }
+    .khutbah-info{ text-align:center; width: 100%; }
+    .khutbah-card audio{ width:100%; }
+    .top-bar{ justify-content:center; }
+    .section-title{ font-size:1.8rem; }
+}
+</style>
 </head>
+
 <body>
 
-<div class="top-info-bar">
-    <div class="prayer-times">
-        <!-- الأرقام هنا ثابتة كما في كودك الأصلي -->
-        <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
-        <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
-        <div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
-        <div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
-        <div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
-    </div>
-    <div class="date-box" id="live-date">جاري تحميل التاريخ...</div>
+<!-- الشريط العلوي الموحد -->
+<div class="top-bar">
+    <div class="date-info" id="current-date">جاري التحميل...</div>
+    <div class="prayer-times" id="prayer-api"></div>
 </div>
 
+<!-- الهيدر الموحد والشعار المشترك -->
 <header class="site-header">
     <img src="images/logo.png.jpg" alt="الشيخ سعيد مصطفى دياب" class="site-logo">
 </header>
 
-<nav class="nav-bar">
-    <a href="index.html" class="btn-large btn-blue">الرئيسية</a>
-    <a href="lessons.html" class="btn-large btn-blue">الصوتيات</a>
-    <a href="khutbah.html" class="btn-large btn-gold">الخطب</a>
-    <a href="books.html" class="btn-large btn-blue">الكتب</a>
-    <a href="articles.html" class="btn-large btn-blue">المقالات</a>
+<!-- القائمة الرئيسية المكبرة الموحدة -->
+<nav class="main-nav">
+    <a href="index.html" class="nav-link btn-home">الرئيسية</a>
+    <a href="tafseer.html" class="nav-link btn-tafseer">التفسير</a>
+    <a href="lessons.html" class="nav-link btn-audio">الصوتيات</a>
+    <a href="khutab.html" class="nav-link btn-khutab">الخطب</a>
+    <a href="articles.html" class="nav-link btn-articles">المقالات</a>
 </nav>
 
-<div class="content-container">
+<!-- محتوى الخطب المنوعة والسلاسل -->
+<div class="container">
 
-    <div class="section-box" style="text-align:center;">
-        <h2 class="section-title">أقسام الخطب</h2>
-        <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
-            <button class="btn-large btn-blue" onclick="showSection('alamat-section')">علامات الساعة</button>
-            <button class="btn-large btn-gold" onclick="showSection('yehya-section')">وصية الله ليحيى</button>
-            <button class="btn-large btn-blue" onclick="showSection('doaa-section')">فضل الدعاء وآدابه</button>
-            <button class="btn-large btn-blue" onclick="showSection('misc-section')">خطب منوعة</button>
-        </div>
+    <h1 class="section-title">قسم الخطب والمواعظ</h1>
+    <div class="title-line"></div>
+
+    <!-- أقسام الفلترة العلوية -->
+    <div class="filter-tabs">
+        <button class="tab-btn active" onclick="filterCategory('all')">كل الخطب</button>
+        <button class="tab-btn" onclick="filterCategory('misc')">خطب منوعة</button>
+        <button class="tab-btn" onclick="filterCategory('yehya')">وصية الله ليحيى</button>
+        <button class="tab-btn" onclick="filterCategory('doaa')">فضل الدعاء وآدابه</button>
+        <button class="tab-btn" onclick="filterCategory('alamat')">علامات الساعة</button>
     </div>
 
-    <!-- قسم خطب منوعة - تم إضافة الخطبة هنا -->
-    <div class="section-box" id="misc-section" style="display:none;">
-        <h2 class="section-title">خطب إيمانية ومنوعة</h2>
-        <div class="table-responsive">
-            <table class="khutbah-table">
-                <thead>
-                    <tr>
-                        <th width="40%">عنوان الخطبة</th>
-                        <th width="45%">الاستماع</th>
-                        <th width="15%">تحميل</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- الخطبة الجديدة في البداية -->
-                   <tr class="row-new">
-    <td style="color:var(--dark-blue);">الميثاق الأول لحقوق الإنسان</td>
-    <td>
-        <!-- تم تعديل المسار هنا ليشمل مجلد audio -->
-        <audio controls class="audio-player" preload="none">
-            <source src="audio/almethaq.mp3" type="audio/mpeg">
-        </audio>
-    </td>
-</tr>
-                            <a href="audio/almethaq.mp3" download class="btn-download">
-                                <i class="fas fa-circle-down"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <!-- باقي الخطب -->
-                    <tr>
-                        <td style="color:var(--dark-blue);">فضائل الحج ومنزلته عند الله تعالى</td>
-                        <td>
-                            <audio controls class="audio-player" preload="none">
-                                <source src="audio/fdael-al-hag-01.mp3" type="audio/mpeg">
-                            </audio>
-                        </td>
-                        <td>
-                            <a href="audio/fdael-al-hag-01.mp3" download class="btn-download">
-                                <i class="fas fa-circle-down"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="color:var(--gold-color);">خطبة العبودية</td>
-                        <td>
-                            <audio controls class="audio-player" preload="none">
-                                <source src="audio/al-obodeya.mp3" type="audio/mpeg">
-                            </audio>
-                        </td>
-                        <td>
-                            <a href="audio/al-obodeya.mp3" download class="btn-download">
-                                <i class="fas fa-circle-down"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>ما أعده الله لك في رمضان هذا</td>
-                        <td>
-                            <audio controls class="audio-player" preload="none">
-                                <source src="audio/ramadan.mp3" type="audio/mpeg">
-                            </audio>
-                        </td>
-                        <td>
-                            <a href="audio/ramadan.mp3" download class="btn-download">
-                                <i class="fas fa-circle-down"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- صندوق البحث للوصول لأي خطبة بلمح البصر -->
+    <div class="search-container">
+        <input type="text" id="search" placeholder="🔍 ابحث عن عنوان خطبة أو سلسلة من هنا...">
     </div>
 
-    <!-- باقي الأقسام تبقى كما هي في كودك الأصلي -->
-    <div class="section-box" id="yehya-section" style="display:none;">
-        <h2 class="section-title">سلسلة وصية الله ليحيى عليه السلام</h2>
-        <div class="table-responsive">
-            <table class="khutbah-table">
-                <thead>
-                    <tr>
-                        <th width="10%">رقم</th>
-                        <th width="35%">عنوان الخطبة</th>
-                        <th width="45%">الاستماع</th>
-                        <th width="10%">تحميل</th>
-                    </tr>
-                </thead>
-                <tbody id="yehya-list"></tbody>
-            </table>
-        </div>
-    </div>
+    <!-- عداد الخطب التلقائي الذكي -->
+    <div class="series-info-box" id="count">جاري حساب الخطب...</div>
 
-    <div class="section-box" id="doaa-section" style="display:none;">
-        <h2 class="section-title">سلسلة فضل الدعاء وآدابه</h2>
-        <div class="table-responsive">
-            <table class="khutbah-table">
-                <thead>
-                    <tr>
-                        <th width="10%">رقم</th>
-                        <th width="35%">عنوان الخطبة</th>
-                        <th width="45%">الاستماع</th>
-                        <th width="10%">تحميل</th>
-                    </tr>
-                </thead>
-                <tbody id="doaa-list"></tbody>
-            </table>
-        </div>
-    </div>
+    <!-- مكان توليد بطاقات الخطب تلقائياً -->
+    <div id="khutab-container"></div>
 
-    <div class="section-box" id="alamat-section" style="display:none;">
-        <h2 class="section-title">سلسلة علامات الساعة</h2>
-        <div class="table-responsive">
-            <table class="khutbah-table">
-                <thead>
-                    <tr>
-                        <th width="10%">رقم</th>
-                        <th width="35%">عنوان الخطبة</th>
-                        <th width="45%">الاستماع</th>
-                        <th width="10%">تحميل</th>
-                    </tr>
-                </thead>
-                <tbody id="alamat-list"></tbody>
-            </table>
-        </div>
-        <div class="pagination" id="pagination-controls"></div>
-    </div>
+    <!-- أزرار الصفحات لعلامات الساعة والسلاسل الطويلة -->
+    <div class="pagination" id="pagination-box"></div>
 
 </div>
 
-<footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب الرسمي &copy; 2026</footer>
+<!-- الفوتر الموحد -->
+<footer>
+    جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب © 2026
+</footer>
 
 <script>
-/* الوظائف البرمجية كما هي في ملفك */
-function showSection(sectionId){
-    const sections = ['misc-section', 'yehya-section', 'doaa-section', 'alamat-section'];
-    sections.forEach(id => {
-        const section = document.getElementById(id);
-        if(section) { section.style.display = 'none'; }
+// ===== بناء مصفوفة البيانات الضخمة التي تجمع كافة الخطب من كودك القديم =====
+const khutabList = [];
+
+// 1. إضافة الخطب المنوعة الفردية
+khutabList.push(
+    { title: "فضل يوم الجمعة", file: "fadl-algomaa.mp3", cat: "misc", catName: "خطب منوعة" },
+    { title: "الميثاق الأول لحقوق الإنسان", file: "almethaq.mp3", cat: "misc", catName: "خطب منوعة" },
+    { title: "فضائل الحج ومنزلته عند الله تعالى", file: "fdael-al-hag-01.mp3", cat: "misc", catName: "خطب منوعة" },
+    { title: "خطبة العبودية", file: "al-obodeya.mp3", cat: "misc", catName: "خطب منوعة" },
+    { title: "ما أعده الله لك في رمضان هذا", file: "ramadan.mp3", cat: "misc", catName: "خطب منوعة" }
+);
+
+// 2. توليد سلسلة وصية الله ليحيى (11 خطبة تلقائياً)
+for (let i = 1; i <= 11; i++) {
+    khutabList.push({
+        title: `سلسلة وصية الله ليحيى - الجزء ${i}`,
+        file: `amrany-bekams-${i}.mp3`,
+        cat: "yehya",
+        catName: "وصية الله ليحيى"
     });
-    
-    const targetSection = document.getElementById(sectionId);
-    if(targetSection) {
-        targetSection.style.display = 'block';
-        if(sectionId === 'alamat-section') { displayAlamat(1); }
-        if(sectionId === 'doaa-section') { renderDoaaSection(); }
-        if(sectionId === 'yehya-section') { renderYehyaSection(); }
-    }
 }
 
-function renderYehyaSection() {
-    const yehyaList = document.getElementById('yehya-list');
-    if(!yehyaList || yehyaList.children.length > 0) return;
-    let html = '';
-    for(let i = 1; i <= 11; i++) {
-        html += `<tr><td>${i}</td><td>سلسلة وصية الله ليحيى - ${i}</td><td><audio controls class="audio-player" preload="none"><source src="audio/amrany-bekams-${i}.mp3" type="audio/mpeg"></audio></td><td><a href="audio/amrany-bekams-${i}.mp3" download class="btn-download"><i class="fas fa-circle-down"></i></a></td></tr>`;
-    }
-    yehyaList.innerHTML = html;
+// 3. توليد سلسلة فضل الدعاء وآدابه (6 خطب تلقائياً)
+for (let i = 1; i <= 6; i++) {
+    khutabList.push({
+        title: `فضل الدعاء وآدابه - الجزء ${i}`,
+        file: `fadl-aldoaa-${i}.mp3`,
+        cat: "doaa",
+        catName: "فضل الدعاء"
+    });
 }
 
-function renderDoaaSection() {
-    const doaaList = document.getElementById('doaa-list');
-    if(!doaaList || doaaList.children.length > 0) return;
-    let html = '';
-    for(let i = 1; i <= 6; i++) {
-        html += `<tr><td>${i}</td><td>فضل الدعاء وآدابه - ${i}</td><td><audio controls class="audio-player" preload="none"><source src="audio/fadl-aldoaa-${i}.mp3" type="audio/mpeg"></audio></td><td><a href="audio/fadl-aldoaa-${i}.mp3" download class="btn-download"><i class="fas fa-circle-down"></i></a></td></tr>`;
-    }
-    doaaList.innerHTML = html;
+// 4. توليد سلسلة علامات الساعة الضخمة (50 خطبة تلقائياً)
+for (let i = 1; i <= 50; i++) {
+    khutabList.push({
+        title: `سلسلة علامات الساعة - الجزء ${i}`,
+        file: `alamat-${i}.mp3`,
+        cat: "alamat",
+        catName: "علامات الساعة"
+    });
 }
 
-const totalAlamat = 50;
-const perPage = 10;
+// متغيرات نظام العرض والصفحات
+let currentCategory = "all";
+let searchQuery = "";
 let currentPage = 1;
+const itemsPerPage = 10; // عرض 10 خطب في الصفحة لمنع ثقل المتصفح
 
-function displayAlamat(page){
-    const list = document.getElementById('alamat-list');
-    if(!list) return;
-    list.innerHTML = "";
-    const start = (page - 1) * perPage + 1;
-    const end = Math.min(page * perPage, totalAlamat);
-    for(let i = start; i <= end; i++){
-        list.innerHTML += `<tr><td>${i}</td><td>علامات الساعة - ${i}</td><td><audio controls class="audio-player" preload="none"><source src="audio/alamat-${i}.mp3" type="audio/mpeg"></audio></td><td><a href="audio/alamat-${i}.mp3" download class="btn-download"><i class="fas fa-circle-down"></i></a></td></tr>`;
+const container = document.getElementById("khutab-container");
+const paginationBox = document.getElementById("pagination-box");
+
+// ===== الدالة الأساسية لتصفية وعرض الخطب المتوافقة مع الفلتر والبحث =====
+function renderPage() {
+    // التصفية بناءً على القسم المختار وبناءً على نص البحث
+    const filteredList = khutabList.filter(item => {
+        const matchesCat = (currentCategory === "all" || item.cat === currentCategory);
+        const matchesSearch = item.title.toLowerCase().includes(searchQuery);
+        return matchesCat && matchesSearch;
+    });
+
+    // حسابات التقسيم لصفحات (Pagination)
+    const totalItems = filteredList.length;
+    document.getElementById("count").innerText = `عدد الخطب المعروضة حالياً: ${totalItems}`;
+
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    if (currentPage > totalPages) currentPage = Math.max(1, totalPages);
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedList = filteredList.slice(startIndex, endIndex);
+
+    // تفريغ الحاوية وإعادة البناء
+    container.innerHTML = "";
+
+    if (paginatedList.length === 0) {
+        container.innerHTML = `<p style="font-weight:bold; color:#777; margin:30px 0;">لم يتم العثور على نتائج تطابق هذا البحث أو القسم</p>`;
+        paginationBox.innerHTML = "";
+        return;
     }
-    updatePagination();
+
+    // توليد بطاقات الاستماع والتحميل
+    paginatedList.forEach(item => {
+        container.innerHTML += `
+        <div class="khutbah-card">
+            <div class="khutbah-info">
+                <i class="fas fa-microphone" style="color:var(--gold); margin-left:8px;"></i>
+                ${item.title}
+                <span class="khutbah-category">${item.catName}</span>
+            </div>
+
+            <audio controls preload="none">
+                <source src="audio/${item.file}" type="audio/mpeg">
+            </audio>
+
+            <div class="ctrl-actions">
+                <a href="audio/${item.file}" download class="btn-download-audio" title="تحميل الخطبة">
+                    <i class="fas fa-circle-down"></i>
+                </a>
+            </div>
+        </div>`;
+    });
+
+    // بناء أزرار الصفحات تلقائياً
+    buildPagination(totalPages);
 }
 
-function updatePagination(){
-    const controls = document.getElementById('pagination-controls');
-    if(!controls) return;
-    controls.innerHTML = "";
-    const totalPages = Math.ceil(totalAlamat / perPage);
-    for(let i = 1; i <= totalPages; i++){
+// ===== بناء أزرار التنقل السفلي =====
+function buildPagination(totalPages) {
+    paginationBox.innerHTML = "";
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
         const activeClass = (i === currentPage) ? "active" : "";
-        controls.innerHTML += `<a href="#" class="page-link ${activeClass}" onclick="changePage(event, ${i})">${i}</a>`;
+        paginationBox.innerHTML += `<button class="page-btn ${activeClass}" onclick="goToPage(${i})">${i}</button>`;
     }
 }
 
-function changePage(event, i){
-    event.preventDefault();
-    currentPage = i;
-    displayAlamat(i);
-    document.getElementById('alamat-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+function goToPage(page) {
+    currentPage = page;
+    renderPage();
+    window.scrollTo({ top: document.querySelector('.filter-tabs').offsetTop - 20, behavior: 'smooth' });
 }
 
-function updateLiveDate(){
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const dateBox = document.getElementById('live-date');
-    if(dateBox) { dateBox.innerText = new Intl.DateTimeFormat('ar-EG', options).format(new Date()); }
+// ===== نظام الفلترة عند الضغط على الأقسام =====
+function filterCategory(cat) {
+    currentCategory = cat;
+    currentPage = 1;
+    
+    // تحديث الشكل النشط للأزرار
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    
+    renderPage();
 }
 
-updateLiveDate();
+// ===== تفعيل محرك البحث الفوري =====
+document.getElementById("search").addEventListener("input", function() {
+    searchQuery = this.value.trim().toLowerCase();
+    currentPage = 1;
+    renderPage();
+});
+
+// التشغيل المبدئي فور فتح الصفحة
+renderPage();
+
+// ===== تهيئة دالة التاريخ ومواقيت الصلاة القادمة من الـ API الموحد =====
+function updateDate(){
+    const now = new Date();
+    const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+    const miladi = new Intl.DateTimeFormat('ar-EG', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+    document.getElementById('current-date').innerHTML = `${hijri} هـ | ${miladi} م`;
+}
+
+async function getPrayers(){
+    try{
+        const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
+        const data = await res.json();
+        const t = data.data.timings;
+
+        document.getElementById('prayer-api').innerHTML = `
+            <div class="prayer-item"><span class="prayer-name">الفجر</span><span class="prayer-time">${t.Fajr}</span></div>
+            <div class="prayer-item"><span class="prayer-name">الظهر</span><span class="prayer-time">${t.Dhuhr}</span></div>
+            <div class="prayer-item"><span class="prayer-name">العصر</span><span class="prayer-time">${t.Asr}</span></div>
+            <div class="prayer-item"><span class="prayer-name">المغرب</span><span class="prayer-time">${t.Maghrib}</span></div>
+            <div class="prayer-item"><span class="prayer-name">العشاء</span><span class="prayer-time">${t.Isha}</span></div>
+        `;
+    }catch(e){
+        console.log("تعذر تحميل مواقيت الصلاة");
+    }
+}
+
+window.onload = () => {
+    updateDate();
+    getPrayers();
+};
 </script>
 
 </body>
