@@ -239,7 +239,7 @@ function renderDropdown() {
         const realIndex = allFiles.indexOf(file);
         const option = document.createElement("option");
         // تم إزالة كلمة audio/ لأن الملفات مرفوعة في المجلد الرئيسي مباشرة
-        option.value = `${file}`; 
+      option.value = `audio/${file}`;
         option.innerText = `الدرس رقم ${realIndex + 1}`;
         selectEl.appendChild(option);
     });
