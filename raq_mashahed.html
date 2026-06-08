@@ -106,7 +106,7 @@ body{
     font-size: 1.2rem;
 }
 
-/* تصميم القائمة المنسدلة الأنيق */
+/* تصميم القائمة المنسدلة */
 .lessons-dropdown {
     width: 100%;
     padding: 12px 20px;
@@ -123,11 +123,9 @@ body{
     text-align: right;
 }
 
-.lessons-dropdown:focus {
-    border-color: var(--primary);
-}
+.lessons-dropdown:focus { border-color: var(--primary); }
 
-/* مشغل الصوت والتحميل داخل كرت المنسدلة */
+/* مشغل الصوت والتحميل */
 .player-box {
     display: flex;
     align-items: center;
@@ -138,11 +136,7 @@ body{
     border-radius: 12px;
 }
 
-.player-box audio {
-    flex-grow: 1;
-    height: 40px;
-}
-
+.player-box audio { flex-grow: 1; height: 40px; }
 .btn-download-audio { color: #4f7f49; font-size: 1.8rem; text-decoration: none; transition: 0.2s; }
 .btn-download-audio:hover { color: var(--gold); }
 
@@ -191,7 +185,7 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
     <div class="dropdown-container">
         <label class="dropdown-label" for="lessonsSelect">اختر الدرس من القائمة المنسدلة:</label>
         <select id="lessonsSelect" class="lessons-dropdown" onchange="playSelectedLesson()">
-            <!-- يتم تعبئة الدروس برمجياً هنا بناء على الصفحة -->
+            <!-- تعبئة تلقائية -->
         </select>
 
         <div class="player-box">
@@ -204,7 +198,7 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
         </div>
     </div>
 
-    <!-- حاوية أزرار الصفحات الكبيرة الملونة الموحدة -->
+    <!-- حاوية أزرار الصفحات السفلية -->
     <div class="pagination" id="pagination-controls"></div>
 </div>
 
@@ -213,7 +207,7 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
 </footer>
 
 <script>
-// مصفوفة الـ 23 درساً كاملة
+// ترتيب رقمي متسلسل وصحيح 100% لضمان عدم تداخل الدروس
 const allFiles = [
     "mashahed-alqeyama-1.mp3", "mashahed-alqeyama-2.mp3", "mashahed-alqeyama-3.mp3",
     "mashahed-alqeyama-4.mp3", "mashahed-alqeyama-5.mp3", "mashahed-alqeyama-6.mp3",
@@ -225,7 +219,7 @@ const allFiles = [
     "mashahed-alqeyama-22.mp3", "mashahed-alqeyama-23.mp3"
 ];
 
-const itemsPerPage = 10; // كل صفحة تعرض 10 دروس بالمنسدلة
+const itemsPerPage = 10; 
 let currentPage = 1;
 
 const selectEl = document.getElementById("lessonsSelect");
@@ -241,28 +235,26 @@ function renderDropdown() {
     const end = start + itemsPerPage;
     const pageItems = allFiles.slice(start, end);
 
-    // بناء خيارات القائمة المنسدلة للـ 10 دروس الخاصة بالصفحة الحالية
     pageItems.forEach((file) => {
         const realIndex = allFiles.indexOf(file);
         const option = document.createElement("option");
-        option.value = `audio/${file}`;
+        // تم إزالة كلمة audio/ لأن الملفات مرفوعة في المجلد الرئيسي مباشرة
+        option.value = `${file}`; 
         option.innerText = `الدرس رقم ${realIndex + 1}`;
         selectEl.appendChild(option);
     });
 
     document.getElementById("count").innerText = `عرض الدروس من ${start + 1} إلى ${Math.min(end, allFiles.length)} من أصل ${allFiles.length}`;
     
-    // تشغيل أول درس في القائمة المنسدلة تلقائياً عند الانتقال بين الصفحات
     playSelectedLesson();
     setupPagination();
 }
 
-// تحديث مشغل الصوت وزر التحميل عند تغيير خيار المنسدلة
 function playSelectedLesson() {
     const selectedFile = selectEl.value;
     if (selectedFile) {
         audioSource.src = selectedFile;
-        audioPlayer.load(); // إعادة تحميل المشغل بالملف الجديد
+        audioPlayer.load(); 
         downloadBtn.href = selectedFile;
     }
 }
@@ -284,6 +276,7 @@ function setupPagination() {
         btn.addEventListener("click", () => {
             currentPage = i;
             renderDropdown();
+            window.scrollTo({ top: 300, behavior: 'smooth' });
         });
         paginationControls.appendChild(btn);
     }
