@@ -4,44 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفسير سورة الإسراء - الشيخ سعيد دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --primary: #2c5d87;
+            --gold: #c59d31;
+            --tafseer-blue: #72bcd4;
+            --beige-light: #fdfae9;
+        }
+
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f0f4f7; text-align: center; }
         
         /* شريط المعلومات العلوي */
-        .top-info-bar { background-color: #fdfae9; padding: 10px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
-        .date-box { background: white; border: 1px solid #c59d31; border-radius: 25px; padding: 7px 25px; color: #333; font-weight: bold; font-size: 0.9rem; order: 2; }
-        .prayer-times { display: flex; gap: 6px; order: 1; }
+        .top-info-bar { background-color: var(--beige-light); padding: 10px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; flex-wrap: wrap; gap: 10px; }
+        .date-box { background: white; border: 1px solid var(--gold); border-radius: 25px; padding: 7px 25px; color: #333; font-weight: bold; font-size: 0.9rem; }
+        .prayer-times { display: flex; gap: 6px; flex-wrap: wrap; }
         .prayer-box { text-align: center; background: #4f814f; color: white; border-radius: 6px; padding: 4px 10px; font-size: 0.8rem; min-width: 60px; }
         .time-val { background: white; color: #4f814f; margin-top: 3px; border-radius: 4px; font-weight: bold; }
 
-        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
+        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid var(--tafseer-blue); }
         .site-header img { max-width: 600px; width: 90%; mix-blend-mode: multiply; margin: 0 auto; display: block; }
 
-        .main-wrapper { max-width: 1000px; margin: 40px auto; padding: 0 15px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .section-title { color: #2c5d87; border-bottom: 3px solid #c59d31; display: inline-block; padding-bottom: 5px; margin-bottom: 35px; font-weight: 900; }
+        .main-wrapper { max-width: 800px; margin: 40px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .section-title { color: var(--primary); border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 5px; margin-bottom: 20px; font-weight: 900; }
 
-        /* تنسيق قائمة الدروس الصوتية */
-        .lesson-list { display: none; }
-        .lesson-list.active { display: block; }
-        .audio-row { 
-            display: flex; align-items: center; justify-content: space-between; 
-            background: #f9fbfd; margin-bottom: 10px; padding: 15px 20px; 
-            border-radius: 10px; border: 1px solid #eef2f5; transition: 0.2s;
+        .series-info-box {
+            display: inline-block; background: #f9fbfd; padding: 6px 20px; border-radius: 20px;
+            font-weight: bold; color: var(--primary); border: 1px solid #eef2f5; margin-bottom: 30px; font-size: 0.95rem;
         }
-        .audio-row:hover { background: #fff; border-color: #72bcd4; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .lesson-info { display: flex; align-items: center; gap: 10px; color: #2c5d87; font-weight: 700; order: 2; }
-        .audio-player { flex-grow: 1; margin: 0 30px; order: 1; }
-        audio { width: 100%; height: 35px; }
-        .download-icon { color: #28a745; font-size: 1.4rem; text-decoration: none; order: 3; }
 
-        /* الترقيم */
-        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 30px; }
-        .page-btn { cursor: pointer; border: 1px solid #ddd; padding: 8px 18px; border-radius: 5px; font-weight: bold; background: white; color: #2c5d87; }
-        .page-btn.active { background: #2c5d87; color: white; border-color: #2c5d87; }
+        /* صندوق القائمة المنسدلة والمشغل */
+        .dropdown-container {
+            background: #f9fbfd; padding: 25px; border-radius: 12px;
+            border: 1px solid #eef2f5; border-top: 4px solid var(--tafseer-blue);
+        }
+        .dropdown-label { display: block; font-weight: bold; color: var(--primary); margin-bottom: 10px; font-size: 1.1rem; }
+        
+        .lessons-dropdown {
+            width: 100%; padding: 12px; font-family: 'Cairo', sans-serif; font-weight: bold; font-size: 1.05rem;
+            border: 2px solid #ddd; border-radius: 8px; background-color: white; color: #333; outline: none; cursor: pointer;
+            margin-bottom: 20px; text-align: right;
+        }
+        .lessons-dropdown:focus { border-color: var(--tafseer-blue); }
 
-        footer { padding: 40px; background-color: #fdfae9; color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; }
+        .player-box { display: flex; align-items: center; justify-content: center; gap: 20px; background: white; padding: 12px; border-radius: 8px; border: 1px solid #ddd; }
+        .player-box audio { flex-grow: 1; height: 38px; }
+        .download-icon { color: #28a745; font-size: 1.6rem; text-decoration: none; transition: 0.2s; }
+        .download-icon:hover { color: var(--gold); }
+
+        /* أزرار الصفحات السفلية الملونة والموحدة */
+        .pagination { display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
+        .page-btn {
+            cursor: pointer; border: none; padding: 12px 35px; border-radius: 10px;
+            font-weight: 900; font-size: 1.1rem; color: white; transition: 0.3s;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.15); font-family: 'Cairo', sans-serif;
+        }
+        .page-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,0,0,0.1); }
+        
+        /* تلوين الصفحات لتتناسق مع ألوان الموقع الثابتة */
+        .page-num-1 { background: var(--gold); }
+        .page-num-2 { background: var(--tafseer-blue); }
+        .page-num-3 { background: #6eb6d1; }
+
+        .page-btn.active { outline: 3px solid var(--primary); outline-offset: 2px; }
+
+        footer { padding: 40px; background-color: var(--beige-light); color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; }
+        @media(max-width:768px){
+            .player-box { flex-direction: column; }
+            .player-box audio { width: 100%; }
+            .page-btn { width: 100%; padding: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -62,75 +95,111 @@
 
     <div class="main-wrapper">
         <h2 class="section-title">تفسير سورة الإسراء</h2>
+        <br>
+        <div class="series-info-box" id="count-box">جاري حساب الدروس...</div>
 
-        <div id="page1" class="lesson-list active">
-            <script>
-                for(let i=1; i<=12; i++) {
-                    document.write(`
-                        <div class="audio-row">
-                            <a href="audio/israa-${i}.mp3" download class="download-icon"><i class="fas fa-cloud-download-alt"></i></a>
-                            <div class="audio-player"><audio controls><source src="audio/israa-${i}.mp3" type="audio/mpeg"></audio></div>
-                            <div class="lesson-info"><i class="fas fa-headphones"></i> الدرس رقم ${i}</div>
-                        </div>
-                    `);
-                }
-            </script>
+        <!-- صندوق القائمة المنسدلة الجديد والمشغل الصوتي الموحد -->
+        <div class="dropdown-container">
+            <label class="dropdown-label" for="israaSelect">اختر الدرس من القائمة المنسدلة:</label>
+            <select id="israaSelect" class="lessons-dropdown" onchange="playSelectedLesson()">
+                <!-- الخيارات تتغير برمجياً هنا -->
+            </select>
+
+            <div class="player-box">
+                <audio id="mainAudioPlayer" controls preload="none">
+                    <source id="audioSource" src="" type="audio/mpeg">
+                </audio>
+                <a id="downloadBtn" href="#" download class="download-icon" title="تحميل الدرس الحالي">
+                    <i class="fas fa-cloud-download-alt"></i>
+                </a>
+            </div>
         </div>
 
-        <div id="page2" class="lesson-list">
-            <script>
-                for(let i=13; i<=24; i++) {
-                    document.write(`
-                        <div class="audio-row">
-                            <a href="audio/israa-${i}.mp3" download class="download-icon"><i class="fas fa-cloud-download-alt"></i></a>
-                            <div class="audio-player"><audio controls><source src="audio/israa-${i}.mp3" type="audio/mpeg"></audio></div>
-                            <div class="lesson-info"><i class="fas fa-headphones"></i> الدرس رقم ${i}</div>
-                        </div>
-                    `);
-                }
-            </script>
-        </div>
-
-        <div id="page3" class="lesson-list">
-            <script>
-                for(let i=25; i<=30; i++) {
-                    document.write(`
-                        <div class="audio-row">
-                            <a href="audio/israa-${i}.mp3" download class="download-icon"><i class="fas fa-cloud-download-alt"></i></a>
-                            <div class="audio-player"><audio controls><source src="audio/israa-${i}.mp3" type="audio/mpeg"></audio></div>
-                            <div class="lesson-info"><i class="fas fa-headphones"></i> الدرس رقم ${i}</div>
-                        </div>
-                    `);
-                }
-            </script>
-        </div>
-
-        <div class="pagination">
-            <button class="page-btn active" onclick="showPage(1)">1</button>
-            <button class="page-btn" onclick="showPage(2)">2</button>
-            <button class="page-btn" onclick="showPage(3)">3</button>
-        </div>
+        <!-- أزرار الصفحات المقسمة (كل صفحة 10 دروس) -->
+        <div class="pagination" id="pagination-controls"></div>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        function showPage(pageNum) {
-            document.querySelectorAll('.lesson-list').forEach(list => list.classList.remove('active'));
-            document.querySelectorAll('.page-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('page' + pageNum).classList.add('active');
-            event.currentTarget.classList.add('active');
-            window.scrollTo(0, 400);
+        // إعداد مصفوفة لـ 30 درساً بالكامل بدون مسار مجلد audio/ لتعمل مباشرة
+        const totalLessons = 30;
+        const allFiles = [];
+        for(let i = 1; i <= totalLessons; i++) {
+            allFiles.push(`israa-${i}.mp3`);
         }
 
-        // تحديث التاريخ تلقائياً باليوم الحالي
+        const itemsPerPage = 10; // تقسيم الدروس: 10 دروس لكل صفحة
+        let currentPage = 1;
+
+        const selectEl = document.getElementById("israaSelect");
+        const audioPlayer = document.getElementById("mainAudioPlayer");
+        const audioSource = document.getElementById("audioSource");
+        const downloadBtn = document.getElementById("downloadBtn");
+        const paginationControls = document.getElementById("pagination-controls");
+
+        function renderDropdown() {
+            selectEl.innerHTML = "";
+            
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageItems = allFiles.slice(start, end);
+
+            pageItems.forEach((file) => {
+                const realIndex = allFiles.indexOf(file);
+                const option = document.createElement("option");
+                option.value = file; // المسار المباشر للملف (israa-9.mp3 و israa-10.mp3 ستعمل فوراً)
+                option.innerText = `الدرس رقم ${realIndex + 1}`;
+                selectEl.appendChild(option);
+            });
+
+            document.getElementById("count-box").innerText = `عرض الدروس من ${start + 1} إلى ${Math.min(end, allFiles.length)} من أصل ${allFiles.length}`;
+            
+            playSelectedLesson();
+            setupPagination();
+        }
+
+        function playSelectedLesson() {
+            const selectedFile = selectEl.value;
+            if (selectedFile) {
+                audioSource.src = selectedFile;
+                audioPlayer.load(); 
+                downloadBtn.href = selectedFile;
+            }
+        }
+
+        function setupPagination() {
+            paginationControls.innerHTML = "";
+            const pageCount = Math.ceil(allFiles.length / itemsPerPage);
+
+            for (let i = 1; i <= pageCount; i++) {
+                const btn = document.createElement("button");
+                btn.innerText = `الصفحة ${i}`;
+                btn.classList.add("page-btn");
+                btn.classList.add(`page-num-${i}`); // تطبيق التلوين المتناسق مع أسلوب الموقع
+                
+                if (i === currentPage) btn.classList.add("active");
+                
+                btn.addEventListener("click", () => {
+                    currentPage = i;
+                    renderDropdown();
+                    window.scrollTo({ top: 350, behavior: 'smooth' });
+                });
+                paginationControls.appendChild(btn);
+            }
+        }
+
+        window.onload = () => {
+            renderDropdown();
+            updateLiveDate();
+        };
+
         function updateLiveDate() {
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', calendar: 'gregory' };
             const today = new Date();
             const formatter = new Intl.DateTimeFormat('ar-EG', options);
             document.getElementById('live-date').innerText = formatter.format(today);
         }
-        updateLiveDate();
     </script>
 </body>
 </html>
