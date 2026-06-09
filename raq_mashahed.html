@@ -26,7 +26,6 @@ body{
     color:#333;
 }
 
-/* top bar */
 .top-bar{
     display:flex;
     justify-content:space-between;
@@ -68,7 +67,6 @@ body{
     color:var(--primary);
 }
 
-/* header */
 .site-header{
     text-align:center;
     padding:30px 10px;
@@ -80,7 +78,6 @@ body{
     width:100%;
 }
 
-/* nav */
 .main-nav{
     display:flex;
     justify-content:center;
@@ -105,7 +102,6 @@ body{
     transform:translateY(-3px);
 }
 
-/* content */
 .container{
     max-width:900px;
     margin:auto;
@@ -137,7 +133,6 @@ body{
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* player */
 .dropdown-container{
     background:white;
     padding:25px;
@@ -158,7 +153,6 @@ body{
     outline: none;
     text-align: right;
 }
-.lessons-dropdown:focus { border-color: var(--primary); }
 
 .player-box{
     display:flex;
@@ -181,9 +175,7 @@ body{
     text-decoration: none;
     transition: 0.2s;
 }
-.btn-download-audio:hover { color: var(--gold); }
 
-/* pagination */
 .pagination{
     margin-top:30px;
     display:flex;
@@ -202,9 +194,7 @@ body{
     font-weight:bold;
     font-family: 'Cairo', sans-serif;
     box-shadow: 0 4px 0 rgba(0,0,0,0.15);
-    transition: 0.2s;
 }
-.page-btn:hover { transform: translateY(-2px); }
 
 .page-btn.active{
     outline:3px solid var(--primary);
@@ -238,14 +228,11 @@ body{
 </nav>
 
 <div class="container">
-
 <h1 class="section-title">سلسلة من مشاهد يوم القيامة</h1>
 <div class="title-line"></div>
-
 <div class="series-info-box" id="count">...</div>
 
 <div class="dropdown-container">
-
 <select id="lessonsSelect" class="lessons-dropdown" onchange="playSelectedLesson()"></select>
 
 <div class="player-box">
@@ -256,11 +243,9 @@ body{
         <i class="fa-solid fa-circle-down"></i>
     </a>
 </div>
-
 </div>
 
 <div class="pagination" id="pagination"></div>
-
 </div>
 
 <footer style="text-align:center;padding:35px;background:var(--beige-light);border-top:2px solid var(--beige-dark);font-weight:700;margin-top:50px;">
@@ -268,33 +253,18 @@ body{
 </footer>
 
 <script>
-// تحديد الرابط الأساسي للموقع لمنع المتصفح من الخلط بين المجلدات الفرعية
+// الكود الآن يقرأ مسار المجلد الحاضن تلقائياً ليعمل بالتوافق التام مع raq_mashahed.html
 const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
 
 const allFiles = [
-"mashahed-alqeyama-1.mp3",
-"mashahed-alqeyama-2.mp3",
-"mashahed-alqeyama-3.mp3",
-"mashahed-alqeyama-4.mp3",
-"mashahed-alqeyama-5.mp3",
-"mashahed-alqeyama-6.mp3",
-"mashahed-alqeyama-7.mp3",
-"mashahed-alqeyama-8.mp3",
-"mashahed-alqeyama-9.mp3",
-"mashahed-alqeyama-10.mp3",
-"mashahed-alqeyama-11.mp3",
-"mashahed-alqeyama-12.mp3",
-"mashahed-alqeyama-13.mp3",
-"mashahed-alqeyama-14.mp3",
-"mashahed-alqeyama-15.mp3",
-"mashahed-alqeyama-16.mp3",
-"mashahed-alqeyama-17.mp3",
-"mashahed-alqeyama-18.mp3",
-"mashahed-alqeyama-19.mp3",
-"mashahed-alqeyama-20.mp3",
-"mashahed-alqeyama-21.mp3",
-"mashahed-alqeyama-22.mp3",
-"mashahed-alqeyama-23.mp3"
+"mashahed-alqeyama-1.mp3", "mashahed-alqeyama-2.mp3", "mashahed-alqeyama-3.mp3",
+"mashahed-alqeyama-4.mp3", "mashahed-alqeyama-5.mp3", "mashahed-alqeyama-6.mp3",
+"mashahed-alqeyama-7.mp3", "mashahed-alqeyama-8.mp3", "mashahed-alqeyama-9.mp3",
+"mashahed-alqeyama-10.mp3", "mashahed-alqeyama-11.mp3", "mashahed-alqeyama-12.mp3",
+"mashahed-alqeyama-13.mp3", "mashahed-alqeyama-14.mp3", "mashahed-alqeyama-15.mp3",
+"mashahed-alqeyama-16.mp3", "mashahed-alqeyama-17.mp3", "mashahed-alqeyama-18.mp3",
+"mashahed-alqeyama-19.mp3", "mashahed-alqeyama-20.mp3", "mashahed-alqeyama-21.mp3",
+"mashahed-alqeyama-22.mp3", "mashahed-alqeyama-23.mp3"
 ];
 
 const perPage = 10;
@@ -308,30 +278,24 @@ const pagination = document.getElementById("pagination");
 
 function render(){
 select.innerHTML="";
-
 let start=(page-1)*perPage;
 let end=start+perPage;
-
 let items=allFiles.slice(start,end);
 
 items.forEach((file,i)=>{
 let opt=document.createElement("option");
-// دمج اسم الملف مع الرابط المباشر للموقع لضمان تخطي الـ Cache للـ audio/
 opt.value = baseUrl + file; 
 opt.textContent="الدرس رقم "+(start+i+1);
 select.appendChild(opt);
 });
 
-document.getElementById("count").innerText=
-`عرض الدروس من ${start+1} إلى ${Math.min(end,allFiles.length)} من أصل ${allFiles.length}`;
-
+document.getElementById("count").innerText=`عرض الدروس من ${start+1} إلى ${Math.min(end,allFiles.length)} من أصل ${allFiles.length}`;
 playSelectedLesson();
 renderPagination();
 }
 
 function playSelectedLesson(){
 if(!select.value) return;
-// تغيير مسار السورس الداخلي مباشرة للمشغل وإعادة تحميل البنية برابط مطلق
 audioSource.src = select.value;
 audio.load(); 
 download.href = select.value;
@@ -339,35 +303,27 @@ download.href = select.value;
 
 function renderPagination() {
     pagination.innerHTML = "";
-
     const totalPages = Math.ceil(allFiles.length / perPage);
-
     if (totalPages <= 1) return;
 
     for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement("button");
-
         btn.textContent = "الصفحة " + i;
         btn.classList.add("page-btn");
-
-        if (i === page) {
-            btn.classList.add("active");
-        }
+        if (i === page) btn.classList.add("active");
 
         btn.addEventListener("click", function () {
             page = i;
             render();
             window.scrollTo({ top: 300, behavior: 'smooth' });
         });
-
         pagination.appendChild(btn);
     }
 }
 
 function updateDate(){
 let now=new Date();
-document.getElementById("current-date").innerText=
-new Intl.DateTimeFormat("ar-SA",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(now);
+document.getElementById("current-date").innerText=new Intl.DateTimeFormat("ar-SA",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(now);
 }
 
 async function getPrayers(){
@@ -375,22 +331,11 @@ try{
 let res=await fetch("https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4");
 let data=await res.json();
 let t=data.data.timings;
-
-document.getElementById("prayer-api").innerHTML=
-`<div class="prayer-item"><div class="prayer-name">الفجر</div><div class="prayer-time">${t.Fajr}</div></div>
-<div class="prayer-item"><div class="prayer-name">الظهر</div><div class="prayer-time">${t.Dhuhr}</div></div>
-<div class="prayer-item"><div class="prayer-name">العصر</div><div class="prayer-time">${t.Asr}</div></div>
-<div class="prayer-item"><div class="prayer-name">المغرب</div><div class="prayer-time">${t.Maghrib}</div></div>
-<div class="prayer-item"><div class="prayer-name">العشاء</div><div class="prayer-time">${t.Isha}</div></div>`;
+document.getElementById("prayer-api").innerHTML=`<div class="prayer-item"><div class="prayer-name">الفجر</div><div class="prayer-time">${t.Fajr}</div></div><div class="prayer-item"><div class="prayer-name">الظهر</div><div class="prayer-time">${t.Dhuhr}</div></div><div class="prayer-item"><div class="prayer-name">العصر</div><div class="prayer-time">${t.Asr}</div></div><div class="prayer-item"><div class="prayer-name">المغرب</div><div class="prayer-time">${t.Maghrib}</div></div><div class="prayer-item"><div class="prayer-name">العشاء</div><div class="prayer-time">${t.Isha}</div></div>`;
 }catch(e){}
 }
 
-window.onload = function () {
-    render();
-    updateDate();
-    getPrayers();
-};
+window.onload = function () { render(); updateDate(); getPrayers(); };
 </script>
-
 </body>
 </html>
