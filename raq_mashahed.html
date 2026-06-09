@@ -249,7 +249,9 @@ body{
 <select id="lessonsSelect" class="lessons-dropdown" onchange="playSelectedLesson()"></select>
 
 <div class="player-box">
-    <audio id="audioPlayer" controls preload="none"></audio>
+    <audio id="audioPlayer" controls preload="none">
+        <source id="audioSource" src="" type="audio/mpeg">
+    </audio>
     <a id="downloadBtn" class="btn-download-audio" download title="تحميل الدرس">
         <i class="fa-solid fa-circle-down"></i>
     </a>
@@ -266,6 +268,9 @@ body{
 </footer>
 
 <script>
+// تحديد الرابط الأساسي للموقع لمنع المتصفح من الخلط بين المجلدات الفرعية
+const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+
 const allFiles = [
 "mashahed-alqeyama-1.mp3",
 "mashahed-alqeyama-2.mp3",
@@ -297,6 +302,7 @@ let page = 1;
 
 const select = document.getElementById("lessonsSelect");
 const audio = document.getElementById("audioPlayer");
+const audioSource = document.getElementById("audioSource");
 const download = document.getElementById("downloadBtn");
 const pagination = document.getElementById("pagination");
 
@@ -310,7 +316,8 @@ let items=allFiles.slice(start,end);
 
 items.forEach((file,i)=>{
 let opt=document.createElement("option");
-opt.value=file; // تم حذف "audio/" ليبحث المتصفح عن الملف مباشرة في المجلد الرئيسي
+// دمج اسم الملف مع الرابط المباشر للموقع لضمان تخطي الـ Cache للـ audio/
+opt.value = baseUrl + file; 
 opt.textContent="الدرس رقم "+(start+i+1);
 select.appendChild(opt);
 });
@@ -324,9 +331,10 @@ renderPagination();
 
 function playSelectedLesson(){
 if(!select.value) return;
-audio.src=select.value;
-audio.load(); // إعادة تحميل المشغل للتأكد من استجابة الملف الجديد فوراً عند التنقل
-download.href=select.value;
+// تغيير مسار السورس الداخلي مباشرة للمشغل وإعادة تحميل البنية برابط مطلق
+audioSource.src = select.value;
+audio.load(); 
+download.href = select.value;
 }
 
 function renderPagination() {
