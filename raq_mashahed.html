@@ -302,17 +302,30 @@ audio.src=select.value;
 download.href=select.value;
 }
 
-function renderPagination(){
-pagination.innerHTML="";
-let pages=Math.ceil(allFiles.length/perPage);
+function renderPagination() {
+    pagination.innerHTML = "";
 
-for(let i=1;i<=pages;i++){
-let b=document.createElement("button");
-b.innerText=i;
-b.className="page-btn"+(i===page?" active":"");
-b.onclick=()=>{page=i;render();};
-pagination.appendChild(b);
-}
+    const totalPages = Math.ceil(allFiles.length / perPage);
+
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+
+        btn.textContent = i;
+        btn.classList.add("page-btn");
+
+        if (i === page) {
+            btn.classList.add("active");
+        }
+
+        btn.addEventListener("click", function () {
+            page = i;
+            render();
+        });
+
+        pagination.appendChild(btn);
+    }
 }
 
 function updateDate(){
