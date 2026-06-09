@@ -349,13 +349,15 @@ document.getElementById("prayer-api").innerHTML=
 }catch(e){}
 }
 
-window.onload=()=>{
-render();
-updateDate();
-getPrayers();
+window.onload = function () {
+    render();
+    updateDate();
+    getPrayers();
+
+    console.log("عدد الملفات:", allFiles.length);
+    console.log("عدد الصفحات:", Math.ceil(allFiles.length / perPage));
 };
 </script>
-console.log("عدد الملفات:", allFiles.length);
-console.log("عدد الصفحات:", Math.ceil(allFiles.length / perPage));
+
 </body>
 </html>
