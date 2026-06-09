@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>سلسلة من مشاهد يوم القيامة - الشيخ سعيد مصطفى دياب</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
@@ -35,6 +35,7 @@ body{
     background:var(--beige-light);
     border-bottom:2px solid var(--beige-dark);
     flex-wrap:wrap;
+    gap: 10px;
 }
 
 .date-info{
@@ -133,6 +134,7 @@ body{
     border-radius:20px;
     margin-bottom:20px;
     font-weight:bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 /* player */
@@ -141,31 +143,45 @@ body{
     padding:25px;
     border-radius:15px;
     box-shadow:0 3px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--primary);
 }
 
 .lessons-dropdown{
     width:100%;
     padding:12px;
     font-size:1.1rem;
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
     border-radius:10px;
-    margin-bottom:15px;
+    margin-bottom:20px;
+    border: 2px solid var(--beige-dark);
+    outline: none;
+    text-align: right;
 }
+.lessons-dropdown:focus { border-color: var(--primary); }
 
 .player-box{
     display:flex;
     gap:15px;
     align-items:center;
     justify-content:center;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .player-box audio{
     width:100%;
+    height: 40px;
 }
 
 .btn-download-audio{
-    font-size:1.6rem;
-    color:green;
+    font-size:1.8rem;
+    color: green;
+    text-decoration: none;
+    transition: 0.2s;
 }
+.btn-download-audio:hover { color: var(--gold); }
 
 /* pagination */
 .pagination{
@@ -177,17 +193,27 @@ body{
 }
 
 .page-btn{
-    padding:10px 15px;
+    padding:12px 25px;
     border:none;
     border-radius:8px;
     background:var(--gold);
     color:white;
     cursor:pointer;
     font-weight:bold;
+    font-family: 'Cairo', sans-serif;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+    transition: 0.2s;
 }
+.page-btn:hover { transform: translateY(-2px); }
 
 .page-btn.active{
     outline:3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+@media(max-width:768px){
+    .player-box { flex-direction: column; }
+    .nav-link, .page-btn { width: 100%; text-align: center; }
 }
 </style>
 </head>
@@ -200,7 +226,7 @@ body{
 </div>
 
 <header class="site-header">
-    <img src="images/logo.png.jpg" class="site-logo">
+    <img src="images/logo.png.jpg" class="site-logo" alt="الشيخ سعيد مصطفى دياب">
 </header>
 
 <nav class="main-nav">
@@ -223,8 +249,8 @@ body{
 <select id="lessonsSelect" class="lessons-dropdown" onchange="playSelectedLesson()"></select>
 
 <div class="player-box">
-    <audio id="audioPlayer" controls></audio>
-    <a id="downloadBtn" class="btn-download-audio" download>
+    <audio id="audioPlayer" controls preload="none"></audio>
+    <a id="downloadBtn" class="btn-download-audio" download title="تحميل الدرس">
         <i class="fa-solid fa-circle-down"></i>
     </a>
 </div>
@@ -235,8 +261,8 @@ body{
 
 </div>
 
-<footer style="text-align:center;padding:30px;background:#eee;">
-جميع الحقوق محفوظة © 2026
+<footer style="text-align:center;padding:35px;background:var(--beige-light);border-top:2px solid var(--beige-dark);font-weight:700;margin-top:50px;">
+جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب © 2026
 </footer>
 
 <script>
@@ -284,21 +310,22 @@ let items=allFiles.slice(start,end);
 
 items.forEach((file,i)=>{
 let opt=document.createElement("option");
-opt.value="audio/"+file;
+opt.value=file; // تم حذف "audio/" ليبحث المتصفح عن الملف مباشرة في المجلد الرئيسي
 opt.textContent="الدرس رقم "+(start+i+1);
 select.appendChild(opt);
 });
 
 document.getElementById("count").innerText=
-`عرض ${start+1} إلى ${Math.min(end,allFiles.length)} من ${allFiles.length}`;
+`عرض الدروس من ${start+1} إلى ${Math.min(end,allFiles.length)} من أصل ${allFiles.length}`;
 
-play();
+playSelectedLesson();
 renderPagination();
 }
 
-function play(){
+function playSelectedLesson(){
 if(!select.value) return;
 audio.src=select.value;
+audio.load(); // إعادة تحميل المشغل للتأكد من استجابة الملف الجديد فوراً عند التنقل
 download.href=select.value;
 }
 
@@ -312,7 +339,7 @@ function renderPagination() {
     for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement("button");
 
-        btn.textContent = i;
+        btn.textContent = "الصفحة " + i;
         btn.classList.add("page-btn");
 
         if (i === page) {
@@ -322,6 +349,7 @@ function renderPagination() {
         btn.addEventListener("click", function () {
             page = i;
             render();
+            window.scrollTo({ top: 300, behavior: 'smooth' });
         });
 
         pagination.appendChild(btn);
@@ -353,9 +381,6 @@ window.onload = function () {
     render();
     updateDate();
     getPrayers();
-
-    console.log("عدد الملفات:", allFiles.length);
-    console.log("عدد الصفحات:", Math.ceil(allFiles.length / perPage));
 };
 </script>
 
