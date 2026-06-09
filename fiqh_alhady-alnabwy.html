@@ -13,7 +13,6 @@
 :root{
     --primary:#2d5f8b;
     --gold:#c8a44d;
-    --audio-blue:#6eb6d1;
     --beige-light:#efe6d6;
     --beige-dark:#d8c7a8;
 }
@@ -61,7 +60,7 @@ body{
 
 .btn-home { background:#caa230; }
 .btn-tafseer { background:#73b8d4; }
-.btn-audio, .page-num-1 { background:#6eb6d1; }
+.btn-audio { background:#6eb6d1; }
 .btn-khutab { background:#5b90cb; }
 .btn-articles { background:#4f7f49; }
 
@@ -137,12 +136,10 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
 
     <div class="series-info-box" id="count">جاري حساب الدروس...</div>
 
-    <!-- صندوق القائمة المنسدلة والمشغل الموحد -->
     <div class="dropdown-container">
         <label class="dropdown-label" for="lessonsSelect">اختر الدرس من القائمة المنسدلة:</label>
         <select id="lessonsSelect" class="lessons-dropdown" onchange="playSelectedLesson()">
-            <!-- تعبئة تلقائية -->
-        </select>
+            </select>
 
         <div class="player-box">
             <audio id="mainAudioPlayer" controls preload="none">
@@ -154,7 +151,6 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
         </div>
     </div>
 
-    <!-- حاوية أزرار الصفحات السفلية -->
     <div class="pagination" id="pagination-controls"></div>
 </div>
 
@@ -163,16 +159,20 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
 </footer>
 
 <script>
-// مصفوفة الملفات الصوتية المحدثة
+// تحديد الرابط الأساسي للموقع برمجياً لمنع مشاكل الـ Cache والبحث عن المجلدات الفرعية
+const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+
+// تم تحديث المصفوفة وإضافة ملف الدرس السادس الجديد alhady-alnabwy-6.mp3 بنجاح
 const allFiles = [
     "alhady-alnabwy-1.mp3",
     "alhady-alnabwy-2.mp3",
     "alhady-alnabwy-3.mp3",
     "alhady-alnabwy-4.mp3",
-    "alhady-alnabwy-5.mp3"
+    "alhady-alnabwy-5.mp3",
+    "alhady-alnabwy-6.mp3"
 ]; 
 
-const itemsPerPage = 10; // عرض 10 دروس في الصفحة
+const itemsPerPage = 10;
 let currentPage = 1;
 
 const selectEl = document.getElementById("lessonsSelect");
@@ -191,12 +191,13 @@ function renderDropdown() {
     pageItems.forEach((file) => {
         const realIndex = allFiles.indexOf(file);
         const option = document.createElement("option");
-        option.value = `${file}`; // سيبحث عن الملف في المجلد الرئيسي مباشرة
+        // دمج الرابط الأساسي المطلق مع اسم الملف مباشرة لحل مشكلة الدرس الثاني بشكل نهائي
+        option.value = baseUrl + file; 
         option.innerText = `الدرس رقم ${realIndex + 1}`;
         selectEl.appendChild(option);
     });
 
-    document.getElementById("count").innerText = `عرض الدروس من ${start + 1} إلى ${Math.min(end, allFiles.length)} من أصل ${allFiles.length}`;
+    document.getElementById("count").innerText = `إجمالي عدد الدروس الحالية: ${allFiles.length}`;
     
     playSelectedLesson();
     setupPagination();
@@ -214,15 +215,12 @@ function playSelectedLesson() {
 function setupPagination() {
     paginationControls.innerHTML = "";
     const pageCount = Math.ceil(allFiles.length / itemsPerPage);
-    
-    if (pageCount <= 1) return; // لن تظهر أزرار الصفحات إلا إذا تجاوزت الدروس 10
+    if (pageCount <= 1) return;
 
     for (let i = 1; i <= pageCount; i++) {
         const btn = document.createElement("button");
         btn.innerText = `الصفحة ${i}`;
         btn.classList.add("page-btn");
-        btn.classList.add(`page-num-${i}`);
-        
         if (i === currentPage) btn.classList.add("active");
         
         btn.addEventListener("click", () => {
