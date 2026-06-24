@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفسير القرآن الكريم - الصفحة ١ - الشيخ سعيد دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #f8fcff; text-align: center; }
+        :root { 
+            --dark-blue: #2c5d87; 
+            --accent-blue: #72bcd4; 
+            --gold-color: #c59d31;
+            --light-bg: #f8fcff;
+            --beige-bar: #fdfae9;
+        }
+
+        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: var(--light-bg); text-align: center; }
         
-        /* شريط المواقيت المحدث (التاريخ يمين والمواقيت يسار) */
+        /* شريط المواقيت والتاريخ */
         .top-info-bar { 
-            background-color: #fdfae9; 
+            background-color: var(--beige-bar); 
             padding: 10px 30px; 
             display: flex; 
             justify-content: space-between; 
@@ -37,7 +45,7 @@
         }
         .date-box { 
             background: white; 
-            border: 1px solid #c59d31; 
+            border: 1px solid var(--gold-color); 
             border-radius: 25px; 
             padding: 7px 25px; 
             color: #333; 
@@ -47,39 +55,50 @@
         }
 
         /* الهيدر المدمج */
-        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid #72bcd4; }
+        .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid var(--accent-blue); }
         .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
 
-        /* القائمة الرئيسية */
+        /* القائمة الرئيسية الموحدة واحترافية الألوان */
         .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
         .nav-item { 
             text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; 
             font-weight: 900; font-size: 1.1rem; min-width: 120px; 
             display: flex; align-items: center; justify-content: center; gap: 8px; 
-            box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+            box-shadow: 0 4px 0 rgba(0,0,0,0.1); transition: 0.3s;
         }
+        .nav-item.home { background: var(--gold-color); }
+        .nav-item.tafseer { background: var(--dark-blue); }
+        .nav-item.audio { background: #87ceeb; }
+        .nav-item.khutbah { background: #5b9bd5; }
+        .nav-item.articles { background: #4f814f; }
+        .nav-item:hover { transform: translateY(-3px); filter: brightness(1.05); }
 
-        /* شبكة السور المخصصة لك بالتأثيرات الأصلية */
+        /* شبكة السور المطورة بالتأثيرات الـ 3D والأرقام الترتيبية */
         .main-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 15px; }
-        .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+        .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+        
         .btn-surah {
-            background-color: #72bcd4 !important; color: white !important; text-decoration: none !important;
-            height: 75px; border-radius: 12px; font-weight: 900; font-size: 1.3rem;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 0 #2c5d87; transition: 0.2s; border: none;
+            background-color: var(--accent-blue); color: white; text-decoration: none;
+            height: 80px; border-radius: 12px; font-weight: 900; font-size: 1.25rem;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+            box-shadow: 0 6px 0 var(--dark-blue); transition: 0.2s; border: none;
         }
-        .btn-surah:hover { background-color: #2c5d87; transform: translateY(-3px); box-shadow: 0 3px 0 #2c5d87; }
+        .btn-surah:hover { background-color: var(--dark-blue); transform: translateY(-3px); box-shadow: 0 3px 0 var(--dark-blue); }
+        .btn-surah:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--dark-blue); }
+        
+        /* دائرة الرقم الترتيبي الصغير المفضل لديك */
+        .surah-num { font-size: 0.75rem; opacity: 0.95; background: rgba(0,0,0,0.15); padding: 2px 10px; border-radius: 10px; font-weight: bold; }
 
-        /* الترقيم */
+        /* أرقام الصفحات (التنقل السفلي) */
         .pages-nav { display: flex; justify-content: center; gap: 10px; margin: 50px 0; }
         .page-num { 
             width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; 
-            border: 2px solid #72bcd4; text-decoration: none; color: #2c5d87; border-radius: 8px; font-weight: bold;
+            border: 2px solid var(--accent-blue); text-decoration: none; color: var(--dark-blue); border-radius: 8px; font-weight: bold;
         }
-        .page-num.active { background: #c59d31; color: white; border-color: #c59d31; box-shadow: 0 4px 0 #8c6d1a; }
+        .page-num.active { background: var(--gold-color); color: white; border-color: var(--gold-color); box-shadow: 0 4px 0 #8c6d1a; }
 
         /* الفوتر باللون البيج الفاتح المطلق */
-        footer { padding: 40px; background-color: #fdfae9; color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; font-size: 0.9rem; }
+        footer { padding: 40px; background-color: var(--beige-bar); color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -100,40 +119,42 @@
     </header>
 
     <nav class="main-nav">
-        <a href="index.html" class="nav-item" style="background:#c59d31;"><i class="fas fa-home"></i>الرئيسية</a>
-       <a href="lessons.html" class="nav-item" style="background:#87ceeb;"><i class="fas fa-volume-up"></i>الصوتيات</a>
-        <a href="khutbah.html" class="nav-item" style="background:#5b9bd5;"><i class="fas fa-microphone"></i>الخطب</a>
-        <a href="articles.html" class="nav-item" style="background:#4f814f;"><i class="fas fa-file-alt"></i>المقالات</a>
+        <a href="index.html" class="nav-item home"><i class="fas fa-home"></i>الرئيسية</a>
+        <a href="tafseer.html" class="nav-item tafseer"><i class="fas fa-book-open"></i>التفسير</a>
+        <a href="lessons.html" class="nav-item audio"><i class="fas fa-volume-up"></i>الصوتيات</a>
+        <a href="khutbah.html" class="nav-item khutbah"><i class="fas fa-microphone"></i>الخطب</a>
+        <a href="articles.html" class="nav-item articles"><i class="fas fa-file-alt"></i>المقالات</a>
     </nav>
 
     <div class="main-wrapper">
-        <h2 style="color: #2c5d87; border-bottom: 4px solid #c59d31; display: inline-block; padding-bottom: 8px; margin-bottom: 35px; font-weight: 900;">تفسير القرآن الكريم - الصفحة ١</h2>
+        <h2 style="color: var(--dark-blue); border-bottom: 4px solid var(--gold-color); display: inline-block; padding-bottom: 8px; margin-bottom: 35px; font-weight: 900;">تفسير القرآن الكريم - الصفحة ١</h2>
         
         <div class="surah-grid">
-            <a href="tafseer-fatiha.html" class="btn-surah">الفاتحة</a>
-            <a href="tafseer-baqara.html" class="btn-surah">البقرة</a>
-            <a href="tafseer-imran.html" class="btn-surah">آل عمران</a>
-            <a href="tafseer-al-nesa.html" class="btn-surah">النساء</a>
-            <a href="tafseer-maeda.html" class="btn-surah">المائدة</a>
-            <a href="tafseer-anaam.html" class="btn-surah">الأنعام</a>
-            <a href="tafseer-al-aaraf.html" class="btn-surah">الأعراف</a>
-            <a href="al-anfal.html" class="btn-surah">الأنفال</a>
-            <a href="tauba.html" class="btn-surah">التوبة</a>
-            <a href="yones.html" class="btn-surah">يونس</a>
-            <a href="tafseer-hood.html" class="btn-surah">هود</a>
-            <a href="tafseer-yusef.html" class="btn-surah">يوسف</a>
-            <a href="tafseer-rad.html" class="btn-surah">الرعد</a>
-            <a href="tafseer-ebrahem.html" class="btn-surah">إبراهيم</a>
-            <a href="tafseer-al-hegr.html" class="btn-surah">الحِجْر</a>
-            <a href="tafseer-alnahl.html" class="btn-surah">النحل</a>
-            <a href="tafseer-israa.html" class="btn-surah">الإسراء</a>
-            <a href="kahf.html" class="btn-surah">الكهف</a>
-            <a href="maryam.html" class="btn-surah">مريم</a>
-            <a href="taha.html" class="btn-surah">طه</a>
+            <a href="tafseer-fatiha.html" class="btn-surah"><span class="surah-num">١</span>الفاتحة</a>
+            <a href="tafseer-baqara.html" class="btn-surah"><span class="surah-num">٢</span>البقرة</a>
+            <a href="tafseer-imran.html" class="btn-surah"><span class="surah-num">٣</span>آل عمران</a>
+            <a href="tafseer-al-nesa.html" class="btn-surah"><span class="surah-num">٤</span>النساء</a>
+            <a href="tafseer-maeda.html" class="btn-surah"><span class="surah-num">٥</span>المائدة</a>
+            <a href="tafseer-anaam.html" class="btn-surah"><span class="surah-num">٦</span>الأنعام</a>
+            <a href="tafseer-al-aaraf.html" class="btn-surah"><span class="surah-num">٧</span>الأعراف</a>
+            <a href="al-anfal.html" class="btn-surah"><span class="surah-num">٨</span>الأنفال</a>
+            <a href="tauba.html" class="btn-surah"><span class="surah-num">٩</span>التوبة</a>
+            <a href="yones.html" class="btn-surah"><span class="surah-num">١٠</span>يونس</a>
+            <a href="tafseer-hood.html" class="btn-surah"><span class="surah-num">١١</span>هود</a>
+            <a href="tafseer-yusef.html" class="btn-surah"><span class="surah-num">١٢</span>يوسف</a>
+            <a href="tafseer-rad.html" class="btn-surah"><span class="surah-num">١٣</span>الرعد</a>
+            <a href="tafseer-ebrahem.html" class="btn-surah"><span class="surah-num">١٤</span>إبراهيم</a>
+            <a href="tafseer-al-hegr.html" class="btn-surah"><span class="surah-num">١٥</span>الحِجْر</a>
+            <a href="tafseer-alnahl.html" class="btn-surah"><span class="surah-num">١٦</span>النحل</a>
+            <a href="tafseer-israa.html" class="btn-surah"><span class="surah-num">١٧</span>الإسراء</a>
+            <a href="kahf.html" class="btn-surah"><span class="surah-num">١٨</span>الكهف</a>
+            <a href="maryam.html" class="btn-surah"><span class="surah-num">١٩</span>مريم</a>
+            <a href="taha.html" class="btn-surah"><span class="surah-num">٢٠</span>طه</a>
         </div>
 
+        <!-- الترقيم السفلي مع تصحيح رابط الصفحة الأولى ليعود للفهرس الرئيسي مباشرة -->
         <div class="pages-nav">
-            <a href="tafseer_index1.html" class="page-num active">1</a>
+            <a href="tafseer.html" class="page-num active">1</a>
             <a href="tafseer_index2.html" class="page-num">2</a>
             <a href="tafseer_index3.html" class="page-num">3</a>
             <a href="tafseer_index4.html" class="page-num">4</a>
