@@ -92,7 +92,7 @@ body{
     filter:brightness(1.02) contrast(1.05);
 }
 
-/* القائمة الرئيسية - تكبير الأزرار والخطوط في الأعلى */
+/* القائمة الرئيسية */
 .main-nav{
     display:flex;
     justify-content:center;
@@ -108,11 +108,11 @@ body{
 .nav-link{
     text-decoration:none;
     color:white;
-    padding:15px 45px; /* تكبير أزرار المنيو */
+    padding:15px 45px;
     border-radius:12px;
     font-weight:900;
     transition:0.3s;
-    font-size:1.25rem; /* تكبير خط المنيو */
+    font-size:1.25rem;
     box-shadow:0 5px 0 rgba(0,0,0,0.2);
 }
 
@@ -150,7 +150,7 @@ body{
     border-radius:10px;
 }
 
-/* بطاقات الأقسام - تكبير الحجم والخطوط بداخلها بالكامل */
+/* بطاقات الأقسام */
 .cards{
     display:flex;
     justify-content:center;
@@ -163,19 +163,20 @@ body{
 }
 
 .card{
-    min-width:280px; /* زيادة عرض البطاقات */
-    padding:35px 25px; /* زيادة الطول والحشو لتكبير الزر */
+    min-width:280px;
+    padding:35px 25px;
     border-radius:16px;
     color:white;
-    font-weight:900; /* جعل الخط عريضاً وواضحاً جداً */
-    font-size:1.4rem; /* تكبير الخط داخل الأزرار */
+    font-weight:900;
+    font-size:1.4rem;
     transition:0.3s;
     box-shadow:0 6px 0 rgba(0,0,0,0.2);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 110px; /* توحيد الارتفاع للمظهر المتناسق */
+    min-height: 110px;
+    cursor: pointer;
 }
 
 .card:hover{
@@ -235,43 +236,45 @@ footer{
 
     <div class="cards">
 
+        <!-- تم إبقاء هذا الرابط ليعمل مباشرة -->
         <a href="raq_mashahed.html" class="card-link">
             <div class="card card-blue">
                 <span>من مشاهد يوم القيامة</span>
             </div>
         </a>
 
-        <a href="virtues.html" class="card-link">
+        <!-- الروابط المتبقية تم تحويلها مؤقتاً لتعطي تنبيهاً بدلاً من خطأ 404 -->
+        <a href="javascript:void(0)" onclick="comingSoon('فضائل الأعمال')" class="card-link">
             <div class="card card-green">
                 <span>فضائل الأعمال</span>
             </div>
         </a>
 
-        <a href="raq_qass.html" class="card-link">
+        <a href="javascript:void(0)" onclick="comingSoon('قصص القرآن')" class="card-link">
             <div class="card card-gold">
                 <span>قصص القرآن</span>
             </div>
         </a>
 
-        <a href="azkar.html" class="card-link">
+        <a href="javascript:void(0)" onclick="comingSoon('أنوار الأذكار')" class="card-link">
             <div class="card card-blue">
                 <span>أنوار الأذكار</span>
             </div>
         </a>
 
-        <a href="mahaba.html" class="card-link">
+        <a href="javascript:void(0)" onclick="comingSoon('أسباب محبة الله')" class="card-link">
             <div class="card card-blue">
                 <span>أسباب محبة الله</span>
             </div>
         </a>
 
-        <a href="akhlaq.html" class="card-link">
+        <a href="javascript:void(0)" onclick="comingSoon('مكارم الأخلاق')" class="card-link">
             <div class="card card-blue">
                 <span>مكارم الأخلاق</span>
             </div>
         </a>
 
-        <a href="jannah.html" class="card-link">
+        <a href="javascript:void(0)" onclick="comingSoon('وصف الجنة ونعيمها')" class="card-link">
             <div class="card card-blue">
                 <span>وصف الجنة ونعيمها</span>
             </div>
@@ -286,6 +289,10 @@ footer{
 </footer>
 
 <script>
+function comingSoon(sectionName) {
+    alert("قسم (" + sectionName + ") سيتم تفعيله وإضافة المواد الصوتية الخاصة به قريباً بإذن الله.");
+}
+
 function updateDate(){
     const now = new Date();
     const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
