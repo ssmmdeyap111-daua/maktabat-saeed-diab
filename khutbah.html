@@ -64,13 +64,12 @@ body{
 
 .nav-link:hover, .page-btn:hover{ transform:translateY(-3px); box-shadow:0 8px 0 rgba(0,0,0,0.15); }
 
-/* ألوان أزرار التنقل المتناسقة بالتتابع مع ألوان الموقع المتواجدة في image_7cd47d.png */
+/* ألوان أزرار التنقل المتناسقة بالتتابع مع ألوان الموقع */
 .btn-home, .page-num-1 { background: var(--gold); }
 .btn-tafseer, .page-num-2 { background: var(--tafseer-blue); }
 .btn-audio, .page-num-3 { background: var(--audio-blue); }
 .btn-khutab, .page-num-4 { background: var(--khutab-blue); }
 .btn-articles, .page-num-5 { background: var(--articles-green); }
-/* في حال زادت الصفحات عن 5، تعود الألوان للتكرار */
 .page-num-6 { background: var(--gold); }
 .page-num-7 { background: var(--tafseer-blue); }
 .page-num-8 { background: var(--audio-blue); }
@@ -91,6 +90,7 @@ body{
 .cat-btn {
     background: white; border: 2px solid var(--primary); color: var(--primary);
     padding: 8px 18px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s;
+    font-family: 'Cairo', sans-serif;
 }
 .cat-btn.active, .cat-btn:hover { background: var(--primary); color: white; }
 
@@ -156,7 +156,6 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
     <h1 class="section-title">قسم الخطب والمواعظ</h1>
     <div class="title-line"></div>
 
-    <!-- أزرار الفئات وعلامات التصنيف من ملف image_7cd47d.png -->
     <div class="categories-container">
         <button class="cat-btn active" onclick="filterCategory('الكل')">كل الخطب</button>
         <button class="cat-btn" onclick="filterCategory('خطب منوعة')">خطب منوعة</button>
@@ -165,13 +164,10 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
         <button class="cat-btn" onclick="filterCategory('علامات الساعة')">علامات الساعة</button>
     </div>
 
-    <!-- خانة البحث تم إيقافها وإزالتها تماماً من هنا بناءً على طلبك -->
-
     <div class="series-info-box" id="count">عدد الخطب المعروضة حالياً: 0</div>
 
     <div id="lessons-container"></div>
 
-    <!-- أزرار التنقل الكبيرة الملونة تطابقاً مع أزرار الموقع العلوية -->
     <div class="pagination" id="pagination-controls"></div>
 </div>
 
@@ -180,23 +176,23 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
 </footer>
 
 <script>
-// مصفوفة البيانات لـ 72 خطبة (مرفق عينات تماثل الصورة ويمكنك تكرارها أو تعديل أسمائها)
+// بناء مسار الموقع المباشر والمستقر على جيت هاب لضمان عدم تلف مسارات الصوت والتحميل
+const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+
 const allKhutab = [
-    { title: "فضل يوم الجمعة", file: "khutba-1.mp3", category: "خطب منوعة" },
-    { title: "الميثاق الأول لحقوق الإنسان", file: "khutba-2.mp3", category: "خطب منوعة" },
-    { title: "فضائل الحج ومنزلته عند الله تعالى", file: "khutba-3.mp3", category: "خطب منوعة" },
-    { title: "خطبة العبودية", file: "khutba-4.mp3", category: "خطب منوعة" },
-    // قمت بتكرار البيانات هنا كنموذج لتصل إلى 72 خطبة ليتفعل نظام الصفحات تلقائياً
-    { title: "وصية الله ليحيى عليه السلام - الجزء الأول", file: "khutba-5.mp3", category: "وصية الله ليحيى" },
-    { title: "فضل الدعاء وأوقات الإجابة", file: "khutba-6.mp3", category: "فضل الدعاء وآدابه" },
-    { title: "الاستعداد لعلامات الساعة الصغرى", file: "khutba-7.mp3", category: "علامات الساعة" },
-    { title: "خطبة منوعة ثانية", file: "khutba-8.mp3", category: "خطب منوعة" },
-    { title: "خطبة منوعة ثالثة", file: "khutba-9.mp3", category: "خطب منوعة" },
-    { title: "خطبة منوعة رابعة", file: "khutba-10.mp3", category: "خطب منوعة" },
-    { title: "خطبة منوعة خامسة", file: "khutba-11.mp3", category: "خطب منوعة" },
-    { title: "خطبة منوعة سادسة", file: "khutba-12.mp3", category: "خطب منوعة" },
-    { title: "خطبة منوعة سابعة", file: "khutba-13.mp3", category: "خطب منوعة" }
-    // يمكنك إضافة بقية الـ 72 خطبة هنا بنفس الهيكل السلس
+    { title: "فضل يوم الجمعة", file: "audio/khutba-1.mp3", category: "خطب منوعة" },
+    { title: "الميثاق الأول لحقوق الإنسان", file: "audio/khutba-2.mp3", category: "خطب منوعة" },
+    { title: "فضائل الحج ومنزلته عند الله تعالى", file: "audio/khutba-3.mp3", category: "خطب منوعة" },
+    { title: "خطبة العبودية", file: "audio/khutba-4.mp3", category: "خطب منوعة" },
+    { title: "وصية الله ليحيى عليه السلام - الجزء الأول", file: "audio/khutba-5.mp3", category: "وصية الله ليحيى" },
+    { title: "فضل الدعاء وأوقات الإجابة", file: "audio/khutba-6.mp3", category: "فضل الدعاء وآدابه" },
+    { title: "الاستعداد لعلامات الساعة الصغرى", file: "audio/khutba-7.mp3", category: "علامات الساعة" },
+    { title: "خطبة منوعة ثانية", file: "audio/khutba-8.mp3", category: "خطب منوعة" },
+    { title: "خطبة منوعة ثالثة", file: "audio/khutba-9.mp3", category: "خطب منوعة" },
+    { title: "خطبة منوعة رابعة", file: "audio/khutba-10.mp3", category: "خطب منوعة" },
+    { title: "خطبة منوعة خامسة", file: "audio/khutba-11.mp3", category: "خطب منوعة" },
+    { title: "خطبة منوعة سادسة", file: "audio/khutba-12.mp3", category: "خطب منوعة" },
+    { title: "خطبة منوعة سابعة", file: "audio/khutba-13.mp3", category: "خطب منوعة" }
 ];
 
 let filteredKhutab = [...allKhutab];
@@ -220,6 +216,9 @@ function renderKhutab() {
     }
 
     pageItems.forEach((item) => {
+        // دمج الرابط الأساسي مع مسار الملف لضمان دقة الاستدعاء
+        const fullAudioPath = baseUrl + item.file;
+
         container.innerHTML += `
         <div class="lesson-card">
             <div class="lesson-info">
@@ -227,11 +226,10 @@ function renderKhutab() {
                 <span>${item.title}</span>
                 <span class="khutba-tag">${item.category}</span>
             </div>
-            <audio controls preload="none">
-                <source src="audio/${item.file}" type="audio/mpeg">
-            </audio>
+            <!-- إسناد الرابط المباشر للـ src بداخل الـ audio ليعمل على كافة الأجهزة فوراً -->
+            <audio controls preload="none" src="${fullAudioPath}"></audio>
             <div class="ctrl-actions">
-                <a href="audio/${item.file}" download class="btn-download-audio" title="تحميل الخطبة">
+                <a href="${fullAudioPath}" download class="btn-download-audio" title="تحميل الخطبة">
                     <i class="fas fa-circle-down"></i>
                 </a>
             </div>
@@ -252,7 +250,7 @@ function setupPagination() {
         const btn = document.createElement("button");
         btn.innerText = `الصفحة ${i}`;
         btn.classList.add("page-btn");
-        btn.classList.add(`page-num-${i}`); // تأخذ تتابع ألوان الهيدر الملوّن
+        btn.classList.add(`page-num-${i}`);
         
         if (i === currentPage) btn.classList.add("active");
         
@@ -265,9 +263,7 @@ function setupPagination() {
     }
 }
 
-// فلترة الخطب حسب التصنيف العلوى المشاهد في الصورة
 function filterCategory(catName) {
-    // تحديث أزرار الأكشن النشطة
     const buttons = document.querySelectorAll('.cat-btn');
     buttons.forEach(btn => {
         if(btn.innerText.includes(catName)) btn.classList.add('active');
