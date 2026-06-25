@@ -26,21 +26,6 @@
         .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid var(--tafseer-blue); }
         .site-header img { max-width: 600px; width: 90%; mix-blend-mode: multiply; margin: 0 auto; display: block; }
 
-        /* القائمة الرئيسية الموحدة لتسهيل التنقل والعودة للفهرس */
-        .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
-        .nav-item { 
-            text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; 
-            font-weight: 900; font-size: 1.1rem; min-width: 120px; 
-            display: flex; align-items: center; justify-content: center; gap: 8px; 
-            box-shadow: 0 4px 0 rgba(0,0,0,0.1); transition: 0.3s;
-        }
-        .nav-item.home { background: var(--gold); }
-        .nav-item.tafseer { background: var(--primary); }
-        .nav-item.audio { background: #87ceeb; }
-        .nav-item.khutbah { background: #5b9bd5; }
-        .nav-item.articles { background: #4f814f; }
-        .nav-item:hover { transform: translateY(-3px); filter: brightness(1.05); }
-
         .main-wrapper { max-width: 800px; margin: 40px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .section-title { color: var(--primary); border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 5px; margin-bottom: 20px; font-weight: 900; }
 
@@ -64,11 +49,11 @@
         .lessons-dropdown:focus { border-color: var(--tafseer-blue); }
 
         .player-box { display: flex; align-items: center; justify-content: center; gap: 20px; background: white; padding: 12px; border-radius: 8px; border: 1px solid #ddd; }
-        .player-box audio { flex-grow: 1; height: 38px; }
+        .player-box audio { flex-grow: 1; height: 38px; width: 100%; }
         .download-icon { color: #28a745; font-size: 1.6rem; text-decoration: none; transition: 0.2s; }
         .download-icon:hover { color: var(--gold); }
 
-        /* أزرار الصفحات السفلية */
+        /* أزرار الصفحات السفلية الملونة والموحدة */
         .pagination { display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
         .page-btn {
             cursor: pointer; border: none; padding: 12px 35px; border-radius: 10px;
@@ -77,6 +62,7 @@
         }
         .page-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,0,0,0.1); }
         
+        /* تلوين الصفحات لتتناسق مع ألوان الموقع الثابتة */
         .page-num-1 { background: var(--gold); }
         .page-num-2 { background: var(--tafseer-blue); }
         .page-num-3 { background: #6eb6d1; }
@@ -86,7 +72,6 @@
         footer { padding: 40px; background-color: var(--beige-light); color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; }
         @media(max-width:768px){
             .player-box { flex-direction: column; }
-            .player-box audio { width: 100%; }
             .page-btn { width: 100%; padding: 10px; }
         }
     </style>
@@ -107,35 +92,29 @@
 
     <header class="site-header"><img src="images/logo.png.jpg" alt="الشيخ سعيد دياب"></header>
 
-    <!-- قائمة التصفح الموحدة المضافة -->
-    <nav class="main-nav">
-        <a href="index.html" class="nav-item home"><i class="fas fa-home"></i>الرئيسية</a>
-        <a href="tafseer.html" class="nav-item tafseer"><i class="fas fa-book-open"></i>التفسير</a>
-        <a href="lessons.html" class="nav-item audio"><i class="fas fa-volume-up"></i>الصوتيات</a>
-        <a href="khutbah.html" class="nav-item khutbah"><i class="fas fa-microphone"></i>الخطب</a>
-        <a href="articles.html" class="nav-item articles"><i class="fas fa-file-alt"></i>المقالات</a>
-    </nav>
-
     <div class="main-wrapper">
         <h2 class="section-title">تفسير سورة الإسراء</h2>
         <br>
         <div class="series-info-box" id="count-box">جاري حساب الدروس...</div>
 
+        <!-- صندوق القائمة المنسدلة والمشغل الصوتي الموحد -->
         <div class="dropdown-container">
             <label class="dropdown-label" for="israaSelect">اختر الدرس من القائمة المنسدلة:</label>
             <select id="israaSelect" class="lessons-dropdown" onchange="playSelectedLesson()">
-                <!-- الخيارات تضاف هنا برمجياً -->
+                <!-- الخيارات تتغير برمجياً هنا -->
             </select>
 
             <div class="player-box">
-                <!-- تم إسناد الـ id للمشغل مباشرة لحل مشكلة عدم التشغيل -->
-                <audio id="mainAudioPlayer" controls preload="none" src=""></audio>
+                <audio id="mainAudioPlayer" controls preload="none">
+                    <source id="audioSource" src="" type="audio/mpeg">
+                </audio>
                 <a id="downloadBtn" href="#" download class="download-icon" title="تحميل الدرس الحالي">
                     <i class="fas fa-cloud-download-alt"></i>
                 </a>
             </div>
         </div>
 
+        <!-- أزرار الصفحات المقسمة (كل صفحة 10 دروس) -->
         <div class="pagination" id="pagination-controls"></div>
     </div>
 
@@ -144,6 +123,8 @@
     <script>
         const totalLessons = 30;
         const allFiles = [];
+        
+        // 💡 تلميح: إذا كانت ملفات الـ MP3 داخل مجلد اسمه audio، اجعلها: `audio/israa-${i}.mp3`
         for(let i = 1; i <= totalLessons; i++) {
             allFiles.push(`israa-${i}.mp3`);
         }
@@ -153,6 +134,7 @@
 
         const selectEl = document.getElementById("israaSelect");
         const audioPlayer = document.getElementById("mainAudioPlayer");
+        const audioSource = document.getElementById("audioSource");
         const downloadBtn = document.getElementById("downloadBtn");
         const paginationControls = document.getElementById("pagination-controls");
 
@@ -177,11 +159,12 @@
             setupPagination();
         }
 
-        // دالة التشغيل المصححة بالكامل والمضمونة للمتصفحات
         function playSelectedLesson() {
             const selectedFile = selectEl.value;
             if (selectedFile) {
-                audioPlayer.src = selectedFile; // تحديث السورس مباشرة في عنصر الأوديو
+                // تحديث السورس والمشغل معاً لضمان العمل على الهواتف والمتصفحات الحديثة
+                audioSource.src = selectedFile;
+                audioPlayer.src = selectedFile; 
                 audioPlayer.load(); 
                 downloadBtn.href = selectedFile;
             }
