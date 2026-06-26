@@ -176,7 +176,6 @@ footer{ background:var(--beige-light); color:#555; text-align:center; padding:35
 </footer>
 
 <script>
-// بناء مسار الموقع المباشر والمستقر على جيت هاب لضمان عدم تلف مسارات الصوت والتحميل
 const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
 
 const allKhutab = [
@@ -216,7 +215,6 @@ function renderKhutab() {
     }
 
     pageItems.forEach((item) => {
-        // دمج الرابط الأساسي مع مسار الملف لضمان دقة الاستدعاء
         const fullAudioPath = baseUrl + item.file;
 
         container.innerHTML += `
@@ -226,7 +224,6 @@ function renderKhutab() {
                 <span>${item.title}</span>
                 <span class="khutba-tag">${item.category}</span>
             </div>
-            <!-- إسناد الرابط المباشر للـ src بداخل الـ audio ليعمل على كافة الأجهزة فوراً -->
             <audio controls preload="none" src="${fullAudioPath}"></audio>
             <div class="ctrl-actions">
                 <a href="${fullAudioPath}" download class="btn-download-audio" title="تحميل الخطبة">
@@ -266,8 +263,11 @@ function setupPagination() {
 function filterCategory(catName) {
     const buttons = document.querySelectorAll('.cat-btn');
     buttons.forEach(btn => {
-        if(btn.innerText.includes(catName)) btn.classList.add('active');
-        else btn.classList.remove('active');
+        if(btn.innerText.trim().includes(catName) || (catName === 'الكل' && btn.innerText.trim() === 'كل الخطب')) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
     });
 
     if(catName === 'الكل') {
@@ -279,12 +279,6 @@ function filterCategory(catName) {
     currentPage = 1;
     renderKhutab();
 }
-
-window.onload = () => {
-    renderKhutab();
-    updateDate();
-    getPrayers();
-};
 
 function updateDate(){
     const now = new Date();
@@ -307,6 +301,12 @@ async function getPrayers(){
         `;
     } catch(e) { }
 }
+
+window.onload = () => {
+    renderKhutab();
+    updateDate();
+    getPrayers();
+};
 </script>
 
 </body>
