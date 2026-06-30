@@ -212,7 +212,7 @@ let items=allFiles.slice(start,end);
 
 items.forEach((file,i)=>{
 let opt=document.createElement("option");
-opt.value = baseUrl + "audio/" + file; 
+opt.value = "audio/" + file;
 opt.textContent="الدرس رقم "+(start+i+1);
 select.appendChild(opt);
 });
