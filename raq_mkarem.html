@@ -43,15 +43,67 @@
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
-    <script>
-        const totalLessons = 40;
-        const lessonsPerPage = 10;
-        
-        // تعديل الإعدادات لتناسب ملفك بالضبط: mkarem-5.MP3
-        const config = {
-            prefix: "mkarem-", 
-            extension: ".MP3" 
-        };
+     <script>
+const lessons = [
+"mkarem-1.MP3",
+"mkarem-2.MP3",
+"mkarem-3.MP3",
+"mkarem-4.MP3",
+"mkarem-5.MP3",
+"mkarem-6.MP3",
+"mkarem-7.MP3",
+"mkarem-8.MP3",
+"mkarem-9.MP3",
+"mkarem-10.MP3",
+"mkarem-11.MP3",
+"mkarem-12.MP3",
+"mkarem-13.MP3",
+"mkarem-14.MP3",
+"mkarem-15.MP3",
+"mkarem-16.MP3",
+"mkarem-17.MP3",
+"mkarem-18.MP3",
+"mkarem-19.MP3",
+"mkarem-20.MP3",
+"mkarem-21.MP3",
+"mkarem-22.MP3"
+];
+
+const lessonsPerPage = 10;
+
+function showPage(pageNumber) {
+    const container = document.getElementById('lessons-container');
+    container.innerHTML = "";
+
+    document.querySelectorAll('.page-btn').forEach((btn, index) => {
+        btn.classList.toggle('active', index + 1 === pageNumber);
+    });
+
+    const start = (pageNumber - 1) * lessonsPerPage;
+    const end = Math.min(start + lessonsPerPage, lessons.length);
+
+    for (let i = start; i < end; i++) {
+        const fileName = "audio/" + lessons[i];
+
+        container.innerHTML += `
+        <div class="lesson-row">
+            <span class="lesson-text">الدرس رقم (${i + 1})</span>
+
+            <audio controls preload="none">
+                <source src="${fileName}" type="audio/mpeg">
+            </audio>
+
+            <a href="${fileName}" download class="btn-download">
+                <i class="fas fa-circle-down"></i>
+            </a>
+        </div>`;
+    }
+
+    window.scrollTo(0, 300);
+}
+
+window.onload = () => showPage(1);
+</script> 
 
         function showPage(pageNumber) {
             const container = document.getElementById('lessons-container');
