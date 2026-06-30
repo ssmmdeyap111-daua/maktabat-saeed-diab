@@ -59,18 +59,36 @@ body{
     padding:22px; background:var(--beige-light); border-top:1px solid #ddd; border-bottom:1px solid #ddd; flex-wrap:wrap;
 }
 
-.nav-link, .page-btn {
+.nav-link,
+.page-btn{
     text-decoration:none;
-    color:white;
+    color:#fff;
     border:none;
     padding:18px 55px;
     border-radius:14px;
     font-weight:900;
-    transition:0.3s;
+    transition:.3s;
     font-size:1.35rem;
-    box-shadow:0 5px 0 rgba(0,0,0,0.2);
+    box-shadow:0 5px 0 rgba(0,0,0,.2);
     cursor:pointer;
     font-family:'Cairo',sans-serif;
+}
+
+/* أزرار القائمة الرئيسية */
+.btn-home,
+.btn-tafseer,
+.btn-audio,
+.btn-khutab,
+.btn-articles{
+    background:#73b8d4;
+}
+
+.btn-home:hover,
+.btn-tafseer:hover,
+.btn-audio:hover,
+.btn-khutab:hover,
+.btn-articles:hover{
+    background:#5faecc;
 }
 .nav-link:hover, .page-btn:hover{ transform:translateY(-3px); box-shadow:0 8px 0 rgba(0,0,0,0.15); }
 
