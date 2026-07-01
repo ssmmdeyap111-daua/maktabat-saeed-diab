@@ -255,5 +255,18 @@ render();
     color:green;
     text-decoration:none;
 }
+function togglePlay(btn){
+    const audio = btn.nextElementSibling;
+
+    if(audio.paused){
+        document.querySelectorAll("audio").forEach(a => a.pause());
+        audio.play();
+        btn.innerText = "⏸";
+    } else {
+        audio.pause();
+        btn.innerText = "▶";
+    }
+}
+
 </body>
 </html>
