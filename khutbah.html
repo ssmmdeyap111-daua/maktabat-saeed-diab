@@ -4,139 +4,157 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>مكتبة الخطب - الشيخ سعيد مصطفى دياب</title>
+<title>مكتبة الخطب - Spotify Style</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="manifest" href="manifest.json">
+
 <style>
 body{
-    margin:0;
-    font-family:'Cairo',sans-serif;
-    background:#eef1f4;
+margin:0;
+font-family:'Cairo',sans-serif;
+background:#121212;
+color:#fff;
 }
 
-/* شريط علوي */
+/* الهيدر */
 header{
-    background:#2d5f8b;
-    color:#fff;
-    padding:15px;
-    text-align:center;
-    font-weight:900;
+background:#1f1f1f;
+padding:15px;
+text-align:center;
+font-weight:900;
+color:#1db954;
 }
 
-/* أقسام */
+/* الأقسام */
 .tabs{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:8px;
-    padding:10px;
+display:flex;
+gap:8px;
+overflow:auto;
+padding:10px;
+background:#181818;
 }
 
 .tab{
-    padding:8px 14px;
-    border-radius:20px;
-    border:2px solid #2d5f8b;
-    background:#fff;
-    cursor:pointer;
-    font-weight:700;
+background:#282828;
+padding:8px 14px;
+border-radius:20px;
+cursor:pointer;
+white-space:nowrap;
+font-weight:700;
 }
 
 .tab.active{
-    background:#2d5f8b;
-    color:#fff;
+background:#1db954;
+color:#000;
 }
 
-/* قائمة */
+/* القائمة */
 .container{
-    max-width:900px;
-    margin:auto;
-    padding:10px;
+padding:10px;
+padding-bottom:120px;
 }
 
 .card{
-    background:#fff;
-    padding:12px;
-    margin:10px 0;
-    border-radius:12px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-right:5px solid #caa230;
+background:#181818;
+padding:12px;
+margin:8px 0;
+border-radius:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .title{
-    font-weight:800;
-    color:#2d5f8b;
+font-weight:700;
 }
 
-button.play{
-    background:#2d5f8b;
-    color:#fff;
-    border:none;
-    padding:10px 14px;
-    border-radius:10px;
-    cursor:pointer;
+.play{
+background:#1db954;
+border:none;
+padding:8px 12px;
+border-radius:10px;
+cursor:pointer;
+font-weight:900;
 }
 
-/* مشغل ثابت */
+/* شريط التشغيل */
 .player{
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    background:#fff;
-    padding:10px;
-    box-shadow:0 -2px 10px rgba(0,0,0,0.2);
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#181818;
+padding:10px;
+border-top:1px solid #333;
 }
 
-audio{width:100%;}
+.controls{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+}
+
+.ctrl-btn{
+background:#1db954;
+border:none;
+padding:8px 12px;
+border-radius:10px;
+cursor:pointer;
+font-weight:900;
+}
+
+audio{
+width:100%;
+margin-top:8px;
+}
 </style>
 </head>
 
 <body>
-<script>
-if ("serviceWorker" in navigator) {
-navigator.serviceWorker.register("sw.js");
-}
-</script>
-<header>📚 مكتبة الخطب والمواعظ</header>
+
+<header>🎧 مكتبة الخطب - Spotify Style</header>
 
 <div class="tabs">
-    <div class="tab active" onclick="setCat('all')">الكل</div>
-    <div class="tab" onclick="setCat('علامات')">علامات الساعة</div>
-    <div class="tab" onclick="setCat('خمس')">أمرني بخمس</div>
-    <div class="tab" onclick="setCat('دعاء')">فضل الدعاء</div>
-    <div class="tab" onclick="setCat('منوع')">منوعات</div>
+<div class="tab active" onclick="setCat('all')">الكل</div>
+<div class="tab" onclick="setCat('علامات')">علامات الساعة</div>
+<div class="tab" onclick="setCat('خمس')">أمرني بخمس</div>
+<div class="tab" onclick="setCat('دعاء')">فضل الدعاء</div>
+<div class="tab" onclick="setCat('منوع')">منوعات</div>
 </div>
 
 <div class="container" id="list"></div>
 
 <div class="player">
-    <audio id="audio" controls></audio>
+<div class="controls">
+<button class="ctrl-btn" onclick="prev()">⏮</button>
+<button class="ctrl-btn" onclick="toggle()">⏯</button>
+<button class="ctrl-btn" onclick="next()">⏭</button>
+</div>
+
+<audio id="audio" controls></audio>
 </div>
 
 <script>
 
-/* البيانات */
 const tracks = [
 
 ...Array.from({length:43},(_,i)=>({
-    t:`علامات الساعة ${i+1}`,
-    s:`audio/alamat-${i+1}.mp3`,
-    c:"علامات"
+t:`علامات الساعة ${i+1}`,
+s:`audio/alamat-${i+1}.mp3`,
+c:"علامات"
 })),
 
 ...Array.from({length:11},(_,i)=>({
-    t:`أمرني بخمس ${i+1}`,
-    s:`audio/amrany-bekams-${i+1}.mp3`,
-    c:"خمس"
+t:`أمرني بخمس ${i+1}`,
+s:`audio/amrany-bekams-${i+1}.mp3`,
+c:"خمس"
 })),
 
 ...Array.from({length:6},(_,i)=>({
-    t:`فضل الدعاء ${i+1}`,
-    s:`audio/fadl-aldoaa-${i+1}.mp3`,
-    c:"دعاء"
+t:`فضل الدعاء ${i+1}`,
+s:`audio/fadl-aldoaa-${i+1}.mp3`,
+c:"دعاء"
 })),
 
 {t:"فضل الجمعة",s:"audio/fadl-algomaa.mp3",c:"منوع"},
@@ -147,49 +165,58 @@ const tracks = [
 ];
 
 let cat="all";
+let current=0;
 const audio=document.getElementById("audio");
+
+function filtered(){
+return tracks.filter(x=>cat=="all"?true:x.c==cat);
+}
 
 /* عرض */
 function render(){
 let list=document.getElementById("list");
 list.innerHTML="";
 
-tracks.filter(x=>cat=="all"?true:x.c==cat)
-.forEach((x,i)=>{
-
+filtered().forEach((x,i)=>{
 list.innerHTML+=`
 <div class="card">
 <div class="title">${x.t}</div>
-<button class="play" onclick="play(${tracks.indexOf(x)})">▶</button>
+<button class="play" onclick="playGlobal(${tracks.indexOf(x)})">▶</button>
 </div>
 `;
-
 });
 }
 
 /* تشغيل */
-function play(i){
+function playGlobal(i){
+current=i;
 audio.src=tracks[i].s;
 audio.play();
-localStorage.setItem("last",i);
+}
+
+/* تحكم */
+function next(){
+if(current<tracks.length-1) playGlobal(current+1);
+}
+
+function prev(){
+if(current>0) playGlobal(current-1);
+}
+
+function toggle(){
+if(audio.paused) audio.play();
+else audio.pause();
 }
 
 /* قسم */
 function setCat(c){
 cat=c;
-render();
 document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
 event.target.classList.add("active");
-}
-
-/* آخر تشغيل */
-function last(){
-let i=localStorage.getItem("last");
-if(i!==null) play(parseInt(i));
+render();
 }
 
 render();
-last();
 
 </script>
 
