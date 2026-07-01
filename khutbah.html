@@ -140,18 +140,24 @@ body{
 const itemsPerPage = 10;
 let page = 1;
 let currentIndex = 0;
-let tracks = [];
+const tracks = [
+    { title: "علامات الساعة 1", src: "audio/alamat-1.mp3" },
+    { title: "علامات الساعة 2", src: "audio/alamat-2.mp3" },
+    { title: "علامات الساعة 3", src: "audio/alamat-3.mp3" },
+    { title: "علامات الساعة 4", src: "audio/alamat-4.mp3" },
+    { title: "علامات الساعة 5", src: "audio/alamat-5.mp3" },
+    { title: "علامات الساعة 6", src: "audio/alamat-6.mp3" },
+    { title: "علامات الساعة 7", src: "audio/alamat-7.mp3" },
+    { title: "علامات الساعة 8", src: "audio/alamat-8.mp3" },
+    { title: "علامات الساعة 9", src: "audio/alamat-9.mp3" },
+    { title: "علامات الساعة 10", src: "audio/alamat-10.mp3" },
+    { title: "علامات الساعة 11", src: "audio/alamat-11.mp3" },
+    { title: "علامات الساعة 12", src: "audio/alamat-12.mp3" },
+    { title: "علامات الساعة 13", src: "audio/alamat-13.mp3" }
+];
 
-const player = document.getElementById("player");
-
-/* 🔥 تحميل الملفات من JSON */
-fetch("tracks.json")
-.then(r => r.json())
-.then(data => {
-    tracks = data;
-    render();
-    loadLast();
-});
+render();
+loadLast();
 
 /* عرض */
 function render(){
