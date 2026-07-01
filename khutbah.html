@@ -13,29 +13,20 @@
 :root{
     --primary:#2d5f8b;
     --gold:#caa230;
-    --beige-light:#efe6d6;
-    --beige-dark:#d8c7a8;
 }
-
-*{ box-sizing:border-box; }
 
 body{
     margin:0;
     font-family:'Cairo',sans-serif;
     background:#eef1f4;
-    color:#333;
 }
 
 /* الهيدر */
 .site-header{
     text-align:center;
-    padding:25px;
-    background:#dce7ea;
+    padding:20px;
 }
-.site-logo{
-    max-width:600px;
-    width:100%;
-}
+.site-logo{max-width:500px;width:100%;}
 
 /* القائمة */
 .main-nav{
@@ -43,90 +34,82 @@ body{
     justify-content:center;
     flex-wrap:wrap;
     gap:10px;
-    padding:15px;
-    background:var(--beige-light);
+    padding:10px;
 }
 
 .nav-link{
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:10px;
-    color:#fff;
-    font-weight:900;
     background:var(--primary);
+    color:#fff;
+    padding:10px 20px;
+    border-radius:8px;
+    text-decoration:none;
 }
 
 /* العنوان */
 .container{
     max-width:1000px;
     margin:auto;
-    padding:30px 15px;
+    padding:20px;
     text-align:center;
 }
 
 .section-title{
     color:var(--primary);
     font-size:2rem;
-    font-weight:900;
 }
 
-/* الخطب */
-.lesson-card{
-    background:#fff;
-    margin:15px 0;
-    padding:15px;
-    border-radius:12px;
+/* الكارد */
+.audio-box{
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:10px;
+    background:#fff;
+    padding:12px;
+    border-radius:12px;
+    margin:10px 0;
     border-right:5px solid var(--gold);
 }
 
-.lesson-info{
+.audio-title{
+    flex:1;
     font-weight:800;
     color:var(--primary);
-    flex:1;
+    text-align:right;
 }
 
-audio{
-    width:300px;
+.play-btn{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    cursor:pointer;
 }
 
-.btn-download-audio{
+.download-btn{
     color:green;
-    font-size:1.5rem;
+    font-size:20px;
+    text-decoration:none;
 }
 
-/* زر الصفحات */
+/* pagination */
 .pagination{
-    margin-top:30px;
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
+    margin-top:20px;
 }
 
 .page-btn{
-    padding:10px 20px;
+    padding:8px 15px;
+    margin:3px;
     border:none;
-    border-radius:8px;
-    font-weight:800;
-    cursor:pointer;
+    border-radius:6px;
     background:var(--gold);
+    cursor:pointer;
 }
 
 .page-btn.active{
     outline:3px solid var(--primary);
-}
-
-@media(max-width:768px){
-    .lesson-card{
-        flex-direction:column;
-    }
-    audio{
-        width:100%;
-    }
 }
 </style>
 </head>
@@ -139,134 +122,106 @@ audio{
 
 <nav class="main-nav">
     <a href="index.html" class="nav-link">الرئيسية</a>
-    <a href="tafseer.html" class="nav-link">التفسير</a>
-    <a href="lessons.html" class="nav-link">الصوتيات</a>
     <a href="khutab.html" class="nav-link">الخطب</a>
-    <a href="articles.html" class="nav-link">المقالات</a>
 </nav>
 
 <div class="container">
 
 <h1 class="section-title">قسم الخطب والمواعظ</h1>
 
-<div id="lessons-container"></div>
+<div id="list"></div>
+<div class="pagination" id="pagination"></div>
 
-<div class="pagination" id="pagination-controls"></div>
+<audio id="player" controls style="width:100%; margin-top:20px;"></audio>
 
 </div>
 
 <script>
 const itemsPerPage = 10;
-let currentPage = 1;
+let page = 1;
+let currentIndex = 0;
+let tracks = [];
 
-/* 🔴 الملفات الحقيقية عندك على GitHub */
-const allKhutab = Array.from({ length: 43 }, (_, i) => ({
-    title: `علامات الساعة ${i + 1}`,
-    file: `audio/alamat-${i + 1}.mp3`,
-    category: "علامات الساعة"
-}));
+const player = document.getElementById("player");
 
-let filtered = [...allKhutab];
+/* 🔥 تحميل الملفات من JSON */
+fetch("tracks.json")
+.then(r => r.json())
+.then(data => {
+    tracks = data;
+    render();
+    loadLast();
+});
 
-function render() {
-    const container = document.getElementById("lessons-container");
-    container.innerHTML = "";
+/* عرض */
+function render(){
+    const box = document.getElementById("list");
+    box.innerHTML = "";
 
-    const start = (currentPage - 1) * itemsPerPage;
-    const pageItems = filtered.slice(start, start + itemsPerPage);
+    const start = (page-1)*itemsPerPage;
+    const items = tracks.slice(start, start+itemsPerPage);
 
-    pageItems.forEach(item => {
+    items.forEach((t,i) => {
 
-        const fullPath = item.file;
+        const realIndex = start + i;
 
-        container.innerHTML += `
-        <div class="lesson-card">
-            <div class="lesson-info">
-                <i class="fas fa-microphone"></i>
-                ${item.title}
-            </div>
+        box.innerHTML += `
+        <div class="audio-box">
+            <button class="play-btn" onclick="play(${realIndex})">▶</button>
 
-            <audio controls preload="none">
-                <source src="${fullPath}" type="audio/mpeg">
-            </audio>
+            <div class="audio-title">${t.title}</div>
 
-            <a class="btn-download-audio" href="${fullPath}" download>
-                ⬇
-            </a>
+            <a class="download-btn" href="${t.src}" download>⬇</a>
         </div>`;
     });
 
-    renderPagination();
+    renderPages();
 }
 
-function renderPagination() {
-    const pages = Math.ceil(filtered.length / itemsPerPage);
-    const box = document.getElementById("pagination-controls");
+/* تشغيل */
+function play(i){
+    currentIndex = i;
+    player.src = tracks[i].src;
+    player.play();
+
+    localStorage.setItem("last", i);
+}
+
+/* تشغيل تلقائي */
+player.addEventListener("ended", () => {
+    if(currentIndex < tracks.length-1){
+        play(currentIndex+1);
+    }
+});
+
+/* آخر تشغيل */
+function loadLast(){
+    let last = localStorage.getItem("last");
+    if(last !== null){
+        play(parseInt(last));
+    }
+}
+
+/* صفحات */
+function renderPages(){
+    const pages = Math.ceil(tracks.length/itemsPerPage);
+    const box = document.getElementById("pagination");
+
     box.innerHTML = "";
 
     for(let i=1;i<=pages;i++){
         box.innerHTML += `
-        <button class="page-btn ${i===currentPage?'active':''}" onclick="go(${i})">
-            ${i}
-        </button>`;
+        <button class="page-btn ${i===page?'active':''}" onclick="go(${i})">${i}</button>
+        `;
     }
 }
 
-function go(page){
-    currentPage = page;
+function go(p){
+    page = p;
     render();
-    window.scrollTo({ top: 300, behavior: "smooth" });
+    window.scrollTo({top:200, behavior:"smooth"});
 }
-
-render();
 </script>
-.audio-box{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    background:#fff;
-    padding:12px 15px;
-    border-radius:12px;
-    margin:12px 0;
-    border-right:5px solid var(--gold);
-    box-shadow:0 3px 10px rgba(0,0,0,0.05);
-}
-
-.play-btn{
-    background:var(--primary);
-    color:#fff;
-    border:none;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    font-size:16px;
-    cursor:pointer;
-}
-
-.audio-title{
-    flex:1;
-    font-weight:800;
-    color:var(--primary);
-}
-
-.download-btn{
-    font-size:20px;
-    color:green;
-    text-decoration:none;
-}
-function togglePlay(btn){
-    const audio = btn.nextElementSibling;
-
-    if(audio.paused){
-        document.querySelectorAll("audio").forEach(a => a.pause());
-        audio.play();
-        btn.innerText = "⏸";
-    } else {
-        audio.pause();
-        btn.innerText = "▶";
-    }
-}
 
 </body>
 </html>
