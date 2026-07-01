@@ -1,1 +1,23 @@
 
+{
+"name": "مكتبة الخطب",
+"short_name": "الخطب",
+"start_url": "khutbah.html",
+"display": "standalone",
+"background_color": "#2d5f8b",
+"theme_color": "#2d5f8b",
+"dir": "rtl",
+"lang": "ar",
+"icons": [
+{
+"src": "icon.png",
+"sizes": "192x192",
+"type": "image/png"
+},
+{
+"src": "icon.png",
+"sizes": "512x512",
+"type": "image/png"
+}
+]
+}
