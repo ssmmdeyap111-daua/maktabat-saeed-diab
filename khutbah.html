@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>متجر مكتبة الخطب</title>
+<title>قسم الخطب والمواعظ</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -12,215 +13,222 @@
 body{
 margin:0;
 font-family:'Cairo',sans-serif;
-background:#f4f6f9;
+background:#f5f7fb;
 }
 
-/* الهيدر */
-header{
-background:#1e3c72;
-color:#fff;
-padding:15px;
+/* الهيدر مثل موقعك */
+.header{
+background:linear-gradient(135deg,#cfe9f2,#b7dce8);
 text-align:center;
-font-weight:900;
+padding:20px;
 }
 
-/* بحث */
+.header img{
+max-width:600px;
+width:100%;
+}
+
+/* الآية */
+.ayah{
+background:#fff;
+border-top:2px solid #d4a017;
+border-bottom:2px solid #d4a017;
+padding:12px;
+text-align:center;
+color:#1f4e79;
+font-size:18px;
+}
+
+/* البحث */
 .search{
-padding:10px;
+text-align:center;
+margin:20px;
 }
 
 .search input{
-width:100%;
+width:60%;
 padding:12px;
-border-radius:10px;
+border-radius:25px;
 border:1px solid #ccc;
 font-family:'Cairo';
+outline:none;
 }
 
-/* grid */
+/* الأزرار */
+.cats{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin:20px;
+}
+
+.cat{
+padding:12px 18px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-weight:900;
+font-family:'Cairo';
+color:#fff;
+}
+
+.cat1{background:#d4a017;}
+.cat2{background:#5aa9e6;}
+.cat3{background:#2d5f8b;}
+.cat4{background:#3a7d44;}
+.cat5{background:#8e44ad;}
+
+/* الكتب (نفس موقعك تقريبًا) */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:10px;
-padding:10px;
+gap:15px;
+padding:20px;
 }
 
-/* card */
-.card{
+.book{
 background:#fff;
 border-radius:12px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
 overflow:hidden;
-box-shadow:0 2px 8px rgba(0,0,0,.1);
 cursor:pointer;
 transition:.2s;
 }
 
-.card:hover{
+.book:hover{
 transform:scale(1.03);
 }
 
-.card img{
+.book img{
 width:100%;
-height:120px;
+height:180px;
 object-fit:cover;
 }
 
-.card .title{
-padding:8px;
-font-weight:800;
+.book h3{
 text-align:center;
-color:#1e3c72;
+padding:10px;
+font-size:14px;
+color:#1f4e79;
 }
 
-/* صفحة التفاصيل */
-.detail{
-display:none;
+/* مشغل */
+.player{
 position:fixed;
-top:0;left:0;right:0;bottom:0;
+bottom:0;
+left:0;
+right:0;
 background:#fff;
-z-index:10;
-padding:15px;
-overflow:auto;
+border-top:1px solid #ccc;
+padding:10px;
 }
 
-.detail img{
+audio{
 width:100%;
-border-radius:10px;
-}
-
-.btn{
-display:block;
-width:100%;
-padding:12px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-font-weight:900;
-cursor:pointer;
-}
-
-.play{background:#1db954;color:#fff;}
-.download{background:#1e3c72;color:#fff;}
-.fav{background:#ffcc00;}
-
-.back{
-background:#333;
-color:#fff;
-margin-bottom:10px;
 }
 </style>
 </head>
 
 <body>
 
-<header>🛒 متجر مكتبة الخطب</header>
+<!-- الهيدر -->
+<div class="header">
+    <img src="images/logo.png.jpg">
+</div>
 
+<!-- الآية -->
+<div class="ayah">
+قال الله تعالى: ﴿وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ﴾
+</div>
+
+<!-- البحث -->
 <div class="search">
 <input type="text" placeholder="ابحث عن خطبة..." oninput="search(this.value)">
 </div>
 
+<!-- الأقسام -->
+<div class="cats">
+<button class="cat cat1" onclick="filter('all')">الكل</button>
+<button class="cat cat2" onclick="filter('علامات')">علامات الساعة</button>
+<button class="cat cat3" onclick="filter('خمس')">أمرني بخمس</button>
+<button class="cat cat4" onclick="filter('دعاء')">فضل الدعاء</button>
+<button class="cat cat5" onclick="filter('منوع')">منوعات</button>
+</div>
+
+<!-- الكتب -->
 <div class="grid" id="grid"></div>
 
-<!-- صفحة التفاصيل -->
-<div class="detail" id="detail">
-
-<button class="btn back" onclick="closeDetail()">⬅ رجوع</button>
-
-<img id="dimg">
-<h2 id="dtitle"></h2>
-
-<button class="btn play" onclick="play()">▶ تشغيل</button>
-<button class="btn download" id="dlink">⬇ تحميل</button>
-<button class="btn fav" onclick="fav()">❤️ مفضلة</button>
-
-<audio id="audio" controls style="width:100%;margin-top:10px;"></audio>
-
+<!-- مشغل -->
+<div class="player">
+<audio id="audio" controls></audio>
 </div>
 
 <script>
 
-/* البيانات */
 const tracks = [
 
 ...Array.from({length:43},(_,i)=>({
 t:`علامات الساعة ${i+1}`,
 s:`audio/alamat-${i+1}.mp3`,
-img:"images/alamats.jpg"
+c:"علامات",
+img:"images/book1.jpg"
 })),
 
 ...Array.from({length:11},(_,i)=>({
 t:`أمرني بخمس ${i+1}`,
 s:`audio/amrany-bekams-${i+1}.mp3`,
-img:"images/dua.jpg"
+c:"خمس",
+img:"images/book2.jpg"
 })),
 
 ...Array.from({length:6},(_,i)=>({
 t:`فضل الدعاء ${i+1}`,
 s:`audio/fadl-aldoaa-${i+1}.mp3`,
-img:"images/dua.jpg"
+c:"دعاء",
+img:"images/book3.jpg"
 })),
 
-{t:"فضل الجمعة",s:"audio/fadl-algomaa.mp3",img:"images/friday.jpg"},
-{t:"فضل عرفة",s:"audio/fadl-arafa-1.mp3",img:"images/arafa.jpg"},
-{t:"فضل الحج",s:"audio/fadl-al-hag-1.mp3",img:"images/hajj.jpg"},
-{t:"الميثاق",s:"audio/almethaq.mp3",img:"images/methaq.jpg"}
+{t:"فضل الجمعة",s:"audio/fadl-algomaa.mp3",c:"منوع",img:"images/friday.jpg"},
+{t:"فضل عرفة",s:"audio/fadl-arafa-1.mp3",c:"منوع",img:"images/arafa.jpg"},
+{t:"فضل الحج",s:"audio/fadl-al-hag-1.mp3",c:"منوع",img:"images/hajj.jpg"},
+{t:"الميثاق",s:"audio/almethaq.mp3",c:"منوع",img:"images/methaq.jpg"}
 
 ];
 
-let current=null;
-let audio=document.getElementById("audio");
+let currentList = tracks;
+let audio = document.getElementById("audio");
 
 /* عرض */
 function render(list=tracks){
-let g=document.getElementById("grid");
-g.innerHTML="";
+let box=document.getElementById("grid");
+box.innerHTML="";
 
 list.forEach((x,i)=>{
-g.innerHTML+=`
-<div class="card" onclick="openDetail(${i})">
+box.innerHTML+=`
+<div class="book" onclick="play(${tracks.indexOf(x)})">
 <img src="${x.img}">
-<div class="title">${x.t}</div>
+<h3>${x.t}</h3>
 </div>
 `;
 });
 }
 
-/* فتح التفاصيل */
-function openDetail(i){
-current=i;
-
-document.getElementById("detail").style.display="block";
-document.getElementById("dimg").src=tracks[i].img;
-document.getElementById("dtitle").innerText=tracks[i].t;
-
-document.getElementById("dlink").href=tracks[i].s;
-
-audio.src=tracks[i].s;
-
-}
-
-/* إغلاق */
-function closeDetail(){
-document.getElementById("detail").style.display="none";
-audio.pause();
-}
-
 /* تشغيل */
-function play(){
+function play(i){
+audio.src=tracks[i].s;
 audio.play();
 }
 
-/* مفضلة */
-function fav(){
-let favs=JSON.parse(localStorage.getItem("fav")||"[]");
-favs.push(tracks[current]);
-localStorage.setItem("fav",JSON.stringify(favs));
-alert("تمت الإضافة للمفضلة ❤️");
+/* فلترة */
+function filter(c){
+currentList = (c=="all") ? tracks : tracks.filter(x=>x.c==c);
+render(currentList);
 }
 
 /* بحث */
 function search(v){
-let r=tracks.filter(x=>x.t.includes(v));
+let r = tracks.filter(x=>x.t.includes(v));
 render(r);
 }
 
