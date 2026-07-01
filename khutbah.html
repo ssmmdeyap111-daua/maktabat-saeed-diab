@@ -141,20 +141,61 @@ const itemsPerPage = 10;
 let page = 1;
 let currentIndex = 0;
 const tracks = [
-    { title: "علامات الساعة 1", src: "audio/alamat-1.mp3" },
-    { title: "علامات الساعة 2", src: "audio/alamat-2.mp3" },
-    { title: "علامات الساعة 3", src: "audio/alamat-3.mp3" },
-    { title: "علامات الساعة 4", src: "audio/alamat-4.mp3" },
-    { title: "علامات الساعة 5", src: "audio/alamat-5.mp3" },
-    { title: "علامات الساعة 6", src: "audio/alamat-6.mp3" },
-    { title: "علامات الساعة 7", src: "audio/alamat-7.mp3" },
-    { title: "علامات الساعة 8", src: "audio/alamat-8.mp3" },
-    { title: "علامات الساعة 9", src: "audio/alamat-9.mp3" },
-    { title: "علامات الساعة 10", src: "audio/alamat-10.mp3" },
-    { title: "علامات الساعة 11", src: "audio/alamat-11.mp3" },
-    { title: "علامات الساعة 12", src: "audio/alamat-12.mp3" },
-    { title: "علامات الساعة 13", src: "audio/alamat-13.mp3" }
+
+    // علامات الساعة (43 درسًا)
+    ...Array.from({ length: 43 }, (_, i) => ({
+        title: `علامات الساعة (${i + 1})`,
+        src: `audio/alamat-${i + 1}.mp3`,
+        category: "علامات الساعة"
+    })),
+
+    // أمرني بخمس (11 درسًا)
+    ...Array.from({ length: 11 }, (_, i) => ({
+        title: `أمرني بخمس (${i + 1})`,
+        src: `audio/amrany-bekams-${i + 1}.mp3`,
+        category: "أمرني بخمس"
+    })),
+
+    // فضل الدعاء (6 دروس)
+    ...Array.from({ length: 6 }, (_, i) => ({
+        title: `فضل الدعاء (${i + 1})`,
+        src: `audio/fadl-aldoaa-${i + 1}.mp3`,
+        category: "فضل الدعاء"
+    })),
+
+    // فضل يوم الجمعة
+    {
+        title: "فضل يوم الجمعة",
+        src: "audio/fadl-algomaa.mp3",
+        category: "خطب منوعة"
+    },
+
+    // فضل يوم عرفة
+    {
+        title: "فضل يوم عرفة",
+        src: "audio/fadl-arafa-1.mp3",
+        category: "خطب منوعة"
+    },
+
+    // فضل الحج
+    {
+        title: "فضل الحج",
+        src: "audio/fadl-al-hag-1.mp3",
+        category: "خطب منوعة"
+    },
+
+    // الميثاق الأول لحقوق الإنسان
+    {
+        title: "الميثاق الأول لحقوق الإنسان",
+        src: "audio/almethaq.mp3",
+        category: "خطب منوعة"
+    }
+
 ];
+
+// بعد تعريف القائمة شغّل الصفحة
+render();
+loadLast();
 
 render();
 loadLast();
