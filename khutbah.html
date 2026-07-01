@@ -1,278 +1,192 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>قسم الخطب والمواعظ - الشيخ سعيد مصطفى دياب</title>
+
+<title>مكتبة الخطب - الشيخ سعيد مصطفى دياب</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-:root{
-    --primary:#2d5f8b;
-    --gold:#caa230;
-}
-
 body{
     margin:0;
     font-family:'Cairo',sans-serif;
     background:#eef1f4;
 }
 
-/* الهيدر */
-.site-header{
+/* شريط علوي */
+header{
+    background:#2d5f8b;
+    color:#fff;
+    padding:15px;
     text-align:center;
-    padding:20px;
+    font-weight:900;
 }
-.site-logo{max-width:500px;width:100%;}
 
-/* القائمة */
-.main-nav{
+/* أقسام */
+.tabs{
     display:flex;
-    justify-content:center;
     flex-wrap:wrap;
-    gap:10px;
+    justify-content:center;
+    gap:8px;
     padding:10px;
 }
 
-.nav-link{
-    background:var(--primary);
+.tab{
+    padding:8px 14px;
+    border-radius:20px;
+    border:2px solid #2d5f8b;
+    background:#fff;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.tab.active{
+    background:#2d5f8b;
     color:#fff;
-    padding:10px 20px;
-    border-radius:8px;
-    text-decoration:none;
 }
 
-/* العنوان */
+/* قائمة */
 .container{
-    max-width:1000px;
+    max-width:900px;
     margin:auto;
-    padding:20px;
-    text-align:center;
+    padding:10px;
 }
 
-.section-title{
-    color:var(--primary);
-    font-size:2rem;
-}
-
-/* الكارد */
-.audio-box{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
+.card{
     background:#fff;
     padding:12px;
-    border-radius:12px;
     margin:10px 0;
-    border-right:5px solid var(--gold);
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-right:5px solid #caa230;
 }
 
-.audio-title{
-    flex:1;
+.title{
     font-weight:800;
-    color:var(--primary);
-    text-align:right;
+    color:#2d5f8b;
 }
 
-.play-btn{
-    background:var(--primary);
+button.play{
+    background:#2d5f8b;
     color:#fff;
     border:none;
+    padding:10px 14px;
     border-radius:10px;
-    padding:10px 18px;
-    font-family:'Cairo',sans-serif;
-    font-weight:900;
-    cursor:pointer;
-    transition:.3s;
-    min-width:70px;
-}
-
-.play-btn:hover{
-    background:var(--gold);
-    transform:translateY(-2px);
-}
-
-.download-btn{
-    color:green;
-    font-size:20px;
-    text-decoration:none;
-}
-
-/* pagination */
-.pagination{
-    margin-top:20px;
-}
-
-.page-btn{
-    padding:8px 15px;
-    margin:3px;
-    border:none;
-    border-radius:6px;
-    background:var(--gold);
     cursor:pointer;
 }
 
-.page-btn.active{
-    outline:3px solid var(--primary);
+/* مشغل ثابت */
+.player{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#fff;
+    padding:10px;
+    box-shadow:0 -2px 10px rgba(0,0,0,0.2);
 }
+
+audio{width:100%;}
 </style>
 </head>
 
 <body>
 
-<header class="site-header">
-    <img src="images/logo.png.jpg" class="site-logo">
-</header>
+<header>📚 مكتبة الخطب والمواعظ</header>
 
-<nav class="main-nav">
-    <a href="index.html" class="nav-link">الرئيسية</a>
-    <a href="khutab.html" class="nav-link">الخطب</a>
-</nav>
+<div class="tabs">
+    <div class="tab active" onclick="setCat('all')">الكل</div>
+    <div class="tab" onclick="setCat('علامات')">علامات الساعة</div>
+    <div class="tab" onclick="setCat('خمس')">أمرني بخمس</div>
+    <div class="tab" onclick="setCat('دعاء')">فضل الدعاء</div>
+    <div class="tab" onclick="setCat('منوع')">منوعات</div>
+</div>
 
-<div class="container">
+<div class="container" id="list"></div>
 
-<h1 class="section-title">قسم الخطب والمواعظ</h1>
-
-<div id="list"></div>
-<div class="pagination" id="pagination"></div>
-
-<audio id="player" controls style="width:100%; margin-top:20px;"></audio>
-
+<div class="player">
+    <audio id="audio" controls></audio>
 </div>
 
 <script>
-const itemsPerPage = 10;
-let page = 1;
-const player = document.getElementById("player");
+
+/* البيانات */
 const tracks = [
 
-    // علامات الساعة (43 درسًا)
-    ...Array.from({ length: 43 }, (_, i) => ({
-        title: `علامات الساعة (${i + 1})`,
-        src: `audio/alamat-${i + 1}.mp3`,
-        category: "علامات الساعة"
-    })),
+...Array.from({length:43},(_,i)=>({
+    t:`علامات الساعة ${i+1}`,
+    s:`audio/alamat-${i+1}.mp3`,
+    c:"علامات"
+})),
 
-    // أمرني بخمس (11 درسًا)
-    ...Array.from({ length: 11 }, (_, i) => ({
-        title: `أمرني بخمس (${i + 1})`,
-        src: `audio/amrany-bekams-${i + 1}.mp3`,
-        category: "أمرني بخمس"
-    })),
+...Array.from({length:11},(_,i)=>({
+    t:`أمرني بخمس ${i+1}`,
+    s:`audio/amrany-bekams-${i+1}.mp3`,
+    c:"خمس"
+})),
 
-    // فضل الدعاء (6 دروس)
-    ...Array.from({ length: 6 }, (_, i) => ({
-        title: `فضل الدعاء (${i + 1})`,
-        src: `audio/fadl-aldoaa-${i + 1}.mp3`,
-        category: "فضل الدعاء"
-    })),
+...Array.from({length:6},(_,i)=>({
+    t:`فضل الدعاء ${i+1}`,
+    s:`audio/fadl-aldoaa-${i+1}.mp3`,
+    c:"دعاء"
+})),
 
-    // فضل يوم الجمعة
-    {
-        title: "فضل يوم الجمعة",
-        src: "audio/fadl-algomaa.mp3",
-        category: "خطب منوعة"
-    },
-
-    // فضل يوم عرفة
-    {
-        title: "فضل يوم عرفة",
-        src: "audio/fadl-arafa-1.mp3",
-        category: "خطب منوعة"
-    },
-
-    // فضل الحج
-    {
-        title: "فضل الحج",
-        src: "audio/fadl-al-hag-1.mp3",
-        category: "خطب منوعة"
-    },
-
-    // الميثاق الأول لحقوق الإنسان
-    {
-        title: "الميثاق الأول لحقوق الإنسان",
-        src: "audio/almethaq.mp3",
-        category: "خطب منوعة"
-    }
+{t:"فضل الجمعة",s:"audio/fadl-algomaa.mp3",c:"منوع"},
+{t:"فضل عرفة",s:"audio/fadl-arafa-1.mp3",c:"منوع"},
+{t:"فضل الحج",s:"audio/fadl-al-hag-1.mp3",c:"منوع"},
+{t:"الميثاق",s:"audio/almethaq.mp3",c:"منوع"}
 
 ];
 
-// بعد تعريف القائمة شغّل الصفحة
-render();
-loadLast();
+let cat="all";
+const audio=document.getElementById("audio");
 
 /* عرض */
 function render(){
-    const box = document.getElementById("list");
-    box.innerHTML = "";
+let list=document.getElementById("list");
+list.innerHTML="";
 
-    const start = (page-1)*itemsPerPage;
-    const items = tracks.slice(start, start+itemsPerPage);
+tracks.filter(x=>cat=="all"?true:x.c==cat)
+.forEach((x,i)=>{
 
-    items.forEach((t,i) => {
+list.innerHTML+=`
+<div class="card">
+<div class="title">${x.t}</div>
+<button class="play" onclick="play(${tracks.indexOf(x)})">▶</button>
+</div>
+`;
 
-        const realIndex = start + i;
-
-        box.innerHTML += `
-        <div class="audio-box">
-            <button class="play-btn" onclick="play(${realIndex})">▶</button>
-
-            <div class="audio-title">${t.title}</div>
-
-            <a class="download-btn" href="${t.src}" download>⬇</a>
-        </div>`;
-    });
-
-    renderPages();
+});
 }
 
 /* تشغيل */
 function play(i){
-    currentIndex = i;
-    player.src = tracks[i].src;
-    player.play();
-
-    localStorage.setItem("last", i);
+audio.src=tracks[i].s;
+audio.play();
+localStorage.setItem("last",i);
 }
 
-/* تشغيل تلقائي */
-player.addEventListener("ended", () => {
-    if(currentIndex < tracks.length-1){
-        play(currentIndex+1);
-    }
-});
+/* قسم */
+function setCat(c){
+cat=c;
+render();
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+event.target.classList.add("active");
+}
 
 /* آخر تشغيل */
-function loadLast(){
-    let last = localStorage.getItem("last");
-    if(last !== null){
-        play(parseInt(last));
-    }
+function last(){
+let i=localStorage.getItem("last");
+if(i!==null) play(parseInt(i));
 }
 
-/* صفحات */
-function renderPages(){
-    const pages = Math.ceil(tracks.length/itemsPerPage);
-    const box = document.getElementById("pagination");
+render();
+last();
 
-    box.innerHTML = "";
-
-    for(let i=1;i<=pages;i++){
-        box.innerHTML += `
-        <button class="page-btn ${i===page?'active':''}" onclick="go(${i})">${i}</button>
-        `;
-    }
-}
-
-function go(p){
-    page = p;
-    render();
-    window.scrollTo({top:200, behavior:"smooth"});
-}
 </script>
 
 </body>
