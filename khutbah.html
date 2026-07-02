@@ -11,12 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Cairo',sans-serif;
@@ -24,648 +19,255 @@ background:#f8fcff;
 direction:rtl;
 }
 
-/*==========================
-شريط التاريخ ومواقيت الصلاة
-==========================*/
-
+/* top bar */
 .top-info-bar{
 background:#fdfae9;
 padding:10px 30px;
 display:flex;
 justify-content:space-between;
-align-items:center;
+flex-wrap:wrap;
 border-bottom:1px solid #ddd;
-flex-wrap:wrap;
-}
-
-.prayer-times{
-display:flex;
-gap:6px;
-flex-wrap:wrap;
-}
-
-.prayer-box{
-background:#4f814f;
-color:#fff;
-border-radius:6px;
-padding:4px 10px;
-font-size:.8rem;
-text-align:center;
-min-width:60px;
-}
-
-.time-val{
-background:#fff;
-color:#4f814f;
-margin-top:3px;
-border-radius:4px;
-font-weight:bold;
 }
 
 .date-box{
 background:#fff;
 border:1px solid #c59d31;
 border-radius:25px;
-padding:7px 25px;
+padding:7px 20px;
 font-weight:bold;
 }
 
-/*==========================
-الهيدر
-==========================*/
-
+/* header */
 .site-header{
 background:#e0f2f7;
-padding:30px 0;
+padding:25px;
+text-align:center;
 border-bottom:5px solid #72bcd4;
 }
 
-.site-header img{
-max-width:600px;
-width:90%;
-display:block;
-margin:auto;
-mix-blend-mode:multiply;
-}
-
-/*==========================
-القائمة الرئيسية
-==========================*/
-
+/* nav */
 .main-nav{
-
 display:flex;
 justify-content:center;
-gap:12px;
-padding:25px;
+gap:10px;
 flex-wrap:wrap;
 background:#fff;
-border-bottom:1px solid #eee;
-
+padding:15px;
 }
 
 .nav-item{
-
-text-decoration:none;
+background:#2c5d87;
 color:#fff;
-padding:14px 25px;
-border-radius:12px;
-font-weight:900;
-font-size:1.05rem;
-min-width:130px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-
-box-shadow:
-0 6px 0 rgba(0,0,0,.15);
-
-transition:.25s;
-
+padding:10px 18px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
 }
 
-.nav-item:hover{
-
-transform:translateY(-3px);
-
-}
-
-/*==========================
-محتوى الصفحة
-==========================*/
-
+/* main */
 .main-wrapper{
-
 max-width:1200px;
-margin:40px auto;
-padding:0 20px;
-
+margin:30px auto;
+padding:0 15px;
 }
 
 .page-title{
-
 color:#2c5d87;
-
-display:inline-block;
-
-border-bottom:4px solid #c59d31;
-
-padding-bottom:8px;
-
-margin-bottom:25px;
-
-font-size:2rem;
-
+font-size:1.8rem;
 font-weight:900;
-
+margin-bottom:20px;
+border-bottom:3px solid #c59d31;
+display:inline-block;
+padding-bottom:5px;
 }
 
-/*==========================
-البحث
-==========================*/
-
-.search-box{
-
-margin:25px auto;
-
-max-width:700px;
-
-}
-
+/* search */
 .search-box input{
-
 width:100%;
-
-padding:15px;
-
-border-radius:30px;
-
+padding:12px;
+border-radius:25px;
 border:2px solid #72bcd4;
-
-font-family:'Cairo';
-
-font-size:17px;
-
-outline:none;
-
+font-size:16px;
 }
 
-/*==========================
-أزرار السلاسل
-==========================*/
-
+/* series */
 .series-grid{
-
 display:grid;
-
-grid-template-columns:
-
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:18px;
-
-margin-top:35px;
-
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:25px;
 }
 
 .series-btn{
-
 background:#72bcd4;
-
 color:#fff;
-
 border:none;
-
-height:72px;
-
-border-radius:12px;
-
-cursor:pointer;
-
-font-family:'Cairo';
-
-font-size:1.2rem;
-
+padding:15px;
+border-radius:10px;
+font-size:18px;
 font-weight:900;
-
-box-shadow:0 6px 0 #2c5d87;
-
-transition:.2s;
-
+cursor:pointer;
+box-shadow:0 5px 0 #2c5d87;
 }
 
-.series-btn:hover{
-
-background:#2c5d87;
-
-transform:translateY(-3px);
-
-box-shadow:0 3px 0 #2c5d87;
-
-}
-
-/*==========================
-قائمة الدروس
-==========================*/
-
-.lesson-list{
-
-margin-top:35px;
-
-display:none;
-
-}
+/* lessons */
+.lesson-list{margin-top:25px;display:none;}
 
 .lesson-item{
-
 background:#fff;
-
-border-right:5px solid #c59d31;
-
-padding:14px;
-
+padding:12px;
 margin-bottom:10px;
-
-border-radius:10px;
-
+border-right:5px solid #c59d31;
 display:flex;
-
 justify-content:space-between;
-
-align-items:center;
-
-box-shadow:0 2px 8px rgba(0,0,0,.08);
-
-}
-
-.lesson-title{
-
-font-weight:800;
-
-color:#2c5d87;
-
+border-radius:10px;
 }
 
 .play-btn{
-
 background:#2c5d87;
-
 color:#fff;
-
 border:none;
-
-padding:8px 18px;
-
-border-radius:8px;
-
+padding:6px 12px;
+border-radius:6px;
 cursor:pointer;
-
-font-family:'Cairo';
-
-font-weight:900;
-
-margin-left:8px;
-
 }
 
 .download-btn{
-
 color:#4f814f;
-
-font-size:22px;
-
-text-decoration:none;
-
+font-size:20px;
+margin-right:10px;
 }
 
-/*==========================
-المشغل
-==========================*/
-
+/* player */
 .player-box{
-
-margin-top:40px;
-
+margin-top:25px;
 background:#fff;
-
-padding:15px;
-
-border-radius:12px;
-
-box-shadow:0 2px 8px rgba(0,0,0,.1);
-
+padding:10px;
+border-radius:10px;
 }
 
-audio{
+audio{width:100%;}
 
-width:100%;
-
-}
-
-/*==========================
-الفوتر
-==========================*/
-
+/* footer */
 footer{
-
-padding:40px;
-
-background:#fdfae9;
-
-margin-top:60px;
-
-border-top:1px solid #ddd;
-
-font-weight:bold;
-
-color:#555;
-
 text-align:center;
-
+padding:30px;
+background:#fdfae9;
+margin-top:40px;
 }
-
 </style>
-
 </head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="top-info-bar">
+<div class="date-box">📅 اليوم</div>
+</div>
+
+<!-- HEADER -->
+<div class="site-header">
+<h2>مكتبة الخطب والمواعظ</h2>
+</div>
+
+<!-- NAV -->
+<div class="main-nav">
+<a class="nav-item" href="index.html">الرئيسية</a>
+<a class="nav-item" href="#">الخطب</a>
+<a class="nav-item" href="#">الأذكار</a>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrapper">
+
+<div class="page-title">قسم الخطب</div>
+
+<div class="search-box">
+<input id="searchInput" placeholder="ابحث عن سلسلة...">
+</div>
+
+<!-- SERIES -->
+<div class="series-grid">
+
+<button class="series-btn">علامات الساعة</button>
+<button class="series-btn">أمرني بخمس</button>
+<button class="series-btn">فضل الدعاء</button>
+<button class="series-btn">فضل يوم الجمعة</button>
+<button class="series-btn">فضل يوم عرفة</button>
+<button class="series-btn">فضل الحج</button>
+
+</div>
+
+<!-- LESSON LIST -->
+<div id="lessonList" class="lesson-list"></div>
+
+<!-- PLAYER -->
+<div class="player-box">
+<audio id="player" controls></audio>
+</div>
+
+</div>
+
+<footer>
+جميع الحقوق محفوظة © 2026
+</footer>
+
 <script>
 
-//==========================
-// بيانات السلاسل
-//==========================
-
 const data = {
-
-"علامات الساعة":[
-
-...Array.from({length:43},(_,i)=>({
-
-title:`الدرس ${i+1}`,
-
-file:`audio/alamat-${i+1}.mp3`
-
-}))
-
-],
-
-"أمرني بخمس":[
-
-...Array.from({length:11},(_,i)=>({
-
-title:`الدرس ${i+1}`,
-
-file:`audio/amrany-bekams-${i+1}.mp3`
-
-}))
-
-],
-
-"فضل الدعاء":[
-
-...Array.from({length:6},(_,i)=>({
-
-title:`الدرس ${i+1}`,
-
-file:`audio/fadl-aldoaa-${i+1}.mp3`
-
-}))
-
-],
-
-"فضل يوم الجمعة":[
-
-{
-
-title:"فضل يوم الجمعة",
-
-file:"audio/fadl-algomaa.mp3"
-
-}
-
-],
-
-"فضل يوم عرفة":[
-
-{
-
-title:"فضل يوم عرفة",
-
-file:"audio/fadl-arafa-1.mp3"
-
-}
-
-],
-
-"فضل الحج":[
-
-{
-
-title:"فضل الحج",
-
-file:"audio/fadl-al-hag-1.mp3"
-
-}
-
-],
-
-"الميثاق الأول لحقوق الإنسان":[
-
-{
-
-title:"الميثاق الأول لحقوق الإنسان",
-
-file:"audio/almethaq.mp3"
-
-}
-
-]
-
+"علامات الساعة":[...Array.from({length:5},(_,i)=>({title:`درس ${i+1}`,file:`audio/alamat-${i+1}.mp3`}))],
+"أمرني بخمس":[...Array.from({length:3},(_,i)=>({title:`درس ${i+1}`,file:`audio/amrany-${i+1}.mp3`}))],
+"فضل الدعاء":[...Array.from({length:3},(_,i)=>({title:`درس ${i+1}`,file:`audio/dua-${i+1}.mp3`}))],
+"فضل يوم الجمعة":[{title:"درس",file:"audio/jumaa.mp3"}],
+"فضل يوم عرفة":[{title:"درس",file:"audio/arafa.mp3"}],
+"فضل الحج":[{title:"درس",file:"audio/hajj.mp3"}]
 };
 
-//==========================
-// عناصر الصفحة
-//==========================
-
 const lessonList=document.getElementById("lessonList");
-
 const player=document.getElementById("player");
-
 const search=document.getElementById("searchInput");
 
 let playlist=[];
-
 let currentIndex=0;
 
-
-//==========================
-// فتح السلسلة
-//==========================
-
-document.querySelectorAll(".series-btn")
-
-.forEach(btn=>{
-
+document.querySelectorAll(".series-btn").forEach(btn=>{
 btn.onclick=function(){
-
 const name=this.innerText;
-
-playlist=data[name];
-
+playlist=data[name]||[];
 showLessons(name);
-
 };
-
 });
 
-
-//==========================
-// عرض الدروس
-//==========================
-
 function showLessons(series){
-
 lessonList.style.display="block";
-
 lessonList.innerHTML="";
 
 data[series].forEach((lesson,index)=>{
-
 lessonList.innerHTML+=`
-
 <div class="lesson-item">
-
-<div class="lesson-title">
-
-${lesson.title}
-
-</div>
-
+<div>${lesson.title}</div>
 <div>
-
-<button class="play-btn"
-
-onclick="play(${index})">
-
-▶ تشغيل
-
-</button>
-
-<a
-
-class="download-btn"
-
-href="${lesson.file}"
-
-download>
-
-<i class="fas fa-download"></i>
-
-</a>
-
+<button class="play-btn" onclick="play(${index})">▶</button>
+<a class="download-btn" href="${lesson.file}" download>⬇</a>
 </div>
-
-</div>
-
-`;
-
+</div>`;
 });
-
-window.scrollTo({
-
-top:lessonList.offsetTop-80,
-
-behavior:"smooth"
-
-});
-
 }
-
-
-//==========================
-// تشغيل
-//==========================
 
 function play(i){
-
 currentIndex=i;
-
 player.src=playlist[i].file;
-
 player.play();
-
-localStorage.setItem(
-
-"khutbah-last",
-
-JSON.stringify({
-
-series:playlist,
-
-index:i
-
-})
-
-);
-
 }
-
-
-//==========================
-// التالي تلقائياً
-//==========================
-
-player.onended=function(){
-
-if(currentIndex<playlist.length-1){
-
-play(currentIndex+1);
-
-}
-
-};
-
-
-//==========================
-// البحث
-//==========================
 
 search.addEventListener("keyup",function(){
-
-const txt=this.value.trim();
-
-document.querySelectorAll(".series-btn")
-
-.forEach(btn=>{
-
-btn.style.display=
-
-btn.innerText.includes(txt)
-
-?
-
-"block"
-
-:
-
-"none";
-
+const txt=this.value;
+document.querySelectorAll(".series-btn").forEach(btn=>{
+btn.style.display=btn.innerText.includes(txt)?"block":"none";
 });
-
 });
-
-
-//==========================
-// استرجاع آخر تشغيل
-//==========================
-
-try{
-
-const last=
-
-JSON.parse(
-
-localStorage.getItem("khutbah-last")
-
-);
-
-if(last){
-
-playlist=last.series;
-
-play(last.index);
-
-}
-
-}catch(e){}
 
 </script>
 
-<footer>
-
-جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب © 2026
-
-</footer>
-
 </body>
-
 </html>
