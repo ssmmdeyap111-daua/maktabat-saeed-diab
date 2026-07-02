@@ -5,131 +5,481 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>قسم الخطب والمواعظ</title>
+<title>قسم الخطب والمواعظ - الشيخ سعيد مصطفى دياب</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 font-family:'Cairo',sans-serif;
-background:#f5f7fb;
+background:#f8fcff;
+direction:rtl;
 }
 
-/* الهيدر مثل موقعك */
-.header{
-background:linear-gradient(135deg,#cfe9f2,#b7dce8);
-text-align:center;
-padding:20px;
-}
+/*==========================
+شريط التاريخ ومواقيت الصلاة
+==========================*/
 
-.header img{
-max-width:600px;
-width:100%;
-}
-
-/* الآية */
-.ayah{
-background:#fff;
-border-top:2px solid #d4a017;
-border-bottom:2px solid #d4a017;
-padding:12px;
-text-align:center;
-color:#1f4e79;
-font-size:18px;
-}
-
-/* البحث */
-.search{
-text-align:center;
-margin:20px;
-}
-
-.search input{
-width:60%;
-padding:12px;
-border-radius:25px;
-border:1px solid #ccc;
-font-family:'Cairo';
-outline:none;
-}
-
-/* الأزرار */
-.cats{
+.top-info-bar{
+background:#fdfae9;
+padding:10px 30px;
 display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #ddd;
 flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-margin:20px;
 }
 
-.cat{
-padding:12px 18px;
-border:none;
-border-radius:12px;
-cursor:pointer;
-font-weight:900;
-font-family:'Cairo';
+.prayer-times{
+display:flex;
+gap:6px;
+flex-wrap:wrap;
+}
+
+.prayer-box{
+background:#4f814f;
 color:#fff;
-}
-
-.cat1{background:#d4a017;}
-.cat2{background:#5aa9e6;}
-.cat3{background:#2d5f8b;}
-.cat4{background:#3a7d44;}
-.cat5{background:#8e44ad;}
-
-/* الكتب (نفس موقعك تقريبًا) */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:15px;
-padding:20px;
-}
-
-.book{
-background:#fff;
-border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-overflow:hidden;
-cursor:pointer;
-transition:.2s;
-}
-
-.book:hover{
-transform:scale(1.03);
-}
-
-.book img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.book h3{
+border-radius:6px;
+padding:4px 10px;
+font-size:.8rem;
 text-align:center;
-padding:10px;
-font-size:14px;
-color:#1f4e79;
+min-width:60px;
 }
 
-/* مشغل */
-.player{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
+.time-val{
 background:#fff;
-border-top:1px solid #ccc;
-padding:10px;
+color:#4f814f;
+margin-top:3px;
+border-radius:4px;
+font-weight:bold;
+}
+
+.date-box{
+background:#fff;
+border:1px solid #c59d31;
+border-radius:25px;
+padding:7px 25px;
+font-weight:bold;
+}
+
+/*==========================
+الهيدر
+==========================*/
+
+.site-header{
+background:#e0f2f7;
+padding:30px 0;
+border-bottom:5px solid #72bcd4;
+}
+
+.site-header img{
+max-width:600px;
+width:90%;
+display:block;
+margin:auto;
+mix-blend-mode:multiply;
+}
+
+/*==========================
+القائمة الرئيسية
+==========================*/
+
+.main-nav{
+
+display:flex;
+justify-content:center;
+gap:12px;
+padding:25px;
+flex-wrap:wrap;
+background:#fff;
+border-bottom:1px solid #eee;
+
+}
+
+.nav-item{
+
+text-decoration:none;
+color:#fff;
+padding:14px 25px;
+border-radius:12px;
+font-weight:900;
+font-size:1.05rem;
+min-width:130px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+
+box-shadow:
+0 6px 0 rgba(0,0,0,.15);
+
+transition:.25s;
+
+}
+
+.nav-item:hover{
+
+transform:translateY(-3px);
+
+}
+
+/*==========================
+محتوى الصفحة
+==========================*/
+
+.main-wrapper{
+
+max-width:1200px;
+margin:40px auto;
+padding:0 20px;
+
+}
+
+.page-title{
+
+color:#2c5d87;
+
+display:inline-block;
+
+border-bottom:4px solid #c59d31;
+
+padding-bottom:8px;
+
+margin-bottom:25px;
+
+font-size:2rem;
+
+font-weight:900;
+
+}
+
+/*==========================
+البحث
+==========================*/
+
+.search-box{
+
+margin:25px auto;
+
+max-width:700px;
+
+}
+
+.search-box input{
+
+width:100%;
+
+padding:15px;
+
+border-radius:30px;
+
+border:2px solid #72bcd4;
+
+font-family:'Cairo';
+
+font-size:17px;
+
+outline:none;
+
+}
+
+/*==========================
+أزرار السلاسل
+==========================*/
+
+.series-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:18px;
+
+margin-top:35px;
+
+}
+
+.series-btn{
+
+background:#72bcd4;
+
+color:#fff;
+
+border:none;
+
+height:72px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-family:'Cairo';
+
+font-size:1.2rem;
+
+font-weight:900;
+
+box-shadow:0 6px 0 #2c5d87;
+
+transition:.2s;
+
+}
+
+.series-btn:hover{
+
+background:#2c5d87;
+
+transform:translateY(-3px);
+
+box-shadow:0 3px 0 #2c5d87;
+
+}
+
+/*==========================
+قائمة الدروس
+==========================*/
+
+.lesson-list{
+
+margin-top:35px;
+
+display:none;
+
+}
+
+.lesson-item{
+
+background:#fff;
+
+border-right:5px solid #c59d31;
+
+padding:14px;
+
+margin-bottom:10px;
+
+border-radius:10px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
+
+.lesson-title{
+
+font-weight:800;
+
+color:#2c5d87;
+
+}
+
+.play-btn{
+
+background:#2c5d87;
+
+color:#fff;
+
+border:none;
+
+padding:8px 18px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-family:'Cairo';
+
+font-weight:900;
+
+margin-left:8px;
+
+}
+
+.download-btn{
+
+color:#4f814f;
+
+font-size:22px;
+
+text-decoration:none;
+
+}
+
+/*==========================
+المشغل
+==========================*/
+
+.player-box{
+
+margin-top:40px;
+
+background:#fff;
+
+padding:15px;
+
+border-radius:12px;
+
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+
 }
 
 audio{
+
 width:100%;
+
 }
+
+/*==========================
+الفوتر
+==========================*/
+
+footer{
+
+padding:40px;
+
+background:#fdfae9;
+
+margin-top:60px;
+
+border-top:1px solid #ddd;
+
+font-weight:bold;
+
+color:#555;
+
+text-align:center;
+
+}
+
 </style>
+
 </head>
 
+<body>
+
+<div class="top-info-bar">
+
+<div class="date-box">
+
+الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م
+
+</div>
+
+<div class="prayer-times">
+
+<div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
+
+<div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
+
+<div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
+
+<div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
+
+<div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
+
+</div>
+
+</div>
+
+<header class="site-header">
+
+<img src="images/logo.png.jpg">
+
+</header>
+
+<nav class="main-nav">
+
+<a href="index.html" class="nav-item" style="background:#c59d31;">
+<i class="fas fa-home"></i>
+الرئيسية
+</a>
+
+<a href="lessons.html" class="nav-item" style="background:#87ceeb;">
+<i class="fas fa-volume-up"></i>
+الصوتيات
+</a>
+
+<a href="khutbah.html" class="nav-item" style="background:#5b9bd5;">
+<i class="fas fa-microphone"></i>
+الخطب
+</a>
+
+<a href="books.html" class="nav-item" style="background:#8b6b3f;">
+<i class="fas fa-book"></i>
+الكتب
+</a>
+
+<a href="articles.html" class="nav-item" style="background:#4f814f;">
+<i class="fas fa-file-alt"></i>
+المقالات
+</a>
+
+<a href="tafseer_index1.html" class="nav-item" style="background:#2c5d87;">
+<i class="fas fa-quran"></i>
+التفسير
+</a>
+
+</nav>
+
+<div class="main-wrapper">
+
+<h2 class="page-title">
+
+قسم الخطب والمواعظ
+
+</h2>
+
+<div class="search-box">
+
+<input
+id="searchInput"
+type="text"
+placeholder="ابحث عن خطبة..."
+>
+
+</div>
+
+<div class="series-grid">
+
+<button class="series-btn">علامات الساعة</button>
+
+<button class="series-btn">أمرني بخمس</button>
+
+<button class="series-btn">فضل الدعاء</button>
+
+<button class="series-btn">فضل يوم الجمعة</button>
+
+<button class="series-btn">فضل يوم عرفة</button>
+
+<button class="series-btn">فضل الحج</button>
+
+<button class="series-btn">الميثاق الأول لحقوق الإنسان</button>
+
+</div>
+
+<div id="lessonList" class="lesson-list">
+
+</div>
+
+<div class="player-box">
+
+<audio id="player" controls></audio>
+
+</div>
 <body>
 
 <!-- الهيدر -->
