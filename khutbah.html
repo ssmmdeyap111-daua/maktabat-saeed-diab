@@ -368,223 +368,304 @@ text-align:center;
 </style>
 
 </head>
-
-<body>
-
-<div class="top-info-bar">
-
-<div class="date-box">
-
-الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م
-
-</div>
-
-<div class="prayer-times">
-
-<div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
-
-<div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
-
-<div class="prayer-box"><div>العصر</div><div class="time-val">14:57</div></div>
-
-<div class="prayer-box"><div>المغرب</div><div class="time-val">18:09</div></div>
-
-<div class="prayer-box"><div>العشاء</div><div class="time-val">19:39</div></div>
-
-</div>
-
-</div>
-
-<header class="site-header">
-
-<img src="images/logo.png.jpg">
-
-</header>
-
-<nav class="main-nav">
-
-<a href="index.html" class="nav-item" style="background:#c59d31;">
-<i class="fas fa-home"></i>
-الرئيسية
-</a>
-
-<a href="lessons.html" class="nav-item" style="background:#87ceeb;">
-<i class="fas fa-volume-up"></i>
-الصوتيات
-</a>
-
-<a href="khutbah.html" class="nav-item" style="background:#5b9bd5;">
-<i class="fas fa-microphone"></i>
-الخطب
-</a>
-
-<a href="books.html" class="nav-item" style="background:#8b6b3f;">
-<i class="fas fa-book"></i>
-الكتب
-</a>
-
-<a href="articles.html" class="nav-item" style="background:#4f814f;">
-<i class="fas fa-file-alt"></i>
-المقالات
-</a>
-
-<a href="tafseer_index1.html" class="nav-item" style="background:#2c5d87;">
-<i class="fas fa-quran"></i>
-التفسير
-</a>
-
-</nav>
-
-<div class="main-wrapper">
-
-<h2 class="page-title">
-
-قسم الخطب والمواعظ
-
-</h2>
-
-<div class="search-box">
-
-<input
-id="searchInput"
-type="text"
-placeholder="ابحث عن خطبة..."
->
-
-</div>
-
-<div class="series-grid">
-
-<button class="series-btn">علامات الساعة</button>
-
-<button class="series-btn">أمرني بخمس</button>
-
-<button class="series-btn">فضل الدعاء</button>
-
-<button class="series-btn">فضل يوم الجمعة</button>
-
-<button class="series-btn">فضل يوم عرفة</button>
-
-<button class="series-btn">فضل الحج</button>
-
-<button class="series-btn">الميثاق الأول لحقوق الإنسان</button>
-
-</div>
-
-<div id="lessonList" class="lesson-list">
-
-</div>
-
-<div class="player-box">
-
-<audio id="player" controls></audio>
-
-</div>
-<body>
-
-<!-- الهيدر -->
-<div class="header">
-    <img src="images/logo.png.jpg">
-</div>
-
-<!-- الآية -->
-<div class="ayah">
-قال الله تعالى: ﴿وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ﴾
-</div>
-
-<!-- البحث -->
-<div class="search">
-<input type="text" placeholder="ابحث عن خطبة..." oninput="search(this.value)">
-</div>
-
-<!-- الأقسام -->
-<div class="cats">
-<button class="cat cat1" onclick="filter('all')">الكل</button>
-<button class="cat cat2" onclick="filter('علامات')">علامات الساعة</button>
-<button class="cat cat3" onclick="filter('خمس')">أمرني بخمس</button>
-<button class="cat cat4" onclick="filter('دعاء')">فضل الدعاء</button>
-<button class="cat cat5" onclick="filter('منوع')">منوعات</button>
-</div>
-
-<!-- الكتب -->
-<div class="grid" id="grid"></div>
-
-<!-- مشغل -->
-<div class="player">
-<audio id="audio" controls></audio>
-</div>
-
 <script>
 
-const tracks = [
+//==========================
+// بيانات السلاسل
+//==========================
+
+const data = {
+
+"علامات الساعة":[
 
 ...Array.from({length:43},(_,i)=>({
-t:`علامات الساعة ${i+1}`,
-s:`audio/alamat-${i+1}.mp3`,
-c:"علامات",
-img:"images/book1.jpg"
-})),
+
+title:`الدرس ${i+1}`,
+
+file:`audio/alamat-${i+1}.mp3`
+
+}))
+
+],
+
+"أمرني بخمس":[
 
 ...Array.from({length:11},(_,i)=>({
-t:`أمرني بخمس ${i+1}`,
-s:`audio/amrany-bekams-${i+1}.mp3`,
-c:"خمس",
-img:"images/book2.jpg"
-})),
+
+title:`الدرس ${i+1}`,
+
+file:`audio/amrany-bekams-${i+1}.mp3`
+
+}))
+
+],
+
+"فضل الدعاء":[
 
 ...Array.from({length:6},(_,i)=>({
-t:`فضل الدعاء ${i+1}`,
-s:`audio/fadl-aldoaa-${i+1}.mp3`,
-c:"دعاء",
-img:"images/book3.jpg"
-})),
 
-{t:"فضل الجمعة",s:"audio/fadl-algomaa.mp3",c:"منوع",img:"images/friday.jpg"},
-{t:"فضل عرفة",s:"audio/fadl-arafa-1.mp3",c:"منوع",img:"images/arafa.jpg"},
-{t:"فضل الحج",s:"audio/fadl-al-hag-1.mp3",c:"منوع",img:"images/hajj.jpg"},
-{t:"الميثاق",s:"audio/almethaq.mp3",c:"منوع",img:"images/methaq.jpg"}
+title:`الدرس ${i+1}`,
 
-];
+file:`audio/fadl-aldoaa-${i+1}.mp3`
 
-let currentList = tracks;
-let audio = document.getElementById("audio");
+}))
 
-/* عرض */
-function render(list=tracks){
-let box=document.getElementById("grid");
-box.innerHTML="";
+],
 
-list.forEach((x,i)=>{
-box.innerHTML+=`
-<div class="book" onclick="play(${tracks.indexOf(x)})">
-<img src="${x.img}">
-<h3>${x.t}</h3>
-</div>
-`;
+"فضل يوم الجمعة":[
+
+{
+
+title:"فضل يوم الجمعة",
+
+file:"audio/fadl-algomaa.mp3"
+
+}
+
+],
+
+"فضل يوم عرفة":[
+
+{
+
+title:"فضل يوم عرفة",
+
+file:"audio/fadl-arafa-1.mp3"
+
+}
+
+],
+
+"فضل الحج":[
+
+{
+
+title:"فضل الحج",
+
+file:"audio/fadl-al-hag-1.mp3"
+
+}
+
+],
+
+"الميثاق الأول لحقوق الإنسان":[
+
+{
+
+title:"الميثاق الأول لحقوق الإنسان",
+
+file:"audio/almethaq.mp3"
+
+}
+
+]
+
+};
+
+//==========================
+// عناصر الصفحة
+//==========================
+
+const lessonList=document.getElementById("lessonList");
+
+const player=document.getElementById("player");
+
+const search=document.getElementById("searchInput");
+
+let playlist=[];
+
+let currentIndex=0;
+
+
+//==========================
+// فتح السلسلة
+//==========================
+
+document.querySelectorAll(".series-btn")
+
+.forEach(btn=>{
+
+btn.onclick=function(){
+
+const name=this.innerText;
+
+playlist=data[name];
+
+showLessons(name);
+
+};
+
 });
+
+
+//==========================
+// عرض الدروس
+//==========================
+
+function showLessons(series){
+
+lessonList.style.display="block";
+
+lessonList.innerHTML="";
+
+data[series].forEach((lesson,index)=>{
+
+lessonList.innerHTML+=`
+
+<div class="lesson-item">
+
+<div class="lesson-title">
+
+${lesson.title}
+
+</div>
+
+<div>
+
+<button class="play-btn"
+
+onclick="play(${index})">
+
+▶ تشغيل
+
+</button>
+
+<a
+
+class="download-btn"
+
+href="${lesson.file}"
+
+download>
+
+<i class="fas fa-download"></i>
+
+</a>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+window.scrollTo({
+
+top:lessonList.offsetTop-80,
+
+behavior:"smooth"
+
+});
+
 }
 
-/* تشغيل */
+
+//==========================
+// تشغيل
+//==========================
+
 function play(i){
-audio.src=tracks[i].s;
-audio.play();
+
+currentIndex=i;
+
+player.src=playlist[i].file;
+
+player.play();
+
+localStorage.setItem(
+
+"khutbah-last",
+
+JSON.stringify({
+
+series:playlist,
+
+index:i
+
+})
+
+);
+
 }
 
-/* فلترة */
-function filter(c){
-currentList = (c=="all") ? tracks : tracks.filter(x=>x.c==c);
-render(currentList);
+
+//==========================
+// التالي تلقائياً
+//==========================
+
+player.onended=function(){
+
+if(currentIndex<playlist.length-1){
+
+play(currentIndex+1);
+
 }
 
-/* بحث */
-function search(v){
-let r = tracks.filter(x=>x.t.includes(v));
-render(r);
+};
+
+
+//==========================
+// البحث
+//==========================
+
+search.addEventListener("keyup",function(){
+
+const txt=this.value.trim();
+
+document.querySelectorAll(".series-btn")
+
+.forEach(btn=>{
+
+btn.style.display=
+
+btn.innerText.includes(txt)
+
+?
+
+"block"
+
+:
+
+"none";
+
+});
+
+});
+
+
+//==========================
+// استرجاع آخر تشغيل
+//==========================
+
+try{
+
+const last=
+
+JSON.parse(
+
+localStorage.getItem("khutbah-last")
+
+);
+
+if(last){
+
+playlist=last.series;
+
+play(last.index);
+
 }
 
-render();
+}catch(e){}
 
 </script>
 
+<footer>
+
+جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب © 2026
+
+</footer>
+
 </body>
+
 </html>
