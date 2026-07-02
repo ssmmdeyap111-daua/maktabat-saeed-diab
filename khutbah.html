@@ -7,18 +7,17 @@
 
 <title>قسم الخطب والمواعظ - الشيخ سعيد مصطفى دياب</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-
-/* نفس تصميمك الأصلي */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Cairo',sans-serif;
 background:#f8fcff;
 direction:rtl;
+color: #333;
 }
 
 /* top bar */
@@ -30,6 +29,7 @@ justify-content:space-between;
 align-items:center;
 border-bottom:1px solid #ddd;
 flex-wrap:wrap;
+gap: 10px;
 }
 
 .date-box{
@@ -73,6 +73,12 @@ justify-content:center;
 gap:8px;
 box-shadow:0 6px 0 rgba(0,0,0,.15);
 background:#2c5d87;
+transition: 0.2s;
+}
+
+.nav-item:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 0 rgba(0,0,0,.15);
 }
 
 /* main */
@@ -80,6 +86,7 @@ background:#2c5d87;
 max-width:1200px;
 margin:40px auto;
 padding:0 20px;
+text-align: center;
 }
 
 .page-title{
@@ -100,10 +107,12 @@ max-width:700px;
 
 .search-box input{
 width:100%;
-padding:15px;
+padding:15px 25px;
 border-radius:30px;
 border:2px solid #72bcd4;
 font-size:17px;
+font-family: 'Cairo', sans-serif;
+outline: none;
 }
 
 /* series buttons */
@@ -125,56 +134,107 @@ font-size:1.2rem;
 font-weight:900;
 box-shadow:0 6px 0 #2c5d87;
 transition:.2s;
+font-family: 'Cairo', sans-serif;
 }
 
 .series-btn:hover{
 transform:translateY(-3px);
+box-shadow:0 9px 0 #2c5d87;
+}
+
+.series-btn.active-series {
+background: #2c5d87;
+box-shadow: 0 6px 0 #c59d31;
 }
 
 /* lessons */
 .lesson-list{
 margin-top:35px;
 display:none;
+text-align: right;
 }
 
 .lesson-item{
 background:#fff;
 border-right:5px solid #c59d31;
-padding:14px;
-margin-bottom:10px;
+padding:16px 20px;
+margin-bottom:12px;
 border-radius:10px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 2px 8px rgba(0,0,0,.08);
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+gap: 15px;
+}
+
+.lesson-title {
+font-weight: bold;
+font-size: 1.1rem;
+color: #2c5d87;
+}
+
+.actions-container {
+display: flex;
+align-items: center;
+gap: 15px;
 }
 
 .play-btn{
 background:#2c5d87;
 color:#fff;
 border:none;
-padding:8px 18px;
+padding:8px 20px;
 border-radius:8px;
 cursor:pointer;
 font-weight:900;
+font-family: 'Cairo', sans-serif;
+transition: 0.2s;
+}
+
+.play-btn:hover {
+background: #1e4363;
+}
+
+.play-btn.playing {
+background: #4f814f;
 }
 
 .download-btn{
 color:#4f814f;
-font-size:22px;
-margin-right:10px;
+font-size:24px;
+text-decoration: none;
+display: flex;
+align-items: center;
+transition: 0.2s;
+}
+
+.download-btn:hover {
+color: #c59d31;
 }
 
 /* player */
 .player-box{
+position: sticky;
+bottom: 20px;
 margin-top:40px;
 background:#fff;
-padding:15px;
+padding:20px;
 border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,.1);
+box-shadow:0 4px 20px rgba(0,0,0,.15);
+border: 1px solid #ddd;
+z-index: 100;
 }
 
-audio{width:100%;}
+.player-title {
+font-weight: bold;
+color: #2c5d87;
+margin-bottom: 8px;
+font-size: 0.95rem;
+text-align: right;
+display: none;
+}
+
+audio{width:100%; height: 40px;}
 
 /* footer */
 footer{
@@ -187,6 +247,21 @@ color:#555;
 text-align:center;
 }
 
+@media (max-width: 768px) {
+    .lesson-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    .actions-container {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .play-btn {
+        flex-grow: 1;
+    }
+}
 </style>
 </head>
 
@@ -194,7 +269,7 @@ text-align:center;
 
 <!-- TOP -->
 <div class="top-info-bar">
-<div class="date-box">📅 اليوم</div>
+<div class="date-box" id="current-date">📅 جاري تحميل التاريخ...</div>
 </div>
 
 <!-- HEADER -->
@@ -212,7 +287,7 @@ text-align:center;
 <!-- MAIN -->
 <div class="main-wrapper">
 
-<div class="page-title">قسم الخطب</div>
+<div class="page-title">قسم الخطب والمواعظ</div>
 
 <div class="search-box">
 <input id="searchInput" placeholder="ابحث عن سلسلة...">
@@ -220,14 +295,12 @@ text-align:center;
 
 <!-- SERIES -->
 <div class="series-grid">
-
-<button class="series-btn">علامات الساعة</button>
-<button class="series-btn">أمرني بخمس</button>
-<button class="series-btn">فضل الدعاء</button>
-<button class="series-btn">فضل يوم الجمعة</button>
-<button class="series-btn">فضل يوم عرفة</button>
-<button class="series-btn">فضل الحج</button>
-
+<button class="series-btn" onclick="loadSeries('علامات الساعة', this)">علامات الساعة</button>
+<button class="series-btn" onclick="loadSeries('أمرني بخمس', this)">أمرني بخمس</button>
+<button class="series-btn" onclick="loadSeries('فضل الدعاء', this)">فضل الدعاء</button>
+<button class="series-btn" onclick="loadSeries('فضل يوم الجمعة', this)">فضل يوم الجمعة</button>
+<button class="series-btn" onclick="loadSeries('فضل يوم عرفة', this)">فضل يوم عرفة</button>
+<button class="series-btn" onclick="loadSeries('فضل الحج', this)">فضل الحج</button>
 </div>
 
 <!-- LESSON LIST -->
@@ -235,6 +308,7 @@ text-align:center;
 
 <!-- PLAYER -->
 <div class="player-box">
+<div class="player-title" id="player-title">🔊 مشغل الآن: <span></span></div>
 <audio id="player" controls></audio>
 </div>
 
@@ -245,10 +319,7 @@ text-align:center;
 </footer>
 
 <script>
-
-/* 🔥 نفس ملفاتك الأصلية بدون تغيير */
 const data = {
-
 "علامات الساعة":[...Array.from({length:43},(_,i)=>({
 title:`الدرس ${i+1}`,
 file:`audio/alamat-${i+1}.mp3`
@@ -278,87 +349,122 @@ file:"audio/fadl-arafa-1.mp3"
 title:"فضل الحج",
 file:"audio/fadl-al-hag-1.mp3"
 }]
-
 };
 
-const lessonList=document.getElementById("lessonList");
-const player=document.getElementById("player");
-const search=document.getElementById("searchInput");
+const lessonList = document.getElementById("lessonList");
+const player = document.getElementById("player");
+const search = document.getElementById("searchInput");
+const playerTitle = document.getElementById("player-title");
 
-let playlist=[];
-let currentIndex=0;
+let playlist = [];
+let currentIndex = 0;
+let currentSeriesName = "";
 
-/* فتح السلسلة */
-document.querySelectorAll(".series-btn").forEach(btn=>{
-btn.onclick=function(){
-const name=this.innerText;
-playlist=data[name];
-showLessons(name);
-};
-});
+// ربط تشغيل السلسلة بطريقة مستقرة
+function loadSeries(name, btnElement) {
+    document.querySelectorAll(".series-btn").forEach(b => b.classList.remove("active-series"));
+    if(btnElement) btnElement.classList.add("active-series");
+    
+    currentSeriesName = name;
+    playlist = data[name];
+    showLessons(name);
+}
 
 /* عرض الدروس */
 function showLessons(series){
+    lessonList.style.display = "block";
+    lessonList.innerHTML = "";
 
-lessonList.style.display="block";
-lessonList.innerHTML="";
+    data[series].forEach((lesson, index)=>{
+        lessonList.innerHTML += `
+        <div class="lesson-item">
+            <div class="lesson-title">${series} - ${lesson.title}</div>
+            <div class="actions-container">
+                <button class="play-btn" id="btn-${index}" onclick="play(${index})">▶ تشغيل</button>
+                <a class="download-btn" href="${lesson.file}" download title="تحميل الملف">
+                    <i class="fas fa-circle-down"></i>
+                </a>
+            </div>
+        </div>`;
+    });
 
-data[series].forEach((lesson,index)=>{
-lessonList.innerHTML+=`
-<div class="lesson-item">
-<div class="lesson-title">${lesson.title}</div>
-<div>
-<button class="play-btn" onclick="play(${index})">▶ تشغيل</button>
-<a class="download-btn" href="${lesson.file}" download>
-<i class="fas fa-download"></i>
-</a>
-</div>
-</div>`;
-});
-
-window.scrollTo({
-top:lessonList.offsetTop-80,
-behavior:"smooth"
-});
+    window.scrollTo({
+        top: lessonList.offsetTop - 80,
+        behavior: "smooth"
+    });
+    
+    updatePlayButtonVisuals();
 }
 
-/* تشغيل */
+/* دالة التشغيل المستقرة */
 function play(i){
-currentIndex=i;
-player.src=playlist[i].file;
-player.play();
+    if (!playlist || playlist.length === 0 || !playlist[i]) return;
+    
+    currentIndex = i;
+    player.src = playlist[currentIndex].file;
+    
+    // تحديث عنوان المشغل الحالي
+    playerTitle.style.display = "block";
+    playerTitle.querySelector("span").innerText = `${currentSeriesName} (${playlist[currentIndex].title})`;
+    
+    player.play().catch(e => console.log("تم حظر التشغيل التلقائي مؤقتاً حتى يتفاعل المستخدم"));
 
-localStorage.setItem("khutbah-last",JSON.stringify({
-series:playlist,
-index:i
-}));
+    localStorage.setItem("khutbah-last", JSON.stringify({
+        seriesName: currentSeriesName,
+        index: currentIndex
+    }));
+    
+    updatePlayButtonVisuals();
 }
 
-/* تشغيل التالي */
-player.onended=function(){
-if(currentIndex<playlist.length-1){
-play(currentIndex+1);
+function updatePlayButtonVisuals() {
+    document.querySelectorAll(".play-btn").forEach(btn => {
+        btn.classList.remove("playing");
+        btn.innerText = "▶ تشغيل";
+    });
+    const currentBtn = document.getElementById(`btn-${currentIndex}`);
+    if (currentBtn && playlist === data[currentSeriesName]) {
+        currentBtn.classList.add("playing");
+        currentBtn.innerText = "⏸ قيد التشغيل";
+    }
 }
+
+/* تشغيل التالي تلقائياً */
+player.onended = function(){
+    if(currentIndex < playlist.length - 1){
+        play(currentIndex + 1);
+    }
 };
 
-/* بحث */
-search.addEventListener("keyup",function(){
-const txt=this.value.trim();
-
-document.querySelectorAll(".series-btn").forEach(btn=>{
-btn.style.display=btn.innerText.includes(txt)?"block":"none";
+/* البحث المطور */
+search.addEventListener("input", function(){
+    const txt = this.value.trim();
+    document.querySelectorAll(".series-btn").forEach(btn=>{
+        btn.style.display = btn.innerText.includes(txt) ? "block" : "none";
+    });
 });
+
+/* استرجاع هادئ لآخر ملف بدون كسر سياسة المتصفح */
+window.addEventListener("DOMContentLoaded", () => {
+    try {
+        const last = JSON.parse(localStorage.getItem("khutbah-last"));
+        if (last && data[last.seriesName]) {
+            currentSeriesName = last.seriesName;
+            playlist = data[last.seriesName];
+            currentIndex = last.index;
+            
+            player.src = playlist[currentIndex].file;
+            playerTitle.style.display = "block";
+            playerTitle.querySelector("span").innerText = `${currentSeriesName} (${playlist[currentIndex].title})`;
+        }
+    } catch(e) {}
+    
+    // تحديث التاريخ الحالي تلقائياً
+    const now = new Date();
+    const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+    const miladi = new Intl.DateTimeFormat('ar-EG', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+    document.getElementById('current-date').innerHTML = `📅 ${hijri} هـ | ${miladi} م`;
 });
-
-/* استرجاع آخر تشغيل */
-try{
-const last=JSON.parse(localStorage.getItem("khutbah-last"));
-if(last){
-playlist=last.series;
-play(last.index);
-}
-}catch(e){}
-
 </script>
 
 </body>
