@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,13 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Cairo',sans-serif;background:#f8fcff;direction:rtl;color:#333}
+
+body{
+font-family:'Cairo',sans-serif;
+background:#f8fcff;
+direction:rtl;
+color: #333;
+}
 
 /* top bar */
 .top-info-bar{
@@ -22,7 +29,7 @@ justify-content:space-between;
 align-items:center;
 border-bottom:1px solid #ddd;
 flex-wrap:wrap;
-gap:10px;
+gap: 10px;
 }
 
 .date-box{
@@ -66,17 +73,20 @@ justify-content:center;
 gap:8px;
 box-shadow:0 6px 0 rgba(0,0,0,.15);
 background:#2c5d87;
-transition:.2s;
+transition: 0.2s;
 }
 
-.nav-item:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(0,0,0,.15);}
+.nav-item:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 0 rgba(0,0,0,.15);
+}
 
 /* main */
 .main-wrapper{
 max-width:1200px;
 margin:40px auto;
 padding:0 20px;
-text-align:center;
+text-align: center;
 }
 
 .page-title{
@@ -90,15 +100,19 @@ display:inline-block;
 }
 
 /* search */
-.search-box{margin:25px auto;max-width:700px;}
+.search-box{
+margin:25px auto;
+max-width:700px;
+}
+
 .search-box input{
 width:100%;
 padding:15px 25px;
 border-radius:30px;
 border:2px solid #72bcd4;
 font-size:17px;
-font-family:'Cairo',sans-serif;
-outline:none;
+font-family: 'Cairo', sans-serif;
+outline: none;
 }
 
 /* series */
@@ -120,13 +134,20 @@ font-size:1.2rem;
 font-weight:900;
 box-shadow:0 6px 0 #2c5d87;
 transition:.2s;
-font-family:'Cairo',sans-serif;
+font-family: 'Cairo', sans-serif;
 }
 
-.series-btn:hover{transform:translateY(-3px);box-shadow:0 9px 0 #2c5d87;}
+.series-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 9px 0 #2c5d87;
+}
 
 /* lessons */
-.lesson-list{margin-top:35px;display:none;text-align:right;}
+.lesson-list{
+margin-top:35px;
+display:none;
+text-align: right;
+}
 
 .lesson-item{
 background:#fff;
@@ -138,12 +159,20 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 box-shadow:0 2px 8px rgba(0,0,0,.05);
-gap:15px;
+gap: 15px;
 }
 
-.lesson-title{font-weight:bold;font-size:1.1rem;color:#2c5d87;}
+.lesson-title {
+font-weight: bold;
+font-size: 1.1rem;
+color: #2c5d87;
+}
 
-.actions-container{display:flex;gap:15px;align-items:center;}
+.actions-container {
+display: flex;
+align-items: center;
+gap: 15px;
+}
 
 .play-btn{
 background:#2c5d87;
@@ -153,33 +182,47 @@ padding:8px 20px;
 border-radius:8px;
 cursor:pointer;
 font-weight:900;
-transition:.2s;
+font-family: 'Cairo', sans-serif;
+transition: 0.2s;
 }
 
-.play-btn:hover{background:#1e4363;}
-.play-btn.playing{background:#4f814f;}
+.play-btn:hover {
+background: #1e4363;
+}
+
+.play-btn.playing {
+background: #4f814f;
+}
 
 .download-btn{
 color:#4f814f;
-font-size:22px;
-text-decoration:none;
+font-size:24px;
+text-decoration: none;
 }
 
 /* player */
 .player-box{
-position:sticky;
-bottom:20px;
+position: sticky;
+bottom: 20px;
 margin-top:40px;
 background:#fff;
 padding:20px;
 border-radius:12px;
 box-shadow:0 4px 20px rgba(0,0,0,.15);
-border:1px solid #ddd;
+border: 1px solid #ddd;
+z-index: 100;
 }
 
-.player-title{display:none;font-weight:bold;color:#2c5d87;margin-bottom:8px;}
+.player-title {
+font-weight: bold;
+color: #2c5d87;
+margin-bottom: 8px;
+font-size: 0.95rem;
+text-align: right;
+display: none;
+}
 
-audio{width:100%;}
+audio{width:100%; height: 40px;}
 
 /* footer */
 footer{
@@ -187,9 +230,9 @@ padding:40px;
 background:#fdfae9;
 margin-top:60px;
 border-top:1px solid #ddd;
-text-align:center;
 font-weight:bold;
 color:#555;
+text-align:center;
 }
 </style>
 </head>
@@ -219,18 +262,18 @@ color:#555;
 </div>
 
 <div class="series-grid">
-<button class="series-btn" onclick="loadSeries('علامات الساعة',this)">علامات الساعة</button>
-<button class="series-btn" onclick="loadSeries('أمرني بخمس',this)">أمرني بخمس</button>
-<button class="series-btn" onclick="loadSeries('فضل الدعاء',this)">فضل الدعاء</button>
-<button class="series-btn" onclick="loadSeries('فضل يوم الجمعة',this)">فضل يوم الجمعة</button>
-<button class="series-btn" onclick="loadSeries('فضل يوم عرفة',this)">فضل يوم عرفة</button>
-<button class="series-btn" onclick="loadSeries('فضل الحج',this)">فضل الحج</button>
+<button class="series-btn" onclick="loadSeries('علامات الساعة', this)">علامات الساعة</button>
+<button class="series-btn" onclick="loadSeries('أمرني بخمس', this)">أمرني بخمس</button>
+<button class="series-btn" onclick="loadSeries('فضل الدعاء', this)">فضل الدعاء</button>
+<button class="series-btn" onclick="loadSeries('فضل يوم الجمعة', this)">فضل يوم الجمعة</button>
+<button class="series-btn" onclick="loadSeries('فضل يوم عرفة', this)">فضل يوم عرفة</button>
+<button class="series-btn" onclick="loadSeries('فضل الحج', this)">فضل الحج</button>
 </div>
 
 <div id="lessonList" class="lesson-list"></div>
 
 <div class="player-box">
-<div class="player-title" id="player-title">🔊 <span></span></div>
+<div class="player-title" id="player-title">🔊 مشغل الآن: <span></span></div>
 <audio id="player" controls></audio>
 </div>
 
@@ -245,32 +288,32 @@ const data = {
 "علامات الساعة":[...Array.from({length:43},(_,i)=>({title:`علامات الساعة - ${i+1}`,file:`audio/alamat-${i+1}.mp3`}))],
 "أمرني بخمس":[...Array.from({length:11},(_,i)=>({title:`أمرني بخمس - ${i+1}`,file:`audio/amrany-bekams-${i+1}.mp3`}))],
 "فضل الدعاء":[...Array.from({length:6},(_,i)=>({title:`فضل الدعاء - ${i+1}`,file:`audio/fadl-aldoaa-${i+1}.mp3`}))],
-"فضل يوم الجمعة":[{title:"فضل يوم الجمعة",file:"audio/fadl-algomaa.mp3"}],
-"فضل يوم عرفة":[{title:"فضل يوم عرفة",file:"audio/fadl-arafa-1.mp3"}],
-"فضل الحج":[{title:"فضل الحج",file:"audio/fadl-al-hag-1.mp3"}]
+"فضل يوم الجمعة":[{title:"فضل يوم الجمعة - 1",file:"audio/fadl-algomaa.mp3"}],
+"فضل يوم عرفة":[{title:"فضل يوم عرفة - 1",file:"audio/fadl-arafa-1.mp3"}],
+"فضل الحج":[{title:"فضل الحج - 1",file:"audio/fadl-al-hag-1.mp3"}]
 };
 
 let playlist=[],currentIndex=0,currentSeries="";
 
-function loadSeries(name,btn){
+function loadSeries(name,btnElement){
 document.querySelectorAll(".series-btn").forEach(b=>b.classList.remove("active-series"));
-if(btn)btn.classList.add("active-series");
+if(btnElement) btnElement.classList.add("active-series");
 currentSeries=name;
 playlist=data[name];
-render();
+showLessons();
 }
 
-function render(){
+function showLessons(){
 const box=document.getElementById("lessonList");
 box.style.display="block";
 box.innerHTML="";
-playlist.forEach((l,i)=>{
+playlist.forEach((lesson,index)=>{
 box.innerHTML+=`
 <div class="lesson-item">
-<div class="lesson-title">${l.title}</div>
+<div class="lesson-title">${lesson.title}</div>
 <div class="actions-container">
-<button class="play-btn" id="btn-${i}" onclick="play(${i})">▶ تشغيل</button>
-<a class="download-btn" href="${l.file}" download>⬇</a>
+<button class="play-btn" onclick="play(${index})">▶ تشغيل</button>
+<a class="download-btn" href="${lesson.file}" download>⬇</a>
 </div>
 </div>`;
 });
@@ -278,15 +321,11 @@ box.innerHTML+=`
 
 function play(i){
 currentIndex=i;
-player.src=playlist[i].file;
-player.play();
+document.getElementById("player").src=playlist[i].file;
+document.getElementById("player").play();
 document.getElementById("player-title").style.display="block";
 document.getElementById("player-title").querySelector("span").innerText=playlist[i].title;
 }
-
-const player=document.getElementById("player");
-
-player.onended=()=>{if(currentIndex<playlist.length-1)play(currentIndex+1);};
 
 document.getElementById("searchInput").addEventListener("input",e=>{
 document.querySelectorAll(".series-btn").forEach(b=>{
@@ -295,8 +334,7 @@ b.style.display=b.innerText.includes(e.target.value)?"block":"none";
 });
 
 window.onload=()=>{
-const now=new Date();
-document.getElementById("current-date").innerText=now.toLocaleDateString("ar-EG");
+document.getElementById("current-date").innerText=new Date().toLocaleDateString("ar-EG");
 };
 </script>
 
