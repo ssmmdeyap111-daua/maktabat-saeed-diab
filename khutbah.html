@@ -17,230 +17,129 @@ body{
 font-family:'Cairo',sans-serif;
 background:#f8fcff;
 direction:rtl;
-color: #333;
+color:#333;
 }
 
-/* top bar */
 .top-info-bar{
 background:#fdfae9;
-padding:10px 30px;
+padding:10px 25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 border-bottom:1px solid #ddd;
 flex-wrap:wrap;
-gap: 10px;
 }
 
 .date-box{
 background:#fff;
 border:1px solid #c59d31;
-border-radius:25px;
-padding:7px 25px;
+border-radius:20px;
+padding:7px 18px;
 font-weight:bold;
 }
 
-/* header */
 .site-header{
 background:#e0f2f7;
-padding:30px 0;
-border-bottom:5px solid #72bcd4;
+padding:25px;
 text-align:center;
+border-bottom:4px solid #72bcd4;
 }
 
-/* nav */
 .main-nav{
 display:flex;
 justify-content:center;
-gap:12px;
-padding:25px;
-flex-wrap:wrap;
+gap:10px;
+padding:15px;
 background:#fff;
-border-bottom:1px solid #eee;
+flex-wrap:wrap;
 }
 
 .nav-item{
-text-decoration:none;
-color:#fff;
-padding:14px 25px;
-border-radius:12px;
-font-weight:900;
-font-size:1.05rem;
-min-width:130px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-box-shadow:0 6px 0 rgba(0,0,0,.15);
 background:#2c5d87;
-transition: 0.2s;
+color:#fff;
+padding:10px 18px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
 }
 
-.nav-item:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 0 rgba(0,0,0,.15);
-}
-
-/* main */
 .main-wrapper{
-max-width:1200px;
-margin:40px auto;
-padding:0 20px;
-text-align: center;
+max-width:1100px;
+margin:auto;
+padding:20px;
+text-align:center;
 }
 
-.page-title{
-color:#2c5d87;
-border-bottom:4px solid #c59d31;
-padding-bottom:8px;
-margin-bottom:25px;
-font-size:2rem;
-font-weight:900;
-display:inline-block;
-}
-
-/* search */
-.search-box{
-margin:25px auto;
-max-width:700px;
-}
-
-.search-box input{
-width:100%;
-padding:15px 25px;
-border-radius:30px;
-border:2px solid #72bcd4;
-font-size:17px;
-font-family: 'Cairo', sans-serif;
-outline: none;
-}
-
-/* series */
 .series-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-margin-top:35px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:10px;
+margin-top:20px;
 }
 
 .series-btn{
 background:#72bcd4;
 color:#fff;
 border:none;
-height:72px;
-border-radius:12px;
+padding:14px;
+border-radius:10px;
 cursor:pointer;
-font-size:1.2rem;
-font-weight:900;
-box-shadow:0 6px 0 #2c5d87;
+font-weight:bold;
 transition:.2s;
-font-family: 'Cairo', sans-serif;
 }
 
 .series-btn:hover{
-transform:translateY(-3px);
-box-shadow:0 9px 0 #2c5d87;
+transform:scale(1.03);
 }
 
-/* lessons */
+.series-btn.active-series{
+background:#2c5d87;
+}
+
 .lesson-list{
-margin-top:35px;
+margin-top:20px;
 display:none;
-text-align: right;
 }
 
 .lesson-item{
 background:#fff;
-border-right:5px solid #c59d31;
-padding:16px 20px;
-margin-bottom:12px;
-border-radius:10px;
+margin:10px 0;
+padding:12px;
+border-right:4px solid #c59d31;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 2px 8px rgba(0,0,0,.05);
-gap: 15px;
-}
-
-.lesson-title {
-font-weight: bold;
-font-size: 1.1rem;
-color: #2c5d87;
-}
-
-.actions-container {
-display: flex;
-align-items: center;
-gap: 15px;
+border-radius:8px;
 }
 
 .play-btn{
 background:#2c5d87;
 color:#fff;
 border:none;
-padding:8px 20px;
-border-radius:8px;
+padding:8px 14px;
+border-radius:6px;
 cursor:pointer;
-font-weight:900;
-font-family: 'Cairo', sans-serif;
-transition: 0.2s;
 }
 
-.play-btn:hover {
-background: #1e4363;
-}
-
-.play-btn.playing {
-background: #4f814f;
-}
-
-.download-btn{
-color:#4f814f;
-font-size:24px;
-text-decoration: none;
-}
-
-/* player */
 .player-box{
-position: sticky;
-bottom: 20px;
-margin-top:40px;
+position:sticky;
+bottom:10px;
 background:#fff;
-padding:20px;
-border-radius:12px;
-box-shadow:0 4px 20px rgba(0,0,0,.15);
-border: 1px solid #ddd;
-z-index: 100;
+padding:15px;
+border-radius:10px;
+margin-top:20px;
+box-shadow:0 3px 15px rgba(0,0,0,.1);
 }
 
-.player-title {
-font-weight: bold;
-color: #2c5d87;
-margin-bottom: 8px;
-font-size: 0.95rem;
-text-align: right;
-display: none;
-}
-
-audio{width:100%; height: 40px;}
-
-/* footer */
-footer{
-padding:40px;
-background:#fdfae9;
-margin-top:60px;
-border-top:1px solid #ddd;
-font-weight:bold;
-color:#555;
-text-align:center;
-}
+audio{width:100%;}
 </style>
+
 </head>
 
 <body>
 
 <div class="top-info-bar">
-<div class="date-box" id="current-date">📅 جاري تحميل التاريخ...</div>
+<div class="date-box" id="date"></div>
 </div>
 
 <div class="site-header">
@@ -249,93 +148,78 @@ text-align:center;
 
 <div class="main-nav">
 <a class="nav-item" href="index.html">الرئيسية</a>
-<a class="nav-item" href="khotab.html">الخطب</a>
+<a class="nav-item" href="khutbah.html">الخطب</a>
 <a class="nav-item" href="raq_azkar.html">الأذكار</a>
 </div>
 
 <div class="main-wrapper">
 
-<div class="page-title">قسم الخطب والمواعظ</div>
-
-<div class="search-box">
-<input id="searchInput" placeholder="ابحث عن سلسلة...">
-</div>
-
 <div class="series-grid">
-<button class="series-btn" onclick="loadSeries('علامات الساعة', this)">علامات الساعة</button>
-<button class="series-btn" onclick="loadSeries('أمرني بخمس', this)">أمرني بخمس</button>
-<button class="series-btn" onclick="loadSeries('فضل الدعاء', this)">فضل الدعاء</button>
-<button class="series-btn" onclick="loadSeries('فضل يوم الجمعة', this)">فضل يوم الجمعة</button>
-<button class="series-btn" onclick="loadSeries('فضل يوم عرفة', this)">فضل يوم عرفة</button>
-<button class="series-btn" onclick="loadSeries('فضل الحج', this)">فضل الحج</button>
+<button class="series-btn" onclick="load('علامات الساعة',this)">علامات الساعة</button>
+<button class="series-btn" onclick="load('أمرني بخمس',this)">أمرني بخمس</button>
+<button class="series-btn" onclick="load('فضل الدعاء',this)">فضل الدعاء</button>
+<button class="series-btn" onclick="load('فضل يوم الجمعة',this)">فضل يوم الجمعة</button>
+<button class="series-btn" onclick="load('فضل يوم عرفة',this)">فضل يوم عرفة</button>
+<button class="series-btn" onclick="load('فضل الحج',this)">فضل الحج</button>
 </div>
 
-<div id="lessonList" class="lesson-list"></div>
+<div id="list" class="lesson-list"></div>
 
 <div class="player-box">
-<div class="player-title" id="player-title">🔊 مشغل الآن: <span></span></div>
 <audio id="player" controls></audio>
 </div>
 
 </div>
 
-<footer>
-جميع الحقوق محفوظة © 2026
-</footer>
-
 <script>
+
 const data = {
-"علامات الساعة":[...Array.from({length:43},(_,i)=>({title:`علامات الساعة - ${i+1}`,file:`audio/alamat-${i+1}.mp3`}))],
-"أمرني بخمس":[...Array.from({length:11},(_,i)=>({title:`أمرني بخمس - ${i+1}`,file:`audio/amrany-bekams-${i+1}.mp3`}))],
-"فضل الدعاء":[...Array.from({length:6},(_,i)=>({title:`فضل الدعاء - ${i+1}`,file:`audio/fadl-aldoaa-${i+1}.mp3`}))],
-"فضل يوم الجمعة":[{title:"فضل يوم الجمعة - 1",file:"audio/fadl-algomaa.mp3"}],
-"فضل يوم عرفة":[{title:"فضل يوم عرفة - 1",file:"audio/fadl-arafa-1.mp3"}],
-"فضل الحج":[{title:"فضل الحج - 1",file:"audio/fadl-al-hag-1.mp3"}]
+"علامات الساعة": Array.from({length:43},(_,i)=>({
+title:`علامات الساعة - ${i+1}`,
+file:`audio/alamat-${i+1}.mp3`
+})),
+
+"أمرني بخمس": Array.from({length:11},(_,i)=>({
+title:`أمرني بخمس - ${i+1}`,
+file:`audio/amrany-bekams-${i+1}.mp3`
+})),
+
+"فضل الدعاء": Array.from({length:6},(_,i)=>({
+title:`فضل الدعاء - ${i+1}`,
+file:`audio/fadl-aldoaa-${i+1}.mp3`
+}))
 };
 
-let playlist=[],currentIndex=0,currentSeries="";
+let current=[];
 
-function loadSeries(name,btnElement){
+function load(name,btn){
+
 document.querySelectorAll(".series-btn").forEach(b=>b.classList.remove("active-series"));
-if(btnElement) btnElement.classList.add("active-series");
-currentSeries=name;
-playlist=data[name];
-showLessons();
-}
+if(btn) btn.classList.add("active-series");
 
-function showLessons(){
-const box=document.getElementById("lessonList");
-box.style.display="block";
-box.innerHTML="";
-playlist.forEach((lesson,index)=>{
-box.innerHTML+=`
+current = data[name] || [];
+
+let html = "";
+
+current.forEach((l,i)=>{
+html += `
 <div class="lesson-item">
-<div class="lesson-title">${lesson.title}</div>
-<div class="actions-container">
-<button class="play-btn" onclick="play(${index})">▶ تشغيل</button>
-<a class="download-btn" href="${lesson.file}" download>⬇</a>
-</div>
+<span>${l.title}</span>
+<button class="play-btn" onclick="play(${i})">تشغيل</button>
 </div>`;
 });
+
+document.getElementById("list").style.display="block";
+document.getElementById("list").innerHTML = html;
 }
 
 function play(i){
-currentIndex=i;
-document.getElementById("player").src=playlist[i].file;
+document.getElementById("player").src = current[i].file;
 document.getElementById("player").play();
-document.getElementById("player-title").style.display="block";
-document.getElementById("player-title").querySelector("span").innerText=playlist[i].title;
 }
 
-document.getElementById("searchInput").addEventListener("input",e=>{
-document.querySelectorAll(".series-btn").forEach(b=>{
-b.style.display=b.innerText.includes(e.target.value)?"block":"none";
-});
-});
+document.getElementById("date").innerText = new Date().toLocaleDateString("ar-EG");
 
-window.onload=()=>{
-document.getElementById("current-date").innerText=new Date().toLocaleDateString("ar-EG");
-};
 </script>
 
 </body>
