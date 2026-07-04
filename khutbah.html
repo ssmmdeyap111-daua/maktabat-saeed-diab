@@ -4,48 +4,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>قسم الخطب والمواعظ - الشيخ سعيد مصطفى دياب</title>
+<title>الخطب والمواعظ</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
 font-family:'Cairo',sans-serif;
-background:#f8fcff;
+background:#f5fbff;
+margin:0;
 direction:rtl;
-color:#333;
 }
 
-.top-info-bar{
+/* ===== TOP BAR ===== */
+.topbar{
 background:#fdfae9;
-padding:10px 25px;
 display:flex;
 justify-content:space-between;
-align-items:center;
+padding:10px 20px;
 border-bottom:1px solid #ddd;
-flex-wrap:wrap;
 }
 
-.date-box{
+.box{
 background:#fff;
-border:1px solid #c59d31;
+padding:6px 15px;
 border-radius:20px;
-padding:7px 18px;
+border:1px solid #c59d31;
 font-weight:bold;
 }
 
-.site-header{
-background:#e0f2f7;
-padding:25px;
-text-align:center;
-border-bottom:4px solid #72bcd4;
-}
-
-.main-nav{
+/* ===== NAV 3D ===== */
+.nav{
 display:flex;
 justify-content:center;
 gap:10px;
@@ -54,81 +43,128 @@ background:#fff;
 flex-wrap:wrap;
 }
 
-.nav-item{
+.nav a{
 background:#2c5d87;
 color:#fff;
 padding:10px 18px;
 border-radius:10px;
 text-decoration:none;
-font-weight:bold;
-}
-
-.main-wrapper{
-max-width:1100px;
-margin:auto;
-padding:20px;
-text-align:center;
-}
-
-.series-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:10px;
-margin-top:20px;
-}
-
-.series-btn{
-background:#72bcd4;
-color:#fff;
-border:none;
-padding:14px;
-border-radius:10px;
-cursor:pointer;
+box-shadow:0 5px 0 #1b3c59;
 font-weight:bold;
 transition:.2s;
 }
 
-.series-btn:hover{
-transform:scale(1.03);
+.nav a:hover{
+transform:translateY(-2px);
 }
 
-.series-btn.active-series{
-background:#2c5d87;
+/* ===== CONTAINER ===== */
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
 }
 
-.lesson-list{
+/* ===== SERIES BUTTONS ===== */
+.series{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:12px;
 margin-top:20px;
-display:none;
 }
 
-.lesson-item{
+.series button{
+background:#72bcd4;
+color:#fff;
+border:none;
+padding:15px;
+border-radius:12px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 6px 0 #2c5d87;
+}
+
+.series button:active{
+transform:translateY(2px);
+box-shadow:0 3px 0 #2c5d87;
+}
+
+/* ===== LESSONS ===== */
+.series-box{
+display:none;
+margin-top:20px;
+}
+
+.lesson{
 background:#fff;
 margin:10px 0;
 padding:12px;
-border-right:4px solid #c59d31;
+border-right:5px solid #c59d31;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-radius:8px;
+border-radius:10px;
 }
 
-.play-btn{
+.lesson span{
+font-weight:bold;
+color:#2c5d87;
+}
+
+.actions{
+display:flex;
+gap:10px;
+align-items:center;
+}
+
+.play{
 background:#2c5d87;
 color:#fff;
 border:none;
-padding:8px 14px;
-border-radius:6px;
+padding:6px 12px;
+border-radius:8px;
 cursor:pointer;
 }
 
-.player-box{
+.download{
+background:#27ae60;
+color:#fff;
+padding:6px 10px;
+border-radius:50%;
+text-decoration:none;
+font-size:14px;
+}
+
+/* ===== PAGINATION ===== */
+.pagination{
+text-align:center;
+margin-top:15px;
+}
+
+.pagination button{
+margin:3px;
+padding:5px 10px;
+border:none;
+background:#eee;
+cursor:pointer;
+border-radius:6px;
+}
+
+.pagination button.active{
+background:#2c5d87;
+color:#fff;
+}
+
+/* ===== PLAYER ===== */
+.player{
 position:sticky;
 bottom:10px;
 background:#fff;
-padding:15px;
+padding:10px;
 border-radius:10px;
 margin-top:20px;
-box-shadow:0 3px 15px rgba(0,0,0,.1);
+box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
 
 audio{width:100%;}
@@ -138,35 +174,39 @@ audio{width:100%;}
 
 <body>
 
-<div class="top-info-bar">
-<div class="date-box" id="date"></div>
+<!-- TOP -->
+<div class="topbar">
+<div class="box" id="date"></div>
+<div class="box">مواقيت الصلاة</div>
 </div>
 
-<div class="site-header">
-<h2>قسم الخطب والمواعظ</h2>
+<!-- NAV -->
+<div class="nav">
+<a href="index.html">الرئيسية</a>
+<a href="audio.html">الصوتيات</a>
+<a href="tafseer.html">التفسير</a>
+<a href="books.html">الكتب</a>
+<a href="articles.html">المقالات</a>
+<a href="khutbah.html">الخطب</a>
 </div>
 
-<div class="main-nav">
-<a class="nav-item" href="index.html">الرئيسية</a>
-<a class="nav-item" href="khutbah.html">الخطب</a>
-<a class="nav-item" href="raq_azkar.html">الأذكار</a>
+<div class="container">
+
+<h2 style="text-align:center;color:#2c5d87">قسم الخطب والمواعظ</h2>
+
+<!-- SERIES -->
+<div class="series">
+<button onclick="openSeries('علامات الساعة')">علامات الساعة</button>
+<button onclick="openSeries('أمرني بخمس')">أمرني بخمس</button>
+<button onclick="openSeries('فضل الدعاء')">فضل الدعاء</button>
 </div>
 
-<div class="main-wrapper">
+<!-- BOX -->
+<div id="box" class="series-box"></div>
 
-<div class="series-grid">
-<button class="series-btn" onclick="load('علامات الساعة',this)">علامات الساعة</button>
-<button class="series-btn" onclick="load('أمرني بخمس',this)">أمرني بخمس</button>
-<button class="series-btn" onclick="load('فضل الدعاء',this)">فضل الدعاء</button>
-<button class="series-btn" onclick="load('فضل يوم الجمعة',this)">فضل يوم الجمعة</button>
-<button class="series-btn" onclick="load('فضل يوم عرفة',this)">فضل يوم عرفة</button>
-<button class="series-btn" onclick="load('فضل الحج',this)">فضل الحج</button>
-</div>
-
-<div id="list" class="lesson-list"></div>
-
-<div class="player-box">
-<audio id="player" controls></audio>
+<!-- PLAYER -->
+<div class="player">
+<audio id="audio" controls></audio>
 </div>
 
 </div>
@@ -175,50 +215,79 @@ audio{width:100%;}
 
 const data = {
 "علامات الساعة": Array.from({length:43},(_,i)=>({
-title:`علامات الساعة - ${i+1}`,
+title:`علامات الساعة (${i+1})`,
 file:`audio/alamat-${i+1}.mp3`
 })),
 
 "أمرني بخمس": Array.from({length:11},(_,i)=>({
-title:`أمرني بخمس - ${i+1}`,
+title:`أمرني بخمس (${i+1})`,
 file:`audio/amrany-bekams-${i+1}.mp3`
 })),
 
 "فضل الدعاء": Array.from({length:6},(_,i)=>({
-title:`فضل الدعاء - ${i+1}`,
+title:`فضل الدعاء (${i+1})`,
 file:`audio/fadl-aldoaa-${i+1}.mp3`
 }))
 };
 
-let current=[];
+let current = [];
+let page = 1;
+const perPage = 10;
 
-function load(name,btn){
+function openSeries(name){
+current = data[name];
+page = 1;
+render();
+}
 
-document.querySelectorAll(".series-btn").forEach(b=>b.classList.remove("active-series"));
-if(btn) btn.classList.add("active-series");
+function render(){
 
-current = data[name] || [];
+let box = document.getElementById("box");
+box.style.display = "block";
+
+let start = (page-1)*perPage;
+let end = start + perPage;
+
+let list = current.slice(start,end);
 
 let html = "";
 
-current.forEach((l,i)=>{
+list.forEach((l,i)=>{
 html += `
-<div class="lesson-item">
+<div class="lesson">
 <span>${l.title}</span>
-<button class="play-btn" onclick="play(${i})">تشغيل</button>
+<div class="actions">
+<button class="play" onclick="play(${start+i})">▶</button>
+<a class="download" href="${l.file}" download>⬇</a>
+</div>
 </div>`;
 });
 
-document.getElementById("list").style.display="block";
-document.getElementById("list").innerHTML = html;
+html += `<div class="pagination">`;
+
+let pages = Math.ceil(current.length/perPage);
+
+for(let i=1;i<=pages;i++){
+html += `<button onclick="go(${i})" class="${i===page?'active':''}">${i}</button>`;
+}
+
+html += `</div>`;
+
+box.innerHTML = html;
+}
+
+function go(p){
+page = p;
+render();
 }
 
 function play(i){
-document.getElementById("player").src = current[i].file;
-document.getElementById("player").play();
+document.getElementById("audio").src = current[i].file;
+document.getElementById("audio").play();
 }
 
-document.getElementById("date").innerText = new Date().toLocaleDateString("ar-EG");
+document.getElementById("date").innerText =
+new Date().toLocaleDateString("ar-EG");
 
 </script>
 
