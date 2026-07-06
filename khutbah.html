@@ -58,10 +58,10 @@ color: #2c5d87;
 margin-right: 3px;
 }
 
-/* HEADER - تم تكبيره وتوسيعه بناءً على طلبك */
+/* HEADER */
 .site-header {
 background: #e0f2f7;
-padding: 60px 20px; /* زيادة المساحة العمودية والجانبية بشكل ملحوظ */
+padding: 60px 20px;
 border-bottom: 5px solid #72bcd4;
 text-align: center;
 }
@@ -72,7 +72,7 @@ margin-bottom: 20px;
 }
 
 .site-header .logo-container img {
-max-height: 120px; /* حجم اللوجو */
+max-height: 120px;
 width: auto;
 }
 
@@ -80,7 +80,7 @@ width: auto;
 color: #2c5d87;
 font-weight: 900;
 margin: 0;
-font-size: 2.4rem; /* تكبير الخط ليتناسب مع الهيدر الجديد */
+font-size: 2.4rem;
 }
 
 /* NAV 3D */
@@ -133,10 +133,10 @@ margin: 0 auto 30px;
 border-radius: 5px;
 }
 
-/* SERIES BUTTONS - مطابقة تماماً لأزرار الموقع في اللون والـ 3D والـ Hover */
+/* SERIES BUTTONS */
 .series-btn{
 width:100%;
-background:#2c5d87; /* نفس لون أزرار النافبار */
+background:#2c5d87;
 border:none;
 padding:16px 24px;
 margin:15px 0 0 0;
@@ -145,7 +145,7 @@ color:#fff;
 font-size:1.1rem;
 font-weight:bold;
 cursor:pointer;
-box-shadow:0 5px 0 #1b3c59; /* نفس الظل ثلاثي الأبعاد في صورتك */
+box-shadow:0 5px 0 #1b3c59;
 text-align:right;
 font-family: 'Cairo', sans-serif;
 transition: 0.2s;
@@ -168,7 +168,7 @@ box-shadow: 0 7px 0 #1b3c59;
 }
 
 .series-btn.active{
-background:#c59d31; /* يتحول للذهبي عند فتحه للتميز */
+background:#c59d31;
 box-shadow:0 5px 0 #8e6f1e;
 }
 
@@ -309,7 +309,7 @@ color:#fff;
 border-color: #2c5d87;
 }
 
-/* PLAYER (STICKY) */
+/* PLAYER */
 .player{
 position:sticky;
 bottom:15px;
@@ -352,11 +352,12 @@ audio{width:100%; height: 40px;}
 <div class="prayer-times" id="prayer-box">جاري تحميل مواقيت الصلاة...</div>
 </div>
 
-<!-- HEADER WITH LOGO PLACEHOLDER -->
+<!-- HEADER - تم تصحيح الإغلاق وإضافة العناوين بالكامل هنا -->
 <div class="site-header">
-<div class="logo-container">
-    <!-- تأكد من وجود ملف باسم logo.png في مجلد الموقع أو استبدله بالمسار الفعلي للوجو الخاص بك -->
-   <img src="logo.png.jpg" alt="شعار موقع الشيخ سعيد مصطفى دياب">
+    <div class="logo-container">
+        <img src="logo.png.jpg" alt="شعار موقع الشيخ سعيد مصطفى دياب">
+    </div>
+    <h2>موقع فضيلة الشيخ سعيد مصطفى دياب</h2>
 </div>
 
 <!-- NAV -->
@@ -385,7 +386,7 @@ audio{width:100%; height: 40px;}
 <button class="series-btn" onclick="toggleSeries('فضل الدعاء',this)">سلسلة فضل الدعاء</button>
 <div class="series-box"></div>
 
-<!-- زر خطب منوعة المضاف حديثاً -->
+<!-- زر خطب منوعة -->
 <button class="series-btn" onclick="toggleSeries('خطب منوعة',this)">خطب منوعة</button>
 <div class="series-box"></div>
 
@@ -419,7 +420,6 @@ title:`فضل الدعاء (الدرس ${i+1})`,
 file:`audio/fadl-aldoaa-${i+1}.mp3`
 })),
 
-/* مصفوفة خطب منوعة الجديدة */
 "خطب منوعة": Array.from({length:10},(_, i)=>({
 title:`خطبة منوعة (${i+1})`,
 file:`audio/monawaa-${i+1}.mp3`
