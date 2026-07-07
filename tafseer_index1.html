@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفسير القرآن الكريم - الصفحة ١ - الشيخ سعيد دياب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root { 
@@ -15,7 +15,7 @@
             --beige-bar: #fdfae9;
         }
 
-        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: var(--light-bg); text-align: center; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: var(--light-bg); text-align: center; color: #333; }
         
         /* شريط المواقيت والتاريخ */
         .top-info-bar { 
@@ -25,8 +25,10 @@
             justify-content: space-between; 
             align-items: center; 
             border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .prayer-times { display: flex; gap: 6px; order: 1; }
+        .prayer-times { display: flex; gap: 6px; order: 1; flex-wrap: wrap; }
         .prayer-box { 
             text-align: center; 
             background: #4f814f; 
@@ -58,7 +60,7 @@
         .site-header { background-color: #e0f2f7; padding: 30px 0; border-bottom: 5px solid var(--accent-blue); }
         .site-header img { max-width: 600px; width: 90%; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
 
-        /* القائمة الرئيسية الموحدة واحترافية الألوان */
+        /* القائمة الرئيسية */
         .main-nav { display: flex; justify-content: center; gap: 12px; padding: 25px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #eee; }
         .nav-item { 
             text-decoration: none; color: white; padding: 14px 25px; border-radius: 12px; 
@@ -73,7 +75,7 @@
         .nav-item.articles { background: #4f814f; }
         .nav-item:hover { transform: translateY(-3px); filter: brightness(1.05); }
 
-        /* شبكة السور المطورة بالتأثيرات الـ 3D والأرقام الترتيبية */
+        /* شبكة السور */
         .main-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 15px; }
         .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
         
@@ -81,15 +83,56 @@
             background-color: var(--accent-blue); color: white; text-decoration: none;
             height: 80px; border-radius: 12px; font-weight: 900; font-size: 1.25rem;
             display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
-            box-shadow: 0 6px 0 var(--dark-blue); transition: 0.2s; border: none;
+            box-shadow: 0 6px 0 var(--dark-blue); transition: 0.2s; border: none; cursor: pointer;
+            width: 100%; font-family: 'Cairo', sans-serif;
         }
         .btn-surah:hover { background-color: var(--dark-blue); transform: translateY(-3px); box-shadow: 0 3px 0 var(--dark-blue); }
         .btn-surah:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--dark-blue); }
-        
-        /* دائرة الرقم الترتيبي الصغير المفضل لديك */
+        .btn-surah.active { background-color: var(--gold-color); box-shadow: 0 4px 0 #8c6d1a; }
         .surah-num { font-size: 0.75rem; opacity: 0.95; background: rgba(0,0,0,0.15); padding: 2px 10px; border-radius: 10px; font-weight: bold; }
 
-        /* أرقام الصفحات (التنقل السفلي) */
+        /* حاوية صندوق الدروس المنسدلة */
+        .lessons-box {
+            display: none; background: #fcfdfe; border: 1px solid #e2f0f7; padding: 20px;
+            border-radius: 12px; margin: 20px 0; text-align: right; box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .lesson {
+            background: #fff; margin: 8px 0; padding: 14px 18px; border-right: 5px solid var(--gold-color);
+            display: flex; justify-content: space-between; align-items: center; border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .lesson span { font-weight: bold; color: #444; }
+        .lesson.active { background: #eaf6ff; border-right-color: var(--dark-blue); }
+        .lesson.active span { color: var(--dark-blue); }
+        .actions { display: flex; align-items: center; gap: 8px; }
+        .actions button, .actions a {
+            border: none; cursor: pointer; padding: 8px 14px; border-radius: 8px;
+            font-family: 'Cairo', sans-serif; font-weight: bold; display: inline-flex;
+            align-items: center; justify-content: center; text-decoration: none; transition: 0.2s;
+        }
+        .play { background: var(--dark-blue); color: #fff; }
+        .play:hover { background: #1e4261; }
+        .download { background: #27ae60; color: #fff; }
+        .download:hover { background: #1e8449; }
+
+        /* ترقيم دروس السورة الداخلي */
+        .lessons-pagination { text-align: center; margin-top: 20px; padding-top: 10px; border-top: 1px dashed #ddd; }
+        .lessons-pagination button {
+            margin: 4px; padding: 8px 14px; border: 1px solid #ddd; background: #fff;
+            cursor: pointer; border-radius: 8px; font-family: 'Cairo', sans-serif; font-weight: bold; color: #555;
+        }
+        .lessons-pagination button.active { background: var(--dark-blue); color: #fff; border-color: var(--dark-blue); }
+
+        /* المشغل العائم */
+        .player {
+            position: sticky; bottom: 15px; background: #fff; padding: 15px; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.15); margin: 30px auto; max-width: 900px;
+            width: calc(100% - 40px); border: 1px solid #ddd; z-index: 100;
+        }
+        .player-title { font-size: 0.85rem; font-weight: bold; color: var(--dark-blue); margin-bottom: 6px; display: none; text-align: right; }
+        audio { width: 100%; height: 40px; }
+
+        /* أرقام الصفحات (التنقل السفلي للموقع) */
         .pages-nav { display: flex; justify-content: center; gap: 10px; margin: 50px 0; }
         .page-num { 
             width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; 
@@ -97,8 +140,14 @@
         }
         .page-num.active { background: var(--gold-color); color: white; border-color: var(--gold-color); box-shadow: 0 4px 0 #8c6d1a; }
 
-        /* الفوتر باللون البيج الفاتح المطلق */
         footer { padding: 40px; background-color: var(--beige-bar); color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .top-info-bar { flex-direction: column; text-align: center; }
+            .lesson { flex-direction: column; gap: 10px; text-align: center; }
+            .actions { width: 100%; }
+            .actions button, .actions a { flex-grow: 1; }
+        }
     </style>
 </head>
 <body>
@@ -129,6 +178,9 @@
     <div class="main-wrapper">
         <h2 style="color: var(--dark-blue); border-bottom: 4px solid var(--gold-color); display: inline-block; padding-bottom: 8px; margin-bottom: 35px; font-weight: 900;">تفسير القرآن الكريم - الصفحة ١</h2>
         
+        <!-- صندوق منسدل لعرض الدروس بشكل ديناميكي -->
+        <div id="lessons-area" class="lessons-box"></div>
+
         <div class="surah-grid">
             <a href="tafseer-fatiha.html" class="btn-surah"><span class="surah-num">١</span>الفاتحة</a>
             <a href="tafseer-baqara.html" class="btn-surah"><span class="surah-num">٢</span>البقرة</a>
@@ -147,12 +199,14 @@
             <a href="tafseer-al-hegr.html" class="btn-surah"><span class="surah-num">١٥</span>الحِجْر</a>
             <a href="tafseer-alnahl.html" class="btn-surah"><span class="surah-num">١٦</span>النحل</a>
             <a href="tafseer-israa.html" class="btn-surah"><span class="surah-num">١٧</span>الإسراء</a>
-            <a href="kahf.html" class="btn-surah"><span class="surah-num">١٨</span>الكهف</a>
+            
+            <!-- تم تغيير السلوك هنا ليعمل بنظام القائمة المنسدلة التلقائية للدروس العشرين -->
+            <button class="btn-surah" onclick="toggleLessons('تفسير سورة الكهف', this)"><span class="surah-num">١٨</span>الكهف</button>
+            
             <a href="maryam.html" class="btn-surah"><span class="surah-num">١٩</span>مريم</a>
             <a href="taha.html" class="btn-surah"><span class="surah-num">٢٠</span>طه</a>
         </div>
 
-        <!-- الترقيم السفلي مع تصحيح رابط الصفحة الأولى ليعود للفهرس الرئيسي مباشرة -->
         <div class="pages-nav">
             <a href="tafseer.html" class="page-num active">1</a>
             <a href="tafseer_index2.html" class="page-num">2</a>
@@ -163,6 +217,118 @@
         </div>
     </div>
 
+    <!-- المشغل العائم السفلي -->
+    <div class="player">
+        <div class="player-title" id="track-title">🔊 يستمع الآن إلى: <span></span></div>
+        <audio id="audio" controls></audio>
+    </div>
+
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
+
+    <script>
+        // مصفوفة البيانات التي تحتوي على الـ 20 درساً المرفوعة لسورة الكهف
+        const data = {
+            "تفسير سورة الكهف": Array.from({length: 20}, (_, i) => ({
+                title: `تفسير سورة الكهف (الدرس ${i + 1})`,
+                file: `audio/kahf-${i + 1}.mp3`
+            }))
+        };
+
+        let currentList = [], page = 1, perPage = 10;
+
+        function toggleLessons(name, btn) {
+            const area = document.getElementById("lessons-area");
+            
+            if (btn.classList.contains("active")) {
+                btn.classList.remove("active");
+                area.style.display = "none";
+                area.innerHTML = "";
+                return;
+            }
+
+            document.querySelectorAll(".btn-surah").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            
+            currentList = data[name] || [];
+            page = 1;
+            renderLessons();
+            
+            window.scrollTo({
+                top: area.offsetTop - 20,
+                behavior: "smooth"
+            });
+        }
+
+        function renderLessons() {
+            const area = document.getElementById("lessons-area");
+            let start = (page - 1) * perPage;
+            let list = currentList.slice(start, start + perPage);
+
+            let html = `<h3 style="color: var(--dark-blue); margin-top: 0; margin-bottom: 15px; text-align:center;"><i class="fas fa-book-open"></i> دروس تفسير سورة الكهف</h3>`;
+
+            list.forEach((item, i) => {
+                html += `
+                <div class="lesson" id="lesson-${start + i}">
+                    <span>${item.title}</span>
+                    <div class="actions">
+                        <button class="play" onclick="playAudio(${start + i}, this)">▶ تشغيل</button>
+                        <a class="download" href="${item.file}" download>⬇ تحميل</a>
+                    </div>
+                </div>`;
+            });
+
+            let totalPages = Math.ceil(currentList.length / perPage);
+            if (totalPages > 1) {
+                html += `<div class="lessons-pagination">`;
+                for (let i = 1; i <= totalPages; i++) {
+                    html += `<button onclick="goToPage(${i})" class="${i === page ? 'active' : ''}">الصفحة ${i}</button>`;
+                }
+                html += `</div>`;
+            }
+
+            area.innerHTML = html;
+            area.style.display = "block";
+        }
+
+        function goToPage(p) {
+            page = p;
+            renderLessons();
+        }
+
+        function playAudio(index, btn) {
+            document.querySelectorAll(".lesson").forEach(l => l.classList.remove("active"));
+            btn.closest(".lesson").classList.add("active");
+
+            const audioPlayer = document.getElementById("audio");
+            audioPlayer.src = currentList[index].file;
+            
+            const trackTitle = document.getElementById("track-title");
+            trackTitle.style.display = "block";
+            trackTitle.querySelector("span").innerText = currentList[index].title;
+
+            audioPlayer.play().catch(e => console.log("تحتاج لتفاعل واجهة المستخدم أولاً"));
+        }
+
+        document.getElementById("audio").onended = function() {
+            let activeLesson = document.querySelector(".lesson.active");
+            let nextIndex = activeLesson ? parseInt(activeLesson.id.split("-")[1]) + 1 : -1;
+                                
+            if (nextIndex !== -1 && nextIndex < currentList.length) {
+                let targetPage = Math.floor(nextIndex / perPage) + 1;
+                if (targetPage !== page) {
+                    page = targetPage;
+                    renderLessons();
+                }
+                
+                setTimeout(() => {
+                    const nextLessonElement = document.getElementById(`lesson-${nextIndex}`);
+                    if (nextLessonElement) {
+                        const nextPlayBtn = nextLessonElement.querySelector(".play");
+                        playAudio(nextIndex, nextPlayBtn);
+                    }
+                }, 200);
+            }
+        };
+    </script>
 </body>
 </html>
