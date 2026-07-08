@@ -200,8 +200,8 @@
             <a href="tafseer-alnahl.html" class="btn-surah"><span class="surah-num">١٦</span>النحل</a>
             <a href="tafseer-israa.html" class="btn-surah"><span class="surah-num">١٧</span>الإسراء</a>
             
-            <!-- تم تغيير السلوك هنا ليعمل بنظام القائمة المنسدلة التلقائية للدروس العشرين -->
-            <button class="btn-surah" onclick="toggleLessons('تفسير سورة الكهف', this)"><span class="surah-num">١٨</span>الكهف</button>
+            <!-- تم تغيير المعامل هنا ليتوافق مع اسم مصفوفة البيانات تماماً -->
+            <button class="btn-surah" onclick="toggleLessons('الكهف', this)"><span class="surah-num">١٨</span>الكهف</button>
             
             <a href="maryam.html" class="btn-surah"><span class="surah-num">١٩</span>مريم</a>
             <a href="taha.html" class="btn-surah"><span class="surah-num">٢٠</span>طه</a>
@@ -228,13 +228,13 @@
     <script>
         // مصفوفة البيانات التي تحتوي على الـ 20 درساً المرفوعة لسورة الكهف
         const data = {
-            "تفسير سورة الكهف": Array.from({length: 20}, (_, i) => ({
+            "الكهف": Array.from({length: 20}, (_, i) => ({
                 title: `تفسير سورة الكهف (الدرس ${i + 1})`,
                 file: `audio/kahf-${i + 1}.mp3`
             }))
         };
 
-        let currentList = [], page = 1, perPage = 10;
+        let currentList = [], page = 1, perPage = 10, currentSurahName = "";
 
         function toggleLessons(name, btn) {
             const area = document.getElementById("lessons-area");
@@ -249,6 +249,7 @@
             document.querySelectorAll(".btn-surah").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
             
+            currentSurahName = name;
             currentList = data[name] || [];
             page = 1;
             renderLessons();
@@ -264,7 +265,7 @@
             let start = (page - 1) * perPage;
             let list = currentList.slice(start, start + perPage);
 
-            let html = `<h3 style="color: var(--dark-blue); margin-top: 0; margin-bottom: 15px; text-align:center;"><i class="fas fa-book-open"></i> دروس تفسير سورة الكهف</h3>`;
+            let html = `<h3 style="color: var(--dark-blue); margin-top: 0; margin-bottom: 15px; text-align:center;"><i class="fas fa-book-open"></i> دروس تفسير سورة ${currentSurahName}</h3>`;
 
             list.forEach((item, i) => {
                 html += `
@@ -312,7 +313,7 @@
         document.getElementById("audio").onended = function() {
             let activeLesson = document.querySelector(".lesson.active");
             let nextIndex = activeLesson ? parseInt(activeLesson.id.split("-")[1]) + 1 : -1;
-                                
+                                        
             if (nextIndex !== -1 && nextIndex < currentList.length) {
                 let targetPage = Math.floor(nextIndex / perPage) + 1;
                 if (targetPage !== page) {
