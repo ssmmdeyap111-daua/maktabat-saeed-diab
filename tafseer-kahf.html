@@ -169,11 +169,16 @@
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // الـ 20 درساً الخاصة بسورة الكهف
-        const currentList = Array.from({length: 20}, (_, i) => ({
-            title: `تفسير سورة الكهف (الدرس ${i + 1})`,
-            file: `audio/kahf-${i + 1}.mp3`
-        }));
+     const currentList = [
+    {
+        title: "تفسير سورة الكهف (الدرس 1)",
+        file: "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/audio/kahf-1.mp3"
+    },
+    {
+        title: "تفسير سورة الكهف (الدرس 2)",
+        file: "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/audio/kahf-2.mp3"
+    }
+];
 
         let page = 1, perPage = 10;
 
