@@ -11,6 +11,12 @@
     "image": "images/asaleeb-alquran.jpg",
     "category": "القرآن"
   },
+   {
+    "title": "اللباب المستطاب",
+    "pdf": "pdfs/al-lobab.pdf",
+    "image": "images/al-lobab.jpg",
+    "category": "احديث"
+  },
   {
     "title": "فضل الدعاء",
     "pdf": "pdfs/fadhl-duaa.pdf",
