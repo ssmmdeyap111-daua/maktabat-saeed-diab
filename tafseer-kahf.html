@@ -11,7 +11,7 @@
             --dark-blue: #2c5d87; 
             --accent-blue: #72bcd4; 
             --gold-color: #c59d31;
-            --light-bg: #f8fcff;
+            --light-bg: #e0f2f7; /* تم التعديل للون اللبني المتناسق */
             --beige-bar: #fdfae9;
         }
 
@@ -82,17 +82,20 @@
             border-radius: 12px; margin: 20px 0; text-align: right; box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
         .lesson {
-            background: #fff; margin: 10px 0; padding: 14px 18px; border-right: 5px solid var(--gold-color);
+            background: #fff; margin: 10px 0; padding: 16px 20px; border-right: 5px solid var(--gold-color);
             display: flex; justify-content: space-between; align-items: center; border-radius: 10px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.03);
         }
-        .lesson span { font-weight: bold; color: #444; }
+        .lesson span { font-weight: bold; color: #444; font-size: 1.05rem; }
         .lesson.active { background: #eaf6ff; border-right-color: var(--dark-blue); }
         .lesson.active span { color: var(--dark-blue); }
-        .actions { display: flex; align-items: center; gap: 8px; }
+        
+        .actions { display: flex; align-items: center; gap: 10px; }
+        
+        /* تكبير حجم الأزرار وإزالة الأيقونات والصور منها */
         .actions button, .actions a {
-            border: none; cursor: pointer; padding: 8px 14px; border-radius: 8px;
-            font-family: 'Cairo', sans-serif; font-weight: bold; display: inline-flex;
+            border: none; cursor: pointer; padding: 12px 24px; border-radius: 8px;
+            font-family: 'Cairo', sans-serif; font-weight: bold; font-size: 1rem; display: inline-flex;
             align-items: center; justify-content: center; text-decoration: none; transition: 0.2s;
         }
         .play { background: var(--dark-blue); color: #fff; }
@@ -100,8 +103,17 @@
         .download { background: #27ae60; color: #fff; }
         .download:hover { background: #1e8449; }
 
+        /* زر العودة للصفحة السابقة */
+        .back-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background: #fff; color: var(--dark-blue); border: 2px solid var(--dark-blue);
+            padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;
+            margin-bottom: 20px; transition: 0.3s; float: right;
+        }
+        .back-btn:hover { background: var(--dark-blue); color: #fff; }
+
         /* ترقيم دروس السورة الداخلي */
-        .lessons-pagination { text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd; }
+        .lessons-pagination { text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd; clear: both; }
         .lessons-pagination button {
             margin: 4px; padding: 8px 16px; border: 1px solid #ddd; background: #fff;
             cursor: pointer; border-radius: 8px; font-family: 'Cairo', sans-serif; font-weight: bold; color: #555; transition: 0.2s;
@@ -118,20 +130,21 @@
         .player-title { font-size: 0.85rem; font-weight: bold; color: var(--dark-blue); margin-bottom: 6px; display: none; text-align: right; }
         audio { width: 100%; height: 40px; }
 
-        footer { padding: 40px; background-color: var(--beige-bar); color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; font-size: 0.9rem; }
+        footer { padding: 40px; background-color: var(--beige-bar); color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; font-size: 0.9rem; clear: both; }
 
         @media (max-width: 768px) {
             .top-info-bar { flex-direction: column; text-align: center; }
             .lesson { flex-direction: column; gap: 10px; text-align: center; }
             .actions { width: 100%; }
-            .actions button, .actions a { flex-grow: 1; }
+            .actions button, .actions a { flex-grow: 1; padding: 14px 20px; }
+            .back-btn { float: none; display: block; margin: 0 auto 20px auto; }
         }
     </style>
 </head>
 <body>
 
     <div class="top-info-bar">
-        <div class="date-box">الأحد | ٢٣ ذو القعدة ١٤٤٧ هـ | ١٠ مايو ٢٠٢٦ م</div>
+        <div class="date-box">الأحد | ٢٥ محرم ١٤٤٨ هـ | ١٢ يوليو ٢٠٢٦ م</div>
         <div class="prayer-times">
             <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
             <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
@@ -154,6 +167,10 @@
     </nav>
 
     <div class="main-wrapper">
+        <!-- زر العودة لصفحة التفسير السابقة -->
+        <a href="tafseer_index1.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة لصفحة التفسير</a>
+        
+        <div style="clear: both;"></div>
         <h2 style="color: var(--dark-blue); border-bottom: 4px solid var(--gold-color); display: inline-block; padding-bottom: 8px; margin-bottom: 25px; font-weight: 900;">سلسلة تفسير سورة الكهف</h2>
         
         <!-- عرض الدروس مباشرة عند فتح الصفحة -->
@@ -170,23 +187,22 @@
 
     <script>
      const currentList = [
-    {
-        title: "تفسير سورة الكهف (الدرس 1)",
-        file: "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/audio/kahf-1.mp3"
-    },
-    {
-        title: "تفسير سورة الكهف (الدرس 2)",
-        file: "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/audio/kahf-2.mp3"
-    },
-    {
-        title: "تفسير سورة الكهف (الدرس 3)",
-        file: "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/audio/kahf-3.mp3"
-    }     
+        {
+            title: "تفسير سورة الكهف (الدرس 1)",
+            file: "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/audio/kahf-1.mp3"
+        },
+        {
+            title: "تفسير سورة الكهف (الدرس 2)",
+            file: "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/audio/kahf-2.mp3"
+        },
+        {
+            title: "تفسير سورة الكهف (الدرس 3)",
+            file: "https://ssmmdeyap111-daua.github.io/maktabat-saeed-diab/audio/kahf-3.mp3"
+        }     
      ];
 
         let page = 1, perPage = 10;
 
-        // تشغيل البناء فور تحميل الصفحة
         window.onload = function() {
             renderLessons();
         };
@@ -203,8 +219,8 @@
                 <div class="lesson" id="lesson-${start + i}">
                     <span>${item.title}</span>
                     <div class="actions">
-                        <button class="play" onclick="playAudio(${start + i}, this)">▶ تشغيل</button>
-                        <a class="download" href="${item.file}" download>⬇ تحميل</a>
+                        <button class="play" onclick="playAudio(${start + i}, this)">تشغيل</button>
+                        <a class="download" href="${item.file}" download>تحميل</a>
                     </div>
                 </div>`;
             });
@@ -244,7 +260,7 @@
         document.getElementById("audio").onended = function() {
             let activeLesson = document.querySelector(".lesson.active");
             let nextIndex = activeLesson ? parseInt(activeLesson.id.split("-")[1]) + 1 : -1;
-                                        
+                                                    
             if (nextIndex !== -1 && nextIndex < currentList.length) {
                 let targetPage = Math.floor(nextIndex / perPage) + 1;
                 if (targetPage !== page) {
