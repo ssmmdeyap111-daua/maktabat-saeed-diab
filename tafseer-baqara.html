@@ -69,17 +69,15 @@
             flex-wrap: wrap; 
             background: #fff; 
             border-bottom: 1px solid #eee; 
-            max-width: 1100px; 
-            margin: 0 auto; 
         }
         .nav-item { 
             text-decoration: none; 
             color: white; 
-            padding: 15px 0; 
+            padding: 14px 0; 
             border-radius: 15px; 
             font-weight: 900; 
-            font-size: 1.3rem; 
-            width: 160px; 
+            font-size: 1.2rem; 
+            width: 155px; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -121,25 +119,90 @@
         .nav-item.articles:active { box-shadow: 0 4px 0 #284728; }
 
 
-        /* حاوية محتوى الصفحة */
+        /* حاوية محتوى الصفحة والدروس */
         .main-wrapper { max-width: 900px; margin: 40px auto; padding: 0 15px; }
         
-        /* أسلوب عرض وتصميم عناصر تشغيل الصوت هنا (يمكنك تركه كما هو في ملفك الأصلي) */
-        .content-box { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: right; }
-        .page-title { color: #2c5d87; font-weight: 900; font-size: 2.2rem; margin-bottom: 25px; text-align: center; }
+        .content-box { 
+            background: #fff; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+            text-align: right; 
+        }
+        .page-title { 
+            color: #2c5d87; 
+            font-weight: 900; 
+            font-size: 2.2rem; 
+            margin-bottom: 25px; 
+            text-align: center; 
+            border-bottom: 4px solid var(--gold-color);
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        /* قائمة الدروس الصوتية */
+        .lessons-list { margin-top: 20px; }
+        .lesson-item {
+            background: #fdfdfd; 
+            margin: 12px 0; 
+            padding: 15px 20px; 
+            border-right: 5px solid var(--gold-color);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #eee;
+            border-right: 5px solid var(--gold-color);
+        }
+        .lesson-item span { font-weight: bold; color: #444; font-size: 1.1rem; }
+        .lesson-item.active { background: #eaf6ff; border-right-color: var(--dark-blue); }
+        .lesson-item.active span { color: var(--dark-blue); }
         
+        .actions { display: flex; align-items: center; gap: 10px; }
+        .actions button, .actions a {
+            border: none; cursor: pointer; padding: 10px 20px; border-radius: 8px;
+            font-family: 'Cairo', sans-serif; font-weight: bold; font-size: 0.95rem; display: inline-flex;
+            align-items: center; justify-content: center; text-decoration: none; transition: 0.2s;
+        }
+        .play { background: var(--dark-blue); color: #fff; }
+        .play:hover { background: #1e4261; }
+        .download { background: #27ae60; color: #fff; }
+        .download:hover { background: #1e8449; }
+
+        /* ترقيم الصفحات */
+        .pagination { text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd; }
+        .pagination button {
+            margin: 4px; padding: 8px 16px; border: 1px solid #ddd; background: #fff;
+            cursor: pointer; border-radius: 8px; font-family: 'Cairo', sans-serif; font-weight: bold; color: #555; transition: 0.2s;
+        }
+        .pagination button:hover { background: #eee; }
+        .pagination button.active { background: var(--dark-blue); color: #fff; border-color: var(--dark-blue); }
+
+        /* المشغل العائم */
+        .player {
+            position: sticky; bottom: 15px; background: #fff; padding: 15px; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.15); margin: 40px auto; max-width: 900px;
+            width: calc(100% - 40px); border: 1px solid #ddd; z-index: 100;
+        }
+        .player-title { font-size: 0.85rem; font-weight: bold; color: var(--dark-blue); margin-bottom: 6px; display: none; text-align: right; }
+        audio { width: 100%; height: 40px; }
+
         footer { padding: 40px; background-color: var(--beige-bar); color: #555; margin-top: 60px; border-top: 1px solid #ddd; font-weight: bold; font-size: 0.9rem; clear: both; }
 
         @media (max-width: 768px) {
             .top-info-bar { flex-direction: column; text-align: center; }
             .nav-item { width: 45%; font-size: 1.1rem; padding: 12px 0; }
+            .lesson-item { flex-direction: column; gap: 10px; text-align: center; }
+            .actions { width: 100%; }
+            .actions button, .actions a { flex-grow: 1; padding: 12px 10px; }
         }
     </style>
 </head>
 <body>
 
     <div class="top-info-bar">
-        <div class="date-box">الأحد | ٢٥ محرم ١٤٤٨ هـ | ١٢ يوليو ٢٠٢٦ م</div>
+        <div class="date-box" id="live-date">جاري تحميل التاريخ...</div>
         <div class="prayer-times">
             <div class="prayer-box"><div>الفجر</div><div class="time-val">03:26</div></div>
             <div class="prayer-box"><div>الظهر</div><div class="time-val">11:30</div></div>
@@ -153,7 +216,6 @@
         <img src="images/logo.png.jpg" alt="الشيخ سعيد دياب">
     </header>
 
-    <!-- القائمة الرئيسية الجديدة المحدثة بالألوان الـ 3D والحجم الكبير -->
     <nav class="main-nav">
         <a href="index.html" class="nav-item home"><i class="fas fa-home"></i>الرئيسية</a>
         <a href="tafseer_index.html" class="nav-item tafseer"><i class="fas fa-book-open"></i>التفسير</a>
@@ -164,12 +226,129 @@
 
     <div class="main-wrapper">
         <div class="content-box">
-            <h1 class="page-title">تفسير سورة البقرة</h1>
-            <!-- ضع كود الدروس والمشغلات الخاص بصفحة البقرة هنا -->
+            <center><h1 class="page-title">تفسير سورة البقرة</h1></center>
+            
+            <!-- قائمة الدروس التي تعرض تلقائياً -->
+            <div id="lessons-area" class="lessons-list"></div>
         </div>
+    </div>
+
+    <!-- المشغل العائم -->
+    <div class="player">
+        <div class="player-title" id="track-title">🔊 يستمع الآن إلى: <span></span></div>
+        <audio id="audio" controls></audio>
     </div>
 
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
+    <script>
+        // قائمة ملفات تفسير سورة البقرة الصوتية الخاصة بك
+        // يمكنك إضافة أو حذف الدروس من هنا وسيتكفل الكود بتقسيمها تلقائياً كل 10 دروس في صفحة
+        const currentList = [
+            { title: "الدرس (1)", file: "audio/albaqara-01.mp3" },
+            { title: "الدرس (2)", file: "audio/albaqara-02.mp3" },
+            { title: "الدرس (3)", file: "audio/albaqara-03.mp3" },
+            { title: "الدرس (4)", file: "audio/albaqara-04.mp3" },
+            { title: "الدرس (5)", file: "audio/albaqara-05.mp3" },
+            { title: "الدرس (6)", file: "audio/albaqara-06.mp3" },
+            { title: "الدرس (7)", file: "audio/albaqara-07.mp3" },
+            { title: "الدرس (8)", file: "audio/albaqara-08.mp3" },
+            { title: "الدرس (9)", file: "audio/albaqara-09.mp3" },
+            { title: "الدرس (10)", file: "audio/albaqara-10.mp3" },
+            { title: "الدرس (11)", file: "audio/albaqara-11.mp3" },
+            { title: "الدرس (12)", file: "audio/albaqara-12.mp3" }
+        ];
+
+        let page = 1, perPage = 10; 
+
+        window.onload = function() {
+            renderLessons();
+            updateLiveDate();
+        };
+
+        function renderLessons() {
+            const area = document.getElementById("lessons-area");
+            let start = (page - 1) * perPage;
+            let list = currentList.slice(start, start + perPage);
+
+            let html = "";
+
+            if(list.length === 0) {
+                html += `<p style="text-align:center; font-weight:bold;">لا توجد دروس مضافة حالياً.</p>`;
+            }
+
+            list.forEach((item, i) => {
+                html += `
+                <div class="lesson-item" id="lesson-${start + i}">
+                    <span>${item.title}</span>
+                    <div class="actions">
+                        <button class="play" onclick="playAudio(${start + i}, this)">تشغيل</button>
+                        <a class="download" href="${item.file}" download>تحميل</a>
+                    </div>
+                </div>`;
+            });
+
+            // توليد الترقيم والصفحات ديناميكياً عند تخطي 10 دروس
+            let totalPages = Math.ceil(currentList.length / perPage);
+            if (totalPages > 1) {
+                html += `<div class="pagination">`;
+                for (let i = 1; i <= totalPages; i++) {
+                    html += `<button onclick="goToPage(${i})" class="${i === page ? 'active' : ''}">الصفحة ${i}</button>`;
+                }
+                html += `</div>`;
+            }
+
+            area.innerHTML = html;
+        }
+
+        function goToPage(p) {
+            page = p;
+            renderLessons();
+            window.scrollTo({ top: 300, behavior: "smooth" });
+        }
+
+        function playAudio(index, btn) {
+            document.querySelectorAll(".lesson-item").forEach(l => l.classList.remove("active"));
+            btn.closest(".lesson-item").classList.add("active");
+
+            const audioPlayer = document.getElementById("audio");
+            audioPlayer.src = currentList[index].file;
+            
+            const trackTitle = document.getElementById("track-title");
+            trackTitle.style.display = "block";
+            trackTitle.querySelector("span").innerText = currentList[index].title;
+
+            audioPlayer.play().catch(e => console.log("تفاعل مع الصفحة لبدء التشغيل"));
+        }
+
+        // تشغيل الملف التالي تلقائياً عند انتهاء الملف الحالي
+        document.getElementById("audio").onended = function() {
+            let activeLesson = document.querySelector(".lesson-item.active");
+            let nextIndex = activeLesson ? parseInt(activeLesson.id.split("-")[1]) + 1 : -1;
+                                                    
+            if (nextIndex !== -1 && nextIndex < currentList.length) {
+                let targetPage = Math.floor(nextIndex / perPage) + 1;
+                if (targetPage !== page) {
+                    page = targetPage;
+                    renderLessons();
+                }
+                
+                setTimeout(() => {
+                    const nextLessonElement = document.getElementById(`lesson-${nextIndex}`);
+                    if (nextLessonElement) {
+                        const nextPlayBtn = nextLessonElement.querySelector(".play");
+                        playAudio(nextIndex, nextPlayBtn);
+                    }
+                }, 200);
+            }
+        };
+
+        function updateLiveDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', calendar: 'gregory' };
+            const today = new Date();
+            const formatter = new Intl.DateTimeFormat('ar-EG', options);
+            document.getElementById('live-date').innerText = formatter.format(today);
+        }
+    </script>
 </body>
 </html>
