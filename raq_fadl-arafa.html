@@ -241,21 +241,28 @@
     <footer>جميع الحقوق محفوظة لموقع فضيلة الشيخ سعيد مصطفى دياب &copy; 2026</footer>
 
     <script>
-        // قائمة ملفات فضائل الأعمال الصوتية الخاصة بك.
-        // يرجى تعديل المسار (file) لكل درس ليطابق اسم الملف الحقيقي المرفوع لديك في مجلد audio لكي تعمل الأصوات والتحميل.
+        // قائمة ملفات فضائل الأعمال الصوتية بعد تصحيح المسارات وتنظيفها
         const currentList = [
             { title: "فضل يوم عرفة", file: "audio/fadl-arafa-1.mp3" },
             { title: "فضل الصبر ومنزلة الصابرين", file: "audio/fadl-alsabr.mp3" },
             { title: "فضل قيام الليل", file: "audio/qiyam-layl.mp3" },
             { title: "فضل الاستغفار", file: "audio/istighfar.mp3" },
-            { title: "فضل بر الوالدين", file: "audio/bir-alwalidayn.mp3" },
+            { title: "فضل بر الوالدين", file: "audio/br-alwalidayn.mp3" }, // تأكد أن الاسم على الخادم br وليس bir
             { title: "فضل صلة الرحم", file: "audio/silat-alrahim.mp3" },
             { title: "فضل تلاوة القرآن", file: "audio/tilawat-quran.mp3" },
             { title: "فضل الصدقة", file: "audio/sadaqah.mp3" },
             { title: "فضل الصلاة على النبي", file: "audio/salat-nabi.mp3" },
-            { title: "فضل الذكر", file: "audio/dhikr.mp3" },
+            { title: "فضل الذكر", file: "audio/fadl-alzekr.mp3" },
             { title: "فضل كفالة اليتيم", file: "audio/kafalat-yateem.mp3" },
-            { title: "فضل حسن الخلق", file: "audio/husn-khuluq.mp3" }
+            { title: "فضل حسن الخلق", file: "audio/husn-khuluq.mp3" },
+            { title: "فضل العلم", file: "audio/fadl-alelm.mp3" },
+            { title: "فضل صلاة الجمعة", file: "audio/fadl-algomaa.mp3" },
+            { title: "فضل الحج", file: "audio/fadl-alhag.mp3" },
+            { title: "فضل الصيام", file: "audio/fadl-alseyam.mp3" },
+            { title: "فضل الصلاة", file: "audio/fadl-alsla.mp3" },
+            { title: "فضائل القرآن", file: "audio/fdael-alquran.mp3" },
+            { title: "فضل صلاة الجماعة", file: "audio/fadl-slatalgmaa.mp3" },
+            { title: "فضل الإسلام", file: "audio/fdl-alsiam.mp3" } // تم حذف المسافة الزائدة وإصلاح الاسم هنا
         ];
 
         let page = 1, perPage = 10; 
@@ -287,7 +294,7 @@
                 </div>`;
             });
 
-            // توليد الترقيم والصفحات ديناميكياً عند تخطي 10 دروس
+            // توليد الترقيم والصفحات ديناميكياً
             let totalPages = Math.ceil(currentList.length / perPage);
             if (totalPages > 1) {
                 html += `<div class="pagination">`;
