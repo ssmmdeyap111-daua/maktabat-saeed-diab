@@ -59,7 +59,7 @@
 
         .book-img-wrapper { 
             width: 100%; 
-            height: 450px; /* زيادة الطول ليظهر الغلاف بوضوح */
+            height: 450px; 
             position: relative; 
             margin-bottom: 15px;
         }
@@ -113,8 +113,7 @@
 
     <div class="swiper-container-wrapper">
         <div class="swiper mySwiper">
-            <div class="swiper-wrapper" id="books-wrapper">
-                </div>
+            <div class="swiper-wrapper" id="books-wrapper"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
@@ -125,33 +124,35 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // مصفوفة الكتب بعد تنظيف امتدادات الصور والملفات المزدوجة العشوائية
         const myBooks = [
             { title: "أنوار الأذكار", img: "images/anwar.jpeg", pdf: "pdfs/anwar.pdf" },
             { title: "تذكير الأباة", img: "images/tzker-alobat.jpg", pdf: "pdfs/tazkirat-al-abaha.pdf" },
-            { title: "خطر الربا على الأمة", img: "images/katar-al-reba.jpg.jpg", pdf: "pdfs/katar-al-reba.pdf" },
+            { title: "خطر الربا على الأمة", img: "images/katar-al-reba.jpg", pdf: "pdfs/katar-al-reba.pdf" },
             { title: "اللباب المستطاب", img: "images/al-lobab.jpg", pdf: "pdfs/al-lobab.pdf" },
-            { title: "فضل الدعاء وآدابه", img: "images/fadhl-duaa.jpg.jpg", pdf: "pdfs/fadhl-duaa.pdf" },
+            { title: "فضل الدعاء وآدابه", img: "images/fadhl-duaa.jpg", pdf: "pdfs/fadhl-duaa.pdf" },
             { title: "معالم التربية في السنة", img: "images/malm-al-trbia.jpg", pdf: "pdfs/h1.pdf" },
             { title: "وقفت تدبرية في سورة القصص", img: "images/waqfat-tdaboria.jpg", pdf: "pdfs/ar-alqasas.pdf" },
-            { title: "كشف النقاب عن الإرشاد", img: "images/kashf-alnqab.jpg.jpg", pdf: "pdfs/al-irshad.pdf" },
-            { title: "خبر الآحاد في الأحكام", img: "images/kabar-al-ahad.jpg.jpg", pdf: "pdfs/kabar-al-ahad.pdf" },
+            { title: "كشف النقاب عن الإرشاد", img: "images/kashf-alnqab.jpg", pdf: "pdfs/al-irshad.pdf" },
+            { title: "خبر الآحاد في الأحكام", img: "images/kabar-al-ahad.jpg", pdf: "pdfs/kabar-al-ahad.pdf" },
             { title: "واجب المسلمين تجاه دينهم", img: "images/wageb-al-muslmeen.jpg", pdf: "pdfs/wageb-al-muslmeen.pdf" },
-            { title: "الإلمام بأحكام الصيام", img: "images/al-ilmam-siyam.jpg.jpg", pdf: "pdfs/al-ilmam.pdf" },
-            { title: "الاعتبار بطرائف الأخبار", img: "images/al-eatbaar-ptraef-alakbaar.jpg.jpg", pdf: "pdfs/al-eatbaar.pdf" },
-            { title: "تمام المنة في التعليق", img: "images/tamam-al-minah.jpg.jpg", pdf: "pdfs/tamam-al-minah.pdf" },
-            { title: "اللآلئ والدرر", img: "images/allaalea-wa-aldorr.jpg.jpg", pdf: "pdfs/allaalea-wa-aldorr.pdf" },
+            { title: "الإلمام بأحكام الصيام", img: "images/al-ilmam-siyam.jpg", pdf: "pdfs/al-ilmam.pdf" },
+            { title: "الاعتبار بطرائف الأخبار", img: "images/al-eatbaar-ptraef-alakbaar.jpg", pdf: "pdfs/al-eatbaar.pdf" },
+            { title: "تمام المنة في التعليق", img: "images/tamam-al-minah.jpg", pdf: "pdfs/tamam-al-minah.pdf" },
+            { title: "اللآلئ والدرر", img: "images/allaalea-wa-aldorr.jpg", pdf: "pdfs/allaalea-wa-aldorr.pdf" },
             { title: "حياة القلوب", img: "images/haiat-alqolob.jpg", pdf: "pdfs/haiat-alqolob.pdf" },
-            { title: "السلسبيل في شرح الدليل", img: "images/al-slsapel.jpg.jpg", pdf: "pdfs/alslsapel.pdf" },
-            { title: "شمائل الرسول ﷺ", img: "images/shmael-al-rasool.jpg.jpg", pdf: "pdfs/shmael-al-rasool.pdf" },
+            { title: "السلسبيل في شرح الدليل", img: "images/al-slsapel.jpg", pdf: "pdfs/alslsapel.pdf" },
+            { title: "شمائل الرسول ﷺ", img: "images/shmael-al-rasool.jpg", pdf: "pdfs/shmael-al-rasool.pdf" },
             { title: "الأربعون حديثاً في عظمة الله", img: "images/arbauon.jpg", pdf: "pdfs/h2.pdf" },
             { title: "العقود الفضية", img: "images/al-uqud-al-fadheya.jpg", pdf: "pdfs/h3.pdf" },
-            { title: "أمثال القرآن الكريم", img: "images/al-arbon-veal-amthal.jpg.jpg", pdf: "pdfs/amthal.pdf" }
-           
+            { title: "أمثال القرآن الكريم", img: "images/al-arbon-veal-amthal.jpg", pdf: "pdfs/amthal.pdf" }
         ];
 
+        // بناء الـ HTML الخاص بالكتب بشكل سليم
         const wrapper = document.getElementById('books-wrapper');
+        let booksHtml = '';
         myBooks.forEach(b => {
-            wrapper.innerHTML += `
+            booksHtml += `
                 <div class="swiper-slide">
                     <div class="book-card">
                         <div class="book-img-wrapper">
@@ -159,23 +160,26 @@
                         </div>
                         <div class="btn-group">
                             <a href="${b.pdf}" target="_blank" class="action-btn btn-read"><i class="fas fa-eye"></i> قراءة</a>
-                            <a href="${b.pdf}" download class="action-btn btn-down"><i class="fas fa-download"></i> تحميل</a>
+                            <a href="${b.pdf}" download="${b.title}.pdf" class="action-btn btn-down"><i class="fas fa-download"></i> تحميل</a>
                         </div>
                     </div>
                 </div>`;
         });
+        wrapper.innerHTML = booksHtml;
 
+        // تهيئة Swiper مع معالجة الروابط وعناصر التحميل عند استخدام loop
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
             spaceBetween: 10,
             loop: true,
-            autoplay: { delay: 4000 },
+            loopedSlides: 5, // يساعد السلايدر على نسخ الروابط والـ DOM بدقة لمنع التداخل
+            autoplay: { delay: 4000, disableOnInteraction: false },
             navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
             pagination: { el: ".swiper-pagination", clickable: true },
             breakpoints: {
                 640: { slidesPerView: 2 },
-                1024: { slidesPerView: 4 }, // عرض 4 كتب في الشاشة الكبيرة
-                1440: { slidesPerView: 5 }  // عرض 5 كتب في الشاشات الواسعة جداً
+                1024: { slidesPerView: 4 }, 
+                1440: { slidesPerView: 5 }  
             }
         });
 
