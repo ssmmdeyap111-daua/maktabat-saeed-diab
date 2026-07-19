@@ -353,7 +353,7 @@ audio{width:100%; height: 40px;}
 <div class="prayer-times" id="prayer-box">جاري تحميل مواقيت الصلاة...</div>
 </div>
 
-<!-- HEADER - تم تصحيح الإغلاق وإضافة العناوين بالكامل هنا -->
+<!-- HEADER -->
 <div class="site-header">
     <div class="logo-container">
        <img src="images/logo.png.jpg" alt="شعار موقع الشيخ سعيد مصطفى دياب">
@@ -407,7 +407,8 @@ audio{width:100%; height: 40px;}
 
 <script>
 const data = {
-"علامات الساعة": Array.from({length:46},(_, i)=>({
+// تم تعديل العدد هنا إلى 47 لتظهر الخطبة المرفوعة حديثاً تلقائياً
+"علامات الساعة": Array.from({length:47},(_, i)=>({
 title:`علامات الساعة (الدرس ${i+1})`,
 file:`audio/alamat-${i+1}.mp3`
 })),
