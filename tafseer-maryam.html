@@ -1,1 +1,408 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تفسير سورة مريم - الشيخ سعيد مصطفى دياب</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body{
+font-family:'Cairo',sans-serif;
+background:#f5fbff;
+margin:0;
+color: #333;
+}
+
+/* TOP BAR */
+.topbar{
+background:#fdfae9;
+display:flex;
+justify-content:space-between;
+align-items: center;
+padding:10px 20px;
+flex-wrap: wrap;
+gap: 10px;
+border-bottom: 1px solid #ddd;
+}
+
+.box{
+background:#fff;
+padding:6px 14px;
+border-radius:20px;
+border:1px solid #c59d31;
+font-weight:bold;
+font-size: 0.9rem;
+}
+
+.prayer-times {
+display: flex;
+gap: 5px;
+flex-wrap: wrap;
+}
+
+.prayer-item {
+background: white;
+padding: 3px 8px;
+border-radius: 6px;
+border: 1px solid #ddd;
+font-size: 0.8rem;
+font-weight: bold;
+}
+
+.prayer-time {
+color: #2c5d87;
+margin-right: 3px;
+}
+
+/* HEADER */
+.site-header {
+background: #e0f2f7;
+padding: 40px 20px;
+border-bottom: 5px solid #72bcd4;
+text-align: center;
+}
+
+.site-header .logo-container img {
+max-height: 180px;
+width: auto;
+mix-blend-mode: multiply;
+}
+
+/* NAV 3D */
+.nav{
+display:flex;
+justify-content:center;
+padding:20px;
+background:#fff;
+border-bottom: 1px solid #eee;
+}
+
+.nav-bar {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 15px;
+}
+
+.nav-bar a {
+color: #fff;
+padding: 12px 28px;
+border-radius: 10px;
+text-decoration: none;
+font-weight: 900;
+font-size: 1.05rem;
+transition: 0.2s;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+.btn-home { background: #c59d31; box-shadow: 0 5px 0 #8e6f1e; }
+.btn-home:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #8e6f1e; }
+
+.btn-tafseer { background: #6ab5d1; box-shadow: 0 5px 0 #4686a0; }
+.btn-tafseer:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #4686a0; }
+
+.btn-audio { background: #7ecad9; box-shadow: 0 5px 0 #549ba8; }
+.btn-audio:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #549ba8; }
+
+.btn-khutbah { background: #629ad1; box-shadow: 0 5px 0 #3a6b9c; }
+.btn-khutbah:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #3a6b9c; }
+
+.btn-articles { background: #4d7c47; box-shadow: 0 5px 0 #31522c; }
+.btn-articles:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #31522c; }
+
+/* MAIN CONTAINER */
+.container{
+max-width:1000px;
+margin:auto;
+padding:30px 20px;
+}
+
+.page-main-title {
+text-align: center;
+color: #2c5d87;
+font-weight: 900;
+font-size: 2rem;
+margin-bottom: 5px;
+}
+
+.title-line {
+width: 150px;
+height: 4px;
+background: #c59d31;
+margin: 0 auto 30px;
+border-radius: 5px;
+}
+
+/* الحاوية البيضاء للدروس */
+.series-box{
+background: #fff;
+border: 1px solid #ddd;
+border-right: 6px solid #c59d31;
+padding: 20px;
+border-radius: 12px;
+margin-bottom: 25px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* تنسيق سطر الدرس */
+.lesson{
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 20px;
+padding: 12px 0;
+border-bottom: 1px solid #eee;
+}
+
+.lesson:last-child {
+border-bottom: none;
+}
+
+.lesson-title {
+font-weight: bold;
+color: #2c5d87;
+min-width: 150px;
+text-align: right;
+font-size: 1rem;
+}
+
+/* المشغل الصوتي الممتد بعرض الصفحة */
+.audio-wrapper {
+flex-grow: 1;
+display: flex;
+align-items: center;
+}
+
+.audio-wrapper audio {
+width: 100%;
+height: 36px;
+border-radius: 20px;
+background: #f1f3f4;
+}
+
+/* زر التحميل الدائري */
+.download-circle {
+width: 38px;
+height: 38px;
+background: #fff;
+border: 2px solid #4a90e2;
+color: #4a90e2;
+border-radius: 50%;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+font-size: 1.1rem;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(74, 144, 226, 0.2);
+}
+
+.download-circle:hover {
+background: #4a90e2;
+color: #fff;
+transform: scale(1.05);
+}
+
+/* PAGINATION */
+.pagination{
+text-align:center;
+margin-top:20px;
+padding-top:15px;
+border-top: 1px dashed #ddd;
+display: flex;
+justify-content: center;
+gap: 5px;
+}
+
+.pagination button{
+padding: 8px 16px;
+border: 1px solid #4d7c47;
+background: #fff;
+cursor: pointer;
+border-radius: 6px;
+font-family: 'Cairo', sans-serif;
+font-weight: bold;
+color: #4d7c47;
+transition: 0.2s;
+}
+
+.pagination button:hover {
+background: #f0f7f0;
+}
+
+.pagination button.active{
+background: #4d7c47;
+color: #fff;
+}
+
+/* زر العودة */
+.back-btn-container {
+text-align: center;
+margin-top: 40px;
+}
+
+.back-btn {
+background: #c59d31;
+color: #fff;
+padding: 12px 35px;
+border-radius: 10px;
+text-decoration: none;
+font-weight: bold;
+box-shadow: 0 5px 0 #8e6f1e;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+transition: 0.2s;
+border: none;
+cursor: pointer;
+font-family: 'Cairo', sans-serif;
+font-size: 1rem;
+}
+
+.back-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #8e6f1e; }
+
+@media (max-width: 768px) {
+    .topbar { flex-direction: column; text-align: center; }
+    .lesson { flex-direction: column; gap: 10px; text-align: center; }
+    .lesson-title { text-align: center; width: 100%; }
+    .audio-wrapper { width: 100%; }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+<div class="box" id="date">جاري تحميل التاريخ...</div>
+<div class="prayer-times" id="prayer-box">جاري تحميل مواقيت الصلاة...</div>
+</div>
+
+<!-- HEADER -->
+<div class="site-header">
+    <div class="logo-container">
+       <img src="images/logo.png.jpg" alt="شعار موقع الشيخ سعيد مصطفى دياب">
+    </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+    <nav class="nav-bar" id="main-nav-bar">
+        <a href="index.html" class="nav-link-3d btn-home"><i class="fas fa-home"></i> الرئيسية</a>
+        <a href="tafseer_index.html" class="nav-link-3d btn-tafseer"><i class="fas fa-book-open"></i> التفسير</a>
+        <a href="lessons.html" class="nav-link-3d btn-audio"><i class="fas fa-volume-up"></i> الصوتيات</a>
+        <a href="khutbah.html" class="nav-link-3d btn-khutbah"><i class="fas fa-microphone"></i> الخطب</a>
+        <a href="articles.html" class="nav-link-3d btn-articles"><i class="fas fa-file-alt"></i> المقالات</a>
+    </nav>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+<h2 class="page-main-title">تفسير سورة مريم</h2>
+<div class="title-line"></div>
+
+<!-- قائمة الدروس -->
+<div class="series-box" id="lessons-container"></div>
+
+<!-- زر العودة لصفحة التفسير الرئيسية -->
+<div class="back-btn-container">
+    <a href="tafseer_index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة لفهرس التفسير</a>
+</div>
+
+</div>
+
+<script>
+// تحديد عدد الدروس المرفوعة حالياً لسورة مريم (عدّل هذا الرقم حسب عدد الملفات التي ترفعها)
+const totalLessons = 10;
+
+const lessonsData = Array.from({length: totalLessons}, (_, i) => ({
+    title: `تفسير سورة مريم (الدرس ${i + 1})`,
+    file: `audio/maryam-${i + 1}.mp3`
+}));
+
+let page = 1;
+const perPage = 10;
+
+function renderLessons() {
+    const box = document.getElementById("lessons-container");
+    let start = (page - 1) * perPage;
+    let list = lessonsData.slice(start, start + perPage);
+
+    let html = "";
+
+    list.forEach((l) => {
+        html += `
+        <div class="lesson">
+            <a class="download-circle" href="${l.file}" download title="تحميل الدرس">
+                <i class="fas fa-arrow-down"></i>
+            </a>
+            <div class="audio-wrapper">
+                <audio controls preload="none">
+                    <source src="${l.file}" type="audio/mpeg">
+                    متصفحك لا يدعم تشغيل الصوت.
+                </audio>
+            </div>
+            <div class="lesson-title">${l.title}</div>
+        </div>`;
+    });
+
+    let pages = Math.ceil(lessonsData.length / perPage);
+    if (pages > 1) {
+        html += `<div class="pagination">`;
+        for (let i = 1; i <= pages; i++) {
+            html += `<button onclick="go(${i})" class="${i === page ? 'active' : ''}">${i}</button>`;
+        }
+        html += `</div>`;
+    }
+
+    box.innerHTML = html;
+}
+
+function go(p) {
+    page = p;
+    renderLessons();
+    window.scrollTo({
+        top: document.getElementById("lessons-container").offsetTop - 20,
+        behavior: "smooth"
+    });
+}
+
+// تشغيل الأولي تلقائياً
+renderLessons();
+
+// التاريخ والمواقيت
+const now = new Date();
+const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+const miladi = new Intl.DateTimeFormat('ar-EG', { weekday:'long', day:'numeric', month:'long', year:'numeric' }).format(now);
+document.getElementById("date").innerText = `${hijri} هـ | ${miladi} م`;
+
+async function loadPrayers() {
+    try {
+        const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=4');
+        const json = await res.json();
+        const t = json.data.timings;
+        document.getElementById("prayer-box").innerHTML = `
+            <span class="prayer-item">الفجر: <span class="prayer-time">${t.Fajr}</span></span>
+            <span class="prayer-item">الظهر: <span class="prayer-time">${t.Dhuhr}</span></span>
+            <span class="prayer-item">العصر: <span class="prayer-time">${t.Asr}</span></span>
+            <span class="prayer-item">المغرب: <span class="prayer-time">${t.Maghrib}</span></span>
+            <span class="prayer-item">العشاء: <span class="prayer-time">${t.Isha}</span></span>
+        `;
+    } catch (e) {
+        document.getElementById("prayer-box").innerText = "مواقيت الصلاة متوفرة عبر تطبيق الأذان";
+    }
+}
+loadPrayers();
+</script>
+
+</body>
+</html>
