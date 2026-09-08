@@ -124,7 +124,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // مصفوفة الكتب بعد تنظيف امتدادات الصور والملفات المزدوجة العشوائية
+        // مصفوفة الكتب بعد تحديث مسار كتاب كشف النقاب
         const myBooks = [
             { title: "أنوار الأذكار", img: "images/anwar.jpeg", pdf: "pdfs/anwar.pdf" },
             { title: "تذكير الأباة", img: "images/tzker-alobat.jpg", pdf: "pdfs/tazkirat-al-abaha.pdf.pdf" },
@@ -133,7 +133,7 @@
             { title: "فضل الدعاء وآدابه", img: "images/fadhl-duaa.jpg", pdf: "pdfs/fadhl-duaa.pdf" },
             { title: "معالم التربية في السنة", img: "images/malm-al-trbia.jpg", pdf: "pdfs/h1.pdf" },
             { title: "وقفت تدبرية في سورة القصص", img: "images/waqfat-tdaboria.jpg", pdf: "pdfs/ar-alqasas.pdf" },
-            { title: "كشف النقاب عن المسائل ذوات الألقاب", img: "images/kashf-alnqab.jpg.jpg", pdf: "pdfs/al-irshad.pdf" },
+            { title: "كشف النقاب عن المسائل ذوات الألقاب", img: "images/kashf-alnqab.jpg.jpg", pdf: "pdfs/kashf-alneqab.pdf" },
             { title: "خبر الآحاد في الأحكام", img: "images/kabar-al-ahad.jpg", pdf: "pdfs/kabar-al-ahad.pdf.pdf" },
             { title: "واجب المسلمين تجاه دينهم", img: "images/wageb-al-muslmeen.jpg", pdf: "pdfs/wageb-al-muslmeen.pdf" },
             { title: "الإلمام بأحكام الصيام", img: "images/al-elmam.jpg", pdf: "pdfs/al-elmam.pdf" },
@@ -148,7 +148,7 @@
             { title: "الأربعون في الأمثال النبوية", img: "images/al-arbon-veal-amthal.jpg.jpg", pdf: "pdfs/amthal.pdf" }
         ];
 
-        // بناء الـ HTML الخاص بالكتب بشكل سليم
+        // بناء الـ HTML الخاص بالكتب
         const wrapper = document.getElementById('books-wrapper');
         let booksHtml = '';
         myBooks.forEach(b => {
@@ -167,12 +167,12 @@
         });
         wrapper.innerHTML = booksHtml;
 
-        // تهيئة Swiper مع معالجة الروابط وعناصر التحميل عند استخدام loop
+        // تهيئة Swiper
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
             spaceBetween: 10,
             loop: true,
-            loopedSlides: 5, // يساعد السلايدر على نسخ الروابط والـ DOM بدقة لمنع التداخل
+            loopedSlides: 5,
             autoplay: { delay: 4000, disableOnInteraction: false },
             navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
             pagination: { el: ".swiper-pagination", clickable: true },
