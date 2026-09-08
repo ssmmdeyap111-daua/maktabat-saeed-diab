@@ -388,10 +388,16 @@ title:`فضل الدعاء (${i+1})`,
 file:`audio/fadl-aldoaa-${i+1}.mp3`
 })),
 
-"خطب منوعة": Array.from({length:10},(_, i)=>({
-title:`خطبة منوعة (${i+1})`,
-file:`audio/monawaa-${i+1}.mp3`
-}))
+"خطب منوعة": [
+    {
+        title: "اغتنم خمساً قبل خمس",
+        file: "audio/egtanem.mp3"
+    },
+    ...Array.from({length:10},(_, i)=>({
+        title:`خطبة منوعة (${i+1})`,
+        file:`audio/monawaa-${i+1}.mp3`
+    }))
+]
 };
 
 let current=[], currentBox=null, currentSeriesName="", page=1, perPage=10;
