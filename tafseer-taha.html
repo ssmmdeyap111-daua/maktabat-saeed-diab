@@ -67,7 +67,7 @@ text-align: center;
 }
 
 .site-header .logo-container img {
-max-height: 320px;
+max-height: 180px;
 width: auto;
 mix-blend-mode: multiply;
 }
@@ -314,7 +314,7 @@ font-size: 1rem;
 
 <!-- زر العودة لصفحة التفسير الرئيسية -->
 <div class="back-btn-container">
-    <a href="tafseer_index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة لفهرس التفسير</a>
+    <a href="tafseer_index1.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة لفهرس التفسير</a>
 </div>
 
 </div>
@@ -323,9 +323,10 @@ font-size: 1rem;
 // عدد دروس تفسير سورة طه المتاحة
 const totalLessons = 12;
 
+// جلب الملفات مباشرة من مستودع الصوتيات على GitHub Pages
 const lessonsData = Array.from({length: totalLessons}, (_, i) => ({
     title: `تفسير سورة طه (الدرس ${i + 1})`,
-    file: `audio/taha-${i + 1}.mp3`
+    file: `https://ssmmdeyap111-daua.github.io/audio-store/taha-${i + 1}.mp3`
 }));
 
 let page = 1;
@@ -375,7 +376,6 @@ function go(p) {
     });
 }
 
-// تشغيل الأولى تلقائياً
 renderLessons();
 
 // التاريخ والمواقيت
